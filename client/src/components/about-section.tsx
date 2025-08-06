@@ -43,8 +43,8 @@ export default function AboutSection() {
           <div className="space-y-8">
             <div className="aspect-square rounded-2xl overflow-hidden animate-float">
               <img 
-                src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600" 
-                alt="Professional portrait" 
+                src={import.meta.env.BASE_URL + "attached_assets/Brochu, Alexis 2023 Ireland_1754523029765.png"}
+                alt="Alexis Brochu - Professional portrait from Ireland" 
                 className="w-full h-full object-cover"
               />
             </div>
