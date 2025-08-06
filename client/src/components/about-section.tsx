@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui/badge";
+import professionalPhoto from "@assets/Brochu, Alexis 2023 Ireland_1754523029765.png";
 
 const skills = [
   { name: 'Product Management', color: 'text-primary' },
@@ -43,7 +44,7 @@ export default function AboutSection() {
           <div className="space-y-8">
             <div className="aspect-square rounded-2xl overflow-hidden animate-float">
               <img 
-                src="/attached_assets/Brochu, Alexis 2023 Ireland_1754523029765.png"
+                src={professionalPhoto}
                 alt="Alexis Brochu - Professional portrait from Ireland" 
                 className="w-full h-full object-cover"
               />
