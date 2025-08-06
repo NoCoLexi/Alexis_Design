@@ -114,7 +114,7 @@ export default function Home() {
               Alexis Brochu
             </div>
             <div className="text-muted-foreground">
-              © 2024 Creative Visionary & Solution Factory. All rights reserved.
+              © 2025 Creative Visionary & Solution Factory. All rights reserved.
             </div>
           </div>
         </div>
