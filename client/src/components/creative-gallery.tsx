@@ -8,6 +8,7 @@ import lifespanReports from "@assets/FullSizeRender 13_1754523521763.jpg";
 import schoolMaterials from "@assets/FullSizeRender 4_1754523633019.jpg";
 import budweiserAd from "@assets/FullSizeRender 35_1754523657712.jpg";
 import galaInvitation from "@assets/IMG_1642_1754523678624.jpg";
+import massHighwayAd from "@assets/FullSizeRender 22_1754523814537.jpg";
 
 interface GalleryItem {
   id: string;
@@ -30,6 +31,7 @@ const galleryItems: GalleryItem[] = [
   // Additional Print Design Items
   { id: '7', category: 'print', image: budweiserAd, title: 'Budweiser Marketing Campaign' },
   { id: '8', category: 'print', image: galaInvitation, title: 'Gala Event Invitation Design' },
+  { id: '9', category: 'print', image: massHighwayAd, title: 'Mass Highway Express Lane Campaign' },
 
 ];
 
