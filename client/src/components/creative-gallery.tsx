@@ -1,5 +1,13 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import beerAdvertising from "@assets/IMG_1656_1754523468629.jpg";
+import gatoradePoster from "@assets/IMG_1620_1754523481860.jpg";
+import universityBrochure from "@assets/FullSizeRender 2_1754523503518.jpg";
+import blackBookCover from "@assets/FullSizeRender 11_1754523511007.jpg";
+import lifespanReports from "@assets/FullSizeRender 13_1754523521763.jpg";
+import schoolMaterials from "@assets/FullSizeRender 4_1754523633019.jpg";
+import budweiserAd from "@assets/FullSizeRender 35_1754523657712.jpg";
+import galaInvitation from "@assets/IMG_1642_1754523678624.jpg";
 
 interface GalleryItem {
   id: string;
@@ -10,24 +18,19 @@ interface GalleryItem {
 
 const galleryItems: GalleryItem[] = [
   // Print Design Items
-  { id: '1', category: 'print', image: 'https://images.unsplash.com/photo-1542744094-3a31f272c490?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600', title: 'Print Design Work' },
-  { id: '2', category: 'print', image: 'https://images.unsplash.com/photo-1572044162444-ad60f128bdea?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600', title: 'Poster Design' },
-  { id: '3', category: 'print', image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600', title: 'Brochure Design' },
+  { id: '1', category: 'print', image: beerAdvertising, title: 'Beer Advertising Campaign' },
+  { id: '2', category: 'print', image: gatoradePoster, title: 'Gatorade Sports Marketing' },
+  { id: '3', category: 'print', image: universityBrochure, title: 'University Marketing Materials' },
   
   // Branding Items
-  { id: '4', category: 'branding', image: 'https://images.unsplash.com/photo-1609921212029-bb5a28e60960?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600', title: 'Logo Design Process' },
-  { id: '5', category: 'branding', image: 'https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600', title: 'Packaging Design' },
-  { id: '6', category: 'branding', image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600', title: 'Brand Identity' },
+  { id: '4', category: 'branding', image: blackBookCover, title: 'Black Book of Trade Secrets' },
+  { id: '5', category: 'branding', image: lifespanReports, title: 'Lifespan Healthcare Annual Reports' },
+  { id: '6', category: 'branding', image: schoolMaterials, title: 'Providence Schools Brand Materials' },
   
-  // Interior Design Items
-  { id: '7', category: 'interior', image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600', title: 'Modern Interior Design' },
-  { id: '8', category: 'interior', image: 'https://images.unsplash.com/photo-1617806118233-18e1de247200?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600', title: 'Living Room Design' },
-  { id: '9', category: 'interior', image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600', title: 'Office Space Design' },
-  
-  // Photography Items
-  { id: '10', category: 'photography', image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600', title: 'Landscape Photography' },
-  { id: '11', category: 'photography', image: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600', title: 'Portrait Photography' },
-  { id: '12', category: 'photography', image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600', title: 'Nature Photography' }
+  // Additional Print Design Items
+  { id: '7', category: 'print', image: budweiserAd, title: 'Budweiser Marketing Campaign' },
+  { id: '8', category: 'print', image: galaInvitation, title: 'Gala Event Invitation Design' },
+
 ];
 
 export default function CreativeGallery() {
@@ -40,10 +43,8 @@ export default function CreativeGallery() {
 
   const categories = [
     { id: 'all', label: 'All Work' },
-    { id: 'print', label: 'Print' },
-    { id: 'branding', label: 'Branding' },
-    { id: 'interior', label: 'Interior Design' },
-    { id: 'photography', label: 'Photography' }
+    { id: 'print', label: 'Print Design' },
+    { id: 'branding', label: 'Branding' }
   ];
 
   return (
