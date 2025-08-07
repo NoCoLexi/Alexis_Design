@@ -53,13 +53,6 @@ export default function AboutSection() {
               </div>
               
               <div className="glass rounded-xl p-6">
-                <h3 className="font-semibold text-primary mb-3">The Sarah Story</h3>
-                <p className="text-muted-foreground">
-                  Sarah was a legally blind college student who wanted to take my fitness class but was afraid. My solution was to learn to teach better. After a few months, not only did Sarah take a cab to my class every day, but years later Sarah ended up becoming an instructor herself.
-                </p>
-              </div>
-              
-              <div className="glass rounded-xl p-6">
                 <h3 className="font-semibold text-chart-4 mb-3">Born to Inspire</h3>
                 <p className="text-muted-foreground">
                   I decided to ride my bike across Alaska to raise money for the AIDS vaccine. What I found was that I love working with and helping people - clients, co-workers, and anybody else who crosses my path.
