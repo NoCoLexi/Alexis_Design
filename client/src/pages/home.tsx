@@ -75,8 +75,12 @@ export default function Home() {
       <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-primary/20">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            <div className="text-xl font-bold gradient-text">
-              Alexis Brochu
+            <div className="flex items-center">
+              <img 
+                src="/attached_assets/Alexis Brochu logo_1754579560310.png"
+                alt="Alexis Brochu"
+                className="h-8 w-auto"
+              />
             </div>
             <div className="hidden md:flex space-x-8">
               {[
