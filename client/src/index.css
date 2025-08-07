@@ -13,19 +13,19 @@
   --color-night: #0B0A0E;
   
   --background: var(--color-black);
-  --foreground: var(--color-platinum);
+  --foreground: #FFFFFF;
   --card: var(--color-night);
-  --card-foreground: var(--color-platinum);
+  --card-foreground: #FFFFFF;
   --popover: var(--color-night);
-  --popover-foreground: var(--color-platinum);
+  --popover-foreground: #FFFFFF;
   --primary: var(--color-ultra-violet);
-  --primary-foreground: var(--color-platinum);
+  --primary-foreground: #FFFFFF;
   --secondary: var(--color-yale-blue);
-  --secondary-foreground: var(--color-platinum);
+  --secondary-foreground: #FFFFFF;
   --muted: var(--color-night);
-  --muted-foreground: hsl(0, 0%, 60%);
+  --muted-foreground: hsl(0, 0%, 80%);
   --accent: var(--color-yale-blue);
-  --accent-foreground: var(--color-platinum);
+  --accent-foreground: #FFFFFF;
   --destructive: hsl(0, 62.8%, 30.6%);
   --destructive-foreground: var(--color-platinum);
   --border: var(--color-night);
@@ -58,19 +58,19 @@
 
 .dark {
   --background: var(--color-black);
-  --foreground: var(--color-platinum);
+  --foreground: #FFFFFF;
   --card: var(--color-night);
-  --card-foreground: var(--color-platinum);
+  --card-foreground: #FFFFFF;
   --popover: var(--color-night);
-  --popover-foreground: var(--color-platinum);
+  --popover-foreground: #FFFFFF;
   --primary: var(--color-ultra-violet);
-  --primary-foreground: var(--color-platinum);
+  --primary-foreground: #FFFFFF;
   --secondary: var(--color-yale-blue);
-  --secondary-foreground: var(--color-platinum);
+  --secondary-foreground: #FFFFFF;
   --muted: var(--color-night);
-  --muted-foreground: hsl(0, 0%, 60%);
+  --muted-foreground: hsl(0, 0%, 80%);
   --accent: var(--color-yale-blue);
-  --accent-foreground: var(--color-platinum);
+  --accent-foreground: #FFFFFF;
   --destructive: hsl(0, 62.8%, 30.6%);
   --destructive-foreground: var(--color-platinum);
   --border: var(--color-night);
@@ -156,12 +156,12 @@
   
   .logo-style .name-first {
     font-weight: 800;
-    color: var(--foreground);
+    color: #FFFFFF;
   }
   
   .logo-style .name-last {
     font-weight: 200;
-    color: var(--muted-foreground);
+    color: hsl(0, 0%, 85%);
   }
   
   /* Main typography improvements */
