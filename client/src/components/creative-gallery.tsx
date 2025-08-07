@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import useEmblaCarousel from 'embla-carousel-react';
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import beerAdvertising from "@assets/IMG_1656_1754523468629.jpg";
 import gatoradePoster from "@assets/IMG_1620_1754523481860.jpg";
 import universityBrochure from "@assets/FullSizeRender 2_1754523503518.jpg";
@@ -15,44 +17,210 @@ import newsBillboards from "@assets/IMG_1655_1754576894772.jpg";
 
 interface GalleryItem {
   id: string;
-  category: 'print' | 'outdoor';
+  category: 'print' | 'outdoor' | 'brand' | 'interior';
   image: string;
   title: string;
+  description?: string;
 }
 
 const galleryItems: GalleryItem[] = [
   // Print Design Items
-  { id: '1', category: 'print', image: beerAdvertising, title: 'Beer Advertising Campaign' },
-  { id: '2', category: 'print', image: gatoradePoster, title: 'Gatorade Sports Marketing' },
-  { id: '3', category: 'print', image: universityBrochure, title: 'University Marketing Materials' },
+  { 
+    id: '1', 
+    category: 'print', 
+    image: universityBrochure, 
+    title: 'University Marketing Materials',
+    description: 'Comprehensive brochure design for academic programs'
+  },
+  { 
+    id: '2', 
+    category: 'print', 
+    image: lifespanReports, 
+    title: 'Lifespan Healthcare Annual Reports',
+    description: 'Professional healthcare industry publications'
+  },
+  { 
+    id: '3', 
+    category: 'print', 
+    image: schoolMaterials, 
+    title: 'Providence Schools Brand Materials',
+    description: 'Educational institution branding and materials'
+  },
+  { 
+    id: '4', 
+    category: 'print', 
+    image: galaInvitation, 
+    title: 'Gala Event Invitation Design',
+    description: 'Elegant event invitation and program design'
+  },
+  { 
+    id: '5', 
+    category: 'print', 
+    image: jwuPortfolio, 
+    title: 'Johnson & Wales University Materials',
+    description: 'University marketing and recruitment materials'
+  },
   
-  // Print Design Items
-  { id: '4', category: 'print', image: gatoradeLabelConcept, title: 'Gatorade Label Design Concept' },
-  { id: '5', category: 'print', image: lifespanReports, title: 'Lifespan Healthcare Annual Reports' },
-  { id: '6', category: 'print', image: schoolMaterials, title: 'Providence Schools Brand Materials' },
-  { id: '7', category: 'print', image: budweiserAd, title: 'Budweiser Marketing Campaign' },
-  { id: '8', category: 'print', image: galaInvitation, title: 'Gala Event Invitation Design' },
-  { id: '9', category: 'print', image: jwuPortfolio, title: 'Johnson & Wales University Materials' },
+  // Brand Design Items
+  { 
+    id: '6', 
+    category: 'brand', 
+    image: gatoradePoster, 
+    title: 'Gatorade Sports Marketing',
+    description: 'Athletic brand campaign and poster design'
+  },
+  { 
+    id: '7', 
+    category: 'brand', 
+    image: gatoradeLabelConcept, 
+    title: 'Gatorade Label Design Concept',
+    description: 'Product packaging and label innovation'
+  },
+  { 
+    id: '8', 
+    category: 'brand', 
+    image: budweiserAd, 
+    title: 'Budweiser Marketing Campaign',
+    description: 'Premium beer brand advertising materials'
+  },
+  { 
+    id: '9', 
+    category: 'brand', 
+    image: beerAdvertising, 
+    title: 'Beer Brand Campaign',
+    description: 'Complete brand identity and advertising suite'
+  },
   
   // Outdoor Advertising Items
-  { id: '10', category: 'outdoor', image: seinfeldBillboard, title: 'Seinfeld TV Show Billboard Campaign' },
-  { id: '11', category: 'outdoor', image: rosieBillboards, title: 'Rosie O\'Donnell Show Billboards' },
-  { id: '12', category: 'outdoor', image: newsBillboards, title: 'ABC 6 News Billboard Campaign' },
-
+  { 
+    id: '10', 
+    category: 'outdoor', 
+    image: seinfeldBillboard, 
+    title: 'Seinfeld TV Show Billboard Campaign',
+    description: 'Large-scale outdoor advertising for television'
+  },
+  { 
+    id: '11', 
+    category: 'outdoor', 
+    image: rosieBillboards, 
+    title: 'Rosie O\'Donnell Show Billboards',
+    description: 'Entertainment industry outdoor campaigns'
+  },
+  { 
+    id: '12', 
+    category: 'outdoor', 
+    image: newsBillboards, 
+    title: 'ABC 6 News Billboard Campaign',
+    description: 'News media outdoor advertising and branding'
+  },
 ];
 
-export default function CreativeGallery() {
-  const [activeFilter, setActiveFilter] = useState<string>('all');
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+interface CarouselProps {
+  items: GalleryItem[];
+  title: string;
+  description: string;
+}
 
-  const filteredItems = galleryItems.filter(item => 
-    activeFilter === 'all' || item.category === activeFilter
+function CategoryCarousel({ items, title, description }: CarouselProps) {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+    loop: false, 
+    align: 'start',
+    skipSnaps: false,
+    dragFree: true
+  });
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(false);
+
+  const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setCanScrollPrev(emblaApi.canScrollPrev());
+    setCanScrollNext(emblaApi.canScrollNext());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on('select', onSelect);
+    emblaApi.on('reInit', onSelect);
+  }, [emblaApi, onSelect]);
+
+  return (
+    <div className="mb-16">
+      <div className="flex items-center justify-between mb-8">
+        <div>
+          <h3 className="text-2xl md:text-3xl font-bold gradient-text mb-2">{title}</h3>
+          <p className="text-muted-foreground">{description}</p>
+        </div>
+        <div className="flex gap-2">
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={scrollPrev}
+            disabled={!canScrollPrev}
+            className="h-10 w-10"
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </Button>
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={scrollNext}
+            disabled={!canScrollNext}
+            className="h-10 w-10"
+          >
+            <ChevronRight className="h-4 w-4" />
+          </Button>
+        </div>
+      </div>
+
+      <div className="embla overflow-hidden" ref={emblaRef}>
+        <div className="embla__container flex gap-6">
+          {items.map((item) => (
+            <div key={item.id} className="embla__slide flex-[0_0_320px] md:flex-[0_0_400px]">
+              <div className="relative group h-80 md:h-96 rounded-2xl overflow-hidden bg-card">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                  <h4 className="text-lg font-semibold mb-2">{item.title}</h4>
+                  {item.description && (
+                    <p className="text-sm text-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                      {item.description}
+                    </p>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
+}
 
+export default function CreativeGallery() {
   const categories = [
-    { id: 'all', label: 'All Work' },
-    { id: 'print', label: 'Print Design' },
-    { id: 'outdoor', label: 'Outdoor Advertising' }
+    { 
+      id: 'print', 
+      title: 'Print Design', 
+      description: 'Editorial layouts, brochures, and marketing materials'
+    },
+    { 
+      id: 'brand', 
+      title: 'Brand Design', 
+      description: 'Identity systems, packaging, and brand campaigns'
+    },
+    { 
+      id: 'outdoor', 
+      title: 'Outdoor Advertising', 
+      description: 'Billboard campaigns and large-scale advertising'
+    },
   ];
 
   return (
@@ -65,65 +233,23 @@ export default function CreativeGallery() {
             <span className="gradient-text">Creative Portfolio</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Diverse creative work spanning print design, branding, interior design, and photography
+            Diverse creative work spanning print design, branding, and outdoor advertising
           </p>
         </div>
 
-        {/* Gallery Categories */}
-        <div className="flex justify-center mb-12">
-          <div className="flex flex-wrap gap-3">
-            {categories.map((category) => (
-              <Button
-                key={category.id}
-                variant={activeFilter === category.id ? 'default' : 'outline'}
-                onClick={() => setActiveFilter(category.id)}
-                className={activeFilter === category.id ? 'gradient-bg-accent' : ''}
-              >
-                {category.label}
-              </Button>
-            ))}
-          </div>
-        </div>
-
-        {/* Gallery Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredItems.map((item) => (
-            <div
-              key={item.id}
-              className="aspect-square rounded-xl overflow-hidden group cursor-pointer hover:glow-purple transition-all duration-300"
-              onClick={() => setSelectedImage(item.image)}
-            >
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Image Modal */}
-      {selectedImage && (
-        <div 
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-6"
-          onClick={() => setSelectedImage(null)}
-        >
-          <div className="max-w-4xl max-h-[90vh] relative">
-            <img
-              src={selectedImage}
-              alt="Gallery item"
-              className="w-full h-full object-contain rounded-lg"
+        {/* Category Carousels */}
+        {categories.map((category) => {
+          const categoryItems = galleryItems.filter(item => item.category === category.id);
+          return (
+            <CategoryCarousel
+              key={category.id}
+              items={categoryItems}
+              title={category.title}
+              description={category.description}
             />
-            <button
-              className="absolute top-4 right-4 text-white hover:text-muted-foreground text-2xl bg-black/50 rounded-full w-10 h-10 flex items-center justify-center"
-              onClick={() => setSelectedImage(null)}
-            >
-              ×
-            </button>
-          </div>
-        </div>
-      )}
+          );
+        })}
+      </div>
     </section>
   );
 }
