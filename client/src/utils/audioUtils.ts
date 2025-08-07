@@ -52,18 +52,18 @@ class AudioManager {
       oscillator.connect(gainNode);
       gainNode.connect(this.audioContext.destination);
 
-      // Configure the sound - deep, resonant tom drum
-      oscillator.frequency.setValueAtTime(80, this.audioContext.currentTime); // Start low like a tom
-      oscillator.frequency.exponentialRampToValueAtTime(40, this.audioContext.currentTime + 0.15); // Drop even lower
+      // Configure the sound - audible low tom drum
+      oscillator.frequency.setValueAtTime(120, this.audioContext.currentTime); // Higher starting frequency for better audibility
+      oscillator.frequency.exponentialRampToValueAtTime(60, this.audioContext.currentTime + 0.1); // Drop to low tom range
 
       // Drum-like volume envelope - quick attack, slower decay
       gainNode.gain.setValueAtTime(0, this.audioContext.currentTime);
-      gainNode.gain.linearRampToValueAtTime(0.15, this.audioContext.currentTime + 0.01); // Quick attack
-      gainNode.gain.exponentialRampToValueAtTime(0.01, this.audioContext.currentTime + 0.2); // Longer sustain/decay
+      gainNode.gain.linearRampToValueAtTime(0.3, this.audioContext.currentTime + 0.01); // Louder attack
+      gainNode.gain.exponentialRampToValueAtTime(0.01, this.audioContext.currentTime + 0.15); // Shorter but audible decay
 
-      // Play for longer duration to simulate tom resonance
+      // Play for optimal duration
       oscillator.start(this.audioContext.currentTime);
-      oscillator.stop(this.audioContext.currentTime + 0.2);
+      oscillator.stop(this.audioContext.currentTime + 0.15);
 
       console.log('Tom sound played');
 
