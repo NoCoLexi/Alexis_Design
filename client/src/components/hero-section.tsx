@@ -10,27 +10,6 @@ export default function HeroSection() {
     }
   };
 
-  const scrollToNextSection = () => {
-    // Try multiple methods to ensure scroll works
-    setTimeout(() => {
-      const element = document.getElementById('work');
-      if (element) {
-        // Method 1: scrollIntoView
-        element.scrollIntoView({ 
-          behavior: 'smooth',
-          block: 'start'
-        });
-      } else {
-        // Method 2: fallback - scroll to estimated position
-        const heroHeight = window.innerHeight;
-        window.scrollTo({
-          top: heroHeight,
-          behavior: 'smooth'
-        });
-      }
-    }, 100);
-  };
-
   const scrollToContact = () => {
     const element = document.getElementById('contact');
     if (element) {
@@ -99,13 +78,8 @@ export default function HeroSection() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-        <button 
-          onClick={scrollToNextSection}
-          className="hover:scale-110 transition-all duration-300 cursor-pointer animate-slow-bounce"
-        >
-          <ArrowDown className="w-6 h-6 text-[#F3E8B9] hover:text-[#63538F] transition-colors" />
-        </button>
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <ArrowDown className="w-6 h-6 text-muted-foreground" />
       </div>
     </section>
   );
