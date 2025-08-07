@@ -14,7 +14,7 @@ export default function AboutSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-secondary/50 to-accent/50"></div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <div>
             <h2 className="text-4xl md:text-5xl font-bold mb-8">
               <span className="gradient-text">My Expertise</span>
