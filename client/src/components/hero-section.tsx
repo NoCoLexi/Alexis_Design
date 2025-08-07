@@ -36,7 +36,7 @@ export default function HeroSection() {
               Product Visionary
             </span>
             <br />
-            <span className="text-foreground">& Design Strategist</span>
+            <span className="text-foreground">& Solution Factory</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
