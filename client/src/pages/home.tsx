@@ -7,7 +7,6 @@ import CaseStudyModal from "@/components/case-study-modal";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { audioManager } from "@/utils/audioUtils";
-import alexisLogo from "@assets/Alexis Brochu logo_1754579560310.png";
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -76,64 +75,8 @@ export default function Home() {
       <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-primary/20">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            <div className="flex items-center">
-              <svg width="180" height="50" viewBox="0 0 180 50" className="h-12 w-auto">
-                <defs>
-                  <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#14b8a6" />
-                    <stop offset="100%" stopColor="#0891b2" />
-                  </linearGradient>
-                </defs>
-                
-                {/* Alexis text */}
-                <text x="0" y="20" fontSize="18" fontWeight="700" fill="url(#logoGradient)" fontFamily="system-ui, -apple-system, sans-serif">
-                  Alexis
-                </text>
-                
-                {/* Brochu text with molecular design inside the O */}
-                <g>
-                  {/* B */}
-                  <text x="0" y="40" fontSize="18" fontWeight="700" fill="url(#logoGradient)" fontFamily="system-ui, -apple-system, sans-serif">
-                    Br
-                  </text>
-                  
-                  {/* O with molecular design inside */}
-                  <g>
-                    {/* O outline */}
-                    <circle cx="36" cy="35" r="9" fill="none" stroke="url(#logoGradient)" strokeWidth="2.5" />
-                    
-                    {/* Molecular structure inside O - matching original tree-like design */}
-                    <g transform="translate(36, 35)">
-                      {/* Central/top node */}
-                      <circle cx="0" cy="-2" r="1.8" fill="#14b8a6" opacity="0.9" />
-                      
-                      {/* Branch nodes */}
-                      <circle cx="-3" cy="1" r="1.5" fill="#0891b2" opacity="0.8" />
-                      <circle cx="3" cy="1" r="1.3" fill="#06b6d4" opacity="0.8" />
-                      
-                      {/* Lower branch extensions */}
-                      <circle cx="-4" cy="4" r="1.2" fill="#14b8a6" opacity="0.7" />
-                      <circle cx="0" cy="4" r="1.1" fill="#0891b2" opacity="0.7" />
-                      <circle cx="4" cy="4" r="1.0" fill="#06b6d4" opacity="0.7" />
-                      
-                      {/* Main trunk/stem connections */}
-                      <line x1="0" y1="-2" x2="-3" y2="1" stroke="#14b8a6" strokeWidth="1.5" opacity="0.6" />
-                      <line x1="0" y1="-2" x2="3" y2="1" stroke="#0891b2" strokeWidth="1.5" opacity="0.6" />
-                      
-                      {/* Branch extensions */}
-                      <line x1="-3" y1="1" x2="-4" y2="4" stroke="#0891b2" strokeWidth="1.2" opacity="0.5" />
-                      <line x1="-3" y1="1" x2="0" y2="4" stroke="#06b6d4" strokeWidth="1.1" opacity="0.5" />
-                      <line x1="3" y1="1" x2="0" y2="4" stroke="#14b8a6" strokeWidth="1.1" opacity="0.5" />
-                      <line x1="3" y1="1" x2="4" y2="4" stroke="#0891b2" strokeWidth="1.0" opacity="0.4" />
-                    </g>
-                  </g>
-                  
-                  {/* chu */}
-                  <text x="54" y="40" fontSize="18" fontWeight="700" fill="url(#logoGradient)" fontFamily="system-ui, -apple-system, sans-serif">
-                    chu
-                  </text>
-                </g>
-              </svg>
+            <div className="text-xl font-bold gradient-text">
+              Alexis Brochu
             </div>
             <div className="hidden md:flex space-x-8">
               {[
