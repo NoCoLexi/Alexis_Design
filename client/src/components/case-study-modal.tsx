@@ -24,6 +24,8 @@ import weChoreUsabilityVideo from "@assets/▶ Usability Test 3 - WeChore Brandi
 import subscriptexImage from "@assets/Subscriptex Layers_1754581352868.png";
 import subscriptexVideo from "@assets/▶ Final Iteration - subscriptex design system_1754581362306.mp4";
 import projectPulseVideo from "@assets/Project Pulse PoC 2024_1754598878707.mp4";
+import hrmodImage from "@assets/image_1754599300491.png";
+import eagSiteLayoutImage from "@assets/EAG Site layout_1754599309628.png";
 
 interface CaseStudy {
   id: string;
@@ -145,15 +147,8 @@ const caseStudies: Record<string, CaseStudy> = {
       'Incremental migration reduces risk while delivering measurable value'
     ],
     slideshow: [
-      ocmWarningImage,
-      ocmDonationsImage,
-      ocmEngageImage,
-      ocmGrantsImage,
-      ocmHrModImage,
-      ocmMarsImage,
-      ocmMissionEdgeImage,
-      ocmPaCloseoutImage,
-      ocmRrmImage
+      hrmodImage,
+      eagSiteLayoutImage
     ]
   },
   closeouts: {
