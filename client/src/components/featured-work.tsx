@@ -125,18 +125,18 @@ export default function FeaturedWork() {
               Product Management
             </Button>
             <Button
-              variant={activeFilter === 'all' ? 'default' : 'ghost'}
-              onClick={() => setActiveFilter('all')}
-              className={activeFilter === 'all' ? 'gradient-bg-primary' : ''}
-            >
-              All Projects
-            </Button>
-            <Button
               variant={activeFilter === 'product-design' ? 'default' : 'ghost'}
               onClick={() => setActiveFilter('product-design')}
               className={activeFilter === 'product-design' ? 'gradient-bg-primary' : ''}
             >
               Product Design
+            </Button>
+            <Button
+              variant={activeFilter === 'all' ? 'default' : 'ghost'}
+              onClick={() => setActiveFilter('all')}
+              className={activeFilter === 'all' ? 'gradient-bg-primary' : ''}
+            >
+              All Projects
             </Button>
           </div>
         </div>
