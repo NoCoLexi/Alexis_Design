@@ -83,9 +83,9 @@ export default function Home() {
             <div className="hidden md:flex space-x-8">
               {[
                 { id: 'home', label: 'Home' },
-                { id: 'work', label: 'Work' },
-                { id: 'about', label: 'About' },
-                { id: 'gallery', label: 'Gallery' },
+                { id: 'work', label: 'Case Studies' },
+                { id: 'about', label: 'About Alexis' },
+                { id: 'gallery', label: 'Other Projects' },
                 { id: 'contact', label: 'Contact' }
               ].map(item => (
                 <button
@@ -120,9 +120,9 @@ export default function Home() {
             <div className="md:hidden mt-4 pb-4 space-y-2">
               {[
                 { id: 'home', label: 'Home' },
-                { id: 'work', label: 'Work' },
-                { id: 'about', label: 'About' },
-                { id: 'gallery', label: 'Gallery' },
+                { id: 'work', label: 'Case Studies' },
+                { id: 'about', label: 'About Alexis' },
+                { id: 'gallery', label: 'Other Projects' },
                 { id: 'contact', label: 'Contact' }
               ].map(item => (
                 <button
