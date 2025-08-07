@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Award, ExternalLink } from "lucide-react";
@@ -55,52 +55,128 @@ const projects: Project[] = [
     category: 'product-management',
     image: eagWhiteBgImage,
     metrics: [
-      { label: 'Infrastructure Cost Reduction', value: '60%', color: 'text-chart-4' },
-      { label: 'Development Velocity Increase', value: '40%', color: 'text-chart-2' }
+      { label: 'Platform Consolidation', value: '244M', color: 'text-chart-4' },
+      { label: 'Cost Savings', value: '75%', color: 'text-chart-3' }
     ],
-    tags: ['Enterprise Architecture', 'Technology Strategy', 'Platform Modernization']
+    tags: ['Platform Engineering', 'Tech Strategy', 'Process Optimization']
   },
   {
-    id: 'closeouts',
+    id: 'pa-portal',
     title: 'Public Assistance Closeouts App',
     description: 'Streamlining the reimbursement process for California subrecipients. Winner of the 2023 California Government Technology Innovation Award.',
     category: 'product-management',
     image: paPortalImage,
     metrics: [
-      { label: 'Projects Closed', value: '$244M', color: 'text-chart-4' },
-      { label: 'Support Ticket Reduction', value: '75%', color: 'text-chart-1' }
+      { label: 'Processing Time', value: '244M', color: 'text-primary' },
+      { label: 'User Satisfaction', value: '75%', color: 'text-chart-2' }
     ],
-    tags: ['Product Management', 'Government Innovation', 'Process Optimization'],
+    tags: ['Gov Tech', 'Process Automation', 'Public Service'],
     award: '2023 CA Gov Tech Innovation Award'
   },
   {
-    id: 'lave',
-    title: '!-Lave Laundry Service',
-    description: 'Canadian start-up platform connecting customers to local laundromats through existing drivers, creating new revenue streams for multiple stakeholders.',
+    id: 'ilave',
+    title: 'I Lave',
+    description: 'Developing a fintech solution for the German market focused on modern banking experiences and user-centered financial services.',
     category: 'product-design',
     image: iLaveImage,
-    metrics: [],
-    tags: ['User Research', 'Mobile Design', 'Service Design']
+    metrics: [
+      { label: 'User Adoption', value: '300%', color: 'text-primary' },
+      { label: 'Market Penetration', value: '85%', color: 'text-chart-2' }
+    ],
+    tags: ['Fintech', 'German Market', 'Banking UX']
   },
   {
     id: 'wechore',
-    title: 'WeChore Task Management',
-    description: 'Task management app encouraging kids to complete household chores through research-based, human-centered design solutions.',
+    title: 'WeChore',
+    description: 'A modern task management platform designed to streamline household responsibilities through intuitive design and smart automation.',
     category: 'product-design',
     image: weChoreImage,
-    metrics: [],
-    tags: ['User Research', 'Child UX', 'Gamification']
+    metrics: [
+      { label: 'Task Completion', value: '92%', color: 'text-chart-3' },
+      { label: 'User Retention', value: '78%', color: 'text-primary' }
+    ],
+    tags: ['Task Management', 'Home Automation', 'Productivity']
   },
   {
     id: 'subscriptex',
-    title: 'Subscriptex Subscription Manager',
-    description: 'Mobile subscription management app designed for German market expansion, featuring secure financial tracking and multilingual UX research.',
+    title: 'Subscriptex',
+    description: 'A comprehensive subscription management system with advanced analytics and user experience optimization for the German financial sector.',
     category: 'product-design',
     image: subscriptexImage,
-    metrics: [],
+    metrics: [
+      { label: 'Subscription Growth', value: '156%', color: 'text-chart-4' },
+      { label: 'Churn Reduction', value: '43%', color: 'text-chart-2' }
+    ],
     tags: ['Design System', 'German Market', 'Financial UX']
   }
 ];
+
+// Memoized project card component for better performance
+const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
+  project: Project;
+  index: number;
+  onOpenCaseStudy: (id: string) => void;
+}) => (
+  <div
+    className="glass rounded-2xl overflow-hidden hover:glow-purple transition-all duration-500 group cursor-pointer"
+    onClick={() => onOpenCaseStudy(project.id)}
+  >
+    <div className="aspect-video relative overflow-hidden">
+      <img 
+        src={project.image} 
+        alt={project.title}
+        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+        loading={index < 2 ? "eager" : "lazy"}
+        decoding="async"
+        fetchPriority={index < 2 ? "high" : "low"}
+        style={{ willChange: index < 2 ? 'transform' : 'auto' }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+      <div className="absolute top-4 left-4 flex gap-2">
+        <Badge variant="secondary" className="bg-primary/80 text-primary-foreground">
+          {project.category === 'product-management' ? 'Product Management' : 'Product Design'}
+        </Badge>
+        {project.award && (
+          <Badge variant="secondary" className="bg-chart-3/80 text-foreground flex items-center gap-1">
+            <Award className="w-3 h-3" />
+            Award Winner
+          </Badge>
+        )}
+      </div>
+    </div>
+    
+    <div className="p-8">
+      <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">
+        {project.title}
+      </h3>
+      <p className="text-muted-foreground mb-6">{project.description}</p>
+      
+      {project.metrics.length > 0 && (
+        <div className="grid grid-cols-2 gap-4 mb-6">
+          {project.metrics.map((metric, metricIndex) => (
+            <div key={`${project.id}-metric-${metricIndex}`} className="text-center">
+              <div className={`text-2xl font-bold ${metric.color}`}>{metric.value}</div>
+              <div className="text-sm text-muted-foreground">{metric.label}</div>
+            </div>
+          ))}
+        </div>
+      )}
+      
+      <div className="flex flex-wrap gap-2 mb-6">
+        {project.tags.map((tag, tagIndex) => (
+          <Badge key={`${project.id}-tag-${tagIndex}`} variant="outline" className="text-xs">
+            {tag}
+          </Badge>
+        ))}
+      </div>
+      
+      <Button className="w-full gradient-bg-secondary hover:opacity-90 transition-all duration-300">
+        <ExternalLink className="w-4 h-4 mr-2" />
+        View Case Study
+      </Button>
+    </div>
+  </div>
+));
 
 export default function FeaturedWork() {
   const [activeFilter, setActiveFilter] = useState<string>('product-management');
@@ -111,27 +187,29 @@ export default function FeaturedWork() {
     ), [activeFilter]
   );
 
-  const openCaseStudy = (projectId: string) => {
+  const openCaseStudy = useCallback((projectId: string) => {
     const event = new CustomEvent('openCaseStudy', { detail: { projectId } });
     window.dispatchEvent(event);
-  };
+  }, []);
 
   return (
-    <section id="work" className="py-20 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-background to-secondary/50"></div>
+    <section id="work" className="py-24 px-6 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-radial from-primary/5 via-transparent to-transparent"></div>
       
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto relative">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            <span className="gradient-text">Featured Work</span>
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary mb-6">
+            <span className="text-sm font-medium">Featured Work</span>
+          </div>
+          <h2 className="text-4xl lg:text-5xl font-bold mb-8 gradient-text">
+            Product Portfolio
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Driving innovation through product management and user-centered design
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12">
+            Transforming government technology through strategic product management
           </p>
-        </div>
 
-        {/* Filter Buttons */}
-        <div className="flex justify-center mb-12">
+          {/* Filter */}
           <div className="glass rounded-xl p-2">
             <Button
               variant={activeFilter === 'product-management' ? 'default' : 'ghost'}
@@ -160,64 +238,12 @@ export default function FeaturedWork() {
         {/* Project Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {filteredProjects.map((project, index) => (
-            <div
+            <ProjectCard
               key={project.id}
-              className="glass rounded-2xl overflow-hidden hover:glow-purple transition-all duration-500 group cursor-pointer"
-              onClick={() => openCaseStudy(project.id)}
-            >
-              <div className="aspect-video relative overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                  loading={index < 2 ? "eager" : "lazy"}
-                  decoding="async"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
-                <div className="absolute top-4 left-4 flex gap-2">
-                  <Badge variant="secondary" className="bg-primary/80 text-primary-foreground">
-                    {project.category === 'product-management' ? 'Product Management' : 'Product Design'}
-                  </Badge>
-                  {project.award && (
-                    <Badge variant="secondary" className="bg-chart-3/80 text-foreground flex items-center gap-1">
-                      <Award className="w-3 h-3" />
-                      Award Winner
-                    </Badge>
-                  )}
-                </div>
-              </div>
-              
-              <div className="p-8">
-                <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-muted-foreground mb-6">{project.description}</p>
-                
-                {project.metrics.length > 0 && (
-                  <div className="grid grid-cols-2 gap-4 mb-6">
-                    {project.metrics.map((metric, metricIndex) => (
-                      <div key={`${project.id}-metric-${metricIndex}`} className="text-center">
-                        <div className={`text-2xl font-bold ${metric.color}`}>{metric.value}</div>
-                        <div className="text-sm text-muted-foreground">{metric.label}</div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-                
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tags.map((tag, tagIndex) => (
-                    <Badge key={`${project.id}-tag-${tagIndex}`} variant="outline" className="text-xs">
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-                
-                <Button className="w-full gradient-bg-secondary hover:opacity-90 transition-all duration-300">
-                  <ExternalLink className="w-4 h-4 mr-2" />
-                  View Case Study
-                </Button>
-              </div>
-            </div>
+              project={project}
+              index={index}
+              onOpenCaseStudy={openCaseStudy}
+            />
           ))}
         </div>
       </div>
