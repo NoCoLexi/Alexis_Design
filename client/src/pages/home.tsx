@@ -83,7 +83,7 @@ export default function Home() {
             <div className="hidden md:flex space-x-8">
               {[
                 { id: 'home', label: 'Home' },
-                { id: 'work', label: 'Case Studies' },
+                { id: 'work', label: 'Featured Work' },
                 { id: 'about', label: 'About Alexis' },
                 { id: 'gallery', label: 'Other Projects' },
                 { id: 'contact', label: 'Contact' }
@@ -120,7 +120,7 @@ export default function Home() {
             <div className="md:hidden mt-4 pb-4 space-y-2">
               {[
                 { id: 'home', label: 'Home' },
-                { id: 'work', label: 'Case Studies' },
+                { id: 'work', label: 'Featured Work' },
                 { id: 'about', label: 'About Alexis' },
                 { id: 'gallery', label: 'Other Projects' },
                 { id: 'contact', label: 'Contact' }
