@@ -7,7 +7,6 @@ import paPortalImage from "@assets/caloes login modal_1754580191419.png";
 import dashboardImage from "@assets/image_1754580387947.png";
 import oesAppsImage from "@assets/OES IT Apps_1754584482209.png";
 import engageConnectImage from "@assets/EngageConnect_Vol_01_1754597322104.png";
-import projectPulseVideo from "@assets/Project Pulse PoC 2024_1754598579918.mp4";
 import eagWhiteBgImage from "@assets/OES IT Apps_1754584482209.png";
 import iLaveImage from "@assets/!-Lave group Alt_1754580875717.png";
 import weChoreImage from "@assets/WeChore Diagonal_1754581130624.png";
@@ -19,7 +18,6 @@ interface Project {
   description: string;
   category: 'product-management' | 'product-design';
   image: string;
-  mediaType?: 'image' | 'video';
   metrics: { label: string; value: string; color: string }[];
   tags: string[];
   award?: string;
@@ -43,8 +41,7 @@ const projects: Project[] = [
     title: 'Office of Change Management',
     description: 'Transforming government digital infrastructure by unifying nine fragmented applications into a cohesive user experience through strategic product management and change leadership.',
     category: 'product-management',
-    image: projectPulseVideo,
-    mediaType: 'video',
+    image: engageConnectImage,
     metrics: [
       { label: 'Support Ticket Reduction', value: '75%', color: 'text-chart-3' },
       { label: 'User Base Growth', value: '545.5%', color: 'text-primary' }
@@ -167,22 +164,11 @@ export default function FeaturedWork() {
               onClick={() => openCaseStudy(project.id)}
             >
               <div className="aspect-video relative overflow-hidden">
-                {project.mediaType === 'video' ? (
-                  <video 
-                    src={project.image} 
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                  />
-                ) : (
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                  />
-                )}
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
                 <div className="absolute top-4 left-4 flex gap-2">
                   <Badge variant="secondary" className="bg-primary/80 text-primary-foreground">
