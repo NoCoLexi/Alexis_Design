@@ -57,7 +57,7 @@ export default function AboutSection() {
                 <p className="text-muted-foreground">
                   When I joined Cal OES, government workers were drowning in confusing legacy applications that frustrated users and blocked critical disaster response.
                 </p>
-                <p className="text-yellow-400">
+                <p className="text-chart-4">
                   My solution was to become fluent in both their technical constraints and human needs. After months of 350+ user interviews and strategic redesign, not only did we increase the user base by 545%, but the team won four regional awards including California's Government Innovation Award - Best Application Serving the Public.
                 </p>
               </div>
