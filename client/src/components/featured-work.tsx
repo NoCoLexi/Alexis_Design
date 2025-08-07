@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Award, ExternalLink } from "lucide-react";
+import calOesImage from "@assets/Cal OES Engage Landing Page Phase I_v2_1754580174186.png";
 
 interface Project {
   id: string;
@@ -20,7 +21,7 @@ const projects: Project[] = [
     title: 'Cal OES Engage Portal',
     description: 'Modernizing government legacy software with a SaaS CRM platform connecting Californians to state and local municipalities for accessible grant funding.',
     category: 'product-management',
-    image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450',
+    image: calOesImage,
     metrics: [
       { label: 'User Base Increase', value: '545.5%', color: 'text-primary' },
       { label: 'Successful Onboarding', value: '203%', color: 'text-chart-2' }
