@@ -1,13 +1,7 @@
-import { Mail, Award } from "lucide-react";
+import { Mail } from "lucide-react";
 import { SiLinkedin } from "react-icons/si";
 
 export default function ContactSection() {
-  const achievements = [
-    "2023 California Government Technology Innovation Award for Public Service",
-    "545.5% increase in user base for Cal OES Engage Portal",
-    "$244 million in projects successfully closed out"
-  ];
-
   return (
     <section id="contact" className="py-20 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-background to-secondary/50"></div>
@@ -50,19 +44,6 @@ export default function ContactSection() {
                     <div className="text-muted-foreground">linkedin.com/in/alexisbrochu</div>
                   </div>
                 </a>
-              </div>
-            </div>
-
-            {/* Achievements */}
-            <div className="glass rounded-2xl p-8">
-              <h3 className="text-2xl font-bold mb-6 text-chart-2">Recent Achievements</h3>
-              <div className="space-y-4">
-                {achievements.map((achievement, index) => (
-                  <div key={index} className="flex items-start space-x-3">
-                    <Award className="w-5 h-5 text-chart-3 mt-0.5 flex-shrink-0" />
-                    <div className="text-muted-foreground text-sm">{achievement}</div>
-                  </div>
-                ))}
               </div>
             </div>
           </div>
