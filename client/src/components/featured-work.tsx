@@ -54,7 +54,7 @@ const projects: Project[] = [
     image: paPortalImage,
     metrics: [
       { label: 'Projects Closed', value: '$244M', color: 'text-chart-4' },
-      { label: 'Registered Users', value: '5,507', color: 'text-chart-1' }
+      { label: 'Support Ticket Reduction', value: '75%', color: 'text-chart-1' }
     ],
     tags: ['Product Management', 'Government Innovation', 'Process Optimization'],
     award: '2023 CA Gov Tech Innovation Award'
