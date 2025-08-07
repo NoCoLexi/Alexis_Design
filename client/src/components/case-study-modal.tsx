@@ -6,7 +6,7 @@ import engageOnboardingVideo from "@assets/Engage_Onboarding_1_1754580372224.mp4
 import engageRoadmapImage from "@assets/Engage Roadmap_1754580703265.png";
 import engageInterviewsImage from "@assets/02.02—interviews_1754580788428.png";
 import iLaveImage from "@assets/!-Lave group Alt_1754580875717.png";
-import qrScanVideo from "@assets/QR Scan_1754580957049.mp4";
+import driverOnboardingVideo from "@assets/▶ Driver 1st Iteration - onboarding_1754581040697.mp4";
 
 interface CaseStudy {
   id: string;
@@ -128,7 +128,7 @@ const caseStudies: Record<string, CaseStudy> = {
       'Clear communication between user types is essential'
     ],
     image: iLaveImage,
-    video: qrScanVideo
+    video: driverOnboardingVideo
   },
   wechore: {
     id: 'wechore',
