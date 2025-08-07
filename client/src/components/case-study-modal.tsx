@@ -90,8 +90,7 @@ const caseStudies: Record<string, CaseStudy> = {
     outcome: 'Successfully transformed a fragmented system into a unified platform that significantly improved user experience and operational efficiency across all Cal OES digital services.',
     metrics: [
       { label: '75%', value: 'Support Ticket Reduction', description: 'Decreased despite increased user base' },
-      { label: '545.5%', value: 'User Base Increase', description: 'Within 4 months of launch' },
-      { label: '203%', value: 'Successful Onboarding', description: 'Completion rate improvement' }
+      { label: '545.5%', value: 'User Base Increase', description: 'Within 4 months of launch' }
     ],
     process: [
       'Stakeholder interviews across 9 applications',

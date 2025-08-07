@@ -42,8 +42,7 @@ const projects: Project[] = [
     image: oesAppsImage,
     metrics: [
       { label: 'Support Ticket Reduction', value: '75%', color: 'text-chart-3' },
-      { label: 'User Base Growth', value: '545.5%', color: 'text-primary' },
-      { label: 'Onboarding Success', value: '203%', color: 'text-chart-2' }
+      { label: 'User Base Growth', value: '545.5%', color: 'text-primary' }
     ],
     tags: ['Change Management', 'Product Strategy', 'Government Innovation']
   },
