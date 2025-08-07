@@ -200,6 +200,21 @@
   }
 }
 
+@keyframes slow-bounce {
+  0%, 100% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(-10px);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.animate-slow-bounce {
+  animation: slow-bounce 2s infinite;
+}
+
 @keyframes pulse-glow {
   0%, 100% {
     box-shadow: 0 0 20px hsla(263, 70%, 50%, 0.3);

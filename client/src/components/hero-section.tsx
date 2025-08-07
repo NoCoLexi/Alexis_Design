@@ -78,16 +78,14 @@ export default function HeroSection() {
       </div>
 
       {/* Scroll indicator */}
-      <button 
-        onClick={scrollToWork}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hover:scale-110 transition-transform duration-200 cursor-pointer"
-        onMouseEnter={() => {
-          console.log('Scroll arrow hover detected');
-          // audioManager.playClickSound(); // Commented out to avoid too many sounds
-        }}
-      >
-        <ArrowDown className="w-6 h-6 text-[#F3E8B9] hover:text-[#63538F] transition-colors" />
-      </button>
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+        <button 
+          onClick={scrollToWork}
+          className="hover:scale-110 transition-all duration-300 cursor-pointer animate-slow-bounce"
+        >
+          <ArrowDown className="w-6 h-6 text-[#F3E8B9] hover:text-[#63538F] transition-colors" />
+        </button>
+      </div>
     </section>
   );
 }
