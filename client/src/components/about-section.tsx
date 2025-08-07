@@ -58,8 +58,8 @@ export default function AboutSection() {
               </div>
             </div>
 
-            {/* Right: Profile Images */}
-            <div className="space-y-8">
+            {/* Right: Profile Images and Award */}
+            <div className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="aspect-square rounded-2xl overflow-hidden animate-float glass">
                   <img 
@@ -79,31 +79,29 @@ export default function AboutSection() {
                   />
                 </div>
               </div>
-            </div>
-          </div>
-
-          {/* Award Section - Full Width */}
-          <div className="max-w-4xl mx-auto">
-            <div className="glass rounded-xl p-8 group relative overflow-hidden perspective-1000">
-              <div className="flip-card w-full h-full">
-                {/* Front side - Text content */}
-                <div className="flip-card-front absolute inset-0 backface-hidden transition-transform duration-700 group-hover:rotate-y-180">
-                  <h3 className="font-semibold text-chart-4 mb-3">CA Tech Award for Innovation</h3>
-                  <p className="text-muted-foreground">
-                    When I joined Cal OES, government workers were drowning in confusing legacy applications that frustrated users and blocked critical disaster response.
-                  </p>
-                  <p className="text-chart-4">
-                    My solution was to become fluent in both their technical constraints and human needs. After months of 350+ user interviews and strategic redesign, not only did we increase the user base by 545%, but the team won four regional awards including California's Government Innovation Award - Best Application Serving the Public.
-                  </p>
-                </div>
-                
-                {/* Back side - Award image */}
-                <div className="flip-card-back absolute inset-0 backface-hidden transition-transform duration-700 rotate-y-180 group-hover:rotate-y-0">
-                  <img 
-                    src={awardImage}
-                    alt="California Government Technology Innovation Summit 2023 Awards"
-                    className="w-full h-full object-cover rounded-lg"
-                  />
+              
+              {/* Award Section - Aligned with expertise cards */}
+              <div className="glass rounded-xl p-6 group relative overflow-hidden perspective-1000">
+                <div className="flip-card w-full h-full">
+                  {/* Front side - Text content */}
+                  <div className="flip-card-front absolute inset-0 backface-hidden transition-transform duration-700 group-hover:rotate-y-180">
+                    <h3 className="font-semibold text-chart-4 mb-3">CA Tech Award for Innovation</h3>
+                    <p className="text-muted-foreground text-sm">
+                      When I joined Cal OES, government workers were drowning in confusing legacy applications that frustrated users and blocked critical disaster response.
+                    </p>
+                    <p className="text-chart-4 text-sm">
+                      My solution was to become fluent in both their technical constraints and human needs. After months of 350+ user interviews and strategic redesign, not only did we increase the user base by 545%, but the team won four regional awards including California's Government Innovation Award - Best Application Serving the Public.
+                    </p>
+                  </div>
+                  
+                  {/* Back side - Award image */}
+                  <div className="flip-card-back absolute inset-0 backface-hidden transition-transform duration-700 rotate-y-180 group-hover:rotate-y-0">
+                    <img 
+                      src={awardImage}
+                      alt="California Government Technology Innovation Summit 2023 Awards"
+                      className="w-full h-full object-cover rounded-lg"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
