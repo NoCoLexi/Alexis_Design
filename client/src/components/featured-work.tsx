@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Award, ExternalLink } from "lucide-react";
@@ -105,8 +105,10 @@ const projects: Project[] = [
 export default function FeaturedWork() {
   const [activeFilter, setActiveFilter] = useState<string>('product-management');
 
-  const filteredProjects = projects.filter(project => 
-    activeFilter === 'all' || project.category === activeFilter
+  const filteredProjects = useMemo(() => 
+    projects.filter(project => 
+      activeFilter === 'all' || project.category === activeFilter
+    ), [activeFilter]
   );
 
   const openCaseStudy = (projectId: string) => {
@@ -157,7 +159,7 @@ export default function FeaturedWork() {
 
         {/* Project Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {filteredProjects.map((project) => (
+          {filteredProjects.map((project, index) => (
             <div
               key={project.id}
               className="glass rounded-2xl overflow-hidden hover:glow-purple transition-all duration-500 group cursor-pointer"
@@ -168,6 +170,8 @@ export default function FeaturedWork() {
                   src={project.image} 
                   alt={project.title}
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  loading={index < 2 ? "eager" : "lazy"}
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
                 <div className="absolute top-4 left-4 flex gap-2">
@@ -191,8 +195,8 @@ export default function FeaturedWork() {
                 
                 {project.metrics.length > 0 && (
                   <div className="grid grid-cols-2 gap-4 mb-6">
-                    {project.metrics.map((metric, index) => (
-                      <div key={index} className="text-center">
+                    {project.metrics.map((metric, metricIndex) => (
+                      <div key={`${project.id}-metric-${metricIndex}`} className="text-center">
                         <div className={`text-2xl font-bold ${metric.color}`}>{metric.value}</div>
                         <div className="text-sm text-muted-foreground">{metric.label}</div>
                       </div>
@@ -201,8 +205,8 @@ export default function FeaturedWork() {
                 )}
                 
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tags.map((tag) => (
-                    <Badge key={tag} variant="outline" className="text-xs">
+                  {project.tags.map((tag, tagIndex) => (
+                    <Badge key={`${project.id}-tag-${tagIndex}`} variant="outline" className="text-xs">
                       {tag}
                     </Badge>
                   ))}
