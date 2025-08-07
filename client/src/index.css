@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,7 +37,7 @@
   --sidebar-accent-foreground: hsl(0, 0%, 98%);
   --sidebar-border: hsl(240, 3.7%, 15.9%);
   --sidebar-ring: hsl(263, 70%, 50%);
-  --font-sans: 'Helvetica Neue', 'Arial', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-serif: Georgia, serif;
   --font-mono: Menlo, monospace;
   --radius: 0.75rem;
@@ -137,7 +139,25 @@
     scroll-behavior: smooth;
   }
   
-  /* Typography matching logo style */
+  /* Typography matching logo style - Extra bold + thin pattern */
+  .logo-style {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+  
+  .logo-style .name-first {
+    font-weight: 800;
+    color: var(--foreground);
+  }
+  
+  .logo-style .name-last {
+    font-weight: 200;
+    color: var(--muted-foreground);
+  }
+  
+  /* Main typography improvements */
   h1, h2, h3, h4, h5, h6 {
     font-weight: 300;
     letter-spacing: -0.02em;

@@ -76,12 +76,9 @@ export default function Home() {
       <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-primary/20">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            <div className="flex items-center">
-              <img 
-                src={logoImage} 
-                alt="Alexis Brochu" 
-                className="h-8 w-auto"
-              />
+            <div className="logo-style flex items-center">
+              <span className="name-first">Alexis</span>
+              <span className="name-last">Brochu</span>
             </div>
             <div className="hidden md:flex space-x-8">
               {[
