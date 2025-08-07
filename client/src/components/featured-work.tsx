@@ -7,7 +7,7 @@ import paPortalImage from "@assets/caloes login modal_1754580191419.png";
 import dashboardImage from "@assets/image_1754580387947.png";
 import oesAppsImage from "@assets/OES IT Apps_1754584482209.png";
 import engageConnectImage from "@assets/EngageConnect_Vol_01_1754597322104.png";
-import eagWhiteBgImage from "@assets/eag-white-bg.svg";
+import eagWhiteBgImage from "@assets/OES IT Apps_1754584482209.png";
 import iLaveImage from "@assets/!-Lave group Alt_1754580875717.png";
 import weChoreImage from "@assets/WeChore Diagonal_1754581130624.png";
 import subscriptexImage from "@assets/Subscriptex Layers_1754581352868.png";
