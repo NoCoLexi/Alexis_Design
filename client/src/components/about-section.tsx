@@ -81,7 +81,7 @@ export default function AboutSection() {
               </div>
               
               {/* Award Section - Match height of last two expertise cards */}
-              <div className="glass rounded-xl p-6 group relative overflow-hidden perspective-1000 h-[296px]">
+              <div className="glass rounded-xl p-6 group relative overflow-hidden perspective-1000 h-[180px]">
                 <div className="flip-card w-full h-full">
                   {/* Front side - Text content */}
                   <div className="flip-card-front absolute inset-0 backface-hidden transition-transform duration-700 group-hover:rotate-y-180">
