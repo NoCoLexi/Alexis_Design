@@ -62,7 +62,7 @@ const projects: Project[] = [
   },
   {
     id: 'closeouts',
-    title: 'PA Portal Closeouts App',
+    title: 'Public Assistance Closeouts App',
     description: 'Streamlining the reimbursement process for California subrecipients. Winner of the 2023 California Government Technology Innovation Award.',
     category: 'product-management',
     image: paPortalImage,
