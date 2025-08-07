@@ -15,7 +15,7 @@ export default function ContactSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="gradient-text">Ready to Drive Product Success</span>
+            <span className="gradient-text">Let's Create Something Amazing</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Seeking a Product Management role where I can leverage my expertise in user research, strategic planning, and cross-functional leadership to deliver exceptional products that users love.
