@@ -78,8 +78,11 @@ export default function HeroSection() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <ArrowDown className="w-6 h-6 text-muted-foreground" />
+      <div 
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer hover:text-primary transition-colors"
+        onClick={scrollToWork}
+      >
+        <ArrowDown className="w-6 h-6 text-muted-foreground hover:text-primary transition-colors" />
       </div>
     </section>
   );
