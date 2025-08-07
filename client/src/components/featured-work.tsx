@@ -120,30 +120,43 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
   const cardRef = useRef<HTMLDivElement>(null);
   const [scrollY, setScrollY] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const rafRef = useRef<number>();
 
   useEffect(() => {
     const handleScroll = () => {
-      if (cardRef.current) {
-        const rect = cardRef.current.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-        
-        // Check if card is visible
-        const visible = rect.top < windowHeight && rect.bottom > 0;
-        setIsVisible(visible);
-        
-        // Calculate parallax offset
-        if (visible) {
-          const scrollProgress = (windowHeight - rect.top) / (windowHeight + rect.height);
-          setScrollY(scrollProgress * 50); // Adjust multiplier for effect intensity
-        }
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
       }
+      
+      rafRef.current = requestAnimationFrame(() => {
+        if (cardRef.current) {
+          const rect = cardRef.current.getBoundingClientRect();
+          const windowHeight = window.innerHeight;
+          
+          // Check if card is visible with buffer
+          const visible = rect.top < windowHeight + 100 && rect.bottom > -100;
+          setIsVisible(visible);
+          
+          // Calculate parallax offset only when visible
+          if (visible) {
+            const scrollProgress = Math.max(0, Math.min(1, (windowHeight - rect.top) / (windowHeight + rect.height)));
+            setScrollY(scrollProgress * 30); // Reduced multiplier for better performance
+          }
+        }
+      });
     };
 
-    handleScroll(); // Initial check
+    // Initial check with delay to ensure proper mounting
+    const timer = setTimeout(handleScroll, 100);
+    
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', handleScroll, { passive: true });
 
     return () => {
+      clearTimeout(timer);
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleScroll);
     };
@@ -157,8 +170,9 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
       }`}
       onClick={() => onOpenCaseStudy(project.id)}
       style={{
-        transform: `translateY(${isVisible ? scrollY * -0.3 : 8}px) ${isVisible ? 'scale(1)' : 'scale(0.95)'}`,
-        transition: 'all 0.7s cubic-bezier(0.4, 0, 0.2, 1)'
+        transform: `translateY(${isVisible ? scrollY * -0.2 : 8}px) scale(${isVisible ? 1 : 0.98})`,
+        opacity: isVisible ? 1 : 0,
+        transition: isVisible ? 'transform 0.1s ease-out, opacity 0.5s ease-out' : 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)'
       }}
     >
       <div className="aspect-video relative overflow-hidden">
@@ -170,9 +184,9 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
           decoding="async"
           {...(index < 2 && { fetchPriority: "high" as const })}
           style={{ 
-            willChange: index < 2 ? 'transform' : 'auto',
-            transform: `translateY(${scrollY * 0.2}px)`,
-            transition: 'transform 0.1s ease-out'
+            willChange: isVisible ? 'transform' : 'auto',
+            transform: `translateY(${isVisible ? scrollY * 0.1 : 0}px)`,
+            transition: isVisible ? 'transform 0.1s ease-out' : 'none'
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
