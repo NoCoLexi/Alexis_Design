@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import beerAdvertising from "@assets/IMG_1656_1754523468629.jpg";
 import gatoradePoster from "@assets/IMG_1620_1754523481860.jpg";
 import universityBrochure from "@assets/FullSizeRender 2_1754523503518.jpg";
-import beerAdvertising2 from "@assets/IMG_1656_1754576836327.jpg";
+import gatoradeLabelConcept from "@assets/IMG_1622_1754577096170.jpg";
 import lifespanReports from "@assets/FullSizeRender 13_1754523521763.jpg";
 import schoolMaterials from "@assets/FullSizeRender 4_1754523633019.jpg";
 import budweiserAd from "@assets/FullSizeRender 35_1754523657712.jpg";
@@ -27,7 +27,7 @@ const galleryItems: GalleryItem[] = [
   { id: '3', category: 'print', image: universityBrochure, title: 'University Marketing Materials' },
   
   // Print Design Items
-  { id: '4', category: 'print', image: beerAdvertising2, title: 'Budweiser Brand Campaign' },
+  { id: '4', category: 'print', image: gatoradeLabelConcept, title: 'Gatorade Label Design Concept' },
   { id: '5', category: 'print', image: lifespanReports, title: 'Lifespan Healthcare Annual Reports' },
   { id: '6', category: 'print', image: schoolMaterials, title: 'Providence Schools Brand Materials' },
   { id: '7', category: 'print', image: budweiserAd, title: 'Budweiser Marketing Campaign' },
