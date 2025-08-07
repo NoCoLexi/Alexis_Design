@@ -7,6 +7,7 @@ import engageRoadmapImage from "@assets/Engage Roadmap_1754580703265.png";
 import engageInterviewsImage from "@assets/02.02—interviews_1754580788428.png";
 import iLaveImage from "@assets/!-Lave group Alt_1754580875717.png";
 import driverOnboardingVideo from "@assets/▶ Driver 1st Iteration - onboarding_1754581040697.mp4";
+import weChoreImage from "@assets/WeChore Diagonal_1754581130624.png";
 
 interface CaseStudy {
   id: string;
@@ -161,7 +162,7 @@ const caseStudies: Record<string, CaseStudy> = {
       'Gamification requires careful balance to avoid addiction',
       'Age-appropriate design principles are crucial for engagement'
     ],
-    image: 'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450'
+    image: weChoreImage
   }
 };
 

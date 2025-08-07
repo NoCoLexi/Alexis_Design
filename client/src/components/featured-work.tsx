@@ -6,6 +6,7 @@ import calOesImage from "@assets/Cal OES Engage Landing Page Phase I_v2_17545801
 import paPortalImage from "@assets/caloes login modal_1754580191419.png";
 import dashboardImage from "@assets/image_1754580387947.png";
 import iLaveImage from "@assets/!-Lave group Alt_1754580875717.png";
+import weChoreImage from "@assets/WeChore Diagonal_1754581130624.png";
 
 interface Project {
   id: string;
@@ -58,7 +59,7 @@ const projects: Project[] = [
     title: 'WeChore Task Management',
     description: 'Task management app encouraging kids to complete household chores through research-based, human-centered design solutions.',
     category: 'product-design',
-    image: 'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450',
+    image: weChoreImage,
     metrics: [],
     tags: ['User Research', 'Child UX', 'Gamification']
   }
