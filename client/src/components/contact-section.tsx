@@ -16,12 +16,12 @@ export default function ContactSection() {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="gradient-text">Let's Create Something Amazing</span>
+            <span className="block text-2xl md:text-3xl text-muted-foreground mt-4 font-normal">
+              Message me for my resume
+            </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Seeking a Product Management role where I can leverage my expertise in user research, strategic planning, and cross-functional leadership to deliver exceptional products that users love.
-          </p>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mt-4">
-            Interested in my background? Send me an email or LinkedIn message and I'll be happy to share my resume.
           </p>
         </div>
 
