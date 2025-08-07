@@ -146,10 +146,7 @@ const caseStudies: Record<string, CaseStudy> = {
       'Governance frameworks prevent architectural drift and technical debt',
       'Incremental migration reduces risk while delivering measurable value'
     ],
-    slideshow: [
-      hrmodImage,
-      eagSiteLayoutImage
-    ]
+    image: hrmodImage
   },
   closeouts: {
     id: 'closeouts',
