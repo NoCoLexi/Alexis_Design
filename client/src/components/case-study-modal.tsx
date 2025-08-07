@@ -16,6 +16,7 @@ import ocmMarsImage from "@assets/OCM MARS screen_1754584646107.png";
 import ocmMissionEdgeImage from "@assets/OCM MissionEdge screen_1754584646108.png";
 import ocmPaCloseoutImage from "@assets/OCM PA Closeout screen_1754584646108.png";
 import ocmRrmImage from "@assets/OCM RRM screen_1754584646109.png";
+import engageConnectImage from "@assets/EngageConnect_Vol_01_1754597322104.png";
 import iLaveImage from "@assets/!-Lave group Alt_1754580875717.png";
 import driverOnboardingVideo from "@assets/▶ Driver 1st Iteration - onboarding_1754581040697.mp4";
 import weChoreImage from "@assets/WeChore Diagonal_1754581130624.png";
@@ -107,17 +108,7 @@ const caseStudies: Record<string, CaseStudy> = {
       'Political navigation is essential for technical solution success',
       'Clear language dramatically improves user comprehension and adoption'
     ],
-    slideshow: [
-      ocmWarningImage,
-      ocmDonationsImage,
-      ocmEngageImage,
-      ocmGrantsImage,
-      ocmHrModImage,
-      ocmMarsImage,
-      ocmMissionEdgeImage,
-      ocmPaCloseoutImage,
-      ocmRrmImage
-    ]
+    image: engageConnectImage
   },
   eag: {
     id: 'eag',
