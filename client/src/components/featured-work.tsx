@@ -12,6 +12,16 @@ import iLaveImage from "@assets/!-Lave group Alt_1754580875717.png";
 import weChoreImage from "@assets/WeChore Diagonal_1754581130624.png";
 import subscriptexImage from "@assets/Subscriptex Layers_1754581352868.png";
 
+// Preload critical images immediately when component loads
+const preloadImage = (src: string) => {
+  const img = new Image();
+  img.src = src;
+};
+
+// Preload the slow-loading images
+preloadImage(eagWhiteBgImage);
+preloadImage(paPortalImage);
+
 interface Project {
   id: string;
   title: string;
@@ -174,7 +184,7 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
           src={project.image} 
           alt={project.title}
           className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-          loading={index < 2 ? "eager" : "lazy"}
+          loading={index < 4 ? "eager" : "lazy"}
           decoding="async"
           style={{ 
             transform: `translateY(${parallaxY * 0.1}px)`,
