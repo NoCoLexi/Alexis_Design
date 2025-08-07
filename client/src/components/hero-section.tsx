@@ -84,10 +84,13 @@ export default function HeroSection() {
 
       {/* Scroll indicator */}
       <div 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer hover:text-primary transition-colors"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer hover:text-primary transition-colors z-20 p-2"
         onClick={scrollToWork}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => e.key === 'Enter' && scrollToWork()}
       >
-        <ArrowDown className="w-6 h-6 text-muted-foreground hover:text-primary transition-colors" />
+        <ArrowDown className="w-8 h-8 text-muted-foreground hover:text-primary transition-colors" />
       </div>
     </section>
   );
