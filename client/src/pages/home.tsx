@@ -102,26 +102,29 @@ export default function Home() {
                     {/* O outline */}
                     <circle cx="36" cy="35" r="9" fill="none" stroke="url(#logoGradient)" strokeWidth="2.5" />
                     
-                    {/* Molecular structure inside O - matching original design */}
+                    {/* Molecular structure inside O - matching original tree-like design */}
                     <g transform="translate(36, 35)">
-                      {/* Main larger circles */}
-                      <circle cx="-2" cy="-3" r="2.2" fill="#14b8a6" opacity="0.9" />
-                      <circle cx="3" cy="-1" r="1.8" fill="#0891b2" opacity="0.8" />
-                      <circle cx="1" cy="4" r="1.5" fill="#06b6d4" opacity="0.8" />
-                      <circle cx="-3" cy="3" r="1.3" fill="#14b8a6" opacity="0.7" />
+                      {/* Central/top node */}
+                      <circle cx="0" cy="-2" r="1.8" fill="#14b8a6" opacity="0.9" />
                       
-                      {/* Smaller accent circles */}
-                      <circle cx="4" cy="2" r="0.8" fill="#0891b2" opacity="0.6" />
-                      <circle cx="-1" cy="1" r="0.9" fill="#06b6d4" opacity="0.7" />
+                      {/* Branch nodes */}
+                      <circle cx="-3" cy="1" r="1.5" fill="#0891b2" opacity="0.8" />
+                      <circle cx="3" cy="1" r="1.3" fill="#06b6d4" opacity="0.8" />
                       
-                      {/* Connecting lines with organic flow */}
-                      <line x1="-2" y1="-3" x2="3" y2="-1" stroke="#14b8a6" strokeWidth="1.2" opacity="0.5" />
-                      <line x1="3" y1="-1" x2="1" y2="4" stroke="#0891b2" strokeWidth="1.1" opacity="0.5" />
-                      <line x1="1" y1="4" x2="-3" y2="3" stroke="#06b6d4" strokeWidth="1" opacity="0.4" />
-                      <line x1="-3" y1="3" x2="-2" y2="-3" stroke="#14b8a6" strokeWidth="0.9" opacity="0.4" />
-                      <line x1="3" y1="-1" x2="4" y2="2" stroke="#0891b2" strokeWidth="0.8" opacity="0.4" />
-                      <line x1="-1" y1="1" x2="1" y2="4" stroke="#06b6d4" strokeWidth="0.7" opacity="0.3" />
-                      <line x1="-2" y1="-3" x2="-1" y2="1" stroke="#14b8a6" strokeWidth="0.8" opacity="0.3" />
+                      {/* Lower branch extensions */}
+                      <circle cx="-4" cy="4" r="1.2" fill="#14b8a6" opacity="0.7" />
+                      <circle cx="0" cy="4" r="1.1" fill="#0891b2" opacity="0.7" />
+                      <circle cx="4" cy="4" r="1.0" fill="#06b6d4" opacity="0.7" />
+                      
+                      {/* Main trunk/stem connections */}
+                      <line x1="0" y1="-2" x2="-3" y2="1" stroke="#14b8a6" strokeWidth="1.5" opacity="0.6" />
+                      <line x1="0" y1="-2" x2="3" y2="1" stroke="#0891b2" strokeWidth="1.5" opacity="0.6" />
+                      
+                      {/* Branch extensions */}
+                      <line x1="-3" y1="1" x2="-4" y2="4" stroke="#0891b2" strokeWidth="1.2" opacity="0.5" />
+                      <line x1="-3" y1="1" x2="0" y2="4" stroke="#06b6d4" strokeWidth="1.1" opacity="0.5" />
+                      <line x1="3" y1="1" x2="0" y2="4" stroke="#14b8a6" strokeWidth="1.1" opacity="0.5" />
+                      <line x1="3" y1="1" x2="4" y2="4" stroke="#0891b2" strokeWidth="1.0" opacity="0.4" />
                     </g>
                   </g>
                   
