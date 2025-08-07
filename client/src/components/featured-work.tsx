@@ -48,7 +48,7 @@ const projects: Project[] = [
     title: '!-Lave Laundry Service',
     description: 'Canadian start-up platform connecting customers to local laundromats through existing drivers, creating new revenue streams for multiple stakeholders.',
     category: 'product-design',
-    image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450',
+    image: dashboardImage,
     metrics: [],
     tags: ['User Research', 'Mobile Design', 'Service Design']
   },
