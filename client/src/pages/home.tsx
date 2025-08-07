@@ -89,6 +89,10 @@ export default function Home() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
+                  onMouseEnter={() => {
+                    console.log('Nav button hover detected');
+                    audioManager.playClickSound();
+                  }}
                   className={`hover:text-primary transition-colors ${
                     activeSection === item.id ? 'text-primary' : 'text-muted-foreground'
                   }`}
@@ -100,6 +104,10 @@ export default function Home() {
             <button
               className="md:hidden text-foreground"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              onMouseEnter={() => {
+                console.log('Mobile menu toggle hover detected');
+                audioManager.playClickSound();
+              }}
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -118,6 +126,10 @@ export default function Home() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
+                  onMouseEnter={() => {
+                    console.log('Mobile nav button hover detected');
+                    audioManager.playClickSound();
+                  }}
                   className="block w-full text-left py-2 hover:text-primary transition-colors"
                 >
                   {item.label}
