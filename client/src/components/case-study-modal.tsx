@@ -373,8 +373,10 @@ export default function CaseStudyModal() {
               <video 
                 src={caseStudy.video} 
                 className="w-full h-full object-cover"
-                controls
-                poster={caseStudy.image}
+                autoPlay
+                loop
+                muted
+                playsInline
               />
             ) : caseStudy.slideshow ? (
               <ImageSlideshow images={caseStudy.slideshow} />
