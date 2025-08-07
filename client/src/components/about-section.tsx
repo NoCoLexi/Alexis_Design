@@ -29,7 +29,7 @@ export default function AboutSection() {
           </div>
 
           {/* Two Column Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             {/* Left: Expertise Cards */}
             <div className="space-y-6">
               <div className="glass rounded-xl p-6">
@@ -59,8 +59,8 @@ export default function AboutSection() {
             </div>
 
             {/* Right: Profile Images and Award */}
-            <div className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="flex flex-col h-full">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div className="aspect-square rounded-2xl overflow-hidden animate-float glass">
                   <img 
                     src={professionalPhoto}
@@ -80,13 +80,13 @@ export default function AboutSection() {
                 </div>
               </div>
               
-              {/* Award Section - Aligned with expertise cards */}
-              <div className="glass rounded-xl p-6 group relative overflow-hidden perspective-1000">
+              {/* Award Section - Flex grow to fill remaining space */}
+              <div className="glass rounded-xl p-6 group relative overflow-hidden perspective-1000 flex-grow flex">
                 <div className="flip-card w-full h-full">
                   {/* Front side - Text content */}
                   <div className="flip-card-front absolute inset-0 backface-hidden transition-transform duration-700 group-hover:rotate-y-180">
                     <h3 className="font-semibold text-chart-4 mb-3">CA Tech Award for Innovation</h3>
-                    <p className="text-muted-foreground text-sm">
+                    <p className="text-muted-foreground text-sm mb-4">
                       When I joined Cal OES, government workers were drowning in confusing legacy applications that frustrated users and blocked critical disaster response.
                     </p>
                     <p className="text-chart-4 text-sm">
