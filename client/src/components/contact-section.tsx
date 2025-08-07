@@ -28,7 +28,7 @@ export default function ContactSection() {
             <div className="glass rounded-2xl p-8">
               <h3 className="text-2xl font-bold mb-6 text-chart-4">Get in Touch</h3>
               <div className="space-y-4">
-                <div className="flex items-center space-x-4">
+                <a href="mailto:alexisb.product@gmail.com" className="flex items-center space-x-4 hover:opacity-80 transition-opacity">
                   <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center">
                     <Mail className="w-6 h-6" />
                   </div>
@@ -36,9 +36,9 @@ export default function ContactSection() {
                     <div className="font-medium text-foreground">Email</div>
                     <div className="text-muted-foreground">alexisb.product@gmail.com</div>
                   </div>
-                </div>
+                </a>
                 
-                <div className="flex items-center space-x-4">
+                <a href="https://linkedin.com/in/alexisbrochu" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-4 hover:opacity-80 transition-opacity">
                   <div className="w-12 h-12 bg-chart-4 rounded-xl flex items-center justify-center">
                     <SiLinkedin className="w-6 h-6" />
                   </div>
@@ -46,7 +46,7 @@ export default function ContactSection() {
                     <div className="font-medium text-foreground">LinkedIn</div>
                     <div className="text-muted-foreground">linkedin.com/in/alexisbrochu</div>
                   </div>
-                </div>
+                </a>
               </div>
             </div>
 
