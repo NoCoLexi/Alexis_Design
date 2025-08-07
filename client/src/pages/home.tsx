@@ -6,10 +6,32 @@ import ContactSection from "@/components/contact-section";
 import CaseStudyModal from "@/components/case-study-modal";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { audioManager } from "@/utils/audioUtils";
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+
+  useEffect(() => {
+    // Initialize audio on first user interaction
+    const enableAudio = () => {
+      audioManager.enable();
+      // Remove listeners after first interaction
+      document.removeEventListener('click', enableAudio);
+      document.removeEventListener('keydown', enableAudio);
+      document.removeEventListener('touchstart', enableAudio);
+    };
+
+    document.addEventListener('click', enableAudio);
+    document.addEventListener('keydown', enableAudio);
+    document.addEventListener('touchstart', enableAudio);
+
+    return () => {
+      document.removeEventListener('click', enableAudio);
+      document.removeEventListener('keydown', enableAudio);
+      document.removeEventListener('touchstart', enableAudio);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
