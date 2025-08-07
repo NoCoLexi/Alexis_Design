@@ -61,17 +61,17 @@ export default function HeroSection() {
           
           {/* Key Metrics */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="glass rounded-xl p-4 hover:glow-purple transition-all duration-300">
-              <div className="text-3xl font-bold text-primary">545.5%</div>
-              <div className="text-sm text-muted-foreground">User Base Increase</div>
+            <div className="bg-card/60 backdrop-blur-md border border-primary/20 rounded-xl p-4 hover:glow-purple transition-all duration-300">
+              <div className="text-3xl font-bold text-white">545.5%</div>
+              <div className="text-sm text-white/80">User Base Increase</div>
             </div>
-            <div className="glass rounded-xl p-4 hover:glow-blue transition-all duration-300">
-              <div className="text-3xl font-bold text-chart-1">$244M</div>
-              <div className="text-sm text-muted-foreground">Projects Closed</div>
+            <div className="bg-card/60 backdrop-blur-md border border-accent/20 rounded-xl p-4 hover:glow-blue transition-all duration-300">
+              <div className="text-3xl font-bold text-white">$244M</div>
+              <div className="text-sm text-white/80">Projects Closed</div>
             </div>
-            <div className="glass rounded-xl p-4 hover:glow-purple transition-all duration-300">
-              <div className="text-3xl font-bold text-chart-2">75%</div>
-              <div className="text-sm text-muted-foreground">Support Tickets Reduced</div>
+            <div className="bg-card/60 backdrop-blur-md border border-primary/20 rounded-xl p-4 hover:glow-purple transition-all duration-300">
+              <div className="text-3xl font-bold text-white">75%</div>
+              <div className="text-sm text-white/80">Support Tickets Reduced</div>
             </div>
           </div>
         </div>

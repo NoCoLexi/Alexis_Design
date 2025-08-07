@@ -146,6 +146,13 @@
     scroll-behavior: smooth;
   }
   
+  /* Enhanced glass effect with better readability */
+  .glass {
+    background: rgba(11, 10, 14, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
   /* Typography matching logo style - Extra bold + thin pattern */
   .logo-style {
     font-family: 'Inter', sans-serif;

@@ -96,7 +96,7 @@ export default function Home() {
                     audioManager.playClickSound();
                   }}
                   className={`hover:text-primary transition-colors ${
-                    activeSection === item.id ? 'text-primary' : 'text-muted-foreground'
+                    activeSection === item.id ? 'text-primary' : 'text-white/90'
                   }`}
                 >
                   {item.label}
@@ -132,7 +132,7 @@ export default function Home() {
                     console.log('Mobile nav button hover detected');
                     audioManager.playClickSound();
                   }}
-                  className="block w-full text-left py-2 hover:text-primary transition-colors"
+                  className="block w-full text-left py-2 hover:text-primary transition-colors text-white/90"
                 >
                   {item.label}
                 </button>
