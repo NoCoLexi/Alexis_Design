@@ -59,8 +59,8 @@ export default function AboutSection() {
             </div>
 
             {/* Right: Profile Images and Award */}
-            <div className="flex flex-col h-full">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="aspect-square rounded-2xl overflow-hidden animate-float glass">
                   <img 
                     src={professionalPhoto}
@@ -80,8 +80,8 @@ export default function AboutSection() {
                 </div>
               </div>
               
-              {/* Award Section - Flex grow to fill remaining space */}
-              <div className="glass rounded-xl p-6 group relative overflow-hidden perspective-1000 flex-grow flex">
+              {/* Award Section - Match height of last two expertise cards */}
+              <div className="glass rounded-xl p-6 group relative overflow-hidden perspective-1000 h-[296px]">
                 <div className="flip-card w-full h-full">
                   {/* Front side - Text content */}
                   <div className="flip-card-front absolute inset-0 backface-hidden transition-transform duration-700 group-hover:rotate-y-180">
