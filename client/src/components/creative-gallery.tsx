@@ -15,7 +15,7 @@ import newsBillboards from "@assets/IMG_1655_1754576894772.jpg";
 
 interface GalleryItem {
   id: string;
-  category: 'print' | 'branding' | 'outdoor';
+  category: 'print' | 'outdoor';
   image: string;
   title: string;
 }
@@ -26,12 +26,10 @@ const galleryItems: GalleryItem[] = [
   { id: '2', category: 'print', image: gatoradePoster, title: 'Gatorade Sports Marketing' },
   { id: '3', category: 'print', image: universityBrochure, title: 'University Marketing Materials' },
   
-  // Branding Items
-  { id: '4', category: 'branding', image: beerAdvertising2, title: 'Budweiser Brand Campaign' },
-  { id: '5', category: 'branding', image: lifespanReports, title: 'Lifespan Healthcare Annual Reports' },
-  { id: '6', category: 'branding', image: schoolMaterials, title: 'Providence Schools Brand Materials' },
-  
-  // Additional Print Design Items
+  // Print Design Items
+  { id: '4', category: 'print', image: beerAdvertising2, title: 'Budweiser Brand Campaign' },
+  { id: '5', category: 'print', image: lifespanReports, title: 'Lifespan Healthcare Annual Reports' },
+  { id: '6', category: 'print', image: schoolMaterials, title: 'Providence Schools Brand Materials' },
   { id: '7', category: 'print', image: budweiserAd, title: 'Budweiser Marketing Campaign' },
   { id: '8', category: 'print', image: galaInvitation, title: 'Gala Event Invitation Design' },
   { id: '9', category: 'print', image: jwuPortfolio, title: 'Johnson & Wales University Materials' },
@@ -54,7 +52,6 @@ export default function CreativeGallery() {
   const categories = [
     { id: 'all', label: 'All Work' },
     { id: 'print', label: 'Print Design' },
-    { id: 'branding', label: 'Branding' },
     { id: 'outdoor', label: 'Outdoor Advertising' }
   ];
 
