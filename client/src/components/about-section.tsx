@@ -61,7 +61,6 @@ export default function AboutSection() {
                 </p>
               </div>
             </div>
-          </div>
           
           <div className="space-y-8">
             <div className="aspect-square rounded-2xl overflow-hidden animate-float">
