@@ -29,8 +29,8 @@ const galleryItems: GalleryItem[] = [
     id: '1', 
     category: 'print', 
     image: universityBrochure, 
-    title: 'University Marketing Materials',
-    description: 'Comprehensive brochure design for academic programs'
+    title: 'JWU Anniversary Materials',
+    description: 'Johnson & Wales University anniversary celebration materials'
   },
   { 
     id: '2', 
