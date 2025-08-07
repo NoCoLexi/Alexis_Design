@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import engageOnboardingVideo from "@assets/Engage_Onboarding_1_1754580372224.mp4";
 import engageRoadmapImage from "@assets/Engage Roadmap_1754580703265.png";
 import engageInterviewsImage from "@assets/02.02—interviews_1754580788428.png";
+import iLaveImage from "@assets/!-Lave group Alt_1754580875717.png";
 
 interface CaseStudy {
   id: string;
@@ -125,7 +126,7 @@ const caseStudies: Record<string, CaseStudy> = {
       'Early user validation prevents costly design mistakes',
       'Clear communication between user types is essential'
     ],
-    image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450'
+    image: iLaveImage
   },
   wechore: {
     id: 'wechore',

@@ -5,6 +5,7 @@ import { Award, ExternalLink } from "lucide-react";
 import calOesImage from "@assets/Cal OES Engage Landing Page Phase I_v2_1754580174186.png";
 import paPortalImage from "@assets/caloes login modal_1754580191419.png";
 import dashboardImage from "@assets/image_1754580387947.png";
+import iLaveImage from "@assets/!-Lave group Alt_1754580875717.png";
 
 interface Project {
   id: string;
@@ -48,7 +49,7 @@ const projects: Project[] = [
     title: '!-Lave Laundry Service',
     description: 'Canadian start-up platform connecting customers to local laundromats through existing drivers, creating new revenue streams for multiple stakeholders.',
     category: 'product-design',
-    image: dashboardImage,
+    image: iLaveImage,
     metrics: [],
     tags: ['User Research', 'Mobile Design', 'Service Design']
   },
