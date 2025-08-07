@@ -28,7 +28,7 @@ export default function HeroSection() {
         <div className="max-w-4xl">
           <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
             <span className="gradient-text">
-              Creative Visionary
+              Product Visionary
             </span>
             <br />
             <span className="text-foreground">& Solution Factory</span>
