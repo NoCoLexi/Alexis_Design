@@ -11,15 +11,24 @@ export default function HeroSection() {
   };
 
   const scrollToNextSection = () => {
-    console.log('Arrow clicked - attempting to scroll to Case Studies');
-    const element = document.getElementById('work');
-    console.log('Found element:', element);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      console.log('Scroll initiated');
-    } else {
-      console.log('Element with id "work" not found');
-    }
+    // Try multiple methods to ensure scroll works
+    setTimeout(() => {
+      const element = document.getElementById('work');
+      if (element) {
+        // Method 1: scrollIntoView
+        element.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      } else {
+        // Method 2: fallback - scroll to estimated position
+        const heroHeight = window.innerHeight;
+        window.scrollTo({
+          top: heroHeight,
+          behavior: 'smooth'
+        });
+      }
+    }, 100);
   };
 
   const scrollToContact = () => {
