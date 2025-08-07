@@ -89,7 +89,7 @@ const projects: Project[] = [
 ];
 
 export default function FeaturedWork() {
-  const [activeFilter, setActiveFilter] = useState<string>('all');
+  const [activeFilter, setActiveFilter] = useState<string>('product-management');
 
   const filteredProjects = projects.filter(project => 
     activeFilter === 'all' || project.category === activeFilter
@@ -118,18 +118,18 @@ export default function FeaturedWork() {
         <div className="flex justify-center mb-12">
           <div className="glass rounded-xl p-2">
             <Button
-              variant={activeFilter === 'all' ? 'default' : 'ghost'}
-              onClick={() => setActiveFilter('all')}
-              className={activeFilter === 'all' ? 'gradient-bg-primary' : ''}
-            >
-              All Projects
-            </Button>
-            <Button
               variant={activeFilter === 'product-management' ? 'default' : 'ghost'}
               onClick={() => setActiveFilter('product-management')}
               className={activeFilter === 'product-management' ? 'gradient-bg-primary' : ''}
             >
               Product Management
+            </Button>
+            <Button
+              variant={activeFilter === 'all' ? 'default' : 'ghost'}
+              onClick={() => setActiveFilter('all')}
+              className={activeFilter === 'all' ? 'gradient-bg-primary' : ''}
+            >
+              All Projects
             </Button>
             <Button
               variant={activeFilter === 'product-design' ? 'default' : 'ghost'}
