@@ -40,8 +40,7 @@ export default function HeroSection() {
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
-            Humanizing IT through collaborative problem-solving.<br />
-            We dig deep, work together, create solutions that actually make sense, and products users genuinely adore.
+            I'm the human on your IT team. Working together, diving into the problems, finding solutions that actually make sense, and creating products users adore.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
