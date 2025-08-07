@@ -3,6 +3,7 @@ import { X, ExternalLink, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import engageOnboardingVideo from "@assets/Engage_Onboarding_1_1754580372224.mp4";
+import engageRoadmapImage from "@assets/Engage Roadmap_1754580703265.png";
 
 interface CaseStudy {
   id: string;
@@ -88,7 +89,7 @@ const caseStudies: Record<string, CaseStudy> = {
       'Award recognition validates user-centered design approach',
       'Measurable impact drives continued investment in UX'
     ],
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450',
+    image: engageRoadmapImage,
     video: engageOnboardingVideo,
     award: '2023 California Government Technology Innovation Award for Public Service'
   },
