@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
+import MusicPlayer from "@/components/music-player";
 
 export default function HeroSection() {
   const scrollToWork = () => {
@@ -37,7 +38,7 @@ export default function HeroSection() {
             Transforming complex problems into intuitive solutions through product management, UX design, and creative innovation. From government tech modernization to startup product development.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 mb-12">
+          <div className="flex flex-col sm:flex-row gap-4 mb-8">
             <Button 
               onClick={scrollToWork}
               className="px-8 py-4 gradient-bg-primary hover:opacity-90 rounded-xl font-semibold text-lg transition-all duration-300 glow-purple"
@@ -51,6 +52,11 @@ export default function HeroSection() {
             >
               Let's Connect
             </Button>
+          </div>
+
+          {/* Music Player */}
+          <div className="mb-12">
+            <MusicPlayer />
           </div>
           
           {/* Key Metrics */}

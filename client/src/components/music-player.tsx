@@ -1,0 +1,94 @@
+import { useState, useRef, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Play, Pause, Volume2 } from "lucide-react";
+import hireMeSong from "@assets/Hire Me (Design and Groove)_1754579236907.mp3";
+
+export default function MusicPlayer() {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [duration, setDuration] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const setAudioData = () => {
+      setDuration(audio.duration);
+      setCurrentTime(audio.currentTime);
+    };
+
+    const setAudioTime = () => setCurrentTime(audio.currentTime);
+
+    audio.addEventListener('loadeddata', setAudioData);
+    audio.addEventListener('timeupdate', setAudioTime);
+
+    // Handle audio end
+    audio.addEventListener('ended', () => {
+      setIsPlaying(false);
+      setCurrentTime(0);
+    });
+
+    return () => {
+      audio.removeEventListener('loadeddata', setAudioData);
+      audio.removeEventListener('timeupdate', setAudioTime);
+      audio.removeEventListener('ended', () => setIsPlaying(false));
+    };
+  }, []);
+
+  const togglePlayPause = async () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (isPlaying) {
+      audio.pause();
+      setIsPlaying(false);
+    } else {
+      try {
+        await audio.play();
+        setIsPlaying(true);
+      } catch (error) {
+        console.error('Error playing audio:', error);
+      }
+    }
+  };
+
+  const formatTime = (time: number) => {
+    if (isNaN(time)) return "0:00";
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  };
+
+  return (
+    <div className="flex items-center gap-4 glass rounded-xl p-4 hover:glow-purple transition-all duration-300">
+      <audio ref={audioRef} src={hireMeSong} preload="metadata" />
+      
+      <Button
+        onClick={togglePlayPause}
+        variant="outline"
+        size="icon"
+        className="h-12 w-12 rounded-full border-2 border-primary hover:bg-primary hover:text-primary-foreground"
+      >
+        {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
+      </Button>
+
+      <div className="flex-1 min-w-0">
+        <div className="text-sm font-medium text-foreground mb-1">
+          Hire Me (Design and Groove)
+        </div>
+        <div className="flex items-center gap-2 text-xs text-muted-foreground">
+          <Volume2 className="h-3 w-3" />
+          <span>{formatTime(currentTime)}</span>
+          <div className="flex-1 bg-muted rounded-full h-1">
+            <div 
+              className="bg-primary h-1 rounded-full transition-all duration-200"
+              style={{ width: duration > 0 ? `${(currentTime / duration) * 100}%` : '0%' }}
+            />
+          </div>
+          <span>{formatTime(duration)}</span>
+        </div>
+      </div>
+    </div>
+  );
+}
