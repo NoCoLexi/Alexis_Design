@@ -47,6 +47,18 @@ const projects: Project[] = [
     tags: ['Change Management', 'Product Strategy', 'Government Innovation']
   },
   {
+    id: 'eag',
+    title: 'Enterprise Architecture Group',
+    description: 'Modernizing Cal OES technology infrastructure through strategic platform consolidation, standardization of development practices, and implementation of governance frameworks.',
+    category: 'product-management',
+    image: oesAppsImage,
+    metrics: [
+      { label: 'Infrastructure Cost Reduction', value: '60%', color: 'text-chart-4' },
+      { label: 'Development Velocity Increase', value: '40%', color: 'text-chart-2' }
+    ],
+    tags: ['Enterprise Architecture', 'Technology Strategy', 'Platform Modernization']
+  },
+  {
     id: 'closeouts',
     title: 'PA Portal Closeouts App',
     description: 'Streamlining the reimbursement process for California subrecipients. Winner of the 2023 California Government Technology Innovation Award.',

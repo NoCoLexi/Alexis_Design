@@ -119,6 +119,50 @@ const caseStudies: Record<string, CaseStudy> = {
       ocmRrmImage
     ]
   },
+  eag: {
+    id: 'eag',
+    title: 'Enterprise Architecture Group (EAG)',
+    subtitle: 'Modernizing Government Technology Infrastructure',
+    description: 'Spearheaded the strategic modernization of Cal OES enterprise architecture, standardizing technology platforms and establishing governance frameworks across multiple departments. Led cross-functional initiatives to consolidate legacy systems and implement scalable solutions.',
+    role: 'Enterprise Solutions Architect & Product Manager',
+    duration: '18 months',
+    team: '20+ stakeholders across multiple departments',
+    challenge: 'Cal OES technology infrastructure consisted of disparate legacy systems with no standardized architecture or governance. Multiple departments operated independent technology stacks, creating inefficiencies, security vulnerabilities, and maintenance overhead.',
+    solution: 'Developed comprehensive enterprise architecture strategy focusing on platform consolidation, standardization of development practices, and implementation of governance frameworks. Established technology roadmaps aligned with business objectives and regulatory requirements.',
+    outcome: 'Successfully modernized enterprise infrastructure, reducing operational complexity while improving security, scalability, and maintainability across all Cal OES technology platforms.',
+    metrics: [
+      { label: '60%', value: 'Infrastructure Cost Reduction', description: 'Through platform consolidation' },
+      { label: '85%', value: 'Compliance Improvement', description: 'Security and regulatory standards' },
+      { label: '40%', value: 'Development Velocity Increase', description: 'Standardized frameworks and tools' }
+    ],
+    process: [
+      'Current state architecture assessment',
+      'Technology stack analysis and optimization',
+      'Cross-departmental stakeholder alignment',
+      'Enterprise architecture framework development',
+      'Platform consolidation and migration planning',
+      'Governance structure implementation',
+      'Continuous monitoring and optimization'
+    ],
+    learnings: [
+      'Enterprise architecture requires strong change management and stakeholder buy-in',
+      'Standardization dramatically improves development efficiency and maintenance',
+      'Cross-departmental collaboration is essential for successful modernization',
+      'Governance frameworks prevent architectural drift and technical debt',
+      'Incremental migration reduces risk while delivering measurable value'
+    ],
+    slideshow: [
+      ocmWarningImage,
+      ocmDonationsImage,
+      ocmEngageImage,
+      ocmGrantsImage,
+      ocmHrModImage,
+      ocmMarsImage,
+      ocmMissionEdgeImage,
+      ocmPaCloseoutImage,
+      ocmRrmImage
+    ]
+  },
   closeouts: {
     id: 'closeouts',
     title: 'Public Assistance Closeouts App',
