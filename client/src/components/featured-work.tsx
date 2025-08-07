@@ -38,8 +38,8 @@ const projects: Project[] = [
   },
   {
     id: 'ocm',
-    title: 'Office of Change Management',
-    description: 'Transforming government digital infrastructure by unifying nine fragmented applications into a cohesive user experience through strategic product management and change leadership.',
+    title: 'Office of Change Management (OCM)',
+    description: 'Leading a comprehensive government, state-wide system change initiative to transform California\'s digital infrastructure by unifying nine fragmented applications into a cohesive user experience through strategic product management and organizational change leadership.',
     category: 'product-management',
     image: engageConnectImage,
     metrics: [
