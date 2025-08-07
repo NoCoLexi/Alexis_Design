@@ -4,9 +4,14 @@ import MusicPlayer from "@/components/music-player";
 
 export default function HeroSection() {
   const scrollToWork = () => {
+    console.log('Down arrow clicked - attempting to scroll to work section');
     const element = document.getElementById('work');
+    console.log('Found work element:', element);
     if (element) {
+      console.log('Scrolling to work section...');
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      console.log('Work element not found!');
     }
   };
 
