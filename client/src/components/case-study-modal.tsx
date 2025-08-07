@@ -6,6 +6,7 @@ import engageOnboardingVideo from "@assets/Engage_Onboarding_1_1754580372224.mp4
 import engageRoadmapImage from "@assets/Engage Roadmap_1754580703265.png";
 import engageInterviewsImage from "@assets/02.02—interviews_1754580788428.png";
 import dashboardImage from "@assets/image_1754580387947.png";
+import oesAppsImage from "@assets/OES IT Apps_1754584482209.png";
 import iLaveImage from "@assets/!-Lave group Alt_1754580875717.png";
 import driverOnboardingVideo from "@assets/▶ Driver 1st Iteration - onboarding_1754581040697.mp4";
 import weChoreImage from "@assets/WeChore Diagonal_1754581130624.png";
@@ -97,7 +98,7 @@ const caseStudies: Record<string, CaseStudy> = {
       'Political navigation is essential for technical solution success',
       'Clear language dramatically improves user comprehension and adoption'
     ],
-    image: dashboardImage
+    image: oesAppsImage
   },
   closeouts: {
     id: 'closeouts',

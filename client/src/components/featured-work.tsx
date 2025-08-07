@@ -5,6 +5,7 @@ import { Award, ExternalLink } from "lucide-react";
 import calOesImage from "@assets/Cal OES Engage Landing Page Phase I_v2_1754580174186.png";
 import paPortalImage from "@assets/caloes login modal_1754580191419.png";
 import dashboardImage from "@assets/image_1754580387947.png";
+import oesAppsImage from "@assets/OES IT Apps_1754584482209.png";
 import iLaveImage from "@assets/!-Lave group Alt_1754580875717.png";
 import weChoreImage from "@assets/WeChore Diagonal_1754581130624.png";
 import subscriptexImage from "@assets/Subscriptex Layers_1754581352868.png";
@@ -38,7 +39,7 @@ const projects: Project[] = [
     title: 'Office of Change Management',
     description: 'Transforming government digital infrastructure by unifying nine fragmented applications into a cohesive user experience through strategic product management and change leadership.',
     category: 'product-management',
-    image: dashboardImage,
+    image: oesAppsImage,
     metrics: [
       { label: 'Support Ticket Reduction', value: '75%', color: 'text-chart-3' },
       { label: 'User Base Growth', value: '545.5%', color: 'text-primary' },
