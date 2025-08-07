@@ -52,18 +52,18 @@ class AudioManager {
       oscillator.connect(gainNode);
       gainNode.connect(this.audioContext.destination);
 
-      // Configure the sound - audible low tom drum
-      oscillator.frequency.setValueAtTime(120, this.audioContext.currentTime); // Higher starting frequency for better audibility
-      oscillator.frequency.exponentialRampToValueAtTime(60, this.audioContext.currentTime + 0.1); // Drop to low tom range
+      // Configure the sound - crisp click sound
+      oscillator.frequency.setValueAtTime(1000, this.audioContext.currentTime); // High frequency click
+      oscillator.frequency.exponentialRampToValueAtTime(800, this.audioContext.currentTime + 0.03); // Quick frequency drop
 
-      // Drum-like volume envelope - quick attack, slower decay
+      // Sharp click envelope - very quick attack and decay
       gainNode.gain.setValueAtTime(0, this.audioContext.currentTime);
-      gainNode.gain.linearRampToValueAtTime(0.6, this.audioContext.currentTime + 0.01); // Much louder attack
-      gainNode.gain.exponentialRampToValueAtTime(0.02, this.audioContext.currentTime + 0.15); // Louder decay
+      gainNode.gain.linearRampToValueAtTime(0.4, this.audioContext.currentTime + 0.005); // Quick sharp attack
+      gainNode.gain.exponentialRampToValueAtTime(0.01, this.audioContext.currentTime + 0.03); // Quick decay
 
-      // Play for optimal duration
+      // Play for very short duration for crisp click
       oscillator.start(this.audioContext.currentTime);
-      oscillator.stop(this.audioContext.currentTime + 0.15);
+      oscillator.stop(this.audioContext.currentTime + 0.03);
 
       console.log('Tom sound played');
 
