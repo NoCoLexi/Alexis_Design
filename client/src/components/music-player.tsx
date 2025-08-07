@@ -7,11 +7,15 @@ export default function MusicPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
+  const [autoplayAttempted, setAutoplayAttempted] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
+
+    // Set lower volume for background music
+    audio.volume = 0.25;
 
     const setAudioData = () => {
       setDuration(audio.duration);
@@ -29,12 +33,45 @@ export default function MusicPlayer() {
       setCurrentTime(0);
     });
 
+    // Attempt autoplay when metadata is loaded
+    const tryAutoplay = async () => {
+      if (!autoplayAttempted && audio.readyState >= 2) {
+        setAutoplayAttempted(true);
+        try {
+          await audio.play();
+          setIsPlaying(true);
+          console.log('Autoplay successful');
+        } catch (error) {
+          console.log('Autoplay blocked by browser - user interaction required');
+          // Fallback: try to play on first user interaction
+          const enableAutoplayOnInteraction = async () => {
+            try {
+              await audio.play();
+              setIsPlaying(true);
+              document.removeEventListener('click', enableAutoplayOnInteraction);
+              document.removeEventListener('keydown', enableAutoplayOnInteraction);
+            } catch (e) {
+              console.log('Audio play failed:', e);
+            }
+          };
+          
+          document.addEventListener('click', enableAutoplayOnInteraction, { once: true });
+          document.addEventListener('keydown', enableAutoplayOnInteraction, { once: true });
+        }
+      }
+    };
+
+    audio.addEventListener('loadedmetadata', tryAutoplay);
+    audio.addEventListener('canplaythrough', tryAutoplay);
+
     return () => {
       audio.removeEventListener('loadeddata', setAudioData);
       audio.removeEventListener('timeupdate', setAudioTime);
       audio.removeEventListener('ended', () => setIsPlaying(false));
+      audio.removeEventListener('loadedmetadata', tryAutoplay);
+      audio.removeEventListener('canplaythrough', tryAutoplay);
     };
-  }, []);
+  }, [autoplayAttempted]);
 
   const togglePlayPause = async () => {
     const audio = audioRef.current;
@@ -62,7 +99,7 @@ export default function MusicPlayer() {
 
   return (
     <div className="flex items-center gap-4 glass rounded-xl p-4 hover:glow-purple transition-all duration-300">
-      <audio ref={audioRef} src={hireMeSong} preload="metadata" />
+      <audio ref={audioRef} src={hireMeSong} preload="auto" />
       
       <Button
         onClick={togglePlayPause}
@@ -75,7 +112,7 @@ export default function MusicPlayer() {
 
       <div className="flex-1 min-w-0">
         <div className="text-sm font-medium text-foreground mb-1">
-          Hire Alexis song (play me)
+          {isPlaying ? 'Hire Alexis song (playing)' : 'Hire Alexis song (click to play)'}
         </div>
         <div className="flex items-center gap-2 text-xs text-muted-foreground">
           <Volume2 className="h-3 w-3" />
