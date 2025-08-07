@@ -17,13 +17,40 @@ export default function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="text-4xl md:text-5xl font-bold mb-8">
-              <span className="gradient-text">Solution Factory</span>
+              <span className="gradient-text">My Expertise</span>
             </h2>
             
             <div className="space-y-6 text-lg text-muted-foreground">
               <p className="leading-relaxed">
                 <strong className="text-foreground">"My colleagues nickname me: 'Idea Factory' but I prefer 'Solution Factory'"</strong> because every idea I come up with stems from a problem. Without problems, there are no solutions. Without solutions, there are no (relevant) ideas.
               </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                <div className="glass rounded-xl p-6">
+                  <h3 className="font-semibold text-primary mb-3">Product Management</h3>
+                  <p className="text-muted-foreground text-sm">
+                    Strategic product vision, roadmap development, and cross-functional team leadership to deliver user-centered solutions.
+                  </p>
+                </div>
+                <div className="glass rounded-xl p-6">
+                  <h3 className="font-semibold text-primary mb-3">Human-Centered Design</h3>
+                  <p className="text-muted-foreground text-sm">
+                    Design thinking methodologies focused on creating intuitive, accessible experiences that solve real user problems.
+                  </p>
+                </div>
+                <div className="glass rounded-xl p-6">
+                  <h3 className="font-semibold text-primary mb-3">User Research & Insights</h3>
+                  <p className="text-muted-foreground text-sm">
+                    Comprehensive user research, data analysis, and behavioral insights to inform product decisions.
+                  </p>
+                </div>
+                <div className="glass rounded-xl p-6">
+                  <h3 className="font-semibold text-primary mb-3">Change Management</h3>
+                  <p className="text-muted-foreground text-sm">
+                    Organizational transformation, stakeholder alignment, and adoption strategies for successful product launches.
+                  </p>
+                </div>
+              </div>
               
               <div className="glass rounded-xl p-6">
                 <h3 className="font-semibold text-primary mb-3">The Sarah Story</h3>
