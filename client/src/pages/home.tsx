@@ -77,7 +77,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center">
-              <svg width="140" height="40" viewBox="0 0 140 40" className="h-10 w-auto">
+              <svg width="180" height="50" viewBox="0 0 180 50" className="h-12 w-auto">
                 <defs>
                   <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" stopColor="#14b8a6" />
@@ -86,45 +86,50 @@ export default function Home() {
                 </defs>
                 
                 {/* Alexis text */}
-                <text x="0" y="16" fontSize="14" fontWeight="700" fill="url(#logoGradient)" fontFamily="system-ui, -apple-system, sans-serif">
+                <text x="0" y="20" fontSize="18" fontWeight="700" fill="url(#logoGradient)" fontFamily="system-ui, -apple-system, sans-serif">
                   Alexis
                 </text>
                 
-                {/* Brochu text */}
-                <text x="0" y="32" fontSize="14" fontWeight="700" fill="url(#logoGradient)" fontFamily="system-ui, -apple-system, sans-serif">
-                  Brochu
-                </text>
-                
-                {/* Abstract molecular/network design elements */}
-                <g transform="translate(75, 8)">
-                  {/* Main circles */}
-                  <circle cx="8" cy="8" r="3" fill="#14b8a6" opacity="0.9" />
-                  <circle cx="20" cy="6" r="2.5" fill="#0891b2" opacity="0.8" />
-                  <circle cx="16" cy="18" r="2" fill="#06b6d4" opacity="0.7" />
-                  <circle cx="4" cy="20" r="1.5" fill="#14b8a6" opacity="0.6" />
+                {/* Brochu text with molecular design inside the O */}
+                <g>
+                  {/* B */}
+                  <text x="0" y="40" fontSize="18" fontWeight="700" fill="url(#logoGradient)" fontFamily="system-ui, -apple-system, sans-serif">
+                    Br
+                  </text>
                   
-                  {/* Connecting lines */}
-                  <line x1="8" y1="8" x2="20" y2="6" stroke="#14b8a6" strokeWidth="1.5" opacity="0.5" />
-                  <line x1="8" y1="8" x2="16" y2="18" stroke="#0891b2" strokeWidth="1.5" opacity="0.5" />
-                  <line x1="8" y1="8" x2="4" y2="20" stroke="#06b6d4" strokeWidth="1.5" opacity="0.4" />
-                  <line x1="20" y1="6" x2="16" y2="18" stroke="#14b8a6" strokeWidth="1" opacity="0.4" />
+                  {/* O with molecular design inside */}
+                  <g>
+                    {/* O outline */}
+                    <circle cx="36" cy="35" r="9" fill="none" stroke="url(#logoGradient)" strokeWidth="2.5" />
+                    
+                    {/* Molecular structure inside O */}
+                    <g transform="translate(36, 35)">
+                      {/* Central node */}
+                      <circle cx="0" cy="0" r="1.5" fill="#14b8a6" opacity="0.9" />
+                      
+                      {/* Connected nodes */}
+                      <circle cx="-4" cy="-3" r="1.2" fill="#0891b2" opacity="0.8" />
+                      <circle cx="4" cy="-3" r="1.2" fill="#06b6d4" opacity="0.8" />
+                      <circle cx="3" cy="4" r="1.2" fill="#14b8a6" opacity="0.7" />
+                      <circle cx="-3" cy="4" r="1.2" fill="#0891b2" opacity="0.7" />
+                      
+                      {/* Connecting lines */}
+                      <line x1="0" y1="0" x2="-4" y2="-3" stroke="#14b8a6" strokeWidth="1" opacity="0.6" />
+                      <line x1="0" y1="0" x2="4" y2="-3" stroke="#0891b2" strokeWidth="1" opacity="0.6" />
+                      <line x1="0" y1="0" x2="3" y2="4" stroke="#06b6d4" strokeWidth="1" opacity="0.6" />
+                      <line x1="0" y1="0" x2="-3" y2="4" stroke="#14b8a6" strokeWidth="1" opacity="0.5" />
+                      
+                      {/* Cross connections */}
+                      <line x1="-4" y1="-3" x2="4" y2="-3" stroke="#0891b2" strokeWidth="0.8" opacity="0.4" />
+                      <line x1="-3" y1="4" x2="3" y2="4" stroke="#06b6d4" strokeWidth="0.8" opacity="0.4" />
+                    </g>
+                  </g>
                   
-                  {/* Smaller accent dots */}
-                  <circle cx="12" cy="2" r="1" fill="#0891b2" opacity="0.6" />
-                  <circle cx="24" cy="12" r="1" fill="#14b8a6" opacity="0.5" />
-                  <circle cx="2" cy="14" r="1" fill="#06b6d4" opacity="0.5" />
+                  {/* chu */}
+                  <text x="54" y="40" fontSize="18" fontWeight="700" fill="url(#logoGradient)" fontFamily="system-ui, -apple-system, sans-serif">
+                    chu
+                  </text>
                 </g>
-                
-                {/* Subtle glow effect */}
-                <defs>
-                  <filter id="glow">
-                    <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-                    <feMerge> 
-                      <feMergeNode in="coloredBlur"/>
-                      <feMergeNode in="SourceGraphic"/>
-                    </feMerge>
-                  </filter>
-                </defs>
               </svg>
             </div>
             <div className="hidden md:flex space-x-8">
