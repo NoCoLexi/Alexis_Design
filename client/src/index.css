@@ -208,3 +208,74 @@
   flex: 0 0 auto;
   min-width: 0;
 }
+
+/* Disco Light Effects */
+@keyframes disco-lights {
+  0% { 
+    background: radial-gradient(circle at 20% 20%, #ff6b6b 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, #4ecdc4 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, #45b7d1 0%, transparent 50%);
+    transform: rotate(0deg);
+  }
+  25% { 
+    background: radial-gradient(circle at 80% 20%, #ff9ff3 0%, transparent 50%),
+                radial-gradient(circle at 20% 80%, #54a0ff 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, #5f27cd 0%, transparent 50%);
+    transform: rotate(90deg);
+  }
+  50% { 
+    background: radial-gradient(circle at 80% 80%, #00d2d3 0%, transparent 50%),
+                radial-gradient(circle at 20% 20%, #ff9f43 0%, transparent 50%),
+                radial-gradient(circle at 60% 20%, #ee5a24 0%, transparent 50%);
+    transform: rotate(180deg);
+  }
+  75% { 
+    background: radial-gradient(circle at 20% 80%, #a55eea 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, #26de81 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, #fd79a8 0%, transparent 50%);
+    transform: rotate(270deg);
+  }
+  100% { 
+    background: radial-gradient(circle at 20% 20%, #ff6b6b 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, #4ecdc4 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, #45b7d1 0%, transparent 50%);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes disco-pulse {
+  0%, 100% { 
+    opacity: 0.6;
+    box-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
+  }
+  50% { 
+    opacity: 1;
+    box-shadow: 0 0 40px rgba(255, 107, 107, 0.6);
+  }
+}
+
+.disco-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.disco-button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 50% 50%, transparent 30%, rgba(255, 255, 255, 0.1) 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.disco-button.playing::before {
+  animation: disco-lights 2s linear infinite;
+  opacity: 1;
+}
+
+.disco-button.playing {
+  animation: disco-pulse 1s ease-in-out infinite;
+}

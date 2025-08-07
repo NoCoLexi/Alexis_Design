@@ -68,9 +68,9 @@ export default function MusicPlayer() {
         onClick={togglePlayPause}
         variant="outline"
         size="icon"
-        className="h-12 w-12 rounded-full border-2 border-primary hover:bg-primary hover:text-primary-foreground"
+        className={`h-12 w-12 rounded-full border-2 border-primary hover:bg-primary hover:text-primary-foreground disco-button ${isPlaying ? 'playing' : ''}`}
       >
-        {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
+        {isPlaying ? <Pause className="h-5 w-5 relative z-10" /> : <Play className="h-5 w-5 relative z-10" />}
       </Button>
 
       <div className="flex-1 min-w-0">
