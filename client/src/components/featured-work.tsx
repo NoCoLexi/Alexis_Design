@@ -121,7 +121,7 @@ const projects: Project[] = [
   }
 ];
 
-// Project card with parallax effects
+// Project card with conditional parallax effects
 const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
   project: Project;
   index: number;
@@ -130,6 +130,9 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
   const cardRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [parallaxY, setParallaxY] = useState(0);
+  
+  // Disable parallax for slow cards (EAG and Public Assistance)
+  const disableParallax = project.id === 'eag' || project.id === 'pa-portal';
 
   useEffect(() => {
     const card = cardRef.current;
@@ -145,6 +148,13 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
     );
 
     observer.observe(card);
+
+    // Skip scroll handling if parallax is disabled
+    if (disableParallax) {
+      return () => {
+        observer.disconnect();
+      };
+    }
 
     const handleScroll = () => {
       if (!card) return;
@@ -165,7 +175,7 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
       observer.disconnect();
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [disableParallax]);
 
   return (
     <div
@@ -175,7 +185,9 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
       }`}
       onClick={() => onOpenCaseStudy(project.id)}
       style={{
-        transform: `translateY(${isVisible ? -parallaxY * 0.2 : 20}px) scale(${isVisible ? 1 : 0.95})`,
+        transform: disableParallax 
+          ? `scale(${isVisible ? 1 : 0.95})` 
+          : `translateY(${isVisible ? -parallaxY * 0.2 : 20}px) scale(${isVisible ? 1 : 0.95})`,
         transition: 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
       }}
     >
@@ -186,7 +198,7 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
           className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
           loading={index < 2 ? "eager" : "lazy"}
           decoding="async"
-          style={{ 
+          style={disableParallax ? {} : { 
             transform: `translateY(${parallaxY * 0.1}px)`,
             transition: 'transform 0.1s ease-out'
           }}
