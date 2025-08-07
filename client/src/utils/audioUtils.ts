@@ -58,8 +58,8 @@ class AudioManager {
 
       // Drum-like volume envelope - quick attack, slower decay
       gainNode.gain.setValueAtTime(0, this.audioContext.currentTime);
-      gainNode.gain.linearRampToValueAtTime(0.3, this.audioContext.currentTime + 0.01); // Louder attack
-      gainNode.gain.exponentialRampToValueAtTime(0.01, this.audioContext.currentTime + 0.15); // Shorter but audible decay
+      gainNode.gain.linearRampToValueAtTime(0.6, this.audioContext.currentTime + 0.01); // Much louder attack
+      gainNode.gain.exponentialRampToValueAtTime(0.02, this.audioContext.currentTime + 0.15); // Louder decay
 
       // Play for optimal duration
       oscillator.start(this.audioContext.currentTime);
