@@ -148,10 +148,10 @@ function CategoryCarousel({ items, title, description }: CarouselProps) {
   }, [emblaApi, onSelect]);
 
   return (
-    <div className="mb-16">
-      <div className="flex items-center justify-between mb-8">
+    <div className="mb-12">
+      <div className="flex items-center justify-between mb-6">
         <div>
-          <h3 className="text-2xl md:text-3xl font-bold gradient-text mb-2">{title}</h3>
+          <h3 className="text-xl md:text-2xl font-bold gradient-text mb-2">{title}</h3>
           <p className="text-muted-foreground">{description}</p>
         </div>
         <div className="flex gap-2">
@@ -177,18 +177,18 @@ function CategoryCarousel({ items, title, description }: CarouselProps) {
       </div>
 
       <div className="embla overflow-hidden" ref={emblaRef}>
-        <div className="embla__container flex gap-6">
+        <div className="embla__container flex gap-4">
           {items.map((item) => (
-            <div key={item.id} className="embla__slide flex-[0_0_320px] md:flex-[0_0_400px]">
-              <div className="relative group h-80 md:h-96 rounded-2xl overflow-hidden bg-card">
+            <div key={item.id} className="embla__slide flex-[0_0_240px] md:flex-[0_0_280px]">
+              <div className="relative group h-60 md:h-72 rounded-xl overflow-hidden bg-card">
                 <img
                   src={item.image}
                   alt={item.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <h4 className="text-lg font-semibold mb-2">{item.title}</h4>
+                <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                  <h4 className="text-base font-semibold mb-1">{item.title}</h4>
                   {item.description && (
                     <p className="text-sm text-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
                       {item.description}
@@ -227,12 +227,12 @@ export default function CreativeGallery() {
     <section id="gallery" className="py-20 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-accent/50 to-background"></div>
       
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+      <div className="relative z-10 max-w-6xl mx-auto px-6">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
             <span className="gradient-text">Creative Portfolio</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Diverse creative work spanning print design, branding, and outdoor advertising
           </p>
         </div>
