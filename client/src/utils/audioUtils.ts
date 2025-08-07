@@ -33,7 +33,7 @@ class AudioManager {
     try {
       await this.resumeContext();
 
-      // Create oscillator for the click sound
+      // Create oscillator for the low tom drum sound
       const oscillator = this.audioContext.createOscillator();
       const gainNode = this.audioContext.createGain();
 
@@ -41,21 +41,21 @@ class AudioManager {
       oscillator.connect(gainNode);
       gainNode.connect(this.audioContext.destination);
 
-      // Configure the sound - short, high-pitched click
-      oscillator.frequency.setValueAtTime(800, this.audioContext.currentTime);
-      oscillator.frequency.exponentialRampToValueAtTime(400, this.audioContext.currentTime + 0.05);
+      // Configure the sound - deep, resonant tom drum
+      oscillator.frequency.setValueAtTime(80, this.audioContext.currentTime); // Start low like a tom
+      oscillator.frequency.exponentialRampToValueAtTime(40, this.audioContext.currentTime + 0.15); // Drop even lower
 
-      // Quick volume envelope for click effect
+      // Drum-like volume envelope - quick attack, slower decay
       gainNode.gain.setValueAtTime(0, this.audioContext.currentTime);
-      gainNode.gain.linearRampToValueAtTime(0.1, this.audioContext.currentTime + 0.01);
-      gainNode.gain.exponentialRampToValueAtTime(0.01, this.audioContext.currentTime + 0.05);
+      gainNode.gain.linearRampToValueAtTime(0.15, this.audioContext.currentTime + 0.01); // Quick attack
+      gainNode.gain.exponentialRampToValueAtTime(0.01, this.audioContext.currentTime + 0.2); // Longer sustain/decay
 
-      // Play for a very short duration
+      // Play for longer duration to simulate tom resonance
       oscillator.start(this.audioContext.currentTime);
-      oscillator.stop(this.audioContext.currentTime + 0.05);
+      oscillator.stop(this.audioContext.currentTime + 0.2);
 
     } catch (error) {
-      console.warn('Could not play click sound:', error);
+      console.warn('Could not play tom sound:', error);
     }
   }
 
