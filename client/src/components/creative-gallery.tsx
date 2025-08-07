@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import beerAdvertising from "@assets/IMG_1656_1754523468629.jpg";
 import gatoradePoster from "@assets/IMG_1620_1754523481860.jpg";
 import universityBrochure from "@assets/FullSizeRender 2_1754523503518.jpg";
-import blackBookCover from "@assets/FullSizeRender 11_1754523511007.jpg";
+import beerAdvertising2 from "@assets/IMG_1656_1754576836327.jpg";
 import lifespanReports from "@assets/FullSizeRender 13_1754523521763.jpg";
 import schoolMaterials from "@assets/FullSizeRender 4_1754523633019.jpg";
 import budweiserAd from "@assets/FullSizeRender 35_1754523657712.jpg";
@@ -24,7 +24,7 @@ const galleryItems: GalleryItem[] = [
   { id: '3', category: 'print', image: universityBrochure, title: 'University Marketing Materials' },
   
   // Branding Items
-  { id: '4', category: 'branding', image: blackBookCover, title: 'Black Book of Trade Secrets' },
+  { id: '4', category: 'branding', image: beerAdvertising2, title: 'Budweiser Brand Campaign' },
   { id: '5', category: 'branding', image: lifespanReports, title: 'Lifespan Healthcare Annual Reports' },
   { id: '6', category: 'branding', image: schoolMaterials, title: 'Providence Schools Brand Materials' },
   
