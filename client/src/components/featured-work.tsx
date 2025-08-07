@@ -50,8 +50,8 @@ const projects: Project[] = [
   },
   {
     id: 'eag',
-    title: 'Enterprise Architecture Group',
-    description: 'Modernizing Cal OES technology infrastructure through strategic platform consolidation, standardization of development practices, and implementation of governance frameworks.',
+    title: 'Enterprise Architecture Group (EAG)',
+    description: 'Integrating Cal OES technology infrastructure through strategic platform consolidation, Centers of Excellence initiatives, standardization of development practices, and implementation of governance frameworks.',
     category: 'product-management',
     image: eagWhiteBgImage,
     metrics: [
