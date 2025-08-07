@@ -78,40 +78,37 @@ export default function ChatbotOverlay({ typebotUrl = "https://typebot.co/lead-g
 
           {/* Chat Content */}
           <div className="h-full">
-            {hasError ? (
-              <div className="flex flex-col items-center justify-center h-full p-6 text-center">
-                <MessageCircle className="h-12 w-12 text-muted-foreground mb-4" />
-                <h3 className="font-semibold mb-2">Chat Unavailable</h3>
-                <p className="text-sm text-muted-foreground mb-4">
-                  The chatbot is currently unavailable. Please try again later or contact us directly.
-                </p>
+            <div className="flex flex-col items-center justify-center h-full p-6 text-center">
+              <MessageCircle className="h-12 w-12 text-primary mb-4" />
+              <h3 className="font-semibold mb-2">Let's Connect!</h3>
+              <p className="text-sm text-muted-foreground mb-6">
+                I'd love to discuss your next project or answer any questions about my work in product management and design.
+              </p>
+              <div className="space-y-3 w-full">
                 <Button 
-                  variant="outline" 
-                  size="sm"
-                  onClick={() => window.location.href = '#contact'}
+                  className="w-full"
+                  onClick={() => {
+                    closeChatbot();
+                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
                 >
-                  Contact Us
+                  Get In Touch
                 </Button>
+                <Button 
+                  variant="outline"
+                  className="w-full"
+                  onClick={() => {
+                    closeChatbot();
+                    document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  View My Work
+                </Button>
+                <div className="text-xs text-muted-foreground pt-2">
+                  Ready to transform your next project?
+                </div>
               </div>
-            ) : (
-              <iframe
-                src={typebotUrl}
-                className="w-full h-full border-0"
-                title="Chatbot"
-                onError={handleIframeError}
-                onLoad={(e) => {
-                  // Check if iframe loaded successfully
-                  const iframe = e.target as HTMLIFrameElement;
-                  try {
-                    // This will throw an error if the iframe content is not accessible
-                    iframe.contentWindow?.location.href;
-                  } catch (error) {
-                    // If we can't access the iframe content, it might be due to CORS or the page doesn't exist
-                    console.warn('Chatbot iframe may have loading issues:', error);
-                  }
-                }}
-              />
-            )}
+            </div>
           </div>
         </div>
       )}
