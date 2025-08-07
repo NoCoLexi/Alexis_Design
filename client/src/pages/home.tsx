@@ -150,7 +150,7 @@ export default function Home() {
       <CreativeGallery />
       <ContactSection />
       <CaseStudyModal />
-      <ChatbotOverlay />
+      {/* <ChatbotOverlay /> */}
 
       {/* Footer */}
       <footer className="py-12 border-t border-primary/20">
