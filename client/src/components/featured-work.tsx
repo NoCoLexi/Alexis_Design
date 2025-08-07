@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Award, ExternalLink } from "lucide-react";
 import calOesImage from "@assets/Cal OES Engage Landing Page Phase I_v2_1754580174186.png";
 import paPortalImage from "@assets/caloes login modal_1754580191419.png";
+import dashboardImage from "@assets/image_1754580387947.png";
 
 interface Project {
   id: string;
