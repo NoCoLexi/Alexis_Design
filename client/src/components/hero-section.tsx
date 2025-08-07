@@ -53,20 +53,25 @@ export default function HeroSection() {
             I'm the human on your IT team. Working together, diving into the problems, finding solutions that actually make sense, and creating products users adore.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 mb-16">
-            <Button 
-              onClick={scrollToWork}
-              className="px-8 py-4 gradient-bg-primary hover:opacity-90 rounded-xl font-semibold text-lg transition-all duration-300 glow-purple"
-            >
-              View My Work
-            </Button>
-            <Button 
-              variant="outline"
-              onClick={scrollToContact}
-              className="px-8 py-4 border-2 border-primary hover:bg-primary hover:text-primary-foreground rounded-xl font-semibold text-lg transition-all duration-300"
-            >
-              Let's Connect
-            </Button>
+          <div className="flex flex-col lg:flex-row gap-6 items-start lg:items-center mb-16">
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button 
+                onClick={scrollToWork}
+                className="px-8 py-4 gradient-bg-primary hover:opacity-90 rounded-xl font-semibold text-lg transition-all duration-300 glow-purple"
+              >
+                View My Work
+              </Button>
+              <Button 
+                variant="outline"
+                onClick={scrollToContact}
+                className="px-8 py-4 border-2 border-primary hover:bg-primary hover:text-primary-foreground rounded-xl font-semibold text-lg transition-all duration-300"
+              >
+                Let's Connect
+              </Button>
+            </div>
+            <div className="flex-shrink-0">
+              <MusicPlayer />
+            </div>
           </div>
           
           {/* Key Metrics - More Compact */}
@@ -86,10 +91,7 @@ export default function HeroSection() {
           </div>
         </div>
         
-        {/* Music Player - Moved to separate area */}
-        <div className="absolute bottom-20 right-6 z-20">
-          <MusicPlayer />
-        </div>
+
       </div>
 
       {/* Scroll indicator */}
