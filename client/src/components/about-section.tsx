@@ -53,9 +53,9 @@ export default function AboutSection() {
               </div>
               
               <div className="glass rounded-xl p-6">
-                <h3 className="font-semibold text-chart-4 mb-3">Born to Inspire</h3>
+                <h3 className="font-semibold text-chart-4 mb-3">CA Tech Award for Innovation</h3>
                 <p className="text-muted-foreground">
-                  I decided to ride my bike across Alaska to raise money for the AIDS vaccine. What I found was that I love working with and helping people - clients, co-workers, and anybody else who crosses my path.
+                  When I joined Cal OES, government workers were drowning in confusing legacy applications that frustrated users and blocked critical disaster response. My solution was to become fluent in both their technical constraints and human needs. After months of 350+ user interviews and strategic redesign, not only did we increase the user base by 545%, but the team won four regional awards including California's Government Innovation Award - Best Application Serving the Public.
                 </p>
               </div>
             </div>
