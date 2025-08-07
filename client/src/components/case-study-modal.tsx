@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import engageOnboardingVideo from "@assets/Engage_Onboarding_1_1754580372224.mp4";
 import engageRoadmapImage from "@assets/Engage Roadmap_1754580703265.png";
+import engageInterviewsImage from "@assets/02.02—interviews_1754580788428.png";
 
 interface CaseStudy {
   id: string;
@@ -56,7 +57,7 @@ const caseStudies: Record<string, CaseStudy> = {
       'Iterative user testing leads to more intuitive interfaces',
       'Cross-functional collaboration accelerates problem-solving'
     ],
-    image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450'
+    image: engageInterviewsImage
   },
   closeouts: {
     id: 'closeouts',
