@@ -69,15 +69,6 @@ export default function AboutSection() {
                 className="w-full h-full object-cover"
               />
             </div>
-            
-            {/* Skills Grid */}
-            <div className="grid grid-cols-2 gap-4">
-              {skills.map((skill) => (
-                <div key={skill.name} className="glass rounded-xl p-4 text-center hover:glow-purple transition-all duration-300">
-                  <div className={`text-lg font-bold ${skill.color}`}>{skill.name}</div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </div>
