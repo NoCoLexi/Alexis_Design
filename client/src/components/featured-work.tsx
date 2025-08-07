@@ -12,22 +12,15 @@ import iLaveImage from "@assets/!-Lave group Alt_1754580875717.png";
 import weChoreImage from "@assets/WeChore Diagonal_1754581130624.png";
 import subscriptexImage from "@assets/Subscriptex Layers_1754581352868.png";
 
-// Preload critical images immediately when component loads with high priority
+// Preload critical images immediately when component loads
 const preloadImage = (src: string) => {
-  const link = document.createElement('link');
-  link.rel = 'preload';
-  link.as = 'image';
-  link.href = src;
-  document.head.appendChild(link);
+  const img = new Image();
+  img.src = src;
 };
 
-// Preload the slow-loading images immediately
-if (typeof window !== 'undefined') {
-  preloadImage(eagWhiteBgImage);
-  preloadImage(paPortalImage);
-  preloadImage(calOesImage);
-  preloadImage(engageConnectImage);
-}
+// Preload the slow-loading images
+preloadImage(eagWhiteBgImage);
+preloadImage(paPortalImage);
 
 interface Project {
   id: string;
@@ -139,23 +132,64 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
   const [parallaxY, setParallaxY] = useState(0);
 
   useEffect(() => {
-    // Simplified visibility detection without parallax calculations for faster loading
-    setIsVisible(true); // Show cards immediately for faster perception
+    const card = cardRef.current;
+    if (!card) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          setIsVisible(entry.isIntersecting);
+        });
+      },
+      { threshold: 0.1, rootMargin: '50px' }
+    );
+
+    observer.observe(card);
+
+    const handleScroll = () => {
+      if (!card) return;
+      
+      const rect = card.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      
+      if (rect.top < windowHeight && rect.bottom > 0) {
+        const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
+        setParallaxY(progress * 30);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial calculation
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   return (
     <div
       ref={cardRef}
-      className="glass rounded-2xl overflow-hidden hover:glow-purple group cursor-pointer transition-all duration-300"
+      className={`glass rounded-2xl overflow-hidden hover:glow-purple group cursor-pointer transition-all duration-700 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}
       onClick={() => onOpenCaseStudy(project.id)}
+      style={{
+        transform: `translateY(${isVisible ? -parallaxY * 0.2 : 20}px) scale(${isVisible ? 1 : 0.95})`,
+        transition: 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+      }}
     >
       <div className="aspect-video relative overflow-hidden">
         <img 
           src={project.image} 
           alt={project.title}
-          className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
-          loading="eager"
-          decoding="sync"
+          className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+          loading={index < 2 ? "eager" : "lazy"}
+          decoding="async"
+          style={{ 
+            transform: `translateY(${parallaxY * 0.1}px)`,
+            transition: 'transform 0.1s ease-out'
+          }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
         <div className="absolute top-4 left-4 flex gap-2">
