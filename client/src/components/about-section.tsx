@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import professionalPhoto from "@assets/Brochu, Alexis 2023 Ireland_1754523029765.png";
+import profileVideo from "@assets/20181006_190845_1754603621565.mp4";
 
 const skills = [
   { name: 'Product Management', color: 'text-primary' },
@@ -63,12 +64,25 @@ export default function AboutSection() {
             </div>
           
           <div className="space-y-8">
-            <div className="aspect-square rounded-2xl overflow-hidden animate-float">
-              <img 
-                src={professionalPhoto}
-                alt="Alexis Brochu - Professional portrait from Ireland" 
-                className="w-full h-full object-cover"
-              />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="aspect-square rounded-2xl overflow-hidden animate-float glass">
+                <img 
+                  src={professionalPhoto}
+                  alt="Alexis Brochu - Professional portrait from Ireland" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="aspect-square rounded-2xl overflow-hidden animate-float glass">
+                <video 
+                  src={profileVideo}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-full object-cover"
+                  aria-label="Alexis Brochu - Video profile"
+                />
+              </div>
             </div>
           </div>
         </div>
