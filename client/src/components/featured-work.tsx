@@ -22,6 +22,18 @@ interface Project {
 
 const projects: Project[] = [
   {
+    id: 'ocm',
+    title: 'Office of Change Management (OCM)',
+    description: 'Transforming California\'s emergency services portal from cryptic government maze into user-centered platform serving citizens during critical moments.',
+    category: 'product-management',
+    image: calOesImage,
+    metrics: [
+      { label: 'User Base Increase', value: '545.5%', color: 'text-primary' },
+      { label: 'Support Ticket Reduction', value: '75%', color: 'text-chart-2' }
+    ],
+    tags: ['Product Strategy', 'Government UX', 'Change Management']
+  },
+  {
     id: 'caloes',
     title: 'Cal OES Engage Portal',
     description: 'Modernizing government legacy software with a SaaS CRM platform connecting Californians to state and local municipalities for accessible grant funding.',

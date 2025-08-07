@@ -32,6 +32,40 @@ interface CaseStudy {
 }
 
 const caseStudies: Record<string, CaseStudy> = {
+  ocm: {
+    id: 'ocm',
+    title: 'Office of Change Management (OCM)',
+    subtitle: 'Transforming Government Digital Infrastructure',
+    description: 'Led the transformation of California Office of Emergency Services portal from a fragmented collection of cryptic applications into a unified, user-centered platform that actually serves citizens during critical moments.',
+    role: 'Solutions Architect & Product Manager',
+    duration: '18 months',
+    team: '2 UX team members + cross-functional stakeholders',
+    challenge: 'The Cal OES portal was a maze of nine different application tiles with cryptic acronyms, each built by different vendors with no centralized oversight. Users faced an interface that prioritized departmental structure over human comprehension, creating barriers when accessing critical emergency services.',
+    solution: 'Single-handedly bridged gaps between fragmented programs by replacing acronym soup with plain language, establishing design consistency across competing vendor systems, and creating a unified brand identity that builds trust.',
+    outcome: 'Transformed how Californians access critical emergency services funding through simplified workflows and modern user experience design.',
+    metrics: [
+      { label: '545.5%', value: 'User Base Increase', description: '4 months after launch' },
+      { label: '75%', value: 'Decrease in Support Tickets', description: 'Despite increased user volume' },
+      { label: '203%', value: 'Successful Onboarding Increase', description: 'Completion rate improvement' }
+    ],
+    process: [
+      'Conducted 27 stakeholder interviews and user research',
+      'Performed comprehensive heuristic evaluation using Laws of UX',
+      'Developed strategic partnerships across departments',
+      'Created unified brand identity and design system',
+      'Established Center of Excellence for governance',
+      'Implemented cross-team design review processes',
+      'Executed phased rollout with continuous optimization'
+    ],
+    learnings: [
+      'Acronyms are the enemy of usability - plain language dramatically improves comprehension',
+      'Centers of Excellence effectively wrangle competing vendors toward unified experiences',
+      'Brand identity matters even in government - professional visuals build user trust',
+      'Politics and product are inseparable in government work - success requires diplomatic skills',
+      'Measurable impact validates user-centered design approaches in bureaucratic environments'
+    ],
+    image: engageRoadmapImage
+  },
   caloes: {
     id: 'caloes',
     title: 'Cal OES Engage Community Portal',
