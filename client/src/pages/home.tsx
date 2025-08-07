@@ -7,6 +7,7 @@ import CaseStudyModal from "@/components/case-study-modal";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { audioManager } from "@/utils/audioUtils";
+import alexisLogo from "@assets/Alexis Brochu logo_1754579560310.png";
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -77,7 +78,7 @@ export default function Home() {
           <div className="flex justify-between items-center">
             <div className="flex items-center">
               <img 
-                src="/attached_assets/Alexis Brochu logo_1754579560310.png"
+                src={alexisLogo}
                 alt="Alexis Brochu"
                 className="h-8 w-auto"
               />
