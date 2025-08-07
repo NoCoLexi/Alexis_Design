@@ -111,68 +111,62 @@ const projects: Project[] = [
   }
 ];
 
-// Memoized project card component with parallax scrolling
+// Project card with parallax effects
 const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
   project: Project;
   index: number;
   onOpenCaseStudy: (id: string) => void;
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
-  const [scrollY, setScrollY] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-  const rafRef = useRef<number>();
+  const [parallaxY, setParallaxY] = useState(0);
 
   useEffect(() => {
+    const card = cardRef.current;
+    if (!card) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          setIsVisible(entry.isIntersecting);
+        });
+      },
+      { threshold: 0.1, rootMargin: '50px' }
+    );
+
+    observer.observe(card);
+
     const handleScroll = () => {
-      if (rafRef.current) {
-        cancelAnimationFrame(rafRef.current);
-      }
+      if (!card) return;
       
-      rafRef.current = requestAnimationFrame(() => {
-        if (cardRef.current) {
-          const rect = cardRef.current.getBoundingClientRect();
-          const windowHeight = window.innerHeight;
-          
-          // Check if card is visible with buffer
-          const visible = rect.top < windowHeight + 100 && rect.bottom > -100;
-          setIsVisible(visible);
-          
-          // Calculate parallax offset only when visible
-          if (visible) {
-            const scrollProgress = Math.max(0, Math.min(1, (windowHeight - rect.top) / (windowHeight + rect.height)));
-            setScrollY(scrollProgress * 30); // Reduced multiplier for better performance
-          }
-        }
-      });
+      const rect = card.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      
+      if (rect.top < windowHeight && rect.bottom > 0) {
+        const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
+        setParallaxY(progress * 30);
+      }
     };
 
-    // Initial check with delay to ensure proper mounting
-    const timer = setTimeout(handleScroll, 100);
-    
     window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', handleScroll, { passive: true });
+    handleScroll(); // Initial calculation
 
     return () => {
-      clearTimeout(timer);
-      if (rafRef.current) {
-        cancelAnimationFrame(rafRef.current);
-      }
+      observer.disconnect();
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleScroll);
     };
   }, []);
 
   return (
     <div
       ref={cardRef}
-      className={`glass rounded-2xl overflow-hidden hover:glow-purple transition-all duration-700 group cursor-pointer transform ${
-        isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+      className={`glass rounded-2xl overflow-hidden hover:glow-purple group cursor-pointer transition-all duration-700 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       }`}
       onClick={() => onOpenCaseStudy(project.id)}
       style={{
-        transform: `translateY(${isVisible ? scrollY * -0.2 : 8}px) scale(${isVisible ? 1 : 0.98})`,
-        opacity: isVisible ? 1 : 0,
-        transition: isVisible ? 'transform 0.1s ease-out, opacity 0.5s ease-out' : 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)'
+        transform: `translateY(${isVisible ? -parallaxY * 0.2 : 20}px) scale(${isVisible ? 1 : 0.95})`,
+        transition: 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
       }}
     >
       <div className="aspect-video relative overflow-hidden">
@@ -182,11 +176,9 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
           className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
           loading={index < 2 ? "eager" : "lazy"}
           decoding="async"
-          {...(index < 2 && { fetchPriority: "high" as const })}
           style={{ 
-            willChange: isVisible ? 'transform' : 'auto',
-            transform: `translateY(${isVisible ? scrollY * 0.1 : 0}px)`,
-            transition: isVisible ? 'transform 0.1s ease-out' : 'none'
+            transform: `translateY(${parallaxY * 0.1}px)`,
+            transition: 'transform 0.1s ease-out'
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
