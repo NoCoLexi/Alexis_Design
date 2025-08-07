@@ -20,6 +20,9 @@ export default function ContactSection() {
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Seeking a Product Management role where I can leverage my expertise in user research, strategic planning, and cross-functional leadership to deliver exceptional products that users love.
           </p>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mt-4">
+            Interested in my background? Send me an email or LinkedIn message and I'll be happy to share my resume.
+          </p>
         </div>
 
         <div className="max-w-4xl mx-auto">
