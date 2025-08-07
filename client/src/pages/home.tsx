@@ -159,8 +159,13 @@ export default function Home() {
             <div className="text-xl font-bold gradient-text mb-4 md:mb-0">
               Alexis Brochu
             </div>
-            <div className="text-muted-foreground">
-              © {new Date().getFullYear()} Creative Visionary & Solution Factory. All rights reserved.
+            <div className="text-center md:text-right">
+              <div className="text-muted-foreground">
+                © {new Date().getFullYear()} Creative Visionary & Solution Factory. All rights reserved.
+              </div>
+              <div className="text-xs text-muted-foreground/60 mt-1">
+                Portfolio crafted with AI assistance
+              </div>
             </div>
           </div>
         </div>

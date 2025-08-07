@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Award } from "lucide-react";
+import { ArrowDown, Award, Sparkles } from "lucide-react";
 import MusicPlayer from "@/components/music-player";
 
 export default function HeroSection() {
@@ -31,12 +31,20 @@ export default function HeroSection() {
       
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
         <div className="max-w-4xl">
-          {/* Award Badge */}
-          <div className="inline-flex items-center gap-3 glass rounded-full px-6 py-3 mb-8 hover:glow-purple transition-all duration-300">
-            <Award className="w-5 h-5 text-chart-3" />
-            <span className="text-sm font-medium text-foreground">
-              2023 California Government Technology Innovation Award Winner
-            </span>
+          {/* Badges */}
+          <div className="flex flex-wrap gap-3 mb-8">
+            <div className="inline-flex items-center gap-3 glass rounded-full px-6 py-3 hover:glow-purple transition-all duration-300">
+              <Award className="w-5 h-5 text-chart-3" />
+              <span className="text-sm font-medium text-foreground">
+                2023 California Government Technology Innovation Award Winner
+              </span>
+            </div>
+            <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 hover:glow-blue transition-all duration-300">
+              <Sparkles className="w-4 h-4 text-chart-1" />
+              <span className="text-xs font-medium text-muted-foreground">
+                AI-Enhanced Portfolio
+              </span>
+            </div>
           </div>
           
           <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">

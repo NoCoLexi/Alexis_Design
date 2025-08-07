@@ -34,9 +34,9 @@ export default function AboutSection() {
                   </p>
                 </div>
                 <div className="glass rounded-xl p-6">
-                  <h3 className="font-semibold text-primary mb-3">Human-Centered Design</h3>
+                  <h3 className="font-semibold text-primary mb-3">AI-Enhanced Design Process</h3>
                   <p className="text-muted-foreground text-sm">
-                    Design thinking methodologies focused on creating intuitive, accessible experiences that solve real user problems.
+                    Leveraging AI tools and human-centered design methodologies to create intuitive, data-driven experiences that solve real user problems.
                   </p>
                 </div>
                 <div className="glass rounded-xl p-6">
