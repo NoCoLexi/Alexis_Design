@@ -7,6 +7,7 @@ import paPortalImage from "@assets/caloes login modal_1754580191419.png";
 import dashboardImage from "@assets/image_1754580387947.png";
 import iLaveImage from "@assets/!-Lave group Alt_1754580875717.png";
 import weChoreImage from "@assets/WeChore Diagonal_1754581130624.png";
+import subscriptexImage from "@assets/Subscriptex Layers_1754581352868.png";
 
 interface Project {
   id: string;
@@ -62,6 +63,15 @@ const projects: Project[] = [
     image: weChoreImage,
     metrics: [],
     tags: ['User Research', 'Child UX', 'Gamification']
+  },
+  {
+    id: 'subscriptex',
+    title: 'Subscriptex Subscription Manager',
+    description: 'Mobile subscription management app designed for German market expansion, featuring secure financial tracking and multilingual UX research.',
+    category: 'product-design',
+    image: subscriptexImage,
+    metrics: [],
+    tags: ['Design System', 'German Market', 'Financial UX']
   }
 ];
 

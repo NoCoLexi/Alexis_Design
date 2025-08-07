@@ -9,6 +9,8 @@ import iLaveImage from "@assets/!-Lave group Alt_1754580875717.png";
 import driverOnboardingVideo from "@assets/▶ Driver 1st Iteration - onboarding_1754581040697.mp4";
 import weChoreImage from "@assets/WeChore Diagonal_1754581130624.png";
 import weChoreUsabilityVideo from "@assets/▶ Usability Test 3 - WeChore Branding_1754581219835.mp4";
+import subscriptexImage from "@assets/Subscriptex Layers_1754581352868.png";
+import subscriptexVideo from "@assets/▶ Final Iteration - subscriptex design system_1754581362306.mp4";
 
 interface CaseStudy {
   id: string;
@@ -165,6 +167,43 @@ const caseStudies: Record<string, CaseStudy> = {
     ],
     image: weChoreImage,
     video: weChoreUsabilityVideo
+  },
+  subscriptex: {
+    id: 'subscriptex',
+    title: 'Subscriptex Subscription Manager',
+    description: 'Mobile subscription management app designed for German market expansion, featuring secure financial tracking and multilingual UX research.',
+    overview: 'Design a mobile-friendly app from an existing desktop website helping consumers manage their subscriptions, expanding into the German market with culturally-adapted UX patterns.',
+    challenge: 'Create a trusted mobile experience that helps users feel safe providing financial information while managing recurring subscriptions, with specific adaptation for German market preferences.',
+    role: 'Complete product redesign including brand development, design system creation, user research validation, and German market adaptation with native speaker testing.',
+    timeline: '8 weeks',
+    team: ['Product Manager (Research Provider)', 'German Accountant (Cultural Consultant)', 'UX Designer (Solo)'],
+    tools: ['Figma', 'FigJam', 'Figma Mirror', 'Adobe Illustrator', 'Google Suite', 'Galaxy S21 Ultra', 'Loom'],
+    process: [
+      'Analyzed existing desktop wireframes and user research data',
+      'Conducted competitive analysis of TrueBill, Tilla, and Subby apps',
+      'Developed brand identity and comprehensive design system',
+      'Created user flows and mobile-optimized information architecture',
+      'Designed three prototype iterations with progressive fidelity',
+      'Conducted usability testing including German market validation',
+      'Refined design based on cultural preferences and accessibility needs'
+    ],
+    outcomes: [
+      'Complete mobile app design system with German market adaptation',
+      'Culturally-validated user experience reducing financial anxiety',
+      'Streamlined subscription input via payment information integration',
+      'Direct website navigation for cancellations (German preference)',
+      'Accessibility-focused navigation with larger touch targets',
+      'Multi-iteration testing validation with native German speaker'
+    ],
+    keyInsights: [
+      'Germans prefer direct website navigation over customer service for cancellations',
+      'Word "Alert" translates better than "Notification" in German context',
+      'Red/orange colors create urgency anxiety around financial numbers',
+      'Trust-building requires transparent, non-monetized app experience',
+      'Cultural consultation essential for international market expansion'
+    ],
+    image: subscriptexImage,
+    video: subscriptexVideo
   }
 };
 
