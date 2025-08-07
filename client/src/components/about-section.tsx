@@ -53,7 +53,7 @@ export default function AboutSection() {
                 </div>
               </div>
               
-              <div className="glass rounded-xl p-6 group relative overflow-hidden perspective-1000">
+              <div className="glass rounded-xl p-8 group relative overflow-hidden perspective-1000">
                 <div className="flip-card w-full h-full">
                   {/* Front side - Text content */}
                   <div className="flip-card-front absolute inset-0 backface-hidden transition-transform duration-700 group-hover:rotate-y-180">
