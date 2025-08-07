@@ -55,7 +55,10 @@ export default function AboutSection() {
               <div className="glass rounded-xl p-6">
                 <h3 className="font-semibold text-chart-4 mb-3">CA Tech Award for Innovation</h3>
                 <p className="text-muted-foreground">
-                  When I joined Cal OES, government workers were drowning in confusing legacy applications that frustrated users and blocked critical disaster response. My solution was to become fluent in both their technical constraints and human needs. After months of 350+ user interviews and strategic redesign, not only did we increase the user base by 545%, but the team won four regional awards including California's Government Innovation Award - Best Application Serving the Public.
+                  When I joined Cal OES, government workers were drowning in confusing legacy applications that frustrated users and blocked critical disaster response.
+                </p>
+                <p className="text-muted-foreground">
+                  My solution was to become fluent in both their technical constraints and human needs. After months of 350+ user interviews and strategic redesign, not only did we increase the user base by 545%, but the team won four regional awards including California's Government Innovation Award - Best Application Serving the Public.
                 </p>
               </div>
             </div>
