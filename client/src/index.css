@@ -5,83 +5,90 @@
 @tailwind utilities;
 
 :root {
-  --background: hsl(240, 10%, 3.9%);
-  --foreground: hsl(0, 0%, 98%);
-  --card: hsl(240, 10%, 3.9%);
-  --card-foreground: hsl(0, 0%, 98%);
-  --popover: hsl(240, 10%, 3.9%);
-  --popover-foreground: hsl(0, 0%, 98%);
-  --primary: hsl(263, 70%, 50%);
-  --primary-foreground: hsl(0, 0%, 100%);
-  --secondary: hsl(240, 3.7%, 15.9%);
-  --secondary-foreground: hsl(0, 0%, 98%);
-  --muted: hsl(240, 3.7%, 15.9%);
-  --muted-foreground: hsl(240, 5%, 64.9%);
-  --accent: hsl(240, 3.7%, 15.9%);
-  --accent-foreground: hsl(0, 0%, 98%);
+  /* New Color Palette: Black, Platinum, Ultra Violet, Yale Blue, Night */
+  --color-black: #08080A;
+  --color-platinum: #E1E6E8;
+  --color-ultra-violet: #6D5592;
+  --color-yale-blue: #013B72;
+  --color-night: #0B0A0E;
+  
+  --background: var(--color-black);
+  --foreground: var(--color-platinum);
+  --card: var(--color-night);
+  --card-foreground: var(--color-platinum);
+  --popover: var(--color-night);
+  --popover-foreground: var(--color-platinum);
+  --primary: var(--color-ultra-violet);
+  --primary-foreground: var(--color-platinum);
+  --secondary: var(--color-yale-blue);
+  --secondary-foreground: var(--color-platinum);
+  --muted: var(--color-night);
+  --muted-foreground: hsl(0, 0%, 60%);
+  --accent: var(--color-yale-blue);
+  --accent-foreground: var(--color-platinum);
   --destructive: hsl(0, 62.8%, 30.6%);
-  --destructive-foreground: hsl(0, 0%, 98%);
-  --border: hsl(240, 3.7%, 15.9%);
-  --input: hsl(240, 3.7%, 15.9%);
-  --ring: hsl(263, 70%, 50%);
-  --chart-1: hsl(220, 70%, 50%);
-  --chart-2: hsl(160, 60%, 45%);
-  --chart-3: hsl(30, 80%, 55%);
-  --chart-4: hsl(280, 65%, 60%);
-  --chart-5: hsl(340, 75%, 55%);
-  --sidebar: hsl(240, 10%, 3.9%);
-  --sidebar-foreground: hsl(0, 0%, 98%);
-  --sidebar-primary: hsl(263, 70%, 50%);
-  --sidebar-primary-foreground: hsl(0, 0%, 100%);
-  --sidebar-accent: hsl(240, 3.7%, 15.9%);
-  --sidebar-accent-foreground: hsl(0, 0%, 98%);
-  --sidebar-border: hsl(240, 3.7%, 15.9%);
-  --sidebar-ring: hsl(263, 70%, 50%);
+  --destructive-foreground: var(--color-platinum);
+  --border: var(--color-night);
+  --input: var(--color-night);
+  --ring: var(--color-ultra-violet);
+  --chart-1: var(--color-yale-blue);
+  --chart-2: var(--color-ultra-violet);
+  --chart-3: #8B9DC3;
+  --chart-4: #A8B8D8;
+  --chart-5: #D4DCE8;
+  --sidebar: var(--color-black);
+  --sidebar-foreground: var(--color-platinum);
+  --sidebar-primary: var(--color-ultra-violet);
+  --sidebar-primary-foreground: var(--color-platinum);
+  --sidebar-accent: var(--color-night);
+  --sidebar-accent-foreground: var(--color-platinum);
+  --sidebar-border: var(--color-night);
+  --sidebar-ring: var(--color-ultra-violet);
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-serif: Georgia, serif;
   --font-mono: Menlo, monospace;
   --radius: 0.75rem;
-  --dark-primary: hsl(240, 10%, 3.9%);
-  --dark-secondary: hsl(240, 8%, 8%);
-  --dark-accent: hsl(240, 6%, 12%);
-  --gradient-primary: linear-gradient(135deg, hsl(263, 70%, 50%) 0%, hsl(270, 70%, 40%) 100%);
-  --gradient-secondary: linear-gradient(135deg, hsl(220, 70%, 50%) 0%, hsl(263, 70%, 50%) 100%);
-  --gradient-accent: linear-gradient(135deg, hsl(200, 70%, 50%) 0%, hsl(280, 70%, 50%) 100%);
+  --dark-primary: var(--color-black);
+  --dark-secondary: var(--color-night);
+  --dark-accent: var(--color-yale-blue);
+  --gradient-primary: linear-gradient(135deg, var(--color-ultra-violet) 0%, var(--color-yale-blue) 100%);
+  --gradient-secondary: linear-gradient(135deg, var(--color-yale-blue) 0%, var(--color-ultra-violet) 100%);
+  --gradient-accent: linear-gradient(135deg, var(--color-platinum) 0%, var(--color-ultra-violet) 100%);
 }
 
 .dark {
-  --background: hsl(240, 10%, 3.9%);
-  --foreground: hsl(0, 0%, 98%);
-  --card: hsl(240, 10%, 3.9%);
-  --card-foreground: hsl(0, 0%, 98%);
-  --popover: hsl(240, 10%, 3.9%);
-  --popover-foreground: hsl(0, 0%, 98%);
-  --primary: hsl(263, 70%, 50%);
-  --primary-foreground: hsl(0, 0%, 100%);
-  --secondary: hsl(240, 3.7%, 15.9%);
-  --secondary-foreground: hsl(0, 0%, 98%);
-  --muted: hsl(240, 3.7%, 15.9%);
-  --muted-foreground: hsl(240, 5%, 64.9%);
-  --accent: hsl(240, 3.7%, 15.9%);
-  --accent-foreground: hsl(0, 0%, 98%);
+  --background: var(--color-black);
+  --foreground: var(--color-platinum);
+  --card: var(--color-night);
+  --card-foreground: var(--color-platinum);
+  --popover: var(--color-night);
+  --popover-foreground: var(--color-platinum);
+  --primary: var(--color-ultra-violet);
+  --primary-foreground: var(--color-platinum);
+  --secondary: var(--color-yale-blue);
+  --secondary-foreground: var(--color-platinum);
+  --muted: var(--color-night);
+  --muted-foreground: hsl(0, 0%, 60%);
+  --accent: var(--color-yale-blue);
+  --accent-foreground: var(--color-platinum);
   --destructive: hsl(0, 62.8%, 30.6%);
-  --destructive-foreground: hsl(0, 0%, 98%);
-  --border: hsl(240, 3.7%, 15.9%);
-  --input: hsl(240, 3.7%, 15.9%);
-  --ring: hsl(263, 70%, 50%);
-  --chart-1: hsl(220, 70%, 50%);
-  --chart-2: hsl(160, 60%, 45%);
-  --chart-3: hsl(30, 80%, 55%);
-  --chart-4: hsl(280, 65%, 60%);
-  --chart-5: hsl(340, 75%, 55%);
-  --sidebar: hsl(240, 10%, 3.9%);
-  --sidebar-foreground: hsl(0, 0%, 98%);
-  --sidebar-primary: hsl(263, 70%, 50%);
-  --sidebar-primary-foreground: hsl(0, 0%, 100%);
-  --sidebar-accent: hsl(240, 3.7%, 15.9%);
-  --sidebar-accent-foreground: hsl(0, 0%, 98%);
-  --sidebar-border: hsl(240, 3.7%, 15.9%);
-  --sidebar-ring: hsl(263, 70%, 50%);
+  --destructive-foreground: var(--color-platinum);
+  --border: var(--color-night);
+  --input: var(--color-night);
+  --ring: var(--color-ultra-violet);
+  --chart-1: var(--color-yale-blue);
+  --chart-2: var(--color-ultra-violet);
+  --chart-3: #8B9DC3;
+  --chart-4: #A8B8D8;
+  --chart-5: #D4DCE8;
+  --sidebar: var(--color-black);
+  --sidebar-foreground: var(--color-platinum);
+  --sidebar-primary: var(--color-ultra-violet);
+  --sidebar-primary-foreground: var(--color-platinum);
+  --sidebar-accent: var(--color-night);
+  --sidebar-accent-foreground: var(--color-platinum);
+  --sidebar-border: var(--color-night);
+  --sidebar-ring: var(--color-ultra-violet);
 }
 
 @layer base {
@@ -128,11 +135,11 @@
   }
 
   .glow-purple {
-    box-shadow: 0 0 20px hsla(263, 70%, 50%, 0.3);
+    box-shadow: 0 0 20px rgba(109, 85, 146, 0.3);
   }
 
   .glow-blue {
-    box-shadow: 0 0 20px hsla(220, 70%, 50%, 0.3);
+    box-shadow: 0 0 20px rgba(1, 59, 114, 0.3);
   }
 
   .scroll-smooth {
