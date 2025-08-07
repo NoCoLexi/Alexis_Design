@@ -23,6 +23,7 @@ import weChoreImage from "@assets/WeChore Diagonal_1754581130624.png";
 import weChoreUsabilityVideo from "@assets/▶ Usability Test 3 - WeChore Branding_1754581219835.mp4";
 import subscriptexImage from "@assets/Subscriptex Layers_1754581352868.png";
 import subscriptexVideo from "@assets/▶ Final Iteration - subscriptex design system_1754581362306.mp4";
+import projectPulseVideo from "@assets/Project Pulse PoC 2024_1754598878707.mp4";
 
 interface CaseStudy {
   id: string;
@@ -108,7 +109,8 @@ const caseStudies: Record<string, CaseStudy> = {
       'Political navigation is essential for technical solution success',
       'Clear language dramatically improves user comprehension and adoption'
     ],
-    image: engageConnectImage
+    image: engageConnectImage,
+    video: projectPulseVideo
   },
   eag: {
     id: 'eag',
