@@ -16,87 +16,95 @@ export default function AboutSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-secondary/50 to-accent/50"></div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-bold mb-8">
+        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
           <span className="gradient-text">My Expertise</span>
         </h2>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          <div className="space-y-6 text-lg text-muted-foreground">
-              <p className="leading-relaxed">
-                <strong className="text-foreground">"My colleagues nickname me: 'Idea Factory' but I prefer 'Solution Factory'"</strong> because every idea I come up with stems from a problem. Without problems, there are no solutions. Without solutions, there are no (relevant) ideas.
-              </p>
+        <div className="space-y-16">
+          {/* Introduction Quote */}
+          <div className="text-center max-w-4xl mx-auto">
+            <p className="text-xl md:text-2xl leading-relaxed text-muted-foreground">
+              <strong className="text-foreground">"My colleagues nickname me: 'Idea Factory' but I prefer 'Solution Factory'"</strong> because every idea I come up with stems from a problem. Without problems, there are no solutions. Without solutions, there are no (relevant) ideas.
+            </p>
+          </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                <div className="glass rounded-xl p-6">
-                  <h3 className="font-semibold text-primary mb-3">Product Management</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Strategic product vision, roadmap development, and cross-functional team leadership to deliver user-centered solutions.
-                  </p>
-                </div>
-                <div className="glass rounded-xl p-6">
-                  <h3 className="font-semibold text-primary mb-3">AI-Enhanced Design Process</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Leveraging AI tools and human-centered design methodologies to create intuitive, data-driven experiences that solve real user problems.
-                  </p>
-                </div>
-                <div className="glass rounded-xl p-6">
-                  <h3 className="font-semibold text-primary mb-3">User Research & Insights</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Comprehensive user research, data analysis, and behavioral insights to inform product decisions.
-                  </p>
-                </div>
-                <div className="glass rounded-xl p-6">
-                  <h3 className="font-semibold text-primary mb-3">Change Management</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Organizational transformation, stakeholder alignment, and adoption strategies for successful product launches.
-                  </p>
-                </div>
+          {/* Two Column Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Left: Expertise Cards */}
+            <div className="space-y-6">
+              <div className="glass rounded-xl p-6">
+                <h3 className="font-semibold text-primary mb-3">Product Management</h3>
+                <p className="text-muted-foreground text-sm">
+                  Strategic product vision, roadmap development, and cross-functional team leadership to deliver user-centered solutions.
+                </p>
               </div>
-              
-              <div className="glass rounded-xl p-8 group relative overflow-hidden perspective-1000">
-                <div className="flip-card w-full h-full">
-                  {/* Front side - Text content */}
-                  <div className="flip-card-front absolute inset-0 backface-hidden transition-transform duration-700 group-hover:rotate-y-180">
-                    <h3 className="font-semibold text-chart-4 mb-3">CA Tech Award for Innovation</h3>
-                    <p className="text-muted-foreground">
-                      When I joined Cal OES, government workers were drowning in confusing legacy applications that frustrated users and blocked critical disaster response.
-                    </p>
-                    <p className="text-chart-4">
-                      My solution was to become fluent in both their technical constraints and human needs. After months of 350+ user interviews and strategic redesign, not only did we increase the user base by 545%, but the team won four regional awards including California's Government Innovation Award - Best Application Serving the Public.
-                    </p>
-                  </div>
-                  
-                  {/* Back side - Award image */}
-                  <div className="flip-card-back absolute inset-0 backface-hidden transition-transform duration-700 rotate-y-180 group-hover:rotate-y-0">
-                    <img 
-                      src={awardImage}
-                      alt="California Government Technology Innovation Summit 2023 Awards"
-                      className="w-full h-full object-cover rounded-lg"
-                    />
-                  </div>
+              <div className="glass rounded-xl p-6">
+                <h3 className="font-semibold text-primary mb-3">AI-Enhanced Design Process</h3>
+                <p className="text-muted-foreground text-sm">
+                  Leveraging AI tools and human-centered design methodologies to create intuitive, data-driven experiences that solve real user problems.
+                </p>
+              </div>
+              <div className="glass rounded-xl p-6">
+                <h3 className="font-semibold text-primary mb-3">User Research & Insights</h3>
+                <p className="text-muted-foreground text-sm">
+                  Comprehensive user research, data analysis, and behavioral insights to inform product decisions.
+                </p>
+              </div>
+              <div className="glass rounded-xl p-6">
+                <h3 className="font-semibold text-primary mb-3">Change Management</h3>
+                <p className="text-muted-foreground text-sm">
+                  Organizational transformation, stakeholder alignment, and adoption strategies for successful product launches.
+                </p>
+              </div>
+            </div>
+
+            {/* Right: Profile Images */}
+            <div className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="aspect-square rounded-2xl overflow-hidden animate-float glass">
+                  <img 
+                    src={professionalPhoto}
+                    alt="Alexis Brochu Professional Photo"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="aspect-square rounded-2xl overflow-hidden animate-float" style={{ animationDelay: '1s' }}>
+                  <video
+                    src={profileVideo}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
             </div>
-          
-          <div className="space-y-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="aspect-square rounded-2xl overflow-hidden animate-float glass">
-                <img 
-                  src={professionalPhoto}
-                  alt="Alexis Brochu - Professional portrait from Ireland" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="aspect-square rounded-2xl overflow-hidden animate-float glass">
-                <video 
-                  src={profileVideo}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="w-full h-full object-cover"
-                  aria-label="Alexis Brochu - Video profile"
-                />
+          </div>
+
+          {/* Award Section - Full Width */}
+          <div className="max-w-4xl mx-auto">
+            <div className="glass rounded-xl p-8 group relative overflow-hidden perspective-1000">
+              <div className="flip-card w-full h-full">
+                {/* Front side - Text content */}
+                <div className="flip-card-front absolute inset-0 backface-hidden transition-transform duration-700 group-hover:rotate-y-180">
+                  <h3 className="font-semibold text-chart-4 mb-3">CA Tech Award for Innovation</h3>
+                  <p className="text-muted-foreground">
+                    When I joined Cal OES, government workers were drowning in confusing legacy applications that frustrated users and blocked critical disaster response.
+                  </p>
+                  <p className="text-chart-4">
+                    My solution was to become fluent in both their technical constraints and human needs. After months of 350+ user interviews and strategic redesign, not only did we increase the user base by 545%, but the team won four regional awards including California's Government Innovation Award - Best Application Serving the Public.
+                  </p>
+                </div>
+                
+                {/* Back side - Award image */}
+                <div className="flip-card-back absolute inset-0 backface-hidden transition-transform duration-700 rotate-y-180 group-hover:rotate-y-0">
+                  <img 
+                    src={awardImage}
+                    alt="California Government Technology Innovation Summit 2023 Awards"
+                    className="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
               </div>
             </div>
           </div>
