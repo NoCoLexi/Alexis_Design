@@ -15,10 +15,10 @@ export default function ContactSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="gradient-text">Let's Create Something Amazing</span>
+            <span className="gradient-text">Ready to Drive Product Success</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Looking for a creative UX design position with an awesome company. Ready to transform your next big idea into reality.
+            Seeking a Product Management role where I can leverage my expertise in user research, strategic planning, and cross-functional leadership to deliver exceptional products that users love.
           </p>
         </div>
 
