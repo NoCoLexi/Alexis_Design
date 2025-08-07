@@ -9,10 +9,13 @@ import schoolMaterials from "@assets/FullSizeRender 4_1754523633019.jpg";
 import budweiserAd from "@assets/FullSizeRender 35_1754523657712.jpg";
 import galaInvitation from "@assets/IMG_1642_1754523678624.jpg";
 import jwuPortfolio from "@assets/FullSizeRender 14_1754576730756.jpg";
+import seinfeldBillboard from "@assets/IMG_1654_1754576872134.jpg";
+import rosieBillboards from "@assets/IMG_1652_1754576874123.jpg";
+import newsBillboards from "@assets/IMG_1655_1754576894772.jpg";
 
 interface GalleryItem {
   id: string;
-  category: 'print' | 'branding' | 'interior' | 'photography';
+  category: 'print' | 'branding' | 'outdoor';
   image: string;
   title: string;
 }
@@ -32,6 +35,11 @@ const galleryItems: GalleryItem[] = [
   { id: '7', category: 'print', image: budweiserAd, title: 'Budweiser Marketing Campaign' },
   { id: '8', category: 'print', image: galaInvitation, title: 'Gala Event Invitation Design' },
   { id: '9', category: 'print', image: jwuPortfolio, title: 'Johnson & Wales University Materials' },
+  
+  // Outdoor Advertising Items
+  { id: '10', category: 'outdoor', image: seinfeldBillboard, title: 'Seinfeld TV Show Billboard Campaign' },
+  { id: '11', category: 'outdoor', image: rosieBillboards, title: 'Rosie O\'Donnell Show Billboards' },
+  { id: '12', category: 'outdoor', image: newsBillboards, title: 'ABC 6 News Billboard Campaign' },
 
 ];
 
@@ -46,7 +54,8 @@ export default function CreativeGallery() {
   const categories = [
     { id: 'all', label: 'All Work' },
     { id: 'print', label: 'Print Design' },
-    { id: 'branding', label: 'Branding' }
+    { id: 'branding', label: 'Branding' },
+    { id: 'outdoor', label: 'Outdoor Advertising' }
   ];
 
   return (
