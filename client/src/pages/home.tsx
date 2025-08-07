@@ -3,6 +3,7 @@ import FeaturedWork from "@/components/featured-work";
 import AboutSection from "@/components/about-section";
 import CreativeGallery from "@/components/creative-gallery";
 import ContactSection from "@/components/contact-section";
+import logoImage from "@assets/image_1754581825249.png";
 import CaseStudyModal from "@/components/case-study-modal";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
@@ -75,8 +76,12 @@ export default function Home() {
       <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-primary/20">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            <div className="text-xl font-bold gradient-text">
-              Alexis Brochu
+            <div className="flex items-center">
+              <img 
+                src={logoImage} 
+                alt="Alexis Brochu" 
+                className="h-8 w-auto"
+              />
             </div>
             <div className="hidden md:flex space-x-8">
               {[
