@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Award, ExternalLink } from "lucide-react";
 import calOesImage from "@assets/Cal OES Engage Landing Page Phase I_v2_1754580174186.png";
+import paPortalImage from "@assets/caloes login modal_1754580191419.png";
 
 interface Project {
   id: string;
@@ -33,7 +34,7 @@ const projects: Project[] = [
     title: 'PA Portal Closeouts App',
     description: 'Streamlining the reimbursement process for California subrecipients. Winner of the 2023 California Government Technology Innovation Award.',
     category: 'product-management',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450',
+    image: paPortalImage,
     metrics: [
       { label: 'Projects Closed', value: '$244M', color: 'text-chart-4' },
       { label: 'Registered Users', value: '5,507', color: 'text-chart-1' }
