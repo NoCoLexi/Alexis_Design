@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { X, ExternalLink, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import engageOnboardingVideo from "@assets/Engage_Onboarding_1_1754580372224.mp4";
 
 interface CaseStudy {
   id: string;
@@ -18,6 +19,7 @@ interface CaseStudy {
   process: string[];
   learnings: string[];
   image: string;
+  video?: string;
   award?: string;
 }
 
@@ -87,6 +89,7 @@ const caseStudies: Record<string, CaseStudy> = {
       'Measurable impact drives continued investment in UX'
     ],
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450',
+    video: engageOnboardingVideo,
     award: '2023 California Government Technology Innovation Award for Public Service'
   },
   lave: {
@@ -201,9 +204,18 @@ export default function CaseStudyModal() {
 
         {/* Content */}
         <div className="p-6 space-y-8">
-          {/* Hero Image */}
+          {/* Hero Image/Video */}
           <div className="aspect-video rounded-xl overflow-hidden">
-            <img src={caseStudy.image} alt={caseStudy.title} className="w-full h-full object-cover" />
+            {caseStudy.video ? (
+              <video 
+                src={caseStudy.video} 
+                className="w-full h-full object-cover"
+                controls
+                poster={caseStudy.image}
+              />
+            ) : (
+              <img src={caseStudy.image} alt={caseStudy.title} className="w-full h-full object-cover" />
+            )}
           </div>
 
           {/* Overview */}
