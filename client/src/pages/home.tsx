@@ -155,10 +155,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="py-12 border-t border-primary/20">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-xl font-bold gradient-text mb-4 md:mb-0">
-              Alexis Brochu
-            </div>
+          <div className="text-center">
             <div className="text-muted-foreground">
               © {new Date().getFullYear()} Alexis Brochu, Product Strategist. Portfolio built with AI assistance.
             </div>
