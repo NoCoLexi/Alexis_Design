@@ -1,22 +1,25 @@
-// Audio utility for generating click sounds
+// Audio utility for generating tom drum sounds
 class AudioManager {
   private audioContext: AudioContext | null = null;
   private isEnabled = false;
+  private isInitialized = false;
 
   constructor() {
-    // Initialize on first user interaction
-    this.init();
+    // Don't initialize here, wait for user interaction
   }
 
-  private init() {
+  private async init() {
     // Create audio context on first interaction
-    if (!this.audioContext) {
+    if (!this.audioContext && !this.isInitialized) {
       try {
         this.audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
         this.isEnabled = true;
+        this.isInitialized = true;
+        console.log('Audio context initialized');
       } catch (error) {
-        console.warn('Web Audio API not supported');
+        console.warn('Web Audio API not supported:', error);
         this.isEnabled = false;
+        this.isInitialized = true;
       }
     }
   }
@@ -28,7 +31,15 @@ class AudioManager {
   }
 
   public async playClickSound() {
-    if (!this.isEnabled || !this.audioContext) return;
+    // Initialize audio context if not already done
+    if (!this.isInitialized) {
+      await this.init();
+    }
+
+    if (!this.isEnabled || !this.audioContext) {
+      console.warn('Audio not enabled or context missing');
+      return;
+    }
 
     try {
       await this.resumeContext();
@@ -54,13 +65,15 @@ class AudioManager {
       oscillator.start(this.audioContext.currentTime);
       oscillator.stop(this.audioContext.currentTime + 0.2);
 
+      console.log('Tom sound played');
+
     } catch (error) {
       console.warn('Could not play tom sound:', error);
     }
   }
 
-  public enable() {
-    this.init();
+  public async enable() {
+    await this.init();
   }
 }
 

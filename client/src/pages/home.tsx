@@ -14,22 +14,30 @@ export default function Home() {
 
   useEffect(() => {
     // Initialize audio on first user interaction
-    const enableAudio = () => {
-      audioManager.enable();
-      // Remove listeners after first interaction
-      document.removeEventListener('click', enableAudio);
-      document.removeEventListener('keydown', enableAudio);
-      document.removeEventListener('touchstart', enableAudio);
+    const enableAudio = async () => {
+      try {
+        await audioManager.enable();
+        console.log('Audio enabled on user interaction');
+        // Remove listeners after first interaction
+        document.removeEventListener('click', enableAudio);
+        document.removeEventListener('keydown', enableAudio);
+        document.removeEventListener('touchstart', enableAudio);
+        document.removeEventListener('mousedown', enableAudio);
+      } catch (error) {
+        console.warn('Failed to enable audio:', error);
+      }
     };
 
     document.addEventListener('click', enableAudio);
     document.addEventListener('keydown', enableAudio);
     document.addEventListener('touchstart', enableAudio);
+    document.addEventListener('mousedown', enableAudio);
 
     return () => {
       document.removeEventListener('click', enableAudio);
       document.removeEventListener('keydown', enableAudio);
       document.removeEventListener('touchstart', enableAudio);
+      document.removeEventListener('mousedown', enableAudio);
     };
   }, []);
 
