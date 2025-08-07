@@ -7,7 +7,6 @@ import CaseStudyModal from "@/components/case-study-modal";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { audioManager } from "@/utils/audioUtils";
-import ABCLogo from "@/components/abc-logo";
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -68,12 +67,14 @@ export default function Home() {
       <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-primary/20">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            <ABCLogo size="sm" />
+            <div className="text-xl font-bold gradient-text">
+              Alexis Brochu
+            </div>
             <div className="hidden md:flex space-x-8">
               {[
                 { id: 'home', label: 'Home' },
                 { id: 'work', label: 'Work' },
-                { id: 'about', label: 'About Alexis' },
+                { id: 'about', label: 'About' },
                 { id: 'gallery', label: 'Gallery' },
                 { id: 'contact', label: 'Contact' }
               ].map(item => (
@@ -102,7 +103,7 @@ export default function Home() {
               {[
                 { id: 'home', label: 'Home' },
                 { id: 'work', label: 'Work' },
-                { id: 'about', label: 'About Alexis' },
+                { id: 'about', label: 'About' },
                 { id: 'gallery', label: 'Gallery' },
                 { id: 'contact', label: 'Contact' }
               ].map(item => (

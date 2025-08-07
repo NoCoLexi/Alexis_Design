@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
-import ABCLogo from "@/components/abc-logo";
 
 export default function HeroSection() {
   const scrollToWork = () => {
@@ -25,20 +24,17 @@ export default function HeroSection() {
       </div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
-        <div className="flex items-center gap-8 mb-8">
-          <ABCLogo size="lg" />
-        </div>
         <div className="max-w-4xl">
           <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
-            <span className="text-abc-green font-bold">
-              BROADCAST DESIGN
+            <span className="gradient-text">
+              Creative Visionary
             </span>
             <br />
-            <span className="text-foreground">& PRODUCT INNOVATION</span>
+            <span className="text-foreground">& Solution Factory</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
-            Professional broadcast design and creative direction for television networks, combining traditional media excellence with modern digital innovation. Specializing in brand identity systems and visual storytelling.
+            Transforming complex problems into intuitive solutions through product management, UX design, and creative innovation. From government tech modernization to startup product development.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
@@ -59,17 +55,17 @@ export default function HeroSection() {
           
           {/* Key Metrics */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="glass rounded-xl p-4 hover:shadow-lg transition-all duration-300 border border-abc-green/20">
-              <div className="text-3xl font-bold text-abc-green">15+</div>
-              <div className="text-sm text-muted-foreground">BROADCAST CAMPAIGNS</div>
+            <div className="glass rounded-xl p-4 hover:glow-purple transition-all duration-300">
+              <div className="text-3xl font-bold text-primary">545.5%</div>
+              <div className="text-sm text-muted-foreground">User Base Increase</div>
             </div>
-            <div className="glass rounded-xl p-4 hover:shadow-lg transition-all duration-300 border border-abc-green/20">
-              <div className="text-3xl font-bold text-abc-green">7</div>
-              <div className="text-sm text-muted-foreground">NETWORK PARTNERS</div>
+            <div className="glass rounded-xl p-4 hover:glow-blue transition-all duration-300">
+              <div className="text-3xl font-bold text-chart-1">$244M</div>
+              <div className="text-sm text-muted-foreground">Projects Closed</div>
             </div>
-            <div className="glass rounded-xl p-4 hover:shadow-lg transition-all duration-300 border border-abc-green/20">
-              <div className="text-3xl font-bold text-abc-green">100%</div>
-              <div className="text-sm text-muted-foreground">ON-AIR SUCCESS RATE</div>
+            <div className="glass rounded-xl p-4 hover:glow-purple transition-all duration-300">
+              <div className="text-3xl font-bold text-chart-2">75%</div>
+              <div className="text-sm text-muted-foreground">Support Tickets Reduced</div>
             </div>
           </div>
         </div>

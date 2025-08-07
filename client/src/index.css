@@ -9,19 +9,19 @@
   --card-foreground: hsl(0, 0%, 98%);
   --popover: hsl(240, 10%, 3.9%);
   --popover-foreground: hsl(0, 0%, 98%);
-  --primary: hsl(0, 0%, 15%);
+  --primary: hsl(263, 70%, 50%);
   --primary-foreground: hsl(0, 0%, 100%);
   --secondary: hsl(240, 3.7%, 15.9%);
   --secondary-foreground: hsl(0, 0%, 98%);
   --muted: hsl(240, 3.7%, 15.9%);
   --muted-foreground: hsl(240, 5%, 64.9%);
-  --accent: hsl(148, 25%, 45%);
+  --accent: hsl(240, 3.7%, 15.9%);
   --accent-foreground: hsl(0, 0%, 98%);
   --destructive: hsl(0, 62.8%, 30.6%);
   --destructive-foreground: hsl(0, 0%, 98%);
   --border: hsl(240, 3.7%, 15.9%);
   --input: hsl(240, 3.7%, 15.9%);
-  --ring: hsl(0, 0%, 15%);
+  --ring: hsl(263, 70%, 50%);
   --chart-1: hsl(220, 70%, 50%);
   --chart-2: hsl(160, 60%, 45%);
   --chart-3: hsl(30, 80%, 55%);
@@ -29,12 +29,12 @@
   --chart-5: hsl(340, 75%, 55%);
   --sidebar: hsl(240, 10%, 3.9%);
   --sidebar-foreground: hsl(0, 0%, 98%);
-  --sidebar-primary: hsl(0, 0%, 15%);
+  --sidebar-primary: hsl(263, 70%, 50%);
   --sidebar-primary-foreground: hsl(0, 0%, 100%);
   --sidebar-accent: hsl(240, 3.7%, 15.9%);
   --sidebar-accent-foreground: hsl(0, 0%, 98%);
   --sidebar-border: hsl(240, 3.7%, 15.9%);
-  --sidebar-ring: hsl(0, 0%, 15%);
+  --sidebar-ring: hsl(263, 70%, 50%);
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   --font-serif: Georgia, serif;
   --font-mono: Menlo, monospace;
@@ -42,12 +42,9 @@
   --dark-primary: hsl(240, 10%, 3.9%);
   --dark-secondary: hsl(240, 8%, 8%);
   --dark-accent: hsl(240, 6%, 12%);
-  --abc-green: hsl(148, 25%, 45%);
-  --abc-gray: hsl(0, 0%, 15%);
-  --abc-dark: hsl(0, 0%, 10%);
-  --gradient-primary: linear-gradient(135deg, hsl(0, 0%, 15%) 0%, hsl(148, 25%, 45%) 100%);
-  --gradient-secondary: linear-gradient(135deg, hsl(148, 25%, 45%) 0%, hsl(0, 0%, 15%) 100%);
-  --gradient-accent: linear-gradient(135deg, hsl(0, 0%, 10%) 0%, hsl(148, 25%, 45%) 100%);
+  --gradient-primary: linear-gradient(135deg, hsl(263, 70%, 50%) 0%, hsl(270, 70%, 40%) 100%);
+  --gradient-secondary: linear-gradient(135deg, hsl(220, 70%, 50%) 0%, hsl(263, 70%, 50%) 100%);
+  --gradient-accent: linear-gradient(135deg, hsl(200, 70%, 50%) 0%, hsl(280, 70%, 50%) 100%);
 }
 
 .dark {
@@ -196,41 +193,4 @@
   animation: click-feedback 0.15s ease-in-out;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* ABC Branding Color Utilities */
-.text-abc-green {
-  color: var(--abc-green);
-}
-
-.text-abc-gray {
-  color: var(--abc-gray);
-}
-
-.text-abc-dark {
-  color: var(--abc-dark);
-}
-
-.bg-abc-green {
-  background-color: var(--abc-green);
-}
-
-.bg-abc-gray {
-  background-color: var(--abc-gray);
-}
-
-.bg-abc-dark {
-  background-color: var(--abc-dark);
-}
-
-.border-abc-green {
-  border-color: var(--abc-green);
-}
-
-.border-abc-gray {
-  border-color: var(--abc-gray);
-}
-
-.border-abc-dark {
-  border-color: var(--abc-dark);
 }
