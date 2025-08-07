@@ -45,7 +45,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const Comp = asChild ? Slot : "button"
     
     const handleMouseEnter = (e: React.MouseEvent<HTMLButtonElement>) => {
-      // Play click sound on hover
+      // Play tom sound on hover
+      console.log('Button hover detected');
       audioManager.playClickSound();
       // Call original onMouseEnter if provided
       onMouseEnter?.(e);
