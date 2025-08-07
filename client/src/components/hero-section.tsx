@@ -40,7 +40,7 @@ export default function HeroSection() {
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
-            Transforming complex problems into intuitive solutions through product management, UX design, and creative innovation. From government tech modernization to startup product development.
+            Humanizing IT through collaborative problem-solving—we dig deep, work together, and create solutions that actually make sense.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
