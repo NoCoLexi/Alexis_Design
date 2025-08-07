@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import professionalPhoto from "@assets/Brochu, Alexis 2023 Ireland_1754523029765.png";
+import newsPhoto from "@assets/20181006_071644_1754577780322.jpg";
 
 const skills = [
   { name: 'Product Management', color: 'text-primary' },
@@ -57,6 +58,37 @@ export default function AboutSection() {
                   <div className={`text-lg font-bold ${skill.color}`}>{skill.name}</div>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+        
+        {/* In the News Section */}
+        <div className="mt-16 pt-16 border-t border-abc-green/20">
+          <div className="max-w-4xl mx-auto text-center">
+            <h3 className="text-3xl font-bold text-abc-green mb-8">In the News</h3>
+            <div className="glass rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
+              <div className="aspect-video rounded-xl overflow-hidden mb-6">
+                <img 
+                  src={newsPhoto}
+                  alt="Alexis Brochu featured in fitness magazine article about low-impact conditioning" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="space-y-4">
+                <h4 className="text-xl font-semibold text-foreground">
+                  "Focusing on Low-Impact Conditioning"
+                </h4>
+                <p className="text-muted-foreground leading-relaxed">
+                  Featured fitness expert discussing innovative conditioning techniques and proper ski alignment training methods for injury prevention and peak performance.
+                </p>
+                <div className="flex items-center justify-center gap-2 text-sm text-abc-green">
+                  <span>•</span>
+                  <span>Fitness Magazine Feature</span>
+                  <span>•</span>
+                  <span>Expert Interview</span>
+                  <span>•</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

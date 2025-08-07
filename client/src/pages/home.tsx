@@ -73,7 +73,7 @@ export default function Home() {
               {[
                 { id: 'home', label: 'Home' },
                 { id: 'work', label: 'Work' },
-                { id: 'about', label: 'About' },
+                { id: 'about', label: 'About Alexis' },
                 { id: 'gallery', label: 'Gallery' },
                 { id: 'contact', label: 'Contact' }
               ].map(item => (
@@ -102,7 +102,7 @@ export default function Home() {
               {[
                 { id: 'home', label: 'Home' },
                 { id: 'work', label: 'Work' },
-                { id: 'about', label: 'About' },
+                { id: 'about', label: 'About Alexis' },
                 { id: 'gallery', label: 'Gallery' },
                 { id: 'contact', label: 'Contact' }
               ].map(item => (
