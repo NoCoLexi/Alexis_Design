@@ -31,18 +31,12 @@ export default function HeroSection() {
       
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
         <div className="max-w-4xl">
-          {/* Badges */}
-          <div className="flex flex-wrap gap-3 mb-8">
+          {/* Simplified Badge */}
+          <div className="mb-6">
             <div className="inline-flex items-center gap-3 glass rounded-full px-6 py-3 hover:glow-purple transition-all duration-300">
               <Award className="w-5 h-5 text-chart-3" />
               <span className="text-sm font-medium text-foreground">
-                2023 California Government Technology Innovation Award Winner
-              </span>
-            </div>
-            <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 hover:glow-blue transition-all duration-300">
-              <Sparkles className="w-4 h-4 text-chart-1" />
-              <span className="text-xs font-medium text-muted-foreground">
-                AI-Enhanced Portfolio
+                2023 CA Gov Tech Innovation Award Winner
               </span>
             </div>
           </div>
@@ -55,11 +49,11 @@ export default function HeroSection() {
             <span className="text-foreground">& UX Strategist</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
+          <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed max-w-3xl">
             I'm the human on your IT team. Working together, diving into the problems, finding solutions that actually make sense, and creating products users adore.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 mb-8">
+          <div className="flex flex-col sm:flex-row gap-4 mb-16">
             <Button 
               onClick={scrollToWork}
               className="px-8 py-4 gradient-bg-primary hover:opacity-90 rounded-xl font-semibold text-lg transition-all duration-300 glow-purple"
@@ -74,27 +68,27 @@ export default function HeroSection() {
               Let's Connect
             </Button>
           </div>
-
-          {/* Music Player */}
-          <div className="mb-12">
-            <MusicPlayer />
-          </div>
           
-          {/* Key Metrics */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-card/60 backdrop-blur-md border border-primary/20 rounded-xl p-4 hover:glow-purple transition-all duration-300">
-              <div className="text-3xl font-bold" style={{ color: '#F3E8B9' }}>545.5%</div>
-              <div className="text-sm text-white/80">User Base Increase</div>
+          {/* Key Metrics - More Compact */}
+          <div className="grid grid-cols-3 gap-4 max-w-2xl">
+            <div className="text-center">
+              <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>545.5%</div>
+              <div className="text-xs text-white/70">User Growth</div>
             </div>
-            <div className="bg-card/60 backdrop-blur-md border border-accent/20 rounded-xl p-4 hover:glow-blue transition-all duration-300">
-              <div className="text-3xl font-bold" style={{ color: '#F3E8B9' }}>$244M</div>
-              <div className="text-sm text-white/80">Projects Closed</div>
+            <div className="text-center">
+              <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>$244M</div>
+              <div className="text-xs text-white/70">Projects Closed</div>
             </div>
-            <div className="bg-card/60 backdrop-blur-md border border-primary/20 rounded-xl p-4 hover:glow-purple transition-all duration-300">
-              <div className="text-3xl font-bold" style={{ color: '#F3E8B9' }}>75%</div>
-              <div className="text-sm text-white/80">Support Tickets Reduced</div>
+            <div className="text-center">
+              <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>75%</div>
+              <div className="text-xs text-white/70">Tickets Reduced</div>
             </div>
           </div>
+        </div>
+        
+        {/* Music Player - Moved to separate area */}
+        <div className="absolute bottom-20 right-6 z-20">
+          <MusicPlayer />
         </div>
       </div>
 
