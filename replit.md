@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a modern full-stack web application built as a creative portfolio and personal website. The project showcases a professional's work in product management and UX design, featuring case studies, creative galleries, and contact functionality. It uses a contemporary tech stack with React frontend, Express.js backend, and PostgreSQL database with Drizzle ORM for data management.
+This is a modern full-stack web application built as a creative portfolio and personal website. The project showcases a professional's work in product management and UX design, featuring case studies, creative galleries, and contact functionality with interactive audio feedback. It uses a contemporary tech stack with React frontend, Express.js backend, and PostgreSQL database with Drizzle ORM for data management.
 
 ## User Preferences
 
@@ -18,7 +18,7 @@ The frontend is built with React 18 and TypeScript, utilizing Vite as the build 
 - **State Management**: TanStack Query (React Query) for server state management
 - **Form Handling**: React Hook Form with Zod schema validation
 
-The design system implements a sophisticated dark theme with gradient backgrounds, glassmorphism effects, and custom animations. The layout is fully responsive with mobile-first design principles.
+The design system implements a sophisticated dark theme with gradient backgrounds, glassmorphism effects, custom animations, and interactive audio feedback. Button interactions include both visual hover effects and audio click sounds generated via Web Audio API. The layout is fully responsive with mobile-first design principles.
 
 ### Backend Architecture
 The backend follows a REST API pattern using Express.js with TypeScript:
