@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from "react";
+import React, { useState, useMemo, useCallback, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Award, ExternalLink } from "lucide-react";
@@ -111,72 +111,117 @@ const projects: Project[] = [
   }
 ];
 
-// Memoized project card component for better performance
+// Memoized project card component with parallax scrolling
 const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
   project: Project;
   index: number;
   onOpenCaseStudy: (id: string) => void;
-}) => (
-  <div
-    className="glass rounded-2xl overflow-hidden hover:glow-purple transition-all duration-500 group cursor-pointer"
-    onClick={() => onOpenCaseStudy(project.id)}
-  >
-    <div className="aspect-video relative overflow-hidden">
-      <img 
-        src={project.image} 
-        alt={project.title}
-        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-        loading={index < 2 ? "eager" : "lazy"}
-        decoding="async"
-        fetchPriority={index < 2 ? "high" : "low"}
-        style={{ willChange: index < 2 ? 'transform' : 'auto' }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
-      <div className="absolute top-4 left-4 flex gap-2">
-        <Badge variant="secondary" className="bg-primary/80 text-primary-foreground">
-          {project.category === 'product-management' ? 'Product Management' : 'Product Design'}
-        </Badge>
-        {project.award && (
-          <Badge variant="secondary" className="bg-chart-3/80 text-foreground flex items-center gap-1">
-            <Award className="w-3 h-3" />
-            Award Winner
+}) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [scrollY, setScrollY] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (cardRef.current) {
+        const rect = cardRef.current.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        
+        // Check if card is visible
+        const visible = rect.top < windowHeight && rect.bottom > 0;
+        setIsVisible(visible);
+        
+        // Calculate parallax offset
+        if (visible) {
+          const scrollProgress = (windowHeight - rect.top) / (windowHeight + rect.height);
+          setScrollY(scrollProgress * 50); // Adjust multiplier for effect intensity
+        }
+      }
+    };
+
+    handleScroll(); // Initial check
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, []);
+
+  return (
+    <div
+      ref={cardRef}
+      className={`glass rounded-2xl overflow-hidden hover:glow-purple transition-all duration-700 group cursor-pointer transform ${
+        isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+      }`}
+      onClick={() => onOpenCaseStudy(project.id)}
+      style={{
+        transform: `translateY(${isVisible ? scrollY * -0.3 : 8}px) ${isVisible ? 'scale(1)' : 'scale(0.95)'}`,
+        transition: 'all 0.7s cubic-bezier(0.4, 0, 0.2, 1)'
+      }}
+    >
+      <div className="aspect-video relative overflow-hidden">
+        <img 
+          src={project.image} 
+          alt={project.title}
+          className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+          loading={index < 2 ? "eager" : "lazy"}
+          decoding="async"
+          {...(index < 2 && { fetchPriority: "high" as const })}
+          style={{ 
+            willChange: index < 2 ? 'transform' : 'auto',
+            transform: `translateY(${scrollY * 0.2}px)`,
+            transition: 'transform 0.1s ease-out'
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+        <div className="absolute top-4 left-4 flex gap-2">
+          <Badge variant="secondary" className="bg-primary/80 text-primary-foreground">
+            {project.category === 'product-management' ? 'Product Management' : 'Product Design'}
           </Badge>
-        )}
+          {project.award && (
+            <Badge variant="secondary" className="bg-chart-3/80 text-foreground flex items-center gap-1">
+              <Award className="w-3 h-3" />
+              Award Winner
+            </Badge>
+          )}
+        </div>
       </div>
-    </div>
-    
-    <div className="p-8">
-      <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">
-        {project.title}
-      </h3>
-      <p className="text-muted-foreground mb-6">{project.description}</p>
       
-      {project.metrics.length > 0 && (
-        <div className="grid grid-cols-2 gap-4 mb-6">
-          {project.metrics.map((metric, metricIndex) => (
-            <div key={`${project.id}-metric-${metricIndex}`} className="text-center">
-              <div className={`text-2xl font-bold ${metric.color}`}>{metric.value}</div>
-              <div className="text-sm text-muted-foreground">{metric.label}</div>
-            </div>
+      <div className="p-8">
+        <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">
+          {project.title}
+        </h3>
+        <p className="text-muted-foreground mb-6">{project.description}</p>
+        
+        {project.metrics.length > 0 && (
+          <div className="grid grid-cols-2 gap-4 mb-6">
+            {project.metrics.map((metric, metricIndex) => (
+              <div key={`${project.id}-metric-${metricIndex}`} className="text-center">
+                <div className={`text-2xl font-bold ${metric.color}`}>{metric.value}</div>
+                <div className="text-sm text-muted-foreground">{metric.label}</div>
+              </div>
+            ))}
+          </div>
+        )}
+        
+        <div className="flex flex-wrap gap-2 mb-6">
+          {project.tags.map((tag, tagIndex) => (
+            <Badge key={`${project.id}-tag-${tagIndex}`} variant="outline" className="text-xs">
+              {tag}
+            </Badge>
           ))}
         </div>
-      )}
-      
-      <div className="flex flex-wrap gap-2 mb-6">
-        {project.tags.map((tag, tagIndex) => (
-          <Badge key={`${project.id}-tag-${tagIndex}`} variant="outline" className="text-xs">
-            {tag}
-          </Badge>
-        ))}
+        
+        <Button className="w-full gradient-bg-secondary hover:opacity-90 transition-all duration-300">
+          <ExternalLink className="w-4 h-4 mr-2" />
+          View Case Study
+        </Button>
       </div>
-      
-      <Button className="w-full gradient-bg-secondary hover:opacity-90 transition-all duration-300">
-        <ExternalLink className="w-4 h-4 mr-2" />
-        View Case Study
-      </Button>
     </div>
-  </div>
-));
+  );
+});
 
 export default function FeaturedWork() {
   const [activeFilter, setActiveFilter] = useState<string>('product-management');
