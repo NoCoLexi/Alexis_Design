@@ -65,6 +65,39 @@ const caseStudies: Record<string, CaseStudy> = {
     ],
     image: engageInterviewsImage
   },
+  ocm: {
+    id: 'ocm',
+    title: 'Office of Change Management (OCM)',
+    subtitle: 'Transforming Government Digital Infrastructure',
+    description: 'Led the strategic transformation of Cal OES digital ecosystem, unifying nine fragmented applications with competing interfaces into a cohesive user experience. As Solutions Architect, bridged gaps between fragmented programs and technology teams while establishing governance standards.',
+    role: 'Solutions Architect & Product Manager',
+    duration: '24 months',
+    team: '15+ cross-functional stakeholders',
+    challenge: 'Cal OES portal consisted of nine different applications with cryptic acronyms, built by competing vendors with no centralized oversight. Users faced a confusing maze of inconsistent interfaces, navigation systems, and workflows that prioritized departmental structure over human comprehension.',
+    solution: 'Developed a comprehensive change management strategy focusing on user-centered design principles, brand unification, and cross-vendor governance. Replaced acronym-heavy language with clear descriptions, established design standards, and created a Center of Excellence for ongoing oversight.',
+    outcome: 'Successfully transformed a fragmented system into a unified platform that significantly improved user experience and operational efficiency across all Cal OES digital services.',
+    metrics: [
+      { label: '75%', value: 'Support Ticket Reduction', description: 'Decreased despite increased user base' },
+      { label: '545.5%', value: 'User Base Increase', description: 'Within 4 months of launch' },
+      { label: '203%', value: 'Successful Onboarding', description: 'Completion rate improvement' }
+    ],
+    process: [
+      'Stakeholder interviews across 9 applications',
+      'Heuristic evaluation using UX principles',
+      'Cross-functional diplomacy and coalition building',
+      'Brand development and visual identity creation',
+      'Center of Excellence establishment',
+      'Vendor governance and design standards'
+    ],
+    learnings: [
+      'Acronyms are the enemy of usability in government interfaces',
+      'Centers of Excellence provide necessary governance for vendor coordination',
+      'Brand identity builds trust and recognition, even in government contexts',
+      'Political navigation is essential for technical solution success',
+      'Clear language dramatically improves user comprehension and adoption'
+    ],
+    image: dashboardImage
+  },
   closeouts: {
     id: 'closeouts',
     title: 'Public Assistance Closeouts App',

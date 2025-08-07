@@ -34,6 +34,19 @@ const projects: Project[] = [
     tags: ['Product Management', 'Government Tech', 'SaaS CRM']
   },
   {
+    id: 'ocm',
+    title: 'Office of Change Management',
+    description: 'Transforming government digital infrastructure by unifying nine fragmented applications into a cohesive user experience through strategic product management and change leadership.',
+    category: 'product-management',
+    image: dashboardImage,
+    metrics: [
+      { label: 'Support Ticket Reduction', value: '75%', color: 'text-chart-3' },
+      { label: 'User Base Growth', value: '545.5%', color: 'text-primary' },
+      { label: 'Onboarding Success', value: '203%', color: 'text-chart-2' }
+    ],
+    tags: ['Change Management', 'Product Strategy', 'Government Innovation']
+  },
+  {
     id: 'closeouts',
     title: 'PA Portal Closeouts App',
     description: 'Streamlining the reimbursement process for California subrecipients. Winner of the 2023 California Government Technology Innovation Award.',
