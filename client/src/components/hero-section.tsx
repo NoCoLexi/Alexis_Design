@@ -10,6 +10,13 @@ export default function HeroSection() {
     }
   };
 
+  const scrollToNextSection = () => {
+    const element = document.getElementById('work');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const scrollToContact = () => {
     const element = document.getElementById('contact');
     if (element) {
@@ -80,7 +87,7 @@ export default function HeroSection() {
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
         <button 
-          onClick={scrollToWork}
+          onClick={scrollToNextSection}
           className="hover:scale-110 transition-all duration-300 cursor-pointer animate-slow-bounce"
         >
           <ArrowDown className="w-6 h-6 text-[#F3E8B9] hover:text-[#63538F] transition-colors" />
