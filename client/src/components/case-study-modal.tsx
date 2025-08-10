@@ -366,9 +366,10 @@ export default function CaseStudyModal() {
               <video 
                 src={caseStudy.id === 'pa-portal' ? `${caseStudy.video}#t=4` : caseStudy.video}
                 className="w-full h-full object-cover"
-                autoPlay
+                autoPlay={caseStudy.id !== 'pa-portal'}
                 loop
                 muted={caseStudy.id !== 'pa-portal'}
+                controls={caseStudy.id === 'pa-portal'}
                 playsInline
               />
             ) : caseStudy.slideshow ? (
