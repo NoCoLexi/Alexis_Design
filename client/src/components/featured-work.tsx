@@ -269,7 +269,7 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
 });
 
 export default function FeaturedWork() {
-  const [activeFilter, setActiveFilter] = useState<string>('product-management');
+  const [activeFilter, setActiveFilter] = useState<string>('all');
 
   const filteredProjects = useMemo(() => 
     projects.filter(project => 
