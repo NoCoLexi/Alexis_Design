@@ -1,5 +1,7 @@
-import { Mail } from "lucide-react";
+import { Mail, Calendar } from "lucide-react";
 import { SiLinkedin } from "react-icons/si";
+
+
 
 export default function ContactSection() {
   return (
@@ -42,6 +44,16 @@ export default function ContactSection() {
                   <div>
                     <div className="font-medium text-foreground">LinkedIn</div>
                     <div className="text-muted-foreground">linkedin.com/in/alexisbrochu</div>
+                  </div>
+                </a>
+                
+                <a href="https://calendly.com/alexis-brochu/15min" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-4 hover:opacity-80 transition-opacity">
+                  <div className="w-12 h-12 bg-chart-2 rounded-xl flex items-center justify-center">
+                    <Calendar className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <div className="font-medium text-foreground">Schedule a Meeting</div>
+                    <div className="text-muted-foreground">calendly.com/alexis-brochu/15min</div>
                   </div>
                 </a>
               </div>
