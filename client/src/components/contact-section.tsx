@@ -4,11 +4,10 @@ import { SiLinkedin } from "react-icons/si";
 // Calendly logo component
 const CalendlyIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none">
-    <rect x="2" y="2" width="20" height="20" rx="5" fill="#0069FF"/>
-    <circle cx="12" cy="12" r="6" fill="white"/>
-    <circle cx="12" cy="9" r="1.5" fill="#0069FF"/>
-    <path d="M12 11.5v5" stroke="#0069FF" strokeWidth="2" strokeLinecap="round"/>
-    <path d="M9.5 14l2.5 2.5 5-5" stroke="#0069FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <circle cx="12" cy="12" r="10" fill="#006BFF"/>
+    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12" stroke="#006BFF" strokeWidth="2" fill="none"/>
+    <path d="M12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18" fill="#00D4AA"/>
+    <path d="M18 12C18 8.68629 15.3137 6 12 6" fill="none" stroke="#00D4AA" strokeWidth="3" strokeLinecap="round"/>
   </svg>
 );
 
@@ -58,7 +57,7 @@ export default function ContactSection() {
                 </a>
                 
                 <a href="https://calendly.com/alexis-brochu/15min" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-4 hover:opacity-80 transition-opacity">
-                  <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-transparent rounded-xl flex items-center justify-center">
                     <CalendlyIcon className="w-6 h-6" />
                   </div>
                   <div>
