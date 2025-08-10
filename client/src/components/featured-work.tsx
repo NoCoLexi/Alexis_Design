@@ -13,6 +13,7 @@ import weChoreImage from "@assets/WeChore Diagonal_1754581130624.png";
 import subscriptexImage from "@assets/Subscriptex Layers_1754581352868.png";
 import gatoradeSportsImage from "@assets/image_1754844966419.png";
 import budweiserCampaignImage from "@assets/image_1754844974248.png";
+import fairGroundsCoffeeImage from "@assets/FairGrounds drinks_1754847440176.jpg";
 
 // Preload critical images immediately when component loads
 const preloadImage = (src: string) => {
@@ -147,6 +148,19 @@ const projects: Project[] = [
       { label: 'Engagement Rate', value: '67%', color: 'text-chart-4' }
     ],
     tags: ['Brand Marketing', 'Creative Campaign', 'Premium Beverage']
+  },
+  {
+    id: 'fairgrounds-coffee',
+    title: 'FairGrounds Community Coffee',
+    description: 'Complete brand identity and product packaging design for a vibrant community coffee brand featuring colorful drink packaging and modern logo design.',
+    category: 'marketing',
+    image: fairGroundsCoffeeImage,
+    images: [fairGroundsCoffeeImage], // Single artistic image showing multiple products
+    metrics: [
+      { label: 'Brand Identity Score', value: '94%', color: 'text-chart-1' },
+      { label: 'Design Recognition', value: '89%', color: 'text-primary' }
+    ],
+    tags: ['Brand Identity', 'Logo Design', 'Product Packaging', 'Community Coffee']
   }
 ];
 
