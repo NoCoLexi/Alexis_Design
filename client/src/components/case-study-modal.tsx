@@ -184,9 +184,9 @@ const caseStudies: Record<string, CaseStudy> = {
     video: directorsPreziVideo,
     award: '2023 California Government Technology Innovation Award for Public Service'
   },
-  lave: {
-    id: 'lave',
-    title: '!-Lave Laundry Service App',
+  ilave: {
+    id: 'ilave',
+    title: 'iLave Laundry Service App',
     subtitle: 'Canadian Start-up Platform Design',
     description: 'A central platform connecting customers to local laundromats by utilizing existing drivers, creating additional revenue streams for laundromats and drivers while providing convenient service for customers.',
     role: 'UX Designer & Researcher',

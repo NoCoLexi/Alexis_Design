@@ -85,7 +85,7 @@ const projects: Project[] = [
   },
   {
     id: 'ilave',
-    title: 'I Lave',
+    title: 'iLave',
     description: 'Developing a fintech solution for the German market focused on modern banking experiences and user-centered financial services.',
     category: 'product-design',
     image: iLaveImage,
