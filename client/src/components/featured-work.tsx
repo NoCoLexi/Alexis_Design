@@ -11,8 +11,6 @@ import eagWhiteBgImage from "@assets/Cal OES IT apps_1754843508712.png";
 import iLaveImage from "@assets/!-Lave group Alt_1754580875717.png";
 import weChoreImage from "@assets/WeChore Diagonal_1754581130624.png";
 import subscriptexImage from "@assets/Subscriptex Layers_1754581352868.png";
-import gatoradeSportsImage from "@assets/image_1754844966419.png";
-import budweiserCampaignImage from "@assets/image_1754844974248.png";
 import fairGroundsCoffeeImage from "@assets/FairGrounds drinks_1754847440176.jpg";
 
 // Preload critical images immediately when component loads
@@ -124,38 +122,11 @@ const projects: Project[] = [
     tags: ['Design System', 'German Market', 'Financial UX']
   },
   {
-    id: 'gatorade-marketing',
-    title: 'Gatorade Sports Marketing Campaign',
-    description: 'Comprehensive sports marketing strategy featuring innovative label design concepts and dynamic brand positioning for the athletic performance market.',
-    category: 'marketing',
-    image: gatoradeSportsImage,
-    images: [gatoradeSportsImage, gatoradeSportsImage], // Using same image but will create rotation effect
-    metrics: [
-      { label: 'Brand Recognition', value: '87%', color: 'text-primary' },
-      { label: 'Market Share', value: '34%', color: 'text-chart-2' }
-    ],
-    tags: ['Sports Marketing', 'Brand Design', 'Athletic Performance']
-  },
-  {
-    id: 'budweiser-campaign',
-    title: 'Budweiser Brand Campaign',
-    description: 'Strategic beer brand marketing campaign development featuring creative advertising concepts and brand positioning for premium beer market segments.',
-    category: 'marketing',
-    image: budweiserCampaignImage,
-    images: [budweiserCampaignImage, budweiserCampaignImage], // Using same image but will create rotation effect
-    metrics: [
-      { label: 'Campaign Reach', value: '2.4M', color: 'text-chart-3' },
-      { label: 'Engagement Rate', value: '67%', color: 'text-chart-4' }
-    ],
-    tags: ['Brand Marketing', 'Creative Campaign', 'Premium Beverage']
-  },
-  {
     id: 'fairgrounds-coffee',
     title: 'FairGrounds Community Coffee',
     description: 'Complete brand identity and product packaging design for a vibrant community coffee brand featuring colorful drink packaging and modern logo design.',
-    category: 'marketing',
+    category: 'product-design',
     image: fairGroundsCoffeeImage,
-    images: [fairGroundsCoffeeImage], // Single artistic image showing multiple products
     metrics: [
       { label: 'Brand Identity Score', value: '94%', color: 'text-chart-1' },
       { label: 'Design Recognition', value: '89%', color: 'text-primary' }
@@ -164,58 +135,7 @@ const projects: Project[] = [
   }
 ];
 
-// Rotating Image Component for marketing cards - splits composite images
-const RotatingImage = ({ images, title, projectId }: { images: string[], title: string, projectId: string }) => {
-  const [currentSide, setCurrentSide] = useState<'left' | 'right'>('left');
-  
-  useEffect(() => {
-    console.log('RotatingImage mounted for:', projectId); // Debug log
-    const interval = setInterval(() => {
-      setCurrentSide((prev) => {
-        const newSide = prev === 'left' ? 'right' : 'left';
-        console.log('Switching to:', newSide); // Debug log
-        return newSide;
-      });
-    }, 1000); // Rotate every 1 second
-    
-    return () => clearInterval(interval);
-  }, [projectId]);
-  
-  const isCompositeImage = projectId === 'gatorade-marketing' || projectId === 'budweiser-campaign';
-  console.log('isCompositeImage:', isCompositeImage, 'for project:', projectId); // Debug log
-  
-  if (!isCompositeImage) {
-    return (
-      <img
-        src={images[0]}
-        alt={title}
-        className="w-full h-full object-cover transition-transform duration-700 ease-out"
-      />
-    );
-  }
-  
-  return (
-    <div className="relative w-full h-full overflow-hidden">
-      <img
-        src={images[0]}
-        alt={title}
-        className="w-full h-full object-cover transition-all duration-700 ease-in-out"
-        style={{
-          transform: currentSide === 'left' ? 'translateX(0%) scale(1.2)' : 'translateX(-50%) scale(1.2)',
-          transformOrigin: currentSide === 'left' ? 'left center' : 'right center',
-        }}
-      />
-      <div className="absolute bottom-2 right-2 flex gap-1 z-10">
-        <div className={`w-2 h-2 rounded-full transition-colors duration-300 ${
-          currentSide === 'left' ? 'bg-white shadow-lg' : 'bg-white/50'
-        }`} />
-        <div className={`w-2 h-2 rounded-full transition-colors duration-300 ${
-          currentSide === 'right' ? 'bg-white shadow-lg' : 'bg-white/50'
-        }`} />
-      </div>
-    </div>
-  );
-};
+
 
 // Project card with conditional parallax effects
 const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
@@ -288,29 +208,17 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
       }}
     >
       <div className="aspect-video relative overflow-hidden">
-        {project.category === 'marketing' && project.images ? (
-          <div 
-            className="w-full h-full group-hover:scale-105 transition-transform duration-500"
-            style={disableParallax ? {} : { 
-              transform: `translateY(${parallaxY * 0.1}px)`,
-              transition: 'transform 0.1s ease-out'
-            }}
-          >
-            <RotatingImage images={project.images} title={project.title} projectId={project.id} />
-          </div>
-        ) : (
-          <img 
-            src={project.image} 
-            alt={project.title}
-            className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-            loading={index < 2 ? "eager" : "lazy"}
-            decoding="async"
-            style={disableParallax ? {} : { 
-              transform: `translateY(${parallaxY * 0.1}px)`,
-              transition: 'transform 0.1s ease-out'
-            }}
-          />
-        )}
+        <img 
+          src={project.image} 
+          alt={project.title}
+          className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+          loading={index < 2 ? "eager" : "lazy"}
+          decoding="async"
+          style={disableParallax ? {} : { 
+            transform: `translateY(${parallaxY * 0.1}px)`,
+            transition: 'transform 0.1s ease-out'
+          }}
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
         <div className="absolute top-4 left-4 flex gap-2">
           <Badge variant="secondary" className="bg-primary/80 text-primary-foreground">
