@@ -27,6 +27,13 @@ import subscriptexVideo from "@assets/▶ Final Iteration - subscriptex design s
 import projectPulseVideo from "@assets/Project Pulse PoC 2024_1754598878707.mp4";
 import hrmodImage from "@assets/image_1754599300491.png";
 import eagSiteLayoutImage from "@assets/EAG Site layout_1754599408721.png";
+import fairGroundsSwagImage from "@assets/Fairgrounds swag_1754848838840.jpg";
+import fairGroundsWinterImage from "@assets/FairGrounds winter_1754848838840.jpg";
+import fairGroundsLogoImage from "@assets/FG 2 color circle lg_1754848838841.jpg";
+import fairGroundsDrinkImage from "@assets/FairGrounds drink_1754848838842.jpg";
+import fairGroundsDrinksImage from "@assets/FairGrounds drinks_1754848838842.jpg";
+import fairGroundsHatImage from "@assets/Fairgrounds hat_1754848838842.jpg";
+import fairGroundsShamrockImage from "@assets/FairGrounds shamrock_1754848838843.jpg";
 
 interface CaseStudy {
   id: string;
@@ -286,6 +293,47 @@ const caseStudies: Record<string, CaseStudy> = {
     ],
     image: subscriptexImage,
     video: subscriptexVideo
+  },
+  'fairgrounds-coffee': {
+    id: 'fairgrounds-coffee',
+    title: 'FairGrounds Community Coffee',
+    subtitle: 'Complete Brand Identity & Product Design',
+    description: 'Comprehensive brand identity and product packaging design for a vibrant community coffee shop, featuring colorful drink packaging, modern logo design, and complete merchandising system.',
+    role: 'Brand Designer & Creative Director',
+    duration: '6 months',
+    team: 'Solo project with community feedback',
+    challenge: 'Create a distinctive, community-focused coffee brand that stands out in a competitive market while building local connection and brand recognition through cohesive visual identity.',
+    solution: 'Developed a complete brand ecosystem including logo, color palette, packaging design, merchandise, and environmental branding that reflects community values and modern aesthetic appeal.',
+    outcome: 'Successfully launched a comprehensive brand identity that increased community engagement and established strong local brand recognition.',
+    metrics: [
+      { label: '94%', value: 'Brand Identity Score', description: 'Community recognition rating' },
+      { label: '89%', value: 'Design Recognition', description: 'Visual brand recall' },
+      { label: '15+', value: 'Product Applications', description: 'Branded merchandise items' }
+    ],
+    process: [
+      'Community research and brand positioning',
+      'Logo design and typography selection',
+      'Color palette and visual system development',
+      'Product packaging design iterations',
+      'Merchandise and swag design',
+      'Environmental branding and signage',
+      'Brand guidelines documentation'
+    ],
+    learnings: [
+      'Community-focused branding builds stronger emotional connections',
+      'Consistent color application across all touchpoints reinforces brand recognition',
+      'Seasonal variations keep brand fresh while maintaining core identity',
+      'Quality merchandise serves as effective brand ambassadors'
+    ],
+    slideshow: [
+      fairGroundsDrinksImage,
+      fairGroundsWinterImage,
+      fairGroundsLogoImage,
+      fairGroundsDrinkImage,
+      fairGroundsSwagImage,
+      fairGroundsHatImage,
+      fairGroundsShamrockImage
+    ]
   }
 };
 
@@ -295,7 +343,7 @@ function ImageSlideshow({ images }: { images: string[] }) {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
-    }, 1000);
+    }, 60000); // 1 minute = 60000 milliseconds
 
     return () => clearInterval(interval);
   }, [images.length]);

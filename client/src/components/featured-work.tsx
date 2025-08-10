@@ -12,6 +12,13 @@ import iLaveImage from "@assets/!-Lave group Alt_1754580875717.png";
 import weChoreImage from "@assets/WeChore Diagonal_1754581130624.png";
 import subscriptexImage from "@assets/Subscriptex Layers_1754581352868.png";
 import fairGroundsCoffeeImage from "@assets/FairGrounds drinks_1754847440176.jpg";
+import fairGroundsSwagImage from "@assets/Fairgrounds swag_1754848838840.jpg";
+import fairGroundsWinterImage from "@assets/FairGrounds winter_1754848838840.jpg";
+import fairGroundsLogoImage from "@assets/FG 2 color circle lg_1754848838841.jpg";
+import fairGroundsDrinkImage from "@assets/FairGrounds drink_1754848838842.jpg";
+import fairGroundsDrinksImage from "@assets/FairGrounds drinks_1754848838842.jpg";
+import fairGroundsHatImage from "@assets/Fairgrounds hat_1754848838842.jpg";
+import fairGroundsShamrockImage from "@assets/FairGrounds shamrock_1754848838843.jpg";
 
 // Preload critical images immediately when component loads
 const preloadImage = (src: string) => {
@@ -30,6 +37,7 @@ interface Project {
   category: 'product-management' | 'product-design' | 'marketing';
   image: string;
   images?: string[]; // For rotating images
+  slideshow?: string[]; // For case study slideshow
   metrics: { label: string; value: string; color: string }[];
   tags: string[];
   award?: string;
@@ -127,6 +135,16 @@ const projects: Project[] = [
     description: 'Complete brand identity and product packaging design for a vibrant community coffee brand featuring colorful drink packaging and modern logo design.',
     category: 'product-design',
     image: fairGroundsCoffeeImage,
+    slideshow: [
+      fairGroundsCoffeeImage,
+      fairGroundsSwagImage,
+      fairGroundsWinterImage,
+      fairGroundsLogoImage,
+      fairGroundsDrinkImage,
+      fairGroundsDrinksImage,
+      fairGroundsHatImage,
+      fairGroundsShamrockImage
+    ],
     metrics: [
       { label: 'Brand Identity Score', value: '94%', color: 'text-chart-1' },
       { label: 'Design Recognition', value: '89%', color: 'text-primary' }
