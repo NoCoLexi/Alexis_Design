@@ -3,6 +3,7 @@ import { X, ExternalLink, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import engageOnboardingVideo from "@assets/Engage_Onboarding_1_1754580372224.mp4";
+import directorsPreziVideo from "@assets/Directors Deck Engage 2023 prezi_1754842640035.mp4";
 import engageRoadmapImage from "@assets/Engage Roadmap_1754580703265.png";
 import engageInterviewsImage from "@assets/02.02—interviews_1754580788428.png";
 import dashboardImage from "@assets/image_1754580387947.png";
@@ -180,7 +181,7 @@ const caseStudies: Record<string, CaseStudy> = {
       'Measurable impact drives continued investment in UX'
     ],
     image: engageRoadmapImage,
-    video: engageOnboardingVideo,
+    video: directorsPreziVideo,
     award: '2023 California Government Technology Innovation Award for Public Service'
   },
   lave: {
@@ -363,11 +364,11 @@ export default function CaseStudyModal() {
           <div className="aspect-video rounded-xl overflow-hidden">
             {caseStudy.video ? (
               <video 
-                src={caseStudy.video} 
+                src={caseStudy.id === 'pa-portal' ? `${caseStudy.video}#t=4` : caseStudy.video}
                 className="w-full h-full object-cover"
                 autoPlay
                 loop
-                muted
+                muted={caseStudy.id !== 'pa-portal'}
                 playsInline
               />
             ) : caseStudy.slideshow ? (
