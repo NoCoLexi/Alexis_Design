@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Award, ExternalLink } from "lucide-react";
 import calOesImage from "@assets/Cal OES Engage Landing Page Phase I_v2_1754580174186.png";
-import paPortalImage from "@assets/caloes login modal_1754580191419.png";
+import paPortalImage from "@assets/Grants Management Reporting 1-1_1754840000206.png";
 import dashboardImage from "@assets/image_1754580387947.png";
 import oesAppsImage from "@assets/OES IT Apps_1754584482209.png";
 import engageConnectImage from "@assets/EngageConnect_Vol_01_1754597322104.png";
