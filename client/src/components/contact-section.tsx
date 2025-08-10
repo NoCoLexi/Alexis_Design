@@ -3,11 +3,12 @@ import { SiLinkedin } from "react-icons/si";
 
 // Calendly logo component
 const CalendlyIcon = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22C6.486 22 2 17.514 2 12S6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>
-    <path d="M12 4C7.589 4 4 7.589 4 12s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zm4.8 12.8c-.2.2-.5.2-.7 0L12 12.7 7.9 16.8c-.2.2-.5.2-.7 0-.2-.2-.2-.5 0-.7L11.3 12 7.2 7.9c-.2-.2-.2-.5 0-.7.2-.2.5-.2.7 0L12 11.3l4.1-4.1c.2-.2.5-.2.7 0 .2.2.2.5 0 .7L12.7 12l4.1 4.1c.2.2.2.5 0 .7z"/>
-    <circle cx="12" cy="12" r="2.5" fill="#00A2FF"/>
-    <path d="M9.5 12c0-.8.2-1.5.6-2.1L12 12l-1.9 2.1c-.4-.6-.6-1.3-.6-2.1z" fill="#00D4AA"/>
+  <svg className={className} viewBox="0 0 24 24" fill="none">
+    <rect x="2" y="2" width="20" height="20" rx="5" fill="#0069FF"/>
+    <circle cx="12" cy="12" r="6" fill="white"/>
+    <circle cx="12" cy="9" r="1.5" fill="#0069FF"/>
+    <path d="M12 11.5v5" stroke="#0069FF" strokeWidth="2" strokeLinecap="round"/>
+    <path d="M9.5 14l2.5 2.5 5-5" stroke="#0069FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
 
@@ -57,8 +58,8 @@ export default function ContactSection() {
                 </a>
                 
                 <a href="https://calendly.com/alexis-brochu/15min" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-4 hover:opacity-80 transition-opacity">
-                  <div className="w-12 h-12 bg-[#00A2FF] rounded-xl flex items-center justify-center">
-                    <CalendlyIcon className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center">
+                    <CalendlyIcon className="w-6 h-6" />
                   </div>
                   <div>
                     <div className="font-medium text-foreground">Schedule a Meeting</div>
