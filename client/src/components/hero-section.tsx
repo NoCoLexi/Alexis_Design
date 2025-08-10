@@ -22,6 +22,13 @@ export default function HeroSection() {
     }
   };
 
+  const scrollToAbout = () => {
+    const element = document.getElementById('about');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="home" className="min-h-screen flex items-center relative overflow-hidden">
       <div className="absolute inset-0 gradient-bg-secondary opacity-30"></div>
@@ -33,7 +40,10 @@ export default function HeroSection() {
         <div className="max-w-4xl">
           {/* Simplified Badge */}
           <div className="mb-6">
-            <div className="inline-flex items-center gap-3 glass rounded-full px-6 py-3 hover:glow-purple transition-all duration-300">
+            <div 
+              className="inline-flex items-center gap-3 glass rounded-full px-6 py-3 hover:glow-purple transition-all duration-300 cursor-pointer"
+              onClick={scrollToAbout}
+            >
               <Award className="w-5 h-5 text-chart-3" />
               <span className="text-sm font-medium text-foreground">
                 2023 CA Gov Tech Innovation Award Winner
