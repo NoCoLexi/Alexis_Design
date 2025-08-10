@@ -1,16 +1,5 @@
-import { Mail } from "lucide-react";
+import { Mail, Calendar } from "lucide-react";
 import { SiLinkedin } from "react-icons/si";
-
-// Calendly logo component
-const CalendlyIcon = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none">
-    {/* Simple "C" shape for Calendly, similar to how LinkedIn uses "in" */}
-    <path d="M16 8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8V16C8 18.2091 9.79086 20 12 20C14.2091 20 16 18.2091 16 16" 
-          stroke="currentColor" 
-          strokeWidth="2.5" 
-          strokeLinecap="round"/>
-  </svg>
-);
 
 
 export default function ContactSection() {
@@ -58,8 +47,8 @@ export default function ContactSection() {
                 </a>
                 
                 <a href="https://calendly.com/alexis-brochu/15min" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-4 hover:opacity-80 transition-opacity">
-                  <div className="w-12 h-12 bg-[#006BFF] rounded-xl flex items-center justify-center">
-                    <CalendlyIcon className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 bg-chart-2 rounded-xl flex items-center justify-center">
+                    <Calendar className="w-6 h-6" />
                   </div>
                   <div>
                     <div className="font-medium text-foreground">Schedule a Meeting</div>
