@@ -148,8 +148,8 @@ const caseStudies: Record<string, CaseStudy> = {
     ],
     image: eagSiteLayoutImage
   },
-  closeouts: {
-    id: 'closeouts',
+  'pa-portal': {
+    id: 'pa-portal',
     title: 'Public Assistance Closeouts App',
     subtitle: '2023 California Government Technology Innovation Award Winner',
     description: 'Part of the Cal OES Engage Community Portal, this app connects Californian subrecipients to state government to make the reimbursement process quicker and more efficient.',
