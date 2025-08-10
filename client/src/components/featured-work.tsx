@@ -155,14 +155,20 @@ const RotatingImage = ({ images, title, projectId }: { images: string[], title: 
   const [currentSide, setCurrentSide] = useState<'left' | 'right'>('left');
   
   useEffect(() => {
+    console.log('RotatingImage mounted for:', projectId); // Debug log
     const interval = setInterval(() => {
-      setCurrentSide((prev) => prev === 'left' ? 'right' : 'left');
+      setCurrentSide((prev) => {
+        const newSide = prev === 'left' ? 'right' : 'left';
+        console.log('Switching to:', newSide); // Debug log
+        return newSide;
+      });
     }, 1000); // Rotate every 1 second
     
     return () => clearInterval(interval);
-  }, []);
+  }, [projectId]);
   
   const isCompositeImage = projectId === 'gatorade-marketing' || projectId === 'budweiser-campaign';
+  console.log('isCompositeImage:', isCompositeImage, 'for project:', projectId); // Debug log
   
   if (!isCompositeImage) {
     return (
@@ -179,21 +185,18 @@ const RotatingImage = ({ images, title, projectId }: { images: string[], title: 
       <img
         src={images[0]}
         alt={title}
-        className={`w-full h-full object-cover transition-all duration-500 ease-in-out ${
-          currentSide === 'left' 
-            ? 'object-left scale-110' 
-            : 'object-right scale-110'
-        }`}
+        className="w-full h-full object-cover transition-all duration-700 ease-in-out"
         style={{
-          objectPosition: currentSide === 'left' ? '25% center' : '75% center',
+          transform: currentSide === 'left' ? 'translateX(0%) scale(1.2)' : 'translateX(-50%) scale(1.2)',
+          transformOrigin: currentSide === 'left' ? 'left center' : 'right center',
         }}
       />
-      <div className="absolute bottom-2 right-2 flex gap-1">
+      <div className="absolute bottom-2 right-2 flex gap-1 z-10">
         <div className={`w-2 h-2 rounded-full transition-colors duration-300 ${
-          currentSide === 'left' ? 'bg-white' : 'bg-white/50'
+          currentSide === 'left' ? 'bg-white shadow-lg' : 'bg-white/50'
         }`} />
         <div className={`w-2 h-2 rounded-full transition-colors duration-300 ${
-          currentSide === 'right' ? 'bg-white' : 'bg-white/50'
+          currentSide === 'right' ? 'bg-white shadow-lg' : 'bg-white/50'
         }`} />
       </div>
     </div>
@@ -271,7 +274,7 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
       }}
     >
       <div className="aspect-video relative overflow-hidden">
-        {project.images && project.images.length > 1 ? (
+        {project.category === 'marketing' && project.images ? (
           <div 
             className="w-full h-full group-hover:scale-105 transition-transform duration-500"
             style={disableParallax ? {} : { 
