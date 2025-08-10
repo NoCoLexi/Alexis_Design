@@ -4,10 +4,18 @@ import { SiLinkedin } from "react-icons/si";
 // Calendly logo component
 const CalendlyIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none">
-    <circle cx="12" cy="12" r="10" fill="#006BFF"/>
-    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12" stroke="#006BFF" strokeWidth="2" fill="none"/>
-    <path d="M12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18" fill="#00D4AA"/>
-    <path d="M18 12C18 8.68629 15.3137 6 12 6" fill="none" stroke="#00D4AA" strokeWidth="3" strokeLinecap="round"/>
+    {/* Outer blue circle */}
+    <circle cx="12" cy="12" r="11" fill="#006BFF"/>
+    {/* Inner white circle to create the ring */}
+    <circle cx="12" cy="12" r="8" fill="white"/>
+    {/* Inner blue circle */}
+    <circle cx="12" cy="12" r="6" fill="#006BFF"/>
+    {/* Teal "C" shape */}
+    <path d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12" 
+          fill="none" 
+          stroke="#00D4AA" 
+          strokeWidth="2.5" 
+          strokeLinecap="round"/>
   </svg>
 );
 
