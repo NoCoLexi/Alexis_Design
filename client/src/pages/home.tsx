@@ -157,7 +157,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center">
             <div className="text-muted-foreground">
-              © {new Date().getFullYear()} Alexis Design. Portfolio built using Vibe Coding & AI prompting.
+              © {new Date().getFullYear()} Alexis Design. Portfolio built using Replit, Vibe Coding & AI prompting.
             </div>
           </div>
         </div>
