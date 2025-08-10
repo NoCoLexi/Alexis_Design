@@ -4,16 +4,9 @@ import { SiLinkedin } from "react-icons/si";
 // Calendly logo component
 const CalendlyIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none">
-    {/* Outer blue circle */}
-    <circle cx="12" cy="12" r="11" fill="#006BFF"/>
-    {/* Inner white circle to create the ring */}
-    <circle cx="12" cy="12" r="8" fill="white"/>
-    {/* Inner blue circle */}
-    <circle cx="12" cy="12" r="6" fill="#006BFF"/>
-    {/* Teal "C" shape */}
-    <path d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12" 
-          fill="none" 
-          stroke="#00D4AA" 
+    {/* Simple "C" shape for Calendly, similar to how LinkedIn uses "in" */}
+    <path d="M16 8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8V16C8 18.2091 9.79086 20 12 20C14.2091 20 16 18.2091 16 16" 
+          stroke="currentColor" 
           strokeWidth="2.5" 
           strokeLinecap="round"/>
   </svg>
@@ -65,8 +58,8 @@ export default function ContactSection() {
                 </a>
                 
                 <a href="https://calendly.com/alexis-brochu/15min" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-4 hover:opacity-80 transition-opacity">
-                  <div className="w-12 h-12 bg-transparent rounded-xl flex items-center justify-center">
-                    <CalendlyIcon className="w-6 h-6" />
+                  <div className="w-12 h-12 bg-[#006BFF] rounded-xl flex items-center justify-center">
+                    <CalendlyIcon className="w-6 h-6 text-white" />
                   </div>
                   <div>
                     <div className="font-medium text-foreground">Schedule a Meeting</div>
