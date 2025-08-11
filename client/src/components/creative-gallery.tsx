@@ -14,6 +14,8 @@ import jwuPortfolio from "@assets/FullSizeRender 14_1754576730756.jpg";
 import seinfeldBillboard from "@assets/IMG_1654_1754576872134.jpg";
 import rosieBillboards from "@assets/IMG_1652_1754576874123.jpg";
 import newsBillboards from "@assets/IMG_1655_1754576894772.jpg";
+import hiltonDesignBoard from "@assets/Hilton Design Board_1754956391330.jfif";
+import edgewaterResortBoard from "@assets/Edgewater Resort Cape Cod_1754956408189.jfif";
 
 interface GalleryItem {
   id: string;
@@ -112,6 +114,22 @@ const galleryItems: GalleryItem[] = [
     image: newsBillboards, 
     title: 'ABC 6 News Billboard Campaign',
     description: 'News media outdoor advertising and branding'
+  },
+  
+  // Interior Design Items
+  { 
+    id: '13', 
+    category: 'interior', 
+    image: hiltonDesignBoard, 
+    title: 'Hilton Hotel Interior Design Board',
+    description: 'Commercial hospitality design concept and material selection'
+  },
+  { 
+    id: '14', 
+    category: 'interior', 
+    image: edgewaterResortBoard, 
+    title: 'Edgewater Resort Cape Cod',
+    description: 'Luxury resort interior design concept and furnishing plan'
   },
 ];
 
@@ -216,6 +234,11 @@ export default function CreativeGallery() {
       title: 'Outdoor Advertising', 
       description: 'Billboard campaigns and large-scale advertising'
     },
+    { 
+      id: 'interior', 
+      title: 'Interior Design', 
+      description: 'Commercial space design and furnishing concepts developed at GSCF'
+    },
   ];
 
   return (
@@ -228,7 +251,7 @@ export default function CreativeGallery() {
             <span className="gradient-text">Creative Portfolio</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Diverse creative work spanning print design and outdoor advertising
+            Diverse creative work spanning print design, outdoor advertising, and interior design
           </p>
         </div>
 
