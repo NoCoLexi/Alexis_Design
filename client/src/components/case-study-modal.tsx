@@ -310,11 +310,11 @@ const caseStudies: Record<string, CaseStudy> = {
     title: 'FairGrounds Community Coffee',
     subtitle: 'Complete Brand Identity & Product Design',
     description: 'Comprehensive brand identity and product packaging design for FairGrounds, a hip underground coffee bar in Maine, featuring vibrant drink packaging, merchandise, and seasonal storefront design.',
-    role: 'Brand Designer & Creative Director',
-    duration: '6 months',
-    team: 'Solo project with community feedback',
-    challenge: 'Create a distinctive, community-focused coffee brand that stands out in a competitive market while building local connection and brand recognition through cohesive visual identity.',
-    solution: 'Developed a complete brand ecosystem including logo, color palette, packaging design, merchandise, and environmental branding that reflects community values and modern aesthetic appeal.',
+    role: 'Brand Designer & Creative Director (Alexis Design)',
+    duration: '4 months',
+    team: 'Direct collaboration with business owner',
+    challenge: 'Develop a complete brand identity system within an aggressive 4-month timeline, working closely with the owner to create both brand assets and interior design vibe for the hip underground coffee bar.',
+    solution: 'Moved fast through an accelerated design process, working directly with the owner to develop a complete brand ecosystem including logo, color palette, packaging design, merchandise, and interior design direction that captures the underground coffee culture vibe.',
     outcome: 'Successfully launched a comprehensive brand identity that increased community engagement and established strong local brand recognition.',
     metrics: [
       { label: '94%', value: 'Brand Identity Score', description: 'Community recognition rating' },
@@ -322,19 +322,19 @@ const caseStudies: Record<string, CaseStudy> = {
       { label: '15+', value: 'Product Applications', description: 'Branded merchandise items' }
     ],
     process: [
-      'Community research and brand positioning',
+      'Rapid brand discovery sessions with owner',
+      'Concept-to-creation sprint methodology',
       'Logo design and typography selection',
       'Color palette and visual system development',
       'Product packaging design iterations',
-      'Merchandise and swag design',
-      'Environmental branding and signage',
-      'Brand guidelines documentation'
+      'Interior design vibe consultation',
+      'Merchandise and environmental branding'
     ],
     learnings: [
-      'Community-focused branding builds stronger emotional connections',
-      'Consistent color application across all touchpoints reinforces brand recognition',
-      'Seasonal variations keep brand fresh while maintaining core identity',
-      'Quality merchandise serves as effective brand ambassadors'
+      'Tight timelines require strong client collaboration and rapid decision-making',
+      'Working directly with business owners accelerates the creative process',
+      'Interior design and brand identity must work together cohesively',
+      'Underground coffee culture demands authentic, community-driven aesthetic'
     ],
     slideshow: [
       fairGroundsDrinksNewImage,
