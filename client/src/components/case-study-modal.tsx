@@ -34,6 +34,8 @@ import fairGroundsDrinkImage from "@assets/FairGrounds drink_1754848838842.jpg";
 import fairGroundsDrinksImage from "@assets/FairGrounds drinks_1754848838842.jpg";
 import fairGroundsHatImage from "@assets/Fairgrounds hat_1754848838842.jpg";
 import fairGroundsShamrockImage from "@assets/FairGrounds shamrock_1754848838843.jpg";
+import gatoradeLabelImage from "@assets/image_1754955500068.png";
+import gatoradeSportsImage from "@assets/image_1754955502734.png";
 
 interface CaseStudy {
   id: string;
@@ -333,6 +335,41 @@ const caseStudies: Record<string, CaseStudy> = {
       fairGroundsSwagImage,
       fairGroundsHatImage,
       fairGroundsShamrockImage
+    ]
+  },
+  'gatorade-zipatoni': {
+    id: 'gatorade-zipatoni',
+    title: 'Gatorade Brand Development',
+    subtitle: 'Sports Marketing & Label Design at Zipatoni',
+    description: 'Comprehensive brand development work for Gatorade during my tenure at Zipatoni, one of the leading sports marketing agencies. Focused on label design concepts and sports marketing materials that maintained brand consistency while exploring fresh visual approaches for the iconic sports drink brand.',
+    role: 'Brand Designer & Visual Strategist',
+    duration: '6 months',
+    team: 'Zipatoni Creative Team',
+    challenge: 'Developing fresh design concepts for an established, globally recognized brand while maintaining its core identity and appeal to athletes and sports enthusiasts. The challenge was to create innovative label designs and marketing materials that would stand out in a competitive market.',
+    solution: 'Created multiple design concept iterations that balanced innovation with brand heritage. Developed label design concepts featuring dynamic visual elements and sports marketing materials that emphasized energy, performance, and athletic achievement.',
+    outcome: 'Successfully delivered multiple design concepts that demonstrated strong understanding of brand positioning and sports marketing aesthetics.',
+    metrics: [
+      { label: '15+', value: 'Design Concepts Created', description: 'Multiple label and marketing design variations' },
+      { label: '95%', value: 'Brand Recognition Maintained', description: 'Preserved iconic brand elements' },
+      { label: '100%', value: 'Client Satisfaction', description: 'All concepts delivered on schedule' }
+    ],
+    process: [
+      'Brand analysis and competitive research',
+      'Conceptual sketching and ideation sessions',
+      'Digital design development and refinement',
+      'Sports marketing material creation',
+      'Client presentation and feedback incorporation',
+      'Final asset preparation and delivery'
+    ],
+    learnings: [
+      'Working with established brands requires careful balance of innovation and heritage',
+      'Sports marketing design must convey energy and performance',
+      'Label design must work across multiple package formats',
+      'Agency environment demands rapid iteration and client responsiveness'
+    ],
+    slideshow: [
+      gatoradeLabelImage,
+      gatoradeSportsImage
     ]
   }
 };

@@ -19,6 +19,8 @@ import fairGroundsDrinkImage from "@assets/FairGrounds drink_1754848838842.jpg";
 import fairGroundsDrinksImage from "@assets/FairGrounds drinks_1754848838842.jpg";
 import fairGroundsHatImage from "@assets/Fairgrounds hat_1754848838842.jpg";
 import fairGroundsShamrockImage from "@assets/FairGrounds shamrock_1754848838843.jpg";
+import gatoradeLabelImage from "@assets/image_1754955500068.png";
+import gatoradeSportsImage from "@assets/image_1754955502734.png";
 
 // Preload critical images immediately when component loads
 const preloadImage = (src: string) => {
@@ -150,6 +152,22 @@ const projects: Project[] = [
       { label: 'Design Recognition', value: '89%', color: 'text-primary' }
     ],
     tags: ['Brand Identity', 'Logo Design', 'Product Packaging', 'Community Coffee']
+  },
+  {
+    id: 'gatorade-zipatoni',
+    title: 'Gatorade Brand Development',
+    description: 'Brand development and sports marketing design concepts created during my tenure at Zipatoni, focusing on label design and sports marketing materials for the iconic Gatorade brand.',
+    category: 'brand-development',
+    image: gatoradeLabelImage,
+    slideshow: [
+      gatoradeLabelImage,
+      gatoradeSportsImage
+    ],
+    metrics: [
+      { label: 'Design Concepts', value: '15+', color: 'text-chart-1' },
+      { label: 'Brand Recognition', value: '95%', color: 'text-primary' }
+    ],
+    tags: ['Brand Development', 'Sports Marketing', 'Label Design', 'Zipatoni Agency']
   }
 ];
 
