@@ -3,7 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Play, Pause } from "lucide-react";
 import hireMeSong from "@assets/Hire Me (Design and Groove)_1754579236907.mp3";
 
-export default function NavMusicPlayer() {
+interface NavMusicPlayerProps {
+  onPlayingChange?: (isPlaying: boolean) => void;
+}
+
+export default function NavMusicPlayer({ onPlayingChange }: NavMusicPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [autoplayAttempted, setAutoplayAttempted] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -18,6 +22,7 @@ export default function NavMusicPlayer() {
     // Handle audio end
     audio.addEventListener('ended', () => {
       setIsPlaying(false);
+      onPlayingChange?.(false);
     });
 
     // Attempt autoplay when metadata is loaded
@@ -27,6 +32,7 @@ export default function NavMusicPlayer() {
         try {
           await audio.play();
           setIsPlaying(true);
+          onPlayingChange?.(true);
           console.log('Autoplay successful');
         } catch (error) {
           console.log('Autoplay blocked by browser - user interaction required');
@@ -35,6 +41,7 @@ export default function NavMusicPlayer() {
             try {
               await audio.play();
               setIsPlaying(true);
+              onPlayingChange?.(true);
               document.removeEventListener('click', enableAutoplayOnInteraction);
               document.removeEventListener('keydown', enableAutoplayOnInteraction);
             } catch (e) {
@@ -65,10 +72,12 @@ export default function NavMusicPlayer() {
     if (isPlaying) {
       audio.pause();
       setIsPlaying(false);
+      onPlayingChange?.(false);
     } else {
       try {
         await audio.play();
         setIsPlaying(true);
+        onPlayingChange?.(true);
       } catch (error) {
         console.error('Error playing audio:', error);
       }

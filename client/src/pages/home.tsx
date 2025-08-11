@@ -14,6 +14,7 @@ import { audioManager } from "@/utils/audioUtils";
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
 
   useEffect(() => {
     // Initialize audio on first user interaction
@@ -75,7 +76,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-primary/20">
+      <nav className={`fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-primary/20 disco-header ${isMusicPlaying ? 'dancing' : ''}`}>
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
             <div className="logo-style flex items-center">
@@ -105,7 +106,7 @@ export default function Home() {
                 </button>
               ))}
               <div className="ml-4">
-                <NavMusicPlayer />
+                <NavMusicPlayer onPlayingChange={setIsMusicPlaying} />
               </div>
             </div>
             <button
@@ -143,7 +144,7 @@ export default function Home() {
                 </button>
               ))}
               <div className="pt-2 border-t border-primary/20">
-                <NavMusicPlayer />
+                <NavMusicPlayer onPlayingChange={setIsMusicPlaying} />
               </div>
             </div>
           )}
