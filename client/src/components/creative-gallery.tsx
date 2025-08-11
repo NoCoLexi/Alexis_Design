@@ -212,11 +212,6 @@ export default function CreativeGallery() {
       description: 'Editorial layouts, brochures, and marketing materials'
     },
     { 
-      id: 'brand', 
-      title: 'Brand Design', 
-      description: 'Identity systems, packaging, and brand campaigns'
-    },
-    { 
       id: 'outdoor', 
       title: 'Outdoor Advertising', 
       description: 'Billboard campaigns and large-scale advertising'
@@ -233,7 +228,7 @@ export default function CreativeGallery() {
             <span className="gradient-text">Creative Portfolio</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Diverse creative work spanning print design, branding, and outdoor advertising
+            Diverse creative work spanning print design and outdoor advertising
           </p>
         </div>
 

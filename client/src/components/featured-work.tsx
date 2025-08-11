@@ -21,6 +21,8 @@ import fairGroundsHatImage from "@assets/Fairgrounds hat_1754848838842.jpg";
 import fairGroundsShamrockImage from "@assets/FairGrounds shamrock_1754848838843.jpg";
 import gatoradeLabelImage from "@assets/image_1754955500068.png";
 import gatoradeSportsImage from "@assets/image_1754955502734.png";
+import budweiserIceImage from "@assets/image_1754955785717.png";
+import budweiserCampaignImage from "@assets/image_1754955810924.png";
 
 // Preload critical images immediately when component loads
 const preloadImage = (src: string) => {
@@ -168,6 +170,22 @@ const projects: Project[] = [
       { label: 'Brand Recognition', value: '95%', color: 'text-primary' }
     ],
     tags: ['Brand Development', 'Sports Marketing', 'Label Design', 'Zipatoni Agency']
+  },
+  {
+    id: 'budweiser-zipatoni',
+    title: 'Budweiser Marketing Campaign',
+    description: 'Beer brand campaign development during my time at Zipatoni, creating compelling marketing materials and brand campaigns for one of America\'s most iconic beer brands.',
+    category: 'brand-development',
+    image: budweiserIceImage,
+    slideshow: [
+      budweiserIceImage,
+      budweiserCampaignImage
+    ],
+    metrics: [
+      { label: 'Campaign Concepts', value: '12+', color: 'text-chart-1' },
+      { label: 'Brand Consistency', value: '98%', color: 'text-primary' }
+    ],
+    tags: ['Beer Marketing', 'Campaign Development', 'Brand Strategy', 'Zipatoni Agency']
   }
 ];
 
@@ -306,7 +324,7 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
 });
 
 export default function FeaturedWork() {
-  const [activeFilter, setActiveFilter] = useState<string>('all');
+  const [activeFilter, setActiveFilter] = useState<string>('product-management');
 
   const filteredProjects = useMemo(() => 
     projects.filter(project => 

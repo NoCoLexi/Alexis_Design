@@ -36,6 +36,8 @@ import fairGroundsHatImage from "@assets/Fairgrounds hat_1754848838842.jpg";
 import fairGroundsShamrockImage from "@assets/FairGrounds shamrock_1754848838843.jpg";
 import gatoradeLabelImage from "@assets/image_1754955500068.png";
 import gatoradeSportsImage from "@assets/image_1754955502734.png";
+import budweiserIceImage from "@assets/image_1754955785717.png";
+import budweiserCampaignImage from "@assets/image_1754955810924.png";
 
 interface CaseStudy {
   id: string;
@@ -370,6 +372,41 @@ const caseStudies: Record<string, CaseStudy> = {
     slideshow: [
       gatoradeLabelImage,
       gatoradeSportsImage
+    ]
+  },
+  'budweiser-zipatoni': {
+    id: 'budweiser-zipatoni',
+    title: 'Budweiser Marketing Campaign',
+    subtitle: 'Beer Brand Campaign Development at Zipatoni',
+    description: 'Strategic beer brand campaign development during my tenure at Zipatoni, focusing on creating compelling marketing materials and brand campaigns for Budweiser, one of America\'s most iconic beer brands. Work included conceptual development, visual design, and campaign strategy.',
+    role: 'Brand Designer & Campaign Strategist',
+    duration: '4 months',
+    team: 'Zipatoni Creative Team',
+    challenge: 'Developing fresh campaign concepts for an established American beer brand while maintaining its heritage and appeal to diverse demographics. The challenge was creating marketing materials that would resonate with both traditional and younger audiences.',
+    solution: 'Created multiple campaign concept iterations that celebrated American heritage while incorporating contemporary design elements. Developed marketing materials that emphasized quality, tradition, and American pride.',
+    outcome: 'Successfully delivered comprehensive campaign concepts that demonstrated strong understanding of beer marketing and American brand positioning.',
+    metrics: [
+      { label: '12+', value: 'Campaign Concepts Created', description: 'Multiple marketing and campaign variations' },
+      { label: '98%', value: 'Brand Consistency Maintained', description: 'Preserved iconic brand elements' },
+      { label: '100%', value: 'Project Delivery Success', description: 'All concepts delivered on schedule' }
+    ],
+    process: [
+      'Brand heritage analysis and market research',
+      'Target audience analysis and persona development',
+      'Creative conceptual development and ideation',
+      'Campaign material design and production',
+      'Client presentation and stakeholder feedback',
+      'Final campaign asset preparation'
+    ],
+    learnings: [
+      'Heritage brands require careful balance of tradition and innovation',
+      'Beer marketing must appeal to diverse demographic segments',
+      'Campaign consistency across touchpoints reinforces brand strength',
+      'Understanding American cultural values essential for authentic messaging'
+    ],
+    slideshow: [
+      budweiserIceImage,
+      budweiserCampaignImage
     ]
   }
 };
