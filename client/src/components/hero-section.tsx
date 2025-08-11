@@ -59,7 +59,7 @@ export default function HeroSection() {
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed max-w-3xl">
-            I'm the human on your IT team. Working together with AI-enhanced insights, diving into the problems, finding solutions that actually make sense, and creating products users adore.
+            Transforming technology through strategic product design and people-based change management
           </p>
           
           <div className="flex flex-col lg:flex-row gap-6 items-start lg:items-center mb-16">

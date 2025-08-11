@@ -34,7 +34,7 @@ interface Project {
   id: string;
   title: string;
   description: string;
-  category: 'product-management' | 'product-design' | 'marketing';
+  category: 'product-management' | 'product-design' | 'brand-development' | 'marketing';
   image: string;
   images?: string[]; // For rotating images
   slideshow?: string[]; // For case study slideshow
@@ -133,7 +133,7 @@ const projects: Project[] = [
     id: 'fairgrounds-coffee',
     title: 'FairGrounds Community Coffee',
     description: 'Complete brand identity and product packaging design for a vibrant community coffee brand featuring colorful drink packaging and modern logo design.',
-    category: 'product-design',
+    category: 'brand-development',
     image: fairGroundsCoffeeImage,
     slideshow: [
       fairGroundsCoffeeImage,
@@ -241,7 +241,8 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
         <div className="absolute top-4 left-4 flex gap-2">
           <Badge variant="secondary" className="bg-primary/80 text-primary-foreground">
             {project.category === 'product-management' ? 'Product Management' : 
-             project.category === 'product-design' ? 'Product Design' : 'Marketing'}
+             project.category === 'product-design' ? 'Product Design' : 
+             project.category === 'brand-development' ? 'Brand Development' : 'Marketing'}
           </Badge>
           {project.award && (
             <Badge variant="secondary" className="bg-chart-3/80 text-foreground flex items-center gap-1">
@@ -332,6 +333,13 @@ export default function FeaturedWork() {
               className={activeFilter === 'product-design' ? 'gradient-bg-primary' : ''}
             >
               Product Design
+            </Button>
+            <Button
+              variant={activeFilter === 'brand-development' ? 'default' : 'ghost'}
+              onClick={() => setActiveFilter('brand-development')}
+              className={activeFilter === 'brand-development' ? 'gradient-bg-primary' : ''}
+            >
+              Brand Development
             </Button>
             <Button
               variant={activeFilter === 'all' ? 'default' : 'ghost'}
