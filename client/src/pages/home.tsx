@@ -6,6 +6,7 @@ import ContactSection from "@/components/contact-section";
 import logoImage from "@assets/image_1754581825249.png";
 import CaseStudyModal from "@/components/case-study-modal";
 import ChatbotOverlay from "@/components/chatbot-overlay";
+import NavMusicPlayer from "@/components/nav-music-player";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { audioManager } from "@/utils/audioUtils";
@@ -81,7 +82,7 @@ export default function Home() {
               <span className="name-first">Alexis</span>
               <span className="name-last">Brochu</span>
             </div>
-            <div className="hidden md:flex space-x-8">
+            <div className="hidden md:flex space-x-8 items-center">
               {[
                 { id: 'home', label: 'Home' },
                 { id: 'work', label: 'Work' },
@@ -103,6 +104,9 @@ export default function Home() {
                   {item.label}
                 </button>
               ))}
+              <div className="ml-4">
+                <NavMusicPlayer />
+              </div>
             </div>
             <button
               className="md:hidden text-foreground"
@@ -138,6 +142,9 @@ export default function Home() {
                   {item.label}
                 </button>
               ))}
+              <div className="pt-2 border-t border-primary/20">
+                <NavMusicPlayer />
+              </div>
             </div>
           )}
         </div>

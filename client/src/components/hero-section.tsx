@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Award, Sparkles } from "lucide-react";
-import MusicPlayer from "@/components/music-player";
 
 export default function HeroSection() {
   const scrollToWork = () => {
@@ -79,9 +78,7 @@ export default function HeroSection() {
                 Let's Connect
               </Button>
             </div>
-            <div className="flex-shrink-0">
-              <MusicPlayer />
-            </div>
+
           </div>
           
           {/* Key Metrics - More Compact */}
