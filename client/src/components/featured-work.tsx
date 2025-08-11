@@ -23,7 +23,7 @@ import fairGroundsHatNewImage from "@assets/Fairgrounds hat_1754956090782.jpg";
 import fairGroundsShamrockNewImage from "@assets/FairGrounds shamrock_1754956090782.jpg";
 import fairGroundsSwagNewImage from "@assets/Fairgrounds swag_1754956090782.jpg";
 import fairGroundsWinterNewImage from "@assets/FairGrounds winter_1754956090783.jpg";
-import fairGroundsLogoNewImage from "@assets/FG 2 color circle lg_1754956090783.jpg";
+import fairGroundsLogoSheetImage from "@assets/FG 2 color circle lg_1754956254824.jpg";
 import fairGroundsDrinkNewImage from "@assets/FairGrounds drink_1754956090783.jpg";
 import fairGroundsDrinksNewImage from "@assets/FairGrounds drinks_1754956090783.jpg";
 import gatoradeLabelImage from "@assets/image_1754955500068.png";
@@ -149,7 +149,7 @@ const projects: Project[] = [
     slideshow: [
       fairGroundsDrinksNewImage,
       fairGroundsWinterNewImage,
-      fairGroundsLogoNewImage,
+      fairGroundsLogoSheetImage,
       fairGroundsDrinkNewImage,
       fairGroundsSwagNewImage,
       fairGroundsHatNewImage,
