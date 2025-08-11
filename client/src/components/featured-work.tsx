@@ -158,7 +158,7 @@ const projects: Project[] = [
     title: 'Gatorade Brand Development',
     description: 'Brand development and sports marketing design concepts created during my tenure at Zipatoni, focusing on label design and sports marketing materials for the iconic Gatorade brand.',
     category: 'brand-development',
-    image: gatoradeLabelImage,
+    image: gatoradeSportsImage,
     slideshow: [
       gatoradeLabelImage,
       gatoradeSportsImage
