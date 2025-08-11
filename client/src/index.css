@@ -430,3 +430,21 @@
   position: relative;
   z-index: 10;
 }
+
+/* Enhanced sticky navigation */
+nav {
+  position: fixed !important;
+  top: 0 !important;
+  will-change: transform;
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Ensure proper spacing for fixed header */
+body {
+  padding-top: 0;
+}
+
+/* Smooth scroll offset for fixed header */
+html {
+  scroll-padding-top: 80px;
+}

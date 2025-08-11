@@ -76,7 +76,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
-      <nav className={`fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-primary/20 disco-header ${isMusicPlaying ? 'dancing' : ''}`}>
+      <nav className={`fixed top-0 left-0 right-0 w-full z-50 bg-background/90 backdrop-blur-lg border-b border-primary/30 shadow-lg disco-header ${isMusicPlaying ? 'dancing' : ''}`}>
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
             <div className="logo-style flex items-center">
