@@ -52,7 +52,7 @@ export default function HeroSection() {
           
           <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
             <span className="gradient-text">
-              Product Visionary
+              Product Designer
             </span>
             <br />
             <span className="text-foreground">& UX Strategist</span>
