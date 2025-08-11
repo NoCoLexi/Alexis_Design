@@ -19,6 +19,13 @@ import fairGroundsDrinkImage from "@assets/FairGrounds drink_1754848838842.jpg";
 import fairGroundsDrinksImage from "@assets/FairGrounds drinks_1754848838842.jpg";
 import fairGroundsHatImage from "@assets/Fairgrounds hat_1754848838842.jpg";
 import fairGroundsShamrockImage from "@assets/FairGrounds shamrock_1754848838843.jpg";
+import fairGroundsHatNewImage from "@assets/Fairgrounds hat_1754956090782.jpg";
+import fairGroundsShamrockNewImage from "@assets/FairGrounds shamrock_1754956090782.jpg";
+import fairGroundsSwagNewImage from "@assets/Fairgrounds swag_1754956090782.jpg";
+import fairGroundsWinterNewImage from "@assets/FairGrounds winter_1754956090783.jpg";
+import fairGroundsLogoNewImage from "@assets/FG 2 color circle lg_1754956090783.jpg";
+import fairGroundsDrinkNewImage from "@assets/FairGrounds drink_1754956090783.jpg";
+import fairGroundsDrinksNewImage from "@assets/FairGrounds drinks_1754956090783.jpg";
 import gatoradeLabelImage from "@assets/image_1754955500068.png";
 import gatoradeSportsImage from "@assets/image_1754955502734.png";
 import budweiserIceImage from "@assets/image_1754955785717.png";
@@ -136,18 +143,17 @@ const projects: Project[] = [
   {
     id: 'fairgrounds-coffee',
     title: 'FairGrounds Community Coffee',
-    description: 'Complete brand identity and product packaging design for a vibrant community coffee brand featuring colorful drink packaging and modern logo design.',
+    description: 'Complete brand identity and product packaging design for FairGrounds, a hip underground coffee bar in Maine, featuring vibrant drink packaging, merchandise, and seasonal storefront design.',
     category: 'brand-development',
     image: fairGroundsCoffeeImage,
     slideshow: [
-      fairGroundsCoffeeImage,
-      fairGroundsSwagImage,
-      fairGroundsWinterImage,
-      fairGroundsLogoImage,
-      fairGroundsDrinkImage,
-      fairGroundsDrinksImage,
-      fairGroundsHatImage,
-      fairGroundsShamrockImage
+      fairGroundsDrinksNewImage,
+      fairGroundsWinterNewImage,
+      fairGroundsLogoNewImage,
+      fairGroundsDrinkNewImage,
+      fairGroundsSwagNewImage,
+      fairGroundsHatNewImage,
+      fairGroundsShamrockNewImage
     ],
     metrics: [
       { label: 'Brand Identity Score', value: '94%', color: 'text-chart-1' },
