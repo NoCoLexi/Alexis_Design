@@ -54,6 +54,7 @@ import grantsManagementBackOfficeImage from "@assets/Grants Management Back Offi
 import grantsManagementReportingImage from "@assets/Grants Management Reporting 1-1_1754968478693.png";
 import grantsManagementPresentationImage from "@assets/Grants Management Presentation 1-1_1754968480498.png";
 import grantsManagementReportingNewImage from "@assets/Grants Management Reporting 1-1_1754968713606.png";
+import grantsManagementPortalNewImage from "@assets/Grants Management Portal 1-0_1754968806232.png";
 
 // Preload critical images immediately when component loads
 const preloadImage = (src: string) => {
@@ -171,6 +172,7 @@ const projects: Project[] = [
     category: 'product-design',
     image: grantsManagementReportingNewImage,
     slideshow: [
+      grantsManagementPortalNewImage,
       grantsManagementIntroImage,
       grantsManagementHcdImage,
       grantsManagementBackOfficeImage,
