@@ -62,6 +62,12 @@ import budweiserGuide4Image from "@assets/IMG_1660_1754956980606.jpg";
 import budweiserGuide5Image from "@assets/IMG_1661_1754956980606.jpg";
 import budweiserGuide6Image from "@assets/IMG_1663_1754956980607.jpg";
 import ttoolsPressKitImage from "@assets/FullSizeRender 29_1754957693606.jpg";
+import grantsManagementPortalNewImage from "@assets/Grants Management Portal 1-0_1754968806232.png";
+import grantsManagementIntroImage from "@assets/Grants Management Intro 1-0_1754968472954.png";
+import grantsManagementHcdImage from "@assets/Grants Management HCD 1-2_1754968470644.png";
+import grantsManagementBackOfficeImage from "@assets/Grants Management Back Office 1-2_1754968475876.png";
+import grantsManagementReportingImage from "@assets/Grants Management Reporting 1-1_1754968478693.png";
+import grantsManagementPresentationImage from "@assets/Grants Management Presentation 1-1_1754968480498.png";
 
 interface CaseStudy {
   id: string;
@@ -321,6 +327,46 @@ const caseStudies: Record<string, CaseStudy> = {
     ],
     image: subscriptexImage,
     video: subscriptexVideo
+  },
+  'grants-management-sikich': {
+    id: 'grants-management-sikich',
+    title: 'Grants Management Portal',
+    subtitle: 'Salesforce System Integration for State Government',
+    description: 'Comprehensive grants management system built on Salesforce to map together systems across the state, enabling management to run unified reports and streamline grant oversight processes.',
+    role: 'Product Designer & Systems Integration Lead',
+    duration: '12 months',
+    team: 'Sikich consulting team, State government stakeholders',
+    challenge: 'State agencies were using disparate systems for grant management, making it impossible to track funding, progress, and outcomes across departments. Manual reporting processes were time-consuming and error-prone.',
+    solution: 'Designed and implemented a centralized Salesforce-based portal that integrates multiple state systems, provides unified reporting capabilities, and creates a single shared interface for grant management across all departments.',
+    outcome: 'Successfully deployed a unified grants management system that transformed how the state tracks and manages grant funding, enabling comprehensive oversight and streamlined processes.',
+    metrics: [
+      { label: '100%', value: 'System Integration', description: 'All state systems connected' },
+      { label: '85%', value: 'Reporting Efficiency', description: 'Reduction in manual reporting time' },
+      { label: '6', value: 'Departments Connected', description: 'Unified across state agencies' }
+    ],
+    process: [
+      'State system architecture analysis and mapping',
+      'Stakeholder interviews across multiple departments',
+      'Salesforce platform configuration and customization',
+      'Human-centered design for government users',
+      'Integration testing and data migration',
+      'Change management and training rollout',
+      'Post-deployment optimization and support'
+    ],
+    learnings: [
+      'Government systems integration requires careful change management',
+      'User training is critical for adoption of new unified systems',
+      'Salesforce provides excellent foundation for government reporting needs',
+      'Cross-department collaboration improves with shared visibility'
+    ],
+    slideshow: [
+      grantsManagementPortalNewImage,
+      grantsManagementIntroImage,
+      grantsManagementHcdImage,
+      grantsManagementBackOfficeImage,
+      grantsManagementReportingImage,
+      grantsManagementPresentationImage
+    ]
   },
   'fairgrounds-coffee': {
     id: 'fairgrounds-coffee',
