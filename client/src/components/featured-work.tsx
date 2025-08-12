@@ -411,12 +411,9 @@ export default function FeaturedWork() {
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary mb-6">
             <span className="text-sm font-medium">Featured Work</span>
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold mb-8 gradient-text">
-            Product Portfolio
+          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
+            <span className="gradient-text">Product Portfolio</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12">
-            Transforming government technology through strategic product management
-          </p>
 
           {/* Filter */}
           <div className="glass rounded-xl p-2">
