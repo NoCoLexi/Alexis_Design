@@ -86,7 +86,7 @@ export default function AboutSection() {
               </div>
               
               {/* Award Section - Fixed height to match content */}
-              <div className="glass rounded-xl p-6 group relative overflow-hidden perspective-1000 min-h-[280px]">
+              <div className="glass rounded-xl p-6 group relative overflow-hidden perspective-1000 h-[220px]">
                 <div className="flip-card w-full h-full">
                   {/* Front side - Text content */}
                   <div className="flip-card-front absolute inset-0 p-6 backface-hidden transition-transform duration-700 group-hover:rotate-y-180 flex flex-col justify-start">
