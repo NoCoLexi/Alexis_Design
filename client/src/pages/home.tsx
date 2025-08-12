@@ -165,7 +165,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center">
             <div className="text-muted-foreground">
-              © {new Date().getFullYear()} Alexis Design. Portfolio built using Replit, Vibe Coding & AI prompting.
+              © 2025 Alexis Design. Fueled by imagination, code, and AI genius: Replit, Claude, ChatGPT, and Suno working in harmony with Adobe Creative Cloud and Figma.
             </div>
           </div>
         </div>
