@@ -46,7 +46,7 @@ export default function HeroSection() {
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed max-w-3xl">
-            Transforming technology through strategic product design and people-based change management
+            Driving Human QA within IT - aligning technology, design, and change management to create digital products people love.
           </p>
 
           {/* California Gov Tech Award */}
