@@ -29,7 +29,7 @@ export default function AboutSection() {
           </div>
 
           {/* Two Column Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch">
             {/* Left: Expertise Cards */}
             <div className="space-y-6">
               <div className="glass rounded-xl p-6">
@@ -59,13 +59,13 @@ export default function AboutSection() {
             </div>
 
             {/* Right: Profile Images and Award - Flex aligned */}
-            <div className="flex flex-col">
+            <div className="flex flex-col justify-between h-full">
               {/* Personal Trainer Section Header */}
               <div className="mb-4">
                 <h3 className="font-semibold text-primary text-center">Fun fact: I'm also a certified personal trainer</h3>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div className="aspect-square rounded-2xl overflow-hidden animate-float glass">
                   <img 
                     src={professionalPhoto}
@@ -85,8 +85,8 @@ export default function AboutSection() {
                 </div>
               </div>
               
-              {/* Award Section - Same height as User Research + Change Management cards combined */}
-              <div className="glass rounded-xl p-6 group relative overflow-hidden perspective-1000 h-[320px]">
+              {/* Award Section - Flex to fill remaining space */}
+              <div className="glass rounded-xl p-6 group relative overflow-hidden perspective-1000 flex-1">
                 <div className="flip-card w-full h-full">
                   {/* Front side - Text content */}
                   <div className="flip-card-front absolute inset-0 backface-hidden transition-transform duration-700 group-hover:rotate-y-180">
