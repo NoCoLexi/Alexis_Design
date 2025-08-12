@@ -45,6 +45,13 @@ import gatoradeLabelImage from "@assets/image_1754955500068.png";
 import gatoradeSportsImage from "@assets/image_1754955502734.png";
 import budweiserIceImage from "@assets/image_1754955785717.png";
 import budweiserCampaignImage from "@assets/image_1754955810924.png";
+import ttoolsCoverImage from "@assets/IMG_1627_1754956586808.jpg";
+import ttoolsLicenseeImage from "@assets/IMG_1633_1754956594028.jpg";
+import ttoolsCorporateImage from "@assets/IMG_1628_1754956594029.jpg";
+import ttoolsBrandImage from "@assets/IMG_1629_1754956594029.jpg";
+import ttoolsLogoImage from "@assets/IMG_1630_1754956594029.jpg";
+import ttoolsStylusImage from "@assets/IMG_1631_1754956594030.jpg";
+import ttoolsPackagingImage from "@assets/IMG_1632_1754956594030.jpg";
 
 interface CaseStudy {
   id: string;
@@ -415,19 +422,59 @@ const caseStudies: Record<string, CaseStudy> = {
       budweiserIceImage,
       budweiserCampaignImage
     ]
+  },
+  'ttools-alexis-design': {
+    id: 'ttools-alexis-design',
+    title: 'TTools Brand Identity System',
+    subtitle: 'Complete Product Licensing & Brand Development',
+    description: 'Comprehensive brand identity and product licensing system created under Alexis Design for TTools LLC, a stylus technology company. The project successfully resulted in the brand being sold to Fellows Office Products at Staples.',
+    role: 'Creative Director (Alexis Design)',
+    duration: '8 months',
+    team: 'Creative Director, Brand Designer, Product Designer',
+    challenge: 'Create a complete brand identity system for a technology startup that would be attractive to major retail partners, specifically targeting office supply chains like Staples through Fellows Office Products.',
+    solution: 'Developed a comprehensive brand ecosystem including corporate identity, product guidelines, licensing documentation, patent materials, and packaging systems that positioned TTools as a premium technology brand ready for retail distribution.',
+    outcome: 'Successfully created a complete brand identity system that resulted in TTools being acquired by Fellows Office Products and distributed through Staples retail locations nationwide.',
+    metrics: [
+      { label: '100%', value: 'Retail Partnership Success', description: 'Successfully sold to Fellows/Staples' },
+      { label: '50+', value: 'Brand Guidelines Pages', description: 'Comprehensive brand documentation' },
+      { label: '8', value: 'Product Line Extensions', description: 'Multiple stylus product variants' }
+    ],
+    process: [
+      'Corporate identity development and logo design',
+      'Brand guidelines and visual system creation',
+      'Product packaging and labeling system design',
+      'Patent documentation and technology materials',
+      'Licensing guidelines and partnership materials',
+      'Retail presentation and sales support materials',
+      'Quality control and brand consistency protocols'
+    ],
+    learnings: [
+      'Retail partnerships require extensive brand documentation and consistency',
+      'Technology products need clear patent and licensing materials for acquisition',
+      'Corporate identity must work across multiple product variations',
+      'Brand systems for retail must consider shelf presence and consumer recognition'
+    ],
+    slideshow: [
+      ttoolsLicenseeImage,
+      ttoolsCorporateImage,
+      ttoolsBrandImage,
+      ttoolsLogoImage,
+      ttoolsStylusImage,
+      ttoolsPackagingImage
+    ]
   }
 };
 
-function ImageSlideshow({ images }: { images: string[] }) {
+function ImageSlideshow({ images, interval = 3000 }: { images: string[]; interval?: number }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
-    }, 3000); // 3 seconds = 3000 milliseconds
+    }, interval);
 
-    return () => clearInterval(interval);
-  }, [images.length]);
+    return () => clearInterval(timer);
+  }, [images.length, interval]);
 
   return (
     <div className="relative w-full h-full">
@@ -502,7 +549,10 @@ export default function CaseStudyModal() {
                 playsInline
               />
             ) : caseStudy.slideshow ? (
-              <ImageSlideshow images={caseStudy.slideshow} />
+              <ImageSlideshow 
+                images={caseStudy.slideshow} 
+                interval={caseStudy.id === 'ttools-alexis-design' ? 2000 : 3000}
+              />
             ) : caseStudy.image ? (
               <img src={caseStudy.image} alt={caseStudy.title} className="w-full h-full object-cover" />
             ) : null}

@@ -30,6 +30,13 @@ import gatoradeLabelImage from "@assets/image_1754955500068.png";
 import gatoradeSportsImage from "@assets/image_1754955502734.png";
 import budweiserIceImage from "@assets/image_1754955785717.png";
 import budweiserCampaignImage from "@assets/image_1754955810924.png";
+import ttoolsCoverImage from "@assets/IMG_1627_1754956586808.jpg";
+import ttoolsLicenseeImage from "@assets/IMG_1633_1754956594028.jpg";
+import ttoolsCorporateImage from "@assets/IMG_1628_1754956594029.jpg";
+import ttoolsBrandImage from "@assets/IMG_1629_1754956594029.jpg";
+import ttoolsLogoImage from "@assets/IMG_1630_1754956594029.jpg";
+import ttoolsStylusImage from "@assets/IMG_1631_1754956594030.jpg";
+import ttoolsPackagingImage from "@assets/IMG_1632_1754956594030.jpg";
 
 // Preload critical images immediately when component loads
 const preloadImage = (src: string) => {
@@ -192,6 +199,26 @@ const projects: Project[] = [
       { label: 'Brand Consistency', value: '98%', color: 'text-primary' }
     ],
     tags: ['Beer Marketing', 'Campaign Development', 'Brand Strategy', 'Zipatoni Agency']
+  },
+  {
+    id: 'ttools-alexis-design',
+    title: 'TTools Brand Identity System',
+    description: 'Complete brand identity and product licensing system created under Alexis Design for stylus technology products, successfully sold to Fellows Office Products at Staples.',
+    category: 'brand-development',
+    image: ttoolsCoverImage,
+    slideshow: [
+      ttoolsLicenseeImage,
+      ttoolsCorporateImage,
+      ttoolsBrandImage,
+      ttoolsLogoImage,
+      ttoolsStylusImage,
+      ttoolsPackagingImage
+    ],
+    metrics: [
+      { label: 'Brand Guidelines', value: '50+', color: 'text-chart-1' },
+      { label: 'Commercial Success', value: '100%', color: 'text-primary' }
+    ],
+    tags: ['Brand Identity', 'Product Licensing', 'Retail Partnership', 'Alexis Design']
   }
 ];
 
