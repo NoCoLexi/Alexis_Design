@@ -61,6 +61,7 @@ import budweiserGuide3Image from "@assets/IMG_1659_1754956980606.jpg";
 import budweiserGuide4Image from "@assets/IMG_1660_1754956980606.jpg";
 import budweiserGuide5Image from "@assets/IMG_1661_1754956980606.jpg";
 import budweiserGuide6Image from "@assets/IMG_1663_1754956980607.jpg";
+import ttoolsPressKitImage from "@assets/FullSizeRender 29_1754957693606.jpg";
 
 interface CaseStudy {
   id: string;
@@ -468,6 +469,7 @@ const caseStudies: Record<string, CaseStudy> = {
       'Brand systems for retail must consider shelf presence and consumer recognition'
     ],
     slideshow: [
+      ttoolsPressKitImage,
       ttoolsLicenseeImage,
       ttoolsCorporateImage,
       ttoolsBrandImage,

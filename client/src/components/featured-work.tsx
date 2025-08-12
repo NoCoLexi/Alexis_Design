@@ -37,6 +37,7 @@ import ttoolsBrandImage from "@assets/IMG_1629_1754956594029.jpg";
 import ttoolsLogoImage from "@assets/IMG_1630_1754956594029.jpg";
 import ttoolsStylusImage from "@assets/IMG_1631_1754956594030.jpg";
 import ttoolsPackagingImage from "@assets/IMG_1632_1754956594030.jpg";
+import ttoolsPressKitImage from "@assets/FullSizeRender 29_1754957693606.jpg";
 import abc6CoverImage from "@assets/IMG_1641_1754956730422.jpg";
 import abc6SeinfeldImage from "@assets/IMG_1654_1754956757000.jpg";
 import abc6RosieImage from "@assets/IMG_1652_1754956757001.jpg";
@@ -200,6 +201,7 @@ const projects: Project[] = [
     category: 'brand-development',
     image: ttoolsCoverImage,
     slideshow: [
+      ttoolsPressKitImage,
       ttoolsLicenseeImage,
       ttoolsCorporateImage,
       ttoolsBrandImage,
