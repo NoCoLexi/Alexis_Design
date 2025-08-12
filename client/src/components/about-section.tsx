@@ -62,8 +62,7 @@ export default function AboutSection() {
             <div className="flex flex-col">
               {/* Personal Trainer Section Header */}
               <div className="mb-4">
-                <h3 className="font-semibold text-primary text-center">Personal Trainer in My Free Time</h3>
-                <p className="text-muted-foreground text-sm text-center mt-1">My intuitive coaching style translates naturally from guiding teams through transformation</p>
+                <h3 className="font-semibold text-primary text-center">Fun fact: I'm also a certified personal trainer</h3>
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
