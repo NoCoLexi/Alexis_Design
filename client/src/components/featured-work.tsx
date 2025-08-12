@@ -37,6 +37,9 @@ import ttoolsBrandImage from "@assets/IMG_1629_1754956594029.jpg";
 import ttoolsLogoImage from "@assets/IMG_1630_1754956594029.jpg";
 import ttoolsStylusImage from "@assets/IMG_1631_1754956594030.jpg";
 import ttoolsPackagingImage from "@assets/IMG_1632_1754956594030.jpg";
+import abc6CoverImage from "@assets/IMG_1641_1754956730422.jpg";
+import abc6SeinfeldImage from "@assets/IMG_1654_1754956757000.jpg";
+import abc6RosieImage from "@assets/IMG_1652_1754956757001.jpg";
 
 // Preload critical images immediately when component loads
 const preloadImage = (src: string) => {
@@ -219,6 +222,22 @@ const projects: Project[] = [
       { label: 'Commercial Success', value: '100%', color: 'text-primary' }
     ],
     tags: ['Brand Identity', 'Product Licensing', 'Retail Partnership', 'Alexis Design']
+  },
+  {
+    id: 'abc6-rebrand-alexis-design',
+    title: 'ABC6 News Complete Brand Transformation',
+    description: 'Company-wide brand transformation for ABC6 News under Alexis Design, working directly with the marketing director to redesign everything from studio backdrops to mic holders and outdoor advertising.',
+    category: 'brand-development',
+    image: abc6CoverImage,
+    slideshow: [
+      abc6SeinfeldImage,
+      abc6RosieImage
+    ],
+    metrics: [
+      { label: 'Brand Touchpoints', value: '100+', color: 'text-chart-1' },
+      { label: 'Complete Transformation', value: '100%', color: 'text-primary' }
+    ],
+    tags: ['Television Branding', 'Studio Design', 'Outdoor Advertising', 'Alexis Design']
   }
 ];
 

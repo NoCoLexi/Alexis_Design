@@ -52,6 +52,9 @@ import ttoolsBrandImage from "@assets/IMG_1629_1754956594029.jpg";
 import ttoolsLogoImage from "@assets/IMG_1630_1754956594029.jpg";
 import ttoolsStylusImage from "@assets/IMG_1631_1754956594030.jpg";
 import ttoolsPackagingImage from "@assets/IMG_1632_1754956594030.jpg";
+import abc6CoverImage from "@assets/IMG_1641_1754956730422.jpg";
+import abc6SeinfeldImage from "@assets/IMG_1654_1754956757000.jpg";
+import abc6RosieImage from "@assets/IMG_1652_1754956757001.jpg";
 
 interface CaseStudy {
   id: string;
@@ -462,6 +465,42 @@ const caseStudies: Record<string, CaseStudy> = {
       ttoolsStylusImage,
       ttoolsPackagingImage
     ]
+  },
+  'abc6-rebrand-alexis-design': {
+    id: 'abc6-rebrand-alexis-design',
+    title: 'ABC6 News Complete Brand Transformation',
+    subtitle: 'Television Network Brand Overhaul & Environmental Design',
+    description: 'Comprehensive company-wide brand transformation for ABC6 News under Alexis Design, collaborating directly with the marketing director to redesign all brand touchpoints from studio backdrops and mic holders to outdoor advertising campaigns and mall installations.',
+    role: 'Brand Designer & Environmental Designer (Alexis Design)',
+    duration: '12 months',
+    team: 'Direct collaboration with ABC6 Marketing Director',
+    challenge: 'Execute a complete brand transformation across all ABC6 touchpoints while maintaining on-air operations, requiring coordination across studio environments, outdoor advertising, promotional materials, and experimental retail spaces.',
+    solution: 'Developed a systematic brand rollout strategy that included studio environmental design, comprehensive outdoor advertising campaigns, branded merchandise, and innovative mall PlayRoom installation, ensuring consistent brand application across traditional and experimental media channels.',
+    outcome: 'Successfully transformed ABC6\'s entire brand presence across Rhode Island, creating a cohesive visual identity that enhanced viewer recognition and expanded the network\'s community engagement through innovative retail experiences.',
+    metrics: [
+      { label: '100+', value: 'Brand Touchpoints Redesigned', description: 'Studio to street complete transformation' },
+      { label: '24/7', value: 'On-Air Brand Integration', description: 'Seamless operational continuity' },
+      { label: '12', value: 'Month Implementation', description: 'Full brand rollout timeline' }
+    ],
+    process: [
+      'Brand discovery and stakeholder alignment with marketing director',
+      'Studio environmental design and backdrop system development',
+      'Microphone holders and on-air equipment branding',
+      'Outdoor advertising campaign design and implementation',
+      'Promotional materials and branded merchandise creation',
+      'Mall PlayRoom concept development and installation',
+      'Brand guidelines documentation and training materials'
+    ],
+    learnings: [
+      'Television branding requires seamless integration with live operations',
+      'Environmental design must work under studio lighting conditions',
+      'Outdoor advertising campaigns need strong brand recognition at highway speeds',
+      'Innovative retail experiences can extend traditional media brand presence'
+    ],
+    slideshow: [
+      abc6SeinfeldImage,
+      abc6RosieImage
+    ]
   }
 };
 
@@ -551,7 +590,7 @@ export default function CaseStudyModal() {
             ) : caseStudy.slideshow ? (
               <ImageSlideshow 
                 images={caseStudy.slideshow} 
-                interval={caseStudy.id === 'ttools-alexis-design' ? 2000 : 3000}
+                interval={caseStudy.id === 'ttools-alexis-design' || caseStudy.id === 'abc6-rebrand-alexis-design' ? 2000 : 3000}
               />
             ) : caseStudy.image ? (
               <img src={caseStudy.image} alt={caseStudy.title} className="w-full h-full object-cover" />
