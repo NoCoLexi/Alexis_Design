@@ -48,6 +48,11 @@ import budweiserGuide4Image from "@assets/IMG_1660_1754956980606.jpg";
 import budweiserGuide5Image from "@assets/IMG_1661_1754956980606.jpg";
 import budweiserGuide6Image from "@assets/IMG_1663_1754956980607.jpg";
 import grantsManagementPortalImage from "@assets/Grants Management Portal 1-0_1754968369323.png";
+import grantsManagementHcdImage from "@assets/Grants Management HCD 1-2_1754968470644.png";
+import grantsManagementIntroImage from "@assets/Grants Management Intro 1-0_1754968472954.png";
+import grantsManagementBackOfficeImage from "@assets/Grants Management Back Office 1-2_1754968475876.png";
+import grantsManagementReportingImage from "@assets/Grants Management Reporting 1-1_1754968478693.png";
+import grantsManagementPresentationImage from "@assets/Grants Management Presentation 1-1_1754968480498.png";
 
 // Preload critical images immediately when component loads
 const preloadImage = (src: string) => {
@@ -164,6 +169,13 @@ const projects: Project[] = [
     description: 'Comprehensive grants management system built on Salesforce to map together systems across the state, enabling management to run unified reports and streamline grant oversight processes.',
     category: 'product-design',
     image: grantsManagementPortalImage,
+    slideshow: [
+      grantsManagementIntroImage,
+      grantsManagementHcdImage,
+      grantsManagementBackOfficeImage,
+      grantsManagementReportingImage,
+      grantsManagementPresentationImage
+    ],
     metrics: [
       { label: 'System Integration', value: '100%', color: 'text-chart-1' },
       { label: 'Reporting Efficiency', value: '85%', color: 'text-primary' }
