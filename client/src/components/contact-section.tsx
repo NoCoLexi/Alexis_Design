@@ -16,7 +16,9 @@ export default function ContactSection() {
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Seeking a Product Design/Management role where I can leverage my expertise in user research, strategic planning, and cross-functional communication to deliver exceptionally designed products that users adore.
+            Seeking a Product Design/Management role where I can leverage my expertise in <br />
+            user research, strategic planning, and cross-functional communication to deliver <br />
+            exceptionally designed products that users adore.
           </p>
         </div>
 
