@@ -1,22 +1,7 @@
-import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Award, Sparkles } from "lucide-react";
 
 export default function HeroSection() {
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  useEffect(() => {
-    // Listen for music playing state changes
-    const handleMusicStateChange = (event: CustomEvent) => {
-      setIsPlaying(event.detail.isPlaying);
-    };
-
-    window.addEventListener('musicStateChange', handleMusicStateChange as EventListener);
-    
-    return () => {
-      window.removeEventListener('musicStateChange', handleMusicStateChange as EventListener);
-    };
-  }, []);
 
   const scrollToWork = () => {
     console.log('Down arrow clicked - attempting to scroll to work section');
@@ -56,7 +41,7 @@ export default function HeroSection() {
           {/* California Gov Tech Award - Moved to top */}
           <div className="mb-8">
             <div 
-              className={`inline-flex items-center gap-3 glass rounded-full px-6 py-3 hover:glow-purple transition-all duration-300 cursor-pointer disco-button ${isPlaying ? 'playing' : ''}`}
+              className="inline-flex items-center gap-3 glass rounded-full px-6 py-3 hover:glow-purple transition-all duration-300 cursor-pointer disco-button"
               onClick={scrollToAbout}
             >
               <Award className="w-5 h-5 text-chart-3" />
@@ -66,7 +51,7 @@ export default function HeroSection() {
             </div>
           </div>
 
-          <h1 className={`text-5xl md:text-7xl font-black mb-6 leading-tight disco-header ${isPlaying ? 'playing' : ''}`}>
+          <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
             <span className="gradient-text">
               Product Designer
             </span>

@@ -398,12 +398,12 @@
   transition: opacity 0.5s ease;
 }
 
-.disco-header.playing::before {
+.disco-header.dancing::before {
   animation: disco-lights 3s linear infinite;
   opacity: 0.15;
 }
 
-.disco-header.playing {
+.disco-header.dancing {
   animation: header-disco-pulse 2s ease-in-out infinite;
 }
 
