@@ -62,15 +62,7 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Skills */}
-          <div className="mb-8">
-            <div className="flex flex-wrap gap-3">
-              <span className="px-4 py-2 bg-primary/20 text-primary rounded-full text-sm font-medium">Product Management</span>
-              <span className="px-4 py-2 bg-chart-1/20 text-chart-1 rounded-full text-sm font-medium">AI Strategy</span>
-              <span className="px-4 py-2 bg-chart-2/20 text-chart-2 rounded-full text-sm font-medium">UX Design</span>
-              <span className="px-4 py-2 bg-chart-3/20 text-chart-3 rounded-full text-sm font-medium">CMO</span>
-            </div>
-          </div>
+
           
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
             <Button 
