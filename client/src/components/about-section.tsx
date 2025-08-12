@@ -89,13 +89,13 @@ export default function AboutSection() {
               <div className="glass rounded-xl p-6 group relative overflow-hidden perspective-1000 h-[220px]">
                 <div className="flip-card w-full h-full">
                   {/* Front side - Text content */}
-                  <div className="flip-card-front absolute inset-0 p-4 backface-hidden transition-transform duration-700 group-hover:rotate-y-180 flex flex-col justify-center">
+                  <div className="flip-card-front absolute inset-0 pt-3 pb-5 px-4 backface-hidden transition-transform duration-700 group-hover:rotate-y-180 flex flex-col justify-center">
                     <h3 className="font-semibold text-chart-4 mb-3">California Tech Award for Innovation</h3>
                     <p className="text-muted-foreground text-sm mb-2">
                       When I joined Cal OES, government workers were drowning in confusing legacy applications that frustrated users and blocked critical disaster response.
                     </p>
                     <p className="text-chart-4 text-sm">
-                      My solution was to become fluent in both their technical constraints and human needs. After months of 350+ user interviews and strategic redesign, not only did we increase the user base by 545%, but the team won four regional awards including California's Government Innovation Award - Best Application Serving the Public.
+                      My solution was to become fluent in both their technical constraints and human needs. After months of 350+ user interviews and strategic redesign, we increased the user base by 545%, and the team won four regional awards including California's Government Innovation Award - Best Application Serving the Public.
                     </p>
                   </div>
                   
