@@ -55,6 +55,12 @@ import ttoolsPackagingImage from "@assets/IMG_1632_1754956594030.jpg";
 import abc6CoverImage from "@assets/IMG_1641_1754956730422.jpg";
 import abc6SeinfeldImage from "@assets/IMG_1654_1754956757000.jpg";
 import abc6RosieImage from "@assets/IMG_1652_1754956757001.jpg";
+import budweiserGuide1Image from "@assets/IMG_1657_1754956980605.jpg";
+import budweiserGuide2Image from "@assets/IMG_1658_1754956980606.jpg";
+import budweiserGuide3Image from "@assets/IMG_1659_1754956980606.jpg";
+import budweiserGuide4Image from "@assets/IMG_1660_1754956980606.jpg";
+import budweiserGuide5Image from "@assets/IMG_1661_1754956980606.jpg";
+import budweiserGuide6Image from "@assets/IMG_1663_1754956980607.jpg";
 
 interface CaseStudy {
   id: string;
@@ -422,8 +428,12 @@ const caseStudies: Record<string, CaseStudy> = {
       'Understanding American cultural values essential for authentic messaging'
     ],
     slideshow: [
-      budweiserIceImage,
-      budweiserCampaignImage
+      budweiserGuide1Image,
+      budweiserGuide2Image,
+      budweiserGuide3Image,
+      budweiserGuide4Image,
+      budweiserGuide5Image,
+      budweiserGuide6Image
     ]
   },
   'ttools-alexis-design': {
@@ -590,7 +600,7 @@ export default function CaseStudyModal() {
             ) : caseStudy.slideshow ? (
               <ImageSlideshow 
                 images={caseStudy.slideshow} 
-                interval={caseStudy.id === 'ttools-alexis-design' || caseStudy.id === 'abc6-rebrand-alexis-design' ? 2000 : 3000}
+                interval={caseStudy.id === 'ttools-alexis-design' || caseStudy.id === 'abc6-rebrand-alexis-design' || caseStudy.id === 'budweiser-zipatoni' ? 2000 : 3000}
               />
             ) : caseStudy.image ? (
               <img src={caseStudy.image} alt={caseStudy.title} className="w-full h-full object-cover" />
