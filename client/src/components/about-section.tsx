@@ -35,25 +35,29 @@ export default function AboutSection() {
               <div className="glass rounded-xl p-6">
                 <h3 className="font-semibold text-primary mb-3">Human Centered Design</h3>
                 <p className="text-muted-foreground text-sm">
-                  Leveraging AI tools and human-centered design methodologies to create intuitive, data-driven experiences that solve real user problems.
+                  Leveraging AI tools and human-centered design methodologies to create <br />
+                  intuitive, data-driven experiences that solve real user problems.
                 </p>
               </div>
               <div className="glass rounded-xl p-6">
-                <h3 className="font-semibold text-primary mb-3">UX Research</h3>
+                <h3 className="font-semibold text-primary mb-3">UX Research & Testing</h3>
                 <p className="text-muted-foreground text-sm">
-                  Comprehensive user research, data analysis, and behavioral insights to inform product decisions.
+                  Comprehensive user research, data analysis, and behavioral insights to inform <br />
+                  product decisions through rigorous testing methodologies.
                 </p>
               </div>
               <div className="glass rounded-xl p-6">
                 <h3 className="font-semibold text-primary mb-3">AI Product Management</h3>
                 <p className="text-muted-foreground text-sm">
-                  Strategic product vision, roadmap development, and cross-functional team leadership to deliver user-centered solutions.
+                  Strategic product vision leveraging AI tools and machine learning insights for <br />
+                  cross-functional team leadership to deliver intelligent user-centered solutions.
                 </p>
               </div>
               <div className="glass rounded-xl p-6">
                 <h3 className="font-semibold text-primary mb-3">Change Management</h3>
                 <p className="text-muted-foreground text-sm">
-                  Organizational transformation, stakeholder alignment, and adoption strategies for successful product launches.
+                  PROSCI certified organizational transformation, stakeholder alignment, and <br />
+                  adoption strategies for successful product launches.
                 </p>
               </div>
             </div>
