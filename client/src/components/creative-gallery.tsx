@@ -16,6 +16,7 @@ import rosieBillboards from "@assets/IMG_1652_1754576874123.jpg";
 import newsBillboards from "@assets/IMG_1655_1754576894772.jpg";
 import hiltonDesignBoard from "@assets/Hilton Design Board_1754956391330.jfif";
 import edgewaterResortBoard from "@assets/Edgewater Resort Cape Cod_1754956408189.jfif";
+import abc6WeatherCampaign from "@assets/FullSizeRender 16_1754957722931.jpg";
 
 interface GalleryItem {
   id: string;
@@ -114,6 +115,13 @@ const galleryItems: GalleryItem[] = [
     image: newsBillboards, 
     title: 'ABC 6 News Billboard Campaign',
     description: 'News media outdoor advertising and branding'
+  },
+  { 
+    id: '15', 
+    category: 'outdoor', 
+    image: abc6WeatherCampaign, 
+    title: 'ABC6 Weather Campaign',
+    description: 'Outdoor billboard campaign for ABC6 weather personalities and programming'
   },
   
   // Interior Design Items
