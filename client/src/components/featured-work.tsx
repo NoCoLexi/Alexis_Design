@@ -172,6 +172,42 @@ const projects: Project[] = [
     tags: ['Brand Identity', 'Logo Design', 'Product Packaging', 'Community Coffee']
   },
   {
+    id: 'abc6-rebrand-alexis-design',
+    title: 'WLNE-ABC6 Brand Transformation',
+    description: 'Company-wide brand transformation for ABC6 News under Alexis Design, working directly with the marketing director to redesign everything from studio backdrops to mic holders and outdoor advertising.',
+    category: 'brand-development',
+    image: abc6CoverImage,
+    slideshow: [
+      abc6SeinfeldImage,
+      abc6RosieImage
+    ],
+    metrics: [
+      { label: 'Brand Touchpoints', value: '100+', color: 'text-chart-1' },
+      { label: 'Complete Transformation', value: '100%', color: 'text-primary' }
+    ],
+    tags: ['Television Branding', 'Studio Design', 'Outdoor Advertising', 'Alexis Design']
+  },
+  {
+    id: 'ttools-alexis-design',
+    title: 'TTools Brand Identity System',
+    description: 'Complete brand identity and product licensing system created under Alexis Design for stylus technology products, successfully sold to Fellows Office Products at Staples.',
+    category: 'brand-development',
+    image: ttoolsCoverImage,
+    slideshow: [
+      ttoolsLicenseeImage,
+      ttoolsCorporateImage,
+      ttoolsBrandImage,
+      ttoolsLogoImage,
+      ttoolsStylusImage,
+      ttoolsPackagingImage
+    ],
+    metrics: [
+      { label: 'Brand Guidelines', value: '50+', color: 'text-chart-1' },
+      { label: 'Commercial Success', value: '100%', color: 'text-primary' }
+    ],
+    tags: ['Brand Identity', 'Product Licensing', 'Retail Partnership', 'Alexis Design']
+  },
+  {
     id: 'gatorade-zipatoni',
     title: 'Gatorade Brand Development',
     description: 'Brand development and sports marketing design concepts created during my tenure at Zipatoni, focusing on label design and sports marketing materials for the iconic Gatorade brand.',
@@ -202,42 +238,6 @@ const projects: Project[] = [
       { label: 'Brand Consistency', value: '98%', color: 'text-primary' }
     ],
     tags: ['Beer Marketing', 'Campaign Development', 'Brand Strategy', 'Zipatoni Agency']
-  },
-  {
-    id: 'ttools-alexis-design',
-    title: 'TTools Brand Identity System',
-    description: 'Complete brand identity and product licensing system created under Alexis Design for stylus technology products, successfully sold to Fellows Office Products at Staples.',
-    category: 'brand-development',
-    image: ttoolsCoverImage,
-    slideshow: [
-      ttoolsLicenseeImage,
-      ttoolsCorporateImage,
-      ttoolsBrandImage,
-      ttoolsLogoImage,
-      ttoolsStylusImage,
-      ttoolsPackagingImage
-    ],
-    metrics: [
-      { label: 'Brand Guidelines', value: '50+', color: 'text-chart-1' },
-      { label: 'Commercial Success', value: '100%', color: 'text-primary' }
-    ],
-    tags: ['Brand Identity', 'Product Licensing', 'Retail Partnership', 'Alexis Design']
-  },
-  {
-    id: 'abc6-rebrand-alexis-design',
-    title: 'ABC6 News Complete Brand Transformation',
-    description: 'Company-wide brand transformation for ABC6 News under Alexis Design, working directly with the marketing director to redesign everything from studio backdrops to mic holders and outdoor advertising.',
-    category: 'brand-development',
-    image: abc6CoverImage,
-    slideshow: [
-      abc6SeinfeldImage,
-      abc6RosieImage
-    ],
-    metrics: [
-      { label: 'Brand Touchpoints', value: '100+', color: 'text-chart-1' },
-      { label: 'Complete Transformation', value: '100%', color: 'text-primary' }
-    ],
-    tags: ['Television Branding', 'Studio Design', 'Outdoor Advertising', 'Alexis Design']
   }
 ];
 

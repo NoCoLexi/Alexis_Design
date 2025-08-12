@@ -468,7 +468,7 @@ const caseStudies: Record<string, CaseStudy> = {
   },
   'abc6-rebrand-alexis-design': {
     id: 'abc6-rebrand-alexis-design',
-    title: 'ABC6 News Complete Brand Transformation',
+    title: 'WLNE-ABC6 Brand Transformation',
     subtitle: 'Television Network Brand Overhaul & Environmental Design',
     description: 'Comprehensive company-wide brand transformation for ABC6 News under Alexis Design, collaborating directly with the marketing director to redesign all brand touchpoints from studio backdrops and mic holders to outdoor advertising campaigns and mall installations.',
     role: 'Brand Designer & Environmental Designer (Alexis Design)',
