@@ -27,34 +27,34 @@ export default function ContactSection() {
           <div className="space-y-8">
             <div className="glass rounded-2xl p-8">
               <h3 className="text-2xl font-bold mb-6 text-chart-4">Get in Touch</h3>
-              <div className="space-y-4">
-                <a href="mailto:alexisb.product@gmail.com" className="flex items-center space-x-4 hover:opacity-80 transition-opacity">
-                  <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center">
-                    <Mail className="w-6 h-6" />
+              <div className="flex flex-col md:flex-row md:justify-center md:space-x-8 space-y-4 md:space-y-0">
+                <a href="mailto:alexisb.product@gmail.com" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+                  <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                    <Mail className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="font-medium text-foreground">Email</div>
-                    <div className="text-muted-foreground">alexisb.product@gmail.com</div>
+                    <div className="font-medium text-foreground text-sm">Email</div>
+                    <div className="text-muted-foreground text-sm">alexisb.product@gmail.com</div>
                   </div>
                 </a>
                 
-                <a href="https://linkedin.com/in/alexisbrochu" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-4 hover:opacity-80 transition-opacity">
-                  <div className="w-12 h-12 bg-[#0077B5] rounded-xl flex items-center justify-center">
-                    <SiLinkedin className="w-6 h-6 text-white" />
+                <a href="https://linkedin.com/in/alexisbrochu" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+                  <div className="w-8 h-8 bg-[#0077B5] rounded-lg flex items-center justify-center">
+                    <SiLinkedin className="w-4 h-4 text-white" />
                   </div>
                   <div>
-                    <div className="font-medium text-foreground">LinkedIn</div>
-                    <div className="text-muted-foreground">linkedin.com/in/alexisbrochu</div>
+                    <div className="font-medium text-foreground text-sm">LinkedIn</div>
+                    <div className="text-muted-foreground text-sm">linkedin.com/in/alexisbrochu</div>
                   </div>
                 </a>
                 
-                <a href="https://calendly.com/alexis-brochu/15min" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-4 hover:opacity-80 transition-opacity">
-                  <div className="w-12 h-12 bg-chart-2 rounded-xl flex items-center justify-center">
-                    <Calendar className="w-6 h-6" />
+                <a href="https://calendly.com/alexis-brochu/15min" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+                  <div className="w-8 h-8 bg-chart-2 rounded-lg flex items-center justify-center">
+                    <Calendar className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="font-medium text-foreground">Schedule a Meeting</div>
-                    <div className="text-muted-foreground">calendly.com/alexis-brochu/15min</div>
+                    <div className="font-medium text-foreground text-sm">Schedule a Meeting</div>
+                    <div className="text-muted-foreground text-sm">calendly.com/alexis-brochu/15min</div>
                   </div>
                 </a>
               </div>
