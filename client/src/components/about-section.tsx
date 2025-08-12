@@ -33,21 +33,21 @@ export default function AboutSection() {
             {/* Left: Expertise Cards */}
             <div className="space-y-6">
               <div className="glass rounded-xl p-6">
-                <h3 className="font-semibold text-primary mb-3">Product Management</h3>
-                <p className="text-muted-foreground text-sm">
-                  Strategic product vision, roadmap development, and cross-functional team leadership to deliver user-centered solutions.
-                </p>
-              </div>
-              <div className="glass rounded-xl p-6">
-                <h3 className="font-semibold text-primary mb-3">AI-Enhanced Design Process</h3>
+                <h3 className="font-semibold text-primary mb-3">Human Centered Design</h3>
                 <p className="text-muted-foreground text-sm">
                   Leveraging AI tools and human-centered design methodologies to create intuitive, data-driven experiences that solve real user problems.
                 </p>
               </div>
               <div className="glass rounded-xl p-6">
-                <h3 className="font-semibold text-primary mb-3">User Research & Insights</h3>
+                <h3 className="font-semibold text-primary mb-3">UX Research</h3>
                 <p className="text-muted-foreground text-sm">
                   Comprehensive user research, data analysis, and behavioral insights to inform product decisions.
+                </p>
+              </div>
+              <div className="glass rounded-xl p-6">
+                <h3 className="font-semibold text-primary mb-3">AI Product Management</h3>
+                <p className="text-muted-foreground text-sm">
+                  Strategic product vision, roadmap development, and cross-functional team leadership to deliver user-centered solutions.
                 </p>
               </div>
               <div className="glass rounded-xl p-6">
