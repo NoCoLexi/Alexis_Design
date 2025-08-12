@@ -145,15 +145,15 @@ const galleryItems: GalleryItem[] = [
     id: '16', 
     category: 'interior', 
     image: camelbackResortBoard, 
-    title: 'Camelback Resort Scottsdale, AZ',
-    description: 'Southwestern luxury resort interior design mood board and furniture selection'
+    title: 'Scottsdale Camelback Resort',
+    description: 'Southwestern luxury resort interior design mood board\nwith furniture selection and material palette'
   },
   { 
     id: '17', 
     category: 'interior', 
     image: mchgInstallation, 
     title: 'MCHG Installation',
-    description: 'Modern commercial interior space with exposed brick walls and custom woodwork'
+    description: 'Modern commercial interior space with exposed brick walls\nand custom woodwork meeting area design'
   },
 ];
 
