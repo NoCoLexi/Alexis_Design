@@ -1,7 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import professionalPhoto from "@assets/Brochu, Alexis 2023 Ireland_1754523029765.png";
 import profileVideo from "@assets/20181006_190845_1754603621565.mp4";
-import awardImage from "@assets/CA Gov Tech Awards 2023_1754604147417.jpg";
+import awardImage from "@assets/CA Gov Tech Awards 2023 - Copy_1754965863645.jpg";
 
 const skills = [
   { name: 'Product Management', color: 'text-primary' },
@@ -94,7 +94,6 @@ export default function AboutSection() {
                       src={awardImage}
                       alt="California Government Technology Innovation Summit 2023 Awards"
                       className="w-full h-full object-cover rounded-lg"
-                      style={{ objectPosition: '50% 15%' }}
                     />
                   </div>
                   
