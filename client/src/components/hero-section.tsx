@@ -1,7 +1,23 @@
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Award, Sparkles } from "lucide-react";
 
 export default function HeroSection() {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  useEffect(() => {
+    // Listen for music playing state changes
+    const handleMusicStateChange = (event: CustomEvent) => {
+      setIsPlaying(event.detail.isPlaying);
+    };
+
+    window.addEventListener('musicStateChange', handleMusicStateChange as EventListener);
+    
+    return () => {
+      window.removeEventListener('musicStateChange', handleMusicStateChange as EventListener);
+    };
+  }, []);
+
   const scrollToWork = () => {
     console.log('Down arrow clicked - attempting to scroll to work section');
     const element = document.getElementById('work');
@@ -37,7 +53,20 @@ export default function HeroSection() {
       
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
         <div className="max-w-4xl">
-          <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
+          {/* California Gov Tech Award - Moved to top */}
+          <div className="mb-8">
+            <div 
+              className={`inline-flex items-center gap-3 glass rounded-full px-6 py-3 hover:glow-purple transition-all duration-300 cursor-pointer disco-button ${isPlaying ? 'playing' : ''}`}
+              onClick={scrollToAbout}
+            >
+              <Award className="w-5 h-5 text-chart-3" />
+              <span className="text-sm font-medium text-foreground">
+                2023 California Gov Tech Innovation Award Winner
+              </span>
+            </div>
+          </div>
+
+          <h1 className={`text-5xl md:text-7xl font-black mb-6 leading-tight disco-header ${isPlaying ? 'playing' : ''}`}>
             <span className="gradient-text">
               Product Designer
             </span>
@@ -48,19 +77,6 @@ export default function HeroSection() {
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed max-w-3xl">
             Driving Human QA within IT - aligning technology, design, and change management to create digital products people love.
           </p>
-
-          {/* California Gov Tech Award */}
-          <div className="mb-8">
-            <div 
-              className="inline-flex items-center gap-3 glass rounded-full px-6 py-3 hover:glow-purple transition-all duration-300 cursor-pointer"
-              onClick={scrollToAbout}
-            >
-              <Award className="w-5 h-5 text-chart-3" />
-              <span className="text-sm font-medium text-foreground">
-                2023 California Gov Tech Innovation Award Winner
-              </span>
-            </div>
-          </div>
 
 
           

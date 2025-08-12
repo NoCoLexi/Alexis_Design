@@ -23,6 +23,10 @@ export default function NavMusicPlayer({ onPlayingChange }: NavMusicPlayerProps)
     audio.addEventListener('ended', () => {
       setIsPlaying(false);
       onPlayingChange?.(false);
+      // Dispatch custom event for other components
+      window.dispatchEvent(new CustomEvent('musicStateChange', { 
+        detail: { isPlaying: false } 
+      }));
     });
 
     // Attempt autoplay when metadata is loaded
@@ -34,6 +38,10 @@ export default function NavMusicPlayer({ onPlayingChange }: NavMusicPlayerProps)
           setIsPlaying(true);
           onPlayingChange?.(true);
           console.log('Autoplay successful');
+          // Dispatch custom event for other components
+          window.dispatchEvent(new CustomEvent('musicStateChange', { 
+            detail: { isPlaying: true } 
+          }));
         } catch (error) {
           console.log('Autoplay blocked by browser - user interaction required');
           // Fallback: try to play on first user interaction
@@ -42,6 +50,10 @@ export default function NavMusicPlayer({ onPlayingChange }: NavMusicPlayerProps)
               await audio.play();
               setIsPlaying(true);
               onPlayingChange?.(true);
+              // Dispatch custom event for other components
+              window.dispatchEvent(new CustomEvent('musicStateChange', { 
+                detail: { isPlaying: true } 
+              }));
               document.removeEventListener('click', enableAutoplayOnInteraction);
               document.removeEventListener('keydown', enableAutoplayOnInteraction);
             } catch (e) {
@@ -73,11 +85,19 @@ export default function NavMusicPlayer({ onPlayingChange }: NavMusicPlayerProps)
       audio.pause();
       setIsPlaying(false);
       onPlayingChange?.(false);
+      // Dispatch custom event for other components
+      window.dispatchEvent(new CustomEvent('musicStateChange', { 
+        detail: { isPlaying: false } 
+      }));
     } else {
       try {
         await audio.play();
         setIsPlaying(true);
         onPlayingChange?.(true);
+        // Dispatch custom event for other components
+        window.dispatchEvent(new CustomEvent('musicStateChange', { 
+          detail: { isPlaying: true } 
+        }));
       } catch (error) {
         console.error('Error playing audio:', error);
       }
