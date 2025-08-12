@@ -52,7 +52,7 @@ const galleryItems: GalleryItem[] = [
     id: '4', 
     category: 'print', 
     image: galaInvitation, 
-    title: 'Gala Event Invitation Design',
+    title: 'TF Green Airport opening Gala event',
     description: 'Elegant event invitation and program design'
   },
   { 
