@@ -60,6 +60,12 @@ export default function AboutSection() {
 
             {/* Right: Profile Images and Award - Flex aligned */}
             <div className="flex flex-col">
+              {/* Personal Trainer Section Header */}
+              <div className="mb-4">
+                <h3 className="font-semibold text-primary text-center">Personal Trainer in My Free Time</h3>
+                <p className="text-muted-foreground text-sm text-center mt-1">Staying active and helping others reach their fitness goals</p>
+              </div>
+              
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div className="aspect-square rounded-2xl overflow-hidden animate-float glass">
                   <img 
