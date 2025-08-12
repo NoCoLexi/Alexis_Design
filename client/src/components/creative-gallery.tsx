@@ -18,6 +18,7 @@ import hiltonDesignBoard from "@assets/Hilton Design Board_1754956391330.jfif";
 import edgewaterResortBoard from "@assets/Edgewater Resort Cape Cod_1754956408189.jfif";
 import abc6WeatherCampaign from "@assets/FullSizeRender 16_1754957722931.jpg";
 import camelbackResortBoard from "@assets/Scottsdale Camelback Mood Board 07-02-2019_Page_1_1754963751790.jpg";
+import mchgInstallation from "@assets/IMG_6685_1754963973715.jpg";
 
 interface GalleryItem {
   id: string;
@@ -146,6 +147,13 @@ const galleryItems: GalleryItem[] = [
     image: camelbackResortBoard, 
     title: 'Camelback Resort Scottsdale, Arizona',
     description: 'Southwestern luxury resort interior design mood board and furniture selection'
+  },
+  { 
+    id: '17', 
+    category: 'interior', 
+    image: mchgInstallation, 
+    title: 'MCHG Installation',
+    description: 'Modern commercial interior space with exposed brick walls and custom woodwork'
   },
 ];
 
