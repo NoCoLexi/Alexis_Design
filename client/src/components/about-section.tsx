@@ -99,7 +99,6 @@ export default function AboutSection() {
                   
                   {/* Back side - Text content (on hover) */}
                   <div className="flip-card-back absolute inset-0 pt-3 pb-5 px-4 backface-hidden transition-transform duration-700 rotate-y-180 group-hover:rotate-y-0 flex flex-col justify-center">
-                    <h4 className="font-semibold text-chart-4 mb-2 text-xs">California Government Technology Innovation Summit 2023 Awards</h4>
                     <h3 className="font-semibold text-chart-4 mb-3">California Tech Award for Innovation</h3>
                     <p className="text-muted-foreground text-sm mb-2">
                       When I joined Cal OES, government workers were drowning in confusing legacy applications that frustrated users and blocked critical disaster response.
