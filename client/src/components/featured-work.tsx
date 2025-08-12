@@ -53,6 +53,7 @@ import grantsManagementIntroImage from "@assets/Grants Management Intro 1-0_1754
 import grantsManagementBackOfficeImage from "@assets/Grants Management Back Office 1-2_1754968475876.png";
 import grantsManagementReportingImage from "@assets/Grants Management Reporting 1-1_1754968478693.png";
 import grantsManagementPresentationImage from "@assets/Grants Management Presentation 1-1_1754968480498.png";
+import grantsManagementReportingNewImage from "@assets/Grants Management Reporting 1-1_1754968713606.png";
 
 // Preload critical images immediately when component loads
 const preloadImage = (src: string) => {
@@ -168,7 +169,7 @@ const projects: Project[] = [
     title: 'Grants Management Portal - Sikich',
     description: 'Comprehensive grants management system built on Salesforce to map together systems across the state, enabling management to run unified reports and streamline grant oversight processes.',
     category: 'product-design',
-    image: grantsManagementPortalImage,
+    image: grantsManagementReportingNewImage,
     slideshow: [
       grantsManagementIntroImage,
       grantsManagementHcdImage,
