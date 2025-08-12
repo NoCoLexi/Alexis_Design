@@ -17,6 +17,7 @@ import newsBillboards from "@assets/IMG_1655_1754576894772.jpg";
 import hiltonDesignBoard from "@assets/Hilton Design Board_1754956391330.jfif";
 import edgewaterResortBoard from "@assets/Edgewater Resort Cape Cod_1754956408189.jfif";
 import abc6WeatherCampaign from "@assets/FullSizeRender 16_1754957722931.jpg";
+import camelbackResortBoard from "@assets/Scottsdale Camelback Mood Board 07-02-2019_Page_1_1754963751790.jpg";
 
 interface GalleryItem {
   id: string;
@@ -129,7 +130,7 @@ const galleryItems: GalleryItem[] = [
     id: '13', 
     category: 'interior', 
     image: hiltonDesignBoard, 
-    title: 'Hilton Hotel Interior Design Board',
+    title: 'Hilton Hotel Interior',
     description: 'Commercial hospitality design concept and material selection'
   },
   { 
@@ -138,6 +139,13 @@ const galleryItems: GalleryItem[] = [
     image: edgewaterResortBoard, 
     title: 'Edgewater Resort Cape Cod',
     description: 'Luxury resort interior design concept and furnishing plan'
+  },
+  { 
+    id: '16', 
+    category: 'interior', 
+    image: camelbackResortBoard, 
+    title: 'Camelback Resort Scottsdale, Arizona',
+    description: 'Southwestern luxury resort interior design mood board and furniture selection'
   },
 ];
 
