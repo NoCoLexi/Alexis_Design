@@ -75,7 +75,7 @@ export default function HeroSection() {
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed max-w-3xl">
-            I bring digital experiences to life with human-centered design, intuitive change management, and by being the go-to Human QA voice on the IT team.
+            Bringing digital experiences to life with human-centered design, intuitive change management, and owning the Human QA role on the IT team.
           </p>
 
 
