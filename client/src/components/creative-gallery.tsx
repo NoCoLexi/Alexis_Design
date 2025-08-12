@@ -132,28 +132,28 @@ const galleryItems: GalleryItem[] = [
     category: 'interior', 
     image: hiltonDesignBoard, 
     title: 'Hilton Hotel Interior',
-    description: 'Commercial hospitality design concept and material selection'
+    description: 'Commercial hospitality design concept\nwith material selection and furnishing'
   },
   { 
     id: '14', 
     category: 'interior', 
     image: edgewaterResortBoard, 
     title: 'Edgewater Resort Cape Cod',
-    description: 'Luxury resort interior design concept and furnishing plan'
+    description: 'Luxury resort interior design concept\nand comprehensive furnishing plan'
   },
   { 
     id: '16', 
     category: 'interior', 
     image: camelbackResortBoard, 
     title: 'Scottsdale Camelback Resort',
-    description: 'Southwestern luxury resort interior design mood board\nwith furniture selection and material palette'
+    description: 'Southwestern luxury resort mood board\nwith furniture and material selection'
   },
   { 
     id: '17', 
     category: 'interior', 
     image: mchgInstallation, 
     title: 'MCHG Installation',
-    description: 'Modern commercial interior space with exposed brick walls\nand custom woodwork meeting area design'
+    description: 'Modern commercial space with brick walls\nand custom woodwork meeting area'
   },
 ];
 
