@@ -99,21 +99,21 @@ const galleryItems: GalleryItem[] = [
     id: '10', 
     category: 'outdoor', 
     image: seinfeldBillboard, 
-    title: 'Seinfeld TV Show Billboard Campaign',
+    title: 'Seinfeld TV Show Campaign',
     description: 'Large-scale outdoor advertising for television'
   },
   { 
     id: '11', 
     category: 'outdoor', 
     image: rosieBillboards, 
-    title: 'Rosie O\'Donnell Show Billboards',
+    title: 'Rosie O\'Donnell Show Campaign',
     description: 'Entertainment industry outdoor campaigns'
   },
   { 
     id: '12', 
     category: 'outdoor', 
     image: newsBillboards, 
-    title: 'ABC 6 News Billboard Campaign',
+    title: 'ABC 6 News Campaign',
     description: 'News media outdoor advertising and branding'
   },
   { 
