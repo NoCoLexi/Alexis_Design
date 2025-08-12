@@ -93,7 +93,8 @@ export default function AboutSection() {
                     <img 
                       src={awardImage}
                       alt="California Government Technology Innovation Summit 2023 Awards"
-                      className="w-full h-full object-cover object-top rounded-lg"
+                      className="w-full h-full object-cover rounded-lg"
+                      style={{ objectPosition: '50% 15%' }}
                     />
                   </div>
                   
