@@ -85,11 +85,11 @@ export default function AboutSection() {
                 </div>
               </div>
               
-              {/* Award Section - Flex to fill remaining space */}
-              <div className="glass rounded-xl p-6 group relative overflow-hidden perspective-1000 flex-1">
+              {/* Award Section - Fixed height to match content */}
+              <div className="glass rounded-xl p-6 group relative overflow-hidden perspective-1000 min-h-[280px]">
                 <div className="flip-card w-full h-full">
                   {/* Front side - Text content */}
-                  <div className="flip-card-front absolute inset-0 backface-hidden transition-transform duration-700 group-hover:rotate-y-180">
+                  <div className="flip-card-front absolute inset-0 p-6 backface-hidden transition-transform duration-700 group-hover:rotate-y-180 flex flex-col justify-start">
                     <h3 className="font-semibold text-chart-4 mb-3">California Tech Award for Innovation</h3>
                     <p className="text-muted-foreground text-sm mb-4">
                       When I joined Cal OES, government workers were drowning in confusing legacy applications that frustrated users and blocked critical disaster response.
