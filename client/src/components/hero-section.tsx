@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Award, Sparkles } from "lucide-react";
+import personalImageHiking from "@assets/image_1754957137136.png";
 
 export default function HeroSection() {
   const scrollToWork = () => {
@@ -36,34 +37,44 @@ export default function HeroSection() {
       </div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
-        <div className="max-w-4xl">
-          {/* Simplified Badge */}
-          <div className="mb-6">
-            <div 
-              className="inline-flex items-center gap-3 glass rounded-full px-6 py-3 hover:glow-purple transition-all duration-300 cursor-pointer"
-              onClick={scrollToAbout}
-            >
-              <Award className="w-5 h-5 text-chart-3" />
-              <span className="text-sm font-medium text-foreground">
-                2023 CA Gov Tech Innovation Award Winner
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="max-w-4xl">
+            <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
+              <span className="gradient-text">
+                Product Designer
               </span>
+              <br />
+              <span className="text-foreground">& UX Strategist</span>
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed max-w-3xl">
+              Transforming technology through strategic product design and people-based change management
+            </p>
+
+            {/* California Gov Tech Award */}
+            <div className="mb-8">
+              <div 
+                className="inline-flex items-center gap-3 glass rounded-full px-6 py-3 hover:glow-purple transition-all duration-300 cursor-pointer"
+                onClick={scrollToAbout}
+              >
+                <Award className="w-5 h-5 text-chart-3" />
+                <span className="text-sm font-medium text-foreground">
+                  2023 California Gov Tech Innovation Award Winner
+                </span>
+              </div>
             </div>
-          </div>
-          
-          <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
-            <span className="gradient-text">
-              Product Designer
-            </span>
-            <br />
-            <span className="text-foreground">& UX Strategist</span>
-          </h1>
-          
-          <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed max-w-3xl">
-            Transforming technology through strategic product design and people-based change management
-          </p>
-          
-          <div className="flex flex-col lg:flex-row gap-6 items-start lg:items-center mb-16">
-            <div className="flex flex-col sm:flex-row gap-4">
+
+            {/* Skills */}
+            <div className="mb-8">
+              <div className="flex flex-wrap gap-3">
+                <span className="px-4 py-2 bg-primary/20 text-primary rounded-full text-sm font-medium">Product Management</span>
+                <span className="px-4 py-2 bg-chart-1/20 text-chart-1 rounded-full text-sm font-medium">AI Strategy</span>
+                <span className="px-4 py-2 bg-chart-2/20 text-chart-2 rounded-full text-sm font-medium">UX Design</span>
+                <span className="px-4 py-2 bg-chart-3/20 text-chart-3 rounded-full text-sm font-medium">CMO</span>
+              </div>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <Button 
                 onClick={scrollToWork}
                 className="px-8 py-4 gradient-bg-primary hover:opacity-90 rounded-xl font-semibold text-lg transition-all duration-300 glow-purple"
@@ -78,22 +89,42 @@ export default function HeroSection() {
                 Let's Connect
               </Button>
             </div>
-
+            
+            {/* Key Metrics */}
+            <div className="grid grid-cols-3 gap-4 max-w-2xl">
+              <div className="text-center">
+                <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>545.5%</div>
+                <div className="text-xs text-white/70">User Growth</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>$244M</div>
+                <div className="text-xs text-white/70">Projects Closed</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>75%</div>
+                <div className="text-xs text-white/70">Tickets Reduced</div>
+              </div>
+            </div>
           </div>
-          
-          {/* Key Metrics - More Compact */}
-          <div className="grid grid-cols-3 gap-4 max-w-2xl">
-            <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>545.5%</div>
-              <div className="text-xs text-white/70">User Growth</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>$244M</div>
-              <div className="text-xs text-white/70">Projects Closed</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>75%</div>
-              <div className="text-xs text-white/70">Tickets Reduced</div>
+
+          {/* Personal Visual Content */}
+          <div className="relative">
+            <div className="grid grid-cols-1 gap-6">
+              {/* Main hiking image */}
+              <div className="relative group">
+                <div className="glass rounded-2xl p-4 hover:glow-purple transition-all duration-300">
+                  <img 
+                    src={personalImageHiking} 
+                    alt="Personal moments - hiking and fitness training"
+                    className="w-full h-64 object-cover rounded-xl"
+                  />
+                  <div className="mt-3 px-2">
+                    <p className="text-sm text-muted-foreground">
+                      Daily hiking keeps me energized • Personal training featured in Vibe Magazine
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
