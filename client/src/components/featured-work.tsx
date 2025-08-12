@@ -47,6 +47,7 @@ import budweiserGuide3Image from "@assets/IMG_1659_1754956980606.jpg";
 import budweiserGuide4Image from "@assets/IMG_1660_1754956980606.jpg";
 import budweiserGuide5Image from "@assets/IMG_1661_1754956980606.jpg";
 import budweiserGuide6Image from "@assets/IMG_1663_1754956980607.jpg";
+import grantsManagementPortalImage from "@assets/Grants Management Portal 1-0_1754968369323.png";
 
 // Preload critical images immediately when component loads
 const preloadImage = (src: string) => {
@@ -156,6 +157,18 @@ const projects: Project[] = [
       { label: 'Churn Reduction', value: '43%', color: 'text-chart-2' }
     ],
     tags: ['Design System', 'German Market', 'Financial UX']
+  },
+  {
+    id: 'grants-management-sikich',
+    title: 'Grants Management Portal - Sikich',
+    description: 'Comprehensive grants management system built on Salesforce to map together systems across the state, enabling management to run unified reports and streamline grant oversight processes.',
+    category: 'product-design',
+    image: grantsManagementPortalImage,
+    metrics: [
+      { label: 'System Integration', value: '100%', color: 'text-chart-1' },
+      { label: 'Reporting Efficiency', value: '85%', color: 'text-primary' }
+    ],
+    tags: ['Salesforce', 'Government Systems', 'Data Integration', 'Reporting Dashboard']
   },
   {
     id: 'fairgrounds-coffee',
