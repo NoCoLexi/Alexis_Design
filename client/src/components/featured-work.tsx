@@ -28,7 +28,7 @@ import fairGroundsDrinkNewImage from "@assets/FairGrounds drink_1754956090783.jp
 import fairGroundsDrinksNewImage from "@assets/FairGrounds drinks_1754956090783.jpg";
 import gatoradeLabelImage from "@assets/image_1754955500068.png";
 import gatoradeSportsImage from "@assets/image_1754955502734.png";
-import budweiserIceImage from "@assets/image_1754955785717.png";
+import budweiserIceImage from "@assets/IMG_1656_1754968092692.jpg";
 import budweiserCampaignImage from "@assets/image_1754955810924.png";
 import ttoolsCoverImage from "@assets/IMG_1627_1754956586808.jpg";
 import ttoolsLicenseeImage from "@assets/IMG_1633_1754956594028.jpg";
