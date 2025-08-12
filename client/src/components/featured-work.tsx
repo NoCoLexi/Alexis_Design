@@ -167,7 +167,7 @@ const projects: Project[] = [
   },
   {
     id: 'grants-management-sikich',
-    title: 'Grants Management Portal - Sikich',
+    title: 'Grants Management',
     description: 'Comprehensive grants management system built on Salesforce to map together systems across the state, enabling management to run unified reports and streamline grant oversight processes.',
     category: 'product-design',
     image: grantsManagementReportingNewImage,
