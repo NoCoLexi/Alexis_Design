@@ -145,7 +145,7 @@ const galleryItems: GalleryItem[] = [
     id: '16', 
     category: 'interior', 
     image: camelbackResortBoard, 
-    title: 'Camelback Resort Scottsdale, Arizona',
+    title: 'Camelback Resort Scottsdale, AZ',
     description: 'Southwestern luxury resort interior design mood board and furniture selection'
   },
   { 
