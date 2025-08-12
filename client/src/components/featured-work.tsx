@@ -55,6 +55,7 @@ import grantsManagementReportingImage from "@assets/Grants Management Reporting 
 import grantsManagementPresentationImage from "@assets/Grants Management Presentation 1-1_1754968480498.png";
 import grantsManagementReportingNewImage from "@assets/Grants Management Reporting 1-1_1754968713606.png";
 import grantsManagementPortalNewImage from "@assets/Grants Management Portal 1-0_1754968806232.png";
+import paCloseoutNewImage from "@assets/image_1754969508918.png";
 
 // Preload critical images immediately when component loads
 const preloadImage = (src: string) => {
@@ -121,7 +122,7 @@ const projects: Project[] = [
     title: 'Public Assistance Closeouts App',
     description: 'Streamlining the reimbursement process for California subrecipients. Winner of the 2023 California Government Technology Innovation Award.',
     category: 'product-management',
-    image: paPortalImage,
+    image: paCloseoutNewImage,
     metrics: [
       { label: 'Processing Time', value: '244M', color: 'text-primary' },
       { label: 'User Satisfaction', value: '75%', color: 'text-chart-2' }

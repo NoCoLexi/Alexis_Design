@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { MessageCircle, X, Minimize2 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import React, { useState, useEffect } from "react";
+import { MessageCircle, X, Minimize2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 interface ChatbotOverlayProps {
   typebotUrl?: string;
 }
 
-export default function ChatbotOverlay({ typebotUrl = "https://typebot.co/lead-generation-ni1axi9" }: ChatbotOverlayProps) {
+export default function ChatbotOverlay({
+  typebotUrl = "https://typebot.co/lead-generation-ni1axi9",
+}: ChatbotOverlayProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [hasError, setHasError] = useState(false);
@@ -82,24 +84,29 @@ export default function ChatbotOverlay({ typebotUrl = "https://typebot.co/lead-g
               <MessageCircle className="h-12 w-12 text-primary mb-4" />
               <h3 className="font-semibold mb-2">Let's Connect!</h3>
               <p className="text-sm text-muted-foreground mb-6">
-                I'd love to discuss your next project or answer any questions about my work in product management and design.
+                I'd love to discuss your next project or answer any questions
+                about my work in product management and design.
               </p>
               <div className="space-y-3 w-full">
-                <Button 
+                <Button
                   className="w-full"
                   onClick={() => {
                     closeChatbot();
-                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                    document
+                      .getElementById("contact")
+                      ?.scrollIntoView({ behavior: "smooth" });
                   }}
                 >
                   Get In Touch
                 </Button>
-                <Button 
+                <Button
                   variant="outline"
                   className="w-full"
                   onClick={() => {
                     closeChatbot();
-                    document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
+                    document
+                      .getElementById("work")
+                      ?.scrollIntoView({ behavior: "smooth" });
                   }}
                 >
                   View My Work
