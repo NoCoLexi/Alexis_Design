@@ -1,7 +1,7 @@
 import { Badge } from "@/components/ui/badge";
-import professionalPhoto from "@assets/Brochu, Alexis 2023 Ireland_1754523029765.png";
-import profileVideo from "@assets/20181006_190845_1754603621565.mp4";
-import awardImage from "@assets/CA Gov Tech Awards 2023_1754604147417.jpg";
+import professionalPhoto from "@/assets_imported/Brochu, Alexis 2023 Ireland_1754523029765.png";
+import profileVideo from "@/assets_imported/20181006_190845_1754603621565.mp4";
+import awardImage from "@/assets_imported/CA Gov Tech Awards 2023_1754604147417.jpg";
 
 const skills = [
   { name: 'Product Management', color: 'text-primary' },

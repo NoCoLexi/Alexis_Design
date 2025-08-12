@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Play, Pause } from "lucide-react";
-import hireMeSong from "@assets/Hire Me (Design and Groove)_1754579236907.mp3";
+import hireMeSong from "@/assets_imported/Hire Me (Design and Groove)_1754579236907.mp3";
 
 interface NavMusicPlayerProps {
   onPlayingChange?: (isPlaying: boolean) => void;
