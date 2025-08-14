@@ -14,6 +14,7 @@ const CareerChatbot = () => {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -68,11 +69,14 @@ const CareerChatbot = () => {
   };
 
   const sendMessage = async () => {
-    if (!input.trim() || isLoading) return;
+    if (!inputRef.current) return;
+    
+    const currentInput = inputRef.current.value.trim();
+    if (!currentInput || isLoading) return;
 
-    const userMessage = { role: "user", content: input.trim() };
+    const userMessage = { role: "user", content: currentInput };
     setMessages((prev) => [...prev, userMessage]);
-    const currentInput = input.trim();
+    inputRef.current.value = "";
     setInput("");
     setIsLoading(true);
 
@@ -85,18 +89,6 @@ const CareerChatbot = () => {
       ]);
       setIsLoading(false);
     }, 1000);
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    sendMessage();
-  };
-
-  const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      sendMessage();
-    }
   };
 
   const ChatWindow = () => (
@@ -174,19 +166,23 @@ const CareerChatbot = () => {
             <div className="border-t border-gray-200 p-4">
               <div className="flex space-x-2">
                 <input
+                  ref={inputRef}
                   type="text"
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  onKeyPress={handleKeyPress}
                   placeholder="Ask about Alexis's experience, skills, or approach..."
                   className="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-900 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   disabled={isLoading}
                   autoComplete="off"
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      e.preventDefault();
+                      sendMessage();
+                    }
+                  }}
                 />
                 <button
                   type="button"
                   onClick={sendMessage}
-                  disabled={isLoading || !input.trim()}
+                  disabled={isLoading}
                   className="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white p-2 rounded-lg transition-colors"
                 >
                   <Send size={16} />
