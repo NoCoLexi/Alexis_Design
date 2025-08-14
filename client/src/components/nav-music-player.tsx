@@ -79,7 +79,7 @@ export default function NavMusicPlayer({ onPlayingChange }: NavMusicPlayerProps)
         onClick={togglePlayPause}
         variant="ghost"
         size="sm"
-        className={`w-16 h-16 rounded-full hover:scale-105 transition-all duration-300 flex items-center justify-center glass disco-ball ${isPlaying ? 'spinning' : ''}`}
+        className={`w-16 h-16 rounded-full hover:scale-105 transition-all duration-300 flex items-center justify-center disco-ball ${isPlaying ? 'spinning' : ''}`}
         title={isPlaying ? 'Pause music' : 'Play Me'}
       >
         {isPlaying ? <Pause className="h-5 w-5 relative z-10" /> : <Play className="h-5 w-5 relative z-10" />}
