@@ -455,24 +455,26 @@
 .disco-ball::before {
   content: '';
   position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  border-radius: 50%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: conic-gradient(
     from 0deg,
     transparent 0deg,
-    rgba(255, 107, 107, 0.3) 60deg,
+    rgba(255, 107, 107, 0.4) 60deg,
     transparent 120deg,
-    rgba(78, 205, 196, 0.3) 180deg,
+    rgba(78, 205, 196, 0.4) 180deg,
     transparent 240deg,
-    rgba(69, 183, 209, 0.3) 300deg,
+    rgba(69, 183, 209, 0.4) 300deg,
     transparent 360deg
   );
   opacity: 0;
   transition: opacity 0.3s ease;
-  z-index: -1;
+  z-index: 0;
+  /* Apply the same circular mask to the rotating lights */
+  clip-path: circle(50% at 50% 50%) !important;
+  -webkit-clip-path: circle(50% at 50% 50%) !important;
 }
 
 .disco-ball::after {
@@ -485,6 +487,7 @@
   background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
   border-radius: 50%;
   opacity: 0.7;
+  z-index: 10;
 }
 
 .disco-ball.spinning::before {
