@@ -63,7 +63,8 @@ export default function HeroSection() {
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed max-w-3xl">
-            I solve impossible problems. (The AI just makes it look easy.)<br />
+            I solve impossible problems.<br />
+            (The AI just makes it look easy.)<br />
             Ready to see what I can help your team build?
           </p>
 
