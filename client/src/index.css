@@ -425,17 +425,30 @@
   }
 }
 
+/* Disco Ball Button Container */
+.disco-ball-container {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.disco-ball-container:hover {
+  transform: scale(1.05);
+}
+
 /* Disco Ball Button */
 .disco-ball {
-  position: relative;
-  width: 64px !important;
-  height: 64px !important;
-  min-width: 64px !important;
-  min-height: 64px !important;
-  max-width: 64px !important;
-  max-height: 64px !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   padding: 0 !important;
   border: none !important;
+  border-radius: 50%;
   background: radial-gradient(circle at 30% 30%, 
     rgba(220, 220, 255, 0.95) 0%, 
     rgba(180, 180, 220, 0.8) 25%,
@@ -447,9 +460,6 @@
     0 0 25px rgba(255, 255, 255, 0.4),
     inset 0 0 25px rgba(255, 255, 255, 0.2),
     0 6px 12px rgba(0, 0, 0, 0.3) !important;
-  /* Force circular mask */
-  clip-path: circle(50% at 50% 50%) !important;
-  -webkit-clip-path: circle(50% at 50% 50%) !important;
 }
 
 .disco-ball::before {
@@ -457,24 +467,18 @@
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    rgba(255, 107, 107, 0.4) 60deg,
-    transparent 120deg,
-    rgba(78, 205, 196, 0.4) 180deg,
-    transparent 240deg,
-    rgba(69, 183, 209, 0.4) 300deg,
-    transparent 360deg
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at center,
+    rgba(255, 107, 107, 0.3) 0%,
+    rgba(78, 205, 196, 0.3) 33%,
+    rgba(69, 183, 209, 0.3) 66%,
+    transparent 100%
   );
   opacity: 0;
   transition: opacity 0.3s ease;
-  z-index: 0;
-  /* Apply the same circular mask to the rotating lights */
-  clip-path: circle(50% at 50% 50%) !important;
-  -webkit-clip-path: circle(50% at 50% 50%) !important;
+  z-index: 1;
 }
 
 .disco-ball::after {
@@ -491,17 +495,23 @@
 }
 
 .disco-ball.spinning::before {
-  animation: disco-ball-rotate 2s linear infinite;
-  opacity: 1;
+  animation: disco-ball-pulse 1s ease-in-out infinite alternate;
+  opacity: 0.8;
 }
 
 .disco-ball.spinning {
   animation: disco-ball-sparkle 1s ease-in-out infinite alternate;
 }
 
-@keyframes disco-ball-rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+@keyframes disco-ball-pulse {
+  0% { 
+    opacity: 0.3;
+    transform: scale(0.9);
+  }
+  100% { 
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
 }
 
 @keyframes disco-ball-sparkle {
