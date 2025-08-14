@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from "react";
-import { Button } from "@/components/ui/button";
 import { Play, Pause } from "lucide-react";
 import hireMeSong from "@assets/Hire Me (Design and Groove)_1754579236907.mp3";
 
@@ -75,15 +74,13 @@ export default function NavMusicPlayer({ onPlayingChange }: NavMusicPlayerProps)
     <div className="flex items-center justify-center">
       <audio ref={audioRef} src={hireMeSong} preload="auto" />
       
-      <Button
+      <button
         onClick={togglePlayPause}
-        variant="ghost"
-        size="sm"
-        className={`w-16 h-16 rounded-full hover:scale-105 transition-all duration-300 flex items-center justify-center disco-ball ${isPlaying ? 'spinning' : ''}`}
+        className={`disco-ball hover:scale-105 transition-all duration-300 flex items-center justify-center ${isPlaying ? 'spinning' : ''}`}
         title={isPlaying ? 'Pause music' : 'Play Me'}
       >
         {isPlaying ? <Pause className="h-5 w-5 relative z-10" /> : <Play className="h-5 w-5 relative z-10" />}
-      </Button>
+      </button>
     </div>
   );
 }
