@@ -68,6 +68,7 @@ import grantsManagementHcdImage from "@assets/Grants Management HCD 1-2_17549684
 import grantsManagementBackOfficeImage from "@assets/Grants Management Back Office 1-2_1754968475876.png";
 import grantsManagementReportingImage from "@assets/Grants Management Reporting 1-1_1754968478693.png";
 import grantsManagementPresentationImage from "@assets/Grants Management Presentation 1-1_1754968480498.png";
+import paCloseoutVideo from "@assets/image_1755130943838.png";
 
 interface CaseStudy {
   id: string;
@@ -639,10 +640,10 @@ export default function CaseStudyModal() {
               <video 
                 src={caseStudy.id === 'pa-portal' ? `${caseStudy.video}#t=4` : caseStudy.video}
                 className="w-full h-full object-cover"
-                autoPlay={caseStudy.id !== 'pa-portal'}
+                autoPlay={true}
                 loop
-                muted={caseStudy.id !== 'pa-portal'}
-                controls={caseStudy.id === 'pa-portal'}
+                muted={true}
+                controls={true}
                 playsInline
               />
             ) : caseStudy.slideshow ? (
