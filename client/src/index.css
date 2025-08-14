@@ -425,6 +425,61 @@
   }
 }
 
+/* Internal Disco Effects for Button */
+.disco-button-internal {
+  position: relative;
+  overflow: hidden;
+}
+
+.disco-button-internal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 107, 107, 0.3) 0%, transparent 50%),
+              radial-gradient(circle at 70% 70%, rgba(78, 205, 196, 0.3) 0%, transparent 50%),
+              radial-gradient(circle at 50% 20%, rgba(69, 183, 209, 0.3) 0%, transparent 50%);
+  transition: opacity 0.3s ease;
+}
+
+.disco-button-internal.playing::before {
+  animation: disco-lights 2s linear infinite;
+  opacity: 1;
+}
+
+/* Internal Disco Effects for Text */
+.disco-text {
+  position: relative;
+  display: inline-block;
+}
+
+.disco-text::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0;
+  background: radial-gradient(circle at 25% 25%, rgba(255, 107, 107, 0.2) 0%, transparent 40%),
+              radial-gradient(circle at 75% 75%, rgba(78, 205, 196, 0.2) 0%, transparent 40%),
+              radial-gradient(circle at 50% 10%, rgba(69, 183, 209, 0.2) 0%, transparent 40%);
+  transition: opacity 0.5s ease;
+}
+
+.disco-text.dancing::before {
+  animation: disco-lights 3s linear infinite;
+  opacity: 1;
+}
+
 /* Ensure nav content appears above disco effects */
 .disco-header > * {
   position: relative;
