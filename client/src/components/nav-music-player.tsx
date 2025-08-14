@@ -46,10 +46,19 @@ export default function NavMusicPlayer({ onPlayingChange, renderAs = 'circle', b
   }, [autoplayAttempted]);
 
   const togglePlayPause = async () => {
+    console.log('Toggle play/pause clicked, current isPlaying:', isPlaying);
     const audio = audioRef.current;
-    if (!audio) return;
+    if (!audio) {
+      console.error('Audio element not found');
+      return;
+    }
+
+    console.log('Audio element found:', audio);
+    console.log('Audio src:', audio.src);
+    console.log('Audio readyState:', audio.readyState);
 
     if (isPlaying) {
+      console.log('Pausing audio');
       audio.pause();
       setIsPlaying(false);
       onPlayingChange?.(false);
@@ -59,7 +68,9 @@ export default function NavMusicPlayer({ onPlayingChange, renderAs = 'circle', b
       }));
     } else {
       try {
+        console.log('Attempting to play audio');
         await audio.play();
+        console.log('Audio started playing successfully');
         setIsPlaying(true);
         onPlayingChange?.(true);
         // Dispatch custom event for other components
@@ -68,6 +79,7 @@ export default function NavMusicPlayer({ onPlayingChange, renderAs = 'circle', b
         }));
       } catch (error) {
         console.error('Error playing audio:', error);
+        console.error('Error details:', error.message);
       }
     }
   };
