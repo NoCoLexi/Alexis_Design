@@ -5,7 +5,7 @@ import CreativeGallery from "@/components/creative-gallery";
 import ContactSection from "@/components/contact-section";
 import logoImage from "@assets/image_1754581825249.png";
 import CaseStudyModal from "@/components/case-study-modal";
-import ChatbotOverlay from "@/components/chatbot-overlay";
+import CareerChatbot from "@/components/CareerChatbot";
 import NavMusicPlayer from "@/components/nav-music-player";
 import { useState, useEffect } from "react";
 import { Menu, X, Award } from "lucide-react";
@@ -181,7 +181,7 @@ export default function Home() {
       <CreativeGallery />
       <ContactSection />
       <CaseStudyModal />
-      {/* <ChatbotOverlay /> */}
+      <CareerChatbot />
 
       {/* Footer */}
       <footer className="py-12 border-t border-primary/20">

@@ -69,7 +69,6 @@ const CareerChatbot = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    e.stopPropagation();
     
     if (!input.trim() || isLoading) return;
 
@@ -167,12 +166,8 @@ const CareerChatbot = () => {
                 <input
                   type="text"
                   value={input}
-                  onChange={(e) => {
-                    e.stopPropagation();
-                    setInput(e.target.value);
-                  }}
+                  onChange={(e) => setInput(e.target.value)}
                   onKeyDown={(e) => {
-                    e.stopPropagation();
                     if (e.key === 'Enter' && !e.shiftKey) {
                       e.preventDefault();
                       handleSubmit(e);
@@ -187,9 +182,7 @@ const CareerChatbot = () => {
                   type="submit"
                   disabled={isLoading || !input.trim()}
                   className="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white p-2 rounded-lg transition-colors"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                  }}
+
                 >
                   <Send size={16} />
                 </button>
