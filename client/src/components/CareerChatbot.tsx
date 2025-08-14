@@ -67,9 +67,7 @@ const CareerChatbot = () => {
     return "I can tell you about Alexis's product leadership experience, skills, achievements, personality traits, work approach, or contact information. What specific aspect would you like to learn more about?";
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
+  const sendMessage = async () => {
     if (!input.trim() || isLoading) return;
 
     const userMessage = { role: "user", content: input.trim() };
@@ -87,6 +85,18 @@ const CareerChatbot = () => {
       ]);
       setIsLoading(false);
     }, 1000);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    sendMessage();
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
   };
 
   const ChatWindow = () => (
@@ -162,31 +172,26 @@ const CareerChatbot = () => {
 
             {/* Input */}
             <div className="border-t border-gray-200 p-4">
-              <form onSubmit={handleSubmit} className="flex space-x-2">
+              <div className="flex space-x-2">
                 <input
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' && !e.shiftKey) {
-                      e.preventDefault();
-                      handleSubmit(e);
-                    }
-                  }}
+                  onKeyPress={handleKeyPress}
                   placeholder="Ask about Alexis's experience, skills, or approach..."
                   className="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-900 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   disabled={isLoading}
                   autoComplete="off"
                 />
                 <button
-                  type="submit"
+                  type="button"
+                  onClick={sendMessage}
                   disabled={isLoading || !input.trim()}
                   className="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white p-2 rounded-lg transition-colors"
-
                 >
                   <Send size={16} />
                 </button>
-              </form>
+              </div>
             </div>
           </>
         )}
