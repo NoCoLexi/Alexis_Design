@@ -29,44 +29,37 @@ interface GalleryItem {
 }
 
 const galleryItems: GalleryItem[] = [
-  // Print Design Items
+  // Brand Development Items (moved from print)
   { 
     id: '1', 
-    category: 'print', 
+    category: 'brand', 
     image: universityBrochure, 
     title: 'JWU Anniversary Materials',
     description: 'Johnson & Wales University anniversary celebration materials'
   },
   { 
     id: '2', 
-    category: 'print', 
+    category: 'brand', 
     image: lifespanReports, 
     title: 'Lifespan Healthcare Annual Reports',
     description: 'Professional healthcare industry publications'
   },
   { 
     id: '3', 
-    category: 'print', 
+    category: 'brand', 
     image: schoolMaterials, 
     title: 'Providence Schools Brand Materials',
     description: 'Educational institution branding and materials'
   },
   { 
     id: '4', 
-    category: 'print', 
+    category: 'brand', 
     image: galaInvitation, 
-    title: 'TF Green Airport opening Gala event',
+    title: 'TF Green Airport opening event',
     description: 'Elegant event invitation and program design'
   },
-  { 
-    id: '5', 
-    category: 'print', 
-    image: jwuPortfolio, 
-    title: 'Johnson & Wales University Materials',
-    description: 'University marketing and recruitment materials'
-  },
   
-  // Brand Design Items
+  // Brand Design Items (existing)
   { 
     id: '6', 
     category: 'brand', 
@@ -249,9 +242,9 @@ function CategoryCarousel({ items, title, description }: CarouselProps) {
 export default function CreativeGallery() {
   const categories = [
     { 
-      id: 'print', 
-      title: 'Print Design', 
-      description: 'Editorial layouts, brochures, and marketing materials'
+      id: 'brand', 
+      title: 'Brand Development', 
+      description: 'Complete brand identity systems and marketing materials'
     },
     { 
       id: 'outdoor', 
