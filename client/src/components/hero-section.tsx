@@ -70,7 +70,7 @@ export default function HeroSection() {
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed max-w-3xl">
-            Bringing digital experiences to life with human-centered design, intuitive change management, and owning the Human QA role on the IT team.
+            Welcome. This page has been fueled by imagination, code, and AI genius: Replit, Claude, ChatGPT, and Suno working in harmony with Adobe Creative Cloud and Figma.
           </p>
 
 
