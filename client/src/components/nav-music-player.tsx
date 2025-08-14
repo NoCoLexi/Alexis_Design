@@ -74,15 +74,13 @@ export default function NavMusicPlayer({ onPlayingChange }: NavMusicPlayerProps)
     <div className="flex items-center justify-center">
       <audio ref={audioRef} src={hireMeSong} preload="auto" />
       
-      <div className={`disco-ball-container ${isPlaying ? 'spinning' : ''}`}>
-        <button
-          onClick={togglePlayPause}
-          className={`disco-ball flex items-center justify-center ${isPlaying ? 'spinning' : ''}`}
-          title={isPlaying ? 'Pause music' : 'Play Me'}
-        >
-          {isPlaying ? <Pause className="h-5 w-5 relative z-10" /> : <Play className="h-5 w-5 relative z-10" />}
-        </button>
-      </div>
+      <button
+        onClick={togglePlayPause}
+        className={`disco-ball flex items-center justify-center ${isPlaying ? 'spinning' : ''}`}
+        title={isPlaying ? 'Pause music' : 'Play Me'}
+      >
+        {isPlaying ? <Pause className="h-5 w-5 relative z-10" /> : <Play className="h-5 w-5 relative z-10" />}
+      </button>
     </div>
   );
 }

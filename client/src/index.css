@@ -425,41 +425,33 @@
   }
 }
 
-/* Disco Ball Button Container */
-.disco-ball-container {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  overflow: hidden;
-  position: relative;
-  transition: transform 0.3s ease;
-}
-
-.disco-ball-container:hover {
-  transform: scale(1.05);
-}
-
 /* Disco Ball Button */
 .disco-ball {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding: 0 !important;
-  border: none !important;
-  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  border: none;
   background: radial-gradient(circle at 30% 30%, 
     rgba(220, 220, 255, 0.95) 0%, 
     rgba(180, 180, 220, 0.8) 25%,
     rgba(140, 140, 180, 0.6) 50%,
     rgba(100, 100, 140, 0.4) 75%,
     rgba(60, 60, 100, 0.2) 100%
-  ) !important;
+  );
   box-shadow: 
     0 0 25px rgba(255, 255, 255, 0.4),
     inset 0 0 25px rgba(255, 255, 255, 0.2),
-    0 6px 12px rgba(0, 0, 0, 0.3) !important;
+    0 6px 12px rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  position: relative;
+  transition: transform 0.3s ease;
+  /* Use mask for perfect circle */
+  mask: radial-gradient(circle, white 100%, transparent 100%);
+  -webkit-mask: radial-gradient(circle, white 100%, transparent 100%);
+}
+
+.disco-ball:hover {
+  transform: scale(1.05);
 }
 
 .disco-ball::before {
@@ -471,14 +463,17 @@
   height: 100%;
   border-radius: 50%;
   background: radial-gradient(circle at center,
-    rgba(255, 107, 107, 0.3) 0%,
-    rgba(78, 205, 196, 0.3) 33%,
-    rgba(69, 183, 209, 0.3) 66%,
-    transparent 100%
+    rgba(255, 107, 107, 0.4) 20%,
+    rgba(78, 205, 196, 0.4) 40%,
+    rgba(69, 183, 209, 0.4) 60%,
+    transparent 80%
   );
   opacity: 0;
   transition: opacity 0.3s ease;
   z-index: 1;
+  /* Ensure the effects also use the same mask */
+  mask: radial-gradient(circle, white 100%, transparent 100%);
+  -webkit-mask: radial-gradient(circle, white 100%, transparent 100%);
 }
 
 .disco-ball::after {
