@@ -131,14 +131,14 @@ export default function NavMusicPlayer({ onPlayingChange, renderAs = 'circle', b
             console.log('🖱️ Button clicked!', e);
             togglePlayPause();
           }}
-          className="px-8 py-4 gradient-bg-primary hover:opacity-90 rounded-xl font-semibold text-lg transition-all duration-300 glow-purple flex items-center gap-3"
+          className="px-8 py-4 gradient-bg-primary hover:opacity-90 rounded-xl font-semibold text-lg transition-all duration-300 glow-purple flex items-center gap-3 min-w-[280px] justify-center"
           data-testid="music-player-button"
           style={{ pointerEvents: 'auto' }}
         >
           {isPlaying ? (
             <>
               <Pause className="h-5 w-5" />
-              Pause song
+              Pause my Hire Me song
             </>
           ) : (
             <>
