@@ -54,13 +54,6 @@ export default function HeroSection() {
       
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 text-center">
         <div className="max-w-4xl mx-auto">
-          {/* Music Player - Moved to hero with disco lights, positioned center */}
-          <div className="mb-8 flex justify-center">
-            <div className={`disco-button ${isPlaying ? 'playing' : ''}`}>
-              <NavMusicPlayer onPlayingChange={setIsPlaying} />
-            </div>
-          </div>
-
           <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
             <span className={`gradient-text disco-text ${isPlaying ? 'dancing' : ''}`}>
               Product Designer
@@ -76,13 +69,20 @@ export default function HeroSection() {
 
 
           
-          <div className="flex justify-center mb-12">
+          <div className="flex justify-center mb-8">
             <Button 
               onClick={scrollToContact}
               className="px-8 py-4 gradient-bg-primary hover:opacity-90 rounded-xl font-semibold text-lg transition-all duration-300 glow-purple"
             >
               Let's Connect
             </Button>
+          </div>
+
+          {/* Music Player - positioned below Let's Connect */}
+          <div className="mb-12 flex justify-center">
+            <div className={`disco-button ${isPlaying ? 'playing' : ''}`}>
+              <NavMusicPlayer onPlayingChange={setIsPlaying} />
+            </div>
           </div>
           
           {/* Key Metrics */}
