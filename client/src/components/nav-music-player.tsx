@@ -17,48 +17,69 @@ export default function NavMusicPlayer({ onPlayingChange, renderAs = 'circle', b
     const audio = audioRef.current;
     if (!audio) return;
 
-    // Set moderate volume and remove echo effects
+    console.log('Setting up audio element:', audio);
+    console.log('Audio src set to:', hireMeSong);
+
+    // Set moderate volume
     audio.volume = 0.4;
 
     // Handle audio end
-    audio.addEventListener('ended', () => {
+    const handleEnded = () => {
+      console.log('Audio ended');
       setIsPlaying(false);
       onPlayingChange?.(false);
       // Dispatch custom event for other components
       window.dispatchEvent(new CustomEvent('musicStateChange', { 
         detail: { isPlaying: false } 
       }));
-    });
-
-    // No autoplay - user must click to start
-    const tryAutoplay = async () => {
-      // Autoplay disabled by default
     };
 
-    audio.addEventListener('loadedmetadata', tryAutoplay);
-    audio.addEventListener('canplaythrough', tryAutoplay);
+    const handleLoadStart = () => {
+      console.log('Audio load started');
+    };
+
+    const handleCanPlay = () => {
+      console.log('Audio can play');
+    };
+
+    const handleError = (e: Event) => {
+      console.error('Audio error:', e);
+      const target = e.target as HTMLAudioElement;
+      if (target.error) {
+        console.error('Audio error code:', target.error.code);
+        console.error('Audio error message:', target.error.message);
+      }
+    };
+
+    audio.addEventListener('ended', handleEnded);
+    audio.addEventListener('loadstart', handleLoadStart);
+    audio.addEventListener('canplay', handleCanPlay);
+    audio.addEventListener('error', handleError);
 
     return () => {
-      audio.removeEventListener('ended', () => setIsPlaying(false));
-      audio.removeEventListener('loadedmetadata', tryAutoplay);
-      audio.removeEventListener('canplaythrough', tryAutoplay);
+      audio.removeEventListener('ended', handleEnded);
+      audio.removeEventListener('loadstart', handleLoadStart);
+      audio.removeEventListener('canplay', handleCanPlay);
+      audio.removeEventListener('error', handleError);
     };
-  }, [autoplayAttempted]);
+  }, [onPlayingChange]);
 
   const togglePlayPause = async () => {
-    console.log('Toggle play/pause clicked, current isPlaying:', isPlaying);
+    console.log('🎵 Toggle play/pause clicked, current isPlaying:', isPlaying);
     const audio = audioRef.current;
     if (!audio) {
-      console.error('Audio element not found');
+      console.error('❌ Audio element not found');
       return;
     }
 
-    console.log('Audio element found:', audio);
-    console.log('Audio src:', audio.src);
-    console.log('Audio readyState:', audio.readyState);
+    console.log('✅ Audio element found:', audio);
+    console.log('🔗 Audio src:', audio.src);
+    console.log('📊 Audio readyState:', audio.readyState);
+    console.log('⏱️ Audio current time:', audio.currentTime);
+    console.log('⏱️ Audio duration:', audio.duration);
 
     if (isPlaying) {
-      console.log('Pausing audio');
+      console.log('⏸️ Pausing audio');
       audio.pause();
       setIsPlaying(false);
       onPlayingChange?.(false);
@@ -68,9 +89,20 @@ export default function NavMusicPlayer({ onPlayingChange, renderAs = 'circle', b
       }));
     } else {
       try {
-        console.log('Attempting to play audio');
-        await audio.play();
-        console.log('Audio started playing successfully');
+        console.log('▶️ Attempting to play audio...');
+        
+        // Force load the audio if needed
+        if (audio.readyState < 2) {
+          console.log('🔄 Loading audio...');
+          audio.load();
+          await new Promise((resolve) => {
+            audio.addEventListener('canplay', resolve, { once: true });
+          });
+        }
+        
+        const playPromise = audio.play();
+        await playPromise;
+        console.log('🎶 Audio started playing successfully!');
         setIsPlaying(true);
         onPlayingChange?.(true);
         // Dispatch custom event for other components
@@ -78,8 +110,13 @@ export default function NavMusicPlayer({ onPlayingChange, renderAs = 'circle', b
           detail: { isPlaying: true } 
         }));
       } catch (error) {
-        console.error('Error playing audio:', error);
-        console.error('Error details:', error.message);
+        console.error('❌ Error playing audio:', error);
+        console.error('📝 Error details:', error instanceof Error ? error.message : String(error));
+        
+        // Try to reset and reload the audio
+        console.log('🔄 Trying to reset audio...');
+        audio.currentTime = 0;
+        audio.load();
       }
     }
   };
