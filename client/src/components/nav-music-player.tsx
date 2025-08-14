@@ -4,9 +4,11 @@ import hireMeSong from "@assets/Hire Me (Design and Groove)_1754579236907.mp3";
 
 interface NavMusicPlayerProps {
   onPlayingChange?: (isPlaying: boolean) => void;
+  renderAs?: 'circle' | 'button';
+  buttonText?: string;
 }
 
-export default function NavMusicPlayer({ onPlayingChange }: NavMusicPlayerProps) {
+export default function NavMusicPlayer({ onPlayingChange, renderAs = 'circle', buttonText = 'Play my Hire Me song' }: NavMusicPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [autoplayAttempted, setAutoplayAttempted] = useState(true); // Disable autoplay by default
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -74,13 +76,24 @@ export default function NavMusicPlayer({ onPlayingChange }: NavMusicPlayerProps)
     <div className="flex items-center justify-center">
       <audio ref={audioRef} src={hireMeSong} preload="auto" />
       
-      <button
-        onClick={togglePlayPause}
-        className={`disco-ball flex items-center justify-center ${isPlaying ? 'spinning' : ''}`}
-        title={isPlaying ? 'Pause music' : 'Play Me'}
-      >
-        {isPlaying ? <Pause className="h-5 w-5 relative z-10" /> : <Play className="h-5 w-5 relative z-10" />}
-      </button>
+      {renderAs === 'button' ? (
+        <button
+          onClick={togglePlayPause}
+          className="px-8 py-4 gradient-bg-primary hover:opacity-90 rounded-xl font-semibold text-lg transition-all duration-300 glow-purple"
+          data-testid="music-player-button"
+        >
+          {isPlaying ? 'Pause song' : buttonText}
+        </button>
+      ) : (
+        <button
+          onClick={togglePlayPause}
+          className={`disco-ball flex items-center justify-center ${isPlaying ? 'spinning' : ''}`}
+          title={isPlaying ? 'Pause music' : 'Play Me'}
+          data-testid="music-player-button"
+        >
+          {isPlaying ? <Pause className="h-5 w-5 relative z-10" /> : <Play className="h-5 w-5 relative z-10" />}
+        </button>
+      )}
     </div>
   );
 }

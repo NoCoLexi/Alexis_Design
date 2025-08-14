@@ -70,19 +70,14 @@ export default function HeroSection() {
 
 
           
-          <div className="flex justify-center mb-8">
-            <Button 
-              onClick={scrollToContact}
-              className="px-8 py-4 gradient-bg-primary hover:opacity-90 rounded-xl font-semibold text-lg transition-all duration-300 glow-purple"
-            >
-              Let's Connect
-            </Button>
-          </div>
-
-          {/* Music Player - positioned below Let's Connect */}
+          {/* Hire Me Song Button */}
           <div className="mb-12 flex justify-center">
             <div className={`disco-button ${isPlaying ? 'playing' : ''}`}>
-              <NavMusicPlayer onPlayingChange={setIsPlaying} />
+              <NavMusicPlayer 
+                onPlayingChange={setIsPlaying}
+                renderAs="button"
+                buttonText="Play my Hire Me song"
+              />
             </div>
           </div>
           
