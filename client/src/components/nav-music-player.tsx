@@ -79,10 +79,20 @@ export default function NavMusicPlayer({ onPlayingChange, renderAs = 'circle', b
       {renderAs === 'button' ? (
         <button
           onClick={togglePlayPause}
-          className="px-8 py-4 gradient-bg-primary hover:opacity-90 rounded-xl font-semibold text-lg transition-all duration-300 glow-purple"
+          className="px-8 py-4 gradient-bg-primary hover:opacity-90 rounded-xl font-semibold text-lg transition-all duration-300 glow-purple flex items-center gap-3"
           data-testid="music-player-button"
         >
-          {isPlaying ? 'Pause song' : buttonText}
+          {isPlaying ? (
+            <>
+              <Pause className="h-5 w-5" />
+              Pause song
+            </>
+          ) : (
+            <>
+              <Play className="h-5 w-5" />
+              {buttonText}
+            </>
+          )}
         </button>
       ) : (
         <button
