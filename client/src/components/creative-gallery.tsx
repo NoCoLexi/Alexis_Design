@@ -182,6 +182,8 @@ function CategoryCarousel({ items, title, description }: CarouselProps) {
     emblaApi.on('reInit', onSelect);
   }, [emblaApi, onSelect]);
 
+  console.log(`CategoryCarousel ${title} rendering with ${items.length} items`);
+
   return (
     <div className="mb-12">
       <div className="flex items-center justify-between mb-6">
@@ -213,26 +215,34 @@ function CategoryCarousel({ items, title, description }: CarouselProps) {
 
       <div className="embla overflow-hidden" ref={emblaRef}>
         <div className="embla__container flex gap-4">
-          {items.map((item) => (
-            <div key={item.id} className="embla__slide flex-[0_0_240px] md:flex-[0_0_280px]">
-              <div className="relative group h-60 md:h-72 rounded-xl overflow-hidden bg-card">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <h4 className="text-base font-semibold mb-1">{item.title}</h4>
-                  {item.description && (
-                    <p className="text-sm text-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                      {item.description}
-                    </p>
-                  )}
+          {items.map((item) => {
+            console.log(`Rendering item: ${item.title} with image: ${item.image}`);
+            return (
+              <div key={item.id} className="embla__slide flex-[0_0_240px] md:flex-[0_0_280px]">
+                <div className="relative group h-60 md:h-72 rounded-xl overflow-hidden bg-card">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    onError={(e) => {
+                      console.error(`Failed to load image for ${item.title}:`, item.image);
+                      e.currentTarget.style.backgroundColor = '#f0f0f0';
+                    }}
+                    onLoad={() => console.log(`Successfully loaded image for ${item.title}`)}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                    <h4 className="text-base font-semibold mb-1">{item.title}</h4>
+                    {item.description && (
+                      <p className="text-sm text-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                        {item.description}
+                      </p>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>
@@ -272,6 +282,7 @@ export default function CreativeGallery() {
         {/* Category Carousels */}
         {categories.map((category) => {
           const categoryItems = galleryItems.filter(item => item.category === category.id);
+          console.log(`${category.title} has ${categoryItems.length} items:`, categoryItems.map(item => item.title));
           return (
             <CategoryCarousel
               key={category.id}
