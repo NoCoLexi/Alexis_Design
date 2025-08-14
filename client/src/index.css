@@ -425,13 +425,102 @@
   }
 }
 
-/* SVG Disco Ball animations */
-@keyframes disco-ball-sparkle {
+/* Disco Ball Button */
+.disco-ball {
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  border: none;
+  background: radial-gradient(circle at 30% 30%, 
+    rgba(220, 220, 255, 0.95) 0%, 
+    rgba(180, 180, 220, 0.8) 25%,
+    rgba(140, 140, 180, 0.6) 50%,
+    rgba(100, 100, 140, 0.4) 75%,
+    rgba(60, 60, 100, 0.2) 100%
+  );
+  box-shadow: 
+    0 0 25px rgba(255, 255, 255, 0.4),
+    inset 0 0 25px rgba(255, 255, 255, 0.2),
+    0 6px 12px rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  position: relative;
+  transition: transform 0.3s ease;
+  /* Use mask for perfect circle */
+  mask: radial-gradient(circle, white 100%, transparent 100%);
+  -webkit-mask: radial-gradient(circle, white 100%, transparent 100%);
+}
+
+.disco-ball:hover {
+  transform: scale(1.05);
+}
+
+.disco-ball::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at center,
+    rgba(255, 107, 107, 0.4) 20%,
+    rgba(78, 205, 196, 0.4) 40%,
+    rgba(69, 183, 209, 0.4) 60%,
+    transparent 80%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+  /* Ensure the effects also use the same mask */
+  mask: radial-gradient(circle, white 100%, transparent 100%);
+  -webkit-mask: radial-gradient(circle, white 100%, transparent 100%);
+}
+
+.disco-ball::after {
+  content: '';
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  width: 25%;
+  height: 25%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0.7;
+  z-index: 10;
+}
+
+.disco-ball.spinning::before {
+  animation: disco-ball-pulse 1s ease-in-out infinite alternate;
+  opacity: 0.8;
+}
+
+.disco-ball.spinning {
+  animation: disco-ball-sparkle 1s ease-in-out infinite alternate;
+}
+
+@keyframes disco-ball-pulse {
   0% { 
-    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+    opacity: 0.3;
+    transform: scale(0.9);
   }
   100% { 
-    filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.6));
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes disco-ball-sparkle {
+  0% { 
+    box-shadow: 
+      0 0 20px rgba(255, 255, 255, 0.3),
+      inset 0 0 20px rgba(255, 255, 255, 0.1),
+      0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  100% { 
+    box-shadow: 
+      0 0 30px rgba(255, 255, 255, 0.6),
+      inset 0 0 30px rgba(255, 255, 255, 0.2),
+      0 6px 12px rgba(0, 0, 0, 0.3);
   }
 }
 
