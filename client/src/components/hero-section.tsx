@@ -78,15 +78,8 @@ export default function HeroSection() {
           
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
             <Button 
-              onClick={scrollToWork}
-              className="px-8 py-4 gradient-bg-primary hover:opacity-90 rounded-xl font-semibold text-lg transition-all duration-300 glow-purple"
-            >
-              View My Work
-            </Button>
-            <Button 
-              variant="outline"
               onClick={scrollToContact}
-              className="px-8 py-4 border-2 border-primary hover:bg-primary hover:text-primary-foreground rounded-xl font-semibold text-lg transition-all duration-300"
+              className="px-8 py-4 gradient-bg-primary hover:opacity-90 rounded-xl font-semibold text-lg transition-all duration-300 glow-purple"
             >
               Let's Connect
             </Button>
