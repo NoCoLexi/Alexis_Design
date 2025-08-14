@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Award, Sparkles } from "lucide-react";
+import NavMusicPlayer from "./nav-music-player";
 
 export default function HeroSection() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -53,16 +54,10 @@ export default function HeroSection() {
       
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
         <div className="max-w-4xl">
-          {/* California Gov Tech Award - Moved to top */}
+          {/* Music Player - Moved to hero with disco lights */}
           <div className="mb-8">
-            <div 
-              className={`inline-flex items-center gap-3 glass rounded-full px-6 py-3 hover:glow-purple transition-all duration-300 cursor-pointer disco-button ${isPlaying ? 'playing' : ''}`}
-              onClick={scrollToAbout}
-            >
-              <Award className="w-5 h-5 text-chart-3" />
-              <span className="text-sm font-medium text-foreground">
-                2023 California Gov Tech Innovation Award Winner
-              </span>
+            <div className={`disco-button ${isPlaying ? 'playing' : ''}`}>
+              <NavMusicPlayer onPlayingChange={setIsPlaying} />
             </div>
           </div>
 

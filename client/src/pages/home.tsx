@@ -8,7 +8,7 @@ import CaseStudyModal from "@/components/case-study-modal";
 import ChatbotOverlay from "@/components/chatbot-overlay";
 import NavMusicPlayer from "@/components/nav-music-player";
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Award } from "lucide-react";
 import { audioManager } from "@/utils/audioUtils";
 
 export default function Home() {
@@ -106,7 +106,18 @@ export default function Home() {
                 </button>
               ))}
               <div className="ml-4">
-                <NavMusicPlayer onPlayingChange={setIsMusicPlaying} />
+                <div 
+                  className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 hover:glow-purple transition-all duration-300 cursor-pointer"
+                  onClick={() => {
+                    const element = document.getElementById('about');
+                    if (element) element.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  <Award className="w-4 h-4 text-chart-3" />
+                  <span className="text-xs font-medium text-foreground hidden lg:inline">
+                    2023 CA Gov Tech Award
+                  </span>
+                </div>
               </div>
             </div>
             <button
@@ -144,7 +155,19 @@ export default function Home() {
                 </button>
               ))}
               <div className="pt-2 border-t border-primary/20">
-                <NavMusicPlayer onPlayingChange={setIsMusicPlaying} />
+                <div 
+                  className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 hover:glow-purple transition-all duration-300 cursor-pointer w-full justify-center"
+                  onClick={() => {
+                    const element = document.getElementById('about');
+                    if (element) element.scrollIntoView({ behavior: 'smooth' });
+                    setIsMobileMenuOpen(false);
+                  }}
+                >
+                  <Award className="w-4 h-4 text-chart-3" />
+                  <span className="text-sm font-medium text-foreground">
+                    2023 CA Gov Tech Award
+                  </span>
+                </div>
               </div>
             </div>
           )}
