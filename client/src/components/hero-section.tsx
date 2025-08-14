@@ -70,7 +70,8 @@ export default function HeroSection() {
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed max-w-3xl">
-            Welcome. This page has been fueled by imagination, code, and AI genius: Replit, Claude, ChatGPT, and Suno working in harmony with Adobe Creative Cloud and Figma.
+            I solve impossible problems. (The AI just makes it look easy.)<br />
+            Ready to see what I can help your team build?
           </p>
 
 
