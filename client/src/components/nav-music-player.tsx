@@ -9,15 +9,15 @@ interface NavMusicPlayerProps {
 
 export default function NavMusicPlayer({ onPlayingChange }: NavMusicPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [autoplayAttempted, setAutoplayAttempted] = useState(false);
+  const [autoplayAttempted, setAutoplayAttempted] = useState(true); // Disable autoplay by default
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
 
-    // Set lower volume for background music
-    audio.volume = 0.25;
+    // Set moderate volume and remove echo effects
+    audio.volume = 0.4;
 
     // Handle audio end
     audio.addEventListener('ended', () => {
@@ -29,42 +29,9 @@ export default function NavMusicPlayer({ onPlayingChange }: NavMusicPlayerProps)
       }));
     });
 
-    // Attempt autoplay when metadata is loaded
+    // No autoplay - user must click to start
     const tryAutoplay = async () => {
-      if (!autoplayAttempted && audio.readyState >= 2) {
-        setAutoplayAttempted(true);
-        try {
-          await audio.play();
-          setIsPlaying(true);
-          onPlayingChange?.(true);
-          console.log('Autoplay successful');
-          // Dispatch custom event for other components
-          window.dispatchEvent(new CustomEvent('musicStateChange', { 
-            detail: { isPlaying: true } 
-          }));
-        } catch (error) {
-          console.log('Autoplay blocked by browser - user interaction required');
-          // Fallback: try to play on first user interaction
-          const enableAutoplayOnInteraction = async () => {
-            try {
-              await audio.play();
-              setIsPlaying(true);
-              onPlayingChange?.(true);
-              // Dispatch custom event for other components
-              window.dispatchEvent(new CustomEvent('musicStateChange', { 
-                detail: { isPlaying: true } 
-              }));
-              document.removeEventListener('click', enableAutoplayOnInteraction);
-              document.removeEventListener('keydown', enableAutoplayOnInteraction);
-            } catch (e) {
-              console.log('Audio play failed:', e);
-            }
-          };
-          
-          document.addEventListener('click', enableAutoplayOnInteraction, { once: true });
-          document.addEventListener('keydown', enableAutoplayOnInteraction, { once: true });
-        }
-      }
+      // Autoplay disabled by default
     };
 
     audio.addEventListener('loadedmetadata', tryAutoplay);
@@ -105,19 +72,19 @@ export default function NavMusicPlayer({ onPlayingChange }: NavMusicPlayerProps)
   };
 
   return (
-    <div className="flex items-center">
+    <div className="flex items-center justify-center">
       <audio ref={audioRef} src={hireMeSong} preload="auto" />
       
       <Button
         onClick={togglePlayPause}
         variant="ghost"
         size="sm"
-        className="h-8 px-3 rounded-full border border-primary/30 hover:bg-primary/10 hover:border-primary transition-all duration-300 flex items-center gap-2"
-        title={isPlaying ? 'Pause Hire Alexis song' : 'Play Hire Alexis song'}
+        className="h-10 px-6 rounded-full border border-primary/30 hover:bg-primary/10 hover:border-primary transition-all duration-300 flex items-center justify-center gap-2 glass"
+        title={isPlaying ? 'Pause music' : 'Play Me'}
       >
         {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
-        <span className="text-xs hidden sm:inline">
-          {isPlaying ? 'Playing' : 'Play Song'}
+        <span className="text-sm font-medium">
+          {isPlaying ? 'Playing' : 'Play Me'}
         </span>
       </Button>
     </div>
