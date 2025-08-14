@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a modern full-stack web application built as a creative portfolio and personal website. The project showcases a professional's work in product management and UX design, featuring case studies, creative galleries, and contact functionality with interactive audio feedback. It uses a contemporary tech stack with React frontend, Express.js backend, and PostgreSQL database with Drizzle ORM for data management.
+This is a modern full-stack web application built as a creative portfolio and personal website. The project showcases a professional's work in product management and UX design, featuring case studies, creative galleries, contact functionality with interactive audio feedback, and an AI-powered career chatbot. It uses a contemporary tech stack with React frontend, Express.js backend, and PostgreSQL database with Drizzle ORM for data management.
 
 ## User Preferences
 
@@ -53,3 +53,10 @@ Currently, the application has a basic user schema defined but no active authent
 - **Date Handling**: date-fns for date manipulation and formatting
 
 The application includes proper TypeScript configuration with strict mode enabled and path mapping for clean imports. The build system supports both development with hot module replacement and optimized production builds.
+
+### AI Career Chatbot
+The portfolio includes an intelligent career chatbot that helps visitors learn about Alexis's product leadership experience. The chatbot features:
+- **Knowledge Base**: Comprehensive information about skills, experience, achievements, and approach
+- **Interactive UI**: Floating chat window with minimize/maximize functionality
+- **Authentic Responses**: All information is based on real accomplishments and verified experience
+- **Professional Presentation**: Positions Alexis as a product leadership expert with specific metrics and achievements

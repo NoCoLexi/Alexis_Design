@@ -44,6 +44,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(500).json({ error: "AI service not configured" });
       }
 
+      console.log("Sending request to Anthropic with", messages.length, "messages");
+      
       const response = await fetch("https://api.anthropic.com/v1/messages", {
         method: "POST",
         headers: {
@@ -54,8 +56,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
         body: JSON.stringify({
           model: "claude-3-sonnet-20240229",
           max_tokens: 1000,
-          messages: messages.map((msg: any) => ({
-            role: msg.role,
+          messages: messages.filter((msg: any) => msg.role !== "assistant" || msg.content !== "👋 Hi! I'm Alexis's AI assistant. I can help you learn about her product leadership experience, personality traits, work style, and professional accomplishments. What would you like to know?").map((msg: any) => ({
+            role: msg.role === "assistant" ? "assistant" : "user",
             content: msg.content,
           })),
           system: `You are an AI assistant specifically designed to help people learn about Alexis Brochu, a product leadership professional. You have access to comprehensive information about her personality, skills, experience, and accomplishments.
@@ -94,7 +96,9 @@ Always respond as if you're representing Alexis professionally but warmly. Be en
       });
 
       if (!response.ok) {
-        throw new Error(`Anthropic API request failed: ${response.status}`);
+        const errorText = await response.text();
+        console.error("Anthropic API error:", response.status, errorText);
+        throw new Error(`Anthropic API request failed: ${response.status} - ${errorText}`);
       }
 
       const data = await response.json();

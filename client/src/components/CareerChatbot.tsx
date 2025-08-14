@@ -23,53 +23,69 @@ const CareerChatbot = () => {
     scrollToBottom();
   }, [messages]);
 
+  const getResponse = (userInput: string): string => {
+    const input = userInput.toLowerCase();
+    
+    // Knowledge base with authentic information about Alexis
+    if (input.includes("experience") || input.includes("background") || input.includes("work")) {
+      return "Alexis has extensive product leadership experience, including leading 23 modernized applications for state and local government. She increased user app adoption by 40% among 30,000+ government users and won the California Innovation Technology Award for 'Best Application Serving the Public.' She's also an AI implementation expert who decreased development time by 40%.";
+    }
+    
+    if (input.includes("skill") || input.includes("expertise") || input.includes("strength")) {
+      return "Alexis specializes in Product Strategy, UX Research, Design Systems, and Cross-functional Leadership. She's particularly known for her 92% stakeholder buy-in rate (which she considers her 'superpower') and is Prosci® Certified Change Practitioner. Her career goal is Chief Product Officer or VP of Product Management.";
+    }
+    
+    if (input.includes("personality") || input.includes("traits") || input.includes("style")) {
+      return "Alexis is a dynamic, highly extroverted, and creative leader with an ENTJ personality type. She's strategic, decisive, and naturally takes charge. She has a rare blend of people-centric and analytical strengths, and believes that behind every data point is a human being. She builds bridges, not walls.";
+    }
+    
+    if (input.includes("approach") || input.includes("method") || input.includes("how")) {
+      return "Alexis starts every problem by asking 'What's really broken here?' and works backward like solving a puzzle. She's an empathetic, data-driven leader who champions user experience relentlessly. She's excellent at making complex things feel obvious and uses visual communication with persuasive storytelling.";
+    }
+    
+    if (input.includes("award") || input.includes("achievement") || input.includes("accomplishment")) {
+      return "Alexis won the California Innovation Technology Award for 'Best Application Serving the Public.' She's achieved a 92% successful buy-in rate from stakeholders, increased user adoption by 40% among 30,000+ users, and led 23 modernized applications. She's also decreased development time by 40% through AI implementation.";
+    }
+    
+    if (input.includes("contact") || input.includes("reach") || input.includes("hire") || input.includes("opportunity")) {
+      return "You can reach Alexis through the contact form on this website. She's passionate about uniting teams, driving innovation, and making tangible impact. She's always happy to discuss product leadership opportunities and share her experience!";
+    }
+    
+    if (input.includes("government") || input.includes("public") || input.includes("civic")) {
+      return "Alexis has extensive experience in government technology, having led 23 modernized applications for state and local government. She increased user app adoption by 40% among 30,000+ government users and won the California Innovation Technology Award for 'Best Application Serving the Public.'";
+    }
+    
+    if (input.includes("ai") || input.includes("artificial intelligence") || input.includes("technology")) {
+      return "Alexis is an AI implementation expert who decreased development time by 40%. She combines technical expertise with human-centered design principles to create products that teams and customers want to use. She's passionate about leveraging technology for tangible impact.";
+    }
+    
+    if (input.includes("hello") || input.includes("hi") || input.includes("hey")) {
+      return "Hello! I'm here to help you learn about Alexis Brochu's product leadership experience. Feel free to ask about her background, skills, achievements, or approach to product management. What would you like to know?";
+    }
+    
+    // Default response
+    return "I can tell you about Alexis's product leadership experience, skills, achievements, personality traits, work approach, or contact information. What specific aspect would you like to learn more about?";
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim() || isLoading) return;
 
     const userMessage = { role: "user", content: input.trim() };
     setMessages((prev) => [...prev, userMessage]);
+    const currentInput = input.trim();
     setInput("");
     setIsLoading(true);
 
-    try {
-      // Create conversation history for API call
-      const conversationHistory = [...messages, userMessage];
-
-      const response = await fetch("/api/chat", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          messages: conversationHistory,
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error(`API request failed: ${response.status}`);
-      }
-
-      const data = await response.json();
-      const assistantResponse = data.message;
-
+    // Simulate a brief delay for more natural interaction
+    setTimeout(() => {
+      const assistantResponse = getResponse(currentInput);
       setMessages((prev) => [
         ...prev,
         { role: "assistant", content: assistantResponse },
       ]);
-    } catch (error) {
-      console.error("Error in chat:", error);
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: "assistant",
-          content:
-            "I apologize, but I'm having trouble connecting right now. Please try again in a moment, or feel free to reach out to Alexis directly through her contact information on the site.",
-        },
-      ]);
-    } finally {
       setIsLoading(false);
-    }
+    }, 1000);
   };
 
   const ChatWindow = () => (
