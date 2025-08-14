@@ -274,6 +274,7 @@ export default function CreativeGallery() {
         {/* Brand Development Case Studies */}
         {(() => {
           const brandItems = galleryItems.filter(item => item.category === 'brand');
+          console.log('Brand Development rendering:', brandItems.length, 'items');
           return (
             <div className="mb-16">
               <div className="mb-8">
@@ -282,26 +283,32 @@ export default function CreativeGallery() {
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {brandItems.map((item) => (
-                  <div key={item.id} className="group">
-                    <div className="relative h-60 md:h-72 rounded-xl overflow-hidden bg-card">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                        <h4 className="text-base font-semibold mb-1">{item.title}</h4>
-                        {item.description && (
-                          <p className="text-sm text-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                            {item.description}
-                          </p>
-                        )}
+                {brandItems.map((item) => {
+                  console.log(`Rendering brand item card: ${item.title}`);
+                  return (
+                    <div key={item.id} className="group">
+                      <div className="relative h-60 md:h-72 rounded-xl overflow-hidden bg-card border-2 border-red-500">
+                        <div className="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 text-xs rounded z-10">
+                          {item.title}
+                        </div>
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                          <h4 className="text-base font-semibold mb-1">{item.title}</h4>
+                          {item.description && (
+                            <p className="text-sm text-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                              {item.description}
+                            </p>
+                          )}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           );
