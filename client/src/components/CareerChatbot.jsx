@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useCallback } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Send, MessageCircle, X, Minimize2, Maximize2 } from "lucide-react";
 
 const CareerChatbot = () => {
@@ -14,16 +14,41 @@ const CareerChatbot = () => {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef(null);
+  const inputRef = useRef(null);
+  const chatContainerRef = useRef(null);
 
-  const scrollToBottom = useCallback(() => {
+  const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, []);
+  };
 
   useEffect(() => {
     scrollToBottom();
-  }, [messages, scrollToBottom]);
+  }, [messages]);
 
-  const handleSubmit = useCallback(async () => {
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        chatContainerRef.current &&
+        !chatContainerRef.current.contains(event.target)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      // Delay adding the listener to avoid immediate closing
+      const timer = setTimeout(() => {
+        document.addEventListener("mousedown", handleClickOutside);
+      }, 100);
+
+      return () => {
+        clearTimeout(timer);
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }
+  }, [isOpen]);
+
+  const handleSubmit = async () => {
     if (!input.trim() || isLoading) return;
 
     const userMessage = { role: "user", content: input.trim() };
@@ -32,6 +57,7 @@ const CareerChatbot = () => {
     setIsLoading(true);
 
     try {
+      // Create conversation history for API call
       const conversationHistory = [...messages, userMessage];
 
       const response = await fetch("https://api.anthropic.com/v1/messages", {
@@ -105,46 +131,9 @@ Always respond as if you're representing Alexis professionally but warmly. Be en
     } finally {
       setIsLoading(false);
     }
-  }, [input, isLoading, messages]);
+  };
 
-  const handleInputChange = useCallback((e) => {
-    setInput(e.target.value);
-  }, []);
-
-  const handleKeyDown = useCallback(
-    (e) => {
-      if (e.key === "Enter" && !e.shiftKey) {
-        e.preventDefault();
-        handleSubmit();
-      }
-    },
-    [handleSubmit],
-  );
-
-  const toggleChat = useCallback(() => {
-    setIsOpen((prev) => !prev);
-  }, []);
-
-  const closeChat = useCallback(() => {
-    setIsOpen(false);
-  }, []);
-
-  const toggleMinimize = useCallback(() => {
-    setIsMinimized((prev) => !prev);
-  }, []);
-
-  if (!isOpen) {
-    return (
-      <button
-        onClick={toggleChat}
-        className="fixed bottom-4 right-4 z-50 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
-      >
-        <MessageCircle size={24} />
-      </button>
-    );
-  }
-
-  return (
+  const ChatWindow = () => (
     <div
       className={`fixed bottom-4 right-4 z-50 transition-all duration-300 ${
         isMinimized ? "w-80 h-12" : "w-96 h-[500px]"
@@ -159,13 +148,13 @@ Always respond as if you're representing Alexis professionally but warmly. Be en
           </div>
           <div className="flex items-center space-x-2">
             <button
-              onClick={toggleMinimize}
+              onClick={() => setIsMinimized(!isMinimized)}
               className="text-white hover:text-gray-200 transition-colors p-1 rounded"
             >
               {isMinimized ? <Maximize2 size={16} /> : <Minimize2 size={16} />}
             </button>
             <button
-              onClick={closeChat}
+              onClick={() => setIsOpen(false)}
               className="text-white hover:text-gray-200 transition-colors p-1 rounded"
             >
               <X size={16} />
@@ -219,10 +208,16 @@ Always respond as if you're representing Alexis professionally but warmly. Be en
             <div className="border-t border-gray-200 p-4">
               <div className="flex space-x-2">
                 <input
+                  ref={inputRef}
                   type="text"
                   value={input}
-                  onChange={handleInputChange}
-                  onKeyDown={handleKeyDown}
+                  onChange={(e) => setInput(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" && !e.shiftKey) {
+                      e.preventDefault();
+                      handleSubmit();
+                    }
+                  }}
                   placeholder="Ask about Alexis's experience, skills, or approach..."
                   className="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-900 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   disabled={isLoading}
@@ -240,6 +235,23 @@ Always respond as if you're representing Alexis professionally but warmly. Be en
           </>
         )}
       </div>
+    </div>
+  );
+
+  return (
+    <div ref={chatContainerRef}>
+      {/* Chat Toggle Button */}
+      {!isOpen && (
+        <button
+          onClick={() => setIsOpen(true)}
+          className="fixed bottom-4 right-4 z-50 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+        >
+          <MessageCircle size={24} />
+        </button>
+      )}
+
+      {/* Chat Window */}
+      {isOpen && <ChatWindow />}
     </div>
   );
 };
