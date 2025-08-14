@@ -52,10 +52,10 @@ export default function HeroSection() {
         <div className="w-full h-full bg-gradient-to-br from-primary/20 via-transparent to-chart-1/20"></div>
       </div>
       
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
-        <div className="max-w-4xl">
-          {/* Music Player - Moved to hero with disco lights, positioned left */}
-          <div className="mb-8 flex justify-start">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 text-center">
+        <div className="max-w-4xl mx-auto">
+          {/* Music Player - Moved to hero with disco lights, positioned center */}
+          <div className="mb-8 flex justify-center">
             <div className={`disco-button ${isPlaying ? 'playing' : ''}`}>
               <NavMusicPlayer onPlayingChange={setIsPlaying} />
             </div>
@@ -76,7 +76,7 @@ export default function HeroSection() {
 
 
           
-          <div className="flex flex-col sm:flex-row gap-4 mb-12">
+          <div className="flex justify-center mb-12">
             <Button 
               onClick={scrollToContact}
               className="px-8 py-4 gradient-bg-primary hover:opacity-90 rounded-xl font-semibold text-lg transition-all duration-300 glow-purple"
@@ -86,7 +86,7 @@ export default function HeroSection() {
           </div>
           
           {/* Key Metrics */}
-          <div className="grid grid-cols-3 gap-4 max-w-2xl">
+          <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
             <div className="text-center">
               <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>545.5%</div>
               <div className="text-xs text-white/70">User Growth</div>
