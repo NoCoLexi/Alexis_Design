@@ -71,14 +71,12 @@ export default function HeroSection() {
 
           
           {/* Hire Me Song Button */}
-          <div className="mb-12 flex justify-center">
-            <div className={`disco-button ${isPlaying ? 'playing' : ''}`}>
-              <NavMusicPlayer 
-                onPlayingChange={setIsPlaying}
-                renderAs="button"
-                buttonText="Play my Hire Me song"
-              />
-            </div>
+          <div className={`mb-12 flex justify-center disco-button ${isPlaying ? 'playing' : ''}`}>
+            <NavMusicPlayer 
+              onPlayingChange={setIsPlaying}
+              renderAs="button"
+              buttonText="Play my Hire Me song"
+            />
           </div>
           
           {/* Key Metrics */}

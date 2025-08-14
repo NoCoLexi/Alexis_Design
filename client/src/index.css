@@ -358,6 +358,12 @@
   overflow: hidden;
 }
 
+.disco-button > * {
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+}
+
 .disco-button::before {
   content: '';
   position: absolute;
