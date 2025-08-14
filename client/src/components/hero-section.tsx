@@ -54,8 +54,8 @@ export default function HeroSection() {
       
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
         <div className="max-w-4xl">
-          {/* Music Player - Moved to hero with disco lights */}
-          <div className="mb-8">
+          {/* Music Player - Moved to hero with disco lights, positioned left */}
+          <div className="mb-8 flex justify-start">
             <div className={`disco-button ${isPlaying ? 'playing' : ''}`}>
               <NavMusicPlayer onPlayingChange={setIsPlaying} />
             </div>
