@@ -62,12 +62,14 @@ import budweiserGuide4Image from "@assets/IMG_1660_1754956980606.jpg";
 import budweiserGuide5Image from "@assets/IMG_1661_1754956980606.jpg";
 import budweiserGuide6Image from "@assets/IMG_1663_1754956980607.jpg";
 import ttoolsPressKitImage from "@assets/FullSizeRender 29_1754957693606.jpg";
-import grantsManagementPortalNewImage from "@assets/Grants Management Portal 1-0_1754968806232.png";
-import grantsManagementIntroImage from "@assets/Grants Management Intro 1-0_1754968472954.png";
-import grantsManagementHcdImage from "@assets/Grants Management HCD 1-2_1754968470644.png";
-import grantsManagementBackOfficeImage from "@assets/Grants Management Back Office 1-2_1754968475876.png";
-import grantsManagementReportingImage from "@assets/Grants Management Reporting 1-1_1754968478693.png";
-import grantsManagementPresentationImage from "@assets/Grants Management Presentation 1-1_1754968480498.png";
+import grantsPortalEngageImage from "@assets/Portal 1.0_1755218217224.png";
+import grantsPortalAnywhereImage from "@assets/Portal 1.1_1755218229361.png";
+import grantsPortalApplicationImage from "@assets/Portal 1.1-1_1755218229361.png";
+import grantsBackOfficeCommunityImage from "@assets/Back Office 1.0_1755218244119.png";
+import grantsBackOfficeDocumentImage from "@assets/Back Office 1.1_1755218244120.png";
+import grantsBackOfficeMobileImage from "@assets/Back Office 1.2_1755218244120.png";
+import grantsReportingRealTimeImage from "@assets/Reporting 1.0_1755218256888.png";
+import grantsReportingDashboardImage from "@assets/Reporting 1.1_1755218256888.png";
 import paCloseoutVideo from "@assets/image_1755130943838.png";
 
 interface CaseStudy {
@@ -361,12 +363,14 @@ const caseStudies: Record<string, CaseStudy> = {
       'Cross-department collaboration improves with shared visibility'
     ],
     slideshow: [
-      grantsManagementPortalNewImage,
-      grantsManagementIntroImage,
-      grantsManagementHcdImage,
-      grantsManagementBackOfficeImage,
-      grantsManagementReportingImage,
-      grantsManagementPresentationImage
+      grantsPortalEngageImage,
+      grantsPortalAnywhereImage,
+      grantsPortalApplicationImage,
+      grantsBackOfficeCommunityImage,
+      grantsBackOfficeDocumentImage,
+      grantsBackOfficeMobileImage,
+      grantsReportingRealTimeImage,
+      grantsReportingDashboardImage
     ]
   },
   'fairgrounds-coffee': {
