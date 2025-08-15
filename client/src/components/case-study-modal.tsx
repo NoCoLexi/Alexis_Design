@@ -86,6 +86,7 @@ import tfGreenGalaImage from "@assets/IMG_1642_1755219275742.jpg";
 import riConventionCenterImage from "@assets/IMG_1645_1755219474136.jpg";
 import riConventionInteriorImage from "@assets/FullSizeRender 25_1755219569087.jpg";
 import riConventionReportImage from "@assets/FullSizeRender 28_1755219569087.jpg";
+import tfGreenDetailSpreadImage from "@assets/FullSizeRender 33_1755219662733.jpg";
 
 interface CaseStudy {
   id: string;
@@ -688,7 +689,8 @@ const caseStudies: Record<string, CaseStudy> = {
       'Gold accents and premium finishes enhance perceived event value'
     ],
     slideshow: [
-      tfGreenGalaImage
+      tfGreenGalaImage,
+      tfGreenDetailSpreadImage
     ]
   },
   'ri-convention-center': {
