@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Award, Sparkles } from "lucide-react";
+import { ArrowDown, Award, Sparkles, Mail, Calendar } from "lucide-react";
+import { SiLinkedin } from "react-icons/si";
 import NavMusicPlayer from "./nav-music-player";
 
 export default function HeroSection() {
@@ -71,12 +72,43 @@ export default function HeroSection() {
 
           
           {/* Hire Me Song Button */}
-          <div className={`mb-12 flex justify-center disco-button ${isPlaying ? 'playing' : ''}`}>
+          <div className={`mb-8 flex justify-center disco-button ${isPlaying ? 'playing' : ''}`}>
             <NavMusicPlayer 
               onPlayingChange={setIsPlaying}
               renderAs="button"
               buttonText="Play my Hire Me song"
             />
+          </div>
+          
+          {/* Contact Icons */}
+          <div className="mb-12 flex justify-center space-x-6">
+            <a 
+              href="mailto:alexisb.product@gmail.com" 
+              className="w-12 h-12 bg-primary rounded-full flex items-center justify-center hover:opacity-80 transition-all duration-300 hover:scale-110"
+              data-testid="contact-email-icon"
+            >
+              <Mail className="w-6 h-6 text-white" />
+            </a>
+            
+            <a 
+              href="https://linkedin.com/in/alexisbrochu" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="w-12 h-12 bg-[#0077B5] rounded-full flex items-center justify-center hover:opacity-80 transition-all duration-300 hover:scale-110"
+              data-testid="contact-linkedin-icon"
+            >
+              <SiLinkedin className="w-6 h-6 text-white" />
+            </a>
+            
+            <a 
+              href="https://calendly.com/alexis-brochu/15min" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="w-12 h-12 bg-chart-2 rounded-full flex items-center justify-center hover:opacity-80 transition-all duration-300 hover:scale-110"
+              data-testid="contact-calendar-icon"
+            >
+              <Calendar className="w-6 h-6 text-white" />
+            </a>
           </div>
           
           {/* Key Metrics */}
