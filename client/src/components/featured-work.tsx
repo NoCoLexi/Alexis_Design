@@ -256,9 +256,9 @@ const projects: Project[] = [
   },
   {
     id: 'tf-green-gala',
-    title: 'TF Green Airport Gala',
+    title: 'T.F. Green Airport Gala Invitation',
     description: 'Elegant event branding and invitation design for TF Green Airport\'s Grand Opening Gala, featuring sophisticated passport-themed materials and premium event presentation.',
-    category: 'marketing',
+    category: 'brand-development',
     image: tfGreenGalaImage,
     metrics: [
       { label: 'Premium Event Design', value: '100%', color: 'text-chart-1' },

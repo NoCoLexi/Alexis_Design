@@ -656,7 +656,7 @@ const caseStudies: Record<string, CaseStudy> = {
   },
   'tf-green-gala': {
     id: 'tf-green-gala',
-    title: 'TF Green Airport Gala',
+    title: 'T.F. Green Airport Gala Invitation',
     subtitle: 'Premium Event Branding & Invitation Design',
     description: 'Elegant event branding and invitation design for TF Green Airport\'s Grand Opening Gala, featuring sophisticated passport-themed materials that captured the aviation spirit and premium nature of the celebration.',
     role: 'Event Designer & Brand Strategist',
