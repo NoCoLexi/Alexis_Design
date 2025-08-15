@@ -56,6 +56,8 @@ import grantsManagementPresentationImage from "@assets/Grants Management Present
 import grantsManagementReportingNewImage from "@assets/Back Office 1.2_1755217963812.png";
 import grantsManagementPortalNewImage from "@assets/Grants Management Portal 1-0_1754968806232.png";
 import paCloseoutNewImage from "@assets/image_1754969508918.png";
+import providenceSchoolsCoverImage from "@assets/FullSizeRender 4_1755218415405.jpg";
+import providenceSchoolsBrochureImage from "@assets/FullSizeRender 10_1755218415406.jpg";
 
 // Preload critical images immediately when component loads
 const preloadImage = (src: string) => {
@@ -206,6 +208,22 @@ const projects: Project[] = [
       { label: 'Design Recognition', value: '89%', color: 'text-primary' }
     ],
     tags: ['Brand Identity', 'Logo Design', 'Product Packaging', 'Community Coffee']
+  },
+  {
+    id: 'providence-schools',
+    title: 'Providence Schools Brand Development',
+    description: 'Comprehensive educational branding and materials design for Providence Schools magnet program, creating vibrant promotional materials and program guides to showcase specialized educational opportunities.',
+    category: 'brand-development',
+    image: providenceSchoolsCoverImage,
+    slideshow: [
+      providenceSchoolsCoverImage,
+      providenceSchoolsBrochureImage
+    ],
+    metrics: [
+      { label: 'Educational Programs', value: '12+', color: 'text-chart-1' },
+      { label: 'Material Design Impact', value: '95%', color: 'text-primary' }
+    ],
+    tags: ['Educational Branding', 'Magnet Schools', 'Print Design', 'Program Materials']
   },
   {
     id: 'abc6-rebrand-alexis-design',

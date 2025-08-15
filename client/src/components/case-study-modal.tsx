@@ -71,6 +71,8 @@ import grantsBackOfficeMobileImage from "@assets/Back Office 1.2_1755218244120.p
 import grantsReportingRealTimeImage from "@assets/Reporting 1.0_1755218256888.png";
 import grantsReportingDashboardImage from "@assets/Reporting 1.1_1755218256888.png";
 import paCloseoutVideo from "@assets/image_1755130943838.png";
+import providenceSchoolsCoverImage from "@assets/FullSizeRender 4_1755218415405.jpg";
+import providenceSchoolsBrochureImage from "@assets/FullSizeRender 10_1755218415406.jpg";
 
 interface CaseStudy {
   id: string;
@@ -412,6 +414,41 @@ const caseStudies: Record<string, CaseStudy> = {
       fairGroundsSwagNewImage,
       fairGroundsHatNewImage,
       fairGroundsShamrockNewImage
+    ]
+  },
+  'providence-schools': {
+    id: 'providence-schools',
+    title: 'Providence Schools Brand Development',
+    subtitle: 'Educational Branding & Materials Design',
+    description: 'Comprehensive educational branding and materials design for Providence Schools magnet program, creating vibrant promotional materials and program guides to showcase specialized educational opportunities and attract families to innovative magnet school programs.',
+    role: 'Brand Designer & Educational Materials Specialist',
+    duration: '3 months',
+    team: 'Providence Schools administration and program coordinators',
+    challenge: 'Create compelling branding and promotional materials for Providence Schools\' diverse magnet programs that would effectively communicate unique educational opportunities to families while maintaining cohesive visual identity across all specialized programs.',
+    solution: 'Developed a vibrant, education-focused brand system featuring colorful design elements that appeal to both parents and students. Created comprehensive program guides and promotional materials that clearly showcase each magnet school\'s unique offerings, from science and technology to performing arts.',
+    outcome: 'Successfully launched a complete educational branding system that increased awareness and enrollment in magnet programs, helping families understand and connect with specialized educational opportunities.',
+    metrics: [
+      { label: '12+', value: 'Educational Programs', description: 'Magnet school specializations covered' },
+      { label: '95%', value: 'Material Design Impact', description: 'Family engagement improvement' },
+      { label: '100%', value: 'Brand Consistency', description: 'Unified visual identity across programs' }
+    ],
+    process: [
+      'Educational program analysis and school specialization mapping',
+      'Stakeholder interviews with administrators and educators',
+      'Target audience research with families and students',
+      'Brand concept development and visual system creation',
+      'Program guide design and informational material development',
+      'Promotional material production and distribution strategy'
+    ],
+    learnings: [
+      'Educational branding must appeal to both parents and students simultaneously',
+      'Clear program differentiation helps families make informed school choices',
+      'Vibrant, accessible design increases engagement with educational materials',
+      'Consistent branding across programs builds trust and recognition'
+    ],
+    slideshow: [
+      providenceSchoolsCoverImage,
+      providenceSchoolsBrochureImage
     ]
   },
   'gatorade-zipatoni': {
