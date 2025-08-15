@@ -76,6 +76,8 @@ import providenceSchoolsBrochureImage from "@assets/FullSizeRender 10_1755218415
 import providenceSystemMissionImage from "@assets/FullSizeRender 9_1755218651601.jpg";
 import providenceSystemVisionImage from "@assets/FullSizeRender 3_1755218651602.jpg";
 import providenceSystemObjectivesImage from "@assets/FullSizeRender 8_1755218651602.jpg";
+import providenceSystemCoverImage from "@assets/FullSizeRender 15_1755218951707.jpg";
+import providenceSystemFullSpreadImage from "@assets/FullSizeRender 19_1755218954872.jpg";
 
 interface CaseStudy {
   id: string;
@@ -485,6 +487,8 @@ const caseStudies: Record<string, CaseStudy> = {
       'Clear mission articulation enables better organizational alignment'
     ],
     slideshow: [
+      providenceSystemCoverImage,
+      providenceSystemFullSpreadImage,
       providenceSystemMissionImage,
       providenceSystemVisionImage,
       providenceSystemObjectivesImage

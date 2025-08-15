@@ -61,6 +61,8 @@ import providenceSchoolsBrochureImage from "@assets/FullSizeRender 10_1755218415
 import providenceSystemMissionImage from "@assets/FullSizeRender 9_1755218651601.jpg";
 import providenceSystemVisionImage from "@assets/FullSizeRender 3_1755218651602.jpg";
 import providenceSystemObjectivesImage from "@assets/FullSizeRender 8_1755218651602.jpg";
+import providenceSystemCoverImage from "@assets/FullSizeRender 15_1755218951707.jpg";
+import providenceSystemFullSpreadImage from "@assets/FullSizeRender 19_1755218954872.jpg";
 
 // Preload critical images immediately when component loads
 const preloadImage = (src: string) => {
@@ -233,8 +235,10 @@ const projects: Project[] = [
     title: 'Providence School System Brand Development',
     description: 'Comprehensive strategic planning and brand development for Providence School Department, creating mission-driven materials and strategic frameworks to support educational excellence and community engagement.',
     category: 'brand-development',
-    image: providenceSystemMissionImage,
+    image: providenceSystemCoverImage,
     slideshow: [
+      providenceSystemCoverImage,
+      providenceSystemFullSpreadImage,
       providenceSystemMissionImage,
       providenceSystemVisionImage,
       providenceSystemObjectivesImage
