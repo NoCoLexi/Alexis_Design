@@ -53,7 +53,7 @@ import grantsManagementIntroImage from "@assets/Grants Management Intro 1-0_1754
 import grantsManagementBackOfficeImage from "@assets/Grants Management Back Office 1-2_1754968475876.png";
 import grantsManagementReportingImage from "@assets/Grants Management Reporting 1-1_1754968478693.png";
 import grantsManagementPresentationImage from "@assets/Grants Management Presentation 1-1_1754968480498.png";
-import grantsManagementReportingNewImage from "@assets/Grants Management Reporting 1-1_1754968713606.png";
+import grantsManagementReportingNewImage from "@assets/image_1755217751016.png";
 import grantsManagementPortalNewImage from "@assets/Grants Management Portal 1-0_1754968806232.png";
 import paCloseoutNewImage from "@assets/image_1754969508918.png";
 
