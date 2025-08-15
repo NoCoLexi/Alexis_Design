@@ -69,6 +69,8 @@ import abc6CampaignBillboardsImage from "@assets/FullSizeRender 16_1755219110188
 import abc6RosieBillboardsImage from "@assets/IMG_1652_1755219110189.jpg";
 import tfGreenGalaImage from "@assets/IMG_1642_1755219275742.jpg";
 import riConventionCenterImage from "@assets/IMG_1645_1755219474136.jpg";
+import riConventionInteriorImage from "@assets/FullSizeRender 25_1755219569087.jpg";
+import riConventionReportImage from "@assets/FullSizeRender 28_1755219569087.jpg";
 
 // Preload critical images immediately when component loads
 const preloadImage = (src: string) => {
