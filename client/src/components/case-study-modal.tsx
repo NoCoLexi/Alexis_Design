@@ -78,6 +78,10 @@ import providenceSystemVisionImage from "@assets/FullSizeRender 3_1755218651602.
 import providenceSystemObjectivesImage from "@assets/FullSizeRender 8_1755218651602.jpg";
 import providenceSystemCoverImage from "@assets/FullSizeRender 15_1755218951707.jpg";
 import providenceSystemFullSpreadImage from "@assets/FullSizeRender 19_1755218954872.jpg";
+import abc6SeinfeldBillboardImage from "@assets/IMG_1654_1755219110187.jpg";
+import abc6NewsBillboardsImage from "@assets/IMG_1655_1755219110188.jpg";
+import abc6CampaignBillboardsImage from "@assets/FullSizeRender 16_1755219110188.jpg";
+import abc6RosieBillboardsImage from "@assets/IMG_1652_1755219110189.jpg";
 
 interface CaseStudy {
   id: string;
@@ -642,7 +646,11 @@ const caseStudies: Record<string, CaseStudy> = {
     ],
     slideshow: [
       abc6SeinfeldImage,
-      abc6RosieImage
+      abc6RosieImage,
+      abc6SeinfeldBillboardImage,
+      abc6NewsBillboardsImage,
+      abc6CampaignBillboardsImage,
+      abc6RosieBillboardsImage
     ]
   }
 };
