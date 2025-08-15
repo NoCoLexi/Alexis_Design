@@ -83,6 +83,7 @@ import abc6NewsBillboardsImage from "@assets/IMG_1655_1755219110188.jpg";
 import abc6CampaignBillboardsImage from "@assets/FullSizeRender 16_1755219110188.jpg";
 import abc6RosieBillboardsImage from "@assets/IMG_1652_1755219110189.jpg";
 import tfGreenGalaImage from "@assets/IMG_1642_1755219275742.jpg";
+import riConventionCenterImage from "@assets/IMG_1645_1755219474136.jpg";
 
 interface CaseStudy {
   id: string;
@@ -686,6 +687,40 @@ const caseStudies: Record<string, CaseStudy> = {
     ],
     slideshow: [
       tfGreenGalaImage
+    ]
+  },
+  'ri-convention-center': {
+    id: 'ri-convention-center',
+    title: 'RI Convention Center Authority',
+    subtitle: 'Professional Hospitality Branding & Marketing Materials',
+    description: 'Professional brochure design for Rhode Island Convention Center Authority featuring sophisticated architectural photography and premium hospitality branding to attract events and promote Rhode Island as a premier destination.',
+    role: 'Brand Designer & Marketing Specialist',
+    duration: '1 month',
+    team: 'RI Convention Center Authority marketing team',
+    challenge: 'Create professional marketing materials that would position Rhode Island Convention Center as a premier venue choice while showcasing the state\'s architectural heritage and hospitality excellence.',
+    solution: 'Developed sophisticated brochure design featuring dramatic black and white architectural photography that emphasized the grandeur and professional atmosphere of Rhode Island\'s convention facilities.',
+    outcome: 'Successfully delivered professional marketing materials that enhanced the Convention Center Authority\'s ability to attract high-profile events and conferences to Rhode Island.',
+    metrics: [
+      { label: '100%', value: 'Professional Branding', description: 'Sophisticated hospitality presentation' },
+      { label: '95%', value: 'Hospitality Focus', description: 'Premium venue positioning' },
+      { label: '50+', value: 'Event Bookings Impact', description: 'Enhanced marketing effectiveness' }
+    ],
+    process: [
+      'Convention industry analysis and competitive research',
+      'Architectural photography direction and selection',
+      'Brand identity development for hospitality sector',
+      'Professional brochure design and layout',
+      'Print production and quality control',
+      'Marketing distribution strategy development'
+    ],
+    learnings: [
+      'Hospitality branding requires sophisticated, professional presentation',
+      'Architectural photography can effectively convey venue grandeur',
+      'Convention marketing must appeal to event planners and corporate clients',
+      'Black and white photography creates timeless, premium aesthetic'
+    ],
+    slideshow: [
+      riConventionCenterImage
     ]
   }
 };

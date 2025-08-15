@@ -68,6 +68,7 @@ import abc6NewsBillboardsImage from "@assets/IMG_1655_1755219110188.jpg";
 import abc6CampaignBillboardsImage from "@assets/FullSizeRender 16_1755219110188.jpg";
 import abc6RosieBillboardsImage from "@assets/IMG_1652_1755219110189.jpg";
 import tfGreenGalaImage from "@assets/IMG_1642_1755219275742.jpg";
+import riConventionCenterImage from "@assets/IMG_1645_1755219474136.jpg";
 
 // Preload critical images immediately when component loads
 const preloadImage = (src: string) => {
@@ -265,6 +266,18 @@ const projects: Project[] = [
       { label: 'Aviation Theme Integration', value: '95%', color: 'text-primary' }
     ],
     tags: ['Event Design', 'Aviation Branding', 'Premium Invitations', 'Gala Marketing']
+  },
+  {
+    id: 'ri-convention-center',
+    title: 'RI Convention Center Authority',
+    description: 'Professional brochure design for Rhode Island Convention Center Authority featuring sophisticated architectural photography and premium hospitality branding.',
+    category: 'brand-development',
+    image: riConventionCenterImage,
+    metrics: [
+      { label: 'Professional Branding', value: '100%', color: 'text-chart-1' },
+      { label: 'Hospitality Focus', value: '95%', color: 'text-primary' }
+    ],
+    tags: ['Hospitality Branding', 'Convention Marketing', 'Architectural Photography', 'Tourism Promotion']
   },
   {
     id: 'abc6-rebrand-alexis-design',
