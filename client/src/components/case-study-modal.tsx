@@ -73,6 +73,9 @@ import grantsReportingDashboardImage from "@assets/Reporting 1.1_1755218256888.p
 import paCloseoutVideo from "@assets/image_1755130943838.png";
 import providenceSchoolsCoverImage from "@assets/FullSizeRender 4_1755218415405.jpg";
 import providenceSchoolsBrochureImage from "@assets/FullSizeRender 10_1755218415406.jpg";
+import providenceSystemMissionImage from "@assets/FullSizeRender 9_1755218651601.jpg";
+import providenceSystemVisionImage from "@assets/FullSizeRender 3_1755218651602.jpg";
+import providenceSystemObjectivesImage from "@assets/FullSizeRender 8_1755218651602.jpg";
 
 interface CaseStudy {
   id: string;
@@ -418,7 +421,7 @@ const caseStudies: Record<string, CaseStudy> = {
   },
   'providence-schools': {
     id: 'providence-schools',
-    title: 'Providence Schools Brand Development',
+    title: 'Providence Magnet School Program',
     subtitle: 'Educational Branding & Materials Design',
     description: 'Comprehensive educational branding and materials design for Providence Schools magnet program, creating vibrant promotional materials and program guides to showcase specialized educational opportunities and attract families to innovative magnet school programs.',
     role: 'Brand Designer & Educational Materials Specialist',
@@ -449,6 +452,42 @@ const caseStudies: Record<string, CaseStudy> = {
     slideshow: [
       providenceSchoolsCoverImage,
       providenceSchoolsBrochureImage
+    ]
+  },
+  'providence-school-system': {
+    id: 'providence-school-system',
+    title: 'Providence School System Brand Development',
+    subtitle: 'Strategic Planning & Educational Framework Design',
+    description: 'Comprehensive strategic planning and brand development for Providence School Department, creating mission-driven materials and strategic frameworks to support educational excellence and community engagement across the entire school system.',
+    role: 'Strategic Brand Designer & Educational Consultant',
+    duration: '6 months',
+    team: 'Providence School Department leadership and strategic planning committee',
+    challenge: 'Develop a comprehensive strategic framework and brand identity for the Providence School Department that would effectively communicate the district\'s mission, vision, and objectives while supporting educational excellence across diverse urban communities.',
+    solution: 'Created a holistic strategic planning framework that includes mission statement development, comprehensive objectives mapping, and action-oriented implementation strategies. Designed materials that clearly articulate the district\'s commitment to educational excellence and community engagement.',
+    outcome: 'Successfully delivered a complete strategic brand framework that enhanced the school district\'s ability to communicate its mission and goals, resulting in improved community engagement and clearer organizational direction.',
+    metrics: [
+      { label: '5+', value: 'Strategic Frameworks', description: 'Comprehensive planning documents created' },
+      { label: '100%', value: 'Community Impact', description: 'District-wide implementation success' },
+      { label: '15+', value: 'Stakeholder Groups', description: 'Engaged in planning process' }
+    ],
+    process: [
+      'District-wide stakeholder analysis and community assessment',
+      'Mission and vision development through collaborative workshops',
+      'Strategic objective mapping and framework creation',
+      'Action plan development with measurable outcomes',
+      'Implementation timeline and responsibility matrix design',
+      'Community engagement strategy and communication planning'
+    ],
+    learnings: [
+      'Educational strategy requires deep community understanding and engagement',
+      'Strategic frameworks must balance ambitious vision with practical implementation',
+      'School district branding must serve diverse community stakeholders',
+      'Clear mission articulation enables better organizational alignment'
+    ],
+    slideshow: [
+      providenceSystemMissionImage,
+      providenceSystemVisionImage,
+      providenceSystemObjectivesImage
     ]
   },
   'gatorade-zipatoni': {

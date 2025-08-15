@@ -58,6 +58,9 @@ import grantsManagementPortalNewImage from "@assets/Grants Management Portal 1-0
 import paCloseoutNewImage from "@assets/image_1754969508918.png";
 import providenceSchoolsCoverImage from "@assets/FullSizeRender 4_1755218415405.jpg";
 import providenceSchoolsBrochureImage from "@assets/FullSizeRender 10_1755218415406.jpg";
+import providenceSystemMissionImage from "@assets/FullSizeRender 9_1755218651601.jpg";
+import providenceSystemVisionImage from "@assets/FullSizeRender 3_1755218651602.jpg";
+import providenceSystemObjectivesImage from "@assets/FullSizeRender 8_1755218651602.jpg";
 
 // Preload critical images immediately when component loads
 const preloadImage = (src: string) => {
@@ -211,7 +214,7 @@ const projects: Project[] = [
   },
   {
     id: 'providence-schools',
-    title: 'Providence Schools Brand Development',
+    title: 'Providence Magnet School Program',
     description: 'Comprehensive educational branding and materials design for Providence Schools magnet program, creating vibrant promotional materials and program guides to showcase specialized educational opportunities.',
     category: 'brand-development',
     image: providenceSchoolsCoverImage,
@@ -224,6 +227,23 @@ const projects: Project[] = [
       { label: 'Material Design Impact', value: '95%', color: 'text-primary' }
     ],
     tags: ['Educational Branding', 'Magnet Schools', 'Print Design', 'Program Materials']
+  },
+  {
+    id: 'providence-school-system',
+    title: 'Providence School System Brand Development',
+    description: 'Comprehensive strategic planning and brand development for Providence School Department, creating mission-driven materials and strategic frameworks to support educational excellence and community engagement.',
+    category: 'brand-development',
+    image: providenceSystemMissionImage,
+    slideshow: [
+      providenceSystemMissionImage,
+      providenceSystemVisionImage,
+      providenceSystemObjectivesImage
+    ],
+    metrics: [
+      { label: 'Strategic Frameworks', value: '5+', color: 'text-chart-1' },
+      { label: 'Community Impact', value: '100%', color: 'text-primary' }
+    ],
+    tags: ['Educational Strategy', 'Strategic Planning', 'Community Engagement', 'School Systems']
   },
   {
     id: 'abc6-rebrand-alexis-design',
