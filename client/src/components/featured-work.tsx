@@ -72,6 +72,8 @@ import riConventionCenterImage from "@assets/IMG_1645_1755219474136.jpg";
 import riConventionInteriorImage from "@assets/FullSizeRender 25_1755219569087.jpg";
 import riConventionReportImage from "@assets/FullSizeRender 28_1755219569087.jpg";
 import tfGreenDetailSpreadImage from "@assets/FullSizeRender 33_1755219662733.jpg";
+import lifespanHealthBrochureImage from "@assets/FullSizeRender_1755219971125.jpg";
+import lifespanHealthBookletImage from "@assets/FullSizeRender 17_1755219971125.jpg";
 
 // Preload critical images immediately when component loads
 const preloadImage = (src: string) => {
@@ -281,6 +283,18 @@ const projects: Project[] = [
       { label: 'Hospitality Focus', value: '95%', color: 'text-primary' }
     ],
     tags: ['Hospitality Branding', 'Convention Marketing', 'Architectural Photography', 'Tourism Promotion']
+  },
+  {
+    id: 'lifespan-health-care',
+    title: 'Lifespan Health Care Brand Development',
+    description: 'Comprehensive healthcare brand development featuring patient-focused messaging, community healthcare positioning, and professional medical marketing materials.',
+    category: 'brand-development',
+    image: lifespanHealthBrochureImage,
+    metrics: [
+      { label: 'Healthcare Branding', value: '100%', color: 'text-chart-1' },
+      { label: 'Community Focus', value: '95%', color: 'text-primary' }
+    ],
+    tags: ['Healthcare Branding', 'Medical Marketing', 'Community Health', 'Patient Care']
   },
   {
     id: 'abc6-rebrand-alexis-design',

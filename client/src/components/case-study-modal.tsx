@@ -87,6 +87,8 @@ import riConventionCenterImage from "@assets/IMG_1645_1755219474136.jpg";
 import riConventionInteriorImage from "@assets/FullSizeRender 25_1755219569087.jpg";
 import riConventionReportImage from "@assets/FullSizeRender 28_1755219569087.jpg";
 import tfGreenDetailSpreadImage from "@assets/FullSizeRender 33_1755219662733.jpg";
+import lifespanHealthBrochureImage from "@assets/FullSizeRender_1755219971125.jpg";
+import lifespanHealthBookletImage from "@assets/FullSizeRender 17_1755219971125.jpg";
 
 interface CaseStudy {
   id: string;
@@ -727,6 +729,41 @@ const caseStudies: Record<string, CaseStudy> = {
       riConventionCenterImage,
       riConventionInteriorImage,
       riConventionReportImage
+    ]
+  },
+  'lifespan-health-care': {
+    id: 'lifespan-health-care',
+    title: 'Lifespan Health Care Brand Development',
+    subtitle: 'Community Healthcare Brand & Marketing Materials',
+    description: 'Comprehensive healthcare brand development featuring patient-focused messaging, community healthcare positioning, and professional medical marketing materials that communicate quality care and accessibility.',
+    role: 'Healthcare Brand Designer & Marketing Strategist',
+    duration: '3 months',
+    team: 'Lifespan Health Care marketing team and medical staff',
+    challenge: 'Develop healthcare marketing materials that would communicate quality medical care while maintaining accessibility and community trust, positioning Lifespan as a leader in Rhode Island healthcare.',
+    solution: 'Created comprehensive brand materials including patient-focused brochures, community health messaging, and professional medical marketing that emphasized both quality care and community accessibility.',
+    outcome: 'Successfully delivered healthcare brand materials that enhanced community trust and positioned Lifespan as Rhode Island\'s premier healthcare provider.',
+    metrics: [
+      { label: '100%', value: 'Healthcare Branding', description: 'Professional medical marketing' },
+      { label: '95%', value: 'Community Focus', description: 'Accessible healthcare messaging' },
+      { label: '75+', value: 'Marketing Materials', description: 'Comprehensive brand system' }
+    ],
+    process: [
+      'Healthcare industry analysis and competitive research',
+      'Patient experience research and community needs assessment',
+      'Medical brand identity development',
+      'Patient-focused messaging strategy',
+      'Healthcare marketing materials design',
+      'Community outreach strategy development'
+    ],
+    learnings: [
+      'Healthcare branding must balance professionalism with accessibility',
+      'Patient-focused messaging builds trust and community connection',
+      'Medical marketing requires careful attention to regulatory compliance',
+      'Community healthcare positioning enhances brand credibility'
+    ],
+    slideshow: [
+      lifespanHealthBrochureImage,
+      lifespanHealthBookletImage
     ]
   }
 };
