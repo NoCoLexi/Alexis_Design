@@ -752,7 +752,9 @@ function ImageSlideshow({ images, interval = 3000 }: { images: string[]; interva
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
             index === currentIndex ? 'opacity-100' : 'opacity-0'
           }`}
-          style={{ objectPosition: 'center top' }}
+          style={{ 
+            objectPosition: image === riConventionCenterImage ? 'center 20%' : 'center top' 
+          }}
         />
       ))}
     </div>
