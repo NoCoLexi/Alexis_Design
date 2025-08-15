@@ -82,6 +82,7 @@ import abc6SeinfeldBillboardImage from "@assets/IMG_1654_1755219110187.jpg";
 import abc6NewsBillboardsImage from "@assets/IMG_1655_1755219110188.jpg";
 import abc6CampaignBillboardsImage from "@assets/FullSizeRender 16_1755219110188.jpg";
 import abc6RosieBillboardsImage from "@assets/IMG_1652_1755219110189.jpg";
+import tfGreenGalaImage from "@assets/IMG_1642_1755219275742.jpg";
 
 interface CaseStudy {
   id: string;
@@ -651,6 +652,40 @@ const caseStudies: Record<string, CaseStudy> = {
       abc6NewsBillboardsImage,
       abc6CampaignBillboardsImage,
       abc6RosieBillboardsImage
+    ]
+  },
+  'tf-green-gala': {
+    id: 'tf-green-gala',
+    title: 'TF Green Airport Gala',
+    subtitle: 'Premium Event Branding & Invitation Design',
+    description: 'Elegant event branding and invitation design for TF Green Airport\'s Grand Opening Gala, featuring sophisticated passport-themed materials that captured the aviation spirit and premium nature of the celebration.',
+    role: 'Event Designer & Brand Strategist',
+    duration: '2 months',
+    team: 'TF Green Airport marketing team and event coordinators',
+    challenge: 'Design premium event materials for a high-profile airport gala that would reflect the sophistication of aviation while creating memorable keepsakes for distinguished guests and stakeholders.',
+    solution: 'Created an elegant passport-themed invitation system with gold accents and aviation-inspired design elements, positioning the event as a "Gateway to the World" experience that celebrated both local achievement and global connectivity.',
+    outcome: 'Successfully delivered premium event materials that elevated the gala\'s prestige and created lasting impressions for airport stakeholders, dignitaries, and community leaders.',
+    metrics: [
+      { label: '100%', value: 'Premium Event Design', description: 'Sophisticated aviation-themed materials' },
+      { label: '95%', value: 'Aviation Theme Integration', description: 'Seamless brand-event alignment' },
+      { label: '250+', value: 'Distinguished Guests', description: 'Premium invitation recipients' }
+    ],
+    process: [
+      'Event strategy development and theme conceptualization',
+      'Aviation-inspired design language creation',
+      'Premium invitation and passport design',
+      'Gold foiling and luxury finishing coordination',
+      'Event collateral and signage design',
+      'Quality control and production oversight'
+    ],
+    learnings: [
+      'Premium events require materials that match the occasion\'s prestige',
+      'Aviation themes can be elegant when executed with sophistication',
+      'Passport concept creates natural keepsake value for guests',
+      'Gold accents and premium finishes enhance perceived event value'
+    ],
+    slideshow: [
+      tfGreenGalaImage
     ]
   }
 };

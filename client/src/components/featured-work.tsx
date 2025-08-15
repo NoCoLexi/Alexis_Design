@@ -67,6 +67,7 @@ import abc6SeinfeldBillboardImage from "@assets/IMG_1654_1755219110187.jpg";
 import abc6NewsBillboardsImage from "@assets/IMG_1655_1755219110188.jpg";
 import abc6CampaignBillboardsImage from "@assets/FullSizeRender 16_1755219110188.jpg";
 import abc6RosieBillboardsImage from "@assets/IMG_1652_1755219110189.jpg";
+import tfGreenGalaImage from "@assets/IMG_1642_1755219275742.jpg";
 
 // Preload critical images immediately when component loads
 const preloadImage = (src: string) => {
@@ -252,6 +253,18 @@ const projects: Project[] = [
       { label: 'Community Impact', value: '100%', color: 'text-primary' }
     ],
     tags: ['Educational Strategy', 'Strategic Planning', 'Community Engagement', 'School Systems']
+  },
+  {
+    id: 'tf-green-gala',
+    title: 'TF Green Airport Gala',
+    description: 'Elegant event branding and invitation design for TF Green Airport\'s Grand Opening Gala, featuring sophisticated passport-themed materials and premium event presentation.',
+    category: 'marketing',
+    image: tfGreenGalaImage,
+    metrics: [
+      { label: 'Premium Event Design', value: '100%', color: 'text-chart-1' },
+      { label: 'Aviation Theme Integration', value: '95%', color: 'text-primary' }
+    ],
+    tags: ['Event Design', 'Aviation Branding', 'Premium Invitations', 'Gala Marketing']
   },
   {
     id: 'abc6-rebrand-alexis-design',
