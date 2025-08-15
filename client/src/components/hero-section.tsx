@@ -65,7 +65,7 @@ export default function HeroSection() {
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed max-w-3xl">
             I solve impossible problems.<br />
             (The AI just makes it look easy.)<br />
-            Ready to see what I can help your team build?
+            <span className="font-bold">Ready to see what I can help your team build?</span>
           </p>
 
 
