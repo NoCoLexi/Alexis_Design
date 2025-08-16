@@ -58,7 +58,7 @@ class AudioManager {
 
       // Sharp click envelope - very quick attack and decay
       gainNode.gain.setValueAtTime(0, this.audioContext.currentTime);
-      gainNode.gain.linearRampToValueAtTime(0.2, this.audioContext.currentTime + 0.005); // Quick sharp attack
+      gainNode.gain.linearRampToValueAtTime(0.1, this.audioContext.currentTime + 0.005); // Quick sharp attack
       gainNode.gain.exponentialRampToValueAtTime(0.01, this.audioContext.currentTime + 0.03); // Quick decay
 
       // Play for very short duration for crisp click
