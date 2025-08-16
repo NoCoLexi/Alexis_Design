@@ -4,6 +4,7 @@ import AboutSection from "@/components/about-section";
 import ContactSection from "@/components/contact-section";
 import logoImage from "@assets/image_1754581825249.png";
 import CaseStudyModal from "@/components/case-study-modal";
+import CareerChatbot from "@/components/CareerChatbot";
 import NavMusicPlayer from "@/components/nav-music-player";
 import { useState, useEffect } from "react";
 import { Menu, X, Award } from "lucide-react";
@@ -139,6 +140,7 @@ export default function Home() {
       <AboutSection />
       <ContactSection />
       <CaseStudyModal />
+      {/* <CareerChatbot /> */}
 
       {/* Footer */}
       <footer className="py-12 border-t border-primary/20">
