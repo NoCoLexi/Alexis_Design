@@ -60,15 +60,7 @@ export default function HeroSection() {
               Hire Alexis
             </span>
           </h1>
-          
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed max-w-3xl">
-            I solve impossible problems.<br />
-            (The AI just makes it look easy.)<br />
-            <span className="font-bold">Ready to see what I can help your team build?</span>
-          </p>
 
-
-          
           {/* Hire Me Song Button */}
           <div className={`mb-8 flex justify-center disco-button ${isPlaying ? 'playing' : ''}`}>
             <NavMusicPlayer 
@@ -77,6 +69,12 @@ export default function HeroSection() {
               buttonText="Play my Hire Me song"
             />
           </div>
+          
+          <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed max-w-3xl">
+            I solve impossible problems.<br />
+            (The AI just makes it look easy.)<br />
+            <span className="font-bold">Ready to see what I can help your team build?</span>
+          </p>
           
           {/* Contact Icons */}
           <div className="mb-12 flex justify-center space-x-6">
