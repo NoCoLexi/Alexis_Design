@@ -1,105 +1,137 @@
-import { useState } from 'react';
-import { Mail, ArrowDown, Calendar } from 'lucide-react';
-import { SiLinkedin } from 'react-icons/si';
-import { NavMusicPlayer } from './nav-music-player';
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { ArrowDown, Award, Sparkles, Mail, Calendar } from "lucide-react";
+import { SiLinkedin } from "react-icons/si";
+import NavMusicPlayer from "./nav-music-player";
 
-export function HeroSection() {
+export default function HeroSection() {
   const [isPlaying, setIsPlaying] = useState(false);
 
+  useEffect(() => {
+    // Listen for music playing state changes
+    const handleMusicStateChange = (event: CustomEvent) => {
+      setIsPlaying(event.detail.isPlaying);
+    };
+
+    window.addEventListener('musicStateChange', handleMusicStateChange as EventListener);
+    
+    return () => {
+      window.removeEventListener('musicStateChange', handleMusicStateChange as EventListener);
+    };
+  }, []);
+
   const scrollToWork = () => {
-    const workSection = document.getElementById('work-section');
-    if (workSection) {
-      workSection.scrollIntoView({ behavior: 'smooth' });
+    console.log('Down arrow clicked - attempting to scroll to work section');
+    const element = document.getElementById('work');
+    console.log('Found work element:', element);
+    if (element) {
+      console.log('Scrolling to work section...');
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      console.log('Work element not found!');
+    }
+  };
+
+  const scrollToContact = () => {
+    const element = document.getElementById('contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const scrollToAbout = () => {
+    const element = document.getElementById('about');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-primary/5 to-chart-1/10">
-      {/* Animated disco background */}
-      <div className={`absolute inset-0 transition-all duration-1000 ${isPlaying ? 'opacity-100' : 'opacity-0'}`}>
-        <div className="disco-bg"></div>
-      </div>
-      
-      {/* Static background gradient */}
+    <section id="home" className="min-h-screen flex items-center relative overflow-hidden">
+      <div className="absolute inset-0 gradient-bg-secondary opacity-30"></div>
       <div className="absolute inset-0 opacity-20">
         <div className="w-full h-full bg-gradient-to-br from-primary/20 via-transparent to-chart-1/20"></div>
       </div>
       
-      {/* Main content - centered and following your exact sketch layout */}
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        
-        {/* Hire Alexis - Large gradient title */}
-        <h1 className="text-6xl md:text-7xl lg:text-8xl font-black leading-none mb-8">
-          <span className={`gradient-text disco-text ${isPlaying ? 'dancing' : ''}`}>
-            Hire Alexis
-          </span>
-        </h1>
-        
-        {/* Play button - positioned close under title */}
-        <div className={`mb-16 disco-button ${isPlaying ? 'playing' : ''}`}>
-          <NavMusicPlayer 
-            onPlayingChange={setIsPlaying}
-            renderAs="button"
-            buttonText="▶ Play my Hire Me song"
-          />
-        </div>
-        
-        {/* Tagline with proper line breaks */}
-        <div className="text-white text-xl md:text-2xl lg:text-3xl leading-relaxed mb-16">
-          <div className="mb-2">Hey hiring team, say hello to your next</div>
-          <div className="font-bold text-2xl md:text-3xl lg:text-4xl">Product Designer</div>
-        </div>
-        
-        {/* Contact icons - three circular buttons */}
-        <div className="flex justify-center items-center space-x-6 mb-20">
-          <a 
-            href="mailto:alexisb.product@gmail.com" 
-            className="w-14 h-14 bg-primary rounded-full flex items-center justify-center hover:opacity-80 transition-all duration-300 hover:scale-110"
-            data-testid="contact-email-icon"
-          >
-            <Mail className="w-6 h-6 text-white" />
-          </a>
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 text-center">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
+            <span className={`gradient-text disco-text ${isPlaying ? 'dancing' : ''}`}>
+              Product Designer
+            </span>
+            <br />
+            <span className={`text-foreground disco-text ${isPlaying ? 'dancing' : ''}`}>& UX Strategist</span>
+          </h1>
           
-          <a 
-            href="https://linkedin.com/in/alexisbrochu" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="w-14 h-14 bg-[#0077B5] rounded-full flex items-center justify-center hover:opacity-80 transition-all duration-300 hover:scale-110"
-            data-testid="contact-linkedin-icon"
-          >
-            <SiLinkedin className="w-6 h-6 text-white" />
-          </a>
+          <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed max-w-3xl">
+            I solve impossible problems.<br />
+            (The AI just makes it look easy.)<br />
+            <span className="font-bold">Ready to see what I can help your team build?</span>
+          </p>
+
+
           
-          <a 
-            href="https://calendly.com/alexis-brochu/15min" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="w-14 h-14 bg-chart-2 rounded-full flex items-center justify-center hover:opacity-80 transition-all duration-300 hover:scale-110"
-            data-testid="contact-calendar-icon"
-          >
-            <Calendar className="w-6 h-6 text-white" />
-          </a>
+          {/* Hire Me Song Button */}
+          <div className={`mb-8 flex justify-center disco-button ${isPlaying ? 'playing' : ''}`}>
+            <NavMusicPlayer 
+              onPlayingChange={setIsPlaying}
+              renderAs="button"
+              buttonText="Play my Hire Me song"
+            />
+          </div>
+          
+          {/* Contact Icons */}
+          <div className="mb-12 flex justify-center space-x-6">
+            <a 
+              href="mailto:alexisb.product@gmail.com" 
+              className="w-12 h-12 bg-primary rounded-full flex items-center justify-center hover:opacity-80 transition-all duration-300 hover:scale-110"
+              data-testid="contact-email-icon"
+            >
+              <Mail className="w-6 h-6 text-white" />
+            </a>
+            
+            <a 
+              href="https://linkedin.com/in/alexisbrochu" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="w-12 h-12 bg-[#0077B5] rounded-full flex items-center justify-center hover:opacity-80 transition-all duration-300 hover:scale-110"
+              data-testid="contact-linkedin-icon"
+            >
+              <SiLinkedin className="w-6 h-6 text-white" />
+            </a>
+            
+            <a 
+              href="https://calendly.com/alexis-brochu/15min" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="w-12 h-12 bg-chart-2 rounded-full flex items-center justify-center hover:opacity-80 transition-all duration-300 hover:scale-110"
+              data-testid="contact-calendar-icon"
+            >
+              <Calendar className="w-6 h-6 text-white" />
+            </a>
+          </div>
+          
+          {/* Key Metrics */}
+          <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
+            <div className="text-center">
+              <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>545.5%</div>
+              <div className="text-xs text-white/70">User Growth</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>$244M</div>
+              <div className="text-xs text-white/70">Projects Closed</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>75%</div>
+              <div className="text-xs text-white/70">Tickets Reduced</div>
+            </div>
+          </div>
         </div>
         
-        {/* Key metrics - three columns at bottom */}
-        <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2">545.5%</div>
-            <div className="text-sm text-white/70">User Growth</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2">$244M</div>
-            <div className="text-sm text-white/70">Projects Closed</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2">75%</div>
-            <div className="text-sm text-white/70">Tickets Reduced</div>
-          </div>
-        </div>
-        
+
       </div>
 
-      {/* Scroll indicator at bottom */}
+      {/* Scroll indicator */}
       <div 
         className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer hover:text-primary transition-colors z-20 flex items-center justify-center"
         onClick={scrollToWork}
