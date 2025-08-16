@@ -74,10 +74,10 @@ export default function HeroSection() {
           </div>
           
           {/* Tagline */}
-          <p className="text-white text-2xl md:text-3xl mb-12 font-normal leading-relaxed">
-            Hey hiring team, say hello to your next<br />
-            <span className="font-bold">Product Designer</span>
-          </p>
+          <div className="text-white text-2xl md:text-3xl mb-12 font-normal leading-tight">
+            <div>Hey hiring team, say hello to your next</div>
+            <div className="font-bold">Product Designer</div>
+          </div>
           
           {/* Contact Icons */}
           <div className="mb-12 flex justify-center space-x-6">
