@@ -74,8 +74,8 @@ export default function HeroSection() {
           </div>
           
           {/* Tagline */}
-          <p className="text-white text-2xl md:text-3xl mb-12 font-normal">
-            Hey hiring team, say hello to your next <br />
+          <p className="text-white text-2xl md:text-3xl mb-12 font-normal leading-relaxed">
+            Hey hiring team, say hello to your next<br />
             <span className="font-bold">Product Designer</span>
           </p>
           
