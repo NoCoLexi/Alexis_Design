@@ -57,10 +57,8 @@ export default function HeroSection() {
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
             <span className={`gradient-text disco-text ${isPlaying ? 'dancing' : ''}`}>
-              Product Designer
+              Hire Alexis
             </span>
-            <br />
-            <span className={`text-foreground disco-text ${isPlaying ? 'dancing' : ''}`}>& UX Strategist</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed max-w-3xl">
