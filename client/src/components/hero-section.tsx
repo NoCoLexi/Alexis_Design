@@ -55,6 +55,11 @@ export default function HeroSection() {
       
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 text-center">
         <div className="max-w-4xl mx-auto">
+          {/* Hey hiring team text */}
+          <p className="text-white text-xl md:text-2xl mb-6 font-light">
+            Hey hiring team,
+          </p>
+          
           {/* Hire Alexis Main Heading */}
           <h1 className="text-6xl md:text-8xl font-black mb-8 leading-tight">
             <span className={`gradient-text disco-text ${isPlaying ? 'dancing' : ''}`}>
@@ -70,6 +75,12 @@ export default function HeroSection() {
               buttonText="Play my Hire Me song"
             />
           </div>
+          
+          {/* Tagline */}
+          <p className="text-white text-2xl md:text-3xl mb-12 font-normal">
+            say hello to your next <br />
+            <span className="font-bold">Product Designer</span>
+          </p>
           
           {/* Contact Icons */}
           <div className="mb-12 flex justify-center space-x-6">
