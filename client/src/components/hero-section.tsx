@@ -58,14 +58,14 @@ export default function HeroSection() {
 
           
           {/* Hire Alexis Main Heading */}
-          <h1 className="text-6xl md:text-8xl font-black mb-8 leading-tight">
+          <h1 className="text-6xl md:text-8xl font-black mb-6 leading-none">
             <span className={`gradient-text disco-text ${isPlaying ? 'dancing' : ''}`}>
               Hire Alexis
             </span>
           </h1>
           
           {/* Hire Me Song Button */}
-          <div className={`mb-12 flex justify-center disco-button ${isPlaying ? 'playing' : ''}`}>
+          <div className={`mb-8 flex justify-center disco-button ${isPlaying ? 'playing' : ''}`}>
             <NavMusicPlayer 
               onPlayingChange={setIsPlaying}
               renderAs="button"
@@ -74,7 +74,7 @@ export default function HeroSection() {
           </div>
           
           {/* Tagline */}
-          <div className="text-white text-2xl md:text-3xl mb-12 font-normal leading-tight">
+          <div className="text-white text-2xl md:text-3xl mb-8 font-normal leading-snug">
             <div>Hey hiring team, say hello to your next</div>
             <div className="font-bold">Product Designer</div>
           </div>
