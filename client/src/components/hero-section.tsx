@@ -55,24 +55,15 @@ export default function HeroSection() {
       
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 text-center">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
+          {/* Hire Alexis Main Heading */}
+          <h1 className="text-6xl md:text-8xl font-black mb-8 leading-tight">
             <span className={`gradient-text disco-text ${isPlaying ? 'dancing' : ''}`}>
-              Product Designer
+              Hire Alexis
             </span>
-            <br />
-            <span className={`text-foreground disco-text ${isPlaying ? 'dancing' : ''}`}>& UX Strategist</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed max-w-3xl">
-            I solve impossible problems.<br />
-            (The AI just makes it look easy.)<br />
-            <span className="font-bold">Ready to see what I can help your team build?</span>
-          </p>
-
-
-          
           {/* Hire Me Song Button */}
-          <div className={`mb-8 flex justify-center disco-button ${isPlaying ? 'playing' : ''}`}>
+          <div className={`mb-12 flex justify-center disco-button ${isPlaying ? 'playing' : ''}`}>
             <NavMusicPlayer 
               onPlayingChange={setIsPlaying}
               renderAs="button"
