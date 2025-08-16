@@ -3,6 +3,7 @@ class AudioManager {
   private audioContext: AudioContext | null = null;
   private isEnabled = false;
   private isInitialized = false;
+  private masterVolume = 0.01; // Very low master volume
 
   constructor() {
     // Don't initialize here, wait for user interaction
@@ -58,7 +59,7 @@ class AudioManager {
 
       // Sharp click envelope - very quick attack and decay
       gainNode.gain.setValueAtTime(0, this.audioContext.currentTime);
-      gainNode.gain.linearRampToValueAtTime(0.02, this.audioContext.currentTime + 0.005); // Quick sharp attack
+      gainNode.gain.linearRampToValueAtTime(this.masterVolume, this.audioContext.currentTime + 0.005); // Quick sharp attack
       gainNode.gain.exponentialRampToValueAtTime(0.01, this.audioContext.currentTime + 0.03); // Quick decay
 
       // Play for very short duration for crisp click
