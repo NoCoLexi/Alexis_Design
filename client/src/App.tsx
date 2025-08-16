@@ -22,7 +22,7 @@ function App() {
       <TooltipProvider>
         <Toaster />
         <Router />
-        <CareerChatbot />
+        {/* <CareerChatbot /> */}
       </TooltipProvider>
     </QueryClientProvider>
   );
