@@ -1,7 +1,6 @@
 import HeroSection from "@/components/hero-section";
 import FeaturedWork from "@/components/featured-work";
 import AboutSection from "@/components/about-section";
-import CreativeGallery from "@/components/creative-gallery";
 import ContactSection from "@/components/contact-section";
 import logoImage from "@assets/image_1754581825249.png";
 import CaseStudyModal from "@/components/case-study-modal";
@@ -19,7 +18,7 @@ export default function Home() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'work', 'about', 'gallery', 'contact'];
+      const sections = ['home', 'work', 'about', 'contact'];
       const currentSection = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -60,7 +59,6 @@ export default function Home() {
                 { id: 'home', label: 'Home' },
                 { id: 'work', label: 'Work' },
                 { id: 'about', label: 'About Alexis' },
-                { id: 'gallery', label: 'Other' },
                 { id: 'contact', label: 'Contact' }
               ].map(item => (
                 <button
@@ -105,7 +103,6 @@ export default function Home() {
                 { id: 'home', label: 'Home' },
                 { id: 'work', label: 'Work' },
                 { id: 'about', label: 'About Alexis' },
-                { id: 'gallery', label: 'Other' },
                 { id: 'contact', label: 'Contact' }
               ].map(item => (
                 <button
@@ -141,7 +138,6 @@ export default function Home() {
       <HeroSection />
       <FeaturedWork />
       <AboutSection />
-      <CreativeGallery />
       <ContactSection />
       <CaseStudyModal />
       <CareerChatbot />
