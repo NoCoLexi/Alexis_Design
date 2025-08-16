@@ -54,18 +54,17 @@ export default function HeroSection() {
       </div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 text-center">
-        <div className="max-w-4xl mx-auto">
-
+        <div className="max-w-5xl mx-auto space-y-12">
           
           {/* Hire Alexis Main Heading */}
-          <h1 className="text-6xl md:text-8xl font-black mb-6 leading-none">
+          <h1 className="text-7xl md:text-9xl font-black leading-none">
             <span className={`gradient-text disco-text ${isPlaying ? 'dancing' : ''}`}>
               Hire Alexis
             </span>
           </h1>
           
           {/* Hire Me Song Button */}
-          <div className={`mb-8 flex justify-center disco-button ${isPlaying ? 'playing' : ''}`}>
+          <div className={`flex justify-center disco-button ${isPlaying ? 'playing' : ''}`}>
             <NavMusicPlayer 
               onPlayingChange={setIsPlaying}
               renderAs="button"
@@ -74,13 +73,13 @@ export default function HeroSection() {
           </div>
           
           {/* Tagline */}
-          <div className="text-white text-2xl md:text-3xl mb-8 font-normal leading-snug">
+          <div className="text-white text-3xl md:text-4xl font-normal leading-tight space-y-2">
             <div>Hey hiring team, say hello to your next</div>
-            <div className="font-black text-3xl md:text-4xl">Product Designer</div>
+            <div className="font-black">Product Designer</div>
           </div>
           
           {/* Contact Icons */}
-          <div className="mb-12 flex justify-center space-x-6">
+          <div className="flex justify-center space-x-6">
             <a 
               href="mailto:alexisb.product@gmail.com" 
               className="w-12 h-12 bg-primary rounded-full flex items-center justify-center hover:opacity-80 transition-all duration-300 hover:scale-110"
