@@ -9,41 +9,13 @@ import CareerChatbot from "@/components/CareerChatbot";
 import NavMusicPlayer from "@/components/nav-music-player";
 import { useState, useEffect } from "react";
 import { Menu, X, Award } from "lucide-react";
-import { audioManager } from "@/utils/audioUtils";
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
 
-  useEffect(() => {
-    // Initialize audio on first user interaction
-    const enableAudio = async () => {
-      try {
-        await audioManager.enable();
-        console.log('Audio enabled on user interaction');
-        // Remove listeners after first interaction
-        document.removeEventListener('click', enableAudio);
-        document.removeEventListener('keydown', enableAudio);
-        document.removeEventListener('touchstart', enableAudio);
-        document.removeEventListener('mousedown', enableAudio);
-      } catch (error) {
-        console.warn('Failed to enable audio:', error);
-      }
-    };
 
-    document.addEventListener('click', enableAudio);
-    document.addEventListener('keydown', enableAudio);
-    document.addEventListener('touchstart', enableAudio);
-    document.addEventListener('mousedown', enableAudio);
-
-    return () => {
-      document.removeEventListener('click', enableAudio);
-      document.removeEventListener('keydown', enableAudio);
-      document.removeEventListener('touchstart', enableAudio);
-      document.removeEventListener('mousedown', enableAudio);
-    };
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -94,10 +66,7 @@ export default function Home() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  onMouseEnter={() => {
-                    console.log('Nav button hover detected');
-                    audioManager.playClickSound();
-                  }}
+
                   className={`transition-colors ${
                     activeSection === item.id ? 'text-[#63538F]' : 'text-[#F3E8B9] hover:text-[#63538F]'
                   }`}
@@ -123,10 +92,7 @@ export default function Home() {
             <button
               className="md:hidden text-foreground"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              onMouseEnter={() => {
-                console.log('Mobile menu toggle hover detected');
-                audioManager.playClickSound();
-              }}
+
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -145,10 +111,7 @@ export default function Home() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  onMouseEnter={() => {
-                    console.log('Mobile nav button hover detected');
-                    audioManager.playClickSound();
-                  }}
+
                   className="block w-full text-left py-2 text-[#F3E8B9] hover:text-[#63538F] transition-colors"
                 >
                   {item.label}
