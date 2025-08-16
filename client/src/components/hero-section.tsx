@@ -76,7 +76,7 @@ export default function HeroSection() {
           {/* Tagline */}
           <div className="text-white text-2xl md:text-3xl mb-8 font-normal leading-snug">
             <div>Hey hiring team, say hello to your next</div>
-            <div className="font-bold">Product Designer</div>
+            <div className="font-bold text-3xl md:text-4xl">Product Designer</div>
           </div>
           
           {/* Contact Icons */}
