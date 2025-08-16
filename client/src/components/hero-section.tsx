@@ -53,33 +53,33 @@ export default function HeroSection() {
         <div className="w-full h-full bg-gradient-to-br from-primary/20 via-transparent to-chart-1/20"></div>
       </div>
       
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 text-center">
-        <div className="max-w-5xl mx-auto space-y-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 text-center">
+        <div className="max-w-4xl mx-auto">
           
-          {/* Hire Alexis Main Heading */}
-          <h1 className="text-7xl md:text-9xl font-black leading-none">
+          {/* Hire Alexis Main Heading - Much larger and more prominent */}
+          <h1 className="text-8xl md:text-[10rem] font-black leading-none mb-12">
             <span className={`gradient-text disco-text ${isPlaying ? 'dancing' : ''}`}>
               Hire Alexis
             </span>
           </h1>
           
-          {/* Hire Me Song Button */}
-          <div className={`flex justify-center disco-button ${isPlaying ? 'playing' : ''}`}>
+          {/* Hire Me Song Button - Positioned closer to title */}
+          <div className={`mb-16 flex justify-center disco-button ${isPlaying ? 'playing' : ''}`}>
             <NavMusicPlayer 
               onPlayingChange={setIsPlaying}
               renderAs="button"
-              buttonText="Play my Hire Me song"
+              buttonText="▶ Play my Hire Me song"
             />
           </div>
           
-          {/* Tagline */}
-          <div className="text-white text-3xl md:text-4xl font-normal leading-tight space-y-2">
-            <div>Hey hiring team, say hello to your next</div>
-            <div className="font-black">Product Designer</div>
+          {/* Tagline - Better spacing and sizing */}
+          <div className="text-white text-2xl md:text-3xl font-normal leading-relaxed mb-12">
+            <div className="mb-2">Hey hiring team, say hello to your next</div>
+            <div className="font-black text-3xl md:text-4xl">Product Designer</div>
           </div>
           
           {/* Contact Icons */}
-          <div className="flex justify-center space-x-6">
+          <div className="flex justify-center space-x-6 mb-16">
             <a 
               href="mailto:alexisb.product@gmail.com" 
               className="w-12 h-12 bg-primary rounded-full flex items-center justify-center hover:opacity-80 transition-all duration-300 hover:scale-110"
@@ -110,18 +110,18 @@ export default function HeroSection() {
           </div>
           
           {/* Key Metrics */}
-          <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
+          <div className="grid grid-cols-3 gap-8 max-w-3xl mx-auto">
             <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>545.5%</div>
-              <div className="text-xs text-white/70">User Growth</div>
+              <div className="text-4xl md:text-5xl font-bold text-white mb-2">545.5%</div>
+              <div className="text-sm text-white/70">User Growth</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>$244M</div>
-              <div className="text-xs text-white/70">Projects Closed</div>
+              <div className="text-4xl md:text-5xl font-bold text-white mb-2">$244M</div>
+              <div className="text-sm text-white/70">Projects Closed</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>75%</div>
-              <div className="text-xs text-white/70">Tickets Reduced</div>
+              <div className="text-4xl md:text-5xl font-bold text-white mb-2">75%</div>
+              <div className="text-sm text-white/70">Tickets Reduced</div>
             </div>
           </div>
         </div>
