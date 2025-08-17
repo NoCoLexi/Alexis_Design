@@ -6,6 +6,41 @@ import NavMusicPlayer from "./nav-music-player";
 
 export default function HeroSection() {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+  const [isExiting, setIsExiting] = useState(false);
+
+  const roles = [
+    "AI Product Designer",
+    "AI Product Manager",
+    "Design Product Manager", 
+    "Product Strategy Designer",
+    "Customer Experience Manager",
+    "User Experience Manager",
+    "Digital Experience Manager",
+    "Product Experience Manager",
+    "Customer Success Product",
+    "UX Strategist",
+    "UX Architect",
+    "Product Designer",
+    "Product Designer/Manager",
+    "UX Designer",
+    "User Experience Designer",
+    "Human Factors Engineer",
+    "UX Researcher",
+    "Experience Designer",
+    "Visual Designer",
+    "User Interface Designer",
+    "Product Design Researcher",
+    "Design Lead",
+    "Human-Centered Designer",
+    "User Experience Architect",
+    "Design Strategist",
+    "Product Experience Designer",
+    "Product Manager",
+    "Product Strategist",
+    "UX Product Strategist",
+    "AI Product Strategist"
+  ];
 
   useEffect(() => {
     // Listen for music playing state changes
@@ -19,6 +54,19 @@ export default function HeroSection() {
       window.removeEventListener('musicStateChange', handleMusicStateChange as EventListener);
     };
   }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsExiting(true);
+      
+      setTimeout(() => {
+        setCurrentRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
+        setIsExiting(false);
+      }, 250);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, [roles.length]);
 
   const scrollToWork = () => {
     console.log('Down arrow clicked - attempting to scroll to work section');
@@ -77,10 +125,10 @@ export default function HeroSection() {
             Hey Hiring team, say hello to your next
           </p>
           <p 
-            className="text-2xl md:text-3xl font-inter-black text-foreground mb-8"
+            className={`text-2xl md:text-3xl font-inter-black text-foreground mb-8 cycling-role ${isExiting ? 'exit' : ''}`}
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 900 }}
           >
-            Product Designer/Manager
+            {roles[currentRoleIndex]}
           </p>
           
           {/* Contact Icons */}
