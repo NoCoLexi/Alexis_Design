@@ -624,3 +624,28 @@ body {
 html {
   scroll-padding-top: 80px;
 }
+
+/* Education scrolling animation */
+.education-scroll {
+  animation: education-scroll 25s linear infinite;
+}
+
+.education-scroll:hover {
+  animation-play-state: paused;
+}
+
+.education-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@keyframes education-scroll {
+  0% { 
+    transform: translateY(0); 
+  }
+  100% { 
+    transform: translateY(-50%); 
+  }
+}
