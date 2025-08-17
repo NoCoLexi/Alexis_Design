@@ -144,6 +144,11 @@
     box-shadow: 0 0 20px rgba(1, 59, 114, 0.3);
   }
 
+  .font-inter-black {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+  }
+
   .scroll-smooth {
     scroll-behavior: smooth;
   }
