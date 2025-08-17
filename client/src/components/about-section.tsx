@@ -46,53 +46,50 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
             </p>
           </div>
 
-          {/* Two Column Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch">
-            {/* Left: Expertise Cards */}
-            <div className="space-y-6">
-              <div className="glass rounded-xl p-6">
-                <h3 className="font-semibold text-primary mb-3">Human Centered Design</h3>
-                <p className="text-muted-foreground text-sm">
-                  Leveraging AI tools and human-centered design methodologies to create <br />
-                  intuitive, data-driven experiences that solve real user problems.
-                </p>
-              </div>
-              <div className="glass rounded-xl p-6">
-                <h3 className="font-semibold text-primary mb-3">UX Research & Testing</h3>
-                <p className="text-muted-foreground text-sm">
-                  Comprehensive user research, data analysis, and behavioral insights to inform <br />
-                  product decisions through rigorous testing methodologies.
-                </p>
-              </div>
-              <div className="glass rounded-xl p-6">
-                <h3 className="font-semibold text-primary mb-3">AI Product Management</h3>
-                <p className="text-muted-foreground text-sm">
-                  Strategic product vision leveraging AI tools and machine learning insights for <br />
-                  cross-functional team leadership to deliver intelligent user-centered solutions.
-                </p>
-              </div>
-              <div className="glass rounded-xl p-6">
-                <h3 className="font-semibold text-primary mb-3">Change Management</h3>
-                <p className="text-muted-foreground text-sm">
-                  PROSCI certified organizational transformation, stakeholder alignment, and <br />
-                  adoption strategies for successful product launches.
-                </p>
-              </div>
+          {/* Four Skills Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            <div className="glass rounded-xl p-6">
+              <h3 className="font-semibold text-primary mb-3">Human Centered Design</h3>
+              <p className="text-muted-foreground text-sm">
+                Leveraging AI tools and human-centered design methodologies to create
+                intuitive, data-driven experiences that solve real user problems.
+              </p>
             </div>
+            <div className="glass rounded-xl p-6">
+              <h3 className="font-semibold text-primary mb-3">UX Research & Testing</h3>
+              <p className="text-muted-foreground text-sm">
+                Comprehensive user research, data analysis, and behavioral insights to inform
+                product decisions through rigorous testing methodologies.
+              </p>
+            </div>
+            <div className="glass rounded-xl p-6">
+              <h3 className="font-semibold text-primary mb-3">AI Product Management</h3>
+              <p className="text-muted-foreground text-sm">
+                Strategic product vision leveraging AI tools and machine learning insights for
+                cross-functional team leadership to deliver intelligent user-centered solutions.
+              </p>
+            </div>
+            <div className="glass rounded-xl p-6">
+              <h3 className="font-semibold text-primary mb-3">Change Management</h3>
+              <p className="text-muted-foreground text-sm">
+                PROSCI certified organizational transformation, stakeholder alignment, and
+                adoption strategies for successful product launches.
+              </p>
+            </div>
+          </div>
 
-            {/* Right: Profile Images and Award - Flex aligned */}
-            <div className="flex flex-col justify-between h-full">
-              {/* Personal Trainer Section Header */}
-              <div className="mb-4">
-                <h3 className="font-semibold text-primary text-center">Fun fact: I'm also a certified personal trainer</h3>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          {/* Personal Trainer Section */}
+          <div className="text-center">
+            <h3 className="font-semibold text-primary mb-8 text-xl">Fun fact: I'm also a certified personal trainer</h3>
+            
+            <div className="flex justify-center">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-md">
                 <div className="aspect-square rounded-2xl overflow-hidden animate-float glass">
                   <img 
                     src={professionalPhoto}
                     alt="Alexis Brochu Professional Photo"
                     className="w-full h-full object-cover"
+                    data-testid="img-professional-photo"
                   />
                 </div>
                 <div className="aspect-square rounded-2xl overflow-hidden animate-float" style={{ animationDelay: '1s' }}>
@@ -103,11 +100,10 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                     muted
                     playsInline
                     className="w-full h-full object-cover"
+                    data-testid="video-profile"
                   />
                 </div>
               </div>
-              
-
             </div>
           </div>
         </div>
