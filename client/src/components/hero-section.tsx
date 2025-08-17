@@ -73,7 +73,7 @@ export default function HeroSection() {
           <p className="text-2xl md:text-3xl text-muted-foreground mb-2 leading-relaxed max-w-3xl">
             Hey Hiring team, say hello to your next
           </p>
-          <p className="text-2xl md:text-3xl font-bold text-foreground mb-8">
+          <p className="text-2xl md:text-3xl font-black text-foreground mb-8">
             Product Designer/Manager
           </p>
           
