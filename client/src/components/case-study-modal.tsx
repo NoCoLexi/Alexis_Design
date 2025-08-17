@@ -175,7 +175,17 @@ const caseStudies: Record<string, CaseStudy> = {
       'Clear language dramatically improves user comprehension and adoption'
     ],
     image: engageConnectImage,
-    video: projectPulseVideo
+    slideshow: [
+      ocmMarsImage,
+      ocmMissionEdgeImage,
+      ocmPaCloseoutImage,
+      ocmRrmImage,
+      ocmWarningImage,
+      ocmDonationsImage,
+      ocmEngageImage,
+      ocmGrantsImage,
+      ocmHrModImage
+    ]
   },
   eag: {
     id: 'eag',
