@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Award, ExternalLink } from "lucide-react";
 import { trackEvent, trackSynthesizerEvent } from "@/lib/analytics";
+import { useAdminPanel } from "@/hooks/use-admin-panel";
 import calOesImage from "@assets/Cal OES Engage Landing Page Phase I_v2_1754580174186.png";
 import paPortalImage from "@assets/Grants Management Reporting 1-1_1754840000206.png";
 import dashboardImage from "@assets/image_1754580387947.png";
@@ -507,7 +508,15 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
 });
 
 export default function FeaturedWork() {
-  const [activeFilter, setActiveFilter] = useState<string>('product-design');
+  const { getCaseStudyFocus } = useAdminPanel();
+  const defaultFilter = getCaseStudyFocus() === 'Design' ? 'product-design' : 'product-management';
+  const [activeFilter, setActiveFilter] = useState<string>(defaultFilter);
+
+  // Update filter when admin settings change
+  useEffect(() => {
+    const newFilter = getCaseStudyFocus() === 'Design' ? 'product-design' : 'product-management';
+    setActiveFilter(newFilter);
+  }, [getCaseStudyFocus]);
 
   const filteredProjects = useMemo(() => 
     projects.filter(project => 

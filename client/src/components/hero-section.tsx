@@ -3,11 +3,16 @@ import { Button } from "@/components/ui/button";
 import { ArrowDown, Award, Sparkles, Mail, Calendar } from "lucide-react";
 import { SiLinkedin } from "react-icons/si";
 import NavMusicPlayer from "./nav-music-player";
+import AdminPanel from "./admin-panel";
+import { useAdminPanel } from "@/hooks/use-admin-panel";
 
 export default function HeroSection() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [isExiting, setIsExiting] = useState(false);
+  
+  // Admin panel integration
+  const { isVisible, settings, getGreeting, getCaseStudyFocus, applySettings, closePanel } = useAdminPanel();
 
   const roles = [
     "AI Product Designer",
@@ -122,7 +127,7 @@ export default function HeroSection() {
             className="text-2xl md:text-3xl font-inter-medium text-muted-foreground mb-2 leading-relaxed max-w-3xl"
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
           >
-            Hey Hiring team, say hello to your next
+            {getGreeting()}, say hello to your next
           </p>
           <p 
             className={`text-2xl md:text-3xl font-inter-black text-foreground mb-8 cycling-role ${isExiting ? 'exit' : ''}`}
@@ -192,6 +197,13 @@ export default function HeroSection() {
       >
         <ArrowDown className="w-8 h-8 text-muted-foreground hover:text-primary transition-colors" />
       </div>
+
+      {/* Hidden Admin Panel */}
+      <AdminPanel
+        isVisible={isVisible}
+        onClose={closePanel}
+        onApply={applySettings}
+      />
     </section>
   );
 }
