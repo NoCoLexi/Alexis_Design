@@ -70,7 +70,10 @@ export default function HeroSection() {
             />
           </div>
           
-          <p className="text-2xl md:text-3xl text-muted-foreground mb-2 leading-relaxed max-w-3xl">
+          <p 
+            className="text-2xl md:text-3xl font-inter-medium text-muted-foreground mb-2 leading-relaxed max-w-3xl"
+            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
+          >
             Hey Hiring team, say hello to your next
           </p>
           <p 
