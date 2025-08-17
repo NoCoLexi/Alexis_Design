@@ -308,7 +308,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
               </div>
               
               <p className="text-muted-foreground text-sm mt-4 italic">
-                Continuous learning across multiple domains • Hover to pause scrolling
+                Hover to pause scrolling
               </p>
             </div>
           </div>
