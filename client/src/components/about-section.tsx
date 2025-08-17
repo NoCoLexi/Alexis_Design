@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Award } from "lucide-react";
+import { Award, ArrowDown } from "lucide-react";
 import professionalPhoto from "@assets/Brochu, Alexis 2023 Ireland_1754523029765.png";
 import profileVideo from "@assets/20181006_190845_1754603621565.mp4";
 import { useState } from "react";
@@ -18,6 +18,16 @@ interface AboutSectionProps {
 
 export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
   const [activeTab, setActiveTab] = useState<'education' | 'publications' | 'community'>('education');
+  
+  const scrollToPortfolio = () => {
+    const portfolioElement = document.getElementById('portfolio');
+    if (portfolioElement) {
+      portfolioElement.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
   return (
     <section id="about" className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-secondary/50 to-accent/50"></div>
@@ -815,6 +825,18 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
             </div>
           </div>
         </div>
+      </div>
+      
+      {/* Scroll to Portfolio Arrow */}
+      <div 
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer hover:text-primary transition-colors z-20 flex items-center justify-center"
+        onClick={scrollToPortfolio}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => e.key === 'Enter' && scrollToPortfolio()}
+        data-testid="button-scroll-to-portfolio"
+      >
+        <ArrowDown className="w-8 h-8 text-muted-foreground hover:text-primary transition-colors" />
       </div>
     </section>
   );
