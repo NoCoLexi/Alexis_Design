@@ -2,6 +2,7 @@ import { Badge } from "@/components/ui/badge";
 import { Award } from "lucide-react";
 import professionalPhoto from "@assets/Brochu, Alexis 2023 Ireland_1754523029765.png";
 import profileVideo from "@assets/20181006_190845_1754603621565.mp4";
+import { useState } from "react";
 
 const skills = [
   { name: 'Product Management', color: 'text-primary' },
@@ -15,6 +16,7 @@ interface AboutSectionProps {
 }
 
 export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
+  const [activeTab, setActiveTab] = useState<'education' | 'publications' | 'community'>('education');
   return (
     <section id="about" className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-secondary/50 to-accent/50"></div>
@@ -106,210 +108,266 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
               </div>
             </div>
 
-            {/* Education Section */}
+            {/* Credentials Section with Tabs */}
             <div className="max-w-4xl mx-auto">
-              <h3 className="font-semibold text-primary mb-8 text-xl">Some of my education and certs include</h3>
-              
-              {/* Scrolling Education List */}
-              <div className="glass rounded-xl p-6 relative overflow-hidden">
-                <div className="h-64 relative">
-                  <div className="absolute w-full education-scroll">
-                    {/* First set */}
-                    <div className="education-item">
-                      <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                      <div>
-                        <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Core Education</div>
-                        <div className="text-foreground font-medium">Washington University in St. Louis - BFA Visual Communications</div>
+              {/* Tab Navigation */}
+              <div className="flex justify-center mb-8">
+                <div className="glass rounded-full p-2 inline-flex gap-2">
+                  <button
+                    onClick={() => setActiveTab('education')}
+                    className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                      activeTab === 'education'
+                        ? 'bg-primary text-primary-foreground shadow-lg'
+                        : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                    }`}
+                    data-testid="tab-education-certs"
+                  >
+                    Education/Certs
+                  </button>
+                  <button
+                    onClick={() => setActiveTab('publications')}
+                    className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                      activeTab === 'publications'
+                        ? 'bg-primary text-primary-foreground shadow-lg'
+                        : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                    }`}
+                    data-testid="tab-publications-awards"
+                  >
+                    Publications/Awards
+                  </button>
+                  <button
+                    onClick={() => setActiveTab('community')}
+                    className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                      activeTab === 'community'
+                        ? 'bg-primary text-primary-foreground shadow-lg'
+                        : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                    }`}
+                    data-testid="tab-community-leadership"
+                  >
+                    Community/Leadership
+                  </button>
+                </div>
+              </div>
+
+              {/* Tab Content */}
+              {activeTab === 'education' && (
+                <div>
+                  {/* Scrolling Education List */}
+                  <div className="glass rounded-xl p-6 relative overflow-hidden">
+                    <div className="h-64 relative">
+                      <div className="absolute w-full education-scroll">
+                        {/* First set */}
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                          <div>
+                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Core Education</div>
+                            <div className="text-foreground font-medium">Washington University in St. Louis - BFA Visual Communications</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                          <div>
+                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Core Education</div>
+                            <div className="text-foreground font-medium">University of New Hampshire - UI/UX Design Certification</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div>
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
+                            <div className="text-foreground font-medium">PROSCI - Change Management Practitioner (CMP)</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div>
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
+                            <div className="text-foreground font-medium">University of New Hampshire - Project Manager-Scrum Master (PM-SM)</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div>
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
+                            <div className="text-foreground font-medium">Project Management Institute - PMP (in progress)</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div>
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
+                            <div className="text-foreground font-medium">Pendo - Product-Led Design | AI for Product Management</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div>
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
+                            <div className="text-foreground font-medium">Superhuman - AI Workplace Proficiency</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div>
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
+                            <div className="text-foreground font-medium">Salesforce - Administration | AI Specialist | AgentForce (in progress)</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div>
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Specialized Training</div>
+                            <div className="text-foreground font-medium">Rhode Island School of Design - Visual Art Intensive</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div>
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Specialized Training</div>
+                            <div className="text-foreground font-medium">Parsons School of Design, France - Paleolithic Art Intensive</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div>
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Specialized Training</div>
+                            <div className="text-foreground font-medium">UC Berkeley - Art History Intensive</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div>
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Specialized Training</div>
+                            <div className="text-foreground font-medium">Interlochen Center for the Arts - Violoncello Major, Dance Minor</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div>
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Specialized Training</div>
+                            <div className="text-foreground font-medium">NASM - Certified Personal Trainer, Fitness Instructor, Nutrition Coach</div>
+                          </div>
+                        </div>
+                        
+                        {/* Duplicate set for seamless loop */}
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                          <div>
+                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Core Education</div>
+                            <div className="text-foreground font-medium">Washington University in St. Louis - BFA Visual Communications</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                          <div>
+                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Core Education</div>
+                            <div className="text-foreground font-medium">University of New Hampshire - UI/UX Design Certification</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div>
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
+                            <div className="text-foreground font-medium">PROSCI - Change Management Practitioner (CMP)</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div>
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
+                            <div className="text-foreground font-medium">University of New Hampshire - Project Manager-Scrum Master (PM-SM)</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div>
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
+                            <div className="text-foreground font-medium">Project Management Institute - PMP (in progress)</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div>
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
+                            <div className="text-foreground font-medium">Pendo - Product-Led Design | AI for Product Management</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div>
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
+                            <div className="text-foreground font-medium">Superhuman - AI Workplace Proficiency</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div>
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
+                            <div className="text-foreground font-medium">Salesforce - Administration | AI Specialist | AgentForce (in progress)</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div>
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Specialized Training</div>
+                            <div className="text-foreground font-medium">Rhode Island School of Design - Visual Art Intensive</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div>
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Specialized Training</div>
+                            <div className="text-foreground font-medium">Parsons School of Design, France - Paleolithic Art Intensive</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div>
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Specialized Training</div>
+                            <div className="text-foreground font-medium">UC Berkeley - Art History Intensive</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div>
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Specialized Training</div>
+                            <div className="text-foreground font-medium">Interlochen Center for the Arts - Violoncello Major, Dance Minor</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div>
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Specialized Training</div>
+                            <div className="text-foreground font-medium">NASM - Certified Personal Trainer, Fitness Instructor, Nutrition Coach</div>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                    <div className="education-item">
-                      <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                      <div>
-                        <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Core Education</div>
-                        <div className="text-foreground font-medium">University of New Hampshire - UI/UX Design Certification</div>
-                      </div>
-                    </div>
-                    <div className="education-item">
-                      <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                      <div>
-                        <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
-                        <div className="text-foreground font-medium">PROSCI - Change Management Practitioner (CMP)</div>
-                      </div>
-                    </div>
-                    <div className="education-item">
-                      <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                      <div>
-                        <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
-                        <div className="text-foreground font-medium">University of New Hampshire - Project Manager-Scrum Master (PM-SM)</div>
-                      </div>
-                    </div>
-                    <div className="education-item">
-                      <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                      <div>
-                        <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
-                        <div className="text-foreground font-medium">Project Management Institute - PMP (in progress)</div>
-                      </div>
-                    </div>
-                    <div className="education-item">
-                      <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                      <div>
-                        <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
-                        <div className="text-foreground font-medium">Pendo - Product-Led Design | AI for Product Management</div>
-                      </div>
-                    </div>
-                    <div className="education-item">
-                      <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                      <div>
-                        <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
-                        <div className="text-foreground font-medium">Superhuman - AI Workplace Proficiency</div>
-                      </div>
-                    </div>
-                    <div className="education-item">
-                      <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                      <div>
-                        <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
-                        <div className="text-foreground font-medium">Salesforce - Administration | AI Specialist | AgentForce (in progress)</div>
-                      </div>
-                    </div>
-                    <div className="education-item">
-                      <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                      <div>
-                        <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Specialized Training</div>
-                        <div className="text-foreground font-medium">Rhode Island School of Design - Visual Art Intensive</div>
-                      </div>
-                    </div>
-                    <div className="education-item">
-                      <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                      <div>
-                        <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Specialized Training</div>
-                        <div className="text-foreground font-medium">Parsons School of Design, France - Paleolithic Art Intensive</div>
-                      </div>
-                    </div>
-                    <div className="education-item">
-                      <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                      <div>
-                        <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Specialized Training</div>
-                        <div className="text-foreground font-medium">UC Berkeley - Art History Intensive</div>
-                      </div>
-                    </div>
-                    <div className="education-item">
-                      <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                      <div>
-                        <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Specialized Training</div>
-                        <div className="text-foreground font-medium">Interlochen Center for the Arts - Violoncello Major, Dance Minor</div>
-                      </div>
-                    </div>
-                    <div className="education-item">
-                      <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                      <div>
-                        <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Specialized Training</div>
-                        <div className="text-foreground font-medium">NASM - Certified Personal Trainer, Fitness Instructor, Nutrition Coach</div>
-                      </div>
-                    </div>
-                    
-                    {/* Duplicate set for seamless loop */}
-                    <div className="education-item">
-                      <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                      <div>
-                        <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Core Education</div>
-                        <div className="text-foreground font-medium">Washington University in St. Louis - BFA Visual Communications</div>
-                      </div>
-                    </div>
-                    <div className="education-item">
-                      <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                      <div>
-                        <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Core Education</div>
-                        <div className="text-foreground font-medium">University of New Hampshire - UI/UX Design Certification</div>
-                      </div>
-                    </div>
-                    <div className="education-item">
-                      <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                      <div>
-                        <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
-                        <div className="text-foreground font-medium">PROSCI - Change Management Practitioner (CMP)</div>
-                      </div>
-                    </div>
-                    <div className="education-item">
-                      <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                      <div>
-                        <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
-                        <div className="text-foreground font-medium">University of New Hampshire - Project Manager-Scrum Master (PM-SM)</div>
-                      </div>
-                    </div>
-                    <div className="education-item">
-                      <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                      <div>
-                        <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
-                        <div className="text-foreground font-medium">Project Management Institute - PMP (in progress)</div>
-                      </div>
-                    </div>
-                    <div className="education-item">
-                      <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                      <div>
-                        <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
-                        <div className="text-foreground font-medium">Pendo - Product-Led Design | AI for Product Management</div>
-                      </div>
-                    </div>
-                    <div className="education-item">
-                      <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                      <div>
-                        <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
-                        <div className="text-foreground font-medium">Superhuman - AI Workplace Proficiency</div>
-                      </div>
-                    </div>
-                    <div className="education-item">
-                      <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                      <div>
-                        <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
-                        <div className="text-foreground font-medium">Salesforce - Administration | AI Specialist | AgentForce (in progress)</div>
-                      </div>
-                    </div>
-                    <div className="education-item">
-                      <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                      <div>
-                        <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Specialized Training</div>
-                        <div className="text-foreground font-medium">Rhode Island School of Design - Visual Art Intensive</div>
-                      </div>
-                    </div>
-                    <div className="education-item">
-                      <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                      <div>
-                        <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Specialized Training</div>
-                        <div className="text-foreground font-medium">Parsons School of Design, France - Paleolithic Art Intensive</div>
-                      </div>
-                    </div>
-                    <div className="education-item">
-                      <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                      <div>
-                        <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Specialized Training</div>
-                        <div className="text-foreground font-medium">UC Berkeley - Art History Intensive</div>
-                      </div>
-                    </div>
-                    <div className="education-item">
-                      <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                      <div>
-                        <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Specialized Training</div>
-                        <div className="text-foreground font-medium">Interlochen Center for the Arts - Violoncello Major, Dance Minor</div>
-                      </div>
-                    </div>
-                    <div className="education-item">
-                      <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                      <div>
-                        <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Specialized Training</div>
-                        <div className="text-foreground font-medium">NASM - Certified Personal Trainer, Fitness Instructor, Nutrition Coach</div>
-                      </div>
+                      
+                      {/* Fade gradients */}
+                      <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-background to-transparent pointer-events-none z-10"></div>
+                      <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-background to-transparent pointer-events-none z-10"></div>
                     </div>
                   </div>
                   
-                  {/* Fade gradients */}
-                  <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-background to-transparent pointer-events-none z-10"></div>
-                  <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-background to-transparent pointer-events-none z-10"></div>
+                  <p className="text-muted-foreground text-sm mt-4 italic text-center">
+                    Hover to pause scrolling
+                  </p>
                 </div>
-              </div>
-              
-              <p className="text-muted-foreground text-sm mt-4 italic">
-                Hover to pause scrolling
-              </p>
+              )}
+
+              {activeTab === 'publications' && (
+                <div className="glass rounded-xl p-6 text-center">
+                  <h3 className="text-xl font-semibold text-primary mb-4">Publications & Awards</h3>
+                  <p className="text-muted-foreground">Coming soon - Publications and awards content will be added here.</p>
+                </div>
+              )}
+
+              {activeTab === 'community' && (
+                <div className="glass rounded-xl p-6 text-center">
+                  <h3 className="text-xl font-semibold text-primary mb-4">Community & Leadership</h3>
+                  <p className="text-muted-foreground">Coming soon - Community involvement and leadership content will be added here.</p>
+                </div>
+              )}
             </div>
           </div>
         </div>
