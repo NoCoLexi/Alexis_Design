@@ -114,7 +114,7 @@ export default function HeroSection() {
             <NavMusicPlayer 
               onPlayingChange={setIsPlaying}
               renderAs="button"
-              buttonText="Play my Hire Me song"
+              buttonText='Play my "Hire Me" song'
             />
           </div>
           
