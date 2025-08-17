@@ -70,8 +70,11 @@ export default function HeroSection() {
             />
           </div>
           
-          <p className="text-2xl md:text-3xl text-muted-foreground mb-8 leading-relaxed max-w-3xl">
+          <p className="text-2xl md:text-3xl text-muted-foreground mb-2 leading-relaxed max-w-3xl">
             Hey Hiring team, say hello to your next
+          </p>
+          <p className="text-2xl md:text-3xl font-bold text-foreground mb-8">
+            Product Designer/Manager
           </p>
           
           {/* Contact Icons */}
