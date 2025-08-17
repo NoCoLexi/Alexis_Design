@@ -4,6 +4,7 @@ import AboutSection from "@/components/about-section";
 import ContactSection from "@/components/contact-section";
 import logoImage from "@assets/image_1754581825249.png";
 import CaseStudyModal from "@/components/case-study-modal";
+import AwardModal from "@/components/award-modal";
 import CareerChatbot from "@/components/CareerChatbot";
 import NavMusicPlayer from "@/components/nav-music-player";
 import { useState, useEffect } from "react";
@@ -13,6 +14,7 @@ export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
+  const [isAwardModalOpen, setIsAwardModalOpen] = useState(false);
 
 
 
@@ -75,10 +77,8 @@ export default function Home() {
               <div className="ml-4">
                 <div 
                   className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 hover:glow-purple transition-all duration-300 cursor-pointer"
-                  onClick={() => {
-                    const element = document.getElementById('about');
-                    if (element) element.scrollIntoView({ behavior: 'smooth' });
-                  }}
+                  onClick={() => setIsAwardModalOpen(true)}
+                  data-testid="button-2023-tech-award"
                 >
                   <Award className="w-4 h-4 text-chart-3" />
                   <span className="text-xs font-medium text-foreground hidden lg:inline">
@@ -118,10 +118,10 @@ export default function Home() {
                 <div 
                   className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 hover:glow-purple transition-all duration-300 cursor-pointer w-full justify-center"
                   onClick={() => {
-                    const element = document.getElementById('about');
-                    if (element) element.scrollIntoView({ behavior: 'smooth' });
+                    setIsAwardModalOpen(true);
                     setIsMobileMenuOpen(false);
                   }}
+                  data-testid="button-2023-tech-award-mobile"
                 >
                   <Award className="w-4 h-4 text-chart-3" />
                   <span className="text-sm font-medium text-foreground">
@@ -140,6 +140,10 @@ export default function Home() {
       <AboutSection />
       <ContactSection />
       <CaseStudyModal />
+      <AwardModal 
+        isOpen={isAwardModalOpen} 
+        onClose={() => setIsAwardModalOpen(false)} 
+      />
       {/* <CareerChatbot /> */}
 
       {/* Footer */}
