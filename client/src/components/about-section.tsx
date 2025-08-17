@@ -348,16 +348,468 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
               )}
 
               {activeTab === 'publications' && (
-                <div className="glass rounded-xl p-6 text-center">
-                  <h3 className="text-xl font-semibold text-primary mb-4">Publications & Awards</h3>
-                  <p className="text-muted-foreground">Coming soon - Publications and awards content will be added here.</p>
+                <div>
+                  {/* Scrolling Publications & Awards List */}
+                  <div className="glass rounded-xl p-6 relative overflow-hidden">
+                    <div className="h-64 relative">
+                      <div className="absolute w-full education-scroll">
+                        {/* First set */}
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Major Award</div>
+                            <div className="text-foreground font-medium">California 2023 Technology Innovation Award - "Best Application Serving the Public" | Sacramento, CA</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Publication</div>
+                            <div className="text-foreground font-medium">UX Collective (uxdesign.cc) - "What my surgery taught me about product design"</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Publication</div>
+                            <div className="text-foreground font-medium">UX Collective (uxdesign.cc) - "13 ways my boyfriend Claude is helping me find a job with AI"</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Media Feature</div>
+                            <div className="text-foreground font-medium">Providence Journal feature - WLNE-TV "ABC6 Playhouse" | Emerald Square Mall, MA</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Industry Award</div>
+                            <div className="text-foreground font-medium">Publicity Club of New England - 27th Annual Bell Ringer Awards | RI</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Media Feature</div>
+                            <div className="text-foreground font-medium">Vibe Magazine - "Ski Conditioning with Alexis and Carl" 6-page spread</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Industry Award</div>
+                            <div className="text-foreground font-medium">BDA International Silver Award - "Advertising Campaign" WLNE-TV ABC6 "Hate the Rain" | RI</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Industry Award</div>
+                            <div className="text-foreground font-medium">ProMax Silver Award - "Best Consumer/Trade Promotion" ABC6 Playhouse | MA</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Scholarship</div>
+                            <div className="text-foreground font-medium">Women in Technology Scholar - University of New Hampshire | NH</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Scholarship</div>
+                            <div className="text-foreground font-medium">Kathy Anderson Award - NHEC Foundation "Women furthering Education over 25" | NH</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Recognition</div>
+                            <div className="text-foreground font-medium">WLNE-TV ABC6 Readers Choice Award - "Best RI Design Firm" Alexis Design | RI</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Publication</div>
+                            <div className="text-foreground font-medium">Graphic Design on a Limited Budget - Multiple featured projects | RI</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Recognition</div>
+                            <div className="text-foreground font-medium">Conway Daily Sun Readers Choice Award - "Best Personal Trainer" | NH</div>
+                          </div>
+                        </div>
+                        
+                        {/* Duplicate set for seamless loop */}
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Major Award</div>
+                            <div className="text-foreground font-medium">California 2023 Technology Innovation Award - "Best Application Serving the Public" | Sacramento, CA</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Publication</div>
+                            <div className="text-foreground font-medium">UX Collective (uxdesign.cc) - "What my surgery taught me about product design"</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Publication</div>
+                            <div className="text-foreground font-medium">UX Collective (uxdesign.cc) - "13 ways my boyfriend Claude is helping me find a job with AI"</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Media Feature</div>
+                            <div className="text-foreground font-medium">Providence Journal feature - WLNE-TV "ABC6 Playhouse" | Emerald Square Mall, MA</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Industry Award</div>
+                            <div className="text-foreground font-medium">Publicity Club of New England - 27th Annual Bell Ringer Awards | RI</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Media Feature</div>
+                            <div className="text-foreground font-medium">Vibe Magazine - "Ski Conditioning with Alexis and Carl" 6-page spread</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Industry Award</div>
+                            <div className="text-foreground font-medium">BDA International Silver Award - "Advertising Campaign" WLNE-TV ABC6 "Hate the Rain" | RI</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Industry Award</div>
+                            <div className="text-foreground font-medium">ProMax Silver Award - "Best Consumer/Trade Promotion" ABC6 Playhouse | MA</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Scholarship</div>
+                            <div className="text-foreground font-medium">Women in Technology Scholar - University of New Hampshire | NH</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Scholarship</div>
+                            <div className="text-foreground font-medium">Kathy Anderson Award - NHEC Foundation "Women furthering Education over 25" | NH</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Recognition</div>
+                            <div className="text-foreground font-medium">WLNE-TV ABC6 Readers Choice Award - "Best RI Design Firm" Alexis Design | RI</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Publication</div>
+                            <div className="text-foreground font-medium">Graphic Design on a Limited Budget - Multiple featured projects | RI</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Recognition</div>
+                            <div className="text-foreground font-medium">Conway Daily Sun Readers Choice Award - "Best Personal Trainer" | NH</div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Fade gradients */}
+                      <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-background to-transparent pointer-events-none z-10"></div>
+                      <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-background to-transparent pointer-events-none z-10"></div>
+                    </div>
+                  </div>
+                  
+                  <p className="text-muted-foreground text-sm mt-4 italic text-center">
+                    Hover to pause scrolling
+                  </p>
                 </div>
               )}
 
               {activeTab === 'community' && (
-                <div className="glass rounded-xl p-6 text-center">
-                  <h3 className="text-xl font-semibold text-primary mb-4">Community & Leadership</h3>
-                  <p className="text-muted-foreground">Coming soon - Community involvement and leadership content will be added here.</p>
+                <div>
+                  {/* Scrolling Community & Leadership List */}
+                  <div className="glass rounded-xl p-6 relative overflow-hidden">
+                    <div className="h-64 relative">
+                      <div className="absolute w-full education-scroll">
+                        {/* First set */}
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Professional Group</div>
+                            <div className="text-foreground font-medium">Salesforce User Group – NH division | Salesforce Member</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Content Creation</div>
+                            <div className="text-foreground font-medium">UX Collective (uxdesign.cc) | Contributing Author</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Leadership</div>
+                            <div className="text-foreground font-medium">AI UX/UI at UXSG | Co-host & Founding Contributor</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Beta Testing</div>
+                            <div className="text-foreground font-medium">AI Copilot Enterprise | Sikich Beta Team Contributor</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Leadership</div>
+                            <div className="text-foreground font-medium">Job Search Council (JSC) | Council Moderator</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Education</div>
+                            <div className="text-foreground font-medium">Mt. Washington Valley STEM Expos | Science Fair Judge</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Leadership</div>
+                            <div className="text-foreground font-medium">Mt. Washington Valley Community Band | Section Leader - Percussion</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Community Service</div>
+                            <div className="text-foreground font-medium">Habitat for Humanity – MWV Chapter | Volunteer & Videographer</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Board Leadership</div>
+                            <div className="text-foreground font-medium">Mt. Washington Valley Children's Museum | Vice President Board of Directors</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Community Service</div>
+                            <div className="text-foreground font-medium">Conway Cares Revolving Closet | Volunteer & Donor</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">International</div>
+                            <div className="text-foreground font-medium">Diverbo Pueblo Ingles | Salamanca, SPAIN | English Instructor</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Education</div>
+                            <div className="text-foreground font-medium">SAU9 (ESSC) Eastern Slope Skier Community | Ski Instructor</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Training & Safety</div>
+                            <div className="text-foreground font-medium">American Red Cross (ARC) – RI, NH Chapters | CPR & First Aid Instructor</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Leadership</div>
+                            <div className="text-foreground font-medium">Mt. Washington Valley Div Cal Ripken Baseball | Head Coach</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Arts & Culture</div>
+                            <div className="text-foreground font-medium">Arts in Motion Theater | Actor and Volunteer</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Fitness & Wellness</div>
+                            <div className="text-foreground font-medium">Cranmore Mountain Fitness Center | Personal Trainer & Group Fitness Instructor</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Founding Member</div>
+                            <div className="text-foreground font-medium">Delta Gamma Fraternity – Alpha Epsilon | Founding Sister</div>
+                          </div>
+                        </div>
+                        
+                        {/* Duplicate set for seamless loop */}
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Professional Group</div>
+                            <div className="text-foreground font-medium">Salesforce User Group – NH division | Salesforce Member</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Content Creation</div>
+                            <div className="text-foreground font-medium">UX Collective (uxdesign.cc) | Contributing Author</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Leadership</div>
+                            <div className="text-foreground font-medium">AI UX/UI at UXSG | Co-host & Founding Contributor</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Beta Testing</div>
+                            <div className="text-foreground font-medium">AI Copilot Enterprise | Sikich Beta Team Contributor</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Leadership</div>
+                            <div className="text-foreground font-medium">Job Search Council (JSC) | Council Moderator</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Education</div>
+                            <div className="text-foreground font-medium">Mt. Washington Valley STEM Expos | Science Fair Judge</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Leadership</div>
+                            <div className="text-foreground font-medium">Mt. Washington Valley Community Band | Section Leader - Percussion</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Community Service</div>
+                            <div className="text-foreground font-medium">Habitat for Humanity – MWV Chapter | Volunteer & Videographer</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Board Leadership</div>
+                            <div className="text-foreground font-medium">Mt. Washington Valley Children's Museum | Vice President Board of Directors</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Community Service</div>
+                            <div className="text-foreground font-medium">Conway Cares Revolving Closet | Volunteer & Donor</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">International</div>
+                            <div className="text-foreground font-medium">Diverbo Pueblo Ingles | Salamanca, SPAIN | English Instructor</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Education</div>
+                            <div className="text-foreground font-medium">SAU9 (ESSC) Eastern Slope Skier Community | Ski Instructor</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Training & Safety</div>
+                            <div className="text-foreground font-medium">American Red Cross (ARC) – RI, NH Chapters | CPR & First Aid Instructor</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Leadership</div>
+                            <div className="text-foreground font-medium">Mt. Washington Valley Div Cal Ripken Baseball | Head Coach</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Arts & Culture</div>
+                            <div className="text-foreground font-medium">Arts in Motion Theater | Actor and Volunteer</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Fitness & Wellness</div>
+                            <div className="text-foreground font-medium">Cranmore Mountain Fitness Center | Personal Trainer & Group Fitness Instructor</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Founding Member</div>
+                            <div className="text-foreground font-medium">Delta Gamma Fraternity – Alpha Epsilon | Founding Sister</div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Fade gradients */}
+                      <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-background to-transparent pointer-events-none z-10"></div>
+                      <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-background to-transparent pointer-events-none z-10"></div>
+                    </div>
+                  </div>
+                  
+                  <p className="text-muted-foreground text-sm mt-4 italic text-center">
+                    Hover to pause scrolling
+                  </p>
                 </div>
               )}
             </div>
