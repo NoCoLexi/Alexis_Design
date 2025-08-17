@@ -56,7 +56,16 @@ export default function HeroSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 text-center">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
-            <span className={`gradient-text disco-text ${isPlaying ? 'dancing' : ''}`} style={{textShadow: '0 0 10px rgba(255, 255, 255, 0.4), 0 0 20px rgba(255, 255, 255, 0.3), 0 0 30px rgba(255, 255, 255, 0.2)', filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.4))'}}>
+            <span 
+              className={`disco-text ${isPlaying ? 'dancing' : ''}`} 
+              style={{
+                background: 'linear-gradient(135deg, #6D5592 0%, #013B72 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                textShadow: '0 0 10px rgba(255, 255, 255, 0.4), 0 0 20px rgba(255, 255, 255, 0.3), 0 0 30px rgba(255, 255, 255, 0.2)'
+              }}
+            >
               Hire Alexis
             </span>
           </h1>
