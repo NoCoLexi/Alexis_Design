@@ -70,10 +70,8 @@ export default function HeroSection() {
             />
           </div>
           
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed max-w-3xl">
-            I solve impossible problems.<br />
-            (The AI just makes it look easy.)<br />
-            <span className="font-bold">Ready to see what I can help your team build?</span>
+          <p className="text-2xl md:text-3xl text-muted-foreground mb-8 leading-relaxed max-w-3xl">
+            Hey Hiring team, say hello to your next
           </p>
           
           {/* Contact Icons */}
