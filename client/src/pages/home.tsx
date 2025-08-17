@@ -137,7 +137,7 @@ export default function Home() {
       {/* Page Sections */}
       <HeroSection />
       <FeaturedWork />
-      <AboutSection />
+      <AboutSection onOpenAwardModal={() => setIsAwardModalOpen(true)} />
       <ContactSection />
       <CaseStudyModal />
       <AwardModal 
