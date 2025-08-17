@@ -19,10 +19,10 @@ interface AboutSectionProps {
 export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
   const [activeTab, setActiveTab] = useState<'education' | 'publications' | 'community'>('education');
   
-  const scrollToPortfolio = () => {
-    const portfolioElement = document.getElementById('portfolio');
-    if (portfolioElement) {
-      portfolioElement.scrollIntoView({ 
+  const scrollToPersonalTraining = () => {
+    const personalTrainingElement = document.getElementById('personal-training');
+    if (personalTrainingElement) {
+      personalTrainingElement.scrollIntoView({ 
         behavior: 'smooth',
         block: 'start'
       });
@@ -91,8 +91,22 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
             </div>
           </div>
 
+          {/* Scroll to Personal Training Arrow */}
+          <div className="flex justify-center my-16">
+            <div 
+              className="animate-bounce cursor-pointer hover:text-primary transition-colors flex items-center justify-center"
+              onClick={scrollToPersonalTraining}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === 'Enter' && scrollToPersonalTraining()}
+              data-testid="button-scroll-to-personal-training"
+            >
+              <ArrowDown className="w-8 h-8 text-muted-foreground hover:text-primary transition-colors" />
+            </div>
+          </div>
+
           {/* Personal Trainer Section */}
-          <div className="text-center">
+          <div id="personal-training" className="text-center">
             <h3 className="font-semibold text-primary mb-8 text-xl">Fun fact: I'm also a certified personal trainer</h3>
             
             <div className="flex justify-center mb-12">
@@ -825,18 +839,6 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
             </div>
           </div>
         </div>
-      </div>
-      
-      {/* Scroll to Portfolio Arrow */}
-      <div 
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer hover:text-primary transition-colors z-20 flex items-center justify-center"
-        onClick={scrollToPortfolio}
-        role="button"
-        tabIndex={0}
-        onKeyDown={(e) => e.key === 'Enter' && scrollToPortfolio()}
-        data-testid="button-scroll-to-portfolio"
-      >
-        <ArrowDown className="w-8 h-8 text-muted-foreground hover:text-primary transition-colors" />
       </div>
     </section>
   );
