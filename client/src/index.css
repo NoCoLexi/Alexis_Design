@@ -639,6 +639,15 @@ html {
   align-items: center;
   padding: 1rem 1.5rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: left;
+}
+
+.education-item > div:last-child {
+  text-align: left;
+}
+
+.education-item > div:last-child > div {
+  text-align: left;
 }
 
 @keyframes education-scroll {
