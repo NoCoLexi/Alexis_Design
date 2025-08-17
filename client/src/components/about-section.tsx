@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Award } from "lucide-react";
 import professionalPhoto from "@assets/Brochu, Alexis 2023 Ireland_1754523029765.png";
 import profileVideo from "@assets/20181006_190845_1754603621565.mp4";
@@ -112,40 +113,31 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
             <div className="max-w-4xl mx-auto">
               {/* Tab Navigation */}
               <div className="flex justify-center mb-8">
-                <div className="glass rounded-full p-2 inline-flex gap-2">
-                  <button
+                <div className="glass rounded-xl p-2">
+                  <Button
+                    variant={activeTab === 'education' ? 'default' : 'ghost'}
                     onClick={() => setActiveTab('education')}
-                    className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                      activeTab === 'education'
-                        ? 'bg-primary text-primary-foreground shadow-lg'
-                        : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
-                    }`}
+                    className={activeTab === 'education' ? 'gradient-bg-primary' : ''}
                     data-testid="tab-education-certs"
                   >
                     Education/Certs
-                  </button>
-                  <button
+                  </Button>
+                  <Button
+                    variant={activeTab === 'publications' ? 'default' : 'ghost'}
                     onClick={() => setActiveTab('publications')}
-                    className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                      activeTab === 'publications'
-                        ? 'bg-primary text-primary-foreground shadow-lg'
-                        : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
-                    }`}
+                    className={activeTab === 'publications' ? 'gradient-bg-primary' : ''}
                     data-testid="tab-publications-awards"
                   >
                     Publications/Awards
-                  </button>
-                  <button
+                  </Button>
+                  <Button
+                    variant={activeTab === 'community' ? 'default' : 'ghost'}
                     onClick={() => setActiveTab('community')}
-                    className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                      activeTab === 'community'
-                        ? 'bg-primary text-primary-foreground shadow-lg'
-                        : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
-                    }`}
+                    className={activeTab === 'community' ? 'gradient-bg-primary' : ''}
                     data-testid="tab-community-leadership"
                   >
                     Community/Leadership
-                  </button>
+                  </Button>
                 </div>
               </div>
 
