@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Play, Pause } from "lucide-react";
 import hireMeSong from "@assets/Hire Me (Design and Groove)_1754579236907.mp3";
+import { trackSynthesizerEvent, trackPortfolioClick } from "@/lib/analytics";
 
 interface NavMusicPlayerProps {
   onPlayingChange?: (isPlaying: boolean) => void;
@@ -83,6 +84,14 @@ export default function NavMusicPlayer({ onPlayingChange, renderAs = 'circle', b
       audio.pause();
       setIsPlaying(false);
       onPlayingChange?.(false);
+      
+      // Track audio stop event
+      trackSynthesizerEvent('audio_stop', {
+        currentTime: audio.currentTime,
+        duration: audio.duration,
+        userAgent: navigator.userAgent
+      });
+      
       // Dispatch custom event for other components
       window.dispatchEvent(new CustomEvent('musicStateChange', { 
         detail: { isPlaying: false } 
@@ -105,6 +114,14 @@ export default function NavMusicPlayer({ onPlayingChange, renderAs = 'circle', b
         console.log('🎶 Audio started playing successfully!');
         setIsPlaying(true);
         onPlayingChange?.(true);
+        
+        // Track audio start event
+        trackSynthesizerEvent('audio_start', {
+          readyState: audio.readyState,
+          volume: audio.volume,
+          userAgent: navigator.userAgent
+        });
+        
         // Dispatch custom event for other components
         window.dispatchEvent(new CustomEvent('musicStateChange', { 
           detail: { isPlaying: true } 
@@ -132,7 +149,7 @@ export default function NavMusicPlayer({ onPlayingChange, renderAs = 'circle', b
             togglePlayPause();
           }}
           className="px-8 py-4 gradient-bg-primary hover:opacity-90 rounded-xl font-inter-medium text-lg transition-all duration-300 glow-purple flex items-center gap-3 w-[300px] justify-center"
-          data-testid="music-player-button"
+          data-testid="button-play-hire-me-song"
           style={{ pointerEvents: 'auto', fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
         >
           {isPlaying ? (
@@ -152,7 +169,7 @@ export default function NavMusicPlayer({ onPlayingChange, renderAs = 'circle', b
           onClick={togglePlayPause}
           className={`disco-ball flex items-center justify-center ${isPlaying ? 'spinning' : ''}`}
           title={isPlaying ? 'Pause music' : 'Play Me'}
-          data-testid="music-player-button"
+          data-testid="button-disco-music-player"
         >
           {isPlaying ? <Pause className="h-5 w-5 relative z-10" /> : <Play className="h-5 w-5 relative z-10" />}
         </button>

@@ -1,5 +1,6 @@
 import { Mail, Calendar } from "lucide-react";
 import { SiLinkedin } from "react-icons/si";
+import { trackPortfolioClick } from "@/lib/analytics";
 
 
 export default function ContactSection() {
@@ -28,7 +29,12 @@ export default function ContactSection() {
             <div className="glass rounded-2xl p-8">
               <h3 className="text-2xl font-bold mb-6 text-chart-4">Get in Touch</h3>
               <div className="flex flex-col md:flex-row md:justify-center md:space-x-8 space-y-4 md:space-y-0">
-                <a href="mailto:alexisb.product@gmail.com" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+                <a 
+                  href="mailto:alexisb.product@gmail.com" 
+                  className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
+                  onClick={() => trackPortfolioClick('email')}
+                  data-testid="contact-email"
+                >
                   <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                     <Mail className="w-4 h-4" />
                   </div>
@@ -38,7 +44,14 @@ export default function ContactSection() {
                   </div>
                 </a>
                 
-                <a href="https://linkedin.com/in/alexisbrochu" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+                <a 
+                  href="https://linkedin.com/in/alexisbrochu" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
+                  onClick={() => trackPortfolioClick('linkedin')}
+                  data-testid="contact-linkedin"
+                >
                   <div className="w-8 h-8 bg-[#0077B5] rounded-lg flex items-center justify-center">
                     <SiLinkedin className="w-4 h-4 text-white" />
                   </div>
@@ -48,7 +61,14 @@ export default function ContactSection() {
                   </div>
                 </a>
                 
-                <a href="https://calendly.com/alexis-brochu/15min" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+                <a 
+                  href="https://calendly.com/alexis-brochu/15min" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
+                  onClick={() => trackPortfolioClick('calendly')}
+                  data-testid="contact-calendly"
+                >
                   <div className="w-8 h-8 bg-chart-2 rounded-lg flex items-center justify-center">
                     <Calendar className="w-4 h-4" />
                   </div>

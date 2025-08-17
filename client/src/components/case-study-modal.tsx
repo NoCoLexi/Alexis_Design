@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { X, ExternalLink, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { trackEvent, trackSynthesizerEvent } from "@/lib/analytics";
 import engageOnboardingVideo from "@assets/Engage_Onboarding_1_1754580372224.mp4";
 import directorsPreziVideo from "@assets/Directors Deck Engage 2023 prezi_1754842640035.mp4";
 import engageRoadmapImage from "@assets/Engage Roadmap_1754580703265.png";
@@ -827,6 +828,11 @@ export default function CaseStudyModal() {
   }, []);
 
   const closeCaseStudy = () => {
+    // Track case study closing
+    if (selectedCase) {
+      trackEvent('case_study_closed', 'portfolio', selectedCase);
+    }
+    
     setIsOpen(false);
     setSelectedCase(null);
     document.body.style.overflow = 'auto';

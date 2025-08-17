@@ -2,6 +2,7 @@ import React, { useState, useMemo, useCallback, useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Award, ExternalLink } from "lucide-react";
+import { trackEvent, trackSynthesizerEvent } from "@/lib/analytics";
 import calOesImage from "@assets/Cal OES Engage Landing Page Phase I_v2_1754580174186.png";
 import paPortalImage from "@assets/Grants Management Reporting 1-1_1754840000206.png";
 import dashboardImage from "@assets/image_1754580387947.png";
@@ -515,6 +516,9 @@ export default function FeaturedWork() {
   );
 
   const openCaseStudy = useCallback((projectId: string) => {
+    // Track case study viewing
+    trackEvent('case_study_viewed', 'portfolio', projectId);
+    
     const event = new CustomEvent('openCaseStudy', { detail: { projectId } });
     window.dispatchEvent(event);
   }, []);
