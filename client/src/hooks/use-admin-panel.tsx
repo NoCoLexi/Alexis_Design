@@ -30,8 +30,8 @@ export const useAdminPanel = () => {
   // Keyboard shortcut listener
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      // Ctrl+Shift+A to toggle admin panel
-      if (event.ctrlKey && event.shiftKey && event.key === 'A') {
+      // Ctrl+Shift+Z to toggle admin panel
+      if (event.ctrlKey && event.shiftKey && event.key === 'Z') {
         event.preventDefault();
         setIsVisible(prev => !prev);
       }
