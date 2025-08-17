@@ -149,42 +149,6 @@ const projects: Project[] = [
     award: '2023 CA Gov Tech Innovation Award'
   },
   {
-    id: 'ilave',
-    title: 'iLave',
-    description: 'Developing a fintech solution for the German market focused on modern banking experiences and user-centered financial services.',
-    category: 'product-design',
-    image: iLaveImage,
-    metrics: [
-      { label: 'User Adoption', value: '300%', color: 'text-primary' },
-      { label: 'Market Penetration', value: '85%', color: 'text-chart-2' }
-    ],
-    tags: ['Fintech', 'German Market', 'Banking UX']
-  },
-  {
-    id: 'wechore',
-    title: 'WeChore',
-    description: 'A modern task management platform designed to streamline household responsibilities through intuitive design and smart automation.',
-    category: 'product-design',
-    image: weChoreImage,
-    metrics: [
-      { label: 'Task Completion', value: '92%', color: 'text-chart-3' },
-      { label: 'User Retention', value: '78%', color: 'text-primary' }
-    ],
-    tags: ['Task Management', 'Home Automation', 'Productivity']
-  },
-  {
-    id: 'subscriptex',
-    title: 'Subscriptex',
-    description: 'A comprehensive subscription management system with advanced analytics and user experience optimization for the German financial sector.',
-    category: 'product-design',
-    image: subscriptexImage,
-    metrics: [
-      { label: 'Subscription Growth', value: '156%', color: 'text-chart-4' },
-      { label: 'Churn Reduction', value: '43%', color: 'text-chart-2' }
-    ],
-    tags: ['Design System', 'German Market', 'Financial UX']
-  },
-  {
     id: 'grants-management-sikich',
     title: 'Grants Management',
     description: 'Comprehensive grants management system built on Salesforce to map together systems across the state, enabling management to run unified reports and streamline grant oversight processes.',
@@ -203,6 +167,42 @@ const projects: Project[] = [
       { label: 'Reporting Efficiency', value: '85%', color: 'text-primary' }
     ],
     tags: ['Salesforce', 'Government Systems', 'Data Integration', 'Reporting Dashboard']
+  },
+  {
+    id: 'ilave',
+    title: 'iLave',
+    description: 'Developing a fintech solution for the German market focused on modern banking experiences and user-centered financial services.',
+    category: 'product-design',
+    image: iLaveImage,
+    metrics: [
+      { label: 'User Adoption', value: '300%', color: 'text-primary' },
+      { label: 'Market Penetration', value: '85%', color: 'text-chart-2' }
+    ],
+    tags: ['Fintech', 'German Market', 'Banking UX']
+  },
+  {
+    id: 'subscriptex',
+    title: 'Subscriptex',
+    description: 'A comprehensive subscription management system with advanced analytics and user experience optimization for the German financial sector.',
+    category: 'product-design',
+    image: subscriptexImage,
+    metrics: [
+      { label: 'Subscription Growth', value: '156%', color: 'text-chart-4' },
+      { label: 'Churn Reduction', value: '43%', color: 'text-chart-2' }
+    ],
+    tags: ['Design System', 'German Market', 'Financial UX']
+  },
+  {
+    id: 'wechore',
+    title: 'WeChore',
+    description: 'A modern task management platform designed to streamline household responsibilities through intuitive design and smart automation.',
+    category: 'product-design',
+    image: weChoreImage,
+    metrics: [
+      { label: 'Task Completion', value: '92%', color: 'text-chart-3' },
+      { label: 'User Retention', value: '78%', color: 'text-primary' }
+    ],
+    tags: ['Task Management', 'Home Automation', 'Productivity']
   },
   {
     id: 'fairgrounds-coffee',
