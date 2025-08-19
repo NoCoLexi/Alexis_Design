@@ -55,8 +55,8 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
             <div className="logo-style flex items-center">
-              <span className="name-first">Alexis</span>
-              <span className="name-last">Brochu</span>
+              <span className="name-first text-white font-bold text-xl">Alexis</span>
+              <span className="name-last text-purple-400 font-bold text-xl ml-1">Brochu</span>
             </div>
             <div className="hidden md:flex space-x-8 items-center">
               {[
@@ -68,31 +68,32 @@ export default function Home() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-
-                  className={`transition-colors ${
-                    activeSection === item.id ? 'text-[#63538F]' : 'text-[#F3E8B9] hover:text-[#63538F]'
+                  className={`transition-colors font-medium px-3 py-2 rounded-md ${
+                    activeSection === item.id 
+                      ? 'text-purple-400 bg-purple-400/10' 
+                      : 'text-white hover:text-purple-400 hover:bg-white/5'
                   }`}
+                  style={{fontSize: '16px', fontWeight: '500'}}
                 >
                   {item.label}
                 </button>
               ))}
               <div className="ml-4">
                 <div 
-                  className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 hover:glow-purple transition-all duration-300 cursor-pointer"
+                  className="inline-flex items-center gap-2 bg-purple-600/20 rounded-full px-4 py-2 hover:bg-purple-600/30 transition-all duration-300 cursor-pointer border border-purple-400/20"
                   onClick={() => setIsAwardModalOpen(true)}
                   data-testid="button-2023-tech-award"
                 >
-                  <Award className="w-4 h-4 text-chart-3" />
-                  <span className="text-xs font-medium text-foreground hidden lg:inline">
+                  <Award className="w-4 h-4 text-yellow-400" />
+                  <span className="text-sm font-medium text-white hidden lg:inline">
                     2023 CA Gov Tech Award
                   </span>
                 </div>
               </div>
             </div>
             <button
-              className="md:hidden text-foreground"
+              className="md:hidden text-white hover:text-purple-400 p-2 rounded-md hover:bg-white/5 transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -100,7 +101,7 @@ export default function Home() {
           
           {/* Mobile Menu */}
           {isMobileMenuOpen && (
-            <div className="md:hidden mt-4 pb-4 space-y-2">
+            <div className="md:hidden mt-4 pb-4 space-y-2 bg-black/50 rounded-lg p-4 border border-purple-400/20">
               {[
                 { id: 'home', label: 'Home' },
                 { id: 'work', label: 'Product Portfolio' },
@@ -110,8 +111,7 @@ export default function Home() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-
-                  className="block w-full text-left py-2 text-[#F3E8B9] hover:text-[#63538F] transition-colors"
+                  className="block w-full text-left py-3 px-4 text-white hover:text-purple-400 hover:bg-white/5 transition-colors rounded-md font-medium"
                 >
                   {item.label}
                 </button>
