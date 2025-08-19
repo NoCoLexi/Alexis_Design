@@ -51,25 +51,90 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground" style={{backgroundColor: '#08080A'}}>
       {/* Navigation */}
-      <nav 
-        className="fixed top-0 left-0 right-0 w-full z-[9999]" 
-        style={{
-          backgroundColor: 'rgba(0, 0, 0, 0.95)', 
-          minHeight: '80px',
-          borderBottom: '2px solid purple'
-        }}
-      >
-        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '80px', maxWidth: '1280px', margin: '0 auto', padding: '0 24px'}}>
-          <div style={{display: 'flex', alignItems: 'center'}}>
-            <span style={{color: 'white', fontSize: '20px', fontWeight: 'bold'}}>Alexis</span>
-            <span style={{color: '#a855f7', fontSize: '20px', fontWeight: 'bold', marginLeft: '8px'}}>Brochu</span>
+      <nav className="fixed top-0 left-0 right-0 w-full z-50 bg-background/90 backdrop-blur-lg border-b border-primary/30 shadow-lg">
+        <div className="max-w-7xl mx-auto px-6 py-4">
+          <div className="flex justify-between items-center">
+            <div className="logo-style flex items-center">
+              <span className="name-first text-white font-bold text-xl">Alexis</span>
+              <span className="name-last text-purple-400 font-bold text-xl ml-1">Brochu</span>
+            </div>
+            <div className="hidden md:flex space-x-8 items-center">
+              {[
+                { id: 'home', label: 'Home' },
+                { id: 'work', label: 'Work' },
+                { id: 'about', label: 'About Alexis' },
+                { id: 'other', label: 'Other' },
+                { id: 'contact', label: 'Contact' }
+              ].map(item => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`transition-colors font-medium px-3 py-2 rounded-md ${
+                    activeSection === item.id 
+                      ? 'text-purple-400 bg-purple-400/10' 
+                      : 'text-white hover:text-purple-400 hover:bg-white/5'
+                  }`}
+                  style={{fontSize: '14px', fontWeight: '500'}}
+                >
+                  {item.label}
+                </button>
+              ))}
+              <div className="ml-4">
+                <div 
+                  className="inline-flex items-center gap-2 bg-purple-600/20 rounded-full px-4 py-2 hover:bg-purple-600/30 transition-all duration-300 cursor-pointer border border-purple-400/20"
+                  onClick={() => setIsAwardModalOpen(true)}
+                  data-testid="button-2023-tech-award"
+                >
+                  <Award className="w-4 h-4 text-yellow-400" />
+                  <span className="text-sm font-medium text-white hidden lg:inline">
+                    2023 CA Gov Tech Award
+                  </span>
+                </div>
+              </div>
+            </div>
+            <button
+              className="md:hidden text-white hover:text-purple-400 p-2 rounded-md hover:bg-white/5 transition-colors"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
-          <div style={{display: 'flex', alignItems: 'center', gap: '20px'}}>
-            <button style={{color: 'white', padding: '8px 16px', backgroundColor: 'transparent', border: 'none', cursor: 'pointer'}} onClick={() => scrollToSection('home')}>Home</button>
-            <button style={{color: 'white', padding: '8px 16px', backgroundColor: 'transparent', border: 'none', cursor: 'pointer'}} onClick={() => scrollToSection('work')}>Portfolio</button>
-            <button style={{color: 'white', padding: '8px 16px', backgroundColor: 'transparent', border: 'none', cursor: 'pointer'}} onClick={() => scrollToSection('about')}>About</button>
-            <button style={{color: 'white', padding: '8px 16px', backgroundColor: 'transparent', border: 'none', cursor: 'pointer'}} onClick={() => scrollToSection('contact')}>Contact</button>
-          </div>
+          
+          {/* Mobile Menu */}
+          {isMobileMenuOpen && (
+            <div className="md:hidden mt-4 pb-4 space-y-2 bg-black/50 rounded-lg p-4 border border-purple-400/20">
+              {[
+                { id: 'home', label: 'Home' },
+                { id: 'work', label: 'Work' },
+                { id: 'about', label: 'About Alexis' },
+                { id: 'other', label: 'Other' },
+                { id: 'contact', label: 'Contact' }
+              ].map(item => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className="block w-full text-left py-3 px-4 text-white hover:text-purple-400 hover:bg-white/5 transition-colors rounded-md font-medium"
+                >
+                  {item.label}
+                </button>
+              ))}
+              <div className="pt-2 border-t border-purple-400/20">
+                <div 
+                  className="inline-flex items-center gap-2 bg-purple-600/20 rounded-full px-4 py-2 hover:bg-purple-600/30 transition-all duration-300 cursor-pointer w-full justify-center"
+                  onClick={() => {
+                    setIsAwardModalOpen(true);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  data-testid="button-2023-tech-award-mobile"
+                >
+                  <Award className="w-4 h-4 text-yellow-400" />
+                  <span className="text-sm font-medium text-white">
+                    2023 CA Gov Tech Award
+                  </span>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </nav>
 
