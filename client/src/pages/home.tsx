@@ -15,6 +15,8 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState('home');
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const [isAwardModalOpen, setIsAwardModalOpen] = useState(false);
+  
+
 
 
 
@@ -49,7 +51,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 w-full z-50 bg-background/90 backdrop-blur-lg border-b border-primary/30 shadow-lg" style={{display: 'block !important', visibility: 'visible !important'}}>
+      <nav className="fixed top-0 left-0 right-0 w-full z-[9999] bg-black/95 backdrop-blur-lg border-b border-purple-500/30 shadow-2xl" style={{backgroundColor: 'rgba(8, 8, 10, 0.95)', minHeight: '80px'}}>
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
             <div className="logo-style flex items-center">

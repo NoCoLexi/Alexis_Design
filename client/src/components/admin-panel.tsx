@@ -117,12 +117,18 @@ export default function AdminPanel({ isVisible, onClose, onApply }: AdminPanelPr
     
     const customUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
     
-    // Copy URL to clipboard
+    // Copy URL to clipboard and offer to navigate
     navigator.clipboard.writeText(customUrl).then(() => {
-      alert(`Custom portfolio URL copied to clipboard!\n\n${customUrl}`);
+      const navigate = confirm(`Custom portfolio URL copied to clipboard!\n\n${customUrl}\n\nClick OK to test this URL now, or Cancel to just copy it.`);
+      if (navigate) {
+        window.open(customUrl, '_blank');
+      }
     }).catch(() => {
       // Fallback - show URL in alert
-      alert(`Custom portfolio URL:\n\n${customUrl}\n\nPlease copy this URL manually.`);
+      const navigate = confirm(`Custom portfolio URL:\n\n${customUrl}\n\nPlease copy this URL manually.\n\nClick OK to test this URL now, or Cancel to just copy it.`);
+      if (navigate) {
+        window.open(customUrl, '_blank');
+      }
     });
     
     onClose();
