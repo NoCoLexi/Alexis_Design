@@ -49,7 +49,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground" style={{backgroundColor: '#08080A'}}>
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 w-full z-[9999] bg-black/95 backdrop-blur-lg border-b border-purple-500/30 shadow-2xl" style={{backgroundColor: 'rgba(8, 8, 10, 0.95)', minHeight: '80px'}}>
         <div className="max-w-7xl mx-auto px-6 py-4">

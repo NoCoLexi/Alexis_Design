@@ -111,7 +111,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center relative overflow-hidden" style={{paddingTop: '100px'}}>
       <div className="absolute inset-0 gradient-bg-secondary opacity-30"></div>
       <div className="absolute inset-0 opacity-20">
         <div className="w-full h-full bg-gradient-to-br from-primary/20 via-transparent to-chart-1/20"></div>
