@@ -56,7 +56,7 @@ export default function Home() {
           <div className="flex justify-between items-center">
             <div className="logo-style flex items-center">
               <span className="name-first text-white font-bold text-xl">Alexis</span>
-              <span className="name-last text-purple-400 font-bold text-xl ml-1">Brochu</span>
+              <span className="name-last text-purple-400 font-bold text-xl">Brochu</span>
             </div>
             <div className="hidden md:flex space-x-8 items-center">
               {[
