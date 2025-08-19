@@ -14,6 +14,17 @@ export default function HeroSection() {
   // Admin panel integration
   const { isVisible, settings, getGreeting, getCaseStudyFocus, applySettings, closePanel } = useAdminPanel();
 
+  // Get greeting from URL parameters or admin panel
+  const getCustomGreeting = () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const companyFromUrl = urlParams.get('company');
+    
+    if (companyFromUrl) {
+      return `Hey ${companyFromUrl} hiring team`;
+    }
+    return getGreeting();
+  };
+
   const roles = [
     "AI Product Designer",
     "AI Product Manager",
@@ -127,7 +138,7 @@ export default function HeroSection() {
             className="text-2xl md:text-3xl font-inter-medium text-muted-foreground mb-2 leading-relaxed max-w-3xl"
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
           >
-            {getGreeting()}, say hello to your next
+            {getCustomGreeting()}, say hello to your next
           </p>
           <p 
             className={`text-2xl md:text-3xl font-inter-black text-foreground mb-8 cycling-role ${isExiting ? 'exit' : ''}`}

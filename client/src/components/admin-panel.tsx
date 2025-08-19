@@ -110,10 +110,21 @@ export default function AdminPanel({ isVisible, onClose, onApply }: AdminPanelPr
       jobUrl
     };
     
-    // Save to localStorage
-    localStorage.setItem('alexis-portfolio-admin', JSON.stringify(settings));
+    // Generate custom URL with query parameters
+    const params = new URLSearchParams();
+    if (settings.companyName) params.set('company', settings.companyName);
+    if (settings.jobType !== 'Auto') params.set('focus', settings.jobType.toLowerCase());
     
-    onApply(settings);
+    const customUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+    
+    // Copy URL to clipboard
+    navigator.clipboard.writeText(customUrl).then(() => {
+      alert(`Custom portfolio URL copied to clipboard!\n\n${customUrl}`);
+    }).catch(() => {
+      // Fallback - show URL in alert
+      alert(`Custom portfolio URL:\n\n${customUrl}\n\nPlease copy this URL manually.`);
+    });
+    
     onClose();
   };
 
@@ -121,13 +132,6 @@ export default function AdminPanel({ isVisible, onClose, onApply }: AdminPanelPr
     setJobUrl('');
     setCompanyName('');
     setJobType('Auto');
-    localStorage.removeItem('alexis-portfolio-admin');
-    
-    onApply({
-      companyName: '',
-      jobType: 'Auto',
-      jobUrl: ''
-    });
     onClose();
   };
 
@@ -214,9 +218,9 @@ export default function AdminPanel({ isVisible, onClose, onApply }: AdminPanelPr
           <Button 
             onClick={handleApply}
             className="bg-primary hover:bg-primary/90"
-            data-testid="button-apply-changes"
+            data-testid="button-generate-url"
           >
-            Apply Changes
+            Generate Custom URL
           </Button>
           <Button 
             variant="outline" 

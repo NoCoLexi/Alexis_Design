@@ -509,16 +509,33 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
 
 export default function FeaturedWork() {
   const { getCaseStudyFocus, settings } = useAdminPanel();
-  const [activeFilter, setActiveFilter] = useState<string>('product-design');
   
-  // Only apply admin filter when specifically set to PM or Design (not Auto)
+  // Get initial filter from URL parameters or default
+  const getInitialFilter = () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const focusFromUrl = urlParams.get('focus');
+    
+    if (focusFromUrl === 'pm') return 'product-management';
+    if (focusFromUrl === 'design') return 'product-design';
+    
+    return 'product-design'; // default
+  };
+  
+  const [activeFilter, setActiveFilter] = useState<string>(getInitialFilter);
+  
+  // Only apply admin filter when specifically set to PM or Design (not Auto) and no URL params
   useEffect(() => {
-    if (settings.jobType === 'PM') {
-      setActiveFilter('product-management');
-    } else if (settings.jobType === 'Design') {
-      setActiveFilter('product-design');
+    const urlParams = new URLSearchParams(window.location.search);
+    const focusFromUrl = urlParams.get('focus');
+    
+    // URL parameters take precedence over admin settings
+    if (!focusFromUrl) {
+      if (settings.jobType === 'PM') {
+        setActiveFilter('product-management');
+      } else if (settings.jobType === 'Design') {
+        setActiveFilter('product-design');
+      }
     }
-    // For 'Auto', we let the user manually control the filter
   }, [settings.jobType]);
 
   const filteredProjects = useMemo(() => 
