@@ -508,15 +508,23 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
 });
 
 export default function FeaturedWork() {
-  const { getCaseStudyFocus } = useAdminPanel();
-  const defaultFilter = getCaseStudyFocus() === 'Design' ? 'product-design' : 'product-management';
-  const [activeFilter, setActiveFilter] = useState<string>(defaultFilter);
+  const { getCaseStudyFocus, settings } = useAdminPanel();
+  const [activeFilter, setActiveFilter] = useState<string>('product-design');
+  const [adminFilterApplied, setAdminFilterApplied] = useState(false);
 
-  // Update filter when admin settings change
+  // Apply admin filter only when settings change and only if not manually overridden
   useEffect(() => {
-    const newFilter = getCaseStudyFocus() === 'Design' ? 'product-design' : 'product-management';
-    setActiveFilter(newFilter);
-  }, [getCaseStudyFocus]);
+    // Only auto-apply if jobType is not 'Auto' (which means user specifically selected PM or Design)
+    if (settings.jobType !== 'Auto') {
+      const newFilter = getCaseStudyFocus() === 'Design' ? 'product-design' : 'product-management';
+      setActiveFilter(newFilter);
+      setAdminFilterApplied(true);
+    } else if (settings.jobType === 'Auto' && !adminFilterApplied) {
+      // Reset to default when auto or on first load
+      setActiveFilter('product-design');
+      setAdminFilterApplied(false);
+    }
+  }, [settings.jobType, getCaseStudyFocus, adminFilterApplied]);
 
   const filteredProjects = useMemo(() => 
     projects.filter(project => 
@@ -550,28 +558,40 @@ export default function FeaturedWork() {
           <div className="glass rounded-xl p-2">
             <Button
               variant={activeFilter === 'product-management' ? 'default' : 'ghost'}
-              onClick={() => setActiveFilter('product-management')}
+              onClick={() => {
+                setActiveFilter('product-management');
+                setAdminFilterApplied(false); // Allow manual override
+              }}
               className={activeFilter === 'product-management' ? 'gradient-bg-primary' : ''}
             >
               Product Management
             </Button>
             <Button
               variant={activeFilter === 'product-design' ? 'default' : 'ghost'}
-              onClick={() => setActiveFilter('product-design')}
+              onClick={() => {
+                setActiveFilter('product-design');
+                setAdminFilterApplied(false); // Allow manual override
+              }}
               className={activeFilter === 'product-design' ? 'gradient-bg-primary' : ''}
             >
               Product Design
             </Button>
             <Button
               variant={activeFilter === 'brand-development' ? 'default' : 'ghost'}
-              onClick={() => setActiveFilter('brand-development')}
+              onClick={() => {
+                setActiveFilter('brand-development');
+                setAdminFilterApplied(false); // Allow manual override
+              }}
               className={activeFilter === 'brand-development' ? 'gradient-bg-primary' : ''}
             >
               Brand Development
             </Button>
             <Button
               variant={activeFilter === 'all' ? 'default' : 'ghost'}
-              onClick={() => setActiveFilter('all')}
+              onClick={() => {
+                setActiveFilter('all');
+                setAdminFilterApplied(false); // Allow manual override
+              }}
               className={activeFilter === 'all' ? 'gradient-bg-primary' : ''}
             >
               All Projects
