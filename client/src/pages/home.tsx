@@ -63,7 +63,6 @@ export default function Home() {
                 { id: 'home', label: 'Home' },
                 { id: 'work', label: 'Work' },
                 { id: 'about', label: 'About Alexis' },
-                { id: 'other', label: 'Other' },
                 { id: 'contact', label: 'Contact' }
               ].map(item => (
                 <button
@@ -107,7 +106,6 @@ export default function Home() {
                 { id: 'home', label: 'Home' },
                 { id: 'work', label: 'Work' },
                 { id: 'about', label: 'About Alexis' },
-                { id: 'other', label: 'Other' },
                 { id: 'contact', label: 'Contact' }
               ].map(item => (
                 <button
