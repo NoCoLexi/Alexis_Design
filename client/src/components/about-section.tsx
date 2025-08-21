@@ -18,7 +18,7 @@ interface AboutSectionProps {
 }
 
 export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
-  const [activeTab, setActiveTab] = useState<'education' | 'publications' | 'community'>('education');
+  const [activeTab, setActiveTab] = useState<'education' | 'publications' | 'community' | 'funfact'>('education');
   
   const scrollToPersonalTraining = () => {
     const personalTrainingElement = document.getElementById('personal-training');
@@ -135,6 +135,14 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                     data-testid="tab-community-leadership"
                   >
                     Community/Leadership
+                  </Button>
+                  <Button
+                    variant={activeTab === 'funfact' ? 'default' : 'ghost'}
+                    onClick={() => setActiveTab('funfact')}
+                    className={activeTab === 'funfact' ? 'gradient-bg-primary' : ''}
+                    data-testid="tab-fun-fact"
+                  >
+                    Fun Fact
                   </Button>
                 </div>
               </div>
@@ -810,28 +818,29 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                   </p>
                 </div>
               )}
+
+              {activeTab === 'funfact' && (
+                <div className="text-center">
+                  <h3 className="font-semibold text-primary mb-6 text-xl">I'm also a certified personal trainer</h3>
+                  <div className="flex justify-center">
+                    <div className="aspect-video max-w-sm rounded-xl overflow-hidden animate-float glass">
+                      <video
+                        src={profileVideo}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover"
+                        data-testid="video-profile"
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 
-          {/* Personal Training Video Section */}
-          <div className="flex justify-center mt-16">
-            <div className="text-center">
-              <h3 className="font-semibold text-primary mb-4 text-xl">Fun fact: I'm also a certified personal trainer</h3>
-              <div className="flex justify-center">
-                <div className="aspect-video max-w-sm rounded-xl overflow-hidden animate-float glass">
-                  <video
-                    src={profileVideo}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover"
-                    data-testid="video-profile"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
     </section>
