@@ -5,6 +5,7 @@ import { SiLinkedin } from "react-icons/si";
 import NavMusicPlayer from "./nav-music-player";
 import AdminPanel from "./admin-panel";
 import { useAdminPanel } from "@/hooks/use-admin-panel";
+import profileImage from "@assets/Brochu, Alexis 2023 Ireland_1754523029765.png";
 
 export default function HeroSection() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -117,8 +118,20 @@ export default function HeroSection() {
         <div className="w-full h-full bg-gradient-to-br from-primary/20 via-transparent to-chart-1/20"></div>
       </div>
       
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 text-center">
-        <div className="max-w-4xl mx-auto">
+      <div className="flex px-6 py-20 relative space-x-8 text-center w-full z-10">
+        <img 
+          src={profileImage} 
+          alt="Alexis Brochu professional photo" 
+          data-testid="img-professional-photo"
+          className="max-w-4xl mx-auto"
+          style={{
+            flexGrow: 1
+          }}
+        />
+        
+        <div className="max-w-4xl mx-auto" style={{
+          flexGrow: 1
+        }}>
           <h1 className="text-5xl md:text-7xl font-inter-black mb-6 leading-tight" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 900 }}>
             <span className={`gradient-text disco-text ${isPlaying ? 'dancing' : ''}`}>
               Hire Alexis
