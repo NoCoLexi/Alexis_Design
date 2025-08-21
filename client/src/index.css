@@ -417,6 +417,12 @@
   animation: disco-pulse 1s ease-in-out infinite;
 }
 
+/* Ensure disco button has proper flex layout and rounded corners */
+.disco-button .flex.items-center.justify-center.playing.rounded-2xl {
+  position: relative;
+  z-index: 10;
+}
+
 /* Header Disco Effects */
 .disco-header {
   position: relative;

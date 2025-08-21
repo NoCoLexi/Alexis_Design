@@ -139,31 +139,33 @@ export default function NavMusicPlayer({ onPlayingChange, renderAs = 'circle', b
   };
 
   return (
-    <div className="flex items-center justify-center">
+    <>
       <audio ref={audioRef} src={hireMeSong} preload="auto" />
       
       {renderAs === 'button' ? (
-        <button
-          onClick={(e) => {
-            console.log('🖱️ Button clicked!', e);
-            togglePlayPause();
-          }}
-          className="px-8 py-4 gradient-bg-primary hover:opacity-90 rounded-xl font-inter-medium text-lg transition-all duration-300 glow-purple flex items-center gap-3 w-[300px] justify-center"
-          data-testid="button-play-hire-me-song"
-          style={{ pointerEvents: 'auto', fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
-        >
-          {isPlaying ? (
-            <>
-              <Pause className="h-5 w-5 flex-shrink-0" />
-              <span className="text-center">Pause my Hire Me song</span>
-            </>
-          ) : (
-            <>
-              <Play className="h-5 w-5 flex-shrink-0" />
-              <span className="text-center">{buttonText}</span>
-            </>
-          )}
-        </button>
+        <div className={`disco-button flex items-center justify-center ${isPlaying ? 'playing' : ''} rounded-2xl`}>
+          <button
+            onClick={(e) => {
+              console.log('🖱️ Button clicked!', e);
+              togglePlayPause();
+            }}
+            className="px-8 py-4 gradient-bg-primary hover:opacity-90 rounded-xl font-inter-medium text-lg transition-all duration-300 glow-purple flex items-center gap-3 w-[300px] justify-center relative z-10"
+            data-testid="button-play-hire-me-song"
+            style={{ pointerEvents: 'auto', fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
+          >
+            {isPlaying ? (
+              <>
+                <Pause className="h-5 w-5 flex-shrink-0" />
+                <span className="text-center">Pause my Hire Me song</span>
+              </>
+            ) : (
+              <>
+                <Play className="h-5 w-5 flex-shrink-0" />
+                <span className="text-center">{buttonText}</span>
+              </>
+            )}
+          </button>
+        </div>
       ) : (
         <button
           onClick={togglePlayPause}
@@ -174,6 +176,6 @@ export default function NavMusicPlayer({ onPlayingChange, renderAs = 'circle', b
           {isPlaying ? <Pause className="h-5 w-5 relative z-10" /> : <Play className="h-5 w-5 relative z-10" />}
         </button>
       )}
-    </div>
+    </>
   );
 }
