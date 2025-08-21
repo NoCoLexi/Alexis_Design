@@ -106,14 +106,9 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
             </div>
           </div>
 
-          {/* Main Content - Side by Side Layout */}
-          <div className="flex flex-col lg:flex-row gap-12 items-start">
-            {/* Left Side - Spacer */}
-            <div className="flex-1">
-            </div>
-
-            {/* Right Side - Education Tabs */}
-            <div className="flex-1">
+          {/* Education Tabs - Centered and Wide */}
+          <div className="flex justify-center">
+            <div className="max-w-3xl w-full">
               {/* Tab Navigation */}
               <div className="flex justify-center mb-8">
                 <div className="glass rounded-xl p-2">
