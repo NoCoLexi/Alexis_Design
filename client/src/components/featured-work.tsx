@@ -10,7 +10,7 @@ import dashboardImage from "@assets/image_1754580387947.png";
 import oesAppsImage from "@assets/OES IT Apps_1754584482209.png";
 import engageConnectImage from "@assets/EngageConnect_Vol_01_1754597322104.png";
 import eagWhiteBgImage from "@assets/Cal OES IT apps_1754843508712.png";
-import eagCoverImage from "@assets/image_1755789617479.png";
+import eagCoverImage from "@assets/Cal OES IT apps_1755789738496.png";
 import iLaveImage from "@assets/!-Lave group Alt_1754580875717.png";
 import weChoreImage from "@assets/WeChore Diagonal_1754581130624.png";
 import subscriptexImage from "@assets/Subscriptex Layers_1754581352868.png";
