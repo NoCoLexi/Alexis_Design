@@ -1,9 +1,9 @@
 import { X, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import originalHero1 from "@assets/image_1755621221671.png";
-import originalHero2 from "@assets/image_1755621479536.png";
-import originalHero3 from "@assets/image_1755621787749.png";
-import originalHero4 from "@assets/image_1755622182225.png";
+import navDevelopment from "@assets/image_1755632165306.png";
+import codeDevelopment from "@assets/image_1755782692797.png";
+import finalDiscoHero from "@assets/image_1755783740539.png";
 
 interface SiteModalProps {
   isOpen: boolean;
@@ -85,38 +85,38 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
               <div className="space-y-2">
                 <img 
                   src={originalHero1} 
-                  alt="Original hero design - simple title" 
+                  alt="Initial hero concept" 
                   className="w-full rounded-lg border border-purple-400/20 hover:border-purple-400/40 transition-colors"
                   data-testid="img-original-hero-1"
                 />
-                <p className="text-xs text-gray-400">Initial simple title layout</p>
+                <p className="text-xs text-gray-400">Initial concept - simple hero layout</p>
               </div>
               <div className="space-y-2">
                 <img 
-                  src={originalHero2} 
-                  alt="Original hero design - with button" 
+                  src={navDevelopment} 
+                  alt="Navigation development" 
                   className="w-full rounded-lg border border-purple-400/20 hover:border-purple-400/40 transition-colors"
-                  data-testid="img-original-hero-2"
+                  data-testid="img-nav-development"
                 />
-                <p className="text-xs text-gray-400">Added interactive music button</p>
+                <p className="text-xs text-gray-400">Navigation structure development</p>
               </div>
               <div className="space-y-2">
                 <img 
-                  src={originalHero3} 
-                  alt="Original hero design - with tagline" 
+                  src={codeDevelopment} 
+                  alt="Code development process" 
                   className="w-full rounded-lg border border-purple-400/20 hover:border-purple-400/40 transition-colors"
-                  data-testid="img-original-hero-3"
+                  data-testid="img-code-development"
                 />
-                <p className="text-xs text-gray-400">Added personalized tagline</p>
+                <p className="text-xs text-gray-400">Behind-the-scenes code development</p>
               </div>
               <div className="space-y-2">
                 <img 
-                  src={originalHero4} 
-                  alt="Original hero design - refined" 
+                  src={finalDiscoHero} 
+                  alt="Final disco-themed hero" 
                   className="w-full rounded-lg border border-purple-400/20 hover:border-purple-400/40 transition-colors"
-                  data-testid="img-original-hero-4"
+                  data-testid="img-final-disco-hero"
                 />
-                <p className="text-xs text-gray-400">Final iteration before colleague review</p>
+                <p className="text-xs text-gray-400">Final disco-themed hero with interactive effects</p>
               </div>
             </div>
           </div>
