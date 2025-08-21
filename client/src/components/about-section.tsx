@@ -60,6 +60,20 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
             </p>
           </div>
 
+          {/* Expertise Video */}
+          <div className="flex justify-center">
+            <div className="max-w-3xl w-full">
+              <video 
+                src={expertiseVideo}
+                controls
+                className="w-full rounded-xl shadow-lg"
+                data-testid="video-expertise-product-leader"
+              >
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+
           {/* Four Skills Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             <div className="glass rounded-xl p-6">
@@ -94,18 +108,9 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
 
           {/* Main Content - Side by Side Layout */}
           <div className="flex flex-col lg:flex-row gap-12 items-start">
-            {/* Left Side - Video and Fun Fact */}
+            {/* Left Side - Fun Fact */}
             <div className="flex-1 space-y-8">
-              <video 
-                src={expertiseVideo}
-                controls
-                className="w-full rounded-xl shadow-lg"
-                data-testid="video-expertise-product-leader"
-              >
-                Your browser does not support the video tag.
-              </video>
-              
-              {/* Fun Fact under video */}
+              {/* Fun Fact */}
               <div className="text-center">
                 <h3 className="font-semibold text-primary mb-4 text-xl">Fun fact: I'm also a certified personal trainer</h3>
                 <div className="flex justify-center">
