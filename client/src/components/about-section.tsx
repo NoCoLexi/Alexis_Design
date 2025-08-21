@@ -52,7 +52,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
           <div className="flex justify-center">
             <div className="max-w-3xl w-full">
               <h3 className="text-2xl font-bold mb-4 text-center text-muted-foreground">
-                Alexis Brochu: Personality traits
+                Watch my video below
               </h3>
               <video 
                 src={expertiseVideo}
