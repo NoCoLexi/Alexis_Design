@@ -107,10 +107,7 @@ interface CaseStudy {
   learnings: string[];
   image?: string;
   slideshow?: string[];
-  video?: string | {
-    src: string;
-    startTime?: number;
-  };
+  video?: string;
   award?: string;
 }
 
@@ -865,23 +862,13 @@ export default function CaseStudyModal() {
           <div className="aspect-video rounded-xl overflow-hidden">
             {caseStudy.video ? (
               <video 
-                src={typeof caseStudy.video === 'string' 
-                  ? caseStudy.video 
-                  : caseStudy.video.src
-                }
+                src={caseStudy.id === 'pa-portal' ? `${caseStudy.video}#t=4` : caseStudy.video}
                 className="w-full h-full object-cover"
-                autoPlay={false}
+                autoPlay={true}
                 loop
                 muted={true}
                 controls={true}
                 playsInline
-                onLoadedData={(e) => {
-                  if (typeof caseStudy.video !== 'string' && caseStudy.video?.startTime) {
-                    const video = e.target as HTMLVideoElement;
-                    video.currentTime = caseStudy.video.startTime;
-                    video.play();
-                  }
-                }}
               />
             ) : caseStudy.slideshow ? (
               <ImageSlideshow 
