@@ -182,7 +182,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center">
             <div className="text-muted-foreground">
-              © 2025 Alexis Design. Fueled by imagination, code, and AI genius: Replit, Claude, ChatGPT, and Suno working in harmony with Adobe Creative Cloud and Figma.
+              © 2025 Alexis Design.
             </div>
           </div>
         </div>
