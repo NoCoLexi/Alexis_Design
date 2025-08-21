@@ -254,7 +254,6 @@ const caseStudies: Record<string, CaseStudy> = {
       'Measurable impact drives continued investment in UX'
     ],
     image: engageRoadmapImage,
-    video: directorsPreziVideo,
     award: '2023 California Government Technology Innovation Award for Public Service'
   },
   ilave: {
