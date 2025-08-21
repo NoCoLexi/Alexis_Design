@@ -59,6 +59,13 @@ import grantsManagementReportingNewImage from "@assets/Back Office 1.2_175521796
 import grantsManagementPortalNewImage from "@assets/Grants Management Portal 1-0_1754968806232.png";
 import paCloseoutNewImage from "@assets/image_1754969508918.png";
 import paDirectorsDeckImage from "@assets/Directors_Deck_2025-08-21_10-44-04_1755788524452.png";
+import paDirectorsDeck2Image from "@assets/Directors_Deck_2_2025-08-21_10-45-30_1755788563041.png";
+import paDirectorsDeck3Image from "@assets/Directors_Deck_3_2025-08-21_10-45-30_1755788566301.png";
+import paDirectorsDeck4Image from "@assets/Directors_Deck_4_2025-08-21_10-45-30_1755788569111.png";
+import paDirectorsDeck5Image from "@assets/Directors_Deck_5_2025-08-21_10-45-30_1755788571116.png";
+import paDirectorsDeck6Image from "@assets/Directors_Deck_6_2025-08-21_10-45-30_1755788573284.png";
+import paDirectorsDeck7Image from "@assets/Directors_Deck_7_2025-08-21_10-45-30_1755788575819.png";
+import paDirectorsDeck8Image from "@assets/Directors_Deck_8_2025-08-21_10-45-30_1755788578055.png";
 import providenceSchoolsCoverImage from "@assets/FullSizeRender 4_1755218415405.jpg";
 import providenceSchoolsBrochureImage from "@assets/FullSizeRender 10_1755218415406.jpg";
 import providenceSystemMissionImage from "@assets/FullSizeRender 9_1755218651601.jpg";
@@ -144,6 +151,16 @@ const projects: Project[] = [
     description: 'Streamlining the reimbursement process for California subrecipients. Winner of the 2023 California Government Technology Innovation Award.',
     category: 'product-management',
     image: paDirectorsDeckImage,
+    slideshow: [
+      paDirectorsDeckImage,
+      paDirectorsDeck2Image,
+      paDirectorsDeck3Image,
+      paDirectorsDeck4Image,
+      paDirectorsDeck5Image,
+      paDirectorsDeck6Image,
+      paDirectorsDeck7Image,
+      paDirectorsDeck8Image
+    ],
     metrics: [
       { label: 'Processing Time', value: '244M', color: 'text-primary' },
       { label: 'User Satisfaction', value: '75%', color: 'text-chart-2' }
