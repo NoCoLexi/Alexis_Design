@@ -118,7 +118,7 @@ export default function HeroSection() {
         <div className="w-full h-full bg-gradient-to-br from-primary/20 via-transparent to-chart-1/20"></div>
       </div>
       
-      <div className="flex px-6 py-20 relative space-x-8 text-center w-full z-10">
+      <div className="flex items-center px-6 py-20 relative space-x-8 text-center w-full z-10">
         <img 
           src={profileImage} 
           alt="Alexis Brochu professional photo" 
