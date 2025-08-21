@@ -107,7 +107,10 @@ interface CaseStudy {
   learnings: string[];
   image?: string;
   slideshow?: string[];
-  video?: string;
+  video?: string | {
+    src: string;
+    startTime?: number;
+  };
   award?: string;
 }
 
