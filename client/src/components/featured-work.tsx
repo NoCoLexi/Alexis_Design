@@ -105,6 +105,10 @@ interface Project {
   image: string;
   images?: string[]; // For rotating images
   slideshow?: string[]; // For case study slideshow
+  video?: {
+    src: string;
+    startTime?: number;
+  };
   metrics: { label: string; value: string; color: string }[];
   tags: string[];
   award?: string;

@@ -862,7 +862,12 @@ export default function CaseStudyModal() {
           <div className="aspect-video rounded-xl overflow-hidden">
             {caseStudy.video ? (
               <video 
-                src={caseStudy.id === 'pa-portal' ? `${caseStudy.video}#t=4` : caseStudy.video}
+                src={typeof caseStudy.video === 'string' 
+                  ? caseStudy.video 
+                  : caseStudy.video.startTime 
+                    ? `${caseStudy.video.src}#t=${caseStudy.video.startTime}`
+                    : caseStudy.video.src
+                }
                 className="w-full h-full object-cover"
                 autoPlay={true}
                 loop
