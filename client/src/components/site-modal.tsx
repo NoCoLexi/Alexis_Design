@@ -49,7 +49,7 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
           <div className="space-y-4">
             <h3 className="text-xl font-semibold text-purple-400">Development Story</h3>
             <p className="text-gray-300 leading-relaxed">
-              Fueled by imagination, code, working in harmony with AI genius. This portfolio not only demonstrates product design and management, but also AI skills used as a tool. Built with <strong>Replit, NotebookLM, Claude, ChatGPT, and Suno</strong> working alongside <strong>Tailwind CSS, Adobe Creative Cloud and Figma</strong>. This iterative process was initially built in <strong>15 hours</strong>, then a colleague review, <strong>4 hours of changes</strong>, and UX testing.
+              Fueled by imagination, code, working in harmony with AI genius. This portfolio not only demonstrates product design and management, but also AI skills used as a tool.
             </p>
           </div>
 
