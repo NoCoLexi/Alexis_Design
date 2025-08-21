@@ -51,7 +51,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
           {/* Expertise Video */}
           <div className="flex justify-center">
             <div className="max-w-3xl w-full">
-              <h3 className="text-2xl font-bold mb-4 text-center text-chart-2">
+              <h3 className="text-2xl font-bold mb-4 text-center text-muted-foreground">
                 Alexis Brochu: Personality traits
               </h3>
               <video 
