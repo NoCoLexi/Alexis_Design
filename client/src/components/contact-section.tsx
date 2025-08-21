@@ -1,9 +1,12 @@
-import { Mail, Calendar } from "lucide-react";
+import { Mail, Calendar, Award } from "lucide-react";
 import { SiLinkedin } from "react-icons/si";
 import { trackPortfolioClick } from "@/lib/analytics";
 
+interface ContactSectionProps {
+  onOpenAwardModal?: () => void;
+}
 
-export default function ContactSection() {
+export default function ContactSection({ onOpenAwardModal }: ContactSectionProps) {
   return (
     <section id="contact" className="py-20 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-background to-secondary/50"></div>
@@ -21,6 +24,20 @@ export default function ContactSection() {
             user research, strategic planning, and cross-functional communication to deliver <br />
             exceptionally designed products that users adore.
           </p>
+          
+          {/* Award Button */}
+          <div className="flex justify-center mt-8">
+            <div 
+              className="inline-flex items-center gap-3 glass rounded-full px-8 py-4 hover:glow-purple transition-all duration-300 cursor-pointer transform hover:scale-105"
+              onClick={onOpenAwardModal}
+              data-testid="button-contact-tech-award"
+            >
+              <Award className="w-6 h-6 text-chart-3" />
+              <span className="text-lg font-medium text-foreground">
+                2023 CA Gov Tech Award Winner
+              </span>
+            </div>
+          </div>
         </div>
 
         <div className="max-w-4xl mx-auto">

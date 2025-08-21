@@ -38,19 +38,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
           <span className="gradient-text">My Expertise</span>
         </h2>
         
-        {/* Award Button */}
-        <div className="flex justify-center mb-12">
-          <div 
-            className="inline-flex items-center gap-3 glass rounded-full px-8 py-4 hover:glow-purple transition-all duration-300 cursor-pointer transform hover:scale-105"
-            onClick={onOpenAwardModal}
-            data-testid="button-expertise-tech-award"
-          >
-            <Award className="w-6 h-6 text-chart-3" />
-            <span className="text-lg font-medium text-foreground">
-              2023 CA Gov Tech Award Winner
-            </span>
-          </div>
-        </div>
+
         
         <div className="space-y-16">
           {/* Introduction Quote */}

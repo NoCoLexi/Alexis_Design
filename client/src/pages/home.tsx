@@ -165,7 +165,7 @@ export default function Home() {
       <HeroSection />
       <FeaturedWork />
       <AboutSection onOpenAwardModal={() => setIsAwardModalOpen(true)} />
-      <ContactSection />
+      <ContactSection onOpenAwardModal={() => setIsAwardModalOpen(true)} />
       <CaseStudyModal />
       <AwardModal 
         isOpen={isAwardModalOpen} 
