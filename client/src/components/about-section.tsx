@@ -18,7 +18,7 @@ interface AboutSectionProps {
 }
 
 export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
-  const [activeTab, setActiveTab] = useState<'education' | 'publications' | 'community' | 'funfact'>('funfact');
+  const [activeTab, setActiveTab] = useState<'education' | 'publications' | 'community' | 'funfact'>('education');
   
   const scrollToPersonalTraining = () => {
     const personalTrainingElement = document.getElementById('personal-training');
