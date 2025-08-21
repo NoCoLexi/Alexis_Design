@@ -870,15 +870,16 @@ export default function CaseStudyModal() {
                   : caseStudy.video.src
                 }
                 className="w-full h-full object-cover"
-                autoPlay={true}
+                autoPlay={false}
                 loop
                 muted={true}
                 controls={true}
                 playsInline
-                onLoadedMetadata={(e) => {
+                onLoadedData={(e) => {
                   if (typeof caseStudy.video !== 'string' && caseStudy.video?.startTime) {
                     const video = e.target as HTMLVideoElement;
                     video.currentTime = caseStudy.video.startTime;
+                    video.play();
                   }
                 }}
               />
