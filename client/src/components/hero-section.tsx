@@ -56,7 +56,12 @@ export default function HeroSection() {
     "Product Experience Designer",
     "Product Manager",
     "UX Product Strategist",
-    "AI Product Strategist"
+    "AI Product Strategist",
+    "Product Leader",
+    "Human AI",
+    "Human QA",
+    "Scrum Master",
+    "Change Manager"
   ];
 
   useEffect(() => {
