@@ -41,8 +41,7 @@ export default function HeroSection() {
     "UX Architect",
     "Product Designer",
     "Product Designer/Manager",
-    "UX Designer",
-    "User Experience Designer",
+
     "Human Factors Engineer",
     "UX Researcher",
     "Experience Designer",
