@@ -21,9 +21,9 @@ export default function HeroSection() {
     const companyFromUrl = urlParams.get('company');
     
     if (companyFromUrl) {
-      return `Hey ${companyFromUrl} hiring team`;
+      return `Hey ${companyFromUrl} Hiring Team`;
     }
-    return getGreeting();
+    return getGreeting() || "Hey Hiring Team";
   };
 
   const roles = [
@@ -134,7 +134,7 @@ export default function HeroSection() {
         }}>
           <h1 className="text-5xl md:text-7xl font-inter-black mb-6 leading-tight" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 900 }}>
             <span className={`gradient-text disco-text ${isPlaying ? 'dancing' : ''}`}>
-              Hire Alexis
+              {getCustomGreeting()}
             </span>
           </h1>
 
@@ -151,7 +151,7 @@ export default function HeroSection() {
             className="text-2xl md:text-3xl font-inter-medium text-muted-foreground mb-2 leading-relaxed max-w-3xl"
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
           >
-            {getCustomGreeting()}, say hello to your next
+            Hire Alexis and say hello to your next
           </p>
           <p 
             className={`text-2xl md:text-3xl font-inter-black text-foreground mb-8 cycling-role ${isExiting ? 'exit' : ''}`}
