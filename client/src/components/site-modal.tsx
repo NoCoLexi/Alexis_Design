@@ -19,6 +19,7 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
     { name: "Claude", url: "https://claude.ai", description: "AI coding partner" },
     { name: "ChatGPT", url: "https://chatgpt.com", description: "AI brainstorming" },
     { name: "Suno", url: "https://suno.ai", description: "AI music generation" },
+    { name: "Tailwind CSS", url: "https://tailwindcss.com", description: "Utility-first CSS framework" },
     { name: "Adobe Creative Cloud", url: "https://adobe.com", description: "Design suite" },
     { name: "Figma", url: "https://figma.com", description: "Design collaboration" }
   ];
@@ -48,7 +49,7 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
           <div className="space-y-4">
             <h3 className="text-xl font-semibold text-purple-400">Development Story</h3>
             <p className="text-gray-300 leading-relaxed">
-              This site is fueled by imagination, code, and AI genius: <strong>Replit, NotebookLM, Claude, ChatGPT, and Suno</strong> working in harmony with <strong>Adobe Creative Cloud and Figma</strong>. This iterative process was initially built in <strong>15 hours</strong>, then a colleague review, <strong>4 hours of changes</strong>, and UX testing.
+              This site is fueled by imagination, code, and AI genius: <strong>Replit, NotebookLM, Claude, ChatGPT, and Suno</strong> working in harmony with <strong>Tailwind CSS, Adobe Creative Cloud and Figma</strong>. This iterative process was initially built in <strong>15 hours</strong>, then a colleague review, <strong>4 hours of changes</strong>, and UX testing.
             </p>
           </div>
 
