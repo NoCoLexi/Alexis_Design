@@ -108,25 +108,8 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
 
           {/* Main Content - Side by Side Layout */}
           <div className="flex flex-col lg:flex-row gap-12 items-start">
-            {/* Left Side - Fun Fact */}
-            <div className="flex-1 space-y-8">
-              {/* Fun Fact */}
-              <div className="text-center">
-                <h3 className="font-semibold text-primary mb-4 text-xl">Fun fact: I'm also a certified personal trainer</h3>
-                <div className="flex justify-center">
-                  <div className="aspect-video max-w-sm rounded-xl overflow-hidden animate-float glass">
-                    <video
-                      src={profileVideo}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover"
-                      data-testid="video-profile"
-                    />
-                  </div>
-                </div>
-              </div>
+            {/* Left Side - Spacer */}
+            <div className="flex-1">
             </div>
 
             {/* Right Side - Education Tabs */}
@@ -832,6 +815,26 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                   </p>
                 </div>
               )}
+            </div>
+          </div>
+
+          {/* Personal Training Video Section */}
+          <div className="flex justify-center mt-16">
+            <div className="text-center">
+              <h3 className="font-semibold text-primary mb-4 text-xl">Fun fact: I'm also a certified personal trainer</h3>
+              <div className="flex justify-center">
+                <div className="aspect-video max-w-sm rounded-xl overflow-hidden animate-float glass">
+                  <video
+                    src={profileVideo}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
+                    data-testid="video-profile"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
