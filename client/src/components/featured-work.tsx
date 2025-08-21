@@ -111,6 +111,29 @@ interface Project {
 
 const projects: Project[] = [
   {
+    id: 'pa-portal',
+    title: 'Public Assistance Closeouts App',
+    description: 'Streamlining the reimbursement process for California subrecipients. Winner of the 2023 California Government Technology Innovation Award.',
+    category: 'product-management',
+    image: paTestimonialCoverImage,
+    slideshow: [
+      paDirectorsDeckImage,
+      paDirectorsDeck2Image,
+      paDirectorsDeck3Image,
+      paDirectorsDeck4Image,
+      paDirectorsDeck5Image,
+      paDirectorsDeck6Image,
+      paDirectorsDeck7Image,
+      paDirectorsDeck8Image
+    ],
+    metrics: [
+      { label: 'Processing Time', value: '244M', color: 'text-primary' },
+      { label: 'User Satisfaction', value: '75%', color: 'text-chart-2' }
+    ],
+    tags: ['Gov Tech', 'Process Automation', 'Public Service'],
+    award: '2023 CA Gov Tech Innovation Award'
+  },
+  {
     id: 'caloes',
     title: 'Cal OES Engage Community Portal',
     description: 'Modernizing government legacy software with a SaaS CRM platform connecting Californians to state and local municipalities for accessible grant funding.',
@@ -145,29 +168,6 @@ const projects: Project[] = [
       { label: 'Cost Savings', value: '75%', color: 'text-chart-3' }
     ],
     tags: ['Platform Engineering', 'Tech Strategy', 'Process Optimization']
-  },
-  {
-    id: 'pa-portal',
-    title: 'Public Assistance Closeouts App',
-    description: 'Streamlining the reimbursement process for California subrecipients. Winner of the 2023 California Government Technology Innovation Award.',
-    category: 'product-management',
-    image: paTestimonialCoverImage,
-    slideshow: [
-      paDirectorsDeckImage,
-      paDirectorsDeck2Image,
-      paDirectorsDeck3Image,
-      paDirectorsDeck4Image,
-      paDirectorsDeck5Image,
-      paDirectorsDeck6Image,
-      paDirectorsDeck7Image,
-      paDirectorsDeck8Image
-    ],
-    metrics: [
-      { label: 'Processing Time', value: '244M', color: 'text-primary' },
-      { label: 'User Satisfaction', value: '75%', color: 'text-chart-2' }
-    ],
-    tags: ['Gov Tech', 'Process Automation', 'Public Service'],
-    award: '2023 CA Gov Tech Innovation Award'
   },
   {
     id: 'grants-management-sikich',
