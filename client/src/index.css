@@ -385,6 +385,9 @@
 
 .disco-button {
   position: relative;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .disco-button > * {
@@ -413,14 +416,11 @@
   z-index: 1;
 }
 
+/* Remove any disco button container effects */
 .disco-button.playing {
-  animation: disco-pulse 1s ease-in-out infinite;
-}
-
-/* Ensure disco button has proper flex layout and rounded corners */
-.disco-button .flex.items-center.justify-center.playing.rounded-2xl {
-  position: relative;
-  z-index: 10;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 /* Header Disco Effects */
