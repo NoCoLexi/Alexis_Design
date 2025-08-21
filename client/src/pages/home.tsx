@@ -5,16 +5,18 @@ import ContactSection from "@/components/contact-section";
 import logoImage from "@assets/image_1754581825249.png";
 import CaseStudyModal from "@/components/case-study-modal";
 import AwardModal from "@/components/award-modal";
+import SiteModal from "@/components/site-modal";
 import CareerChatbot from "@/components/CareerChatbot";
 import NavMusicPlayer from "@/components/nav-music-player";
 import { useState, useEffect } from "react";
-import { Menu, X, Award } from "lucide-react";
+import { Menu, X, Award, Code, ExternalLink } from "lucide-react";
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const [isAwardModalOpen, setIsAwardModalOpen] = useState(false);
+  const [isSiteModalOpen, setIsSiteModalOpen] = useState(false);
   
 
 
@@ -78,7 +80,17 @@ export default function Home() {
                   {item.label}
                 </button>
               ))}
-              <div className="ml-4">
+              <div className="ml-4 flex items-center gap-3">
+                <div 
+                  className="inline-flex items-center gap-2 bg-purple-600/20 rounded-full px-4 py-2 hover:bg-purple-600/30 transition-all duration-300 cursor-pointer border border-purple-400/20"
+                  onClick={() => setIsSiteModalOpen(true)}
+                  data-testid="button-about-site"
+                >
+                  <Code className="w-4 h-4 text-blue-400" />
+                  <span className="text-sm font-medium text-white hidden lg:inline">
+                    About this site
+                  </span>
+                </div>
                 <div 
                   className="inline-flex items-center gap-2 bg-purple-600/20 rounded-full px-4 py-2 hover:bg-purple-600/30 transition-all duration-300 cursor-pointer border border-purple-400/20"
                   onClick={() => setIsAwardModalOpen(true)}
@@ -116,7 +128,20 @@ export default function Home() {
                   {item.label}
                 </button>
               ))}
-              <div className="pt-2 border-t border-purple-400/20">
+              <div className="pt-2 border-t border-purple-400/20 space-y-2">
+                <div 
+                  className="inline-flex items-center gap-2 bg-purple-600/20 rounded-full px-4 py-2 hover:bg-purple-600/30 transition-all duration-300 cursor-pointer w-full justify-center"
+                  onClick={() => {
+                    setIsSiteModalOpen(true);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  data-testid="button-about-site-mobile"
+                >
+                  <Code className="w-4 h-4 text-blue-400" />
+                  <span className="text-sm font-medium text-white">
+                    About this site
+                  </span>
+                </div>
                 <div 
                   className="inline-flex items-center gap-2 bg-purple-600/20 rounded-full px-4 py-2 hover:bg-purple-600/30 transition-all duration-300 cursor-pointer w-full justify-center"
                   onClick={() => {
@@ -145,6 +170,10 @@ export default function Home() {
       <AwardModal 
         isOpen={isAwardModalOpen} 
         onClose={() => setIsAwardModalOpen(false)} 
+      />
+      <SiteModal 
+        isOpen={isSiteModalOpen} 
+        onClose={() => setIsSiteModalOpen(false)} 
       />
       {/* <CareerChatbot /> */}
 
