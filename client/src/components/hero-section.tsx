@@ -161,7 +161,7 @@ export default function HeroSection() {
           </p>
           
           {/* Contact Icons */}
-          <div className="mb-12 flex justify-center space-x-6">
+          <div className="mb-12 mt-8 flex justify-center space-x-6">
             <a 
               href="mailto:alexisb.product@gmail.com" 
               className="w-12 h-12 bg-primary rounded-full flex items-center justify-center hover:opacity-80 transition-all duration-300 hover:scale-110"
