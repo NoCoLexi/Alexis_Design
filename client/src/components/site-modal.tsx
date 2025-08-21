@@ -51,6 +51,9 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
             <p className="text-gray-300 leading-relaxed">
               Fueled by imagination, code, working in harmony with AI genius. This portfolio not only demonstrates product design and management, but also AI skills used as a tool.
             </p>
+            <p className="text-gray-300 leading-relaxed mt-3">
+              The site is designed to parse through job description URLs and tailor the portfolio individually with unique site links and customized features for each opportunity.
+            </p>
           </div>
 
           {/* Tools Used */}

@@ -61,6 +61,13 @@ The portfolio includes an intelligent career chatbot that helps visitors learn a
 - **Authentic Responses**: All information is based on real accomplishments and verified experience
 - **Professional Presentation**: Positions Alexis as a product leadership expert with specific metrics and achievements
 
+### Dynamic Job-Targeted Customization
+The site architecture supports parsing job description URLs to dynamically tailor the portfolio experience:
+- **Unique Site Links**: Generate personalized URLs for specific job applications
+- **Customized Features**: Adapt content focus and case study emphasis based on role requirements
+- **Personalized Greetings**: Dynamic messaging tailored to company and position type
+- **Live Site Integrity**: Changes applied without affecting the main portfolio experience
+
 ### Google Analytics 4 Integration
 Comprehensive analytics implementation for tracking user engagement and demonstrating portfolio metrics to potential employers:
 - **Core Tracking**: Page views, session duration, device detection, and user interactions
