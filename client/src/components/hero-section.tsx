@@ -31,6 +31,7 @@ export default function HeroSection() {
     "AI Product Manager",
     "Design Product Manager", 
     "Product Strategy Designer",
+    "Product Strategist",
     "Customer Experience Manager",
     "User Experience Manager",
     "Digital Experience Manager",
@@ -54,7 +55,6 @@ export default function HeroSection() {
     "Design Strategist",
     "Product Experience Designer",
     "Product Manager",
-    "Product Strategist",
     "UX Product Strategist",
     "AI Product Strategist"
   ];
