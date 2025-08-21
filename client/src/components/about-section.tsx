@@ -60,20 +60,6 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
             </p>
           </div>
 
-          {/* Expertise Video */}
-          <div className="flex justify-center">
-            <div className="max-w-3xl w-full">
-              <video 
-                src={expertiseVideo}
-                controls
-                className="w-full rounded-xl shadow-lg"
-                data-testid="video-expertise-product-leader"
-              >
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </div>
-
           {/* Four Skills Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             <div className="glass rounded-xl p-6">
@@ -106,50 +92,40 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
             </div>
           </div>
 
-          {/* Scroll to Personal Training Arrow */}
-          <div className="flex justify-center my-16">
-            <div 
-              className="animate-bounce cursor-pointer hover:text-primary transition-colors flex items-center justify-center"
-              onClick={scrollToPersonalTraining}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => e.key === 'Enter' && scrollToPersonalTraining()}
-              data-testid="button-scroll-to-personal-training"
-            >
-              <ArrowDown className="w-8 h-8 text-muted-foreground hover:text-primary transition-colors" />
-            </div>
-          </div>
-
-          {/* Personal Trainer Section */}
-          <div id="personal-training" className="text-center">
-            <h3 className="font-semibold text-primary mb-8 text-xl">Fun fact: I'm also a certified personal trainer</h3>
-            
-            <div className="flex justify-center mb-12">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-md">
-                <div className="aspect-square rounded-2xl overflow-hidden animate-float glass">
-                  <img 
-                    src={professionalPhoto}
-                    alt="Alexis Brochu Professional Photo"
-                    className="w-full h-full object-cover"
-                    data-testid="img-professional-photo"
-                  />
-                </div>
-                <div className="aspect-square rounded-2xl overflow-hidden animate-float" style={{ animationDelay: '1s' }}>
-                  <video
-                    src={profileVideo}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover"
-                    data-testid="video-profile"
-                  />
+          {/* Main Content - Side by Side Layout */}
+          <div className="flex flex-col lg:flex-row gap-12 items-start">
+            {/* Left Side - Video and Fun Fact */}
+            <div className="flex-1 space-y-8">
+              <video 
+                src={expertiseVideo}
+                controls
+                className="w-full rounded-xl shadow-lg"
+                data-testid="video-expertise-product-leader"
+              >
+                Your browser does not support the video tag.
+              </video>
+              
+              {/* Fun Fact under video */}
+              <div className="text-center">
+                <h3 className="font-semibold text-primary mb-4 text-xl">Fun fact: I'm also a certified personal trainer</h3>
+                <div className="flex justify-center">
+                  <div className="aspect-video max-w-sm rounded-xl overflow-hidden animate-float glass">
+                    <video
+                      src={profileVideo}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover"
+                      data-testid="video-profile"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Credentials Section with Tabs */}
-            <div className="max-w-4xl mx-auto">
+            {/* Right Side - Education Tabs */}
+            <div className="flex-1">
               {/* Tab Navigation */}
               <div className="flex justify-center mb-8">
                 <div className="glass rounded-xl p-2">
