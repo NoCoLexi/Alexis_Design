@@ -867,9 +867,7 @@ export default function CaseStudyModal() {
               <video 
                 src={typeof caseStudy.video === 'string' 
                   ? caseStudy.video 
-                  : caseStudy.video.startTime 
-                    ? `${caseStudy.video.src}#t=${caseStudy.video.startTime}`
-                    : caseStudy.video.src
+                  : caseStudy.video.src
                 }
                 className="w-full h-full object-cover"
                 autoPlay={true}
@@ -877,6 +875,12 @@ export default function CaseStudyModal() {
                 muted={true}
                 controls={true}
                 playsInline
+                onLoadedMetadata={(e) => {
+                  if (typeof caseStudy.video !== 'string' && caseStudy.video?.startTime) {
+                    const video = e.target as HTMLVideoElement;
+                    video.currentTime = caseStudy.video.startTime;
+                  }
+                }}
               />
             ) : caseStudy.slideshow ? (
               <ImageSlideshow 
