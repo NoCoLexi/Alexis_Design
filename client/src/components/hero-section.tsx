@@ -132,11 +132,11 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           {/* Award Button - positioned above the heading */}
           <div className="mb-6 flex justify-center">
             <div 
-              className="inline-flex items-center gap-3 glass rounded-full px-8 py-4 hover:glow-purple transition-all duration-300 cursor-pointer transform hover:scale-105"
+              className="inline-flex items-center gap-3 glass rounded-full px-8 py-4 hover:glow-purple transition-all duration-300 cursor-pointer transform hover:scale-105 shadow-lg border border-chart-3/20"
               onClick={onOpenAwardModal}
               data-testid="button-hero-tech-award"
             >
-              <img src={goldenTrophyIcon} alt="Award Icon" className="w-6 h-6 text-chart-3" />
+              <Award className="w-6 h-6 text-chart-3" />
               <span className="text-lg font-medium text-foreground">
                 2023 CA Gov Tech Award Winner
               </span>
