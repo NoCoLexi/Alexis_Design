@@ -185,7 +185,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           </div>
 
           {/* Song and Podcast Buttons Side by Side */}
-          <div className="mb-8 flex justify-center gap-4 max-w-2xl mx-auto">
+          <div className="mb-8 flex justify-center gap-3 max-w-xl mx-auto">
             {/* Hire Me Song Button */}
             <div className={`disco-button ${isPlaying ? 'playing' : ''} flex-1`}>
               <NavMusicPlayer 
