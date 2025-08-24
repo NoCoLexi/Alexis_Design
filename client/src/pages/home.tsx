@@ -17,7 +17,7 @@ export default function Home() {
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const [isAwardModalOpen, setIsAwardModalOpen] = useState(false);
   const [isSiteModalOpen, setIsSiteModalOpen] = useState(false);
-  
+
 
 
 
@@ -110,7 +110,7 @@ export default function Home() {
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
-          
+
           {/* Mobile Menu */}
           {isMobileMenuOpen && (
             <div className="md:hidden mt-4 pb-4 space-y-2 bg-black/50 rounded-lg p-4 border border-purple-400/20">
@@ -162,7 +162,7 @@ export default function Home() {
       </nav>
 
       {/* Page Sections */}
-      <HeroSection />
+      <HeroSection onOpenAwardModal={() => setIsAwardModalOpen(true)} />
       <FeaturedWork />
       <AboutSection onOpenAwardModal={() => setIsAwardModalOpen(true)} />
       <ContactSection onOpenAwardModal={() => setIsAwardModalOpen(true)} />
