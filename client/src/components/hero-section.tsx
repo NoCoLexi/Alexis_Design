@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowDown, Award, Sparkles, Mail, Calendar } from "lucide-react";
 import { SiLinkedin } from "react-icons/si";
 import NavMusicPlayer from "./nav-music-player";
-import PodcastPlayer from "./podcast-player";
 import AdminPanel from "./admin-panel";
 import VideoModal from "./video-modal";
 import { useAdminPanel } from "@/hooks/use-admin-panel";
@@ -184,20 +183,14 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             </button>
           </div>
 
-          {/* Song and Podcast Buttons Side by Side */}
-          <div className="mb-8 flex justify-center gap-4 max-w-2xl mx-auto">
-            {/* Hire Me Song Button */}
-            <div className={`disco-button ${isPlaying ? 'playing' : ''} flex-1`}>
+          {/* Hire Me Song Button */}
+          <div className="mb-8 flex justify-center max-w-md mx-auto">
+            <div className={`disco-button ${isPlaying ? 'playing' : ''} w-full`}>
               <NavMusicPlayer 
                 onPlayingChange={setIsPlaying}
                 renderAs="button"
                 buttonText='Play my "Hire Me" song'
               />
-            </div>
-
-            {/* Podcast Button */}
-            <div className="flex-1">
-              <PodcastPlayer />
             </div>
           </div>
 
