@@ -112,7 +112,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
       </div>
       
       {/* Award Button - positioned above everything */}
-      <div className="absolute top-20 left-1/2 transform -translate-x-1/2 z-20">
+      <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-20">
         <div 
           className="inline-flex items-center gap-3 glass rounded-full px-8 py-4 hover:glow-purple transition-all duration-300 cursor-pointer transform hover:scale-105"
           onClick={onOpenAwardModal}
