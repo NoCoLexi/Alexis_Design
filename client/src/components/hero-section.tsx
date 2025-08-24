@@ -162,43 +162,40 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             {roles[currentRoleIndex]}
           </p>
 
-          {/* Three Buttons Row */}
-          <div className="mb-8 flex justify-center items-end gap-4 flex-wrap lg:flex-nowrap">
-            {/* Hire Me Song Button */}
-            <div className={`disco-button ${isPlaying ? 'playing' : ''} flex-shrink-0`}>
-              <NavMusicPlayer 
-                onPlayingChange={setIsPlaying}
-                renderAs="button"
-                buttonText='Play my "Hire Me" song'
-              />
-            </div>
+          {/* Hire Me Song Button */}
+          <div className={`mb-6 flex justify-center disco-button ${isPlaying ? 'playing' : ''}`}>
+            <NavMusicPlayer 
+              onPlayingChange={setIsPlaying}
+              renderAs="button"
+              buttonText='Play my "Hire Me" song'
+            />
+          </div>
 
-            {/* Watch Video Button - Taller in the middle */}
-            <div className="flex-shrink-0">
-              <button
-                onClick={openVideoModal}
-                className="px-4 py-3 gradient-bg-secondary hover:opacity-90 rounded-xl font-inter-medium text-lg transition-all duration-300 glow-blue flex flex-col items-center gap-3 w-[300px] justify-center relative overflow-hidden hover:scale-105"
-                data-testid="button-watch-video-about-me"
-                style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
-              >
-                <span className="text-center">Watch this video about me</span>
-                <div className="w-full h-16 rounded-md overflow-hidden">
-                  <video 
-                    src={expertiseVideo}
-                    muted
-                    loop
-                    autoPlay
-                    playsInline
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </button>
-            </div>
+          {/* Podcast Button */}
+          <div className="mb-6 flex justify-center">
+            <PodcastPlayer />
+          </div>
 
-            {/* Podcast Button */}
-            <div className="flex-shrink-0">
-              <PodcastPlayer />
-            </div>
+          {/* Watch Video Button */}
+          <div className="mb-8 flex justify-center">
+            <button
+              onClick={openVideoModal}
+              className="px-4 py-3 gradient-bg-secondary hover:opacity-90 rounded-xl font-inter-medium text-lg transition-all duration-300 glow-blue flex flex-col items-center gap-3 w-[300px] justify-center relative overflow-hidden hover:scale-105"
+              data-testid="button-watch-video-about-me"
+              style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
+            >
+              <span className="text-center">Watch this video about me</span>
+              <div className="w-full h-16 rounded-md overflow-hidden">
+                <video 
+                  src={expertiseVideo}
+                  muted
+                  loop
+                  autoPlay
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </button>
           </div>
 
           {/* Key Metrics */}
