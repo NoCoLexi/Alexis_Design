@@ -8,6 +8,7 @@ import VideoModal from "./video-modal";
 import { useAdminPanel } from "@/hooks/use-admin-panel";
 import profileImage from "@assets/Brochu, Alexis 2023 Ireland_1754523029765.png";
 import expertiseVideo from "@assets/Alexis_Deconstructing_a_Modern_Product_Leader_1755784261269.mp4";
+import goldenTrophy from "@assets/golden-star-trophy.png";
 
 interface HeroSectionProps {
   onOpenAwardModal?: () => void;
@@ -114,15 +115,20 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
       
       
       <div className="flex items-center px-6 py-20 relative space-x-8 text-center w-full z-10">
-        <img 
-          src={profileImage} 
-          alt="Alexis Brochu professional photo" 
-          data-testid="img-professional-photo"
-          className="max-w-4xl mx-auto"
-          style={{
-            flexGrow: 1
-          }}
-        />
+        <div className="relative" style={{ flexGrow: 1 }}>
+          <img 
+            src={profileImage} 
+            alt="Alexis Brochu professional photo" 
+            data-testid="img-professional-photo"
+            className="max-w-4xl mx-auto"
+          />
+          <img 
+            src={goldenTrophy}
+            alt="Achievement trophy"
+            className="absolute bottom-4 left-4 w-16 h-16 z-20"
+            style={{ maxWidth: '64px', maxHeight: '64px' }}
+          />
+        </div>
         
         <div className="max-w-4xl mx-auto" style={{
           flexGrow: 1
