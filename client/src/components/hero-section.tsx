@@ -152,13 +152,13 @@ export default function HeroSection() {
           </div>
           
           <p 
-            className="text-2xl md:text-3xl font-inter-medium text-muted-foreground mb-2 leading-relaxed max-w-3xl"
+            className="text-2xl md:text-3xl font-inter-medium text-muted-foreground mb-2 leading-relaxed max-w-3xl mx-auto text-center"
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
           >
             Hire Alexis and say hello to your next
           </p>
           <p 
-            className={`text-2xl md:text-3xl font-inter-black text-foreground mb-8 cycling-role ${isExiting ? 'exit' : ''}`}
+            className={`text-2xl md:text-3xl font-inter-black text-foreground mb-8 cycling-role text-center ${isExiting ? 'exit' : ''}`}
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 900 }}
           >
             {roles[currentRoleIndex]}
