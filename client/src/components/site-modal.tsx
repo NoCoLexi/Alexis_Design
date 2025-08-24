@@ -48,6 +48,23 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
           {/* Development Story */}
           <div className="space-y-4">
             <h3 className="text-xl font-semibold text-purple-400">Development Story</h3>
+            
+            {/* Key Metrics */}
+            <div className="grid grid-cols-3 gap-4 mb-6">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-white">2 Days</div>
+                <div className="text-xs text-gray-400">Build Time</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-white">5 testers</div>
+                <div className="text-xs text-gray-400">User Testing</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-white">$20</div>
+                <div className="text-xs text-gray-400">Total Cost</div>
+              </div>
+            </div>
+            
             <p className="text-gray-300 leading-relaxed">
               Fueled by imagination, code, working in harmony with AI genius. This portfolio not only demonstrates product design and management, but also AI skills used as a tool.
             </p>
