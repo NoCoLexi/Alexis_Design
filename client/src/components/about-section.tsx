@@ -53,8 +53,8 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
           {/* Expertise Video */}
           <div className="flex justify-center">
             <div className="max-w-3xl w-full">
-              <h3 className="text-2xl font-bold mb-4 text-center text-muted-foreground">
-                Watch this video I made about me as an employee
+              <h3 className="text-xl font-semibold mb-4 text-center text-foreground">
+                Watch this video I made about what it would be like to work with me
               </h3>
               <video 
                 src={expertiseVideo}
