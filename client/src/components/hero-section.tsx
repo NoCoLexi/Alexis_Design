@@ -184,18 +184,21 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             </button>
           </div>
 
-          {/* Hire Me Song Button */}
-          <div className={`mb-6 flex justify-center disco-button ${isPlaying ? 'playing' : ''}`}>
-            <NavMusicPlayer 
-              onPlayingChange={setIsPlaying}
-              renderAs="button"
-              buttonText='Play my "Hire Me" song'
-            />
-          </div>
+          {/* Song and Podcast Buttons Side by Side */}
+          <div className="mb-8 flex justify-center gap-4 max-w-2xl mx-auto">
+            {/* Hire Me Song Button */}
+            <div className={`disco-button ${isPlaying ? 'playing' : ''} flex-1`}>
+              <NavMusicPlayer 
+                onPlayingChange={setIsPlaying}
+                renderAs="button"
+                buttonText='Play my "Hire Me" song'
+              />
+            </div>
 
-          {/* Podcast Button */}
-          <div className="mb-8 flex justify-center">
-            <PodcastPlayer />
+            {/* Podcast Button */}
+            <div className="flex-1">
+              <PodcastPlayer />
+            </div>
           </div>
 
           {/* Key Metrics */}
