@@ -169,37 +169,6 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             />
           </div>
           
-          {/* Contact Icons */}
-          <div className="mb-12 flex justify-center space-x-6">
-            <a 
-              href="mailto:alexisb.product@gmail.com" 
-              className="w-12 h-12 bg-primary rounded-full flex items-center justify-center hover:opacity-80 transition-all duration-300 hover:scale-110"
-              data-testid="contact-email-icon"
-            >
-              <Mail className="w-6 h-6 text-white" />
-            </a>
-            
-            <a 
-              href="https://linkedin.com/in/alexisbrochu" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="w-12 h-12 bg-[#0077B5] rounded-full flex items-center justify-center hover:opacity-80 transition-all duration-300 hover:scale-110"
-              data-testid="contact-linkedin-icon"
-            >
-              <SiLinkedin className="w-6 h-6 text-white" />
-            </a>
-            
-            <a 
-              href="https://calendly.com/alexis-brochu/15min" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="w-12 h-12 bg-chart-2 rounded-full flex items-center justify-center hover:opacity-80 transition-all duration-300 hover:scale-110"
-              data-testid="contact-calendar-icon"
-            >
-              <Calendar className="w-6 h-6 text-white" />
-            </a>
-          </div>
-          
           {/* Key Metrics */}
           <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
             <div className="text-center">
