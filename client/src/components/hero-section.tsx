@@ -174,10 +174,11 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           <div className="mb-8 flex justify-center">
             <button
               onClick={scrollToAbout}
-              className="px-4 py-3 gradient-bg-secondary hover:opacity-90 rounded-xl font-inter-medium text-lg transition-all duration-300 glow-blue flex items-center gap-3 w-[300px] justify-center relative overflow-hidden"
+              className="px-4 py-3 gradient-bg-secondary hover:opacity-90 rounded-xl font-inter-medium text-lg transition-all duration-300 glow-blue flex flex-col items-center gap-3 w-[300px] justify-center relative overflow-hidden"
               data-testid="button-watch-video-about-me"
               style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
             >
+              <span className="text-center">Watch this video about me</span>
               <div className="w-8 h-8 rounded-md overflow-hidden flex-shrink-0">
                 <video 
                   src={expertiseVideo}
@@ -188,7 +189,6 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <span className="text-center">Watch this video about me</span>
             </button>
           </div>
           
