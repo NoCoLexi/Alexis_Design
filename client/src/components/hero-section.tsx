@@ -8,6 +8,7 @@ import VideoModal from "./video-modal";
 import { useAdminPanel } from "@/hooks/use-admin-panel";
 import profileImage from "@assets/Brochu, Alexis 2023 Ireland_1754523029765.png";
 import expertiseVideo from "@assets/Alexis_Deconstructing_a_Modern_Product_Leader_1755784261269.mp4";
+import goldenTrophyIcon from "@assets/golden-star-trophy.png";
 
 interface HeroSectionProps {
   onOpenAwardModal?: () => void;
@@ -18,7 +19,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [isExiting, setIsExiting] = useState(false);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
-  
+
   // Admin panel integration
   const { isVisible, settings, getGreeting, getCaseStudyFocus, applySettings, closePanel } = useAdminPanel();
 
@@ -26,7 +27,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
   const getCustomGreeting = () => {
     const urlParams = new URLSearchParams(window.location.search);
     const companyFromUrl = urlParams.get('company');
-    
+
     if (companyFromUrl) {
       return `Hey ${companyFromUrl} hiring team`;
     }
@@ -62,7 +63,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
     };
 
     window.addEventListener('musicStateChange', handleMusicStateChange as EventListener);
-    
+
     return () => {
       window.removeEventListener('musicStateChange', handleMusicStateChange as EventListener);
     };
@@ -71,7 +72,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
   useEffect(() => {
     const interval = setInterval(() => {
       setIsExiting(true);
-      
+
       setTimeout(() => {
         setCurrentRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
         setIsExiting(false);
@@ -110,9 +111,9 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
       <div className="absolute inset-0 opacity-20">
         <div className="w-full h-full bg-gradient-to-br from-primary/20 via-transparent to-chart-1/20"></div>
       </div>
-      
-      
-      
+
+
+
       <div className="flex items-center px-6 py-20 relative space-x-8 text-center w-full z-10">
         <img 
           src={profileImage} 
@@ -123,7 +124,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             flexGrow: 1
           }}
         />
-        
+
         <div className="max-w-4xl mx-auto" style={{
           flexGrow: 1
         }}>
@@ -134,19 +135,19 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
               onClick={onOpenAwardModal}
               data-testid="button-hero-tech-award"
             >
-              <Award className="w-6 h-6 text-chart-3" />
+              <img src={goldenTrophyIcon} alt="Award Icon" className="w-6 h-6 text-chart-3" />
               <span className="text-lg font-medium text-foreground">
                 2023 CA Gov Tech Award Winner
               </span>
             </div>
           </div>
-          
+
           <h1 className="text-5xl md:text-7xl font-inter-black mb-6" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 900, lineHeight: '1.4', paddingBottom: '0.25rem' }}>
             <span className={`gradient-text disco-text ${isPlaying ? 'dancing' : ''}`}>
               {getCustomGreeting()}
             </span>
           </h1>
-          
+
           <p 
             className="text-2xl md:text-3xl font-inter-medium text-muted-foreground mb-2 leading-relaxed max-w-3xl mx-auto text-center"
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
@@ -190,7 +191,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
               </div>
             </button>
           </div>
-          
+
           {/* Key Metrics */}
           <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
             <div className="text-center">
@@ -207,7 +208,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             </div>
           </div>
         </div>
-        
+
 
       </div>
 
