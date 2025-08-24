@@ -137,7 +137,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
               data-testid="button-hero-tech-award"
             >
               <Award className="w-6 h-6 text-chart-3" />
-              <span className="text-lg font-medium text-foreground">
+              <span className="text-lg font-medium" style={{ color: '#F3E8B9' }}>
                 2023 CA Gov Tech Award Winner
               </span>
             </div>
