@@ -91,16 +91,6 @@ export default function Home() {
                     About this site
                   </span>
                 </div>
-                <div 
-                  className="inline-flex items-center gap-2 bg-purple-600/20 rounded-full px-4 py-2 hover:bg-purple-600/30 transition-all duration-300 cursor-pointer border border-purple-400/20"
-                  onClick={() => setIsAwardModalOpen(true)}
-                  data-testid="button-2023-tech-award"
-                >
-                  <Award className="w-4 h-4 text-yellow-400" />
-                  <span className="text-sm font-medium text-white hidden lg:inline">
-                    2023 CA Gov Tech Award
-                  </span>
-                </div>
               </div>
             </div>
             <button
@@ -140,19 +130,6 @@ export default function Home() {
                   <Code className="w-4 h-4 text-blue-400" />
                   <span className="text-sm font-medium text-white">
                     About this site
-                  </span>
-                </div>
-                <div 
-                  className="inline-flex items-center gap-2 bg-purple-600/20 rounded-full px-4 py-2 hover:bg-purple-600/30 transition-all duration-300 cursor-pointer w-full justify-center"
-                  onClick={() => {
-                    setIsAwardModalOpen(true);
-                    setIsMobileMenuOpen(false);
-                  }}
-                  data-testid="button-2023-tech-award-mobile"
-                >
-                  <Award className="w-4 h-4 text-yellow-400" />
-                  <span className="text-sm font-medium text-white">
-                    2023 CA Gov Tech Award
                   </span>
                 </div>
               </div>
