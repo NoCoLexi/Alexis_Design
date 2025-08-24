@@ -140,7 +140,7 @@ export default function HeroSection() {
             className="text-2xl md:text-3xl font-inter-medium text-muted-foreground mb-2 leading-relaxed max-w-3xl mx-auto text-center"
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
           >
-            Hire Alexis and say hello to your next
+            I'm Alexis and I want to be your next
           </p>
           <p 
             className={`text-2xl md:text-3xl font-inter-black text-foreground mb-8 cycling-role text-center ${isExiting ? 'exit' : ''}`}
