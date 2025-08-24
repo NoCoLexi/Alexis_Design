@@ -23,7 +23,7 @@ export default function HeroSection() {
     if (companyFromUrl) {
       return `Hey ${companyFromUrl} Hiring Team`;
     }
-    return getGreeting() || "Hey Hiring Team";
+    return getGreeting() || "Hey, [company] hiring team";
   };
 
   const roles = [
