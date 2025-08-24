@@ -111,19 +111,6 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         <div className="w-full h-full bg-gradient-to-br from-primary/20 via-transparent to-chart-1/20"></div>
       </div>
       
-      {/* Award Button - positioned at top center */}
-      <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-20">
-        <div 
-          className="inline-flex items-center gap-3 glass rounded-full px-8 py-4 hover:glow-purple transition-all duration-300 cursor-pointer transform hover:scale-105"
-          onClick={onOpenAwardModal}
-          data-testid="button-hero-tech-award"
-        >
-          <Award className="w-6 h-6 text-chart-3" />
-          <span className="text-lg font-medium text-foreground">
-            2023 CA Gov Tech Award Winner
-          </span>
-        </div>
-      </div>
       
       
       <div className="flex items-center px-6 py-20 relative space-x-8 text-center w-full z-10">
@@ -140,6 +127,20 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         <div className="max-w-4xl mx-auto" style={{
           flexGrow: 1
         }}>
+          {/* Award Button - positioned above the heading */}
+          <div className="mb-6 flex justify-center">
+            <div 
+              className="inline-flex items-center gap-3 glass rounded-full px-8 py-4 hover:glow-purple transition-all duration-300 cursor-pointer transform hover:scale-105"
+              onClick={onOpenAwardModal}
+              data-testid="button-hero-tech-award"
+            >
+              <Award className="w-6 h-6 text-chart-3" />
+              <span className="text-lg font-medium text-foreground">
+                2023 CA Gov Tech Award Winner
+              </span>
+            </div>
+          </div>
+          
           <h1 className="text-5xl md:text-7xl font-inter-black mb-6" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 900, lineHeight: '1.4', paddingBottom: '0.25rem' }}>
             <span className={`gradient-text disco-text ${isPlaying ? 'dancing' : ''}`}>
               {getCustomGreeting()}
