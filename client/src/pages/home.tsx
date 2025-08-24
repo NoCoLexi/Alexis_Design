@@ -87,7 +87,7 @@ export default function Home() {
                 >
                   <Code className="w-4 h-4 text-blue-400" />
                   <span className="text-sm font-medium text-white hidden lg:inline">
-                    About this site
+                    How I built this site
                   </span>
                 </div>
               </div>
@@ -127,7 +127,7 @@ export default function Home() {
                 >
                   <Code className="w-4 h-4 text-blue-400" />
                   <span className="text-sm font-medium text-white">
-                    About this site
+                    How I built this site
                   </span>
                 </div>
               </div>
