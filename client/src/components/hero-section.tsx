@@ -125,7 +125,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         </div>
       </div>
       
-      <div className="flex items-center px-6 py-20 relative space-x-8 text-center w-full z-10"></div>
+      <div className="flex items-center px-6 py-20 relative space-x-8 text-center w-full z-10">
         <img 
           src={profileImage} 
           alt="Alexis Brochu professional photo" 
