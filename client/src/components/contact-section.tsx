@@ -25,7 +25,19 @@ export default function ContactSection({ onOpenAwardModal }: ContactSectionProps
             exceptionally designed products that users adore.
           </p>
           
-          
+          {/* Award Button */}
+          <div className="flex justify-center mt-8">
+            <div 
+              className="inline-flex items-center gap-3 glass rounded-full px-8 py-4 hover:glow-purple transition-all duration-300 cursor-pointer transform hover:scale-105"
+              onClick={onOpenAwardModal}
+              data-testid="button-contact-tech-award"
+            >
+              <Award className="w-6 h-6 text-chart-3" />
+              <span className="text-lg font-medium text-foreground">
+                2023 CA Gov Tech Award Winner
+              </span>
+            </div>
+          </div>
         </div>
 
         <div className="max-w-4xl mx-auto">

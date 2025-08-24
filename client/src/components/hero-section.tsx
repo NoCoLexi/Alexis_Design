@@ -7,11 +7,7 @@ import AdminPanel from "./admin-panel";
 import { useAdminPanel } from "@/hooks/use-admin-panel";
 import profileImage from "@assets/Brochu, Alexis 2023 Ireland_1754523029765.png";
 
-interface HeroSectionProps {
-  onOpenAwardModal?: () => void;
-}
-
-export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
+export default function HeroSection() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [isExiting, setIsExiting] = useState(false);
@@ -111,21 +107,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         <div className="w-full h-full bg-gradient-to-br from-primary/20 via-transparent to-chart-1/20"></div>
       </div>
       
-      {/* Award Button - positioned above everything */}
-      <div className="absolute top-20 left-1/2 transform -translate-x-1/2 z-20">
-        <div 
-          className="inline-flex items-center gap-3 glass rounded-full px-8 py-4 hover:glow-purple transition-all duration-300 cursor-pointer transform hover:scale-105"
-          onClick={onOpenAwardModal}
-          data-testid="button-hero-tech-award"
-        >
-          <Award className="w-6 h-6 text-chart-3" />
-          <span className="text-lg font-medium text-foreground">
-            2023 CA Gov Tech Award Winner
-          </span>
-        </div>
-      </div>
-      
-      <div className="flex items-center px-6 py-20 relative space-x-8 text-center w-full z-10"></div>
+      <div className="flex items-center px-6 py-20 relative space-x-8 text-center w-full z-10">
         <img 
           src={profileImage} 
           alt="Alexis Brochu professional photo" 
