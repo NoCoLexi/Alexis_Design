@@ -161,8 +161,35 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             {roles[currentRoleIndex]}
           </p>
 
+          {/* Hire Me Song Button */}
+          <div className="mb-8 flex justify-center max-w-xs mx-auto">
+            <div className={`disco-button ${isPlaying ? 'playing' : ''} w-full`}>
+              <NavMusicPlayer 
+                onPlayingChange={setIsPlaying}
+                renderAs="button"
+                buttonText='Play my "Hire Me" song'
+              />
+            </div>
+          </div>
+
+          {/* Key Metrics */}
+          <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto mb-6">
+            <div className="text-center">
+              <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>545.5%</div>
+              <div className="text-xs text-white/70">User Growth</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>$244M</div>
+              <div className="text-xs text-white/70">Projects Closed</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>75%</div>
+              <div className="text-xs text-white/70">Tickets Reduced</div>
+            </div>
+          </div>
+
           {/* Watch Video Button */}
-          <div className="mb-6 flex justify-center">
+          <div className="flex justify-center">
             <button
               onClick={openVideoModal}
               className="px-4 py-3 gradient-bg-secondary hover:opacity-90 rounded-xl font-inter-medium text-lg transition-all duration-300 glow-blue flex flex-col items-center gap-3 w-[300px] justify-center relative overflow-hidden hover:scale-105"
@@ -181,33 +208,6 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
                 />
               </div>
             </button>
-          </div>
-
-          {/* Hire Me Song Button */}
-          <div className="mb-8 flex justify-center max-w-xs mx-auto">
-            <div className={`disco-button ${isPlaying ? 'playing' : ''} w-full`}>
-              <NavMusicPlayer 
-                onPlayingChange={setIsPlaying}
-                renderAs="button"
-                buttonText='Play my "Hire Me" song'
-              />
-            </div>
-          </div>
-
-          {/* Key Metrics */}
-          <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
-            <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>545.5%</div>
-              <div className="text-xs text-white/70">User Growth</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>$244M</div>
-              <div className="text-xs text-white/70">Projects Closed</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>75%</div>
-              <div className="text-xs text-white/70">Tickets Reduced</div>
-            </div>
           </div>
         </div>
 
