@@ -21,7 +21,7 @@ export default function HeroSection() {
     const companyFromUrl = urlParams.get('company');
     
     if (companyFromUrl) {
-      return `Hey ${companyFromUrl} Hiring Team`;
+      return `Hey ${companyFromUrl} hiring team`;
     }
     return getGreeting() || "Hey, [company] hiring team";
   };
