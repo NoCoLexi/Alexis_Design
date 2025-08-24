@@ -62,7 +62,7 @@ export default function Home() {
             </div>
             <div className="hidden md:flex space-x-8 items-center">
               {[
-                { id: 'work', label: 'My Work' },
+                { id: 'work', label: 'Check out my work' },
                 { id: 'about', label: 'My Expertise' },
                 { id: 'contact', label: 'Message Me' }
               ].map(item => (
@@ -104,7 +104,7 @@ export default function Home() {
           {isMobileMenuOpen && (
             <div className="md:hidden mt-4 pb-4 space-y-2 bg-black/50 rounded-lg p-4 border border-purple-400/20">
               {[
-                { id: 'work', label: 'My Work' },
+                { id: 'work', label: 'Check out my work' },
                 { id: 'about', label: 'My Expertise' },
                 { id: 'contact', label: 'Message Me' }
               ].map(item => (
