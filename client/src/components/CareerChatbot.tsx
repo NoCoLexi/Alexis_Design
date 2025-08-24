@@ -8,7 +8,7 @@ const CareerChatbot = () => {
     {
       role: "assistant",
       content:
-        "👋 Hi! I'm Alexis and I want to be your next product leader. I can help you learn about my product leadership experience, personality traits, work style, and professional accomplishments. What would you like to know?",
+        "👋 Hi! I'm Alexis's AI assistant. I can help you learn about her product leadership experience, personality traits, work style, and professional accomplishments. What would you like to know?",
     },
   ]);
   const [input, setInput] = useState("");
