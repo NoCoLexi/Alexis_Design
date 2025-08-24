@@ -1,6 +1,6 @@
 
 import { useState, useRef, useEffect } from "react";
-import { Play, Pause } from "lucide-react";
+import { Mic, MicOff } from "lucide-react";
 import podcastFile from "@assets/Alexis_Brochu__Podcast_The_Empathetic_Commander_1756078103831.m4a";
 
 export default function PodcastPlayer() {
@@ -67,12 +67,12 @@ export default function PodcastPlayer() {
         >
           {isPlaying ? (
             <>
-              <Pause className="h-5 w-5 flex-shrink-0" />
+              <MicOff className="h-5 w-5 flex-shrink-0" />
               <span className="text-center">Pause my podcast</span>
             </>
           ) : (
             <>
-              <Play className="h-5 w-5 flex-shrink-0" />
+              <Mic className="h-5 w-5 flex-shrink-0" />
               <span className="text-center">Listen to my podcast</span>
             </>
           )}
