@@ -4,6 +4,7 @@ import { ArrowDown, Award, Sparkles, Mail, Calendar } from "lucide-react";
 import { SiLinkedin } from "react-icons/si";
 import NavMusicPlayer from "./nav-music-player";
 import AdminPanel from "./admin-panel";
+import VideoModal from "./video-modal";
 import { useAdminPanel } from "@/hooks/use-admin-panel";
 import profileImage from "@assets/Brochu, Alexis 2023 Ireland_1754523029765.png";
 import expertiseVideo from "@assets/Alexis_Deconstructing_a_Modern_Product_Leader_1755784261269.mp4";
@@ -16,6 +17,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [isExiting, setIsExiting] = useState(false);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   
   // Admin panel integration
   const { isVisible, settings, getGreeting, getCaseStudyFocus, applySettings, closePanel } = useAdminPanel();
@@ -98,11 +100,8 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
     }
   };
 
-  const scrollToAbout = () => {
-    const element = document.getElementById('about');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const openVideoModal = () => {
+    setIsVideoModalOpen(true);
   };
 
   return (
@@ -173,8 +172,8 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           {/* Watch Video Button */}
           <div className="mb-8 flex justify-center">
             <button
-              onClick={scrollToAbout}
-              className="px-4 py-3 gradient-bg-secondary hover:opacity-90 rounded-xl font-inter-medium text-lg transition-all duration-300 glow-blue flex flex-col items-center gap-3 w-[300px] justify-center relative overflow-hidden"
+              onClick={openVideoModal}
+              className="px-4 py-3 gradient-bg-secondary hover:opacity-90 rounded-xl font-inter-medium text-lg transition-all duration-300 glow-blue flex flex-col items-center gap-3 w-[300px] justify-center relative overflow-hidden hover:scale-105"
               data-testid="button-watch-video-about-me"
               style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
             >
@@ -228,6 +227,14 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         isVisible={isVisible}
         onClose={closePanel}
         onApply={applySettings}
+      />
+
+      {/* Video Modal */}
+      <VideoModal
+        isOpen={isVideoModalOpen}
+        onClose={() => setIsVideoModalOpen(false)}
+        videoSrc={expertiseVideo}
+        title="What it's like to work with me"
       />
     </section>
   );
