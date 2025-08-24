@@ -62,7 +62,7 @@ export default function PodcastPlayer() {
       <div className="disco-button flex items-center justify-center rounded-2xl">
         <button
           onClick={togglePlayPause}
-          className="px-3 py-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 rounded-xl font-inter-medium text-sm transition-all duration-300 text-white flex items-center gap-2 w-full justify-center relative z-10"
+          className="px-4 py-4 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 rounded-xl font-inter-medium text-base transition-all duration-300 text-white flex items-center gap-2 w-full justify-center relative z-10"
           style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
         >
           {isPlaying ? (
