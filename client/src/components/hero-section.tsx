@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowDown, Award, Sparkles, Mail, Calendar } from "lucide-react";
 import { SiLinkedin } from "react-icons/si";
 import NavMusicPlayer from "./nav-music-player";
+import PodcastPlayer from "./podcast-player";
 import AdminPanel from "./admin-panel";
 import VideoModal from "./video-modal";
 import { useAdminPanel } from "@/hooks/use-admin-panel";
@@ -168,6 +169,11 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
               renderAs="button"
               buttonText='Play my "Hire Me" song'
             />
+          </div>
+
+          {/* Podcast Button */}
+          <div className="mb-6 flex justify-center">
+            <PodcastPlayer />
           </div>
 
           {/* Watch Video Button */}
