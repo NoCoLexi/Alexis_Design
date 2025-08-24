@@ -146,15 +146,6 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
               {getCustomGreeting()}
             </span>
           </h1>
-
-          {/* Hire Me Song Button */}
-          <div className={`mb-8 flex justify-center disco-button ${isPlaying ? 'playing' : ''}`}>
-            <NavMusicPlayer 
-              onPlayingChange={setIsPlaying}
-              renderAs="button"
-              buttonText='Play my "Hire Me" song'
-            />
-          </div>
           
           <p 
             className="text-2xl md:text-3xl font-inter-medium text-muted-foreground mb-2 leading-relaxed max-w-3xl mx-auto text-center"
@@ -168,6 +159,15 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           >
             {roles[currentRoleIndex]}
           </p>
+
+          {/* Hire Me Song Button */}
+          <div className={`mb-8 flex justify-center disco-button ${isPlaying ? 'playing' : ''}`}>
+            <NavMusicPlayer 
+              onPlayingChange={setIsPlaying}
+              renderAs="button"
+              buttonText='Play my "Hire Me" song'
+            />
+          </div>
           
           {/* Contact Icons */}
           <div className="mb-12 flex justify-center space-x-6">
