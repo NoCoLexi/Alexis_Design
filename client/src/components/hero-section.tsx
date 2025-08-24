@@ -234,7 +234,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         isOpen={isVideoModalOpen}
         onClose={() => setIsVideoModalOpen(false)}
         videoSrc={expertiseVideo}
-        title="What it's like to work with me"
+        title="Check out this video about what it would be like to work with me."
       />
     </section>
   );
