@@ -162,22 +162,8 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             {roles[currentRoleIndex]}
           </p>
 
-          {/* Hire Me Song Button */}
-          <div className={`mb-6 flex justify-center disco-button ${isPlaying ? 'playing' : ''}`}>
-            <NavMusicPlayer 
-              onPlayingChange={setIsPlaying}
-              renderAs="button"
-              buttonText='Play my "Hire Me" song'
-            />
-          </div>
-
-          {/* Podcast Button */}
-          <div className="mb-6 flex justify-center">
-            <PodcastPlayer />
-          </div>
-
           {/* Watch Video Button */}
-          <div className="mb-8 flex justify-center">
+          <div className="mb-6 flex justify-center">
             <button
               onClick={openVideoModal}
               className="px-4 py-3 gradient-bg-secondary hover:opacity-90 rounded-xl font-inter-medium text-lg transition-all duration-300 glow-blue flex flex-col items-center gap-3 w-[300px] justify-center relative overflow-hidden hover:scale-105"
@@ -196,6 +182,20 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
                 />
               </div>
             </button>
+          </div>
+
+          {/* Hire Me Song Button */}
+          <div className={`mb-6 flex justify-center disco-button ${isPlaying ? 'playing' : ''}`}>
+            <NavMusicPlayer 
+              onPlayingChange={setIsPlaying}
+              renderAs="button"
+              buttonText='Play my "Hire Me" song'
+            />
+          </div>
+
+          {/* Podcast Button */}
+          <div className="mb-8 flex justify-center">
+            <PodcastPlayer />
           </div>
 
           {/* Key Metrics */}
