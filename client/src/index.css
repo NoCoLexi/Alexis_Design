@@ -53,7 +53,7 @@
   --dark-primary: var(--color-black);
   --dark-secondary: var(--color-night);
   --dark-accent: var(--color-yale-blue);
-  --gradient-primary: linear-gradient(135deg, var(--color-ultra-violet) 0%, var(--color-yale-blue) 100%);
+  --gradient-primary: linear-gradient(135deg, #A485C7 0%, #3B82F6 100%);
   --gradient-secondary: linear-gradient(135deg, var(--color-yale-blue) 0%, var(--color-ultra-violet) 100%);
   --gradient-accent: linear-gradient(135deg, var(--color-platinum) 0%, var(--color-ultra-violet) 100%);
 }
