@@ -179,7 +179,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
               style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
             >
               <span className="text-center">Watch this video about me</span>
-              <div className="w-8 h-8 rounded-md overflow-hidden flex-shrink-0">
+              <div className="w-full h-16 rounded-md overflow-hidden">
                 <video 
                   src={expertiseVideo}
                   muted
