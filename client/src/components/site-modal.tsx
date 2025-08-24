@@ -30,7 +30,7 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
         {/* Header */}
         <div className="sticky top-0 bg-gradient-to-r from-purple-600/10 to-blue-600/10 backdrop-blur border-b border-purple-400/20 p-6">
           <div className="flex justify-between items-center">
-            <h2 className="text-2xl font-bold gradient-text">About This Site</h2>
+            <h2 className="text-2xl font-bold gradient-text">How I built this site</h2>
             <Button 
               variant="ghost" 
               size="sm" 
@@ -66,10 +66,7 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
             </div>
             
             <p className="text-gray-300 leading-relaxed">
-              Fueled by imagination, code, working in harmony with AI genius. This portfolio not only demonstrates product design and management, but also AI skills used as a tool.
-            </p>
-            <p className="text-gray-300 leading-relaxed mt-3">
-              The site is designed to parse through job description URLs and tailor the portfolio individually with unique site links and customized features for each opportunity.
+              Fueled by my imagination and working in harmony with AI tools, this portfolio demonstrates product design and management mixed with my AI-PM skills.
             </p>
           </div>
 
