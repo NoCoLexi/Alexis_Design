@@ -28,39 +28,24 @@ export default function HeroSection() {
 
   const roles = [
     "AI Product Designer",
-    "AI Product Manager",
-    "Design Product Manager", 
+    "Design Product Manager",
     "Product Strategy Designer",
+    "AI Product Manager",
     "Product Strategist",
+    "Human QA",
     "Customer Experience Manager",
-    "User Experience Manager",
-    "Digital Experience Manager",
     "Product Experience Manager",
-    "Customer Success Product",
-    "UX Strategist",
-    "UX Architect",
-    "Product Designer",
     "Product Designer/Manager",
-
     "Human Factors Engineer",
     "UX Researcher",
-    "Experience Designer",
-    "Visual Designer",
-    "User Interface Designer",
     "Product Design Researcher",
-    "Design Lead",
     "Human-Centered Designer",
-    "User Experience Architect",
     "Design Strategist",
-    "Product Experience Designer",
     "Product Manager",
     "UX Product Strategist",
     "AI Product Strategist",
     "Product Leader",
-    "Human AI",
-    "Human QA",
-    "Scrum Master",
-    "Change Manager"
+    "Human AI"
   ];
 
   useEffect(() => {
