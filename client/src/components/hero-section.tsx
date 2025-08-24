@@ -6,6 +6,7 @@ import NavMusicPlayer from "./nav-music-player";
 import AdminPanel from "./admin-panel";
 import { useAdminPanel } from "@/hooks/use-admin-panel";
 import profileImage from "@assets/Brochu, Alexis 2023 Ireland_1754523029765.png";
+import expertiseVideo from "@assets/Alexis_Deconstructing_a_Modern_Product_Leader_1755784261269.mp4";
 
 interface HeroSectionProps {
   onOpenAwardModal?: () => void;
@@ -173,10 +174,20 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           <div className="mb-8 flex justify-center">
             <button
               onClick={scrollToAbout}
-              className="px-8 py-4 gradient-bg-secondary hover:opacity-90 rounded-xl font-inter-medium text-lg transition-all duration-300 glow-blue flex items-center gap-3 w-[300px] justify-center"
+              className="px-4 py-3 gradient-bg-secondary hover:opacity-90 rounded-xl font-inter-medium text-lg transition-all duration-300 glow-blue flex items-center gap-3 w-[300px] justify-center relative overflow-hidden"
               data-testid="button-watch-video-about-me"
               style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
             >
+              <div className="w-8 h-8 rounded-md overflow-hidden flex-shrink-0">
+                <video 
+                  src={expertiseVideo}
+                  muted
+                  loop
+                  autoPlay
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <span className="text-center">Watch this video about me</span>
             </button>
           </div>
