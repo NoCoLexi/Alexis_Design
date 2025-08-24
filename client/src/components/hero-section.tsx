@@ -136,7 +136,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             >
               <Award className="w-6 h-6 text-chart-3" />
               <span className="text-lg font-medium text-foreground">
-                2023 CA Gov Tech Innovation Award • Public Assistance Closeouts App
+                2023 CA Gov Tech Award Winner
               </span>
             </div>
           </div>
