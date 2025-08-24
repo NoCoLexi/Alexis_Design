@@ -121,7 +121,7 @@ export default function HeroSection() {
         <div className="max-w-4xl mx-auto" style={{
           flexGrow: 1
         }}>
-          <h1 className="text-5xl md:text-7xl font-inter-black mb-6 leading-tight" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 900 }}>
+          <h1 className="text-5xl md:text-7xl font-inter-black mb-6 leading-relaxed" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 900 }}>
             <span className={`gradient-text disco-text ${isPlaying ? 'dancing' : ''}`}>
               {getCustomGreeting()}
             </span>
