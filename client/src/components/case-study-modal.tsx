@@ -102,7 +102,7 @@ import lifespanHealthBookletImage from "@assets/FullSizeRender 17_1755219971125.
 import eagOverviewImage from "@assets/Cal OES IT overview_1756087310406.png";
 import eagMindmapImage from "@assets/EAG mindmap_1756087316230.png";
 import eagResultsImage from "@assets/EAG results_1756087319907.png";
-import ocmWarningCenterCoverImage from "@assets/Warning Center SharePoint_1756088736348.png";
+import ocmWarningCenterCoverImage from "@assets/OCM Warning Center screen_1756087773593.png";
 
 interface CaseStudy {
   id: string;
