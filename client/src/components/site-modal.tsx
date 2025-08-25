@@ -53,14 +53,14 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
             <div className="grid grid-cols-3 gap-4 mb-6">
               <div className="text-center">
                 <div className="text-2xl font-bold text-white">2 Days</div>
-                <div className="text-xs text-gray-400">Build Time</div>
+                <div className="text-xs text-gray-400">Initial Build Time</div>
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-white">5 testers</div>
                 <div className="text-xs text-gray-400">User Testing</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-white">$20</div>
+                <div className="text-2xl font-bold text-white">$48.10</div>
                 <div className="text-xs text-gray-400">Total Cost</div>
               </div>
             </div>
