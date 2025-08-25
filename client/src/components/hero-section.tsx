@@ -125,7 +125,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             />
 
             {/* Watch Video Link */}
-            <div className="mt-4 pb-4 flex justify-center">
+            <div className="mt-4 flex justify-center">
               <button
                 onClick={openVideoModal}
                 className="text-base transition-all duration-300 transform hover:scale-105 hover:brightness-110"
