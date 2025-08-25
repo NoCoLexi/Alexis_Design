@@ -137,8 +137,33 @@
   }
 
   .backdrop-blur-elegant {
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(40px) saturate(200%) brightness(110%);
+    -webkit-backdrop-filter: blur(40px) saturate(200%) brightness(110%);
+  }
+
+  /* Ultra strong glass effect for hero sections */
+  .glass-ultra {
+    background: rgba(11, 10, 14, 0.08);
+    backdrop-filter: blur(60px) saturate(180%) brightness(115%);
+    -webkit-backdrop-filter: blur(60px) saturate(180%) brightness(115%);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+      0 16px 64px rgba(0, 0, 0, 0.4),
+      inset 0 2px 0 rgba(255, 255, 255, 0.25),
+      inset 0 -2px 0 rgba(255, 255, 255, 0.15),
+      0 0 60px rgba(0, 129, 188, 0.1);
+  }
+
+  /* Medium glass effect for cards */
+  .glass-medium {
+    background: rgba(11, 10, 14, 0.12);
+    backdrop-filter: blur(35px) saturate(160%) brightness(108%);
+    -webkit-backdrop-filter: blur(35px) saturate(160%) brightness(108%);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+      0 10px 36px rgba(0, 0, 0, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.18),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.08);
   }
 
   .glow-purple {
@@ -175,9 +200,14 @@
 
   /* Enhanced glass effect with better readability */
   .glass {
-    background: rgba(11, 10, 14, 0.8);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(11, 10, 14, 0.15);
+    backdrop-filter: blur(40px) saturate(150%) brightness(110%);
+    -webkit-backdrop-filter: blur(40px) saturate(150%) brightness(110%);
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.1);
   }
 
   /* Typography matching logo style - Extra bold + thin pattern */
@@ -289,10 +319,14 @@
 
 /* Glassmorphism effect */
 .glass {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(40px) saturate(150%) brightness(110%);
+  -webkit-backdrop-filter: blur(40px) saturate(150%) brightness(110%);
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1);
 }
 
 /* Yellow glow effect */
@@ -301,10 +335,14 @@
 }
 
 .glass-dark {
-  background: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(50px) saturate(150%) brightness(90%);
+  -webkit-backdrop-filter: blur(50px) saturate(150%) brightness(90%);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.05);
 }
 
 /* Button hover click sound effect */
