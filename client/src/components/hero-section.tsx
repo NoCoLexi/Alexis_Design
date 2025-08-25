@@ -127,7 +127,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           <div className="mt-4 pb-4 flex justify-center">
             <button
               onClick={openVideoModal}
-              className="text-lg hover:text-primary transition-colors"
+              className="text-lg transition-all duration-300 transform hover:scale-105 hover:brightness-110"
               data-testid="button-watch-video-about-me"
               style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, color: '#F3E8B9' }}
             >
