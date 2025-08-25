@@ -102,7 +102,6 @@ import lifespanHealthBookletImage from "@assets/FullSizeRender 17_1755219971125.
 import eagOverviewImage from "@assets/Cal OES IT overview_1756087310406.png";
 import eagMindmapImage from "@assets/EAG mindmap_1756087316230.png";
 import eagResultsImage from "@assets/EAG results_1756087319907.png";
-import ocmWarningCenterCoverImage from "@assets/ocm-warning-center-modal-cover.png";
 
 interface CaseStudy {
   id: string;
@@ -185,7 +184,7 @@ const caseStudies: Record<string, CaseStudy> = {
       'Political navigation is essential for technical solution success',
       'Clear language dramatically improves user comprehension and adoption'
     ],
-    image: ocmWarningCenterCoverImage,
+    image: engageConnectImage,
     slideshow: [
       ocmMarsImage,
       ocmMissionEdgeImage,
