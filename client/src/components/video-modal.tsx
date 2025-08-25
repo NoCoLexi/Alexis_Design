@@ -6,9 +6,10 @@ interface VideoModalProps {
   onClose: () => void;
   videoSrc: string;
   title: string;
+  posterImage?: string;
 }
 
-export default function VideoModal({ isOpen, onClose, videoSrc, title }: VideoModalProps) {
+export default function VideoModal({ isOpen, onClose, videoSrc, title, posterImage }: VideoModalProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [hasStartedPlaying, setHasStartedPlaying] = useState(false);
   const [isVideoReady, setIsVideoReady] = useState(false);
@@ -95,6 +96,7 @@ export default function VideoModal({ isOpen, onClose, videoSrc, title }: VideoMo
             className="w-full h-auto"
             style={{ maxHeight: '80vh' }}
             preload="metadata"
+            poster={posterImage}
           >
             Your browser does not support the video tag.
           </video>
