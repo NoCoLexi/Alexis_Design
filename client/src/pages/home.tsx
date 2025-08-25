@@ -81,7 +81,7 @@ export default function Home() {
               ))}
               <div className="ml-4 flex items-center gap-3">
                 <div 
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-gray-600/60 to-gray-500/70 rounded-full px-4 py-2 hover:from-gray-500/70 hover:to-gray-400/80 transition-all duration-300 cursor-pointer border border-gray-400/30 transform hover:scale-105 hover:brightness-110"
+                  className="inline-flex items-center gap-2 bg-purple-800/60 rounded-full px-4 py-2 hover:bg-purple-700/70 transition-all duration-300 cursor-pointer border border-purple-400/30 transform hover:scale-105 hover:brightness-110"
                   onClick={() => setIsSiteModalOpen(true)}
                   data-testid="button-about-site"
                 >
@@ -118,7 +118,7 @@ export default function Home() {
               ))}
               <div className="pt-2 border-t border-purple-400/20 space-y-2">
                 <div 
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-gray-600/60 to-gray-500/70 rounded-full px-4 py-2 hover:from-gray-500/70 hover:to-gray-400/80 transition-all duration-300 cursor-pointer w-full justify-center transform hover:scale-105 hover:brightness-110"
+                  className="inline-flex items-center gap-2 bg-purple-800/60 rounded-full px-4 py-2 hover:bg-purple-700/70 transition-all duration-300 cursor-pointer w-full justify-center transform hover:scale-105 hover:brightness-110"
                   onClick={() => {
                     setIsSiteModalOpen(true);
                     setIsMobileMenuOpen(false);
