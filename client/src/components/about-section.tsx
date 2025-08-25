@@ -52,8 +52,8 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
 
           {/* Expertise Video */}
           <div className="flex justify-center">
-            <div className="max-w-3xl w-full">
-              <h3 className="text-xl font-semibold mb-4 text-center text-foreground">
+            <div className="max-w-3xl w-full glass rounded-2xl p-6">
+              <h3 className="text-xl font-semibold mb-4 text-center" style={{ color: '#F3E8B9' }}>
                 Watch this video I made about what it would be like to work with me
               </h3>
               <video 
