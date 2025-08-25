@@ -53,7 +53,8 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
     "UX Product Strategist",
     "AI Product Strategist",
     "Product Leader",
-    "Human AI"
+    "Human AI",
+    "UX Solution Architect"
   ];
 
   useEffect(() => {
