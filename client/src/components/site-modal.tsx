@@ -53,14 +53,14 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
             <div className="grid grid-cols-3 gap-4 mb-6">
               <div className="text-center">
                 <div className="text-2xl font-bold text-white">2 Days</div>
-                <div className="text-xs text-gray-400">Build Time</div>
+                <div className="text-xs text-gray-400">Initial Build Time</div>
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-white">5 testers</div>
                 <div className="text-xs text-gray-400">User Testing</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-white">$20</div>
+                <div className="text-2xl font-bold text-white">$48.10</div>
                 <div className="text-xs text-gray-400">Total Cost</div>
               </div>
             </div>
@@ -163,6 +163,120 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
                   <span className="font-medium text-white">4 Hours</span>
                   <span className="text-gray-400 ml-2">Refinements and UX testing</span>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Site Architecture & Technology Stack */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-semibold text-purple-400">Site Architecture & Technology Stack</h3>
+            
+            <div className="space-y-6">
+              {/* Frontend */}
+              <div className="glass rounded-xl p-4">
+                <h4 className="text-lg font-semibold text-blue-400 mb-3">Frontend (React + TypeScript)</h4>
+                <ul className="text-gray-300 text-sm space-y-1">
+                  <li>• React 18 with TypeScript for type safety</li>
+                  <li>• Vite as the build tool for fast development</li>
+                  <li>• Tailwind CSS for styling with custom dark theme</li>
+                  <li>• shadcn/ui components built on Radix UI for accessibility</li>
+                  <li>• Wouter for lightweight routing</li>
+                  <li>• TanStack Query for data fetching and caching</li>
+                  <li>• React Hook Form + Zod for form validation</li>
+                </ul>
+              </div>
+
+              {/* Backend */}
+              <div className="glass rounded-xl p-4">
+                <h4 className="text-lg font-semibold text-green-400 mb-3">Backend (Express.js)</h4>
+                <ul className="text-gray-300 text-sm space-y-1">
+                  <li>• Express.js server with TypeScript</li>
+                  <li>• PostgreSQL database ready with Drizzle ORM</li>
+                  <li>• In-memory storage for development</li>
+                  <li>• RESTful API with proper error handling</li>
+                </ul>
+              </div>
+
+              {/* Key Features */}
+              <div className="glass rounded-xl p-4">
+                <h4 className="text-lg font-semibold text-yellow-400 mb-3">Key Features Built</h4>
+                
+                <div className="space-y-3">
+                  <div>
+                    <span className="text-purple-300 font-medium text-sm">Professional Portfolio Sections:</span>
+                    <ul className="text-gray-300 text-sm mt-1 ml-2">
+                      <li>• Dynamic hero section with rotating job titles (AI Product Designer, Product Manager, etc.)</li>
+                      <li>• Featured work showcase with 20+ projects including Cal OES, Grants Management, FairGrounds Coffee</li>
+                      <li>• About section highlighting expertise</li>
+                      <li>• Contact form with email, LinkedIn, and Calendly integration</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <span className="text-purple-300 font-medium text-sm">Interactive Audio System:</span>
+                    <ul className="text-gray-300 text-sm mt-1 ml-2">
+                      <li>• Custom music player with "Hire Me" song</li>
+                      <li>• Audio feedback and hover sound effects</li>
+                      <li>• Web Audio API integration</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <span className="text-purple-300 font-medium text-sm">Advanced Analytics (Google Analytics 4):</span>
+                    <ul className="text-gray-300 text-sm mt-1 ml-2">
+                      <li>• Comprehensive tracking of user interactions</li>
+                      <li>• Portfolio click tracking</li>
+                      <li>• Audio engagement metrics</li>
+                      <li>• Device and screen size detection</li>
+                      <li>• Session duration and user behavior analysis</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <span className="text-purple-300 font-medium text-sm">Admin Panel & Customization:</span>
+                    <ul className="text-gray-300 text-sm mt-1 ml-2">
+                      <li>• Dynamic job-targeted customization</li>
+                      <li>• URL parameter parsing for company-specific greetings</li>
+                      <li>• Live site adaptation without affecting main experience</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <span className="text-purple-300 font-medium text-sm">Modern UX Features:</span>
+                    <ul className="text-gray-300 text-sm mt-1 ml-2">
+                      <li>• Glassmorphism effects and gradient backgrounds</li>
+                      <li>• Smooth animations and parallax scrolling</li>
+                      <li>• Dark theme with custom CSS variables</li>
+                      <li>• Fully responsive mobile-first design</li>
+                      <li>• Case study modals and interactive galleries</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Cost Breakdown */}
+              <div className="glass rounded-xl p-4">
+                <h4 className="text-lg font-semibold text-chart-3 mb-3">What the $48.10 Likely Covers</h4>
+                <p className="text-gray-300 text-sm mb-2">The cost most likely represents:</p>
+                <ul className="text-gray-300 text-sm space-y-1">
+                  <li>• Development time at an hourly rate</li>
+                  <li>• Design and implementation of custom components</li>
+                  <li>• Analytics setup and configuration</li>
+                  <li>• Asset optimization and organization (you have 80+ images)</li>
+                  <li>• Quality assurance and testing</li>
+                </ul>
+              </div>
+
+              {/* Portfolio Highlights */}
+              <div className="glass rounded-xl p-4">
+                <h4 className="text-lg font-semibold text-pink-400 mb-3">Professional Portfolio Highlights</h4>
+                <p className="text-gray-300 text-sm mb-2">Your site showcases impressive work including:</p>
+                <ul className="text-gray-300 text-sm space-y-1">
+                  <li>• Government technology projects (Cal OES, Public Assistance Closeouts)</li>
+                  <li>• Award-winning work (2023 California Government Technology Innovation Award)</li>
+                  <li>• Brand development (FairGrounds Coffee, Providence Schools)</li>
+                  <li>• Product management metrics (244M processing time improvements, 545.5% user base increases)</li>
+                </ul>
               </div>
             </div>
           </div>
