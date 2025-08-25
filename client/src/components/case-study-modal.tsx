@@ -263,7 +263,7 @@ const caseStudies: Record<string, CaseStudy> = {
       'Award recognition validates user-centered design approach',
       'Measurable impact drives continued investment in UX'
     ],
-    image: paDirectorsDeck3Image,
+    image: paDirectorsDeck6Image,
     award: '2023 California Government Technology Innovation Award for Public Service'
   },
   ilave: {
