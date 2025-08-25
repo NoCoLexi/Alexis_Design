@@ -120,7 +120,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             src={profileImage} 
             alt="Alexis Brochu professional photo" 
             data-testid="img-professional-photo"
-            className="max-w-4xl mx-auto"
+            className="max-w-5xl mx-auto"
           />
           
           {/* Watch Video Link */}
