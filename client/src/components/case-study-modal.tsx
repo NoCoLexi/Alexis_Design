@@ -185,7 +185,7 @@ const caseStudies: Record<string, CaseStudy> = {
       'Political navigation is essential for technical solution success',
       'Clear language dramatically improves user comprehension and adoption'
     ],
-    image: ocmWarningCenterCoverImage,
+    image: ocmWarningImage,
     slideshow: [
       ocmMarsImage,
       ocmMissionEdgeImage,
