@@ -120,7 +120,7 @@ export default function VideoModal({ isOpen, onClose, videoSrc, title }: VideoMo
             className="w-full h-auto"
             style={{ maxHeight: '80vh' }}
             preload="metadata"
-            poster=""
+            poster={`${videoSrc}#t=326`}
           >
             Your browser does not support the video tag.
           </video>
