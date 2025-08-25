@@ -254,30 +254,7 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
                 </div>
               </div>
 
-              {/* Cost Breakdown */}
-              <div className="glass rounded-xl p-4">
-                <h4 className="text-lg font-semibold text-chart-3 mb-3">What the $48.10 Likely Covers</h4>
-                <p className="text-gray-300 text-sm mb-2">The cost most likely represents:</p>
-                <ul className="text-gray-300 text-sm space-y-1">
-                  <li>• Development time at an hourly rate</li>
-                  <li>• Design and implementation of custom components</li>
-                  <li>• Analytics setup and configuration</li>
-                  <li>• Asset optimization and organization (you have 80+ images)</li>
-                  <li>• Quality assurance and testing</li>
-                </ul>
-              </div>
-
-              {/* Portfolio Highlights */}
-              <div className="glass rounded-xl p-4">
-                <h4 className="text-lg font-semibold text-pink-400 mb-3">Professional Portfolio Highlights</h4>
-                <p className="text-gray-300 text-sm mb-2">Your site showcases impressive work including:</p>
-                <ul className="text-gray-300 text-sm space-y-1">
-                  <li>• Government technology projects (Cal OES, Public Assistance Closeouts)</li>
-                  <li>• Award-winning work (2023 California Government Technology Innovation Award)</li>
-                  <li>• Brand development (FairGrounds Coffee, Providence Schools)</li>
-                  <li>• Product management metrics (244M processing time improvements, 545.5% user base increases)</li>
-                </ul>
-              </div>
+              
             </div>
           </div>
         </div>
