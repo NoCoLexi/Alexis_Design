@@ -94,6 +94,7 @@ export default function VideoModal({ isOpen, onClose, videoSrc, title }: VideoMo
     // Reset to beginning and start playing
     video.currentTime = 0;
     setHasStartedPlaying(true);
+    setIsVideoReady(false); // Hide the overlay immediately
     video.play();
   };
 
@@ -114,11 +115,12 @@ export default function VideoModal({ isOpen, onClose, videoSrc, title }: VideoMo
         <div className="relative">
           <video
             ref={videoRef}
-            src={videoSrc}
+            src={`${videoSrc}#t=326`}
             controls={hasStartedPlaying}
             className="w-full h-auto"
             style={{ maxHeight: '80vh' }}
             preload="metadata"
+            poster=""
           >
             Your browser does not support the video tag.
           </video>
