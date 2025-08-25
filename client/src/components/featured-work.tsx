@@ -128,8 +128,7 @@ const projects: Project[] = [
       paDirectorsDeck8Image
     ],
     metrics: [
-      { label: 'Processing Time', value: '244M', color: 'text-primary' },
-      { label: 'User Satisfaction', value: '75%', color: 'text-chart-2' }
+      { label: '75%', value: 'Support Ticket Reduction', color: 'text-chart-1' }
     ],
     tags: ['Gov Tech', 'Process Automation', 'Public Service'],
     award: '2023 CA Gov Tech Innovation Award'
@@ -141,8 +140,7 @@ const projects: Project[] = [
     category: 'product-management',
     image: calOesImage,
     metrics: [
-      { label: 'User Base Increase', value: '545.5%', color: 'text-primary' },
-      { label: 'Successful Onboarding', value: '203%', color: 'text-chart-2' }
+      { label: '545.5%', value: 'User Base Increase', color: 'text-chart-1' }
     ],
     tags: ['Product Management', 'Government Tech', 'SaaS CRM']
   },
@@ -153,8 +151,7 @@ const projects: Project[] = [
     category: 'product-management',
     image: engageConnectImage,
     metrics: [
-      { label: 'Support Ticket Reduction', value: '75%', color: 'text-chart-3' },
-      { label: 'User Base Growth', value: '545.5%', color: 'text-primary' }
+      { label: '86.3%', value: 'User Adoption', color: 'text-chart-1' }
     ],
     tags: ['Change Management', 'Product Strategy', 'Government Innovation']
   },
@@ -165,8 +162,7 @@ const projects: Project[] = [
     category: 'product-management',
     image: eagCoverImage,
     metrics: [
-      { label: 'Platform Consolidation', value: '244M', color: 'text-chart-4' },
-      { label: 'Cost Savings', value: '75%', color: 'text-chart-3' }
+      { label: '83%', value: 'Compliance', color: 'text-chart-1' }
     ],
     tags: ['Platform Engineering', 'Tech Strategy', 'Process Optimization']
   },
@@ -404,7 +400,7 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
   const cardRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [parallaxY, setParallaxY] = useState(0);
-  
+
   // Disable parallax for slow cards (EAG and Public Assistance)
   const disableParallax = project.id === 'eag' || project.id === 'pa-portal';
 
@@ -432,10 +428,10 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
 
     const handleScroll = () => {
       if (!card) return;
-      
+
       const rect = card.getBoundingClientRect();
       const windowHeight = window.innerHeight;
-      
+
       if (rect.top < windowHeight && rect.bottom > 0) {
         const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
         setParallaxY(progress * 30);
@@ -492,24 +488,28 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
           )}
         </div>
       </div>
-      
+
       <div className="p-8">
         <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">
           {project.title}
         </h3>
         <p className="text-muted-foreground mb-6">{project.description}</p>
-        
+
         {project.metrics.length > 0 && (
           <div className="grid grid-cols-2 gap-4 mb-6">
             {project.metrics.map((metric, metricIndex) => (
               <div key={`${project.id}-metric-${metricIndex}`} className="text-center">
-                <div className={`text-2xl font-bold ${metric.color}`}>{metric.value}</div>
-                <div className="text-sm text-muted-foreground">{metric.label}</div>
+                <div className={`text-4xl font-bold ${metric.color} mb-1`}>
+                  {metric.label}
+                </div>
+                <div className="text-sm font-medium text-foreground">
+                  {metric.value}
+                </div>
               </div>
             ))}
           </div>
         )}
-        
+
         <div className="flex flex-wrap gap-2 mb-6">
           {project.tags.map((tag, tagIndex) => (
             <Badge key={`${project.id}-tag-${tagIndex}`} variant="outline" className="text-xs">
@@ -517,7 +517,7 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
             </Badge>
           ))}
         </div>
-        
+
         <Button className="w-full gradient-bg-secondary hover:opacity-90 transition-all duration-300">
           <ExternalLink className="w-4 h-4 mr-2" />
           View Case Study
@@ -529,25 +529,25 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
 
 export default function FeaturedWork() {
   const { getCaseStudyFocus, settings } = useAdminPanel();
-  
+
   // Get initial filter from URL parameters or default
   const getInitialFilter = () => {
     const urlParams = new URLSearchParams(window.location.search);
     const focusFromUrl = urlParams.get('focus');
-    
+
     if (focusFromUrl === 'pm') return 'product-management';
     if (focusFromUrl === 'design') return 'product-design';
-    
+
     return 'product-design'; // default
   };
-  
+
   const [activeFilter, setActiveFilter] = useState<string>(getInitialFilter);
-  
+
   // Only apply admin filter when specifically set to PM or Design (not Auto) and no URL params
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const focusFromUrl = urlParams.get('focus');
-    
+
     // URL parameters take precedence over admin settings
     if (!focusFromUrl) {
       if (settings.jobType === 'PM') {
@@ -567,7 +567,7 @@ export default function FeaturedWork() {
   const openCaseStudy = useCallback((projectId: string) => {
     // Track case study viewing
     trackEvent('case_study_viewed', 'portfolio', projectId);
-    
+
     const event = new CustomEvent('openCaseStudy', { detail: { projectId } });
     window.dispatchEvent(event);
   }, []);
@@ -576,7 +576,7 @@ export default function FeaturedWork() {
     <section id="work" className="py-24 px-6 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-radial from-primary/5 via-transparent to-transparent"></div>
-      
+
       <div className="max-w-7xl mx-auto relative">
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary mb-6">
