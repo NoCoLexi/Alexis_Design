@@ -60,6 +60,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                 controls
                 className="w-full rounded-xl shadow-lg"
                 data-testid="video-expertise-product-leader"
+                poster="/@fs/home/runner/workspace/attached_assets/Product Leader Video Still.png"
               >
                 Your browser does not support the video tag.
               </video>
