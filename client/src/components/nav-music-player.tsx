@@ -84,14 +84,14 @@ export default function NavMusicPlayer({ onPlayingChange, renderAs = 'circle', b
       audio.pause();
       setIsPlaying(false);
       onPlayingChange?.(false);
-      
+
       // Track audio stop event
       trackSynthesizerEvent('audio_stop', {
         currentTime: audio.currentTime,
         duration: audio.duration,
         userAgent: navigator.userAgent
       });
-      
+
       // Dispatch custom event for other components
       window.dispatchEvent(new CustomEvent('musicStateChange', { 
         detail: { isPlaying: false } 
@@ -99,7 +99,7 @@ export default function NavMusicPlayer({ onPlayingChange, renderAs = 'circle', b
     } else {
       try {
         console.log('▶️ Attempting to play audio...');
-        
+
         // Force load the audio if needed
         if (audio.readyState < 2) {
           console.log('🔄 Loading audio...');
@@ -108,20 +108,20 @@ export default function NavMusicPlayer({ onPlayingChange, renderAs = 'circle', b
             audio.addEventListener('canplay', resolve, { once: true });
           });
         }
-        
+
         const playPromise = audio.play();
         await playPromise;
         console.log('🎶 Audio started playing successfully!');
         setIsPlaying(true);
         onPlayingChange?.(true);
-        
+
         // Track audio start event
         trackSynthesizerEvent('audio_start', {
           readyState: audio.readyState,
           volume: audio.volume,
           userAgent: navigator.userAgent
         });
-        
+
         // Dispatch custom event for other components
         window.dispatchEvent(new CustomEvent('musicStateChange', { 
           detail: { isPlaying: true } 
@@ -129,7 +129,7 @@ export default function NavMusicPlayer({ onPlayingChange, renderAs = 'circle', b
       } catch (error) {
         console.error('❌ Error playing audio:', error);
         console.error('📝 Error details:', error instanceof Error ? error.message : String(error));
-        
+
         // Try to reset and reload the audio
         console.log('🔄 Trying to reset audio...');
         audio.currentTime = 0;
@@ -141,7 +141,7 @@ export default function NavMusicPlayer({ onPlayingChange, renderAs = 'circle', b
   return (
     <>
       <audio ref={audioRef} src={hireMeSong} preload="auto" />
-      
+
       {renderAs === 'button' ? (
         <div className={`disco-button flex items-center justify-center ${isPlaying ? 'playing' : ''} rounded-2xl`}>
           <button
@@ -149,19 +149,19 @@ export default function NavMusicPlayer({ onPlayingChange, renderAs = 'circle', b
               console.log('🖱️ Button clicked!', e);
               togglePlayPause();
             }}
-            className="px-4 py-4 gradient-bg-primary hover:opacity-90 rounded-xl font-inter-medium text-base transition-all duration-300 glow-purple flex items-center gap-2 w-full justify-center relative z-10"
+            className="px-4 py-4 gradient-bg-primary hover:opacity-90 rounded-xl font-inter-bold text-base transition-all duration-300 glow-purple flex items-center gap-2 w-full justify-center relative z-10"
             data-testid="button-play-hire-me-song"
-            style={{ pointerEvents: 'auto', fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
+            style={{ pointerEvents: 'auto', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
           >
             {isPlaying ? (
               <>
                 <Pause className="h-5 w-5 flex-shrink-0" />
-                <span className="text-center">Pause my Hire Me song</span>
+                <span className="text-center font-bold">Pause my Hire Me song</span>
               </>
             ) : (
               <>
                 <Play className="h-5 w-5 flex-shrink-0" />
-                <span className="text-center">{buttonText}</span>
+                <span className="text-center font-bold">{buttonText}</span>
               </>
             )}
           </button>
