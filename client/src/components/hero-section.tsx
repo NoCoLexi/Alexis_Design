@@ -139,7 +139,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         </div>
 
         {/* Hero Text Section */}
-        <div className="flex-1 flex flex-col justify-start text-left">
+        <div className="flex-1 flex flex-col justify-start text-left pr-0 mr-0">
           {/* Award Button - positioned above the heading */}
           <div className="mb-6 pb-4 flex justify-center">
             <div 
