@@ -58,7 +58,7 @@ import grantsManagementReportingImage from "@assets/Grants Management Reporting 
 import grantsManagementPresentationImage from "@assets/Grants Management Presentation 1-1_1754968480498.png";
 import grantsManagementReportingNewImage from "@assets/Back Office 1.2_1755217963812.png";
 import grantsManagementPortalNewImage from "@assets/Grants Management Portal 1-0_1754968806232.png";
-import paCloseoutNewImage from "@assets/image_1754969508918.png";
+import paCloseoutNewImage from "@assets/pa-closeout-metrics-new_1756084847476.png";
 import paDirectorsDeckImage from "@assets/Directors_Deck_2025-08-21_10-44-04_1755788524452.png";
 import paDirectorsDeck2Image from "@assets/Directors_Deck_2_2025-08-21_10-45-30_1755788563041.png";
 import paDirectorsDeck3Image from "@assets/Directors_Deck_3_2025-08-21_10-45-30_1755788566301.png";
