@@ -85,7 +85,7 @@ export default function Home() {
                   onClick={() => setIsSiteModalOpen(true)}
                   data-testid="button-about-site"
                 >
-                  <Code className="w-4 h-4" style={{ color: '#0081BC' }} />
+                  <Code className="w-4 h-4 text-blue-400" />
                   <span className="text-sm font-medium hidden lg:inline" style={{ color: '#F3E8B9' }}>
                     How I built this site
                   </span>
@@ -125,7 +125,7 @@ export default function Home() {
                   }}
                   data-testid="button-about-site-mobile"
                 >
-                  <Code className="w-4 h-4" style={{ color: '#0081BC' }} />
+                  <Code className="w-4 h-4 text-blue-400" />
                   <span className="text-sm font-medium" style={{ color: '#F3E8B9' }}>
                     How I built this site
                   </span>
