@@ -290,6 +290,11 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Yellow glow effect */
+.glow-yellow {
+  box-shadow: 0 0 20px rgba(255, 193, 7, 0.4), 0 0 40px rgba(255, 193, 7, 0.2);
+}
+
 .glass-dark {
   background: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(20px);
