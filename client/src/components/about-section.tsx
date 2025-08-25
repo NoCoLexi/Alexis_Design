@@ -19,11 +19,11 @@ interface AboutSectionProps {
 
 export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
   const [activeTab, setActiveTab] = useState<'education' | 'publications' | 'community' | 'funfact'>('education');
-  
+
   const scrollToPersonalTraining = () => {
     const personalTrainingElement = document.getElementById('personal-training');
     if (personalTrainingElement) {
-      personalTrainingElement.scrollIntoView({ 
+      personalTrainingElement.scrollIntoView({
         behavior: 'smooth',
         block: 'start'
       });
@@ -32,14 +32,14 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
   return (
     <section id="about" className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-secondary/50 to-accent/50"></div>
-      
+
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">
           <span className="gradient-text">My Expertise</span>
         </h2>
-        
 
-        
+
+
         <div className="space-y-16">
           {/* Introduction Quote */}
           <div className="text-center max-w-4xl mx-auto">
@@ -56,7 +56,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
               <h3 className="text-xl font-semibold mb-4 text-center" style={{ color: '#F3E8B9' }}>
                 Watch this video I made about what it would be like to work with me
               </h3>
-              <video 
+              <video
                 src={expertiseVideo}
                 controls
                 className="w-full rounded-xl shadow-lg"
@@ -97,6 +97,42 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                 adoption strategies for successful product launches.
               </p>
             </div>
+
+            <div className="glass rounded-xl p-6 hover:glow-purple transition-all duration-300">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 rounded-lg bg-chart-4/20 flex items-center justify-center mr-4">
+                    <span className="text-2xl">🔄</span>
+                  </div>
+                  <h3 className="text-xl font-semibold" style={{ color: '#F3E8B9' }}>Change Management</h3>
+                </div>
+                <p className="text-gray-300 leading-relaxed">
+                  PROSCI certified organizational transformation, stakeholder alignment, and adoption strategies for successful product launches.
+                </p>
+              </div>
+
+              <div className="glass rounded-xl p-6 hover:glow-purple transition-all duration-300">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 rounded-lg bg-purple-500/20 flex items-center justify-center mr-4">
+                    <span className="text-2xl">⚡</span>
+                  </div>
+                  <h3 className="text-xl font-semibold" style={{ color: '#F3E8B9' }}>PM-SM</h3>
+                </div>
+                <p className="text-gray-300 leading-relaxed">
+                  Product Manager - Scrum Master hybrid role combining strategic product vision with agile delivery expertise to lead cross-functional teams and accelerate product development cycles.
+                </p>
+              </div>
+
+              <div className="glass rounded-xl p-6 hover:glow-purple transition-all duration-300">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center mr-4">
+                    <span className="text-2xl">📋</span>
+                  </div>
+                  <h3 className="text-xl font-semibold" style={{ color: '#F3E8B9' }}>Project Manager</h3>
+                </div>
+                <p className="text-gray-300 leading-relaxed">
+                  End-to-end project leadership with expertise in scope management, resource coordination, and stakeholder communication to deliver complex technical initiatives on time and within budget.
+                </p>
+              </div>
           </div>
 
           {/* Education Tabs - Centered and Wide */}
@@ -239,7 +275,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                             <div className="text-foreground font-medium">NASM - Certified Personal Trainer, Fitness Instructor, Nutrition Coach</div>
                           </div>
                         </div>
-                        
+
                         {/* Duplicate set for seamless loop */}
                         <div className="education-item">
                           <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
@@ -333,13 +369,13 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                           </div>
                         </div>
                       </div>
-                      
+
                       {/* Fade gradients */}
                       <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-background to-transparent pointer-events-none z-10"></div>
                       <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-background to-transparent pointer-events-none z-10"></div>
                     </div>
                   </div>
-                  
+
                   <p className="text-muted-foreground text-sm mt-4 italic text-center">
                     Hover to pause scrolling
                   </p>
@@ -444,7 +480,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                             <div className="text-foreground font-medium">Conway Daily Sun Readers Choice Award - "Best Personal Trainer" | NH</div>
                           </div>
                         </div>
-                        
+
                         {/* Duplicate set for seamless loop */}
                         <div className="education-item">
                           <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
@@ -538,13 +574,13 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                           </div>
                         </div>
                       </div>
-                      
+
                       {/* Fade gradients */}
                       <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-background to-transparent pointer-events-none z-10"></div>
                       <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-background to-transparent pointer-events-none z-10"></div>
                     </div>
                   </div>
-                  
+
                   <p className="text-muted-foreground text-sm mt-4 italic text-center">
                     Hover to pause scrolling
                   </p>
@@ -677,7 +713,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                             <div className="text-foreground font-medium">Delta Gamma Fraternity – Alpha Epsilon | Founding Sister</div>
                           </div>
                         </div>
-                        
+
                         {/* Duplicate set for seamless loop */}
                         <div className="education-item">
                           <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
@@ -799,13 +835,13 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                           </div>
                         </div>
                       </div>
-                      
+
                       {/* Fade gradients */}
                       <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-background to-transparent pointer-events-none z-10"></div>
                       <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-background to-transparent pointer-events-none z-10"></div>
                     </div>
                   </div>
-                  
+
                   <p className="text-muted-foreground text-sm mt-4 italic text-center">
                     Hover to pause scrolling
                   </p>
