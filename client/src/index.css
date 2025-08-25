@@ -216,8 +216,8 @@
   /* Typography matching logo style - Extra bold + thin pattern */
   .logo-style {
     font-family: 'Inter', sans-serif;
-    font-size: 1.5rem;
-    line-height: 1.2;
+    font-size: 2rem;
+    line-height: 1.1;
     letter-spacing: -0.02em;
   }
 
