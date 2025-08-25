@@ -229,6 +229,7 @@ const caseStudies: Record<string, CaseStudy> = {
     image: eagSiteLayoutImage,
     slideshow: [
       eagSiteLayoutImage,
+      eagSiteLayoutImage,
       eagOverviewImage,
       eagMindmapImage,
       eagResultsImage
