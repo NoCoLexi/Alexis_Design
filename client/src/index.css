@@ -666,6 +666,11 @@
   z-index: 10;
 }
 
+/* Hero section styling */
+.hero {
+  padding-top: 80px; /* adjust to match your nav bar's height */
+}
+
 /* Enhanced sticky navigation */
 nav {
   position: fixed !important;
