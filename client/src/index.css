@@ -666,6 +666,20 @@
   z-index: 10;
 }
 
+/* Button and anchor outline removal */
+button,
+a {
+  outline: none;
+  border: none;
+}
+
+button:focus,
+a:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #4f46e5; /* nice purple glow */
+  border-radius: 6px;           /* soften corners */
+}
+
 /* Hero section styling */
 .hero {
   padding-top: 80px; /* adjust to match your nav bar's height */
