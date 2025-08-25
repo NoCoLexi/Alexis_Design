@@ -119,7 +119,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             src={profileImage} 
             alt="Alexis Brochu professional photo" 
             data-testid="img-professional-photo"
-            className="max-w-7xl mx-auto rounded-lg"
+            className="w-full mx-auto rounded-lg"
           />
 
           {/* Watch Video Link */}
@@ -146,7 +146,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
               onClick={onOpenAwardModal}
               data-testid="button-hero-tech-award"
             >
-              <Award className="w-5 h-5 text-chart-3" />
+              <Award className="w-5 h-5" style={{ color: '#0081BC' }} />
               <span className="text-base font-medium" style={{ color: '#F3E8B9' }}>
                 2023 California GovTech Award Winner
               </span>

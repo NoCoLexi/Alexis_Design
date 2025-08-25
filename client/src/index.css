@@ -216,8 +216,8 @@
   /* Typography matching logo style - Extra bold + thin pattern */
   .logo-style {
     font-family: 'Inter', sans-serif;
-    font-size: 1.5rem;
-    line-height: 1.2;
+    font-size: 3rem;
+    line-height: 1.1;
     letter-spacing: -0.02em;
   }
 
@@ -693,6 +693,7 @@ nav a,
 nav button {
   color: white !important;
   transition: all 0.3s ease;
+  transform: scale(1);
 }
 
 nav [data-radix-navigation-menu-trigger]:hover,
@@ -700,6 +701,17 @@ nav a:hover,
 nav button:hover {
   background-color: rgba(255, 255, 255, 0.1) !important;
   color: white !important;
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* Site modal button glow effect */
+[data-testid="button-about-site"]:hover,
+[data-testid="button-about-site-mobile"]:hover {
+  box-shadow: 0 0 20px rgba(0, 129, 188, 0.6), 
+              0 0 40px rgba(0, 129, 188, 0.4), 
+              0 0 60px rgba(0, 129, 188, 0.2) !important;
+  filter: brightness(1.2) !important;
 }
 
 /* Ensure proper spacing for fixed header */
