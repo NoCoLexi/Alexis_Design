@@ -121,7 +121,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             data-testid="img-professional-photo"
             className="max-w-7xl mx-auto rounded-lg"
           />
-          
+
           {/* Watch Video Link */}
           <div className="mt-4 pb-4 flex justify-center">
             <button
@@ -165,9 +165,10 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           >
             I'm Alexis and I want to be your next
           </p>
+          
           <p 
             className={`text-2xl md:text-3xl font-inter-black text-foreground mb-8 cycling-role text-center ${isExiting ? 'exit' : ''}`}
-            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 900 }}
+            style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300 }}
           >
             {roles[currentRoleIndex]}
           </p>
