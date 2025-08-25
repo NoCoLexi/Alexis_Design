@@ -150,7 +150,7 @@ export default function NavMusicPlayer({ onPlayingChange, renderAs = 'circle', b
               togglePlayPause();
             }}
             className="px-4 py-4 gradient-bg-primary hover:opacity-90 hover:scale-105 hover:brightness-110 rounded-xl font-inter-bold transition-all duration-300 glow-purple flex items-center gap-2 w-full justify-center relative z-10"
-            style={{ fontSize: '1.75rem', pointerEvents: 'auto', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
+            style={{ fontSize: '1.25rem', pointerEvents: 'auto', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
             data-testid="button-play-hire-me-song"
           >
             {isPlaying ? (
