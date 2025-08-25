@@ -113,33 +113,31 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
 
 
-      <div className="flex items-start justify-start gap-12 px-8 py-8 relative w-full z-10 mt-16">
-        {/* Hero Photo Section */}
-        <div className="flex-[2] flex justify-start">
-          <div className="w-full max-w-[700px]">
-            <img 
-              src={profileImage} 
-              alt="Alexis Brochu professional photo" 
-              data-testid="img-professional-photo"
-              className="w-full h-auto rounded-2xl object-cover"
-            />
+      <div className="flex items-start px-6 py-20 relative space-x-8 text-center w-full z-10">
+        <div className="flex-1 flex flex-col items-center justify-start">
+          <img 
+            src={profileImage} 
+            alt="Alexis Brochu professional photo" 
+            data-testid="img-professional-photo"
+            className="w-full rounded-lg"
+          />
 
-            {/* Watch Video Link */}
-            <div className="mt-4 pb-4 flex justify-center">
-              <button
-                onClick={openVideoModal}
-                className="text-base transition-all duration-300 transform hover:scale-105 hover:brightness-110"
-                data-testid="button-watch-video-about-me"
-                style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300, color: '#F3E8B9' }}
-              >
-                Watch this video about what it's like to work with me
-              </button>
-            </div>
+          {/* Watch Video Link */}
+          <div className="mt-4 pb-4 flex justify-center">
+            <button
+              onClick={openVideoModal}
+              className="text-base transition-all duration-300 transform hover:scale-105 hover:brightness-110"
+              data-testid="button-watch-video-about-me"
+              style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300, color: '#F3E8B9' }}
+            >
+              Watch this video about what it's like to work with me
+            </button>
           </div>
         </div>
 
-        {/* Hero Text Section */}
-        <div className="flex-1 max-w-[500px] flex flex-col justify-start text-left">
+        <div className="max-w-4xl mx-auto" style={{
+          flexGrow: 1
+        }}>
           {/* Award Button - positioned above the heading */}
           <div className="mb-6 pb-4 flex justify-center">
             <div 
@@ -202,6 +200,8 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             </div>
           </div>
         </div>
+
+
       </div>
 
       {/* Scroll indicator */}
