@@ -869,6 +869,20 @@ export default function CaseStudyModal() {
 
         {/* Content */}
         <div className="p-6 space-y-8">
+          {/* Key Results */}
+          <div>
+            <h4 className="text-xl font-semibold mb-6">Key Results</h4>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {caseStudy.metrics.map((metric, index) => (
+                <div key={index} className="glass rounded-xl p-6 text-center">
+                  <div className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">{metric.label}</div>
+                  <div className="text-sm font-medium text-muted-foreground">{metric.value}</div>
+                  <div className="text-xs text-muted-foreground mt-1">{metric.description}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
           {/* Hero Image/Video/Slideshow */}
           <div className="aspect-video rounded-xl overflow-hidden">
             {caseStudy.video ? (
@@ -924,19 +938,7 @@ export default function CaseStudyModal() {
             </div>
           </div>
 
-          {/* Metrics */}
-          <div>
-            <h4 className="text-xl font-semibold mb-6">Key Results</h4>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {caseStudy.metrics.map((metric, index) => (
-                <div key={index} className="glass rounded-xl p-6 text-center">
-                  <div className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">{metric.label}</div>
-                  <div className="text-sm font-medium text-muted-foreground">{metric.value}</div>
-                  <div className="text-xs text-muted-foreground mt-1">{metric.description}</div>
-                </div>
-              ))}
-            </div>
-          </div>
+          
 
           {/* Challenge & Solution */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
