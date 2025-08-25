@@ -114,12 +114,12 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
 
       <div className="flex items-start px-6 py-20 relative space-x-8 text-center w-full z-10">
-        <div style={{ flexGrow: 1, alignSelf: 'flex-start' }}>
+        <div className="flex-1 flex flex-col items-center justify-start">
           <img 
             src={profileImage} 
             alt="Alexis Brochu professional photo" 
             data-testid="img-professional-photo"
-            className="w-full rounded-lg m-0 p-0"
+            className="w-full rounded-lg"
           />
 
           {/* Watch Video Link */}
