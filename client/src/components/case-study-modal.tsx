@@ -83,6 +83,7 @@ import paDirectorsDeck5Image from "@assets/Directors_Deck_5_2025-08-21_10-45-30_
 import paDirectorsDeck6Image from "@assets/Directors_Deck_6_2025-08-21_10-45-30_1755797534118.png";
 import paDirectorsDeck7Image from "@assets/Directors_Deck_7_2025-08-21_10-45-30_1755797534118.png";
 import paDirectorsDeck8Image from "@assets/Directors_Deck_8_2025-08-21_10-45-30_1755797534118.png";
+import paCloseoutMetricsImage from "@assets/pa-closeout-metrics_1756082000000.png";
 import providenceSchoolsBrochureImage from "@assets/FullSizeRender 10_1755218415406.jpg";
 import providenceSystemMissionImage from "@assets/FullSizeRender 9_1755218651601.jpg";
 import providenceSystemVisionImage from "@assets/FullSizeRender 3_1755218651602.jpg";
@@ -263,7 +264,7 @@ const caseStudies: Record<string, CaseStudy> = {
       'Award recognition validates user-centered design approach',
       'Measurable impact drives continued investment in UX'
     ],
-    image: paDirectorsDeck6Image,
+    image: paCloseoutMetricsImage,
     award: '2023 California Government Technology Innovation Award for Public Service'
   },
   ilave: {
