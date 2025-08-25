@@ -127,11 +127,11 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           <div className="mt-4 pb-4 flex justify-center">
             <button
               onClick={openVideoModal}
-              className="text-lg hover:text-primary transition-colors underline underline-offset-4 hover:underline-offset-8 transition-all duration-300"
+              className="text-lg hover:text-primary transition-colors"
               data-testid="button-watch-video-about-me"
               style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, color: '#F3E8B9' }}
             >
-              Watch this video about me
+              Watch this video about what it's like to work with me
             </button>
           </div>
         </div>
