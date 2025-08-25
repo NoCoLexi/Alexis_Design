@@ -43,13 +43,13 @@ export default function VideoModal({ isOpen, onClose, videoSrc, title }: VideoMo
     if (!video || !isOpen) return;
 
     const handleLoadedData = () => {
-      // Set video to 28 seconds for preview
-      video.currentTime = 28;
+      // Set video to 5:26 (326 seconds) for preview
+      video.currentTime = 326;
       setIsVideoReady(true);
     };
 
     const handleSeeked = () => {
-      if (!hasStartedPlaying && video.currentTime === 28) {
+      if (!hasStartedPlaying && video.currentTime === 326) {
         video.pause();
       }
     };
