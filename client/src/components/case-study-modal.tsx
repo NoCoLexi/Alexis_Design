@@ -28,6 +28,7 @@ import subscriptexVideo from "@assets/▶ Final Iteration - subscriptex design s
 import projectPulseVideo from "@assets/Project Pulse PoC 2024_1754598878707.mp4";
 import hrmodImage from "@assets/image_1754599300491.png";
 import eagSiteLayoutImage from "@assets/EAG Site layout_1754599408721.png";
+import eagItApplicationsImage from "@assets/Cal OES IT apps_1756087535060.png";
 import fairGroundsSwagImage from "@assets/Fairgrounds swag_1754848838840.jpg";
 import fairGroundsWinterImage from "@assets/FairGrounds winter_1754848838840.jpg";
 import fairGroundsLogoImage from "@assets/FG 2 color circle lg_1754848838841.jpg";
@@ -228,7 +229,7 @@ const caseStudies: Record<string, CaseStudy> = {
     ],
     image: eagSiteLayoutImage,
     slideshow: [
-      eagSiteLayoutImage,
+      eagItApplicationsImage,
       eagSiteLayoutImage,
       eagOverviewImage,
       eagMindmapImage,
