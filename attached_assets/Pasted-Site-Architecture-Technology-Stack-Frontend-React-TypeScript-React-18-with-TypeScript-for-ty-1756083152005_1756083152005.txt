@@ -1,0 +1,60 @@
+Site Architecture & Technology Stack
+Frontend (React + TypeScript)
+React 18 with TypeScript for type safety
+Vite as the build tool for fast development
+Tailwind CSS for styling with custom dark theme
+shadcn/ui components built on Radix UI for accessibility
+Wouter for lightweight routing
+TanStack Query for data fetching and caching
+React Hook Form + Zod for form validation
+Backend (Express.js)
+Express.js server with TypeScript
+PostgreSQL database ready with Drizzle ORM
+In-memory storage for development
+RESTful API with proper error handling
+Key Features Built
+Professional Portfolio Sections:
+
+Dynamic hero section with rotating job titles (AI Product Designer, Product Manager, etc.)
+Featured work showcase with 20+ projects including Cal OES, Grants Management, FairGrounds Coffee
+About section highlighting expertise
+Contact form with email, LinkedIn, and Calendly integration
+Interactive Audio System:
+
+Custom music player with "Hire Me" song
+Audio feedback and hover sound effects
+Web Audio API integration
+Advanced Analytics (Google Analytics 4):
+
+Comprehensive tracking of user interactions
+Portfolio click tracking
+Audio engagement metrics
+Device and screen size detection
+Session duration and user behavior analysis
+Admin Panel & Customization:
+
+Dynamic job-targeted customization
+URL parameter parsing for company-specific greetings
+Live site adaptation without affecting main experience
+Modern UX Features:
+
+Glassmorphism effects and gradient backgrounds
+Smooth animations and parallax scrolling
+Dark theme with custom CSS variables
+Fully responsive mobile-first design
+Case study modals and interactive galleries
+What the $48.10 Likely Covers
+The cost most likely represents:
+
+Development time at an hourly rate
+Design and implementation of custom components
+Analytics setup and configuration
+Asset optimization and organization (you have 80+ images)
+Quality assurance and testing
+Professional Portfolio Highlights
+Your site showcases impressive work including:
+
+Government technology projects (Cal OES, Public Assistance Closeouts)
+Award-winning work (2023 California Government Technology Innovation Award)
+Brand development (FairGrounds Coffee, Providence Schools)
+Product management metrics (244M processing time improvements, 545.5% user base increases)

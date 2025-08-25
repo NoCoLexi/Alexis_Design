@@ -139,6 +139,140 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
             </div>
           </div>
 
+          {/* Site Architecture */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-semibold text-purple-400">Site Architecture & Technology Stack</h3>
+            
+            <div className="space-y-4">
+              <div>
+                <h4 className="font-semibold text-white mb-2">Frontend (React + TypeScript)</h4>
+                <ul className="text-sm text-gray-300 space-y-1 ml-4">
+                  <li>• React 18 with TypeScript for type safety</li>
+                  <li>• Vite as the build tool for fast development</li>
+                  <li>• Tailwind CSS for styling with custom dark theme</li>
+                  <li>• shadcn/ui components built on Radix UI for accessibility</li>
+                  <li>• Wouter for lightweight routing</li>
+                  <li>• TanStack Query for data fetching and caching</li>
+                  <li>• React Hook Form + Zod for form validation</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 className="font-semibold text-white mb-2">Backend (Express.js)</h4>
+                <ul className="text-sm text-gray-300 space-y-1 ml-4">
+                  <li>• Express.js server with TypeScript</li>
+                  <li>• PostgreSQL database ready with Drizzle ORM</li>
+                  <li>• In-memory storage for development</li>
+                  <li>• RESTful API with proper error handling</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Key Features */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-semibold text-purple-400">Key Features Built</h3>
+            
+            <div className="space-y-4">
+              <div>
+                <h4 className="font-semibold text-white mb-2">Professional Portfolio Sections</h4>
+                <ul className="text-sm text-gray-300 space-y-1 ml-4">
+                  <li>• Dynamic hero section with rotating job titles (AI Product Designer, Product Manager, etc.)</li>
+                  <li>• Featured work showcase with 20+ projects including Cal OES, Grants Management, FairGrounds Coffee</li>
+                  <li>• About section highlighting expertise</li>
+                  <li>• Contact form with email, LinkedIn, and Calendly integration</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 className="font-semibold text-white mb-2">Interactive Audio System</h4>
+                <ul className="text-sm text-gray-300 space-y-1 ml-4">
+                  <li>• Custom music player with "Hire Me" song</li>
+                  <li>• Audio feedback and hover sound effects</li>
+                  <li>• Web Audio API integration</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 className="font-semibold text-white mb-2">Advanced Analytics (Google Analytics 4)</h4>
+                <ul className="text-sm text-gray-300 space-y-1 ml-4">
+                  <li>• Comprehensive tracking of user interactions</li>
+                  <li>• Portfolio click tracking</li>
+                  <li>• Audio engagement metrics</li>
+                  <li>• Device and screen size detection</li>
+                  <li>• Session duration and user behavior analysis</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 className="font-semibold text-white mb-2">Admin Panel & Customization</h4>
+                <ul className="text-sm text-gray-300 space-y-1 ml-4">
+                  <li>• Dynamic job-targeted customization</li>
+                  <li>• URL parameter parsing for company-specific greetings</li>
+                  <li>• Live site adaptation without affecting main experience</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 className="font-semibold text-white mb-2">Modern UX Features</h4>
+                <ul className="text-sm text-gray-300 space-y-1 ml-4">
+                  <li>• Glassmorphism effects and gradient backgrounds</li>
+                  <li>• Smooth animations and parallax scrolling</li>
+                  <li>• Dark theme with custom CSS variables</li>
+                  <li>• Fully responsive mobile-first design</li>
+                  <li>• Case study modals and interactive galleries</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Professional Portfolio Highlights */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-semibold text-purple-400">Professional Portfolio Highlights</h3>
+            <p className="text-gray-300 text-sm mb-4">
+              This site showcases impressive work including:
+            </p>
+            
+            <div className="space-y-4">
+              <div>
+                <h4 className="font-semibold text-white mb-2">Government Technology Projects</h4>
+                <ul className="text-sm text-gray-300 space-y-1 ml-4">
+                  <li>• Cal OES Engage Community Portal</li>
+                  <li>• Public Assistance Closeouts App</li>
+                  <li>• Office of Change Management (OCM)</li>
+                  <li>• Enterprise Architecture Group (EAG)</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 className="font-semibold text-white mb-2">Award-Winning Work</h4>
+                <ul className="text-sm text-gray-300 space-y-1 ml-4">
+                  <li>• 2023 California Government Technology Innovation Award</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 className="font-semibold text-white mb-2">Brand Development Projects</h4>
+                <ul className="text-sm text-gray-300 space-y-1 ml-4">
+                  <li>• FairGrounds Community Coffee (complete brand identity)</li>
+                  <li>• Providence Schools (educational branding)</li>
+                  <li>• ABC6 News rebrand (television branding)</li>
+                  <li>• TTools brand identity system</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 className="font-semibold text-white mb-2">Product Management Metrics</h4>
+                <ul className="text-sm text-gray-300 space-y-1 ml-4">
+                  <li>• 244M processing time improvements</li>
+                  <li>• 545.5% user base increases</li>
+                  <li>• 75% support ticket reduction</li>
+                  <li>• 85% reporting efficiency improvements</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
           {/* Development Process */}
           <div className="space-y-4">
             <h3 className="text-xl font-semibold text-purple-400">Development Timeline</h3>
