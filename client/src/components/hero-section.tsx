@@ -113,7 +113,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
 
 
-      <div className="flex items-start justify-start gap-4 p-4 relative w-full z-10 mt-0">
+      <div className="flex items-start justify-start gap-6 px-8 py-4 relative w-full z-10 mt-0">
         {/* Hero Photo Section */}
         <div className="flex-[1.5] flex justify-start pl-0 ml-0">
           <div className="w-full max-w-[700px]">
@@ -167,7 +167,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           >
             I'm Alexis and I want to be your next
           </p>
-          
+
           <p 
             className={`text-2xl md:text-3xl font-inter-black text-foreground mb-8 cycling-role text-center ${isExiting ? 'exit' : ''}`}
             style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300 }}
