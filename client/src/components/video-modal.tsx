@@ -42,9 +42,18 @@ export default function VideoModal({ isOpen, onClose, videoSrc, title }: VideoMo
     const video = videoRef.current;
     if (!video || !isOpen) return;
 
+    const seekToTime = () => {
+      if (video.readyState >= 1) { // HAVE_METADATA
+        video.currentTime = 326; // 5:26
+      }
+    };
+
     const handleLoadedMetadata = () => {
-      // Set video to 5:26 (326 seconds) for preview
-      video.currentTime = 326;
+      seekToTime();
+    };
+
+    const handleLoadedData = () => {
+      seekToTime();
     };
 
     const handleSeeked = () => {
@@ -54,21 +63,27 @@ export default function VideoModal({ isOpen, onClose, videoSrc, title }: VideoMo
       }
     };
 
-    const handleLoadedData = () => {
-      // Ensure we seek to the right time after data is loaded
-      if (video.currentTime !== 326) {
-        video.currentTime = 326;
+    const handleCanPlay = () => {
+      if (video.currentTime === 0) {
+        seekToTime();
       }
     };
 
     video.addEventListener('loadedmetadata', handleLoadedMetadata);
     video.addEventListener('loadeddata', handleLoadedData);
     video.addEventListener('seeked', handleSeeked);
+    video.addEventListener('canplay', handleCanPlay);
+
+    // Try to seek immediately if video is already loaded
+    if (video.readyState >= 1) {
+      seekToTime();
+    }
 
     return () => {
       video.removeEventListener('loadedmetadata', handleLoadedMetadata);
       video.removeEventListener('loadeddata', handleLoadedData);
       video.removeEventListener('seeked', handleSeeked);
+      video.removeEventListener('canplay', handleCanPlay);
     };
   }, [isOpen, hasStartedPlaying]);
 
