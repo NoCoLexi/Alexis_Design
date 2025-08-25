@@ -629,6 +629,24 @@ nav {
   top: 0 !important;
   will-change: transform;
   transition: background-color 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+  background-color: rgba(0, 129, 188, 0.9) !important;
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 129, 188, 0.2);
+}
+
+/* Navigation menu items styling */
+nav [data-radix-navigation-menu-trigger],
+nav a,
+nav button {
+  color: white !important;
+  transition: all 0.3s ease;
+}
+
+nav [data-radix-navigation-menu-trigger]:hover,
+nav a:hover,
+nav button:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: white !important;
 }
 
 /* Ensure proper spacing for fixed header */
