@@ -68,6 +68,7 @@ import paDirectorsDeck6Image from "@assets/Directors_Deck_6_2025-08-21_10-45-30_
 import paDirectorsDeck7Image from "@assets/Directors_Deck_7_2025-08-21_10-45-30_1755788575819.png";
 import paDirectorsDeck8Image from "@assets/Directors_Deck_8_2025-08-21_10-45-30_1755788578055.png";
 import paTestimonialCoverImage from "@/assets/pa-testimonial-quote_1756082000000.png";
+import paCloseoutMetricsImage from "@/assets/pa-closeout-metrics_1756082000000.png";
 import providenceSchoolsCoverImage from "@assets/FullSizeRender 4_1755218415405.jpg";
 import providenceSchoolsBrochureImage from "@assets/FullSizeRender 10_1755218415406.jpg";
 import providenceSystemMissionImage from "@assets/FullSizeRender 9_1755218651601.jpg";
@@ -116,8 +117,9 @@ const projects: Project[] = [
     title: 'Public Assistance Closeouts App',
     description: 'Streamlining the reimbursement process for California subrecipients. Winner of the 2023 California Government Technology Innovation Award.',
     category: 'product-management',
-    image: paTestimonialCoverImage,
+    image: paCloseoutMetricsImage,
     slideshow: [
+      paCloseoutMetricsImage,
       paDirectorsDeckImage,
       paDirectorsDeck2Image,
       paDirectorsDeck3Image,
