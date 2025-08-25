@@ -795,8 +795,8 @@ const caseStudies: Record<string, CaseStudy> = {
   }
 };
 
-function ImageSlideshow({ images, interval = 3000 }: { images: string[]; interval?: number }) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+function ImageSlideshow({ images, interval = 3000, initialIndex = 0 }: { images: string[]; interval?: number; initialIndex?: number }) {
+  const [currentIndex, setCurrentIndex] = useState(initialIndex);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -890,6 +890,7 @@ export default function CaseStudyModal() {
               <ImageSlideshow 
                 images={caseStudy.slideshow} 
                 interval={caseStudy.id === 'ttools-alexis-design' || caseStudy.id === 'abc6-rebrand-alexis-design' || caseStudy.id === 'budweiser-zipatoni' ? 2000 : 3000}
+                initialIndex={caseStudy.id === 'pa-portal' ? 2 : 0}
               />
             ) : caseStudy.image ? (
               <img src={caseStudy.image} alt={caseStudy.title} className="w-full h-full object-cover" />
