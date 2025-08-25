@@ -154,7 +154,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             </div>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-inter-black mb-6" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 900, lineHeight: '1.4', paddingBottom: '0.25rem' }}>
+          <h1 className="text-5xl md:text-7xl font-inter-black mb-6" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.4', paddingBottom: '0.25rem' }}>
             <span className={`gradient-text disco-text ${isPlaying ? 'dancing' : ''}`}>
               {getCustomGreeting()}
             </span>
