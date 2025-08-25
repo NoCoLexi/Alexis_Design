@@ -113,7 +113,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
 
 
-      <div className="flex items-start justify-start gap-12 p-8 relative w-full z-10 mt-0">
+      <div className="flex items-start justify-start gap-6 p-8 relative w-full z-10 mt-0">
         {/* Hero Photo Section */}
         <div className="flex-[1.5] flex justify-start pl-0 ml-0">
           <div className="w-full max-w-[700px]">
