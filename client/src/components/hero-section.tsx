@@ -140,7 +140,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           flexGrow: 1
         }}>
           {/* Award Button - positioned above the heading */}
-          <div className="mb-6 flex justify-center">
+          <div className="mb-6 pb-4 flex justify-center">
             <div 
               className="inline-flex items-center gap-2 rounded-full px-6 py-3 hover:glow-yellow transition-all duration-300 cursor-pointer transform hover:scale-105 shadow-lg border border-chart-3/20"
               style={{ background: 'rgba(255, 255, 255, 0.15)', backdropFilter: 'blur(20px)' }}
@@ -185,7 +185,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           </div>
 
           {/* Key Metrics */}
-          <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
+          <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto pt-6">
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold" style={{ color: '#F3E8B9' }}>545.5%</div>
               <div className="text-sm text-white/70">User Growth</div>
