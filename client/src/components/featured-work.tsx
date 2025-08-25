@@ -579,9 +579,7 @@ export default function FeaturedWork() {
 
       <div className="max-w-7xl mx-auto relative">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary mb-6">
-            <span className="text-sm font-medium">Featured Work</span>
-          </div>
+          
           <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
             <span className="gradient-text">Product Portfolio</span>
           </h2>
