@@ -132,9 +132,7 @@ const caseStudies: Record<string, CaseStudy> = {
     solution: 'Designed and implemented a modern, user-centered SaaS CRM platform with intuitive navigation, streamlined onboarding, automated workflows, and comprehensive support resources.',
     outcome: 'Successfully launched a platform that dramatically improved user experience and accessibility to government services.',
     metrics: [
-      { label: '545.5%', value: 'User Base Increase', description: 'Recorded 4 months after GoLive' },
-      { label: '75%', value: 'Decrease in Support Tickets', description: 'Significant reduction in user issues' },
-      { label: '203%', value: 'Increase in Successful Onboarding', description: 'More users completing registration successfully' }
+      { label: '545.5%', value: 'User Base Increase', description: 'Recorded 4 months after GoLive' }
     ],
     process: [
       'Stakeholder interviews and requirements gathering',
@@ -165,8 +163,7 @@ const caseStudies: Record<string, CaseStudy> = {
     solution: 'Developed a comprehensive change management strategy focusing on user-centered design principles, brand unification, and cross-vendor governance. Replaced acronym-heavy language with clear descriptions, established design standards, and created a Center of Excellence for ongoing oversight.',
     outcome: 'Successfully transformed a fragmented system into a unified platform that significantly improved user experience and operational efficiency across all Cal OES digital services.',
     metrics: [
-      { label: '75%', value: 'Support Ticket Reduction', description: 'Decreased despite increased user base' },
-      { label: '545.5%', value: 'User Base Increase', description: 'Within 4 months of launch' }
+      { label: '86.3%', value: 'User Adoption', description: 'Successful platform adoption across departments' }
     ],
     process: [
       'Stakeholder interviews across 9 applications',
@@ -208,9 +205,7 @@ const caseStudies: Record<string, CaseStudy> = {
     solution: 'Developed comprehensive enterprise architecture strategy focusing on platform consolidation, standardization of development practices, and implementation of governance frameworks. Established technology roadmaps aligned with business objectives and regulatory requirements.',
     outcome: 'Successfully modernized enterprise infrastructure, reducing operational complexity while improving security, scalability, and maintainability across all Cal OES technology platforms.',
     metrics: [
-      { label: '60%', value: 'Infrastructure Cost Reduction', description: 'Through platform consolidation' },
-      { label: '85%', value: 'Compliance Improvement', description: 'Security and regulatory standards' },
-      { label: '40%', value: 'Development Velocity Increase', description: 'Standardized frameworks and tools' }
+      { label: '83%', value: 'Compliance', description: 'Improved security and regulatory standards' }
     ],
     process: [
       'Current state architecture assessment',
@@ -242,9 +237,7 @@ const caseStudies: Record<string, CaseStudy> = {
     solution: 'Created a streamlined digital workflow that automates key processes, provides real-time status updates, and simplifies documentation requirements.',
     outcome: 'Revolutionized the public assistance process, earning recognition from the state of California.',
     metrics: [
-      { label: '$244 Million', value: 'Projects Closed Out', description: 'In the first 4 months after GoLive' },
-      { label: '5,507', value: 'Registered Users', description: 'In the first 4 months after GoLive' },
-      { label: '75%', value: 'Reduction in Processing Time', description: 'Faster reimbursement processing' }
+      { label: '75%', value: 'Support Ticket Reduction', description: 'Decreased user issues and support requests' }
     ],
     process: [
       'Process mapping and pain point identification',
