@@ -115,15 +115,26 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
 
       <div className="flex items-center px-6 py-20 relative space-x-8 text-center w-full z-10">
-        <img 
-          src={profileImage} 
-          alt="Alexis Brochu professional photo" 
-          data-testid="img-professional-photo"
-          className="max-w-4xl mx-auto"
-          style={{
-            flexGrow: 1
-          }}
-        />
+        <div style={{ flexGrow: 1 }}>
+          <img 
+            src={profileImage} 
+            alt="Alexis Brochu professional photo" 
+            data-testid="img-professional-photo"
+            className="max-w-4xl mx-auto"
+          />
+          
+          {/* Watch Video Link */}
+          <div className="mt-4 pb-4 flex justify-center">
+            <button
+              onClick={openVideoModal}
+              className="text-lg text-foreground hover:text-primary transition-colors underline underline-offset-4 hover:underline-offset-8 transition-all duration-300"
+              data-testid="button-watch-video-about-me"
+              style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400 }}
+            >
+              Watch this video about me
+            </button>
+          </div>
+        </div>
 
         <div className="max-w-4xl mx-auto" style={{
           flexGrow: 1
@@ -163,7 +174,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           </p>
 
           {/* Hire Me Song Button */}
-          <div className="mb-4 pt-4 flex justify-center max-w-xs mx-auto">
+          <div className="mb-8 pt-4 flex justify-center max-w-xs mx-auto">
             <div className={`disco-button ${isPlaying ? 'playing' : ''} w-full`}>
               <NavMusicPlayer 
                 onPlayingChange={setIsPlaying}
@@ -171,18 +182,6 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
                 buttonText='Play my "Hire Me" song'
               />
             </div>
-          </div>
-
-          {/* Watch Video Link */}
-          <div className="mb-8 pb-4 flex justify-center">
-            <button
-              onClick={openVideoModal}
-              className="text-lg text-foreground hover:text-primary transition-colors underline underline-offset-4 hover:underline-offset-8 transition-all duration-300"
-              data-testid="button-watch-video-about-me"
-              style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400 }}
-            >
-              Watch this video about me
-            </button>
           </div>
 
           {/* Key Metrics */}
