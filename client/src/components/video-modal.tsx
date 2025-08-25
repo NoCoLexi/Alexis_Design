@@ -42,22 +42,31 @@ export default function VideoModal({ isOpen, onClose, videoSrc, title }: VideoMo
     const video = videoRef.current;
     if (!video || !isOpen) return;
 
-    const handleLoadedData = () => {
+    const handleLoadedMetadata = () => {
       // Set video to 5:26 (326 seconds) for preview
       video.currentTime = 326;
-      setIsVideoReady(true);
     };
 
     const handleSeeked = () => {
-      if (!hasStartedPlaying && video.currentTime === 326) {
+      if (!hasStartedPlaying && Math.abs(video.currentTime - 326) < 1) {
         video.pause();
+        setIsVideoReady(true);
       }
     };
 
+    const handleLoadedData = () => {
+      // Ensure we seek to the right time after data is loaded
+      if (video.currentTime !== 326) {
+        video.currentTime = 326;
+      }
+    };
+
+    video.addEventListener('loadedmetadata', handleLoadedMetadata);
     video.addEventListener('loadeddata', handleLoadedData);
     video.addEventListener('seeked', handleSeeked);
 
     return () => {
+      video.removeEventListener('loadedmetadata', handleLoadedMetadata);
       video.removeEventListener('loadeddata', handleLoadedData);
       video.removeEventListener('seeked', handleSeeked);
     };
