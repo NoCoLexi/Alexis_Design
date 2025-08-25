@@ -70,72 +70,42 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
           {/* Expertise Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             <div className="glass rounded-xl p-6 hover:glow-purple transition-all duration-300">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mr-4">
-                  <span className="text-2xl">🎨</span>
-                </div>
-                <h3 className="text-xl font-semibold" style={{ color: '#F3E8B9' }}>Human Centered Design</h3>
-              </div>
-              <p className="text-gray-300 leading-relaxed">
-                Leveraging AI tools and human-centered design methodologies to create intuitive, data-driven experiences that solve real user problems.
-              </p>
-            </div>
-
-            <div className="glass rounded-xl p-6 hover:glow-purple transition-all duration-300">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 rounded-lg bg-chart-1/20 flex items-center justify-center mr-4">
-                  <span className="text-2xl">🔍</span>
-                </div>
-                <h3 className="text-xl font-semibold" style={{ color: '#F3E8B9' }}>UX Research & Testing</h3>
-              </div>
-              <p className="text-gray-300 leading-relaxed">
-                Comprehensive user research, data analysis, and behavioral insights to inform product decisions through rigorous testing methodologies.
-              </p>
-            </div>
-
-            <div className="glass rounded-xl p-6 hover:glow-purple transition-all duration-300">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 rounded-lg bg-chart-2/20 flex items-center justify-center mr-4">
-                  <span className="text-2xl">🤖</span>
-                </div>
-                <h3 className="text-xl font-semibold" style={{ color: '#F3E8B9' }}>AI Product Management</h3>
-              </div>
-              <p className="text-gray-300 leading-relaxed">
-                Strategic product vision leveraging AI tools and machine learning insights for cross-functional team leadership to deliver intelligent user-centered solutions.
-              </p>
-            </div>
-
-            <div className="glass rounded-xl p-6 hover:glow-purple transition-all duration-300">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 rounded-lg bg-chart-4/20 flex items-center justify-center mr-4">
-                  <span className="text-2xl">🔄</span>
-                </div>
-                <h3 className="text-xl font-semibold" style={{ color: '#F3E8B9' }}>Change Management</h3>
-              </div>
-              <p className="text-gray-300 leading-relaxed">
-                PROSCI certified organizational transformation, stakeholder alignment, and adoption strategies for successful product launches.
-              </p>
-            </div>
-
-            <div className="glass rounded-xl p-6 hover:glow-purple transition-all duration-300">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 rounded-lg bg-purple-500/20 flex items-center justify-center mr-4">
-                  <span className="text-2xl">⚡</span>
-                </div>
-                <h3 className="text-xl font-semibold" style={{ color: '#F3E8B9' }}>PM-SM</h3>
-              </div>
+              <h3 className="text-xl font-semibold mb-4" style={{ color: '#F3E8B9' }}>PM-SM</h3>
               <p className="text-gray-300 leading-relaxed">
                 Product Manager - Scrum Master hybrid role combining strategic product vision with agile delivery expertise to lead cross-functional teams and accelerate product development cycles.
               </p>
             </div>
 
             <div className="glass rounded-xl p-6 hover:glow-purple transition-all duration-300">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center mr-4">
-                  <span className="text-2xl">📋</span>
-                </div>
-                <h3 className="text-xl font-semibold" style={{ color: '#F3E8B9' }}>Project Manager</h3>
-              </div>
+              <h3 className="text-xl font-semibold mb-4" style={{ color: '#F3E8B9' }}>Human Centered Design</h3>
+              <p className="text-gray-300 leading-relaxed">
+                Leveraging AI tools and human-centered design methodologies to create intuitive, data-driven experiences that solve real user problems.
+              </p>
+            </div>
+
+            <div className="glass rounded-xl p-6 hover:glow-purple transition-all duration-300">
+              <h3 className="text-xl font-semibold mb-4" style={{ color: '#F3E8B9' }}>UX Research & Testing</h3>
+              <p className="text-gray-300 leading-relaxed">
+                Comprehensive user research, data analysis, and behavioral insights to inform product decisions through rigorous testing methodologies.
+              </p>
+            </div>
+
+            <div className="glass rounded-xl p-6 hover:glow-purple transition-all duration-300">
+              <h3 className="text-xl font-semibold mb-4" style={{ color: '#F3E8B9' }}>AI Product Management</h3>
+              <p className="text-gray-300 leading-relaxed">
+                Strategic product vision leveraging AI tools and machine learning insights for cross-functional team leadership to deliver intelligent user-centered solutions.
+              </p>
+            </div>
+
+            <div className="glass rounded-xl p-6 hover:glow-purple transition-all duration-300">
+              <h3 className="text-xl font-semibold mb-4" style={{ color: '#F3E8B9' }}>Change Management</h3>
+              <p className="text-gray-300 leading-relaxed">
+                PROSCI certified organizational transformation, stakeholder alignment, and adoption strategies for successful product launches.
+              </p>
+            </div>
+
+            <div className="glass rounded-xl p-6 hover:glow-purple transition-all duration-300">
+              <h3 className="text-xl font-semibold mb-4" style={{ color: '#F3E8B9' }}>Project Manager</h3>
               <p className="text-gray-300 leading-relaxed">
                 End-to-end project leadership with expertise in scope management, resource coordination, and stakeholder communication to deliver complex technical initiatives on time and within budget.
               </p>
