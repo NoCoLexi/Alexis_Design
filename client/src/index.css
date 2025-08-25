@@ -172,10 +172,6 @@
     box-shadow: 0 0 20px rgba(147, 51, 234, 0.3);
   }
 
-  .glow-yellow {
-    box-shadow: 0 0 20px rgba(234, 179, 8, 0.3);
-  }
-
   .font-inter-black {
     font-family: 'Inter', sans-serif !important;
     font-weight: 900 !important;
@@ -333,10 +329,7 @@
     0 0 120px rgba(255, 255, 255, 0.08);
 }
 
-/* Yellow glow effect */
-.glow-yellow {
-  box-shadow: 0 0 40px rgba(255, 193, 7, 0.6), 0 0 80px rgba(255, 193, 7, 0.4), 0 0 120px rgba(255, 193, 7, 0.2);
-}
+
 
 .glass-dark {
   background: rgba(0, 0, 0, 0.08);
