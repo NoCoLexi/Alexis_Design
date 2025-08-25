@@ -174,7 +174,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           </p>
 
           {/* Hire Me Song Button */}
-          <div className="mb-8 pt-6 pb-6 flex justify-center max-w-xs mx-auto">
+          <div className="mb-6 pt-4 pb-4 flex justify-center max-w-xs mx-auto">
             <div className={`disco-button ${isPlaying ? 'playing' : ''} w-full`}>
               <NavMusicPlayer 
                 onPlayingChange={setIsPlaying}
