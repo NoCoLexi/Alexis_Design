@@ -112,6 +112,31 @@ interface Project {
 
 const projects: Project[] = [
   {
+    id: 'innovation-award',
+    title: 'California Government Technology Innovation Award',
+    description: 'Recognized for outstanding innovation in government technology with the 2023 California Government Technology Innovation Award for transforming public assistance processes and improving citizen services.',
+    category: 'product-management',
+    image: paTestimonialCoverImage,
+    metrics: [
+      { label: '2023', value: 'Innovation Award Winner', color: 'text-chart-1' },
+      { label: '100%', value: 'Process Transformation', color: 'text-primary' }
+    ],
+    tags: ['Innovation Award', 'Government Recognition', 'Process Excellence', 'Public Service'],
+    award: '2023 CA Gov Tech Innovation Award'
+  },
+  {
+    id: 'ca-governor-data-disaster',
+    title: "CA Governor's Data Disaster Response Team",
+    description: 'Leading critical data infrastructure and disaster response coordination for the State of California, ensuring rapid deployment of emergency services and real-time data management during state-wide emergencies.',
+    category: 'product-management',
+    image: calOesImage,
+    metrics: [
+      { label: '24/7', value: 'Emergency Response', color: 'text-chart-1' },
+      { label: '98%', value: 'System Uptime', color: 'text-primary' }
+    ],
+    tags: ['Emergency Management', 'Data Infrastructure', 'State Operations', 'Crisis Response']
+  },
+  {
     id: 'pa-portal',
     title: 'Public Assistance Closeouts App',
     description: 'Streamlining the reimbursement process for California subrecipients. Winner of the 2023 California Government Technology Innovation Award.',
