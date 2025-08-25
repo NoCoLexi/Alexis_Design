@@ -153,6 +153,11 @@ const caseStudies: Record<string, CaseStudy> = {
       'Cross-agency collaboration is critical for successful government transformation',
       'Measurable outcomes are essential for validating innovation impact'
     ],
+    slideshow: [
+      caGovTechAward1,
+      caGovTechAward2,
+      caGovTechAwardCopy
+    ],
     award: '2023 CA Gov Tech Innovation Award'
   },
   'ca-governor-data-disaster': {
