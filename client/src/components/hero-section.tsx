@@ -113,7 +113,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
 
 
-      <div className="flex items-center px-6 py-20 relative space-x-8 text-center w-full z-10">
+      <div className="flex items-start px-6 py-20 relative space-x-8 text-center w-full z-10">
         <div style={{ flexGrow: 1 }}>
           <img 
             src={profileImage} 
