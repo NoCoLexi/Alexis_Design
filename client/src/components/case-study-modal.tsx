@@ -98,6 +98,9 @@ import riConventionReportImage from "@assets/FullSizeRender 28_1755219569087.jpg
 import tfGreenDetailSpreadImage from "@assets/FullSizeRender 33_1755219662733.jpg";
 import lifespanHealthBrochureImage from "@assets/FullSizeRender_1755219971125.jpg";
 import lifespanHealthBookletImage from "@assets/FullSizeRender 17_1755219971125.jpg";
+import eagOverviewImage from "@assets/Cal OES IT overview_1756087310406.png";
+import eagMindmapImage from "@assets/EAG mindmap_1756087316230.png";
+import eagResultsImage from "@assets/EAG results_1756087319907.png";
 
 interface CaseStudy {
   id: string;
@@ -223,7 +226,13 @@ const caseStudies: Record<string, CaseStudy> = {
       'Governance frameworks prevent architectural drift and technical debt',
       'Incremental migration reduces risk while delivering measurable value'
     ],
-    image: eagSiteLayoutImage
+    image: eagSiteLayoutImage,
+    slideshow: [
+      eagSiteLayoutImage,
+      eagOverviewImage,
+      eagMindmapImage,
+      eagResultsImage
+    ]
   },
   'pa-portal': {
     id: 'pa-portal',
