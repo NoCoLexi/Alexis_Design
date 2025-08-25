@@ -72,7 +72,7 @@ import grantsBackOfficeMobileImage from "@assets/Back Office 1.2_1755218244120.p
 import grantsReportingRealTimeImage from "@assets/Reporting 1.0_1755218256888.png";
 import grantsReportingDashboardImage from "@assets/Reporting 1.1_1755218256888.png";
 import paCloseoutVideo from "@assets/image_1755130943838.png";
-import paCloseoutMetricsImage from "@assets/pa-closeout-metrics_1756082000000.png";
+import paCloseoutMetricsImage from "@assets/pa-testimonial-quote_1756082000000.png";
 import providenceSchoolsCoverImage from "@assets/FullSizeRender 4_1755218415405.jpg";
 import paDirectorsDeckImage from "@assets/Directors_Deck_2025-08-21_10-44-04_1755797528297.png";
 import paDirectorsDeck2Image from "@assets/Directors_Deck_2_2025-08-21_10-45-30_1755797534117.png";
