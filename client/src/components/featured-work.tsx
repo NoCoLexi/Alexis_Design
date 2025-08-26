@@ -128,7 +128,8 @@ const projects: Project[] = [
       paDirectorsDeck8Image
     ],
     metrics: [
-      { label: '75%', value: 'Support Ticket Reduction', color: 'text-chart-1' }
+      { label: '75%', value: 'Support Ticket Reduction', color: 'text-chart-1' },
+      { label: '$243M', value: 'Projects Closed Out', color: 'text-primary' }
     ],
     tags: ['Gov Tech', 'Process Automation', 'Public Service'],
     award: '2023 CA Gov Tech Innovation Award'
