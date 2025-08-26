@@ -90,7 +90,7 @@ export default function VideoModal({ isOpen, onClose, videoSrc, title, posterIma
           {!showPoster && (
             <video
               ref={videoRef}
-              src={videoSrc}
+              src="/@fs/home/runner/workspace/attached_assets/Alexis_Deconstructing_a_Modern_Product_Leader.mp4"
               controls={hasStartedPlaying}
               className="w-full h-auto"
               style={{ maxHeight: '80vh' }}
