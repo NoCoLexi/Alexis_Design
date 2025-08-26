@@ -57,8 +57,17 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 py-2">
           <div className="flex justify-between items-center">
             <div className="logo-style flex items-center">
-              <span className="name-first text-white font-bold text-xl">Alexis</span>
-              <span className="name-last text-purple-400 font-bold text-xl">Brochu</span>
+              <img 
+                src={logoImage} 
+                alt="Alexis Brochu Logo" 
+                className="h-8 w-auto cursor-pointer hover:opacity-80 transition-opacity duration-200"
+                onClick={() => {
+                  const homeElement = document.getElementById('home');
+                  if (homeElement) {
+                    homeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }}
+              />
             </div>
             <div className="hidden md:flex space-x-8 items-center">
               {[
