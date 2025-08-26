@@ -117,27 +117,30 @@ interface Project {
 
 const projects: Project[] = [
   {
+    id: 'ca-innovation-award',
+    title: 'California Government Technology Innovation Award',
+    description: '2023 California Government Technology Innovation Award recognizing outstanding contributions to public-sector technology. Led multiple award-winning applications including Cal OES Engage Community Portal.',
+    category: 'product-management',
+    image: paPortalImage, // Using existing image until specific award image is available
+    award: true,
+    metrics: [
+      { label: '4', value: 'Award-Winning Applications', color: 'text-chart-1' },
+      { label: '2023', value: 'Innovation Summit', color: 'text-primary' }
+    ],
+    tags: ['Gov Tech', 'Innovation Award', 'Public Service']
+  },
+  {
     id: 'pa-portal',
     title: 'Public Assistance Closeouts App',
     description: 'Streamlining the reimbursement process for California subrecipients. Winner of the 2023 California Government Technology Innovation Award.',
     category: 'product-management',
-    image: paCloseoutsQuoteImage,
-    slideshow: [
-      paDirectorsDeckImage,
-      paDirectorsDeck2Image,
-      paDirectorsDeck3Image,
-      paDirectorsDeck4Image,
-      paDirectorsDeck5Image,
-      paDirectorsDeck6Image,
-      paDirectorsDeck7Image,
-      paDirectorsDeck8Image
-    ],
+    image: paPortalImage,
+    award: true,
     metrics: [
       { label: '75%', value: 'Support Ticket Reduction', color: 'text-chart-1' },
       { label: '$243M', value: 'Projects Closed Out', color: 'text-primary' }
     ],
-    tags: ['Gov Tech', 'Process Automation', 'Public Service'],
-    award: '2023 CA Gov Tech Innovation Award'
+    tags: ['Gov Tech', 'Process Automation', 'Public Service']
   },
   {
     id: 'caloes',
@@ -604,7 +607,7 @@ export default function FeaturedWork() {
 
       <div className="max-w-7xl mx-auto relative">
         <div className="text-center mb-16">
-          
+
           <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
             <span className="gradient-text">Product Portfolio</span>
           </h2>

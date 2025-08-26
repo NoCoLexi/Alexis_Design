@@ -125,9 +125,49 @@ interface CaseStudy {
   slideshow?: string[];
   video?: string;
   award?: string;
+  awards?: string[];
 }
 
 const caseStudies: Record<string, CaseStudy> = {
+  'ca-innovation-award': {
+    id: 'ca-innovation-award',
+    title: 'California Government Technology Innovation Award',
+    subtitle: '2023 Innovation Summit Recognition',
+    description: 'Led the submission and development of four different applications for the California Department of Technology (CDT) Innovation Award. All four applications won recognition at the 2023 Innovation Summit, including the Cal OES Engage Community Portal Public Assistance Closeout App which won "Best Application Serving the Public."',
+    role: 'Product Manager & Innovation Lead',
+    duration: '18 months development, 6 months award process',
+    team: '40+ cross-functional team members across 4 applications',
+    challenge: 'California state government needed innovative technology solutions to better serve residents and improve operational efficiency. The challenge was to develop multiple applications that could demonstrate excellence across different award categories while maintaining consistency and quality.',
+    solution: 'Developed a comprehensive portfolio of government technology applications spanning emergency management, public assistance, change management, and IT governance. Each application was designed to address specific government challenges while demonstrating innovation in public-sector technology.',
+    outcome: 'Achieved unprecedented recognition with all four submitted applications winning awards at the California Government Innovation Summit, establishing new standards for government technology excellence and public service delivery.',
+    metrics: [
+      { label: '4', value: 'Award-Winning Applications', description: 'All submitted applications received recognition' },
+      { label: '5', value: 'Award Categories', description: 'Best Application Serving the Public, Best IT Collaboration, Best IT Project, Best IT Leadership, Best Application Serving Agency Needs' },
+      { label: '2023', value: 'Innovation Summit', description: 'Presented at California Government Innovation Summit in Sacramento' }
+    ],
+    process: [
+      'Strategic portfolio assessment and application selection',
+      'Award category analysis and alignment',
+      'Comprehensive application documentation and evidence gathering',
+      'Stakeholder coordination across multiple state departments',
+      'Innovation impact measurement and metrics development',
+      'Presentation preparation for Innovation Summit',
+      'Award submission and review process management'
+    ],
+    learnings: [
+      'Government innovation requires balancing cutting-edge technology with regulatory compliance',
+      'Multi-application portfolios demonstrate broader organizational capability',
+      'Award recognition validates technology investment and drives future innovation',
+      'Cross-department collaboration amplifies individual project impact',
+      'Public sector technology excellence sets standards for broader government adoption'
+    ],
+    awards: [
+      'Best Application Serving the Public - Cal OES Engage Community Portal',
+      'Best IT Collaboration - Multi-agency coordination initiatives',
+      'Best IT Project - Technology infrastructure modernization',
+      'Best IT Leadership - Innovation in government technology management'
+    ]
+  },
   caloes: {
     id: 'caloes',
     title: 'Cal OES Engage Community Portal',
