@@ -9,7 +9,7 @@ import SiteModal from "@/components/site-modal";
 import CareerChatbot from "@/components/CareerChatbot";
 import NavMusicPlayer from "@/components/nav-music-player";
 import { useState, useEffect } from "react";
-import { Menu, X, Award, Code, ExternalLink, Home } from "lucide-react";
+import { Menu, X, Award, Code, ExternalLink, Home as HomeIcon } from "lucide-react";
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -65,7 +65,7 @@ export default function Home() {
                 }
               }}
             >
-              <Home className="w-6 h-6 text-purple-400 mr-2" />
+              <HomeIcon className="w-6 h-6 text-purple-400 mr-2" />
               <span className="name-first text-white font-bold text-xl">Alexis</span>
               <span className="name-last text-purple-400 font-bold text-xl">Brochu</span>
             </div>
