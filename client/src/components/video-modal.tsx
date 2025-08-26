@@ -12,13 +12,13 @@ interface VideoModalProps {
 export default function VideoModal({ isOpen, onClose, videoSrc, title, posterImage }: VideoModalProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [hasStartedPlaying, setHasStartedPlaying] = useState(false);
-  const [isVideoReady, setIsVideoReady] = useState(false);
+  const [showPoster, setShowPoster] = useState(true);
 
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
       setHasStartedPlaying(false);
-      setIsVideoReady(false);
+      setShowPoster(true);
     } else {
       document.body.style.overflow = 'unset';
     }
@@ -39,36 +39,13 @@ export default function VideoModal({ isOpen, onClose, videoSrc, title, posterIma
     }
   }, [isOpen, onClose]);
 
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video || !isOpen) return;
-
-    const handleLoadedData = () => {
-      video.currentTime = 0;
-      setIsVideoReady(true);
-    };
-
-    const handleCanPlay = () => {
-      if (!hasStartedPlaying) {
-        video.pause();
-      }
-    };
-
-    video.addEventListener('loadeddata', handleLoadedData);
-    video.addEventListener('canplay', handleCanPlay);
-
-    return () => {
-      video.removeEventListener('loadeddata', handleLoadedData);
-      video.removeEventListener('canplay', handleCanPlay);
-    };
-  }, [isOpen, hasStartedPlaying]);
-
   const handlePlayClick = () => {
     const video = videoRef.current;
     if (!video) return;
 
-    video.currentTime = 0;
+    setShowPoster(false);
     setHasStartedPlaying(true);
+    video.currentTime = 0;
     video.play().catch(error => {
       console.error('Error playing video:', error);
     });
@@ -89,30 +66,40 @@ export default function VideoModal({ isOpen, onClose, videoSrc, title, posterIma
 
         {/* Video Container */}
         <div className="relative">
-          <video
-            ref={videoRef}
-            src={videoSrc}
-            controls={hasStartedPlaying}
-            className="w-full h-auto"
-            style={{ maxHeight: '80vh' }}
-            preload="metadata"
-            poster="/@fs/home/runner/workspace/attached_assets/Product Leader Video Still.png"
-            playsInline
-            muted={false}
-          >
-            Your browser does not support the video tag.
-          </video>
-
-          {/* Custom Play Button Overlay */}
-          {!hasStartedPlaying && isVideoReady && (
-            <div className="absolute inset-0 flex items-center justify-center">
-              <button
-                onClick={handlePlayClick}
-                className="bg-white/20 hover:bg-white/30 rounded-full p-4 transition-all duration-300 hover:scale-110 backdrop-blur-sm"
-              >
-                <Play className="w-12 h-12 text-white fill-white" />
-              </button>
+          {/* Poster Image */}
+          {showPoster && (
+            <div className="relative w-full" style={{ maxHeight: '80vh' }}>
+              <img
+                src="/@fs/home/runner/workspace/attached_assets/Product Leader Video Still.png"
+                alt="Video thumbnail"
+                className="w-full h-auto"
+                style={{ maxHeight: '80vh' }}
+              />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <button
+                  onClick={handlePlayClick}
+                  className="bg-white/20 hover:bg-white/30 rounded-full p-4 transition-all duration-300 hover:scale-110 backdrop-blur-sm"
+                >
+                  <Play className="w-12 h-12 text-white fill-white" />
+                </button>
+              </div>
             </div>
+          )}
+
+          {/* Video Element */}
+          {!showPoster && (
+            <video
+              ref={videoRef}
+              src={videoSrc}
+              controls={hasStartedPlaying}
+              className="w-full h-auto"
+              style={{ maxHeight: '80vh' }}
+              preload="metadata"
+              playsInline
+              muted={false}
+            >
+              Your browser does not support the video tag.
+            </video>
           )}
         </div>
 
