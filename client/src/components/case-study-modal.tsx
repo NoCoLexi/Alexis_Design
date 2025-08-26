@@ -168,7 +168,8 @@ const caseStudies: Record<string, CaseStudy> = {
     solution: 'Developed a comprehensive change management strategy focusing on user-centered design principles, brand unification, and cross-vendor governance. Replaced acronym-heavy language with clear descriptions, established design standards, and created a Center of Excellence for ongoing oversight.',
     outcome: 'Successfully transformed a fragmented system into a unified platform that significantly improved user experience and operational efficiency across all Cal OES digital services.',
     metrics: [
-      { label: '86.3%', value: 'User Adoption', description: 'Successful platform adoption across departments' }
+      { label: '86.3%', value: 'User Adoption', description: 'Successful platform adoption across departments' },
+      { label: '23', value: 'Org-wide Applications', description: 'Total applications managed across organization' }
     ],
     process: [
       'Stakeholder interviews across 9 applications',

@@ -153,7 +153,8 @@ const projects: Project[] = [
     category: 'product-management',
     image: engageConnectImage,
     metrics: [
-      { label: '86.3%', value: 'User Adoption', color: 'text-chart-1' }
+      { label: '86.3%', value: 'User Adoption', color: 'text-chart-1' },
+      { label: '23', value: 'Org-wide Applications', color: 'text-primary' }
     ],
     tags: ['Change Management', 'Product Strategy', 'Government Innovation']
   },
