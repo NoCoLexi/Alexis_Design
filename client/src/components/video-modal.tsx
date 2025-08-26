@@ -39,16 +39,28 @@ export default function VideoModal({ isOpen, onClose, videoSrc, title, posterIma
     }
   }, [isOpen, onClose]);
 
-  const handlePlayClick = () => {
+  const handlePlayClick = async () => {
     const video = videoRef.current;
     if (!video) return;
 
-    setShowPoster(false);
-    setHasStartedPlaying(true);
-    video.currentTime = 0;
-    video.play().catch(error => {
+    try {
+      // Load the video first
+      video.load();
+      
+      // Wait for the video to be ready
+      await new Promise((resolve) => {
+        video.addEventListener('loadeddata', resolve, { once: true });
+      });
+
+      setShowPoster(false);
+      setHasStartedPlaying(true);
+      video.currentTime = 0;
+      
+      await video.play();
+      console.log('Video started playing successfully');
+    } catch (error) {
       console.error('Error playing video:', error);
-    });
+    }
   };
 
   if (!isOpen) return null;
@@ -94,9 +106,12 @@ export default function VideoModal({ isOpen, onClose, videoSrc, title, posterIma
               controls={hasStartedPlaying}
               className="w-full h-auto"
               style={{ maxHeight: '80vh' }}
-              preload="metadata"
+              preload="auto"
               playsInline
               muted={false}
+              onLoadStart={() => console.log('Video load started')}
+              onCanPlay={() => console.log('Video can play')}
+              onError={(e) => console.error('Video error:', e)}
             >
               Your browser does not support the video tag.
             </video>
