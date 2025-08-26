@@ -954,9 +954,9 @@ export default function CaseStudyModal() {
 
   return (
     <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-6">
-      <div className="bg-gradient-to-r from-background/95 via-primary/20 to-background/95 backdrop-blur-lg rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-primary/30 shadow-lg">
+      <div className="bg-background rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
         {/* Header */}
-        <div className="sticky top-0 bg-gradient-to-r from-background/95 via-primary/20 to-background/95 backdrop-blur-lg border-b border-primary/30 p-6 flex justify-between items-center">
+        <div className="sticky top-0 bg-background border-b border-border p-6 flex justify-between items-center">
           <div>
             <h3 className="text-2xl font-bold text-primary">{caseStudy.title}</h3>
             <p className="text-muted-foreground">{caseStudy.subtitle}</p>

@@ -75,10 +75,10 @@ export default function AwardModal({ isOpen, onClose }: AwardModalProps) {
         onClick={handleClose}
         data-testid="award-modal-backdrop"
       />
-
+      
       {/* Modal Container */}
       <div className="relative bg-gradient-to-br from-gray-900/95 to-purple-900/95 backdrop-blur-xl border border-white/20 rounded-3xl p-8 max-w-6xl w-full mx-4 max-h-[90vh] overflow-y-auto glass shadow-2xl">
-
+        
         {/* Close Button */}
         <Button
           onClick={handleClose}
@@ -127,7 +127,7 @@ export default function AwardModal({ isOpen, onClose }: AwardModalProps) {
               className="w-full h-[400px] object-cover rounded-2xl shadow-xl"
               data-testid={`img-award-gallery-${currentImageIndex}`}
             />
-
+            
             {/* Navigation Arrows */}
             {awardImages.length > 1 && (
               <>
