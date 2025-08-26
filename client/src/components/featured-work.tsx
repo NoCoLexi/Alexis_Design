@@ -63,6 +63,7 @@ import grantsManagementPresentationImage from "@assets/Grants Management Present
 import grantsManagementReportingNewImage from "@assets/Back Office 1.2_1755217963812.png";
 import grantsManagementPortalNewImage from "@assets/Grants Management Portal 1-0_1754968806232.png";
 import paCloseoutNewImage from "@assets/pa-closeout-metrics-final_1756084910000.png";
+import caAwardImage from "@assets/Best_Of_CA_Awards_2023_1756172218880.jpg";
 import paDirectorsDeckImage from "@assets/Directors_Deck_2025-08-21_10-44-04_1755788524452.png";
 import paDirectorsDeck2Image from "@assets/Directors_Deck_2_2025-08-21_10-45-30_1755788563041.png";
 import paDirectorsDeck3Image from "@assets/Directors_Deck_3_2025-08-21_10-45-30_1755788566301.png";
@@ -121,7 +122,7 @@ const projects: Project[] = [
     title: 'California Government Technology Innovation Award',
     description: '2023 California Government Technology Innovation Award recognizing outstanding contributions to public-sector technology. Led multiple award-winning applications including Cal OES Engage Community Portal.',
     category: 'product-management',
-    image: paPortalImage, // Using existing image until specific award image is available
+    image: caAwardImage,
     award: true,
     metrics: [
       { label: '4', value: 'Award-Winning Applications', color: 'text-chart-1' },
