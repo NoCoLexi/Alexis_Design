@@ -118,90 +118,191 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
       <div className="px-6 py-20 relative text-center w-full z-10">
         <div className="max-w-4xl mx-auto">
 
-          {/* 1. Award Button */}
-          <div className="mb-6 pb-4 flex justify-center">
-            <div
-              className="inline-flex items-center gap-2 rounded-full px-4 md:px-6 py-3 hover:glow-yellow transition-all duration-300 cursor-pointer transform hover:scale-105 shadow-lg border border-chart-3/20"
-              style={{ background: 'rgba(255, 255, 255, 0.15)', backdropFilter: 'blur(20px)' }}
-              onClick={onOpenAwardModal}
-              data-testid="button-hero-tech-award"
-            >
-              <Award className="w-4 md:w-5 h-4 md:h-5" style={{ color: '#0081BC' }} />
-              <span className="text-sm md:text-base font-medium" style={{ color: '#F3E8B9' }}>
-                2023 California GovTech Award Winner
-              </span>
-            </div>
-          </div>
-
-          {/* 2. Hey hiring team heading */}
-          <h1 className="text-4xl md:text-7xl font-inter-black mb-6" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.4', paddingBottom: '0.25rem' }}>
-            <span className={`gradient-text disco-text ${isPlaying ? 'dancing' : ''}`}>
-              {getCustomGreeting()}
-            </span>
-          </h1>
-
-          {/* 3. I'm Alexis text */}
-          <p
-            className="text-xl md:text-3xl font-inter-medium text-muted-foreground mb-2 leading-relaxed max-w-3xl mx-auto text-center"
-            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
-          >
-            I'm Alexis and I want to be your next
-          </p>
-
-          <p
-            className={`text-xl md:text-3xl font-inter-black text-foreground mb-8 cycling-role text-center ${isExiting ? 'exit' : ''}`}
-            style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300 }}
-          >
-            {roles[currentRoleIndex]}
-          </p>
-
-          {/* 4. Hire Me Song Button */}
-          <div className="mb-8 pt-4 pb-8 flex justify-center max-w-xs mx-auto">
-            <div className={`disco-button ${isPlaying ? 'playing' : ''} w-full`}>
-              <NavMusicPlayer
-                onPlayingChange={setIsPlaying}
-                renderAs="button"
-                buttonText='Play my "Hire Me" song'
-              />
-            </div>
-          </div>
-
-          {/* 5. Portrait */}
-          <div className="mb-8">
-            <img
-              src={profileImage}
-              alt="Alexis Brochu professional photo"
-              data-testid="img-professional-photo"
-              className="w-64 md:w-80 mx-auto rounded-lg"
-            />
-
-            {/* Watch Video Link */}
-            <div className="mt-4 pb-4 flex justify-center">
-              <button
-                onClick={scrollToExpertise}
-                className="text-sm md:text-base transition-all duration-300 transform hover:scale-105 hover:brightness-110 flex items-center gap-2"
-                data-testid="button-watch-video-about-me"
-                style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300, color: '#F3E8B9' }}
+          {/* Mobile Layout: Single Column */}
+          <div className="block lg:hidden">
+            {/* 1. Award Button */}
+            <div className="mb-6 pb-4 flex justify-center">
+              <div
+                className="inline-flex items-center gap-2 rounded-full px-4 md:px-6 py-3 hover:glow-yellow transition-all duration-300 cursor-pointer transform hover:scale-105 shadow-lg border border-chart-3/20"
+                style={{ background: 'rgba(255, 255, 255, 0.15)', backdropFilter: 'blur(20px)' }}
+                onClick={onOpenAwardModal}
+                data-testid="button-hero-tech-award"
               >
-                <Play className="w-3 h-3" />
-                Watch this video about what it's like to work with me
-              </button>
+                <Award className="w-4 md:w-5 h-4 md:h-5" style={{ color: '#0081BC' }} />
+                <span className="text-sm md:text-base font-medium" style={{ color: '#F3E8B9' }}>
+                  2023 California GovTech Award Winner
+                </span>
+              </div>
+            </div>
+
+            {/* 2. Hey hiring team heading */}
+            <h1 className="text-4xl md:text-7xl font-inter-black mb-6" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.4', paddingBottom: '0.25rem' }}>
+              <span className={`gradient-text disco-text ${isPlaying ? 'dancing' : ''}`}>
+                {getCustomGreeting()}
+              </span>
+            </h1>
+
+            {/* 3. I'm Alexis text */}
+            <p
+              className="text-xl md:text-3xl font-inter-medium text-muted-foreground mb-2 leading-relaxed max-w-3xl mx-auto text-center"
+              style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
+            >
+              I'm Alexis and I want to be your next
+            </p>
+
+            <p
+              className={`text-xl md:text-3xl font-inter-black text-foreground mb-8 cycling-role text-center ${isExiting ? 'exit' : ''}`}
+              style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300 }}
+            >
+              {roles[currentRoleIndex]}
+            </p>
+
+            {/* 4. Hire Me Song Button */}
+            <div className="mb-8 pt-4 pb-8 flex justify-center max-w-xs mx-auto">
+              <div className={`disco-button ${isPlaying ? 'playing' : ''} w-full`}>
+                <NavMusicPlayer
+                  onPlayingChange={setIsPlaying}
+                  renderAs="button"
+                  buttonText='Play my "Hire Me" song'
+                />
+              </div>
+            </div>
+
+            {/* 5. Portrait */}
+            <div className="mb-8">
+              <img
+                src={profileImage}
+                alt="Alexis Brochu professional photo"
+                data-testid="img-professional-photo"
+                className="w-64 md:w-80 mx-auto rounded-lg"
+              />
+
+              {/* Watch Video Link */}
+              <div className="mt-4 pb-4 flex justify-center">
+                <button
+                  onClick={scrollToExpertise}
+                  className="text-sm md:text-base transition-all duration-300 transform hover:scale-105 hover:brightness-110 flex items-center gap-2"
+                  data-testid="button-watch-video-about-me"
+                  style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300, color: '#F3E8B9' }}
+                >
+                  <Play className="w-3 h-3" />
+                  Watch this video about what it's like to work with me
+                </button>
+              </div>
+            </div>
+
+            {/* 6. Key Metrics */}
+            <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
+              <div className="text-center">
+                <div className="text-2xl md:text-4xl font-bold" style={{ color: '#F3E8B9' }}>545.5%</div>
+                <div className="text-xs md:text-sm text-white/70">User Growth</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl md:text-4xl font-bold" style={{ color: '#F3E8B9' }}>$244M</div>
+                <div className="text-xs md:text-sm text-white/70">Projects Closed</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl md:text-4xl font-bold" style={{ color: '#F3E8B9' }}>75%</div>
+                <div className="text-xs md:text-sm text-white/70">Tickets Reduced</div>
+              </div>
             </div>
           </div>
 
-          {/* 6. Key Metrics */}
-          <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
-            <div className="text-center">
-              <div className="text-2xl md:text-4xl font-bold" style={{ color: '#F3E8B9' }}>545.5%</div>
-              <div className="text-xs md:text-sm text-white/70">User Growth</div>
+          {/* Desktop Layout: Side by Side */}
+          <div className="hidden lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center">
+            {/* Left Column */}
+            <div className="space-y-8">
+              {/* 1. Award Button */}
+              <div className="flex justify-center lg:justify-start">
+                <div
+                  className="inline-flex items-center gap-2 rounded-full px-6 py-3 hover:glow-yellow transition-all duration-300 cursor-pointer transform hover:scale-105 shadow-lg border border-chart-3/20"
+                  style={{ background: 'rgba(255, 255, 255, 0.15)', backdropFilter: 'blur(20px)' }}
+                  onClick={onOpenAwardModal}
+                  data-testid="button-hero-tech-award"
+                >
+                  <Award className="w-5 h-5" style={{ color: '#0081BC' }} />
+                  <span className="text-base font-medium" style={{ color: '#F3E8B9' }}>
+                    2023 California GovTech Award Winner
+                  </span>
+                </div>
+              </div>
+
+              {/* 2. Hey hiring team heading */}
+              <h1 className="text-6xl xl:text-7xl font-inter-black text-left" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.4' }}>
+                <span className={`gradient-text disco-text ${isPlaying ? 'dancing' : ''}`}>
+                  {getCustomGreeting()}
+                </span>
+              </h1>
+
+              {/* 3. I'm Alexis text */}
+              <div className="text-left">
+                <p
+                  className="text-2xl xl:text-3xl font-inter-medium text-muted-foreground mb-2 leading-relaxed"
+                  style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
+                >
+                  I'm Alexis and I want to be your next
+                </p>
+
+                <p
+                  className={`text-2xl xl:text-3xl font-inter-black text-foreground mb-8 cycling-role ${isExiting ? 'exit' : ''}`}
+                  style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300 }}
+                >
+                  {roles[currentRoleIndex]}
+                </p>
+              </div>
+
+              {/* 4. Hire Me Song Button */}
+              <div className="flex justify-center lg:justify-start max-w-xs">
+                <div className={`disco-button ${isPlaying ? 'playing' : ''} w-full`}>
+                  <NavMusicPlayer
+                    onPlayingChange={setIsPlaying}
+                    renderAs="button"
+                    buttonText='Play my "Hire Me" song'
+                  />
+                </div>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="text-2xl md:text-4xl font-bold" style={{ color: '#F3E8B9' }}>$244M</div>
-              <div className="text-xs md:text-sm text-white/70">Projects Closed</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl md:text-4xl font-bold" style={{ color: '#F3E8B9' }}>75%</div>
-              <div className="text-xs md:text-sm text-white/70">Tickets Reduced</div>
+
+            {/* Right Column */}
+            <div className="space-y-8">
+              {/* 5. Portrait */}
+              <div className="text-center">
+                <img
+                  src={profileImage}
+                  alt="Alexis Brochu professional photo"
+                  data-testid="img-professional-photo"
+                  className="w-80 xl:w-96 mx-auto rounded-lg"
+                />
+
+                {/* Watch Video Link */}
+                <div className="mt-4 pb-4">
+                  <button
+                    onClick={scrollToExpertise}
+                    className="text-base transition-all duration-300 transform hover:scale-105 hover:brightness-110 flex items-center gap-2 mx-auto"
+                    data-testid="button-watch-video-about-me"
+                    style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300, color: '#F3E8B9' }}
+                  >
+                    <Play className="w-3 h-3" />
+                    Watch this video about what it's like to work with me
+                  </button>
+                </div>
+              </div>
+
+              {/* 6. Key Metrics */}
+              <div className="grid grid-cols-3 gap-6">
+                <div className="text-center">
+                  <div className="text-3xl xl:text-4xl font-bold" style={{ color: '#F3E8B9' }}>545.5%</div>
+                  <div className="text-sm text-white/70">User Growth</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl xl:text-4xl font-bold" style={{ color: '#F3E8B9' }}>$244M</div>
+                  <div className="text-sm text-white/70">Projects Closed</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl xl:text-4xl font-bold" style={{ color: '#F3E8B9' }}>75%</div>
+                  <div className="text-sm text-white/70">Tickets Reduced</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
