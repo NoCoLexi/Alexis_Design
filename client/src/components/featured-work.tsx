@@ -520,9 +520,11 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
 
       <div className="p-8">
         <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">
-          {project.title}
+          {California GovTech Innovation Award Winner}
         </h3>
-        <p className="text-muted-foreground mb-6">{project.description}</p>
+        <p className="text-md text-muted-foreground mb-4">
+            Let the team that won the 2023 California Government Technology Innovation Award, recognizing outstanding contributions to public-sector technology.
+        </p>
 
         {project.metrics.length > 0 && project.category === 'product-management' && (
           <div className="grid grid-cols-2 gap-4 mb-6">
