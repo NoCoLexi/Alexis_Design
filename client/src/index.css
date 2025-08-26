@@ -58,7 +58,7 @@
   --dark-primary: var(--color-black);
   --dark-secondary: var(--color-night);
   --dark-accent: var(--color-yale-blue);
-  --gradient-primary: linear-gradient(135deg, #9A84CB 0%, #04496E 100%);
+  --gradient-primary: linear-gradient(135deg, #9A84CB 0%, #17597C 100%);
   --gradient-secondary: linear-gradient(135deg, var(--color-yale-blue) 0%, var(--color-ultra-violet) 100%);
   --gradient-accent: linear-gradient(135deg, var(--color-platinum) 0%, var(--color-ultra-violet) 100%);
 }
