@@ -44,25 +44,18 @@ export default function VideoModal({ isOpen, onClose, videoSrc, title, posterIma
     if (!video || !isOpen) return;
 
     const handleLoadedData = () => {
-      // Set video to 28 seconds for preview
-      video.currentTime = 28;
+      // Keep video at start (0 seconds) for proper poster display
+      video.currentTime = 0;
+      video.pause();
       setIsVideoReady(true);
     };
 
-    const handleSeeked = () => {
-      if (!hasStartedPlaying && video.currentTime === 28) {
-        video.pause();
-      }
-    };
-
     video.addEventListener('loadeddata', handleLoadedData);
-    video.addEventListener('seeked', handleSeeked);
 
     return () => {
       video.removeEventListener('loadeddata', handleLoadedData);
-      video.removeEventListener('seeked', handleSeeked);
     };
-  }, [isOpen, hasStartedPlaying]);
+  }, [isOpen]);
 
   const handlePlayClick = () => {
     const video = videoRef.current;
@@ -96,7 +89,7 @@ export default function VideoModal({ isOpen, onClose, videoSrc, title, posterIma
             className="w-full h-auto"
             style={{ maxHeight: '80vh' }}
             preload="metadata"
-            poster={posterImage}
+            poster="/@fs/home/runner/workspace/attached_assets/Product Leader Video Still.png"
           >
             Your browser does not support the video tag.
           </video>
