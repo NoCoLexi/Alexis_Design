@@ -100,9 +100,11 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
   };
 
   const scrollToExpertise = () => {
-    const element = document.getElementById('about');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const videoElement = document.querySelector('[data-testid="video-expertise-product-leader"]');
+    if (videoElement) {
+      const yOffset = -100; // Account for fixed nav menu height
+      const y = videoElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
     }
   };
 
