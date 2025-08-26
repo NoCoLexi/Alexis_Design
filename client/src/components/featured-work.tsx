@@ -137,7 +137,7 @@ const projects: Project[] = [
   {
     id: 'caloes',
     title: 'Cal OES Engage Community Portal',
-    description: 'Modernizing government legacy software with a SaaS CRM platform connecting Californians to state and local municipalities for accessible grant funding.',
+    description: 'California Governor\'s Office of Emergency Services Engage Community Portal. Modernizing government legacy software with a SaaS CRM platform connecting Californians to state and local municipalities for accessible grant funding.',
     category: 'product-management',
     image: calOesImage,
     metrics: [
