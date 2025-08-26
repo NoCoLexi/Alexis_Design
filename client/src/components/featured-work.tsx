@@ -73,7 +73,6 @@ import paDirectorsDeck7Image from "@assets/Directors_Deck_7_2025-08-21_10-45-30_
 import paDirectorsDeck8Image from "@assets/Directors_Deck_8_2025-08-21_10-45-30_1755788578055.png";
 import paTestimonialCoverImage from "@assets/Directors_Deck_3_2025-08-21_10-45-30_1755788662812.png";
 import paCloseoutsQuoteImage from "@assets/PA Closeouts Quote.png";
-import bestOfCaliforniaAwardsImage from "@assets/Best-of-CA-Awards-graphic2_1756171389542.jpg";
 import providenceSchoolsCoverImage from "@assets/FullSizeRender 4_1755218415405.jpg";
 import providenceSchoolsBrochureImage from "@assets/FullSizeRender 10_1755218415406.jpg";
 import providenceSystemMissionImage from "@assets/FullSizeRender 9_1755218651601.jpg";
@@ -117,19 +116,6 @@ interface Project {
 }
 
 const projects: Project[] = [
-  {
-    id: 'ca-gov-tech-innovation-award',
-    title: 'California Government Technology Innovation Award',
-    description: 'Led the development and submission of 4 applications for the 2023 California Department of Technology Innovation Summit, resulting in multiple award wins including Best Application Serving the Public for the Public Assistance Closeout Portal.',
-    category: 'product-management',
-    image: bestOfCaliforniaAwardsImage,
-    metrics: [
-      { label: '4/4', value: 'Award Winners', color: 'text-chart-1' },
-      { label: '5', value: 'Award Categories', color: 'text-primary' }
-    ],
-    tags: ['Government Innovation', 'Product Portfolio', 'Award Recognition', 'Public Service Excellence'],
-    award: '2023 Best Application Serving the Public - PA Closeout Portal'
-  },
   {
     id: 'pa-portal',
     title: 'Public Assistance Closeouts App',
