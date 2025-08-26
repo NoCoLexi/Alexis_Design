@@ -106,6 +106,11 @@ import eagResultsImage from "@assets/EAG results_1756087319907.png";
 import coeScreen1Image from "@assets/CoE Screen_1_1756170288750.png";
 import coeSite1Image from "@assets/COE site-1_1756170324613.png";
 import coeSite2Image from "@assets/COE site 2_1756170324613.png";
+import caGovTechAwardCroppedImage from "@assets/CA Gov Tech Awards 2023 - cropped_1756172218878.jpg";
+import cagis23Photo1Image from "@assets/CAGIS23_Photo1_1756172218878.jpg";
+import cagis23Photo2Image from "@assets/CAGIS23_Photo2_1756172218879.jpg";
+import bestOfCaAwardsJpgImage from "@assets/Best_Of_CA_Awards_2023_1756172218880.jpg";
+import bestOfCaAwardsPngImage from "@assets/Best Of California Awards 2023_1756172218880.png";
 
 interface CaseStudy {
   id: string;
@@ -166,6 +171,13 @@ const caseStudies: Record<string, CaseStudy> = {
       'Best IT Collaboration - Multi-agency coordination initiatives',
       'Best IT Project - Technology infrastructure modernization',
       'Best IT Leadership - Innovation in government technology management'
+    ],
+    slideshow: [
+      caGovTechAwardCroppedImage,
+      cagis23Photo1Image,
+      cagis23Photo2Image,
+      bestOfCaAwardsJpgImage,
+      bestOfCaAwardsPngImage
     ]
   },
   caloes: {
