@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Award, Sparkles, Mail, Calendar, ArrowRight } from "lucide-react";
+import { ArrowDown, Award, Sparkles, Mail, Calendar, Play } from "lucide-react";
 import { SiLinkedin } from "react-icons/si";
 import NavMusicPlayer from "./nav-music-player";
 import AdminPanel from "./admin-panel";
@@ -134,7 +134,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
               data-testid="button-watch-video-about-me"
               style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300, color: '#F3E8B9' }}
             >
-              <ArrowRight className="w-4 h-4" />
+              <Play className="w-3 h-3" />
               Watch this video about what it's like to work with me
             </button>
           </div>
