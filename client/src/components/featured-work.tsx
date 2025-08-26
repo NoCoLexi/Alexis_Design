@@ -165,7 +165,8 @@ const projects: Project[] = [
     category: 'product-management',
     image: eagCoverImage,
     metrics: [
-      { label: '83%', value: 'Compliance', color: 'text-chart-1' }
+      { label: '83%', value: 'Compliance', color: 'text-chart-1' },
+      { label: '39M', value: 'Californian Residents', color: 'text-primary' }
     ],
     tags: ['Platform Engineering', 'Tech Strategy', 'Process Optimization']
   },

@@ -211,7 +211,8 @@ const caseStudies: Record<string, CaseStudy> = {
     solution: 'Developed comprehensive enterprise architecture strategy focusing on platform consolidation, standardization of development practices, and implementation of governance frameworks. Established technology roadmaps aligned with business objectives and regulatory requirements.',
     outcome: 'Successfully modernized enterprise infrastructure, reducing operational complexity while improving security, scalability, and maintainability across all Cal OES technology platforms.',
     metrics: [
-      { label: '83%', value: 'Compliance', description: 'Improved security and regulatory standards' }
+      { label: '83%', value: 'Compliance', description: 'Improved security and regulatory standards' },
+      { label: '39M', value: 'Californian Residents', description: 'Citizens served by modernized infrastructure' }
     ],
     process: [
       'Current state architecture assessment',
