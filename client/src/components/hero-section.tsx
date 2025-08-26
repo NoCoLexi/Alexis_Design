@@ -115,71 +115,48 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         <div className="w-full h-full bg-gradient-to-br from-primary/20 via-transparent to-chart-1/20"></div>
       </div>
 
+      <div className="px-6 py-20 relative text-center w-full z-10">
+        <div className="max-w-4xl mx-auto">
 
-
-      <div className="flex items-center px-6 py-20 relative space-x-8 text-center w-full z-10">
-        <div style={{ flexGrow: 1 }}>
-          <img
-            src={profileImage}
-            alt="Alexis Brochu professional photo"
-            data-testid="img-professional-photo"
-            className="w-full mx-auto rounded-lg"
-          />
-
-          {/* Watch Video Link */}
-          <div className="mt-4 pb-4 flex justify-center">
-            <button
-              onClick={scrollToExpertise}
-              className="text-base transition-all duration-300 transform hover:scale-105 hover:brightness-110 flex items-center gap-2"
-              data-testid="button-watch-video-about-me"
-              style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300, color: '#F3E8B9' }}
-            >
-              <Play className="w-3 h-3" />
-              Watch this video about what it's like to work with me
-            </button>
-          </div>
-        </div>
-
-        <div className="max-w-4xl mx-auto" style={{
-          flexGrow: 1
-        }}>
-          {/* Award Button - positioned above the heading */}
+          {/* 1. Award Button */}
           <div className="mb-6 pb-4 flex justify-center">
             <div
-              className="inline-flex items-center gap-2 rounded-full px-6 py-3 hover:glow-yellow transition-all duration-300 cursor-pointer transform hover:scale-105 shadow-lg border border-chart-3/20"
+              className="inline-flex items-center gap-2 rounded-full px-4 md:px-6 py-3 hover:glow-yellow transition-all duration-300 cursor-pointer transform hover:scale-105 shadow-lg border border-chart-3/20"
               style={{ background: 'rgba(255, 255, 255, 0.15)', backdropFilter: 'blur(20px)' }}
               onClick={onOpenAwardModal}
               data-testid="button-hero-tech-award"
             >
-              <Award className="w-5 h-5" style={{ color: '#0081BC' }} />
-              <span className="text-base font-medium" style={{ color: '#F3E8B9' }}>
+              <Award className="w-4 md:w-5 h-4 md:h-5" style={{ color: '#0081BC' }} />
+              <span className="text-sm md:text-base font-medium" style={{ color: '#F3E8B9' }}>
                 2023 California GovTech Award Winner
               </span>
             </div>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-inter-black" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.4', paddingBottom: '0.25rem' }}>
+          {/* 2. Hey hiring team heading */}
+          <h1 className="text-4xl md:text-7xl font-inter-black mb-6" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.4', paddingBottom: '0.25rem' }}>
             <span className={`gradient-text disco-text ${isPlaying ? 'dancing' : ''}`}>
               {getCustomGreeting()}
             </span>
           </h1>
 
+          {/* 3. I'm Alexis text */}
           <p
-            className="text-2xl md:text-3xl font-inter-medium text-muted-foreground mb-2 leading-relaxed max-w-3xl mx-auto text-center"
+            className="text-xl md:text-3xl font-inter-medium text-muted-foreground mb-2 leading-relaxed max-w-3xl mx-auto text-center"
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
           >
             I'm Alexis and I want to be your next
           </p>
 
           <p
-            className={`text-2xl md:text-3xl font-inter-black text-foreground mb-8 cycling-role text-center ${isExiting ? 'exit' : ''}`}
+            className={`text-xl md:text-3xl font-inter-black text-foreground mb-8 cycling-role text-center ${isExiting ? 'exit' : ''}`}
             style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300 }}
           >
             {roles[currentRoleIndex]}
           </p>
 
-          {/* Hire Me Song Button */}
-          <div className="mb-6 pt-4 pb-8 flex justify-center max-w-xs mx-auto">
+          {/* 4. Hire Me Song Button */}
+          <div className="mb-8 pt-4 pb-8 flex justify-center max-w-xs mx-auto">
             <div className={`disco-button ${isPlaying ? 'playing' : ''} w-full`}>
               <NavMusicPlayer
                 onPlayingChange={setIsPlaying}
@@ -189,24 +166,45 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             </div>
           </div>
 
-          {/* Key Metrics */}
-          <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto pt-6">
+          {/* 5. Portrait */}
+          <div className="mb-8">
+            <img
+              src={profileImage}
+              alt="Alexis Brochu professional photo"
+              data-testid="img-professional-photo"
+              className="w-64 md:w-80 mx-auto rounded-lg"
+            />
+
+            {/* Watch Video Link */}
+            <div className="mt-4 pb-4 flex justify-center">
+              <button
+                onClick={scrollToExpertise}
+                className="text-sm md:text-base transition-all duration-300 transform hover:scale-105 hover:brightness-110 flex items-center gap-2"
+                data-testid="button-watch-video-about-me"
+                style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300, color: '#F3E8B9' }}
+              >
+                <Play className="w-3 h-3" />
+                Watch this video about what it's like to work with me
+              </button>
+            </div>
+          </div>
+
+          {/* 6. Key Metrics */}
+          <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold" style={{ color: '#F3E8B9' }}>545.5%</div>
-              <div className="text-sm text-white/70">User Growth</div>
+              <div className="text-2xl md:text-4xl font-bold" style={{ color: '#F3E8B9' }}>545.5%</div>
+              <div className="text-xs md:text-sm text-white/70">User Growth</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold" style={{ color: '#F3E8B9' }}>$244M</div>
-              <div className="text-sm text-white/70">Projects Closed</div>
+              <div className="text-2xl md:text-4xl font-bold" style={{ color: '#F3E8B9' }}>$244M</div>
+              <div className="text-xs md:text-sm text-white/70">Projects Closed</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold" style={{ color: '#F3E8B9' }}>75%</div>
-              <div className="text-sm text-white/70">Tickets Reduced</div>
+              <div className="text-2xl md:text-4xl font-bold" style={{ color: '#F3E8B9' }}>75%</div>
+              <div className="text-xs md:text-sm text-white/70">Tickets Reduced</div>
             </div>
           </div>
         </div>
-
-
       </div>
 
       {/* Scroll indicator */}
@@ -227,7 +225,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         onApply={applySettings}
       />
 
-      
+
     </section>
   );
 }
