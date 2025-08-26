@@ -118,6 +118,19 @@ interface Project {
 
 const projects: Project[] = [
   {
+    id: 'ca-innovation-award',
+    title: 'California GovTech Innovation Award',
+    description: 'I led the team that won the 2023 California Government Technology Innovation Award for outstanding contributions to public-sector technology.',
+    category: 'product-management',
+    image: caAwardImage,
+    award: 'Innovation Award',
+    metrics: [
+      { label: '4', value: 'Award-Winning Applications', color: 'text-chart-1' },
+      { label: '2023', value: 'Innovation Summit', color: 'text-primary' }
+    ],
+    tags: ['Gov Tech', 'Innovation Award', 'Public Service']
+  },
+  {
     id: 'pa-portal',
     title: 'Public Assistance Closeouts App',
     description: 'Streamlining the reimbursement process for California subrecipients. Winner of the 2023 California Government Technology Innovation Award.',
