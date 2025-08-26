@@ -248,7 +248,8 @@ const caseStudies: Record<string, CaseStudy> = {
     solution: 'Created a streamlined digital workflow that automates key processes, provides real-time status updates, and simplifies documentation requirements.',
     outcome: 'Revolutionized the public assistance process, earning recognition from the state of California.',
     metrics: [
-      { label: '75%', value: 'Support Ticket Reduction', description: 'Decreased user issues and support requests' }
+      { label: '75%', value: 'Support Ticket Reduction', description: 'Decreased user issues and support requests' },
+      { label: '$243M', value: 'Projects Closed Out', description: 'Total value of successfully processed reimbursements' }
     ],
     process: [
       'Process mapping and pain point identification',
