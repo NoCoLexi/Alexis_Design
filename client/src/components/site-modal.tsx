@@ -26,14 +26,14 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
 
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-gradient-to-br from-gray-900 to-black border border-purple-400/20 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+      <div className="bg-gradient-to-r from-background/95 via-primary/20 to-background/95 backdrop-blur-lg rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-primary/30 shadow-lg">
         {/* Header */}
-        <div className="sticky top-0 bg-gradient-to-r from-purple-600/10 to-blue-600/10 backdrop-blur border-b border-purple-400/20 p-6">
+        <div className="sticky top-0 bg-gradient-to-r from-background/95 via-primary/20 to-background/95 backdrop-blur-lg border-b border-primary/30 p-6 flex justify-between items-center">
           <div className="flex justify-between items-center">
             <h2 className="text-2xl font-bold gradient-text">How I built this site</h2>
-            <Button 
-              variant="ghost" 
-              size="sm" 
+            <Button
+              variant="ghost"
+              size="sm"
               onClick={onClose}
               className="text-gray-400 hover:text-white"
               data-testid="button-close-site-modal"
@@ -48,7 +48,7 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
           {/* Development Story */}
           <div className="space-y-4">
             <h3 className="text-xl font-semibold text-purple-400">Development Story</h3>
-            
+
             {/* Key Metrics */}
             <div className="grid grid-cols-3 gap-4 mb-6">
               <div className="text-center">
@@ -64,7 +64,7 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
                 <div className="text-xs text-gray-400">Total Cost</div>
               </div>
             </div>
-            
+
             <p className="text-gray-300 leading-relaxed">
               Fueled by my imagination and working in harmony with AI tools, this portfolio demonstrates product design and management mixed with my AI-PM skills.
             </p>
@@ -101,36 +101,36 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <img 
-                  src={originalHero1} 
-                  alt="Initial hero concept" 
+                <img
+                  src={originalHero1}
+                  alt="Initial hero concept"
                   className="w-full rounded-lg border border-purple-400/20 hover:border-purple-400/40 transition-colors"
                   data-testid="img-original-hero-1"
                 />
                 <p className="text-xs text-gray-400">Initial concept - simple hero layout</p>
               </div>
               <div className="space-y-2">
-                <img 
-                  src={navDevelopment} 
-                  alt="Navigation development" 
+                <img
+                  src={navDevelopment}
+                  alt="Navigation development"
                   className="w-full rounded-lg border border-purple-400/20 hover:border-purple-400/40 transition-colors"
                   data-testid="img-nav-development"
                 />
                 <p className="text-xs text-gray-400">Navigation structure development</p>
               </div>
               <div className="space-y-2">
-                <img 
-                  src={codeDevelopment} 
-                  alt="Code development process" 
+                <img
+                  src={codeDevelopment}
+                  alt="Code development process"
                   className="w-full rounded-lg border border-purple-400/20 hover:border-purple-400/40 transition-colors"
                   data-testid="img-code-development"
                 />
                 <p className="text-xs text-gray-400">Behind-the-scenes code development</p>
               </div>
               <div className="space-y-2">
-                <img 
-                  src={finalDiscoHero} 
-                  alt="Final disco-themed hero" 
+                <img
+                  src={finalDiscoHero}
+                  alt="Final disco-themed hero"
                   className="w-full rounded-lg border border-purple-400/20 hover:border-purple-400/40 transition-colors"
                   data-testid="img-final-disco-hero"
                 />
@@ -170,7 +170,7 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
           {/* Site Architecture & Technology Stack */}
           <div className="space-y-4">
             <h3 className="text-xl font-semibold text-purple-400">Site Architecture & Technology Stack</h3>
-            
+
             <div className="space-y-6">
               {/* Frontend */}
               <div className="glass rounded-xl p-4">
@@ -200,7 +200,7 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
               {/* Key Features */}
               <div className="glass rounded-xl p-4">
                 <h4 className="text-lg font-semibold text-yellow-400 mb-3">Key Features Built</h4>
-                
+
                 <div className="space-y-3">
                   <div>
                     <span className="text-purple-300 font-medium text-sm">Professional Portfolio Sections:</span>
@@ -254,7 +254,7 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
                 </div>
               </div>
 
-              
+
             </div>
           </div>
         </div>
