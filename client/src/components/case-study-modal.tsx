@@ -7,6 +7,7 @@ import engageOnboardingVideo from "@assets/Engage_Onboarding_1_1754580372224.mp4
 import directorsPreziVideo from "@assets/Directors Deck Engage 2023 prezi_1754842640035.mp4";
 import engageRoadmapImage from "@assets/Engage Roadmap_1754580703265.png";
 import engageInterviewsImage from "@assets/02.02—interviews_1754580788428.png";
+import engageTimelineImage from "@assets/Engage Timeline 02-2023.png";
 import dashboardImage from "@assets/image_1754580387947.png";
 import oesAppsImage from "@assets/OES IT Apps_1754584482209.png";
 import ocmWarningImage from "@assets/OCM Warning Center screen_1754584646105.png";
@@ -154,7 +155,13 @@ const caseStudies: Record<string, CaseStudy> = {
       'Iterative user testing leads to more intuitive interfaces',
       'Cross-functional collaboration accelerates problem-solving'
     ],
-    image: engageInterviewsImage
+    image: engageInterviewsImage,
+    slideshow: [
+      engageInterviewsImage,
+      engageRoadmapImage,
+      engageTimelineImage,
+      dashboardImage
+    ]
   },
   ocm: {
     id: 'ocm',
@@ -887,6 +894,12 @@ export default function CaseStudyModal() {
             </div>
           </div>
 
+          {/* Outcome */}
+          <div className="glass rounded-xl p-6">
+            <h4 className="text-xl font-semibold mb-4">Outcome</h4>
+            <p className="text-muted-foreground leading-relaxed">{caseStudy.outcome}</p>
+          </div>
+
           {/* Hero Image/Video/Slideshow */}
           <div className="aspect-video rounded-xl overflow-hidden">
             {caseStudy.video ? (
@@ -984,12 +997,6 @@ export default function CaseStudyModal() {
                 </div>
               ))}
             </div>
-          </div>
-
-          {/* Outcome */}
-          <div className="glass rounded-xl p-6">
-            <h4 className="text-xl font-semibold mb-4">Outcome</h4>
-            <p className="text-muted-foreground leading-relaxed">{caseStudy.outcome}</p>
           </div>
         </div>
       </div>
