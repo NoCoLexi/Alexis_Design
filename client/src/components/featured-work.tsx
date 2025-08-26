@@ -10,6 +10,9 @@ import dashboardImage from "@assets/image_1754580387947.png";
 import oesAppsImage from "@assets/OES IT Apps_1754584482209.png";
 import engageConnectImage from "@assets/EngageConnect_Vol_01_1754597322104.png";
 import ocmWarningCenterImage from "@assets/OCM Warning Center screen_1754584646105.png";
+import coeScreen1Image from "@assets/CoE Screen_1_1756170288750.png";
+import coeSite1Image from "@assets/COE site-1_1756170324613.png";
+import coeSite2Image from "@assets/COE site 2_1756170324613.png";
 import eagWhiteBgImage from "@assets/Cal OES IT apps_1754843508712.png";
 import eagCoverImage from "@assets/Cal OES IT apps_1755789738496.png";
 import iLaveImage from "@assets/!-Lave group Alt_1754580875717.png";
@@ -171,6 +174,22 @@ const projects: Project[] = [
       { label: '39M', value: 'Californian Residents', color: 'text-primary' }
     ],
     tags: ['Platform Engineering', 'Tech Strategy', 'Process Optimization']
+  },
+  {
+    id: 'coe-engage',
+    title: 'Cal OES IT Center of Excellence',
+    description: 'Transforming the Engage Center of Excellence into a unified development framework that integrates competing consulting agencies and siloed programs to create consistent user experiences across state applications.',
+    category: 'product-management',
+    image: coeScreen1Image,
+    slideshow: [
+      coeSite1Image,
+      coeSite2Image
+    ],
+    metrics: [
+      { label: '33', value: 'Developers Unified', color: 'text-chart-1' },
+      { label: '76%', value: 'Compliance Rate', color: 'text-primary' }
+    ],
+    tags: ['Center of Excellence', 'Development Standards', 'Team Integration']
   },
   {
     id: 'grants-management-sikich',

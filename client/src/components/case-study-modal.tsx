@@ -94,7 +94,7 @@ import abc6NewsBillboardsImage from "@assets/IMG_1655_1755219110188.jpg";
 import abc6CampaignBillboardsImage from "@assets/FullSizeRender 16_1755219110188.jpg";
 import abc6RosieBillboardsImage from "@assets/IMG_1652_1755219110189.jpg";
 import tfGreenGalaImage from "@assets/IMG_1642_1755219275742.jpg";
-import riConventionCenterImage from "@assets/IMG_1645_1755219474136.jpg";
+import riConventionCenterImage from "@assets/FullSizeRender 25_1755219569087.jpg";
 import riConventionInteriorImage from "@assets/FullSizeRender 25_1755219569087.jpg";
 import riConventionReportImage from "@assets/FullSizeRender 28_1755219569087.jpg";
 import tfGreenDetailSpreadImage from "@assets/FullSizeRender 33_1755219662733.jpg";
@@ -103,6 +103,9 @@ import lifespanHealthBookletImage from "@assets/FullSizeRender 17_1755219971125.
 import eagOverviewImage from "@assets/Cal OES IT overview_1756087310406.png";
 import eagMindmapImage from "@assets/EAG mindmap_1756087316230.png";
 import eagResultsImage from "@assets/EAG results_1756087319907.png";
+import coeScreen1Image from "@assets/CoE Screen_1_1756170288750.png";
+import coeSite1Image from "@assets/COE site-1_1756170324613.png";
+import coeSite2Image from "@assets/COE site 2_1756170324613.png";
 
 interface CaseStudy {
   id: string;
@@ -797,6 +800,40 @@ const caseStudies: Record<string, CaseStudy> = {
       lifespanHealthBrochureImage,
       lifespanHealthBookletImage
     ]
+  },
+  'coe-engage': {
+    id: 'coe-engage',
+    title: 'Cal OES IT Center of Excellence',
+    subtitle: 'Unifying Development Standards Across State Programs',
+    description: 'Leading the transformation of the Engage Center of Excellence into a state-wide template for Cal OES IT programs, integrating competing consulting agencies and siloed programs to create unified application experiences.',
+    role: 'Product Manager & Solutions Architect',
+    duration: '12 months',
+    team: '33 developers across multiple agencies',
+    challenge: 'The Engage portal felt like a collection of different applications built by competing consulting agencies rather than a cohesive platform. Each vendor had different development standards, creating inconsistent user experiences and making maintenance difficult.',
+    solution: 'Established standardized development practices, created unified design systems, and implemented governance frameworks to ensure all applications felt like part of the same ecosystem while maintaining vendor independence.',
+    outcome: 'Successfully unified the development approach across all consulting agencies, creating a template that was adopted state-wide for Cal OES IT programs. The project established new standards for government technology collaboration.',
+    metrics: [
+      { label: '33', value: 'Developers Unified', description: 'Across multiple consulting agencies' },
+      { label: '76%', value: 'Compliance Rate', description: 'With new development standards' }
+    ],
+    process: [
+      'Stakeholder alignment across competing agencies',
+      'Development standards documentation',
+      'Design system creation and implementation',
+      'Governance framework establishment',
+      'Training and knowledge transfer',
+      'State-wide template development'
+    ],
+    learnings: [
+      'Competing consulting agencies can be successfully unified under shared standards',
+      'Clear governance frameworks are essential for multi-vendor projects',
+      'Success in one program can be scaled to create organization-wide change',
+      'Developer buy-in is crucial for sustainable transformation initiatives'
+    ],
+    slideshow: [
+      coeSite1Image,
+      coeSite2Image
+    ]
   }
 };
 
@@ -842,7 +879,7 @@ export default function CaseStudyModal() {
     };
 
     window.addEventListener('openCaseStudy', handleOpenCaseStudy as EventListener);
-    
+
     return () => {
       window.removeEventListener('openCaseStudy', handleOpenCaseStudy as EventListener);
     };
@@ -853,7 +890,7 @@ export default function CaseStudyModal() {
     if (selectedCase) {
       trackEvent('case_study_closed', 'portfolio', selectedCase);
     }
-    
+
     setIsOpen(false);
     setSelectedCase(null);
     document.body.style.overflow = 'auto';
@@ -927,7 +964,7 @@ export default function CaseStudyModal() {
             <div className="lg:col-span-2">
               <h4 className="text-xl font-semibold mb-4">Overview</h4>
               <p className="text-muted-foreground leading-relaxed">{caseStudy.description}</p>
-              
+
               {caseStudy.award && (
                 <div className="mt-4">
                   <Badge variant="secondary" className="bg-chart-3/20 text-chart-3 flex items-center gap-2 w-fit">
@@ -937,7 +974,7 @@ export default function CaseStudyModal() {
                 </div>
               )}
             </div>
-            
+
             <div className="space-y-4">
               <div>
                 <h5 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide">Role</h5>
@@ -954,7 +991,7 @@ export default function CaseStudyModal() {
             </div>
           </div>
 
-          
+
 
           {/* Challenge & Solution */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
