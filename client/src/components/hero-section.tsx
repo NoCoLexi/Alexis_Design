@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Award, Sparkles, Mail, Calendar } from "lucide-react";
-import { SiLinkedin } from "react-icons/si";
+import { Si Linkedin } from "react-icons/si";
 import NavMusicPlayer from "./nav-music-player";
 import AdminPanel from "./admin-panel";
 import VideoModal from "./video-modal";
 import { useAdminPanel } from "@/hooks/use-admin-panel";
 import profileImage from "@assets/Brochu, Alexis 2023 Ireland_1754523029765.png";
-import expertiseVideo from "@assets/Alexis_Deconstructing_a_Modern_Product_Leader_1755784261269.mp4";
+import expertiseVideo from "@/assets/Alexis_Deconstructing_a_Modern_Product_Leader_1755784261269.mp4";
 import goldenTrophyIcon from "@assets/golden-star-trophy.png";
 
 interface HeroSectionProps {
@@ -115,9 +115,9 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
       <div className="flex items-center px-6 py-20 relative space-x-8 text-center w-full z-10">
         <div style={{ flexGrow: 1 }}>
-          <img 
-            src={profileImage} 
-            alt="Alexis Brochu professional photo" 
+          <img
+            src={profileImage}
+            alt="Alexis Brochu professional photo"
             data-testid="img-professional-photo"
             className="w-full mx-auto rounded-lg"
           />
@@ -140,7 +140,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         }}>
           {/* Award Button - positioned above the heading */}
           <div className="mb-6 pb-4 flex justify-center">
-            <div 
+            <div
               className="inline-flex items-center gap-2 rounded-full px-6 py-3 hover:glow-yellow transition-all duration-300 cursor-pointer transform hover:scale-105 shadow-lg border border-chart-3/20"
               style={{ background: 'rgba(255, 255, 255, 0.15)', backdropFilter: 'blur(20px)' }}
               onClick={onOpenAwardModal}
@@ -159,14 +159,14 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             </span>
           </h1>
 
-          <p 
+          <p
             className="text-2xl md:text-3xl font-inter-medium text-muted-foreground mb-2 leading-relaxed max-w-3xl mx-auto text-center"
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
           >
             I'm Alexis and I want to be your next
           </p>
-          
-          <p 
+
+          <p
             className={`text-2xl md:text-3xl font-inter-black text-foreground mb-8 cycling-role text-center ${isExiting ? 'exit' : ''}`}
             style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300 }}
           >
@@ -176,7 +176,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           {/* Hire Me Song Button */}
           <div className="mb-6 pt-4 pb-8 flex justify-center max-w-xs mx-auto">
             <div className={`disco-button ${isPlaying ? 'playing' : ''} w-full`}>
-              <NavMusicPlayer 
+              <NavMusicPlayer
                 onPlayingChange={setIsPlaying}
                 renderAs="button"
                 buttonText='Play my "Hire Me" song'
@@ -205,7 +205,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
       </div>
 
       {/* Scroll indicator */}
-      <div 
+      <div
         className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer hover:text-primary transition-colors z-20 flex items-center justify-center"
         onClick={scrollToWork}
         role="button"
