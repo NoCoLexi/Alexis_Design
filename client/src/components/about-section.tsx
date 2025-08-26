@@ -3,7 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Award, ArrowDown } from "lucide-react";
 import professionalPhoto from "@assets/Brochu, Alexis 2023 Ireland_1754523029765.png";
 import profileVideo from "@assets/20181006_190845_1754603621565.mp4";
-import expertiseVideo from "@assets/20181006_190845_1754603621565.mp4";
+import expertiseVideo from "@assets/Alexis_Deconstructing_a_Modern_Product_Leader.mp4";
+import expertisePoster from "@assets/Product Leader Video Still.png";
 import { useState } from "react";
 
 const skills = [
@@ -53,11 +54,11 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
           <div className="flex justify-center">
             <div className="max-w-3xl w-full glass rounded-2xl p-6">
               <video
-                src="/@fs/home/runner/workspace/attached_assets/Alexis_Deconstructing_a_Modern_Product_Leader.mp4"
+                src={expertiseVideo}
                 controls
                 className="w-full rounded-xl shadow-lg"
                 data-testid="video-expertise-product-leader"
-                poster="/@fs/home/runner/workspace/attached_assets/Product Leader Video Still.png"
+                poster={expertisePoster}
               >
                 Your browser does not support the video tag.
               </video>

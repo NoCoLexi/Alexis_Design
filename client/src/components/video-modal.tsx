@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { X, Play } from 'lucide-react';
+import expertiseVideo from "@assets/Alexis_Deconstructing_a_Modern_Product_Leader.mp4";
+import expertisePoster from "@assets/Product Leader Video Still.png";
 
 interface VideoModalProps {
   isOpen: boolean;
@@ -14,9 +16,9 @@ export default function VideoModal({ isOpen, onClose, title }: VideoModalProps) 
   const [hasStartedPlaying, setHasStartedPlaying] = useState(false);
   const [showPoster, setShowPoster] = useState(true);
 
-  // Always use the fixed video and poster paths
-  const videoSrc = "/@fs/home/runner/workspace/attached_assets/Alexis_Deconstructing_a_Modern_Product_Leader.mp4";
-  const posterSrc = "/@fs/home/runner/workspace/attached_assets/Product Leader Video Still.png";
+  // Always use the imported video and poster assets
+  const videoSrc = expertiseVideo;
+  const posterSrc = expertisePoster;
 
   useEffect(() => {
     if (isOpen) {
