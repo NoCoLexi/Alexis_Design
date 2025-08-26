@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Award, ArrowDown } from "lucide-react";
 import professionalPhoto from "@assets/Brochu, Alexis 2023 Ireland_1754523029765.png";
 import profileVideo from "@assets/20181006_190845_1754603621565.mp4";
-import expertiseVideo from "@assets/Alexis_Deconstructing_a_Modern_Product_Leader_1755784261269.mp4";
+import expertiseVideo from "@assets/20181006_190845_1754603621565.mp4";
 import { useState } from "react";
 
 const skills = [

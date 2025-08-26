@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Award, Sparkles, Mail, Calendar } from "lucide-react";
-import { Si Linkedin } from "react-icons/si";
+import { SiLinkedin } from "react-icons/si";
 import NavMusicPlayer from "./nav-music-player";
 import AdminPanel from "./admin-panel";
 import VideoModal from "./video-modal";
 import { useAdminPanel } from "@/hooks/use-admin-panel";
 import profileImage from "@assets/Brochu, Alexis 2023 Ireland_1754523029765.png";
-import expertiseVideo from "@/assets/Alexis_Deconstructing_a_Modern_Product_Leader_1755784261269.mp4";
+import expertiseVideo from "@assets/20181006_190845_1754603621565.mp4";
 import goldenTrophyIcon from "@assets/golden-star-trophy.png";
 
 interface HeroSectionProps {
