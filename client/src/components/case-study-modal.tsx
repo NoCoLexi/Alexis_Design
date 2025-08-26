@@ -159,8 +159,7 @@ const caseStudies: Record<string, CaseStudy> = {
     slideshow: [
       engageInterviewsImage,
       engageRoadmapImage,
-      engageTimelineImage,
-      dashboardImage
+      engageTimelineImage
     ]
   },
   ocm: {
