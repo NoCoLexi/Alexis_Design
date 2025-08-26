@@ -53,7 +53,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
           <div className="flex justify-center">
             <div className="max-w-3xl w-full glass rounded-2xl p-6">
               <video
-                src={expertiseVideo}
+                src="/@fs/home/runner/workspace/attached_assets/Alexis_Deconstructing_a_Modern_Product_Leader.mp4"
                 controls
                 className="w-full rounded-xl shadow-lg"
                 data-testid="video-expertise-product-leader"
