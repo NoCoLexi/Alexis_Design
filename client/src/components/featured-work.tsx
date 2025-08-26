@@ -141,7 +141,8 @@ const projects: Project[] = [
     category: 'product-management',
     image: calOesImage,
     metrics: [
-      { label: '545.5%', value: 'User Base Increase', color: 'text-chart-1' }
+      { label: '545.5%', value: 'User Base Increase', color: 'text-chart-1' },
+      { label: '30k+', value: 'Subrecipient Users', color: 'text-primary' }
     ],
     tags: ['Product Management', 'Government Tech', 'SaaS CRM']
   },

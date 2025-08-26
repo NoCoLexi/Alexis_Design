@@ -136,7 +136,8 @@ const caseStudies: Record<string, CaseStudy> = {
     solution: 'Designed and implemented a modern, user-centered SaaS CRM platform with intuitive navigation, streamlined onboarding, automated workflows, and comprehensive support resources.',
     outcome: 'Successfully launched a platform that dramatically improved user experience and accessibility to government services.',
     metrics: [
-      { label: '545.5%', value: 'User Base Increase', description: 'Recorded 4 months after GoLive' }
+      { label: '545.5%', value: 'User Base Increase', description: 'Recorded 4 months after GoLive' },
+      { label: '30k+', value: 'Subrecipient Users', description: 'Active users managing grant funding' }
     ],
     process: [
       'Stakeholder interviews and requirements gathering',
