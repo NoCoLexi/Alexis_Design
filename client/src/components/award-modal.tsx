@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { trackEvent } from "@/lib/analytics";
 import bestOfCaAwardsGraphic from "@assets/Best-of-CA-Awards-graphic2_1756172176096.jpg";
+import ca23HeadersImage from "@assets/CA23-Headers-1800x710_1756172218878.jpg";
 
 // Import CA Innovation Summit award images
 import caGovTechAward1 from "@assets/CA Gov Tech Awards 2023_1754603816058.jpg";
@@ -19,6 +20,7 @@ export default function AwardModal({ isOpen, onClose }: AwardModalProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const awardImages = [
+    { src: ca23HeadersImage, alt: "California Innovation Summit 2023 - Event Headers" },
     { src: caGovTechAward1, alt: "California Innovation Summit 2023 - Award Ceremony" },
     { src: caGovTechAward2, alt: "California Innovation Summit 2023 - Recognition Event" },
     { src: caGovTechAwardCopy, alt: "California Innovation Summit 2023 - Award Documentation" }
