@@ -38,12 +38,12 @@ import gatoradeSportsImage from "@assets/image_1754955502734.png";
 import budweiserIceImage from "@assets/IMG_1656_1754968092692.jpg";
 import budweiserCampaignImage from "@assets/image_1754955810924.png";
 import ttoolsCoverImage from "@assets/IMG_1627_1754956586808.jpg";
-import ttoolsLicenseeImage from "@assets/IMG_1633_1754956594028.jpg";
-import ttoolsCorporateImage from "@assets/IMG_1628_1754956594029.jpg";
-import ttoolsBrandImage from "@assets/IMG_1629_1754956594029.jpg";
-import ttoolsLogoImage from "@assets/IMG_1630_1754956594029.jpg";
-import ttoolsStylusImage from "@assets/IMG_1631_1754956594030.jpg";
-import ttoolsPackagingImage from "@assets/IMG_1632_1754956594030.jpg";
+import ttoolsLicenseeImage from "@assets/IMG_1633_1754956594028.png";
+import ttoolsCorporateImage from "@assets/IMG_1628_1754956594029.png";
+import ttoolsBrandImage from "@assets/IMG_1629_1754956594029.png";
+import ttoolsLogoImage from "@assets/IMG_1630_1754956594029.png";
+import ttoolsStylusImage from "@assets/IMG_1631_1754956594030.png";
+import ttoolsPackagingImage from "@assets/IMG_1632_1754956594030.png";
 import ttoolsPressKitImage from "@assets/FullSizeRender 29_1754957693606.jpg";
 import abc6CoverImage from "@assets/IMG_1641_1754956730422.jpg";
 import abc6SeinfeldImage from "@assets/IMG_1654_1754956757000.jpg";
@@ -120,7 +120,7 @@ const projects: Project[] = [
   {
     id: 'ca-innovation-award',
     title: 'California Government Technology Innovation Award',
-    description: '2023 California Government Technology Innovation Award recognizing outstanding contributions to public-sector technology. Led multiple award-winning applications including Cal OES Engage Community Portal.',
+    description: 'I led the team that won the 2023 California Government Technology Innovation Award for outstanding contributions to public-sector technology.',
     category: 'product-management',
     image: caAwardImage,
     award: 'Innovation Award',
