@@ -7,7 +7,7 @@ import AdminPanel from "./admin-panel";
 import VideoModal from "./video-modal";
 import { useAdminPanel } from "@/hooks/use-admin-panel";
 import profileImage from "@assets/Brochu, Alexis 2023 Ireland_1754523029765.png";
-import expertiseVideo from "@assets/20181006_190845_1754603621565.mp4";
+import expertiseVideo from "/@fs/home/runner/workspace/attached_assets/Alexis_Deconstructing_a_Modern_Product_Leader.mp4";
 import goldenTrophyIcon from "@assets/golden-star-trophy.png";
 
 interface HeroSectionProps {
