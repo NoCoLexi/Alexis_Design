@@ -3,7 +3,7 @@ import { X, Award, Calendar, MapPin, Trophy, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { trackEvent } from "@/lib/analytics";
-import goldenTrophyIcon from "@assets/golden-star-trophy.png";
+import bestOfCaAwardsGraphic from "@assets/Best-of-CA-Awards-graphic2_1756172176096.jpg";
 
 // Import CA Innovation Summit award images
 import caGovTechAward1 from "@assets/CA Gov Tech Awards 2023_1754603816058.jpg";
@@ -92,7 +92,7 @@ export default function AwardModal({ isOpen, onClose }: AwardModalProps) {
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-4">
             <div className="p-3 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600">
-              <img src={goldenTrophyIcon} alt="Golden Trophy" className="h-6 w-6" />
+              <img src={bestOfCaAwardsGraphic} alt="Best of CA Awards" className="h-6 w-6" />
             </div>
             <div>
               <h2 className="text-3xl font-bold text-white mb-2">
