@@ -123,7 +123,7 @@ const projects: Project[] = [
     description: '2023 California Government Technology Innovation Award recognizing outstanding contributions to public-sector technology. Led multiple award-winning applications including Cal OES Engage Community Portal.',
     category: 'product-management',
     image: caAwardImage,
-    award: true,
+    award: 'Innovation Award',
     metrics: [
       { label: '4', value: 'Award-Winning Applications', color: 'text-chart-1' },
       { label: '2023', value: 'Innovation Summit', color: 'text-primary' }
@@ -136,7 +136,7 @@ const projects: Project[] = [
     description: 'Streamlining the reimbursement process for California subrecipients. Winner of the 2023 California Government Technology Innovation Award.',
     category: 'product-management',
     image: paCloseoutNewImage,
-    award: true,
+    award: 'Innovation Award',
     metrics: [
       { label: '75%', value: 'Support Ticket Reduction', color: 'text-chart-1' },
       { label: '$243M', value: 'Projects Closed Out', color: 'text-primary' }
@@ -520,10 +520,10 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
 
       <div className="p-8">
         <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">
-          {California GovTech Innovation Award Winner}
+          {project.title}
         </h3>
         <p className="text-md text-muted-foreground mb-4">
-            Let the team that won the 2023 California Government Technology Innovation Award, recognizing outstanding contributions to public-sector technology.
+          {project.description}
         </p>
 
         {project.metrics.length > 0 && project.category === 'product-management' && (
