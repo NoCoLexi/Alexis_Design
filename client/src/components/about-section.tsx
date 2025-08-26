@@ -70,9 +70,9 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
           {/* Expertise Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             <div className="glass rounded-xl p-6 hover:glow-purple transition-all duration-300">
-              <h3 className="text-xl font-semibold mb-4" style={{ color: '#F3E8B9' }}>PM-SM</h3>
+              <h3 className="text-xl font-semibold mb-4" style={{ color: '#F3E8B9' }}>Scrum Master</h3>
               <p className="text-gray-300 leading-relaxed">
-                Product Manager - Scrum Master hybrid role combining strategic product vision with agile delivery expertise to lead cross-functional teams and accelerate product development cycles.
+                Expert Scrum Master facilitating agile ceremonies, removing blockers, and coaching teams in agile principles to deliver high-quality software through iterative development and continuous improvement.
               </p>
             </div>
 
