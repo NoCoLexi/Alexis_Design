@@ -9,6 +9,7 @@ import paPortalImage from "@assets/Grants Management Reporting 1-1_1754840000206
 import dashboardImage from "@assets/image_1754580387947.png";
 import oesAppsImage from "@assets/OES IT Apps_1754584482209.png";
 import engageConnectImage from "@assets/EngageConnect_Vol_01_1754597322104.png";
+import ocmWarningCenterImage from "@assets/OCM Warning Center screen_1754584646105.png";
 import eagWhiteBgImage from "@assets/Cal OES IT apps_1754843508712.png";
 import eagCoverImage from "@assets/Cal OES IT apps_1755789738496.png";
 import iLaveImage from "@assets/!-Lave group Alt_1754580875717.png";
@@ -152,7 +153,7 @@ const projects: Project[] = [
     title: 'Office of Change Management (OCM)',
     description: 'Leading a comprehensive government, state-wide system change initiative to transform California\'s digital infrastructure by unifying different legacy applications into a cohesive user experience.',
     category: 'product-management',
-    image: engageConnectImage,
+    image: ocmWarningCenterImage,
     metrics: [
       { label: '86.3%', value: 'User Adoption', color: 'text-chart-1' },
       { label: '23', value: 'Org-wide Applications', color: 'text-primary' }
