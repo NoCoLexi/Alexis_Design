@@ -119,7 +119,7 @@ interface Project {
 const projects: Project[] = [
   {
     id: 'ca-innovation-award',
-    title: 'California Government Technology Innovation Award',
+    title: 'California GovTech Innovation Award',
     description: 'I led the team that won the 2023 California Government Technology Innovation Award for outstanding contributions to public-sector technology.',
     category: 'product-management',
     image: caAwardImage,
