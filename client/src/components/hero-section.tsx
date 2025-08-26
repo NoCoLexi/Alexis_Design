@@ -226,9 +226,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
       <VideoModal
         isOpen={isVideoModalOpen}
         onClose={() => setIsVideoModalOpen(false)}
-        videoSrc={expertiseVideo}
         title="Check out this video about what it would be like to work with me."
-        posterImage="/@fs/home/runner/workspace/attached_assets/Product Leader Video Still.png"
       />
     </section>
   );

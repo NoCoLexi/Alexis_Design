@@ -4,15 +4,19 @@ import { X, Play } from 'lucide-react';
 interface VideoModalProps {
   isOpen: boolean;
   onClose: () => void;
-  videoSrc: string;
+  videoSrc?: string; // Make optional since we're using fixed paths
   title: string;
-  posterImage?: string;
+  posterImage?: string; // Make optional since we're using fixed paths
 }
 
-export default function VideoModal({ isOpen, onClose, videoSrc, title, posterImage }: VideoModalProps) {
+export default function VideoModal({ isOpen, onClose, title }: VideoModalProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [hasStartedPlaying, setHasStartedPlaying] = useState(false);
   const [showPoster, setShowPoster] = useState(true);
+
+  // Always use the fixed video and poster paths
+  const videoSrc = "/@fs/home/runner/workspace/attached_assets/Alexis_Deconstructing_a_Modern_Product_Leader.mp4";
+  const posterSrc = "/@fs/home/runner/workspace/attached_assets/Product Leader Video Still.png";
 
   useEffect(() => {
     if (isOpen) {
@@ -39,28 +43,18 @@ export default function VideoModal({ isOpen, onClose, videoSrc, title, posterIma
     }
   }, [isOpen, onClose]);
 
-  const handlePlayClick = async () => {
+  const handlePlayClick = () => {
     const video = videoRef.current;
     if (!video) return;
 
-    try {
-      // Load the video first
-      video.load();
-      
-      // Wait for the video to be ready
-      await new Promise((resolve) => {
-        video.addEventListener('loadeddata', resolve, { once: true });
-      });
-
-      setShowPoster(false);
-      setHasStartedPlaying(true);
-      video.currentTime = 0;
-      
-      await video.play();
-      console.log('Video started playing successfully');
-    } catch (error) {
+    setShowPoster(false);
+    setHasStartedPlaying(true);
+    
+    // Reset to beginning and play
+    video.currentTime = 0;
+    video.play().catch(error => {
       console.error('Error playing video:', error);
-    }
+    });
   };
 
   if (!isOpen) return null;
@@ -82,7 +76,7 @@ export default function VideoModal({ isOpen, onClose, videoSrc, title, posterIma
           {showPoster && (
             <div className="relative w-full" style={{ maxHeight: '80vh' }}>
               <img
-                src="/@fs/home/runner/workspace/attached_assets/Product Leader Video Still.png"
+                src={posterSrc}
                 alt="Video thumbnail"
                 className="w-full h-auto"
                 style={{ maxHeight: '80vh' }}
@@ -102,16 +96,13 @@ export default function VideoModal({ isOpen, onClose, videoSrc, title, posterIma
           {!showPoster && (
             <video
               ref={videoRef}
-              src="/@fs/home/runner/workspace/attached_assets/Alexis_Deconstructing_a_Modern_Product_Leader.mp4"
-              controls={hasStartedPlaying}
+              src={videoSrc}
+              controls
               className="w-full h-auto"
               style={{ maxHeight: '80vh' }}
-              preload="auto"
+              preload="metadata"
               playsInline
-              muted={false}
-              onLoadStart={() => console.log('Video load started')}
-              onCanPlay={() => console.log('Video can play')}
-              onError={(e) => console.error('Video error:', e)}
+              autoPlay
             >
               Your browser does not support the video tag.
             </video>
