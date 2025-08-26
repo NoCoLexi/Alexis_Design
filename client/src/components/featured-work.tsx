@@ -407,8 +407,8 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
   const [isVisible, setIsVisible] = useState(false);
   const [parallaxY, setParallaxY] = useState(0);
 
-  // Disable parallax for slow cards (EAG and Public Assistance)
-  const disableParallax = project.id === 'eag' || project.id === 'pa-portal';
+  // Disable parallax for all cards to ensure consistent hover behavior
+  const disableParallax = true;
 
   useEffect(() => {
     const card = cardRef.current;
