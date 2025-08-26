@@ -128,6 +128,45 @@ interface CaseStudy {
 }
 
 const caseStudies: Record<string, CaseStudy> = {
+  'ca-gov-tech-innovation-award': {
+    id: 'ca-gov-tech-innovation-award',
+    title: 'California Government Technology Innovation Award',
+    subtitle: '2023 Innovation Summit - Multiple Award Winner',
+    description: 'Led the strategic development and submission of 4 comprehensive applications for the California Department of Technology Innovation Summit, resulting in unprecedented success with all 4 applications winning awards across multiple categories including Best Application Serving the Public.',
+    role: 'Product Portfolio Manager & Strategic Lead',
+    duration: '6 months preparation + ongoing excellence',
+    team: 'Cal OES cross-functional teams across 4 applications',
+    challenge: 'The California Department of Technology Innovation Summit represents the state\'s most competitive recognition program for government technology excellence. The challenge was to identify, document, and present multiple Cal OES applications that demonstrated exceptional innovation, public service impact, and technical excellence across diverse categories.',
+    solution: 'Developed a comprehensive portfolio strategy that showcased Cal OES\'s technology leadership across multiple domains. Carefully selected and prepared 4 distinct applications that highlighted different aspects of government innovation: public service delivery, business process optimization, collaborative frameworks, and technical leadership.',
+    outcome: 'Achieved unprecedented success with a 100% win rate - all 4 submitted applications won awards at the 2023 California Government Innovation Summit held September 19, 2023, at the Sheraton Grand Hotel in Sacramento. This recognition validated Cal OES as a leader in government technology innovation.',
+    metrics: [
+      { label: '4/4', value: 'Award Winners', description: '100% success rate across all submissions' },
+      { label: '5', value: 'Award Categories', description: 'Recognition across diverse innovation areas' },
+      { label: '2023', value: 'Innovation Summit', description: 'September 19, Sacramento' }
+    ],
+    process: [
+      'Strategic portfolio analysis and application identification',
+      'Cross-departmental stakeholder collaboration and alignment',
+      'Comprehensive documentation and impact measurement',
+      'Award category mapping and submission strategy development',
+      'Technical writing and presentation material creation',
+      'Summit presentation and recognition ceremony participation'
+    ],
+    learnings: [
+      'Portfolio approach maximizes recognition opportunities across diverse innovation categories',
+      'Government technology excellence requires measurable public service impact',
+      'Cross-functional collaboration amplifies individual project success stories',
+      'Strategic documentation and storytelling are crucial for award recognition',
+      'Industry recognition validates user-centered design and innovation approaches'
+    ],
+    image: caGovTechAward2,
+    slideshow: [
+      caGovTechAward1,
+      caGovTechAward2,
+      caGovTechAwardCopy
+    ],
+    award: '2023 California Government Technology Innovation Award - Multiple Category Winner'
+  },
   caloes: {
     id: 'caloes',
     title: 'Cal OES Engage Community Portal',
