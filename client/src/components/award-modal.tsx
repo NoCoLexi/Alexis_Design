@@ -237,6 +237,13 @@ export default function AwardModal({ isOpen, onClose }: AwardModalProps) {
           </Button>
           <Button
             onClick={() => {
+              // Trigger product management filter event
+              const filterEvent = new CustomEvent('filterPortfolio', { 
+                detail: { category: 'product-management' } 
+              });
+              window.dispatchEvent(filterEvent);
+              
+              // Scroll to work section
               const element = document.getElementById('work');
               if (element) {
                 element.scrollIntoView({ behavior: 'smooth' });

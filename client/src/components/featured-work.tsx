@@ -545,9 +545,9 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
           </div>
         )}
 
-        
 
-        
+
+
       </div>
     </div>
   );
@@ -555,6 +555,23 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
 
 export default function FeaturedWork() {
   const { getCaseStudyFocus, settings } = useAdminPanel();
+  const [activeFilter, setActiveFilter] = useState('all');
+  const [isVisible, setIsVisible] = useState(false);
+  const [parallaxY, setParallaxY] = useState(0);
+
+  const sectionRef = useRef<HTMLElement>(null);
+
+  // Listen for filter events from other components
+  useEffect(() => {
+    const handleFilterEvent = (event: CustomEvent) => {
+      setActiveFilter(event.detail.category);
+    };
+
+    window.addEventListener('filterPortfolio', handleFilterEvent as EventListener);
+    return () => {
+      window.removeEventListener('filterPortfolio', handleFilterEvent as EventListener);
+    };
+  }, []);
 
   // Get initial filter from URL parameters or default
   const getInitialFilter = () => {
@@ -566,8 +583,6 @@ export default function FeaturedWork() {
 
     return 'product-design'; // default
   };
-
-  const [activeFilter, setActiveFilter] = useState<string>(getInitialFilter);
 
   // Only apply admin filter when specifically set to PM or Design (not Auto) and no URL params
   useEffect(() => {
