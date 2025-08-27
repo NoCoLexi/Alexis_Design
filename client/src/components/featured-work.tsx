@@ -541,13 +541,7 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
           </div>
         )}
 
-        <div className="flex flex-wrap gap-2 mb-6">
-          {project.tags.map((tag, tagIndex) => (
-            <Badge key={`${project.id}-tag-${tagIndex}`} variant="outline" className="text-xs">
-              {tag}
-            </Badge>
-          ))}
-        </div>
+        
 
         <Button className="w-full gradient-bg-secondary hover:opacity-90 transition-all duration-300">
           <ExternalLink className="w-4 h-4 mr-2" />
