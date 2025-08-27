@@ -65,7 +65,7 @@ export default function Home() {
                 }
               }}
             >
-              <HomeIcon className="w-6 h-6 text-purple-400 mr-2" />
+              <HomeIcon className="w-2 h-2 mr-2" style={{ color: '#F3E8B9' }} />
               <span className="name-first text-white font-bold text-xl">Alexis</span>
               <span className="name-last text-purple-400 font-bold text-xl">Brochu</span>
             </div>
