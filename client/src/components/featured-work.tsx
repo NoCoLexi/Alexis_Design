@@ -546,10 +546,7 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
 
         
 
-        <Button className="w-full gradient-bg-secondary hover:opacity-90 transition-all duration-300">
-          <ExternalLink className="w-4 h-4 mr-2" />
-          View Case Study
-        </Button>
+        
       </div>
     </div>
   );
