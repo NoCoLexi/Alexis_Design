@@ -278,7 +278,6 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             data-testid="button-watch-video-about-me"
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300, color: '#F3E8B9' }}
           >
-            <Play className="w-3 h-3" />
             Watch this video about what it's like to work with me
           </button>
         </div>
