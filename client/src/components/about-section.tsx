@@ -375,42 +375,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                           <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
                           <div className="text-left">
                             <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Publication</div>
-                            <div className="text-foreground font-medium">UX Collective (uxdesign.cc) - "What my surgery taught me about product design"</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Publication</div>
                             <div className="text-foreground font-medium">UX Collective (uxdesign.cc) - "13 ways my boyfriend Claude is helping me find a job with AI"</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Media Feature</div>
-                            <div className="text-foreground font-medium">Providence Journal feature - WLNE-TV "ABC6 Playhouse" | Emerald Square Mall, MA</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Industry Award</div>
-                            <div className="text-foreground font-medium">Publicity Club of New England - 27th Annual Bell Ringer Awards | RI</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Media Feature</div>
-                            <div className="text-foreground font-medium">Vibe Magazine - "Ski Conditioning with Alexis and Carl" 6-page spread</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Industry Award</div>
-                            <div className="text-foreground font-medium">BDA International Silver Award - "Advertising Campaign" WLNE-TV ABC6 "Hate the Rain" | RI</div>
                           </div>
                         </div>
                         <div className="education-item">
@@ -421,10 +386,59 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                           </div>
                         </div>
                         <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Media Feature</div>
+                            <div className="text-foreground font-medium">Vibe Magazine - "Ski Conditioning with Alexis and Carl" 6-page spread</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
                           <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
                           <div className="text-left">
                             <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Scholarship</div>
                             <div className="text-foreground font-medium">Women in Technology Scholar - University of New Hampshire | NH</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Industry Award</div>
+                            <div className="text-foreground font-medium">BDA International Silver Award - "Advertising Campaign" WLNE-TV ABC6 "Hate the Rain" | RI</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Publication</div>
+                            <div className="text-foreground font-medium">UX Collective (uxdesign.cc) - "What my surgery taught me about product design"</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Recognition</div>
+                            <div className="text-foreground font-medium">Conway Daily Sun Readers Choice Award - "Best Personal Trainer" | NH</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Industry Award</div>
+                            <div className="text-foreground font-medium">Publicity Club of New England - 27th Annual Bell Ringer Awards | RI</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Publication</div>
+                            <div className="text-foreground font-medium">Graphic Design on a Limited Budget - Multiple featured projects | RI</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Media Feature</div>
+                            <div className="text-foreground font-medium">Providence Journal feature - WLNE-TV "ABC6 Playhouse" | Emerald Square Mall, MA</div>
                           </div>
                         </div>
                         <div className="education-item">
@@ -439,20 +453,6 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                           <div className="text-left">
                             <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Recognition</div>
                             <div className="text-foreground font-medium">WLNE-TV ABC6 Readers Choice Award - "Best RI Design Firm" Alexis Design | RI</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Publication</div>
-                            <div className="text-foreground font-medium">Graphic Design on a Limited Budget - Multiple featured projects | RI</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Recognition</div>
-                            <div className="text-foreground font-medium">Conway Daily Sun Readers Choice Award - "Best Personal Trainer" | NH</div>
                           </div>
                         </div>
 
@@ -468,42 +468,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                           <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
                           <div className="text-left">
                             <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Publication</div>
-                            <div className="text-foreground font-medium">UX Collective (uxdesign.cc) - "What my surgery taught me about product design"</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Publication</div>
                             <div className="text-foreground font-medium">UX Collective (uxdesign.cc) - "13 ways my boyfriend Claude is helping me find a job with AI"</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Media Feature</div>
-                            <div className="text-foreground font-medium">Providence Journal feature - WLNE-TV "ABC6 Playhouse" | Emerald Square Mall, MA</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Industry Award</div>
-                            <div className="text-foreground font-medium">Publicity Club of New England - 27th Annual Bell Ringer Awards | RI</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Media Feature</div>
-                            <div className="text-foreground font-medium">Vibe Magazine - "Ski Conditioning with Alexis and Carl" 6-page spread</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Industry Award</div>
-                            <div className="text-foreground font-medium">BDA International Silver Award - "Advertising Campaign" WLNE-TV ABC6 "Hate the Rain" | RI</div>
                           </div>
                         </div>
                         <div className="education-item">
@@ -514,10 +479,59 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                           </div>
                         </div>
                         <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Media Feature</div>
+                            <div className="text-foreground font-medium">Vibe Magazine - "Ski Conditioning with Alexis and Carl" 6-page spread</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
                           <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
                           <div className="text-left">
                             <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Scholarship</div>
                             <div className="text-foreground font-medium">Women in Technology Scholar - University of New Hampshire | NH</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Industry Award</div>
+                            <div className="text-foreground font-medium">BDA International Silver Award - "Advertising Campaign" WLNE-TV ABC6 "Hate the Rain" | RI</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Publication</div>
+                            <div className="text-foreground font-medium">UX Collective (uxdesign.cc) - "What my surgery taught me about product design"</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Recognition</div>
+                            <div className="text-foreground font-medium">Conway Daily Sun Readers Choice Award - "Best Personal Trainer" | NH</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Industry Award</div>
+                            <div className="text-foreground font-medium">Publicity Club of New England - 27th Annual Bell Ringer Awards | RI</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Publication</div>
+                            <div className="text-foreground font-medium">Graphic Design on a Limited Budget - Multiple featured projects | RI</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Media Feature</div>
+                            <div className="text-foreground font-medium">Providence Journal feature - WLNE-TV "ABC6 Playhouse" | Emerald Square Mall, MA</div>
                           </div>
                         </div>
                         <div className="education-item">
@@ -532,20 +546,6 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                           <div className="text-left">
                             <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Recognition</div>
                             <div className="text-foreground font-medium">WLNE-TV ABC6 Readers Choice Award - "Best RI Design Firm" Alexis Design | RI</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Publication</div>
-                            <div className="text-foreground font-medium">Graphic Design on a Limited Budget - Multiple featured projects | RI</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Recognition</div>
-                            <div className="text-foreground font-medium">Conway Daily Sun Readers Choice Award - "Best Personal Trainer" | NH</div>
                           </div>
                         </div>
                       </div>
