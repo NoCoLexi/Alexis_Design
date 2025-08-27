@@ -34,6 +34,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
   };
 
   const roles = [
+    "Solution Factory",
     "Innovation Strategist",
     "Cross-Functional Product Lead",
     "AI Product Strategist",
