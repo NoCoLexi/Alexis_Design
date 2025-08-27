@@ -100,20 +100,7 @@ export default function AwardModal({ isOpen, onClose }: AwardModalProps) {
               <h2 className="text-3xl font-bold text-white mb-2">
                 2023 California Innovation Summit Award
               </h2>
-              <div className="flex flex-wrap gap-2">
-                <Badge variant="outline" className="text-yellow-400 border-yellow-400/50">
-                  <Award className="w-4 h-4 mr-1" />
-                  Government Technology Excellence
-                </Badge>
-                <Badge variant="outline" className="text-blue-400 border-blue-400/50">
-                  <Calendar className="w-4 h-4 mr-1" />
-                  November 2023
-                </Badge>
-                <Badge variant="outline" className="text-green-400 border-green-400/50">
-                  <MapPin className="w-4 h-4 mr-1" />
-                  Sacramento, CA
-                </Badge>
-              </div>
+              
             </div>
           </div>
         </div>
