@@ -487,7 +487,8 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
         transform: disableParallax 
           ? `scale(${isVisible ? 1 : 0.95})` 
           : `translateY(${isVisible ? -parallaxY * 0.2 : 20}px) scale(${isVisible ? 1 : 0.95})`,
-        transition: 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+        transition: 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+        backgroundColor: project.id === 'grants-management-sikich' ? '#575677' : undefined
       }}
     >
       <div className="aspect-video relative overflow-hidden">
