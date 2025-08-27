@@ -234,7 +234,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
         {/* 3. Subhead */}
         <p
-          className="text-xl font-inter-medium text-muted-foreground leading-relaxed"
+          className="text-xl font-inter-medium text-muted-foreground leading-relaxed mt-0"
           style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
         >
           I'm Alexis and I want to be your next
@@ -242,7 +242,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
         {/* 4. Roles */}
         <p
-          className={`text-xl font-inter-black text-foreground cycling-role ${isExiting ? 'exit' : ''}`}
+          className={`text-xl font-inter-black text-foreground cycling-role mt-0 ${isExiting ? 'exit' : ''}`}
           style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300 }}
         >
           {roles[currentRoleIndex]}
