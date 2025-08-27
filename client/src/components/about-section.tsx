@@ -825,7 +825,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
 
               {activeTab === 'funfact' && (
                 <div className="text-center">
-                  <h3 className="font-semibold text-primary mb-6 text-xl">I'm also a certified personal trainer</h3>
+                  <h3 className="font-semibold mb-6 text-xl" style={{ color: '#F3E8B9' }}>I'm also a certified personal trainer</h3>
                   <div className="flex justify-center">
                     <div className="aspect-video max-w-sm rounded-xl overflow-hidden animate-float glass">
                       <video
