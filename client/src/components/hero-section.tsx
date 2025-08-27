@@ -242,7 +242,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
         {/* 4. Roles */}
         <p
-          className={`text-xl font-inter-black text-foreground cycling-role mt-0 ${isExiting ? 'exit' : ''}`}
+          className={`text-xl font-inter-black text-foreground cycling-role mt-0 pt-0 ${isExiting ? 'exit' : ''}`}
           style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300 }}
         >
           {roles[currentRoleIndex]}
