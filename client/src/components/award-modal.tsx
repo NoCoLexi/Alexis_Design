@@ -226,8 +226,8 @@ export default function AwardModal({ isOpen, onClose }: AwardModalProps) {
         <div className="mt-8 flex flex-wrap gap-4 justify-center">
           <Button
             onClick={() => {
-              trackEvent('external_link_click', 'awards', 'ca_gov_innovation_summit');
-              window.open('https://cdt.ca.gov/innovation-summit/', '_blank');
+              trackEvent('external_link_click', 'awards', 'best_of_ca_awards');
+              window.open('https://cdt.ca.gov/newsroom/2023/09/the-best-of-california-awards-announced/', '_blank');
             }}
             className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2 rounded-xl transition-all duration-200"
             data-testid="link-innovation-summit"
