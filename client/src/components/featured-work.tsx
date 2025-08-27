@@ -504,11 +504,6 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
         <div className="absolute top-4 left-4 flex gap-2">
-          <Badge variant="secondary" className="bg-primary/80 text-primary-foreground">
-            {project.category === 'product-management' ? 'Product Management' : 
-             project.category === 'product-design' ? 'Product Design' : 
-             project.category === 'brand-development' ? 'Brand Development' : 'Marketing'}
-          </Badge>
           {project.award && (
             <Badge variant="secondary" className="bg-chart-3/80 text-foreground flex items-center gap-1">
               <Award className="w-3 h-3" />
@@ -519,6 +514,14 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
       </div>
 
       <div className="p-8">
+        <div className="flex flex-wrap gap-2 mb-4">
+          {project.tags.map((tag, tagIndex) => (
+            <Badge key={`${project.id}-tag-${tagIndex}`} variant="outline" className="text-xs">
+              {tag}
+            </Badge>
+          ))}
+        </div>
+
         <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">
           {project.title}
         </h3>
