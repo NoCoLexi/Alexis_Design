@@ -117,7 +117,8 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
 
 
-      <div className="flex items-center px-6 py-20 relative space-x-8 text-center w-full z-10">
+      {/* Desktop Layout (2 columns) */}
+      <div className="hidden md:flex items-center px-6 py-20 relative space-x-8 text-center w-full z-10">
         <div style={{ flexGrow: 1 }}>
           <img
             src={profileImage}
@@ -205,8 +206,97 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             </div>
           </div>
         </div>
+      </div>
 
+      {/* Mobile Layout (1 column) */}
+      <div className="md:hidden flex flex-col items-center px-6 py-20 relative w-full z-10 text-center space-y-6">
+        {/* 1. Award Winner button */}
+        <div className="flex justify-center">
+          <div
+            className="inline-flex items-center gap-2 rounded-full px-6 py-3 hover:glow-yellow transition-all duration-300 cursor-pointer transform hover:scale-105 shadow-lg border border-chart-3/20"
+            style={{ background: 'rgba(255, 255, 255, 0.15)', backdropFilter: 'blur(20px)' }}
+            onClick={onOpenAwardModal}
+            data-testid="button-hero-tech-award"
+          >
+            <Award className="w-5 h-5" style={{ color: '#0081BC' }} />
+            <span className="text-sm font-medium" style={{ color: '#F3E8B9' }}>
+              2023 California GovTech Award Winner
+            </span>
+          </div>
+        </div>
 
+        {/* 2. Headline */}
+        <h1 className="text-4xl font-inter-black" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.4' }}>
+          <span className={`gradient-text disco-text ${isPlaying ? 'dancing' : ''}`}>
+            {getCustomGreeting()}
+          </span>
+        </h1>
+
+        {/* 3. Subhead */}
+        <p
+          className="text-xl font-inter-medium text-muted-foreground leading-relaxed"
+          style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
+        >
+          I'm Alexis and I want to be your next
+        </p>
+
+        {/* 4. Roles */}
+        <p
+          className={`text-xl font-inter-black text-foreground cycling-role ${isExiting ? 'exit' : ''}`}
+          style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300 }}
+        >
+          {roles[currentRoleIndex]}
+        </p>
+
+        {/* 5. Hire Me Song */}
+        <div className="flex justify-center max-w-xs mx-auto w-full">
+          <div className={`disco-button ${isPlaying ? 'playing' : ''} w-full`}>
+            <NavMusicPlayer
+              onPlayingChange={setIsPlaying}
+              renderAs="button"
+              buttonText='Play my "Hire Me" song'
+            />
+          </div>
+        </div>
+
+        {/* 6. Portrait */}
+        <div className="w-full max-w-sm mx-auto">
+          <img
+            src={profileImage}
+            alt="Alexis Brochu professional photo"
+            data-testid="img-professional-photo"
+            className="w-full mx-auto rounded-lg"
+          />
+        </div>
+
+        {/* 7. Video link */}
+        <div className="flex justify-center">
+          <button
+            onClick={scrollToExpertise}
+            className="text-base transition-all duration-300 transform hover:scale-105 hover:brightness-110 flex items-center gap-2"
+            data-testid="button-watch-video-about-me"
+            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300, color: '#F3E8B9' }}
+          >
+            <Play className="w-3 h-3" />
+            Watch this video about what it's like to work with me
+          </button>
+        </div>
+
+        {/* 8. Metrics */}
+        <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto pt-4">
+          <div className="text-center">
+            <div className="text-2xl font-bold" style={{ color: '#F3E8B9' }}>545.5%</div>
+            <div className="text-xs text-white/70">User Growth</div>
+          </div>
+          <div className="text-center">
+            <div className="text-2xl font-bold" style={{ color: '#F3E8B9' }}>$244M</div>
+            <div className="text-xs text-white/70">Projects Closed</div>
+          </div>
+          <div className="text-center">
+            <div className="text-2xl font-bold" style={{ color: '#F3E8B9' }}>75%</div>
+            <div className="text-xs text-white/70">Tickets Reduced</div>
+          </div>
+        </div>
       </div>
 
       {/* Scroll indicator */}
