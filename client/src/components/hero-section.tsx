@@ -159,7 +159,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             </div>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-inter-black" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.4', paddingBottom: '0.25rem' }}>
+          <h1 className="text-5xl md:text-7xl font-inter-black" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.1', paddingBottom: '0.25rem' }}>
             <span className={`gradient-text disco-text ${isPlaying ? 'dancing' : ''}`}>
               {getCustomGreeting()}
             </span>
@@ -226,7 +226,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         </div>
 
         {/* 2. Headline */}
-        <h1 className="text-4xl font-inter-black" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.4' }}>
+        <h1 className="text-4xl font-inter-black" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.1' }}>
           <span className={`gradient-text disco-text ${isPlaying ? 'dancing' : ''}`}>
             {getCustomGreeting()}
           </span>
