@@ -7,3 +7,6 @@ interface ImportMetaEnv {
 interface ImportMeta {
   readonly env: ImportMetaEnv;
 }
+
+// Set your Google Analytics Measurement ID
+const GA_MEASUREMENT_ID = 'G-VQSYD4QSG7';
