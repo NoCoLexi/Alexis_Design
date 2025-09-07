@@ -716,41 +716,89 @@ a:focus {
   justify-content: center;
   align-items: center;
   padding: 4rem 2rem;
+  min-height: 100vh;
 }
 
-/* Flex container */
+/* Flex container - balanced layout */
 .hero-container {
   display: flex;
   align-items: center;
-  max-width: 1200px;
+  max-width: 1400px;
   width: 100%;
-  gap: 2rem;
+  gap: 3rem;
+  padding: 0 1rem;
 }
 
-/* Portrait */
+/* Portrait container - fixed width on larger screens */
+.hero-image {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .hero-image img {
-  max-width: 280px;   /* default smaller size */
+  max-width: 280px;
   width: 100%;
   height: auto;
   border-radius: 12px;
-  flex-shrink: 0;
+  object-fit: cover;
 }
 
-/* Right side expands */
+/* Right side content - expands to fill remaining space */
 .hero-content {
-  flex: 1; /* expands to take available space */
+  flex: 1;
+  min-width: 0; /* Prevents flex item from overflowing */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-/* Responsive stacking */
+/* Large screen optimizations */
+@media (min-width: 1024px) {
+  .hero-container {
+    gap: 4rem;
+  }
+  
+  .hero-image img {
+    max-width: 300px;
+  }
+  
+  .hero-content {
+    padding-left: 2rem;
+  }
+}
+
+/* Medium screens (tablets) */
+@media (min-width: 769px) and (max-width: 1023px) {
+  .hero-container {
+    gap: 2.5rem;
+  }
+  
+  .hero-image img {
+    max-width: 250px;
+  }
+}
+
+/* Mobile stacking */
 @media (max-width: 768px) {
+  .hero {
+    padding: 2rem 1rem;
+  }
+  
   .hero-container {
     flex-direction: column;
     text-align: center;
+    gap: 2rem;
+    max-width: 100%;
   }
 
   .hero-image img {
-    max-width: 200px;
-    margin-bottom: 1.5rem;
+    max-width: 220px;
+  }
+  
+  .hero-content {
+    padding-left: 0;
   }
 }
 

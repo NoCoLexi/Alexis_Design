@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Award, Sparkles, Mail, Calendar, Play } from "lucide-react";
-import { Si Linkedin } from "react-icons/si";
+import { SiLinkedin } from "react-icons/si";
 import NavMusicPlayer from "./nav-music-player";
 import AdminPanel from "./admin-panel";
 
@@ -120,13 +120,13 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
 
       {/* Desktop Layout (2 columns) */}
-      <div className="hidden md:flex items-center px-6 py-20 relative space-x-8 text-center w-full z-10 hero-container">
+      <div className="hidden md:flex items-center px-6 py-20 relative w-full z-10 hero-container">
         <div className="hero-image">
           <img
             src={profileImage}
             alt="Alexis Brochu professional photo"
             data-testid="img-professional-photo"
-            className="w-3/4 max-w-sm mx-auto rounded-lg h-auto"
+            className="rounded-lg"
           />
 
           {/* Watch Video Link */}
@@ -143,9 +143,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           </div>
         </div>
 
-        <div className="hero-content" style={{
-          flexGrow: 1
-        }}>
+        <div className="hero-content">
           {/* Award Button - positioned above the heading */}
           <div className="mb-6 pb-4 flex justify-center">
             <div
@@ -262,12 +260,12 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         </div>
 
         {/* 6. Portrait */}
-        <div className="w-full max-w-xs mx-auto hero-image">
+        <div className="hero-image">
           <img
             src={profileImage}
             alt="Alexis Brochu professional photo"
             data-testid="img-professional-photo"
-            className="w-full mx-auto rounded-lg h-auto"
+            className="rounded-lg"
           />
         </div>
 
