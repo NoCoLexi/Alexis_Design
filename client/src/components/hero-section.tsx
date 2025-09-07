@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Award, Sparkles, Mail, Calendar, Play } from "lucide-react";
-import { SiLinkedin } from "react-icons/si";
+import { Si Linkedin } from "react-icons/si";
 import NavMusicPlayer from "./nav-music-player";
 import AdminPanel from "./admin-panel";
 
@@ -111,7 +111,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center relative overflow-hidden hero">
       <div className="absolute inset-0 gradient-bg-secondary opacity-30"></div>
       <div className="absolute inset-0 opacity-20">
         <div className="w-full h-full bg-gradient-to-br from-primary/20 via-transparent to-chart-1/20"></div>
@@ -120,8 +120,8 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
 
       {/* Desktop Layout (2 columns) */}
-      <div className="hidden md:flex items-center px-6 py-20 relative space-x-8 text-center w-full z-10">
-        <div style={{ flexGrow: 1 }}>
+      <div className="hidden md:flex items-center px-6 py-20 relative space-x-8 text-center w-full z-10 hero-container">
+        <div className="hero-image">
           <img
             src={profileImage}
             alt="Alexis Brochu professional photo"
@@ -143,7 +143,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           </div>
         </div>
 
-        <div className="max-w-4xl mx-auto" style={{
+        <div className="hero-content" style={{
           flexGrow: 1
         }}>
           {/* Award Button - positioned above the heading */}
@@ -211,7 +211,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
       </div>
 
       {/* Mobile Layout (1 column) */}
-      <div className="md:hidden flex flex-col items-center px-6 py-20 relative w-full z-10 text-center space-y-6">
+      <div className="md:hidden flex flex-col items-center px-6 py-20 relative w-full z-10 hero-container">
         {/* 1. Award Winner button */}
         <div className="flex justify-center">
           <div
@@ -262,7 +262,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         </div>
 
         {/* 6. Portrait */}
-        <div className="w-full max-w-xs mx-auto">
+        <div className="w-full max-w-xs mx-auto hero-image">
           <img
             src={profileImage}
             alt="Alexis Brochu professional photo"
@@ -318,7 +318,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         onApply={applySettings}
       />
 
-      
+
     </section>
   );
 }
