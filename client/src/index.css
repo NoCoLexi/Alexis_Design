@@ -710,50 +710,6 @@ a:focus {
   }
 }
 
-/* Hero Section Styling */
-.hero {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 4rem 2rem;
-}
-
-/* Flex container */
-.hero-container {
-  display: flex;
-  align-items: center;
-  max-width: 1200px;
-  width: 100%;
-  gap: 2rem;
-}
-
-/* Portrait */
-.hero-image img {
-  max-width: 280px;   /* default smaller size */
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  flex-shrink: 0;
-}
-
-/* Right side expands */
-.hero-content {
-  flex: 1; /* expands to take available space */
-}
-
-/* Responsive stacking */
-@media (max-width: 768px) {
-  .hero-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .hero-image img {
-    max-width: 200px;
-    margin-bottom: 1.5rem;
-  }
-}
-
 /* Enhanced sticky navigation */
 nav {
   position: fixed !important;
