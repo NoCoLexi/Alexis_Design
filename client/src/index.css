@@ -685,6 +685,31 @@ a:focus {
   padding-top: 80px; /* adjust to match your nav bar's height */
 }
 
+/* Portrait image responsive styling */
+[data-testid="img-professional-photo"] {
+  transition: all 0.3s ease;
+  object-fit: cover;
+  max-height: 400px;
+}
+
+@media (min-width: 768px) {
+  [data-testid="img-professional-photo"] {
+    max-height: 450px;
+  }
+}
+
+@media (min-width: 1024px) {
+  [data-testid="img-professional-photo"] {
+    max-height: 500px;
+  }
+}
+
+@media (min-width: 1280px) {
+  [data-testid="img-professional-photo"] {
+    max-height: 550px;
+  }
+}
+
 /* Enhanced sticky navigation */
 nav {
   position: fixed !important;

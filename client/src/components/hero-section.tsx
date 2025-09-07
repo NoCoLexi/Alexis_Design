@@ -126,7 +126,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             src={profileImage}
             alt="Alexis Brochu professional photo"
             data-testid="img-professional-photo"
-            className="w-full mx-auto rounded-lg"
+            className="w-3/4 max-w-sm mx-auto rounded-lg h-auto"
           />
 
           {/* Watch Video Link */}
@@ -262,12 +262,12 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         </div>
 
         {/* 6. Portrait */}
-        <div className="w-full max-w-sm mx-auto">
+        <div className="w-full max-w-xs mx-auto">
           <img
             src={profileImage}
             alt="Alexis Brochu professional photo"
             data-testid="img-professional-photo"
-            className="w-full mx-auto rounded-lg"
+            className="w-full mx-auto rounded-lg h-auto"
           />
         </div>
 
