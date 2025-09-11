@@ -111,7 +111,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center relative overflow-hidden hero">
+    <section id="home" className="min-h-screen flex items-center relative overflow-hidden">
       <div className="absolute inset-0 gradient-bg-secondary opacity-30"></div>
       <div className="absolute inset-0 opacity-20">
         <div className="w-full h-full bg-gradient-to-br from-primary/20 via-transparent to-chart-1/20"></div>
@@ -120,13 +120,13 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
 
       {/* Desktop Layout (2 columns) */}
-      <div className="hidden md:flex items-center px-6 py-20 relative w-full z-10 hero-container">
-        <div className="hero-image">
+      <div className="hidden md:flex items-center px-6 py-20 relative space-x-8 text-center w-full z-10">
+        <div style={{ flexGrow: 1 }}>
           <img
             src={profileImage}
             alt="Alexis Brochu professional photo"
             data-testid="img-professional-photo"
-            className="rounded-lg"
+            className="w-full mx-auto rounded-lg"
           />
 
           {/* Watch Video Link */}
@@ -143,7 +143,9 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           </div>
         </div>
 
-        <div className="hero-content">
+        <div className="max-w-4xl mx-auto" style={{
+          flexGrow: 1
+        }}>
           {/* Award Button - positioned above the heading */}
           <div className="mb-6 pb-4 flex justify-center">
             <div
@@ -209,7 +211,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
       </div>
 
       {/* Mobile Layout (1 column) */}
-      <div className="md:hidden flex flex-col items-center px-6 py-20 relative w-full z-10 hero-container">
+      <div className="md:hidden flex flex-col items-center px-6 py-20 relative w-full z-10 text-center space-y-6">
         {/* 1. Award Winner button */}
         <div className="flex justify-center">
           <div
@@ -260,12 +262,12 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         </div>
 
         {/* 6. Portrait */}
-        <div className="hero-image">
+        <div className="w-full max-w-sm mx-auto">
           <img
             src={profileImage}
             alt="Alexis Brochu professional photo"
             data-testid="img-professional-photo"
-            className="rounded-lg"
+            className="w-full mx-auto rounded-lg"
           />
         </div>
 
@@ -316,7 +318,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         onApply={applySettings}
       />
 
-
+      
     </section>
   );
 }
