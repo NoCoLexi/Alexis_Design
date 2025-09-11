@@ -34,26 +34,20 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
   };
 
   const roles = [
-    "Disruption Designer",
-    "Solution Factory",
-    "Innovation Strategist",
-    "Cross-Functional Product Lead",
+    "AI Product Design Lead",
+    "Design Product Manager",
+    "Product Strategy Design Lead",
+    "AI Product Manager",
+    "Product Designer/Manager",
+    "UX Research Lead",
+    "Product Design Research Lead",
+    "Human-Centered Design Lead",
+    "Product Manager",
+    "UX Product Strategist",
     "AI Product Strategist",
-    "Strategic Solutions Lead",
-    "Product & Experience Lead",
-    "Digital Product Lead",
-    "Product Development Lead",
-    "Product Strategy Architect",
-    "Customer Success Specialist",
-    "Digital Experience Architect",
-    "Innovation Design Specialist",
+    "UX Solution Architect",
     "Product Innovation Lead",
-    "Design Strategy Lead",
-    "Product Lead",
-    "Innovation Lead",
-    "Digital Strategy Lead",
-    "Product Strategy Lead",
-    "Experience Strategy Lead"
+    "Design Strategy Lead"
   ];
 
   useEffect(() => {
