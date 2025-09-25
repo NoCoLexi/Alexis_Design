@@ -555,7 +555,16 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
 
 export default function FeaturedWork() {
   const { getCaseStudyFocus, settings } = useAdminPanel();
-  const [activeFilter, setActiveFilter] = useState('product-management');
+  const [activeFilter, setActiveFilter] = useState(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const focusFromUrl = urlParams.get('focus');
+    
+    if (focusFromUrl === 'pm') return 'product-management';
+    if (focusFromUrl === 'design') return 'product-design';
+    if (focusFromUrl === 'brand') return 'brand-development';
+    
+    return 'product-management'; // default
+  });
   const [isVisible, setIsVisible] = useState(false);
   const [parallaxY, setParallaxY] = useState(0);
 
@@ -580,11 +589,12 @@ export default function FeaturedWork() {
 
     if (focusFromUrl === 'pm') return 'product-management';
     if (focusFromUrl === 'design') return 'product-design';
+    if (focusFromUrl === 'brand') return 'brand-development';
 
     return 'product-management'; // default to Product Management
   };
 
-  // Only apply admin filter when specifically set to PM or Design (not Auto) and no URL params
+  // Only apply admin filter when specifically set to PM, Design, or Brand (not Auto) and no URL params
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const focusFromUrl = urlParams.get('focus');
@@ -595,6 +605,8 @@ export default function FeaturedWork() {
         setActiveFilter('product-management');
       } else if (settings.jobType === 'Design') {
         setActiveFilter('product-design');
+      } else if (settings.jobType === 'Brand') {
+        setActiveFilter('brand-development');
       } else if (settings.jobType === 'Auto') {
         setActiveFilter('product-management'); // Default to Product Management even for Auto
       }

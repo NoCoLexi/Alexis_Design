@@ -2,10 +2,18 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { X, Globe, Briefcase } from 'lucide-react';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
 
 interface AdminSettings {
   companyName: string;
-  jobType: 'PM' | 'Design' | 'Auto';
+  jobType: 'PM' | 'Design' | 'Brand' | 'Auto';
   jobUrl: string;
 }
 
@@ -18,7 +26,7 @@ interface AdminPanelProps {
 export default function AdminPanel({ isVisible, onClose, onApply }: AdminPanelProps) {
   const [jobUrl, setJobUrl] = useState('');
   const [companyName, setCompanyName] = useState('');
-  const [jobType, setJobType] = useState<'PM' | 'Design' | 'Auto'>('PM');
+  const [jobType, setJobType] = useState<'PM' | 'Design' | 'Brand' | 'Auto'>('Auto');
   const [isDetecting, setIsDetecting] = useState(false);
 
   // Load saved settings on mount
@@ -28,7 +36,7 @@ export default function AdminPanel({ isVisible, onClose, onApply }: AdminPanelPr
       const settings: AdminSettings = JSON.parse(saved);
       setJobUrl(settings.jobUrl || '');
       setCompanyName(settings.companyName || '');
-      setJobType(settings.jobType || 'PM');
+      setJobType(settings.jobType || 'Auto');
     }
   }, []);
 
@@ -76,13 +84,15 @@ export default function AdminPanel({ isVisible, onClose, onApply }: AdminPanelPr
       detectedCompany = detectedCompany.charAt(0).toUpperCase() + detectedCompany.slice(1);
 
       // Simple job type detection from URL
-      let detectedJobType: 'PM' | 'Design' | 'Auto' = 'Auto';
+      let detectedJobType: 'PM' | 'Design' | 'Brand' | 'Auto' = 'Auto';
       const urlLower = url.toLowerCase();
 
       if (urlLower.includes('product') && (urlLower.includes('manager') || urlLower.includes('management'))) {
         detectedJobType = 'PM';
       } else if (urlLower.includes('design') || urlLower.includes('ux') || urlLower.includes('ui')) {
         detectedJobType = 'Design';
+      } else if (urlLower.includes('brand') || urlLower.includes('marketing') || urlLower.includes('communications')) {
+        detectedJobType = 'Brand';
       }
 
       setCompanyName(detectedCompany);
@@ -137,7 +147,7 @@ export default function AdminPanel({ isVisible, onClose, onApply }: AdminPanelPr
   const handleReset = () => {
     setJobUrl('');
     setCompanyName('');
-    setJobType('PM');
+    setJobType('Auto');
     onClose();
   };
 
@@ -225,6 +235,18 @@ export default function AdminPanel({ isVisible, onClose, onApply }: AdminPanelPr
             <div className="flex items-center space-x-2">
               <input
                 type="radio"
+                id="brand"
+                name="jobType"
+                value="Brand"
+                checked={jobType === 'Brand'}
+                onChange={(e) => setJobType('Brand')}
+                className="w-4 h-4 text-primary border-2 border-primary/50 focus:ring-2 focus:ring-primary"
+              />
+              <label htmlFor="brand" className="text-sm cursor-pointer">Brand Development</label>
+            </div>
+            <div className="flex items-center space-x-2">
+              <input
+                type="radio"
                 id="auto"
                 name="jobType"
                 value="Auto"
@@ -259,8 +281,9 @@ export default function AdminPanel({ isVisible, onClose, onApply }: AdminPanelPr
           <div className="mt-4 p-3 bg-secondary/50 rounded-lg">
             <p className="text-sm text-muted-foreground">
               Preview: "Hey <strong>{companyName}</strong> hiring team" • 
-              Focus: <strong>{jobType === 'Auto' ? 'Product Management (default)' : 
-                              jobType === 'PM' ? 'Product Management' : 'UX/UI Design'}</strong>
+              Focus: <strong>{jobType === 'Auto' ? 'Auto-detect' : 
+                              jobType === 'PM' ? 'Product Management' : 
+                              jobType === 'Design' ? 'Product Design' : 'Brand Development'}</strong>
             </p>
           </div>
         )}
