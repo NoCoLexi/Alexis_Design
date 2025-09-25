@@ -631,16 +631,6 @@ export default function FeaturedWork() {
           <div className="flex justify-center mb-8">
             <div className="inline-flex rounded-lg bg-background/50 p-1 backdrop-blur-sm border border-border">
               <button
-                onClick={() => setActiveFilter('all')}
-                className={`px-6 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
-                  activeFilter === 'all'
-                    ? 'bg-primary text-primary-foreground shadow-sm'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
-                }`}
-              >
-                All Work
-              </button>
-              <button
                 onClick={() => setActiveFilter('product-management')}
                 className={`px-6 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
                   activeFilter === 'product-management'
@@ -659,6 +649,26 @@ export default function FeaturedWork() {
                 }`}
               >
                 Product Design
+              </button>
+              <button
+                onClick={() => setActiveFilter('brand-development')}
+                className={`px-6 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
+                  activeFilter === 'brand-development'
+                    ? 'bg-primary text-primary-foreground shadow-sm'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                }`}
+              >
+                Brand Development
+              </button>
+              <button
+                onClick={() => setActiveFilter('all')}
+                className={`px-6 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
+                  activeFilter === 'all'
+                    ? 'bg-primary text-primary-foreground shadow-sm'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                }`}
+              >
+                All Projects
               </button>
             </div>
           </div>
