@@ -18,7 +18,7 @@ interface AdminPanelProps {
 export default function AdminPanel({ isVisible, onClose, onApply }: AdminPanelProps) {
   const [jobUrl, setJobUrl] = useState('');
   const [companyName, setCompanyName] = useState('');
-  const [jobType, setJobType] = useState<'PM' | 'Design' | 'Auto'>('Auto');
+  const [jobType, setJobType] = useState<'PM' | 'Design' | 'Auto'>('PM');
   const [isDetecting, setIsDetecting] = useState(false);
 
   // Load saved settings on mount
@@ -28,22 +28,22 @@ export default function AdminPanel({ isVisible, onClose, onApply }: AdminPanelPr
       const settings: AdminSettings = JSON.parse(saved);
       setJobUrl(settings.jobUrl || '');
       setCompanyName(settings.companyName || '');
-      setJobType(settings.jobType || 'Auto');
+      setJobType(settings.jobType || 'PM');
     }
   }, []);
 
   const detectFromUrl = async (url: string) => {
     if (!url) return;
-    
+
     setIsDetecting(true);
     try {
       // Extract domain for company name detection
       const urlObj = new URL(url);
       const domain = urlObj.hostname.replace('www.', '');
-      
+
       // Simple company name extraction from common job board patterns
       let detectedCompany = '';
-      
+
       if (domain.includes('lever.co')) {
         // Lever: company.lever.co
         detectedCompany = domain.split('.')[0];
@@ -71,25 +71,25 @@ export default function AdminPanel({ isVisible, onClose, onApply }: AdminPanelPr
         // Default: use main domain
         detectedCompany = domain.split('.')[0];
       }
-      
+
       // Capitalize company name
       detectedCompany = detectedCompany.charAt(0).toUpperCase() + detectedCompany.slice(1);
-      
+
       // Simple job type detection from URL
       let detectedJobType: 'PM' | 'Design' | 'Auto' = 'Auto';
       const urlLower = url.toLowerCase();
-      
+
       if (urlLower.includes('product') && (urlLower.includes('manager') || urlLower.includes('management'))) {
         detectedJobType = 'PM';
       } else if (urlLower.includes('design') || urlLower.includes('ux') || urlLower.includes('ui')) {
         detectedJobType = 'Design';
       }
-      
+
       setCompanyName(detectedCompany);
       if (detectedJobType !== 'Auto') {
         setJobType(detectedJobType);
       }
-      
+
     } catch (error) {
       console.warn('Could not parse URL:', error);
     }
@@ -109,14 +109,14 @@ export default function AdminPanel({ isVisible, onClose, onApply }: AdminPanelPr
       jobType,
       jobUrl
     };
-    
+
     // Generate custom URL with query parameters
     const params = new URLSearchParams();
     if (settings.companyName) params.set('company', settings.companyName);
     if (settings.jobType !== 'Auto') params.set('focus', settings.jobType.toLowerCase());
-    
+
     const customUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
-    
+
     // Copy URL to clipboard and offer to navigate
     navigator.clipboard.writeText(customUrl).then(() => {
       const navigate = confirm(`Custom portfolio URL copied to clipboard!\n\n${customUrl}\n\nClick OK to test this URL now, or Cancel to just copy it.`);
@@ -130,14 +130,14 @@ export default function AdminPanel({ isVisible, onClose, onApply }: AdminPanelPr
         window.open(customUrl, '_blank');
       }
     });
-    
+
     onClose();
   };
 
   const handleReset = () => {
     setJobUrl('');
     setCompanyName('');
-    setJobType('Auto');
+    setJobType('PM');
     onClose();
   };
 
@@ -198,24 +198,42 @@ export default function AdminPanel({ isVisible, onClose, onApply }: AdminPanelPr
         <div className="mt-6">
           <label className="text-sm font-medium mb-3 block">Job Type Focus</label>
           <div className="flex gap-4">
-            {(['PM', 'Design', 'Auto'] as const).map((type) => (
-              <label key={type} className="flex items-center gap-2 cursor-pointer">
-                <input
-                  type="radio"
-                  name="jobType"
-                  value={type}
-                  checked={jobType === type}
-                  onChange={(e) => setJobType(e.target.value as 'PM' | 'Design' | 'Auto')}
-                  className="w-4 h-4 text-primary focus:ring-primary"
-                  data-testid={`radio-job-type-${type.toLowerCase()}`}
-                />
-                <span className="text-sm">
-                  {type === 'PM' ? 'Product Management' : 
-                   type === 'Design' ? 'UX/UI Design' : 
-                   'Auto-detect'}
-                </span>
-              </label>
-            ))}
+            <div className="flex items-center space-x-2">
+              <input
+                type="radio"
+                id="pm"
+                name="jobType"
+                value="PM"
+                checked={jobType === 'PM'}
+                onChange={(e) => setJobType('PM')}
+                className="w-4 h-4 text-primary border-2 border-primary/50 focus:ring-2 focus:ring-primary"
+              />
+              <label htmlFor="pm" className="text-sm cursor-pointer">Product Management</label>
+            </div>
+            <div className="flex items-center space-x-2">
+              <input
+                type="radio"
+                id="design"
+                name="jobType"
+                value="Design"
+                checked={jobType === 'Design'}
+                onChange={(e) => setJobType('Design')}
+                className="w-4 h-4 text-primary border-2 border-primary/50 focus:ring-2 focus:ring-primary"
+              />
+              <label htmlFor="design" className="text-sm cursor-pointer">UX/UI Design</label>
+            </div>
+            <div className="flex items-center space-x-2">
+              <input
+                type="radio"
+                id="auto"
+                name="jobType"
+                value="Auto"
+                checked={jobType === 'Auto'}
+                onChange={(e) => setJobType('Auto')}
+                className="w-4 h-4 text-primary border-2 border-primary/50 focus:ring-2 focus:ring-primary"
+              />
+              <label htmlFor="auto" className="text-sm cursor-pointer">Auto-detect</label>
+            </div>
           </div>
         </div>
 

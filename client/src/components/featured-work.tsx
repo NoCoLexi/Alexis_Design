@@ -581,7 +581,7 @@ export default function FeaturedWork() {
     if (focusFromUrl === 'pm') return 'product-management';
     if (focusFromUrl === 'design') return 'product-design';
 
-    return 'product-design'; // default
+    return 'product-management'; // default to Product Management
   };
 
   // Only apply admin filter when specifically set to PM or Design (not Auto) and no URL params
@@ -595,6 +595,8 @@ export default function FeaturedWork() {
         setActiveFilter('product-management');
       } else if (settings.jobType === 'Design') {
         setActiveFilter('product-design');
+      } else if (settings.jobType === 'Auto') {
+        setActiveFilter('product-management'); // Default to Product Management even for Auto
       }
     }
   }, [settings.jobType]);
@@ -621,9 +623,45 @@ export default function FeaturedWork() {
       <div className="max-w-7xl mx-auto relative">
         <div className="text-center mb-16">
 
-          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">
             <span className="gradient-text">Product Portfolio</span>
           </h2>
+
+          {/* Portfolio Filter Tabs */}
+          <div className="flex justify-center mb-8">
+            <div className="inline-flex rounded-lg bg-background/50 p-1 backdrop-blur-sm border border-border">
+              <button
+                onClick={() => setActiveFilter('all')}
+                className={`px-6 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
+                  activeFilter === 'all'
+                    ? 'bg-primary text-primary-foreground shadow-sm'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                }`}
+              >
+                All Work
+              </button>
+              <button
+                onClick={() => setActiveFilter('product-management')}
+                className={`px-6 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
+                  activeFilter === 'product-management'
+                    ? 'bg-primary text-primary-foreground shadow-sm'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                }`}
+              >
+                Product Management
+              </button>
+              <button
+                onClick={() => setActiveFilter('product-design')}
+                className={`px-6 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
+                  activeFilter === 'product-design'
+                    ? 'bg-primary text-primary-foreground shadow-sm'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                }`}
+              >
+                Product Design
+              </button>
+            </div>
+          </div>
 
           {/* Filter */}
           <div className="glass rounded-xl p-2">
