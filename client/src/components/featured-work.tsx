@@ -555,7 +555,7 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
 
 export default function FeaturedWork() {
   const { getCaseStudyFocus, settings } = useAdminPanel();
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [activeFilter, setActiveFilter] = useState('product-management');
   const [isVisible, setIsVisible] = useState(false);
   const [parallaxY, setParallaxY] = useState(0);
 
@@ -663,37 +663,7 @@ export default function FeaturedWork() {
             </div>
           </div>
 
-          {/* Filter */}
-          <div className="glass rounded-xl p-2">
-            <Button
-              variant={activeFilter === 'product-management' ? 'default' : 'ghost'}
-              onClick={() => setActiveFilter('product-management')}
-              className={activeFilter === 'product-management' ? 'gradient-bg-primary' : ''}
-            >
-              Product Management
-            </Button>
-            <Button
-              variant={activeFilter === 'product-design' ? 'default' : 'ghost'}
-              onClick={() => setActiveFilter('product-design')}
-              className={activeFilter === 'product-design' ? 'gradient-bg-primary' : ''}
-            >
-              Product Design
-            </Button>
-            <Button
-              variant={activeFilter === 'brand-development' ? 'default' : 'ghost'}
-              onClick={() => setActiveFilter('brand-development')}
-              className={activeFilter === 'brand-development' ? 'gradient-bg-primary' : ''}
-            >
-              Brand Development
-            </Button>
-            <Button
-              variant={activeFilter === 'all' ? 'default' : 'ghost'}
-              onClick={() => setActiveFilter('all')}
-              className={activeFilter === 'all' ? 'gradient-bg-primary' : ''}
-            >
-              All Projects
-            </Button>
-          </div>
+          
         </div>
 
         {/* Project Grid */}
