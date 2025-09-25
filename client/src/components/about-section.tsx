@@ -68,9 +68,9 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
           {/* Expertise Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             <div className="glass rounded-xl p-6 hover:glow-purple transition-all duration-300">
-              <h3 className="text-xl font-semibold mb-4" style={{ color: '#F3E8B9' }}>Scrum Master</h3>
+              <h3 className="text-xl font-semibold mb-4" style={{ color: '#F3E8B9' }}>AI Product Strategy</h3>
               <p className="text-gray-300 leading-relaxed">
-                Expert Scrum Master facilitating agile ceremonies, removing blockers, and coaching teams in agile principles to deliver high-quality software through iterative development and continuous improvement.
+                Strategic product vision leveraging AI tools and machine learning insights for cross-functional team leadership to deliver intelligent user-centered solutions.
               </p>
             </div>
 
@@ -78,20 +78,6 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
               <h3 className="text-xl font-semibold mb-4" style={{ color: '#F3E8B9' }}>Human Centered Design</h3>
               <p className="text-gray-300 leading-relaxed">
                 Leveraging AI tools and human-centered design methodologies to create intuitive, data-driven experiences that solve real user problems.
-              </p>
-            </div>
-
-            <div className="glass rounded-xl p-6 hover:glow-purple transition-all duration-300">
-              <h3 className="text-xl font-semibold mb-4" style={{ color: '#F3E8B9' }}>UX Research & Testing</h3>
-              <p className="text-gray-300 leading-relaxed">
-                Comprehensive user research, data analysis, and behavioral insights to inform product decisions through rigorous testing methodologies.
-              </p>
-            </div>
-
-            <div className="glass rounded-xl p-6 hover:glow-purple transition-all duration-300">
-              <h3 className="text-xl font-semibold mb-4" style={{ color: '#F3E8B9' }}>AI Product Strategy</h3>
-              <p className="text-gray-300 leading-relaxed">
-                Strategic product vision leveraging AI tools and machine learning insights for cross-functional team leadership to deliver intelligent user-centered solutions.
               </p>
             </div>
 
@@ -106,6 +92,20 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
               <h3 className="text-xl font-semibold mb-4" style={{ color: '#F3E8B9' }}>Project Management</h3>
               <p className="text-gray-300 leading-relaxed">
                 End-to-end project leadership with expertise in scope management, resource coordination, and stakeholder communication to deliver complex technical initiatives on time and within budget.
+              </p>
+            </div>
+
+            <div className="glass rounded-xl p-6 hover:glow-purple transition-all duration-300">
+              <h3 className="text-xl font-semibold mb-4" style={{ color: '#F3E8B9' }}>Scrum Master</h3>
+              <p className="text-gray-300 leading-relaxed">
+                Expert Scrum Master facilitating agile ceremonies, removing blockers, and coaching teams in agile principles to deliver high-quality software through iterative development and continuous improvement.
+              </p>
+            </div>
+
+            <div className="glass rounded-xl p-6 hover:glow-purple transition-all duration-300">
+              <h3 className="text-xl font-semibold mb-4" style={{ color: '#F3E8B9' }}>UX Research & Testing</h3>
+              <p className="text-gray-300 leading-relaxed">
+                Comprehensive user research, data analysis, and behavioral insights to inform product decisions through rigorous testing methodologies.
               </p>
             </div>
           </div>
