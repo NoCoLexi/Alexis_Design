@@ -188,15 +188,33 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
           {/* Key Metrics */}
           <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto pt-6">
-            <div className="text-center">
+            <div 
+              className="text-center cursor-pointer transition-all duration-300 transform hover:scale-105"
+              onClick={() => {
+                const event = new CustomEvent('openCaseStudy', { detail: { projectId: 'caloes' } });
+                window.dispatchEvent(event);
+              }}
+            >
               <div className="text-3xl md:text-4xl font-bold" style={{ color: '#F3E8B9' }}>545.5%</div>
               <div className="text-sm text-white/70">User Growth</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold" style={{ color: '#F3E8B9' }}>$244M</div>
+            <div 
+              className="text-center cursor-pointer transition-all duration-300 transform hover:scale-105"
+              onClick={() => {
+                const event = new CustomEvent('openCaseStudy', { detail: { projectId: 'pa-portal' } });
+                window.dispatchEvent(event);
+              }}
+            >
+              <div className="text-3xl md:text-4xl font-bold" style={{ color: '#F3E8B9' }}>$243M</div>
               <div className="text-sm text-white/70">Projects Closed</div>
             </div>
-            <div className="text-center">
+            <div 
+              className="text-center cursor-pointer transition-all duration-300 transform hover:scale-105"
+              onClick={() => {
+                const event = new CustomEvent('openCaseStudy', { detail: { projectId: 'pa-portal' } });
+                window.dispatchEvent(event);
+              }}
+            >
               <div className="text-3xl md:text-4xl font-bold" style={{ color: '#F3E8B9' }}>75%</div>
               <div className="text-sm text-white/70">Tickets Reduced</div>
             </div>
@@ -279,15 +297,33 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
         {/* 8. Metrics */}
         <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto pt-4">
-          <div className="text-center">
+          <div 
+            className="text-center cursor-pointer transition-all duration-300 transform hover:scale-105"
+            onClick={() => {
+              const event = new CustomEvent('openCaseStudy', { detail: { projectId: 'caloes' } });
+              window.dispatchEvent(event);
+            }}
+          >
             <div className="text-2xl font-bold" style={{ color: '#F3E8B9' }}>545.5%</div>
             <div className="text-xs text-white/70">User Growth</div>
           </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold" style={{ color: '#F3E8B9' }}>$244M</div>
+          <div 
+            className="text-center cursor-pointer transition-all duration-300 transform hover:scale-105"
+            onClick={() => {
+              const event = new CustomEvent('openCaseStudy', { detail: { projectId: 'pa-portal' } });
+              window.dispatchEvent(event);
+            }}
+          >
+            <div className="text-2xl font-bold" style={{ color: '#F3E8B9' }}>$243M</div>
             <div className="text-xs text-white/70">Projects Closed</div>
           </div>
-          <div className="text-center">
+          <div 
+            className="text-center cursor-pointer transition-all duration-300 transform hover:scale-105"
+            onClick={() => {
+              const event = new CustomEvent('openCaseStudy', { detail: { projectId: 'pa-portal' } });
+              window.dispatchEvent(event);
+            }}
+          >
             <div className="text-2xl font-bold" style={{ color: '#F3E8B9' }}>75%</div>
             <div className="text-xs text-white/70">Tickets Reduced</div>
           </div>
