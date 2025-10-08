@@ -49,25 +49,50 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
           <div className="space-y-4">
             <h3 className="text-xl font-semibold text-purple-400">Development Story</h3>
             
-            {/* Key Metrics */}
-            <div className="grid grid-cols-3 gap-4 mb-6">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-white">2 Days</div>
-                <div className="text-xs text-gray-400">Initial Build Time</div>
+            <p className="text-gray-300 leading-relaxed">
+              Built in harmony with AI tools, refined through iterative improvement and user feedback. This portfolio demonstrates product design and management mixed with my AI-PM skills.
+            </p>
+
+            {/* Iteration Comparison */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+              {/* 1st Iteration */}
+              <div className="glass rounded-xl p-4 border border-purple-400/20">
+                <h4 className="text-lg font-semibold text-blue-400 mb-4">1st Iteration</h4>
+                <div className="space-y-3">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-white">2 Days</div>
+                    <div className="text-xs text-gray-400">Build Time</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-white">5 testers</div>
+                    <div className="text-xs text-gray-400">User Testing</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-white">$48.10</div>
+                    <div className="text-xs text-gray-400">Total Cost</div>
+                  </div>
+                </div>
               </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-white">5 testers</div>
-                <div className="text-xs text-gray-400">User Testing</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-white">$48.10</div>
-                <div className="text-xs text-gray-400">Total Cost</div>
+
+              {/* 5th Iteration (Most Recent) */}
+              <div className="glass rounded-xl p-4 border border-green-400/20">
+                <h4 className="text-lg font-semibold text-green-400 mb-4">5th Iteration (Most Recent)</h4>
+                <div className="space-y-3">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-white">5 Weeks</div>
+                    <div className="text-xs text-gray-400">Build Time (2 Days per iteration)</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-white">17 testers</div>
+                    <div className="text-xs text-gray-400">User Testing</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-white">$271</div>
+                    <div className="text-xs text-gray-400">Total Cost</div>
+                  </div>
+                </div>
               </div>
             </div>
-            
-            <p className="text-gray-300 leading-relaxed">
-              Fueled by my imagination and working in harmony with AI tools, this portfolio demonstrates product design and management mixed with my AI-PM skills.
-            </p>
           </div>
 
           {/* Tools Used */}
