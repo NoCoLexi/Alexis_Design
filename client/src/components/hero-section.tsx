@@ -118,7 +118,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             alt="Alexis Brochu professional photo"
             data-testid="img-professional-photo"
             className="mx-auto rounded-lg"
-            style={{ width: '85%' }}
+            style={{ width: '72%' }}
           />
 
           {/* Watch Video Link */}
@@ -278,7 +278,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             alt="Alexis Brochu professional photo"
             data-testid="img-professional-photo"
             className="mx-auto rounded-lg"
-            style={{ width: '85%' }}
+            style={{ width: '72%' }}
           />
         </div>
 
