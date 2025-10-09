@@ -135,7 +135,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             
             {/* Scroll indicator - desktop */}
             <div
-              className="cursor-pointer hover:text-primary transition-colors flex items-center justify-center"
+              className="hidden md:block fixed bottom-8 left-1/2 -translate-x-1/2 cursor-pointer hover:text-primary transition-colors z-20"
               onClick={scrollToWork}
               role="button"
               tabIndex={0}
