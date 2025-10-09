@@ -6,7 +6,7 @@ import NavMusicPlayer from "./nav-music-player";
 import AdminPanel from "./admin-panel";
 
 import { useAdminPanel } from "@/hooks/use-admin-panel";
-import profileImage from "@assets/Alexis_Profile_2_1759968855264.png";
+import profileImage from "@assets/Alexis_Profile_2_Crop_1759969188274.png";
 
 import goldenTrophyIcon from "@assets/golden-star-trophy.png";
 
