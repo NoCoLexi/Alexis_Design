@@ -132,21 +132,10 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
               <Play className="w-3 h-3" />
               Watch this video about what it's like to work with me
             </button>
-            
-            {/* Scroll indicator - desktop */}
-            <div
-              className="hidden md:flex justify-center cursor-pointer hover:text-primary transition-colors mt-4"
-              onClick={scrollToWork}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => e.key === 'Enter' && scrollToWork()}
-            >
-              <ArrowDown className="w-6 h-6 text-muted-foreground hover:text-primary transition-colors animate-bounce" />
-            </div>
           </div>
         </div>
 
-        <div className="max-w-4xl mx-auto" style={{
+        <div className="max-w-4xl mx-auto relative" style={{
           flexGrow: 1
         }}>
           {/* Award Button - positioned above the heading */}
@@ -196,7 +185,18 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           </div>
 
           {/* Key Metrics */}
-          <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto pt-6">
+          <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto pt-6 relative">
+            {/* Scroll indicator - desktop - positioned absolutely at metrics level */}
+            <div
+              className="hidden md:block absolute left-1/2 -translate-x-1/2 cursor-pointer hover:text-primary transition-colors"
+              style={{ top: '0' }}
+              onClick={scrollToWork}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === 'Enter' && scrollToWork()}
+            >
+              <ArrowDown className="w-6 h-6 text-muted-foreground hover:text-primary transition-colors animate-bounce" />
+            </div>
             <div 
               className="text-center cursor-pointer transition-all duration-300 transform hover:scale-105"
               onClick={() => {
@@ -306,7 +306,19 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         </div>
 
         {/* 8. Metrics */}
-        <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto pt-4">
+        <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto pt-4 relative">
+          {/* Scroll indicator - mobile - positioned absolutely at metrics level */}
+          <div
+            className="md:hidden absolute left-1/2 -translate-x-1/2 animate-bounce cursor-pointer hover:text-primary transition-colors"
+            style={{ top: '0' }}
+            onClick={scrollToWork}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => e.key === 'Enter' && scrollToWork()}
+          >
+            <ArrowDown className="w-8 h-8 text-muted-foreground hover:text-primary transition-colors" />
+          </div>
+          
           <div 
             className="text-center cursor-pointer transition-all duration-300 transform hover:scale-105"
             onClick={() => {
@@ -338,17 +350,6 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             <div className="text-xs text-white/70">Tickets Reduced</div>
           </div>
         </div>
-      </div>
-
-      {/* Scroll indicator - mobile only */}
-      <div
-        className="md:hidden flex justify-center mt-4 animate-bounce cursor-pointer hover:text-primary transition-colors"
-        onClick={scrollToWork}
-        role="button"
-        tabIndex={0}
-        onKeyDown={(e) => e.key === 'Enter' && scrollToWork()}
-      >
-        <ArrowDown className="w-8 h-8 text-muted-foreground hover:text-primary transition-colors" />
       </div>
 
       {/* Hidden Admin Panel */}
