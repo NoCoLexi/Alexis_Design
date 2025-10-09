@@ -6,7 +6,7 @@ import NavMusicPlayer from "./nav-music-player";
 import AdminPanel from "./admin-panel";
 
 import { useAdminPanel } from "@/hooks/use-admin-panel";
-import profileImage from "@assets/Brochu, Alexis 2023 Ireland_1754523029765.png";
+import profileImage from "@assets/Alexis_Profile_2_1759968855264.png";
 
 import goldenTrophyIcon from "@assets/golden-star-trophy.png";
 
@@ -117,7 +117,8 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             src={profileImage}
             alt="Alexis Brochu professional photo"
             data-testid="img-professional-photo"
-            className="w-full mx-auto rounded-lg"
+            className="mx-auto rounded-lg"
+            style={{ width: '85%' }}
           />
 
           {/* Watch Video Link */}
@@ -276,7 +277,8 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             src={profileImage}
             alt="Alexis Brochu professional photo"
             data-testid="img-professional-photo"
-            className="w-full mx-auto rounded-lg"
+            className="mx-auto rounded-lg"
+            style={{ width: '85%' }}
           />
         </div>
 
