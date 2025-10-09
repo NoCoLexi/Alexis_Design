@@ -135,7 +135,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             
             {/* Scroll indicator - desktop */}
             <div
-              className="hidden md:block fixed bottom-8 left-1/2 -translate-x-1/2 cursor-pointer hover:text-primary transition-colors z-20"
+              className="hidden md:block fixed bottom-16 left-1/2 -translate-x-1/2 cursor-pointer hover:text-primary transition-colors z-20"
               onClick={scrollToWork}
               role="button"
               tabIndex={0}
@@ -342,7 +342,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
       {/* Scroll indicator - mobile only */}
       <div
-        className="md:hidden absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer hover:text-primary transition-colors z-20 flex items-center justify-center"
+        className="md:hidden absolute bottom-16 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer hover:text-primary transition-colors z-20 flex items-center justify-center"
         onClick={scrollToWork}
         role="button"
         tabIndex={0}
