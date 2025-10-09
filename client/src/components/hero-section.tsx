@@ -122,7 +122,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           />
 
           {/* Watch Video Link */}
-          <div className="mt-4 pb-4 flex justify-center">
+          <div className="mt-4 pb-4 flex justify-center items-center gap-8">
             <button
               onClick={scrollToExpertise}
               className="text-base transition-all duration-300 transform hover:scale-105 hover:brightness-110 flex items-center gap-2"
@@ -132,6 +132,17 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
               <Play className="w-3 h-3" />
               Watch this video about what it's like to work with me
             </button>
+            
+            {/* Scroll indicator - desktop */}
+            <div
+              className="cursor-pointer hover:text-primary transition-colors flex items-center justify-center"
+              onClick={scrollToWork}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === 'Enter' && scrollToWork()}
+            >
+              <ArrowDown className="w-6 h-6 text-muted-foreground hover:text-primary transition-colors animate-bounce" />
+            </div>
           </div>
         </div>
 
@@ -329,9 +340,9 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator - mobile only */}
       <div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer hover:text-primary transition-colors z-20 flex items-center justify-center"
+        className="md:hidden absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer hover:text-primary transition-colors z-20 flex items-center justify-center"
         onClick={scrollToWork}
         role="button"
         tabIndex={0}
