@@ -7,7 +7,7 @@ import AdminPanel from "./admin-panel";
 
 import { useAdminPanel } from "@/hooks/use-admin-panel";
 import profileImage from "@assets/Alexis_Profile_3_Crop_1759970309304.png";
-import profileVideo from "@/../../attached_assets/Alexis and the Brain (online-video-cutter.com)_1764024752642.mp4";
+import profileVideo from "@/../../attached_assets/Alexis and the Brain (online-video-cutter.com)_1764024995337.mp4";
 
 import goldenTrophyIcon from "@assets/golden-star-trophy.png";
 
