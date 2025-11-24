@@ -748,7 +748,7 @@ html {
   animation: education-scroll 25s linear infinite;
 }
 
-.education-scroll:hover {
+.dragging .education-scroll {
   animation-play-state: paused;
 }
 

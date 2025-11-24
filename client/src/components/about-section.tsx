@@ -352,7 +352,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                   </div>
 
                   <p className="text-muted-foreground text-sm mt-4 italic text-center">
-                    Hover to pause scrolling
+                    Drag to scroll or let it auto-scroll
                   </p>
                 </div>
               )}
@@ -557,7 +557,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                   </div>
 
                   <p className="text-muted-foreground text-sm mt-4 italic text-center">
-                    Hover to pause scrolling
+                    Drag to scroll or let it auto-scroll
                   </p>
                 </div>
               )}
@@ -818,7 +818,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                   </div>
 
                   <p className="text-muted-foreground text-sm mt-4 italic text-center">
-                    Hover to pause scrolling
+                    Drag to scroll or let it auto-scroll
                   </p>
                 </div>
               )}
