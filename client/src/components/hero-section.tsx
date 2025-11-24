@@ -34,19 +34,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
   };
 
   const roles = [
-    "AI Product Design Lead",
-    "AI Product Manager",
-    "Product Strategy Lead",
-    "Product Manager/Designer",
-    "Product Design Research Lead",
-    "Human-Experience Product Lead",
-    "Product Manager",
-    "UX Product Strategist",
-    "AI Product Strategist",
-    "HX Solution Architect",
-    "Product Innovation Lead",
-    "Project Manager",
-    "Chief AI Officer"
+    "AI Product Manager"
   ];
 
   useEffect(() => {
@@ -157,7 +145,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
           <h1 className="text-5xl md:text-7xl font-inter-black" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.1', paddingBottom: '0.25rem' }}>
             <span className={`gradient-text disco-text ${isPlaying ? 'dancing' : ''}`}>
-              {getCustomGreeting()}
+              Hey hiring team
             </span>
           </h1>
 
@@ -165,14 +153,21 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             className="text-2xl md:text-3xl font-inter-medium text-muted-foreground mb-2 leading-relaxed max-w-3xl mx-auto text-center"
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
           >
-            I'm Alexis and I want to be your next
+            I'm Alexis, your next
           </p>
 
           <p
-            className={`text-2xl md:text-3xl font-inter-black text-foreground mb-8 cycling-role text-center ${isExiting ? 'exit' : ''}`}
+            className={`text-2xl md:text-3xl font-inter-black text-foreground mb-2 cycling-role text-center ${isExiting ? 'exit' : ''}`}
             style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300 }}
           >
             {roles[currentRoleIndex]}
+          </p>
+
+          <p
+            className="text-xl md:text-2xl font-inter-medium text-muted-foreground mb-8 leading-relaxed max-w-3xl mx-auto text-center"
+            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400 }}
+          >
+            Where Product x Design x Change Management meet
           </p>
 
           {/* Hire Me Song Button */}
@@ -253,7 +248,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         {/* 2. Headline */}
         <h1 className="text-4xl font-inter-black" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.1' }}>
           <span className={`gradient-text disco-text ${isPlaying ? 'dancing' : ''}`}>
-            {getCustomGreeting()}
+            Hey hiring team
           </span>
         </h1>
 
@@ -262,7 +257,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           className="text-xl font-inter-medium text-muted-foreground leading-relaxed mt-0"
           style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
         >
-          I'm Alexis and I want to be your next
+          I'm Alexis, your next
         </p>
 
         {/* 4. Roles */}
@@ -271,6 +266,13 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300 }}
         >
           {roles[currentRoleIndex]}
+        </p>
+
+        <p
+          className="text-lg font-inter-medium text-muted-foreground leading-relaxed"
+          style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400 }}
+        >
+          Where Product x Design x Change Management meet
         </p>
 
         {/* 5. Hire Me Song */}
