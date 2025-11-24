@@ -364,7 +364,7 @@
 .btn-click-sound:hover {
   animation: click-feedback 0.15s ease-in-out;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Embla Carousel Styles */
@@ -670,7 +670,7 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
-
+  
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
