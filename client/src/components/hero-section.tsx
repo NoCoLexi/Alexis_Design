@@ -110,9 +110,13 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             style={{ width: '72%' }}
             autoPlay
             muted
-            loop
             playsInline
             data-testid="video-professional-photo"
+            onEnded={(e) => {
+              const video = e.currentTarget;
+              video.currentTime = 0;
+              video.pause();
+            }}
           />
         </div>
 
@@ -324,9 +328,13 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             style={{ width: '72%' }}
             autoPlay
             muted
-            loop
             playsInline
             data-testid="video-professional-photo"
+            onEnded={(e) => {
+              const video = e.currentTarget;
+              video.currentTime = 0;
+              video.pause();
+            }}
           />
         </div>
 
