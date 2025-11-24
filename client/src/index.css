@@ -666,7 +666,17 @@
   z-index: 10;
 }
 
-/* Button and anchor outline removal */
+/* Hide scrollbar */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Button and anchor outline removal */
 button,
 a {
   outline: none;
