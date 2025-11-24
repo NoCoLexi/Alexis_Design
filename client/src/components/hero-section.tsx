@@ -157,7 +157,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
           <h1 className="text-5xl md:text-7xl font-inter-black" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.1', paddingBottom: '0.25rem' }}>
             <span className={`gradient-text disco-text ${isPlaying ? 'dancing' : ''}`}>
-              {getCustomGreeting()}
+              Alexis Brochu, PMP, CMP
             </span>
           </h1>
 
@@ -253,7 +253,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         {/* 2. Headline */}
         <h1 className="text-4xl font-inter-black" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.1' }}>
           <span className={`gradient-text disco-text ${isPlaying ? 'dancing' : ''}`}>
-            {getCustomGreeting()}
+            Alexis Brochu, PMP, CMP
           </span>
         </h1>
 
