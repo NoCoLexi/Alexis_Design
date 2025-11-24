@@ -191,7 +191,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                           <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
                           <div>
                             <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
-                            <div className="text-foreground font-medium">Project Management Institute - PMP</div>
+                            <div className="text-foreground font-medium">Project Management Institute (PMP)</div>
                           </div>
                         </div>
                         <div className="education-item">
@@ -212,7 +212,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                           <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
                           <div>
                             <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
-                            <div className="text-foreground font-medium">Salesforce - Administration | AI Specialist | AgentForce Candidate</div>
+                            <div className="text-foreground font-medium">Salesforce - Administration | AI Specialist | AgentForce (Candidate)</div>
                           </div>
                         </div>
                         <div className="education-item">
@@ -247,7 +247,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                           <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
                           <div>
                             <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Specialized Training</div>
-                            <div className="text-foreground font-medium">NASM - Certified Personal Trainer, Fitness Instructor, Nutrition Coach</div>
+                            <div className="text-foreground font-medium">NASM - Certified Personal Trainer (CPT), Fitness Instructor, Nutrition Coach (CNC)</div>
                           </div>
                         </div>
 
@@ -284,7 +284,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                           <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
                           <div>
                             <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
-                            <div className="text-foreground font-medium">Project Management Institute - PMP</div>
+                            <div className="text-foreground font-medium">Project Management Institute (PMP)</div>
                           </div>
                         </div>
                         <div className="education-item">
@@ -305,7 +305,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                           <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
                           <div>
                             <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
-                            <div className="text-foreground font-medium">Salesforce - Administration | AI Specialist | AgentForce Candidate</div>
+                            <div className="text-foreground font-medium">Salesforce - Administration | AI Specialist | AgentForce (Candidate)</div>
                           </div>
                         </div>
                         <div className="education-item">
@@ -340,7 +340,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                           <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
                           <div>
                             <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Specialized Training</div>
-                            <div className="text-foreground font-medium">NASM - Certified Personal Trainer, Fitness Instructor, Nutrition Coach</div>
+                            <div className="text-foreground font-medium">NASM - Certified Personal Trainer (CPT), Fitness Instructor, Nutrition Coach (CNC)</div>
                           </div>
                         </div>
                       </div>
