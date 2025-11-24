@@ -17,7 +17,7 @@ export default function ContactSection({ onOpenAwardModal }: ContactSectionProps
             <span className="gradient-text">Let's Create Something Amazing</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Seeking a Product Design/Management role where I can leverage my expertise in <br />
+            Seeking a Product Management/Design role where I can leverage my expertise in <br />
             user research, strategic planning, and cross-functional communication. <br />
             I'll help you deliver exceptionally designed products that users adore.
           </p>
