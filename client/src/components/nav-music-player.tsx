@@ -149,7 +149,7 @@ export default function NavMusicPlayer({ onPlayingChange, renderAs = 'circle', b
               console.log('🖱️ Button clicked!', e);
               togglePlayPause();
             }}
-            className="px-3 py-3 bg-transparent hover:bg-white/10 rounded-xl font-inter-bold transition-all duration-300 flex items-center gap-2 w-full justify-center relative z-10 border-2 border-white"
+            className="px-3 py-3 bg-transparent hover:bg-white/10 rounded-xl font-inter-bold flex items-center gap-2 w-full justify-center relative z-10 border-2 border-white"
             style={{ 
               fontSize: '1.25rem', 
               pointerEvents: 'auto', 

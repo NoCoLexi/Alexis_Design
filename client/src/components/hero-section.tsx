@@ -163,7 +163,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
           {/* Buttons Side by Side */}
           <div className="mb-6 pt-4 pb-8 flex justify-center gap-4 max-w-3xl mx-auto">
-            <div className={`disco-button ${isPlaying ? 'playing' : ''} flex-1 max-w-sm`}>
+            <div className={`disco-button ${isPlaying ? 'playing' : ''} flex-1 max-w-sm transition-all duration-300 transform hover:scale-105`}>
               <NavMusicPlayer
                 onPlayingChange={setIsPlaying}
                 renderAs="button"
@@ -294,7 +294,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
         {/* 5. Buttons Side by Side */}
         <div className="flex flex-col gap-3 w-full max-w-sm mx-auto">
-          <div className={`disco-button ${isPlaying ? 'playing' : ''} w-full`}>
+          <div className={`disco-button ${isPlaying ? 'playing' : ''} w-full transition-all duration-300 transform hover:scale-105`}>
             <NavMusicPlayer
               onPlayingChange={setIsPlaying}
               renderAs="button"
