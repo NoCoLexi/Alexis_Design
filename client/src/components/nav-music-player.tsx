@@ -149,8 +149,14 @@ export default function NavMusicPlayer({ onPlayingChange, renderAs = 'circle', b
               console.log('🖱️ Button clicked!', e);
               togglePlayPause();
             }}
-            className="px-3 py-3 gradient-bg-primary hover:opacity-90 hover:scale-105 hover:brightness-110 rounded-xl font-inter-bold transition-all duration-300 glow-purple flex items-center gap-2 w-full justify-center relative z-10"
-            style={{ fontSize: '1.25rem', pointerEvents: 'auto', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
+            className="px-3 py-3 bg-transparent hover:bg-white/10 rounded-xl font-inter-bold transition-all duration-300 flex items-center gap-2 w-full justify-center relative z-10 border-2 border-white"
+            style={{ 
+              fontSize: '1.25rem', 
+              pointerEvents: 'auto', 
+              fontFamily: 'Inter, sans-serif', 
+              fontWeight: 700,
+              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2)'
+            }}
             data-testid="button-play-hire-me-song"
           >
             {isPlaying ? (

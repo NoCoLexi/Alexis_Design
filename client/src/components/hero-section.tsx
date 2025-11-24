@@ -172,9 +172,14 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             </div>
             <button
               onClick={scrollToExpertise}
-              className="flex-1 max-w-sm px-6 py-3 bg-transparent hover:bg-white/5 rounded-xl font-inter-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2 border-white shadow-lg"
+              className="flex-1 max-w-sm px-6 py-3 bg-transparent hover:bg-white/10 rounded-xl font-inter-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2 border-white"
               data-testid="button-watch-video-about-me"
-              style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: '1.25rem' }}
+              style={{ 
+                fontFamily: 'Inter, sans-serif', 
+                fontWeight: 700, 
+                fontSize: '1.25rem',
+                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2)'
+              }}
             >
               <Play className="w-5 h-5" />
               <span>90 seconds: How I drive product adoption</span>
@@ -298,9 +303,13 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           </div>
           <button
             onClick={scrollToExpertise}
-            className="w-full px-4 py-3 bg-transparent hover:bg-white/5 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2 border-white shadow-lg text-sm"
+            className="w-full px-4 py-3 bg-transparent hover:bg-white/10 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2 border-white text-sm"
             data-testid="button-watch-video-about-me"
-            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
+            style={{ 
+              fontFamily: 'Inter, sans-serif', 
+              fontWeight: 700,
+              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2)'
+            }}
           >
             <Play className="w-4 h-4" />
             <span>90 seconds: How I drive product adoption</span>
