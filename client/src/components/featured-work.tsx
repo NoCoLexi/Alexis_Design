@@ -503,10 +503,14 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
           className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
           loading={index < 2 ? "eager" : "lazy"}
           decoding="async"
-          style={disableParallax ? {} : { 
-            transform: `translateY(${parallaxY * 0.1}px)`,
-            transition: 'transform 0.1s ease-out'
-          }}
+          style={disableParallax ? 
+            (project.image === riConventionCenterImage ? { objectPosition: 'center 35%' } : {}) : 
+            { 
+              transform: `translateY(${parallaxY * 0.1}px)`,
+              transition: 'transform 0.1s ease-out',
+              ...(project.image === riConventionCenterImage ? { objectPosition: 'center 35%' } : {})
+            }
+          }
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
         <div className="absolute top-4 left-4 flex gap-2">
