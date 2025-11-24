@@ -172,7 +172,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             </div>
             <button
               onClick={scrollToExpertise}
-              className="flex-1 max-w-sm px-6 py-3 bg-gradient-to-r from-blue-600/60 to-purple-600/60 hover:from-blue-500/70 hover:to-purple-500/70 rounded-xl font-inter-bold transition-all duration-300 transform hover:scale-105 hover:brightness-110 flex items-center justify-center gap-2 border border-purple-400/30"
+              className="flex-1 max-w-sm px-6 py-3 bg-transparent hover:bg-blue-600/10 rounded-xl font-inter-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2 border-purple-400/50 hover:border-purple-400/80"
               data-testid="button-watch-video-about-me"
               style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: '1.25rem' }}
             >
@@ -298,7 +298,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           </div>
           <button
             onClick={scrollToExpertise}
-            className="w-full px-4 py-3 bg-gradient-to-r from-blue-600/60 to-purple-600/60 hover:from-blue-500/70 hover:to-purple-500/70 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 hover:brightness-110 flex items-center justify-center gap-2 border border-purple-400/30 text-sm"
+            className="w-full px-4 py-3 bg-transparent hover:bg-blue-600/10 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2 border-purple-400/50 hover:border-purple-400/80 text-sm"
             data-testid="button-watch-video-about-me"
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
           >
