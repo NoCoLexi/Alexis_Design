@@ -77,7 +77,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
             <div className="glass rounded-xl p-6 hover:glow-purple transition-all duration-300">
               <h3 className="text-xl font-semibold mb-4" style={{ color: '#F3E8B9' }}>Human Centered Design</h3>
               <p className="text-gray-300 leading-relaxed">
-                Leveraging AI tools and human-centered design methodologies to create intuitive, data-driven experiences that solve real user problems.
+                UNH UI/UX Design certified expert leveraging AI tools and human-centered design methodologies to create intuitive, data-driven experiences that solve real user problems.
               </p>
             </div>
 
@@ -105,7 +105,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
             <div className="glass rounded-xl p-6 hover:glow-purple transition-all duration-300">
               <h3 className="text-xl font-semibold mb-4" style={{ color: '#F3E8B9' }}>UX Research & Testing</h3>
               <p className="text-gray-300 leading-relaxed">
-                Comprehensive user research, data analysis, and behavioral insights to inform product decisions through rigorous testing methodologies.
+                UNH UI/UX Design certified professional conducting comprehensive user research, data analysis, and behavioral insights to inform product decisions through rigorous testing methodologies.
               </p>
             </div>
           </div>
