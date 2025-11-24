@@ -7,6 +7,7 @@ import AdminPanel from "./admin-panel";
 
 import { useAdminPanel } from "@/hooks/use-admin-panel";
 import profileImage from "@assets/Alexis_Profile_3_Crop_1759970309304.png";
+import profileVideo from "@/../../attached_assets/20251124_1628_01kahzhm00e3psprfkacsvv7ba_1764019965348.mp4";
 
 import goldenTrophyIcon from "@assets/golden-star-trophy.png";
 
@@ -103,12 +104,15 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
       {/* Desktop Layout (2 columns) */}
       <div className="hidden md:flex items-center px-6 py-20 relative space-x-8 text-center w-full z-10">
         <div style={{ flexGrow: 1 }}>
-          <img
-            src={profileImage}
-            alt="Alexis Brochu professional photo"
-            data-testid="img-professional-photo"
+          <video
+            src={profileVideo}
             className="mx-auto rounded-lg"
             style={{ width: '72%' }}
+            autoPlay
+            muted
+            loop
+            playsInline
+            data-testid="video-professional-photo"
           />
 
           {/* Watch Video Link */}
@@ -288,12 +292,15 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
         {/* 6. Portrait */}
         <div className="w-full max-w-sm mx-auto">
-          <img
-            src={profileImage}
-            alt="Alexis Brochu professional photo"
-            data-testid="img-professional-photo"
+          <video
+            src={profileVideo}
             className="mx-auto rounded-lg"
             style={{ width: '72%' }}
+            autoPlay
+            muted
+            loop
+            playsInline
+            data-testid="video-professional-photo"
           />
         </div>
 
