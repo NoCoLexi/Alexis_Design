@@ -324,7 +324,12 @@ const projects: Project[] = [
     title: 'RI Convention Center Authority',
     description: 'Professional brochure design for Rhode Island Convention Center Authority featuring sophisticated architectural photography and premium hospitality branding.',
     category: 'brand-development',
-    image: riConventionInteriorImage,
+    image: riConventionCenterImage,
+    slideshow: [
+      riConventionCenterImage,
+      riConventionInteriorImage,
+      riConventionReportImage
+    ],
     metrics: [
       { label: 'Professional Branding', value: '100%', color: 'text-chart-1' },
       { label: 'Hospitality Focus', value: '95%', color: 'text-primary' }
