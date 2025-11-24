@@ -5,7 +5,7 @@ import professionalPhoto from "@assets/Brochu, Alexis 2023 Ireland_1754523029765
 import profileVideo from "@assets/20181006_190845_1754603621565.mp4";
 import expertiseVideo from "@assets/Alexis_Deconstructing_a_Modern_Product_Leader.mp4";
 import expertisePoster from "@assets/Product Leader Video Still.png";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const skills = [
   { name: 'Product Management', color: 'text-primary' },
@@ -20,6 +20,51 @@ interface AboutSectionProps {
 
 export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
   const [activeTab, setActiveTab] = useState<'education' | 'publications' | 'community' | 'funfact'>('education');
+  const [isDragging, setIsDragging] = useState(false);
+  const [startY, setStartY] = useState(0);
+  const [scrollTop, setScrollTop] = useState(0);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!scrollContainerRef.current) return;
+    setIsDragging(true);
+    setStartY(e.pageY - scrollContainerRef.current.offsetTop);
+    setScrollTop(scrollContainerRef.current.scrollTop);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !scrollContainerRef.current) return;
+    e.preventDefault();
+    const y = e.pageY - scrollContainerRef.current.offsetTop;
+    const walk = (y - startY) * 2;
+    scrollContainerRef.current.scrollTop = scrollTop - walk;
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (!scrollContainerRef.current) return;
+    setIsDragging(true);
+    setStartY(e.touches[0].pageY - scrollContainerRef.current.offsetTop);
+    setScrollTop(scrollContainerRef.current.scrollTop);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging || !scrollContainerRef.current) return;
+    const y = e.touches[0].pageY - scrollContainerRef.current.offsetTop;
+    const walk = (y - startY) * 2;
+    scrollContainerRef.current.scrollTop = scrollTop - walk;
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+  };
 
   const scrollToPersonalTraining = () => {
     const personalTrainingElement = document.getElementById('personal-training');
@@ -155,8 +200,17 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
               {activeTab === 'education' && (
                 <div>
                   {/* Scrolling Education List */}
-                  <div className="glass rounded-xl p-6 relative overflow-hidden">
-                    <div className="h-64 relative">
+                  <div 
+                    className={`glass rounded-xl p-6 relative overflow-hidden ${isDragging ? 'dragging cursor-grabbing' : 'cursor-grab'}`}
+                    onMouseDown={handleMouseDown}
+                    onMouseMove={handleMouseMove}
+                    onMouseUp={handleMouseUp}
+                    onMouseLeave={handleMouseLeave}
+                    onTouchStart={handleTouchStart}
+                    onTouchMove={handleTouchMove}
+                    onTouchEnd={handleTouchEnd}
+                  >
+                    <div className="h-64 relative overflow-y-auto scrollbar-hide" ref={scrollContainerRef}>
                       <div className="absolute w-full education-scroll">
                         {/* First set */}
                         <div className="education-item">
@@ -360,8 +414,17 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
               {activeTab === 'publications' && (
                 <div>
                   {/* Scrolling Publications & Awards List */}
-                  <div className="glass rounded-xl p-6 relative overflow-hidden">
-                    <div className="h-64 relative">
+                  <div 
+                    className={`glass rounded-xl p-6 relative overflow-hidden ${isDragging ? 'dragging cursor-grabbing' : 'cursor-grab'}`}
+                    onMouseDown={handleMouseDown}
+                    onMouseMove={handleMouseMove}
+                    onMouseUp={handleMouseUp}
+                    onMouseLeave={handleMouseLeave}
+                    onTouchStart={handleTouchStart}
+                    onTouchMove={handleTouchMove}
+                    onTouchEnd={handleTouchEnd}
+                  >
+                    <div className="h-64 relative overflow-y-auto scrollbar-hide" ref={scrollContainerRef}>
                       <div className="absolute w-full education-scroll">
                         {/* First set */}
                         <div className="education-item">
@@ -565,8 +628,17 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
               {activeTab === 'community' && (
                 <div>
                   {/* Scrolling Community & Leadership List */}
-                  <div className="glass rounded-xl p-6 relative overflow-hidden">
-                    <div className="h-64 relative">
+                  <div 
+                    className={`glass rounded-xl p-6 relative overflow-hidden ${isDragging ? 'dragging cursor-grabbing' : 'cursor-grab'}`}
+                    onMouseDown={handleMouseDown}
+                    onMouseMove={handleMouseMove}
+                    onMouseUp={handleMouseUp}
+                    onMouseLeave={handleMouseLeave}
+                    onTouchStart={handleTouchStart}
+                    onTouchMove={handleTouchMove}
+                    onTouchEnd={handleTouchEnd}
+                  >
+                    <div className="h-64 relative overflow-y-auto scrollbar-hide" ref={scrollContainerRef}>
                       <div className="absolute w-full education-scroll">
                         {/* First set */}
                         <div className="education-item">

@@ -760,6 +760,7 @@ html {
 
 .dragging .education-scroll {
   animation-play-state: paused;
+  user-select: none;
 }
 
 .education-item {
