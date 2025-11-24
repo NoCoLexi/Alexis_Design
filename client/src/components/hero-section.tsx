@@ -114,19 +114,6 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             playsInline
             data-testid="video-professional-photo"
           />
-
-          {/* Watch Video Link */}
-          <div className="mt-4 pb-4 flex justify-center items-center gap-8">
-            <button
-              onClick={scrollToExpertise}
-              className="text-base transition-all duration-300 transform hover:scale-105 hover:brightness-110 flex items-center gap-2"
-              data-testid="button-watch-video-about-me"
-              style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300, color: '#F3E8B9' }}
-            >
-              <Play className="w-3 h-3" />
-              90 seconds: How I drive product adoption
-            </button>
-          </div>
         </div>
 
         <div className="max-w-4xl mx-auto relative" style={{
@@ -174,15 +161,24 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             Where Product x Design x Change Management meet
           </p>
 
-          {/* Hire Me Song Button */}
-          <div className="mb-6 pt-4 pb-8 flex justify-center max-w-xs mx-auto">
-            <div className={`disco-button ${isPlaying ? 'playing' : ''} w-full`}>
+          {/* Buttons Side by Side */}
+          <div className="mb-6 pt-4 pb-8 flex justify-center gap-4 max-w-3xl mx-auto">
+            <div className={`disco-button ${isPlaying ? 'playing' : ''} flex-1 max-w-sm`}>
               <NavMusicPlayer
                 onPlayingChange={setIsPlaying}
                 renderAs="button"
                 buttonText='Play my "Hire Me" song'
               />
             </div>
+            <button
+              onClick={scrollToExpertise}
+              className="flex-1 max-w-sm px-6 py-3 bg-gradient-to-r from-blue-600/60 to-purple-600/60 hover:from-blue-500/70 hover:to-purple-500/70 rounded-xl font-inter-bold transition-all duration-300 transform hover:scale-105 hover:brightness-110 flex items-center justify-center gap-2 border border-purple-400/30"
+              data-testid="button-watch-video-about-me"
+              style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: '1.25rem' }}
+            >
+              <Play className="w-5 h-5" />
+              <span>90 seconds: How I drive product adoption</span>
+            </button>
           </div>
 
           {/* Key Metrics */}
@@ -228,6 +224,18 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
               <div className="text-3xl md:text-4xl font-bold" style={{ color: '#F3E8B9' }}>75%</div>
               <div className="text-sm text-white/70">Ticket Reduction</div>
             </div>
+          </div>
+
+          {/* Message Me Button */}
+          <div className="flex justify-center mt-8">
+            <button
+              onClick={scrollToContact}
+              className="px-8 py-4 bg-gradient-to-r from-blue-600/70 to-purple-600/70 hover:from-blue-500/80 hover:to-purple-500/80 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 hover:brightness-110 flex items-center gap-3 border border-purple-400/30 shadow-lg"
+              style={{ fontFamily: 'Inter, sans-serif', color: '#F3E8B9' }}
+            >
+              MESSAGE ME
+              <span className="text-2xl">→</span>
+            </button>
           </div>
         </div>
       </div>
@@ -279,8 +287,8 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           Where Product x Design x Change Management meet
         </p>
 
-        {/* 5. Hire Me Song */}
-        <div className="flex justify-center max-w-xs mx-auto w-full">
+        {/* 5. Buttons Side by Side */}
+        <div className="flex flex-col gap-3 w-full max-w-sm mx-auto">
           <div className={`disco-button ${isPlaying ? 'playing' : ''} w-full`}>
             <NavMusicPlayer
               onPlayingChange={setIsPlaying}
@@ -288,6 +296,15 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
               buttonText='Play my "Hire Me" song'
             />
           </div>
+          <button
+            onClick={scrollToExpertise}
+            className="w-full px-4 py-3 bg-gradient-to-r from-blue-600/60 to-purple-600/60 hover:from-blue-500/70 hover:to-purple-500/70 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 hover:brightness-110 flex items-center justify-center gap-2 border border-purple-400/30 text-sm"
+            data-testid="button-watch-video-about-me"
+            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
+          >
+            <Play className="w-4 h-4" />
+            <span>90 seconds: How I drive product adoption</span>
+          </button>
         </div>
 
         {/* 6. Portrait */}
@@ -302,18 +319,6 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             playsInline
             data-testid="video-professional-photo"
           />
-        </div>
-
-        {/* 7. Video link */}
-        <div className="flex justify-center">
-          <button
-            onClick={scrollToExpertise}
-            className="text-base transition-all duration-300 transform hover:scale-105 hover:brightness-110 flex items-center gap-2"
-            data-testid="button-watch-video-about-me"
-            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300, color: '#F3E8B9' }}
-          >
-            90 seconds: How I drive product adoption
-          </button>
         </div>
 
         {/* 8. Metrics */}
@@ -360,6 +365,18 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             <div className="text-2xl font-bold" style={{ color: '#F3E8B9' }}>75%</div>
             <div className="text-xs text-white/70">Ticket Reduction</div>
           </div>
+        </div>
+
+        {/* Message Me Button */}
+        <div className="flex justify-center mt-6 w-full max-w-sm mx-auto">
+          <button
+            onClick={scrollToContact}
+            className="w-full px-6 py-3 bg-gradient-to-r from-blue-600/70 to-purple-600/70 hover:from-blue-500/80 hover:to-purple-500/80 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 hover:brightness-110 flex items-center justify-center gap-2 border border-purple-400/30 shadow-lg"
+            style={{ fontFamily: 'Inter, sans-serif', color: '#F3E8B9' }}
+          >
+            MESSAGE ME
+            <span className="text-xl">→</span>
+          </button>
         </div>
       </div>
 
