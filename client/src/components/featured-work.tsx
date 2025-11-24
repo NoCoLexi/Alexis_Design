@@ -92,6 +92,7 @@ import riConventionReportImage from "@assets/FullSizeRender 28_1755219569087.jpg
 import tfGreenDetailSpreadImage from "@assets/FullSizeRender 33_1755219662733.jpg";
 import lifespanHealthBrochureImage from "@assets/FullSizeRender_1755219971125.jpg";
 import lifespanHealthBookletImage from "@assets/FullSizeRender 17_1755219971125.jpg";
+import lifespanHealthCoverImage from "@assets/FullSizeRender 13_1764028488191.jpg";
 
 // Preload critical images immediately when component loads
 const preloadImage = (src: string) => {
@@ -341,7 +342,12 @@ const projects: Project[] = [
     title: 'Lifespan Health Care Brand Development',
     description: 'Comprehensive healthcare brand development featuring patient-focused messaging, community healthcare positioning, and professional medical marketing materials.',
     category: 'brand-development',
-    image: lifespanHealthBrochureImage,
+    image: lifespanHealthCoverImage,
+    slideshow: [
+      lifespanHealthCoverImage,
+      lifespanHealthBrochureImage,
+      lifespanHealthBookletImage
+    ],
     metrics: [
       { label: 'Healthcare Branding', value: '100%', color: 'text-chart-1' },
       { label: 'Community Focus', value: '95%', color: 'text-primary' }
