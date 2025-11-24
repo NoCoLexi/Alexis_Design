@@ -8,8 +8,9 @@ import AwardModal from "@/components/award-modal";
 import SiteModal from "@/components/site-modal";
 import CareerChatbot from "@/components/CareerChatbot";
 import NavMusicPlayer from "@/components/nav-music-player";
+import AdminPanel from "@/components/admin-panel";
 import { useState, useEffect } from "react";
-import { Menu, X, Award, Code, ExternalLink, Home as HomeIcon } from "lucide-react";
+import { Menu, X, Award, Code, ExternalLink, Home as HomeIcon, Settings } from "lucide-react";
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -17,6 +18,15 @@ export default function Home() {
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const [isAwardModalOpen, setIsAwardModalOpen] = useState(false);
   const [isSiteModalOpen, setIsSiteModalOpen] = useState(false);
+  const [isAdminPanelOpen, setIsAdminPanelOpen] = useState(false);
+
+  // Check for admin URL parameter
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('admin') === 'true' || window.location.pathname === '/admin') {
+      setIsAdminPanelOpen(true);
+    }
+  }, []);
 
 
 
@@ -90,6 +100,17 @@ export default function Home() {
               ))}
               <div className="ml-4 flex items-center gap-3">
                 <div 
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600/60 to-purple-500/70 rounded-full px-4 py-2 hover:from-purple-500/70 hover:to-purple-400/80 transition-all duration-300 cursor-pointer border border-purple-400/30 transform hover:scale-105 hover:brightness-110"
+                  onClick={() => setIsAdminPanelOpen(true)}
+                  data-testid="button-admin-panel"
+                  title="Customize portfolio (Ctrl+Shift+Z)"
+                >
+                  <Settings className="w-4 h-4 text-purple-300" />
+                  <span className="text-sm font-medium hidden lg:inline" style={{ color: '#F3E8B9' }}>
+                    Admin
+                  </span>
+                </div>
+                <div 
                   className="inline-flex items-center gap-2 bg-gradient-to-r from-gray-600/60 to-gray-500/70 rounded-full px-4 py-2 hover:from-gray-500/70 hover:to-gray-400/80 transition-all duration-300 cursor-pointer border border-gray-400/30 transform hover:scale-105 hover:brightness-110"
                   onClick={() => setIsSiteModalOpen(true)}
                   data-testid="button-about-site"
@@ -127,6 +148,19 @@ export default function Home() {
               ))}
               <div className="pt-2 border-t border-purple-400/20 space-y-2">
                 <div 
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600/60 to-purple-500/70 rounded-full px-4 py-2 hover:from-purple-500/70 hover:to-purple-400/80 transition-all duration-300 cursor-pointer w-full justify-center transform hover:scale-105 hover:brightness-110"
+                  onClick={() => {
+                    setIsAdminPanelOpen(true);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  data-testid="button-admin-panel-mobile"
+                >
+                  <Settings className="w-4 h-4 text-purple-300" />
+                  <span className="text-sm font-medium" style={{ color: '#F3E8B9' }}>
+                    Admin Panel
+                  </span>
+                </div>
+                <div 
                   className="inline-flex items-center gap-2 bg-gradient-to-r from-gray-600/60 to-gray-500/70 rounded-full px-4 py-2 hover:from-gray-500/70 hover:to-gray-400/80 transition-all duration-300 cursor-pointer w-full justify-center transform hover:scale-105 hover:brightness-110"
                   onClick={() => {
                     setIsSiteModalOpen(true);
@@ -158,6 +192,14 @@ export default function Home() {
       <SiteModal 
         isOpen={isSiteModalOpen} 
         onClose={() => setIsSiteModalOpen(false)} 
+      />
+      <AdminPanel 
+        isVisible={isAdminPanelOpen}
+        onClose={() => setIsAdminPanelOpen(false)}
+        onApply={(settings) => {
+          console.log('Applied settings:', settings);
+          setIsAdminPanelOpen(false);
+        }}
       />
       {/* <CareerChatbot /> */}
 
