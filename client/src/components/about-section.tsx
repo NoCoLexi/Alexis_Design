@@ -98,7 +98,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
             <div className="glass rounded-xl p-6 hover:glow-purple transition-all duration-300">
               <h3 className="text-xl font-semibold mb-4" style={{ color: '#F3E8B9' }}>Scrum Master</h3>
               <p className="text-gray-300 leading-relaxed">
-                Expert Scrum Master facilitating agile ceremonies, removing blockers, and coaching teams in agile principles to deliver high-quality software through iterative development and continuous improvement.
+                PM-SM certified (Project Manager Scrum Master) expert facilitating agile ceremonies, removing blockers, and coaching teams in agile principles to deliver high-quality software through iterative development and continuous improvement.
               </p>
             </div>
 
