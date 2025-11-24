@@ -29,7 +29,6 @@ export default function ContactSection({ onOpenAwardModal }: ContactSectionProps
           {/* Contact Info */}
           <div className="space-y-8">
             <div className="glass rounded-2xl p-8">
-              <h3 className="text-2xl font-bold mb-6 text-chart-4">Message me and I'll send you my resume!</h3>
               <div className="flex flex-col md:flex-row md:justify-center md:space-x-8 space-y-4 md:space-y-0">
                 <a 
                   href="mailto:alexis@alexisdesign.com" 
