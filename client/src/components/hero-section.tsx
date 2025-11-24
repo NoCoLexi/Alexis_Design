@@ -232,10 +232,10 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           </div>
 
           {/* Message Me Button */}
-          <div className="flex justify-center mt-8">
+          <div className="flex justify-center mt-8 max-w-3xl mx-auto">
             <button
               onClick={scrollToContact}
-              className="px-8 py-4 bg-gradient-to-r from-blue-600/70 to-purple-600/70 hover:from-blue-500/80 hover:to-purple-500/80 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 hover:brightness-110 flex items-center gap-3 border border-purple-400/30 shadow-lg"
+              className="w-full px-8 py-4 bg-gradient-to-r from-purple-600/80 to-blue-600/80 hover:from-purple-500/90 hover:to-blue-500/90 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3 border-2 border-white shadow-lg"
               style={{ fontFamily: 'Inter, sans-serif', color: '#F3E8B9' }}
             >
               MESSAGE ME
@@ -380,7 +380,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         <div className="flex justify-center mt-6 w-full max-w-sm mx-auto">
           <button
             onClick={scrollToContact}
-            className="w-full px-6 py-3 bg-gradient-to-r from-blue-600/70 to-purple-600/70 hover:from-blue-500/80 hover:to-purple-500/80 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 hover:brightness-110 flex items-center justify-center gap-2 border border-purple-400/30 shadow-lg"
+            className="w-full px-6 py-3 bg-gradient-to-r from-purple-600/80 to-blue-600/80 hover:from-purple-500/90 hover:to-blue-500/90 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2 border-white shadow-lg"
             style={{ fontFamily: 'Inter, sans-serif', color: '#F3E8B9' }}
           >
             MESSAGE ME
