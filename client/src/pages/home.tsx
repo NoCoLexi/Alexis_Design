@@ -111,11 +111,11 @@ export default function Home() {
                   </span>
                 </div>
                 <div 
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-gray-600/60 to-gray-500/70 rounded-full px-4 py-2 hover:from-gray-500/70 hover:to-gray-400/80 transition-all duration-300 cursor-pointer border border-gray-400/30 transform hover:scale-105 hover:brightness-110"
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600/60 to-purple-500/70 rounded-full px-4 py-2 hover:from-purple-500/70 hover:to-purple-400/80 transition-all duration-300 cursor-pointer border border-purple-400/30 transform hover:scale-105 hover:brightness-110"
                   onClick={() => setIsSiteModalOpen(true)}
                   data-testid="button-about-site"
                 >
-                  <Code className="w-4 h-4 text-blue-400" />
+                  <Code className="w-4 h-4 text-purple-300" />
                   <span className="text-sm font-medium hidden lg:inline" style={{ color: '#F3E8B9' }}>
                     How I built this site
                   </span>
@@ -161,14 +161,14 @@ export default function Home() {
                   </span>
                 </div>
                 <div 
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-gray-600/60 to-gray-500/70 rounded-full px-4 py-2 hover:from-gray-500/70 hover:to-gray-400/80 transition-all duration-300 cursor-pointer w-full justify-center transform hover:scale-105 hover:brightness-110"
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600/60 to-purple-500/70 rounded-full px-4 py-2 hover:from-purple-500/70 hover:to-purple-400/80 transition-all duration-300 cursor-pointer w-full justify-center transform hover:scale-105 hover:brightness-110"
                   onClick={() => {
                     setIsSiteModalOpen(true);
                     setIsMobileMenuOpen(false);
                   }}
                   data-testid="button-about-site-mobile"
                 >
-                  <Code className="w-4 h-4 text-blue-400" />
+                  <Code className="w-4 h-4 text-purple-300" />
                   <span className="text-sm font-medium" style={{ color: '#F3E8B9' }}>
                     How I built this site
                   </span>
