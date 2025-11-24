@@ -91,7 +91,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
             <div className="glass rounded-xl p-6 hover:glow-purple transition-all duration-300">
               <h3 className="text-xl font-semibold mb-4" style={{ color: '#F3E8B9' }}>Project Management</h3>
               <p className="text-gray-300 leading-relaxed">
-                End-to-end project leadership with expertise in scope management, resource coordination, and stakeholder communication to deliver complex technical initiatives on time and within budget.
+                PMI-PMP certified project leader with expertise in scope management, resource coordination, and stakeholder communication to deliver complex technical initiatives on time and within budget.
               </p>
             </div>
 
