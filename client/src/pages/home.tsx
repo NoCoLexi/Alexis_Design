@@ -101,17 +101,6 @@ export default function Home() {
               <div className="ml-4 flex items-center gap-3">
                 <div 
                   className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600/60 to-purple-500/70 rounded-full px-4 py-2 hover:from-purple-500/70 hover:to-purple-400/80 transition-all duration-300 cursor-pointer border border-purple-400/30 transform hover:scale-105 hover:brightness-110"
-                  onClick={() => setIsAdminPanelOpen(true)}
-                  data-testid="button-admin-panel"
-                  title="Customize portfolio (Ctrl+Shift+Z)"
-                >
-                  <Settings className="w-4 h-4 text-purple-300" />
-                  <span className="text-sm font-medium hidden lg:inline" style={{ color: '#F3E8B9' }}>
-                    Admin
-                  </span>
-                </div>
-                <div 
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600/60 to-purple-500/70 rounded-full px-4 py-2 hover:from-purple-500/70 hover:to-purple-400/80 transition-all duration-300 cursor-pointer border border-purple-400/30 transform hover:scale-105 hover:brightness-110"
                   onClick={() => setIsSiteModalOpen(true)}
                   data-testid="button-about-site"
                 >
@@ -147,19 +136,6 @@ export default function Home() {
                 </button>
               ))}
               <div className="pt-2 border-t border-purple-400/20 space-y-2">
-                <div 
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600/60 to-purple-500/70 rounded-full px-4 py-2 hover:from-purple-500/70 hover:to-purple-400/80 transition-all duration-300 cursor-pointer w-full justify-center transform hover:scale-105 hover:brightness-110"
-                  onClick={() => {
-                    setIsAdminPanelOpen(true);
-                    setIsMobileMenuOpen(false);
-                  }}
-                  data-testid="button-admin-panel-mobile"
-                >
-                  <Settings className="w-4 h-4 text-purple-300" />
-                  <span className="text-sm font-medium" style={{ color: '#F3E8B9' }}>
-                    Admin Panel
-                  </span>
-                </div>
                 <div 
                   className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600/60 to-purple-500/70 rounded-full px-4 py-2 hover:from-purple-500/70 hover:to-purple-400/80 transition-all duration-300 cursor-pointer w-full justify-center transform hover:scale-105 hover:brightness-110"
                   onClick={() => {
