@@ -290,23 +290,20 @@ const projects: Project[] = [
     tags: ['Educational Branding', 'Magnet Schools', 'Print Design', 'Program Materials']
   },
   {
-    id: 'providence-school-system',
-    title: 'Providence School System Brand Development',
-    description: 'Comprehensive strategic planning and brand development for Providence School Department, creating mission-driven materials and strategic frameworks to support educational excellence and community engagement.',
+    id: 'abc6-rebrand-alexis-design',
+    title: 'WLNE-ABC6 Brand Transformation',
+    description: 'Company-wide brand transformation for ABC6 News under Alexis Design, working directly with the marketing director to redesign everything from studio backdrops to mic holders and outdoor advertising.',
     category: 'brand-development',
-    image: providenceSystemCoverImage,
+    image: abc6CoverImage,
     slideshow: [
-      providenceSystemCoverImage,
-      providenceSystemFullSpreadImage,
-      providenceSystemMissionImage,
-      providenceSystemVisionImage,
-      providenceSystemObjectivesImage
+      abc6SeinfeldImage,
+      abc6RosieImage
     ],
     metrics: [
-      { label: 'Strategic Frameworks', value: '5+', color: 'text-chart-1' },
-      { label: 'Community Impact', value: '100%', color: 'text-primary' }
+      { label: 'Brand Touchpoints', value: '100+', color: 'text-chart-1' },
+      { label: 'Complete Transformation', value: '100%', color: 'text-primary' }
     ],
-    tags: ['Educational Strategy', 'Strategic Planning', 'Community Engagement', 'School Systems']
+    tags: ['Television Branding', 'Studio Design', 'Outdoor Advertising', 'Alexis Design']
   },
   {
     id: 'tf-green-gala',
@@ -355,20 +352,23 @@ const projects: Project[] = [
     tags: ['Healthcare Branding', 'Medical Marketing', 'Community Health', 'Patient Care']
   },
   {
-    id: 'abc6-rebrand-alexis-design',
-    title: 'WLNE-ABC6 Brand Transformation',
-    description: 'Company-wide brand transformation for ABC6 News under Alexis Design, working directly with the marketing director to redesign everything from studio backdrops to mic holders and outdoor advertising.',
+    id: 'providence-school-system',
+    title: 'Providence School System Brand Development',
+    description: 'Comprehensive strategic planning and brand development for Providence School Department, creating mission-driven materials and strategic frameworks to support educational excellence and community engagement.',
     category: 'brand-development',
-    image: abc6CoverImage,
+    image: providenceSystemCoverImage,
     slideshow: [
-      abc6SeinfeldImage,
-      abc6RosieImage
+      providenceSystemCoverImage,
+      providenceSystemFullSpreadImage,
+      providenceSystemMissionImage,
+      providenceSystemVisionImage,
+      providenceSystemObjectivesImage
     ],
     metrics: [
-      { label: 'Brand Touchpoints', value: '100+', color: 'text-chart-1' },
-      { label: 'Complete Transformation', value: '100%', color: 'text-primary' }
+      { label: 'Strategic Frameworks', value: '5+', color: 'text-chart-1' },
+      { label: 'Community Impact', value: '100%', color: 'text-primary' }
     ],
-    tags: ['Television Branding', 'Studio Design', 'Outdoor Advertising', 'Alexis Design']
+    tags: ['Educational Strategy', 'Strategic Planning', 'Community Engagement', 'School Systems']
   },
   {
     id: 'ttools-alexis-design',
