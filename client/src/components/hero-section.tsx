@@ -181,7 +181,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
                 boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2)'
               }}
             >
-              <Play className="w-5 h-5" />
+              <Play className="h-5 w-5 flex-shrink-0" />
               <span>90 seconds: How I drive product adoption</span>
             </button>
           </div>
@@ -311,7 +311,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2)'
             }}
           >
-            <Play className="w-4 h-4" />
+            <Play className="h-5 w-5 flex-shrink-0" />
             <span>90 seconds: How I drive product adoption</span>
           </button>
         </div>
