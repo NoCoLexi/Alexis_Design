@@ -167,7 +167,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
           {/* Buttons Side by Side */}
           <div className="mb-6 pt-4 pb-8 flex justify-center gap-4 max-w-3xl mx-auto">
-            <div className={`disco-button ${isPlaying ? 'playing' : ''} flex-1 max-w-sm transition-all duration-300 transform hover:scale-105`}>
+            <div className={`disco-button ${isPlaying ? 'playing' : ''} flex-1 max-w-sm transition-all duration-300 transform hover:scale-105`} style={{ boxShadow: '0 4px 12px rgba(255, 255, 255, 0.3)' }}>
               <NavMusicPlayer
                 onPlayingChange={setIsPlaying}
                 renderAs="button"
@@ -182,7 +182,8 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
                 fontFamily: 'Inter, sans-serif', 
                 fontWeight: 700, 
                 fontSize: '1.25rem',
-                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2)'
+                height: '56px',
+                boxShadow: '0 4px 12px rgba(255, 255, 255, 0.3)'
               }}
             >
               <Play className="h-5 w-5 flex-shrink-0" />
@@ -298,7 +299,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
         {/* 5. Buttons Side by Side */}
         <div className="flex flex-col gap-3 w-full max-w-sm mx-auto">
-          <div className={`disco-button ${isPlaying ? 'playing' : ''} w-full transition-all duration-300 transform hover:scale-105`}>
+          <div className={`disco-button ${isPlaying ? 'playing' : ''} w-full transition-all duration-300 transform hover:scale-105`} style={{ boxShadow: '0 4px 12px rgba(255, 255, 255, 0.3)' }}>
             <NavMusicPlayer
               onPlayingChange={setIsPlaying}
               renderAs="button"
@@ -312,7 +313,8 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             style={{ 
               fontFamily: 'Inter, sans-serif', 
               fontWeight: 700,
-              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2)'
+              height: '56px',
+              boxShadow: '0 4px 12px rgba(255, 255, 255, 0.3)'
             }}
           >
             <Play className="h-5 w-5 flex-shrink-0" />
