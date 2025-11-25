@@ -106,7 +106,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         <div style={{ flexGrow: 1 }}>
           <video
             src={profileVideo}
-            className="mx-auto rounded-lg"
+            className="mx-auto rounded-lg cursor-pointer"
             style={{ width: '72%' }}
             autoPlay
             muted
@@ -116,6 +116,13 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
               const video = e.currentTarget;
               video.currentTime = 0;
               video.pause();
+            }}
+            onClick={(e) => {
+              const video = e.currentTarget;
+              if (video.paused) {
+                video.currentTime = 0;
+                video.play();
+              }
             }}
           />
         </div>
@@ -326,7 +333,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         <div className="w-full max-w-sm mx-auto">
           <video
             src={profileVideo}
-            className="mx-auto rounded-lg"
+            className="mx-auto rounded-lg cursor-pointer"
             style={{ width: '72%' }}
             autoPlay
             muted
@@ -336,6 +343,13 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
               const video = e.currentTarget;
               video.currentTime = 0;
               video.pause();
+            }}
+            onClick={(e) => {
+              const video = e.currentTarget;
+              if (video.paused) {
+                video.currentTime = 0;
+                video.play();
+              }
             }}
           />
         </div>
