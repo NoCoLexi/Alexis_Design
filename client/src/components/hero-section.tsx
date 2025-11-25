@@ -354,7 +354,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             }}
           >
             <div className="text-2xl font-bold" style={{ color: '#F3E8B9' }}>545.5%</div>
-            <div className="text-xs text-white/70">User Growth</div>
+            <div className="text-xs text-white/70">User Base Increase</div>
           </div>
           <div 
             className="text-center cursor-pointer transition-all duration-300 transform hover:scale-105"
@@ -364,7 +364,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             }}
           >
             <div className="text-2xl font-bold" style={{ color: '#F3E8B9' }}>$243M</div>
-            <div className="text-xs text-white/70">Platform Value</div>
+            <div className="text-xs text-white/70">Projects Closed out</div>
           </div>
           <div 
             className="text-center cursor-pointer transition-all duration-300 transform hover:scale-105"
@@ -374,7 +374,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             }}
           >
             <div className="text-2xl font-bold" style={{ color: '#F3E8B9' }}>75%</div>
-            <div className="text-xs text-white/70">Ticket Reduction</div>
+            <div className="text-xs text-white/70">Support Ticket Reduction</div>
           </div>
         </div>
 
