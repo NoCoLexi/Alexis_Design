@@ -187,7 +187,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
               }}
             >
               <Play className="h-5 w-5 flex-shrink-0" />
-              <span>90 seconds: How I drive product adoption</span>
+              <span>Watch: How I drive product adoption</span>
             </button>
           </div>
 
@@ -318,7 +318,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             }}
           >
             <Play className="h-5 w-5 flex-shrink-0" />
-            <span>90 seconds: How I drive product adoption</span>
+            <span>Watch: How I drive product adoption</span>
           </button>
         </div>
 
