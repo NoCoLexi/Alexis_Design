@@ -314,6 +314,27 @@ const projects: Project[] = [
     tags: ['Television Branding', 'Studio Design', 'Outdoor Advertising', 'Alexis Design']
   },
   {
+    id: 'ttools-alexis-design',
+    title: 'TTools Brand Identity System',
+    description: 'Complete brand identity and product licensing system created under Alexis Design for stylus technology products, successfully sold to Fellows Office Products at Staples.',
+    category: 'brand-development',
+    image: ttoolsCoverImage,
+    slideshow: [
+      ttoolsPressKitImage,
+      ttoolsLicenseeImage,
+      ttoolsCorporateImage,
+      ttoolsBrandImage,
+      ttoolsLogoImage,
+      ttoolsStylusImage,
+      ttoolsPackagingImage
+    ],
+    metrics: [
+      { label: 'Brand Guidelines', value: '50+', color: 'text-chart-1' },
+      { label: 'Commercial Success', value: '100%', color: 'text-primary' }
+    ],
+    tags: ['Brand Identity', 'Product Licensing', 'Retail Partnership', 'Alexis Design']
+  },
+  {
     id: 'tf-green-gala',
     title: 'T.F. Green Airport Gala Invitation',
     description: 'Elegant event branding and invitation design for TF Green Airport\'s Grand Opening Gala, featuring sophisticated passport-themed materials and premium event presentation.',
@@ -358,27 +379,6 @@ const projects: Project[] = [
       { label: 'Community Focus', value: '95%', color: 'text-primary' }
     ],
     tags: ['Healthcare Branding', 'Medical Marketing', 'Community Health', 'Patient Care']
-  },
-  {
-    id: 'ttools-alexis-design',
-    title: 'TTools Brand Identity System',
-    description: 'Complete brand identity and product licensing system created under Alexis Design for stylus technology products, successfully sold to Fellows Office Products at Staples.',
-    category: 'brand-development',
-    image: ttoolsCoverImage,
-    slideshow: [
-      ttoolsPressKitImage,
-      ttoolsLicenseeImage,
-      ttoolsCorporateImage,
-      ttoolsBrandImage,
-      ttoolsLogoImage,
-      ttoolsStylusImage,
-      ttoolsPackagingImage
-    ],
-    metrics: [
-      { label: 'Brand Guidelines', value: '50+', color: 'text-chart-1' },
-      { label: 'Commercial Success', value: '100%', color: 'text-primary' }
-    ],
-    tags: ['Brand Identity', 'Product Licensing', 'Retail Partnership', 'Alexis Design']
   },
   {
     id: 'gatorade-zipatoni',
