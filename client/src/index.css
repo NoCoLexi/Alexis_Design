@@ -467,7 +467,7 @@
   opacity: 1;
   animation: disco-lights-fullscreen 3s linear infinite;
   pointer-events: none;
-  z-index: 99999;
+  z-index: 2147483647;
 }
 
 /* Full-page disco lights - covers entire hero section */
