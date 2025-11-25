@@ -143,35 +143,34 @@ export default function NavMusicPlayer({ onPlayingChange, renderAs = 'circle', b
       <audio ref={audioRef} src={hireMeSong} preload="auto" />
 
       {renderAs === 'button' ? (
-        <div className={`disco-button flex items-center justify-center ${isPlaying ? 'playing' : ''} rounded-2xl`}>
-          <button
-            onClick={(e) => {
-              console.log('🖱️ Button clicked!', e);
-              togglePlayPause();
-            }}
-            className="px-3 py-3 bg-transparent hover:bg-white/10 rounded-xl font-inter-bold flex items-center gap-2 w-full justify-center relative z-10 border-2 border-white"
-            style={{ 
-              fontSize: '1.25rem', 
-              pointerEvents: 'auto', 
-              fontFamily: 'Inter, sans-serif', 
-              fontWeight: 700,
-              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2)'
-            }}
-            data-testid="button-play-hire-me-song"
-          >
-            {isPlaying ? (
-              <>
-                <Pause className="h-5 w-5 flex-shrink-0" />
-                <span className="text-center font-bold">Pause my Hire Me song</span>
-              </>
-            ) : (
-              <>
-                <Play className="h-5 w-5 flex-shrink-0" />
-                <span className="text-center font-bold">{buttonText}</span>
-              </>
-            )}
-          </button>
-        </div>
+        <button
+          onClick={(e) => {
+            console.log('🖱️ Button clicked!', e);
+            togglePlayPause();
+          }}
+          className="px-6 py-3 bg-transparent hover:bg-white/10 rounded-xl font-inter-bold flex items-center gap-2 w-full justify-center relative z-10 border-2 border-white transition-all duration-300 transform hover:scale-105"
+          style={{ 
+            fontSize: '1.25rem', 
+            pointerEvents: 'auto', 
+            fontFamily: 'Inter, sans-serif', 
+            fontWeight: 700,
+            height: '56px',
+            boxShadow: '0 4px 12px rgba(255, 255, 255, 0.3)'
+          }}
+          data-testid="button-play-hire-me-song"
+        >
+          {isPlaying ? (
+            <>
+              <Pause className="h-5 w-5 flex-shrink-0" />
+              <span className="text-center font-bold">Pause my Hire Me song</span>
+            </>
+          ) : (
+            <>
+              <Play className="h-5 w-5 flex-shrink-0" />
+              <span className="text-center font-bold">{buttonText}</span>
+            </>
+          )}
+        </button>
       ) : (
         <button
           onClick={togglePlayPause}
