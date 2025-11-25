@@ -170,7 +170,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             className="text-lg md:text-xl font-inter-medium text-muted-foreground mb-4 leading-relaxed max-w-3xl mx-auto text-center"
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400 }}
           >
-            Project Manager with Design & Change Management DNA
+            Product Manager with Design & Change Management DNA
           </p>
 
           {/* Buttons Side by Side */}
