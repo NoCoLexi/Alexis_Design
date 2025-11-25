@@ -142,6 +142,11 @@ export default function NavMusicPlayer({ onPlayingChange, renderAs = 'circle', b
     <>
       <audio ref={audioRef} src={hireMeSong} preload="auto" />
 
+      {/* Full-screen disco overlay */}
+      {isPlaying && (
+        <div className="disco-overlay"></div>
+      )}
+
       {renderAs === 'button' ? (
         <button
           onClick={(e) => {
