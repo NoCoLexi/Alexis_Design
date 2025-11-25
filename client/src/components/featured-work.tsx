@@ -79,8 +79,9 @@ import providenceSchoolsBrochureImage from "@assets/FullSizeRender 10_1755218415
 import providenceSystemMissionImage from "@assets/FullSizeRender 9_1755218651601.jpg";
 import providenceSystemVisionImage from "@assets/FullSizeRender 3_1755218651602.jpg";
 import providenceSystemObjectivesImage from "@assets/FullSizeRender 8_1755218651602.jpg";
-import providenceSystemCoverImage from "@assets/FullSizeRender 15_1755218951707.jpg";
+import providenceSystemCoverImage from "@assets/providence-schools-materials_1756173000000.jpg";
 import providenceSystemFullSpreadImage from "@assets/FullSizeRender 19_1755218954872.jpg";
+import providenceSystemOldCoverImage from "@assets/FullSizeRender 15_1755218951707.jpg";
 import abc6SeinfeldBillboardImage from "@assets/IMG_1654_1755219110187.jpg";
 import abc6NewsBillboardsImage from "@assets/IMG_1655_1755219110188.jpg";
 import abc6CampaignBillboardsImage from "@assets/FullSizeRender 16_1755219110188.jpg";
@@ -344,14 +345,13 @@ const projects: Project[] = [
     category: 'brand-development',
     image: providenceSystemCoverImage,
     slideshow: [
-      providenceSystemCoverImage,
+      providenceSystemOldCoverImage,
       providenceSystemFullSpreadImage,
       providenceSystemMissionImage,
       providenceSystemVisionImage,
       providenceSystemObjectivesImage,
       providenceSchoolsCoverImage,
-      providenceSchoolsBrochureImage,
-      providenceSchoolsMaterialsImage
+      providenceSchoolsBrochureImage
     ],
     metrics: [
       { label: 'Strategic Frameworks', value: '5+', color: 'text-chart-1' },
