@@ -6,7 +6,6 @@ import logoImage from "@assets/image_1754581825249.png";
 import CaseStudyModal from "@/components/case-study-modal";
 import AwardModal from "@/components/award-modal";
 import SiteModal from "@/components/site-modal";
-import CareerChatbot from "@/components/CareerChatbot";
 import NavMusicPlayer from "@/components/nav-music-player";
 import AdminPanel from "@/components/admin-panel";
 import { useState, useEffect } from "react";
@@ -176,7 +175,6 @@ export default function Home() {
           setIsAdminPanelOpen(false);
         }}
       />
-      {/* <CareerChatbot /> */}
 
       {/* Footer */}
       <footer className="py-12 border-t border-primary/20">
