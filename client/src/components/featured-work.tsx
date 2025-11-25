@@ -93,9 +93,7 @@ import tfGreenDetailSpreadImage from "@assets/FullSizeRender 33_1755219662733.jp
 import lifespanHealthBrochureImage from "@assets/FullSizeRender_1755219971125.jpg";
 import lifespanHealthBookletImage from "@assets/FullSizeRender 17_1755219971125.jpg";
 import lifespanHealthCoverImage from "@assets/FullSizeRender 13_1764028488191.jpg";
-
-// Import the missing image
-import providenceSchoolsMaterialsImage from "@assets/Providence Schools Materials.png";
+import providenceSchoolsMaterialsImage from "@assets/providence-schools-materials_1756173000000.jpg";
 
 
 // Preload critical images immediately when component loads
