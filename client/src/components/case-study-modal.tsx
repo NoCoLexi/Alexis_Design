@@ -82,7 +82,7 @@ import paDirectorsDeck4Image from "@assets/Directors_Deck_4_2025-08-21_10-45-30_
 import paDirectorsDeck5Image from "@assets/Directors_Deck_5_2025-08-21_10-45-30_1755797534118.png";
 import paDirectorsDeck6Image from "@assets/Directors_Deck_6_2025-08-21_10-45-30_1755797534118.png";
 import paDirectorsDeck7Image from "@assets/Directors_Deck_7_2025-08-21_10-45-30_1755797534118.png";
-import paDirectorsDeck8Image from "@assets/Directors_Deck_8_2025-08-21_10-45-30_1755797534118.png";
+import paDirectorsDeck8Image from "@assets/Directors_Deck_8_2025-08-21_10-45-30_1755788578055.png";
 import providenceSchoolsBrochureImage from "@assets/FullSizeRender 10_1755218415406.jpg";
 import providenceSchoolsMaterialsImage from "@assets/providence-schools-materials_1756173000000.jpg";
 import providenceSystemMissionImage from "@assets/FullSizeRender 9_1755218651601.jpg";
