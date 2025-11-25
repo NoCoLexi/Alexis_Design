@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { Play, Pause } from "lucide-react";
 import hireMeSong from "@assets/Hire Me (Design and Groove)_1754579236907.mp3";
 import { trackSynthesizerEvent, trackPortfolioClick } from "@/lib/analytics";
@@ -142,9 +143,10 @@ export default function NavMusicPlayer({ onPlayingChange, renderAs = 'circle', b
     <>
       <audio ref={audioRef} src={hireMeSong} preload="auto" />
 
-      {/* Full-screen disco overlay */}
-      {isPlaying && (
-        <div className="disco-overlay"></div>
+      {/* Full-screen disco overlay - rendered to document root */}
+      {isPlaying && createPortal(
+        <div className="disco-overlay"></div>,
+        document.body
       )}
 
       {renderAs === 'button' ? (
