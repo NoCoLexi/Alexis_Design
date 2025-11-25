@@ -102,12 +102,12 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
 
       {/* Desktop Layout (2 columns) */}
-      <div className="hidden md:flex items-center px-6 py-20 relative space-x-8 text-center w-full z-10">
-        <div style={{ flexGrow: 1 }}>
+      <div className="hidden md:flex items-center px-6 py-12 relative space-x-6 text-center w-full z-10">
+        <div style={{ flexGrow: 0, flexShrink: 0, width: '40%' }}>
           <video
             src={profileVideo}
             className="mx-auto rounded-lg cursor-pointer"
-            style={{ width: '72%' }}
+            style={{ width: '85%', maxHeight: '70vh', objectFit: 'cover' }}
             autoPlay
             muted
             playsInline
@@ -128,52 +128,53 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         </div>
 
         <div className="max-w-4xl mx-auto relative" style={{
-          flexGrow: 1
+          flexGrow: 1,
+          flexShrink: 1
         }}>
           {/* Award Button - positioned above the heading */}
-          <div className="mb-6 pb-4 flex justify-center">
+          <div className="mb-4 pb-2 flex justify-center">
             <div
-              className="inline-flex items-center gap-2 rounded-full px-6 py-3 hover:glow-yellow transition-all duration-300 cursor-pointer transform hover:scale-105 shadow-lg border border-chart-3/20"
+              className="inline-flex items-center gap-2 rounded-full px-5 py-2 hover:glow-yellow transition-all duration-300 cursor-pointer transform hover:scale-105 shadow-lg border border-chart-3/20"
               style={{ background: 'rgba(255, 255, 255, 0.15)', backdropFilter: 'blur(20px)' }}
               onClick={onOpenAwardModal}
               data-testid="button-hero-tech-award"
             >
-              <Award className="w-5 h-5" style={{ color: '#0081BC' }} />
-              <span className="text-base font-medium" style={{ color: '#F3E8B9' }}>
+              <Award className="w-4 h-4" style={{ color: '#0081BC' }} />
+              <span className="text-sm font-medium" style={{ color: '#F3E8B9' }}>
                 2023 California GovTech Award Winner
               </span>
             </div>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-inter-black" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.1', paddingBottom: '0.25rem' }}>
+          <h1 className="text-5xl md:text-6xl font-inter-black" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.1', paddingBottom: '0.25rem' }}>
             <span className={`disco-text ${isPlaying ? 'dancing' : ''}`} style={{ color: '#F3E8B9' }}>
               Hey hiring team
             </span>
           </h1>
 
           <p
-            className="text-2xl md:text-3xl font-inter-medium text-muted-foreground mb-2 leading-relaxed max-w-3xl mx-auto text-center"
+            className="text-xl md:text-2xl font-inter-medium text-muted-foreground mb-1 leading-relaxed max-w-3xl mx-auto text-center"
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
           >
             I'm Alexis, your next
           </p>
 
           <p
-            className={`text-2xl md:text-3xl font-inter-black text-foreground mb-2 cycling-role text-center ${isExiting ? 'exit' : ''}`}
+            className={`text-xl md:text-2xl font-inter-black text-foreground mb-1 cycling-role text-center ${isExiting ? 'exit' : ''}`}
             style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300 }}
           >
             {roles[currentRoleIndex]}
           </p>
 
           <p
-            className="text-xl md:text-2xl font-inter-medium text-muted-foreground mb-8 leading-relaxed max-w-3xl mx-auto text-center"
+            className="text-lg md:text-xl font-inter-medium text-muted-foreground mb-4 leading-relaxed max-w-3xl mx-auto text-center"
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400 }}
           >
             Where Product + Design + Change Management meet
           </p>
 
           {/* Buttons Side by Side */}
-          <div className="mb-6 pt-4 pb-8 flex justify-center gap-4 max-w-3xl mx-auto">
+          <div className="mb-4 pt-2 pb-4 flex justify-center gap-4 max-w-3xl mx-auto">
             <div className={`disco-button ${isPlaying ? 'playing' : ''} flex-1 max-w-sm transition-all duration-300 transform hover:scale-105`} style={{ boxShadow: '0 4px 12px rgba(255, 255, 255, 0.3)' }}>
               <NavMusicPlayer
                 onPlayingChange={setIsPlaying}
@@ -183,23 +184,23 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             </div>
             <button
               onClick={scrollToExpertise}
-              className="flex-1 max-w-sm px-6 py-3 bg-transparent hover:bg-white/10 rounded-xl font-inter-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2 border-white"
+              className="flex-1 max-w-sm px-4 py-2.5 bg-transparent hover:bg-white/10 rounded-xl font-inter-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2 border-white"
               data-testid="button-watch-video-about-me"
               style={{ 
                 fontFamily: 'Inter, sans-serif', 
                 fontWeight: 700, 
-                fontSize: '1.25rem',
-                height: '56px',
+                fontSize: '1.1rem',
+                height: '48px',
                 boxShadow: '0 4px 12px rgba(255, 255, 255, 0.3)'
               }}
             >
-              <Play className="h-5 w-5 flex-shrink-0" />
+              <Play className="h-4 w-4 flex-shrink-0" />
               <span>How I drive product adoption</span>
             </button>
           </div>
 
           {/* Key Metrics */}
-          <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto pt-6 relative">
+          <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto pt-3 relative">
             <div 
               className="text-center cursor-pointer transition-all duration-300 transform hover:scale-105"
               onClick={() => {
@@ -207,8 +208,8 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
                 window.dispatchEvent(event);
               }}
             >
-              <div className="text-3xl md:text-4xl font-bold" style={{ color: '#F3E8B9' }}>545.5%</div>
-              <div className="text-sm text-white/70">User Growth</div>
+              <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>545.5%</div>
+              <div className="text-xs text-white/70">User Growth</div>
             </div>
             <div 
               className="text-center cursor-pointer transition-all duration-300 transform hover:scale-105"
@@ -217,8 +218,8 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
                 window.dispatchEvent(event);
               }}
             >
-              <div className="text-3xl md:text-4xl font-bold" style={{ color: '#F3E8B9' }}>$243M</div>
-              <div className="text-sm text-white/70">Platform Value</div>
+              <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>$243M</div>
+              <div className="text-xs text-white/70">Platform Value</div>
             </div>
             <div 
               className="text-center cursor-pointer transition-all duration-300 transform hover:scale-105"
@@ -227,13 +228,13 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
                 window.dispatchEvent(event);
               }}
             >
-              <div className="text-3xl md:text-4xl font-bold" style={{ color: '#F3E8B9' }}>75%</div>
-              <div className="text-sm text-white/70">Ticket Reduction</div>
+              <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>75%</div>
+              <div className="text-xs text-white/70">Ticket Reduction</div>
             </div>
           </div>
 
           {/* Message Me Button */}
-          <div className="flex justify-center mt-8 max-w-3xl mx-auto">
+          <div className="flex justify-center mt-4 max-w-3xl mx-auto">
             <button
               onClick={scrollToContact}
               className="w-full px-8 py-4 bg-gradient-to-r from-purple-600/80 to-blue-600/80 hover:from-purple-500/90 hover:to-blue-500/90 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3 border-2 border-white shadow-lg"
