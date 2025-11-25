@@ -162,7 +162,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             className="text-xl md:text-2xl font-inter-medium text-muted-foreground mb-8 leading-relaxed max-w-3xl mx-auto text-center"
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400 }}
           >
-            Where Product x Design x Change Management meet
+            Where Product + Design + Change Management meet
           </p>
 
           {/* Buttons Side by Side */}
@@ -294,7 +294,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           className="text-lg font-inter-medium text-muted-foreground leading-relaxed"
           style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400 }}
         >
-          Where Product x Design x Change Management meet
+          Where Product + Design + Change Management meet
         </p>
 
         {/* 5. Buttons Side by Side */}
