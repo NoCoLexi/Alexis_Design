@@ -258,8 +258,8 @@ const projects: Project[] = [
   },
   {
     id: 'fairgrounds-coffee',
-    title: 'FairGrounds Community Coffee',
-    description: 'Complete brand identity and product packaging design for FairGrounds, a hip underground coffee bar in Maine, featuring vibrant drink packaging, merchandise, and seasonal storefront design.',
+    title: 'FairGrounds',
+    description: 'Complete brand identity and product packaging design for a hip underground coffee bar in Maine, featuring vibrant drink packaging, merchandise, and seasonal storefront design.',
     category: 'brand-development',
     image: fairGroundsCoffeeImage,
     slideshow: [
@@ -279,7 +279,7 @@ const projects: Project[] = [
   },
   {
     id: 'providence-school-system',
-    title: 'Providence School System brand development',
+    title: 'Providence School System',
     description: 'Comprehensive strategic planning and brand development for Providence School Department, including magnet program branding, mission-driven materials, and strategic frameworks to support educational excellence and community engagement across the entire school system.',
     category: 'brand-development',
     image: providenceSystemCoverImage,
@@ -300,7 +300,7 @@ const projects: Project[] = [
   },
   {
     id: 'abc6-rebrand-alexis-design',
-    title: 'WLNE-ABC6 Brand Transformation',
+    title: 'WLNE-ABC6',
     description: 'Company-wide brand transformation for ABC6 News under Alexis Design, working directly with the marketing director to redesign everything from studio backdrops to mic holders and outdoor advertising.',
     category: 'brand-development',
     image: abc6CoverImage,
@@ -316,7 +316,7 @@ const projects: Project[] = [
   },
   {
     id: 'ttools-alexis-design',
-    title: 'TTools Brand Identity System',
+    title: 'TTools',
     description: 'Complete brand identity and product licensing system created under Alexis Design for stylus technology products, successfully sold to Fellows Office Products at Staples.',
     category: 'brand-development',
     image: ttoolsCoverImage,
@@ -366,7 +366,7 @@ const projects: Project[] = [
   },
   {
     id: 'lifespan-health-care',
-    title: 'Lifespan Health Care Brand Development',
+    title: 'Lifespan Health Care',
     description: 'Comprehensive healthcare brand development featuring patient-focused messaging, community healthcare positioning, and professional medical marketing materials.',
     category: 'brand-development',
     image: lifespanHealthCoverImage,
@@ -383,8 +383,8 @@ const projects: Project[] = [
   },
   {
     id: 'jwu-branding',
-    title: 'Johnson & Wales University Branding',
-    description: 'Comprehensive university brand development including capital campaign materials, mission statement design, core values communication, and strategic marketing collateral for Johnson & Wales University.',
+    title: 'Johnson & Wales University',
+    description: 'Comprehensive university brand development including capital campaign materials, mission statement design, core values communication, and strategic marketing collateral.',
     category: 'brand-development',
     image: jwuBrandingImage,
     metrics: [
@@ -395,8 +395,8 @@ const projects: Project[] = [
   },
   {
     id: 'gatorade-zipatoni',
-    title: 'Gatorade Brand Development',
-    description: 'Brand development and sports marketing design concepts created during my tenure at Zipatoni, focusing on label design and sports marketing materials for the iconic Gatorade brand.',
+    title: 'Gatorade',
+    description: 'Brand development and sports marketing design concepts created during my tenure at Zipatoni, focusing on label design and sports marketing materials for the iconic brand.',
     category: 'brand-development',
     image: gatoradeSportsImage,
     slideshow: [
@@ -411,7 +411,7 @@ const projects: Project[] = [
   },
   {
     id: 'budweiser-zipatoni',
-    title: 'Budweiser Marketing Campaign',
+    title: 'Budweiser',
     description: 'Beer brand campaign development during my time at Zipatoni, creating compelling marketing materials and brand campaigns for one of America\'s most iconic beer brands.',
     category: 'brand-development',
     image: budweiserIceImage,
