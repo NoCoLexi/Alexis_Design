@@ -79,7 +79,7 @@ import providenceSchoolsBrochureImage from "@assets/FullSizeRender 10_1755218415
 import providenceSystemMissionImage from "@assets/FullSizeRender 9_1755218651601.jpg";
 import providenceSystemVisionImage from "@assets/FullSizeRender 3_1755218651602.jpg";
 import providenceSystemObjectivesImage from "@assets/FullSizeRender 8_1755218651602.jpg";
-import providenceSystemCoverImage from "@assets/providence-schools-materials_1756173000000.jpg";
+import providenceSystemCoverImage from "@assets/FullSizeRender 4_1755218415405.jpg";
 import providenceSystemFullSpreadImage from "@assets/FullSizeRender 19_1755218954872.jpg";
 import providenceSystemOldCoverImage from "@assets/FullSizeRender 15_1755218951707.jpg";
 import abc6SeinfeldBillboardImage from "@assets/IMG_1654_1755219110187.jpg";
