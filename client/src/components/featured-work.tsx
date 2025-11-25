@@ -81,7 +81,6 @@ import providenceSystemVisionImage from "@assets/FullSizeRender 3_1755218651602.
 import providenceSystemObjectivesImage from "@assets/FullSizeRender 8_1755218651602.jpg";
 import providenceSystemCoverImage from "@assets/FullSizeRender 15_1755218951707.jpg";
 import providenceSystemFullSpreadImage from "@assets/FullSizeRender 19_1755218954872.jpg";
-import providenceSchoolsNewCoverImage from "@assets/providence-schools-materials_1756173000000.jpg";
 import abc6SeinfeldBillboardImage from "@assets/IMG_1654_1755219110187.jpg";
 import abc6NewsBillboardsImage from "@assets/IMG_1655_1755219110188.jpg";
 import abc6CampaignBillboardsImage from "@assets/FullSizeRender 16_1755219110188.jpg";
@@ -343,16 +342,16 @@ const projects: Project[] = [
     title: 'Providence School System brand development',
     description: 'Comprehensive strategic planning and brand development for Providence School Department, including magnet program branding, mission-driven materials, and strategic frameworks to support educational excellence and community engagement across the entire school system.',
     category: 'brand-development',
-    image: providenceSchoolsNewCoverImage,
+    image: providenceSystemCoverImage,
     slideshow: [
-      providenceSchoolsNewCoverImage,
       providenceSystemCoverImage,
       providenceSystemFullSpreadImage,
       providenceSystemMissionImage,
       providenceSystemVisionImage,
       providenceSystemObjectivesImage,
       providenceSchoolsCoverImage,
-      providenceSchoolsBrochureImage
+      providenceSchoolsBrochureImage,
+      providenceSchoolsMaterialsImage
     ],
     metrics: [
       { label: 'Strategic Frameworks', value: '5+', color: 'text-chart-1' },
