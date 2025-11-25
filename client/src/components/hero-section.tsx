@@ -229,7 +229,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
               }}
             >
               <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>75%</div>
-              <div className="text-xs text-white/70">Ticket Reduction</div>
+              <div className="text-xs text-white/70">Support Ticket Reduction</div>
             </div>
           </div>
 
