@@ -95,6 +95,7 @@ import lifespanHealthBrochureImage from "@assets/FullSizeRender_1755219971125.jp
 import lifespanHealthBookletImage from "@assets/FullSizeRender 17_1755219971125.jpg";
 import lifespanHealthCoverImage from "@assets/FullSizeRender 13_1764028488191.jpg";
 import providenceSchoolsMaterialsImage from "@assets/providence-schools-materials_1756173000000.jpg";
+import jwuBrandingImage from "@assets/FullSizeRender 2_1754523503518.jpg";
 
 
 // Preload critical images immediately when component loads
@@ -379,6 +380,18 @@ const projects: Project[] = [
       { label: 'Community Focus', value: '95%', color: 'text-primary' }
     ],
     tags: ['Healthcare Branding', 'Medical Marketing', 'Community Health', 'Patient Care']
+  },
+  {
+    id: 'jwu-branding',
+    title: 'Johnson & Wales University Branding',
+    description: 'Comprehensive university brand development including capital campaign materials, mission statement design, core values communication, and strategic marketing collateral for Johnson & Wales University.',
+    category: 'brand-development',
+    image: jwuBrandingImage,
+    metrics: [
+      { label: 'University Branding', value: '100%', color: 'text-chart-1' },
+      { label: 'Strategic Messaging', value: '95%', color: 'text-primary' }
+    ],
+    tags: ['University Branding', 'Higher Education', 'Capital Campaign', 'Strategic Communications']
   },
   {
     id: 'gatorade-zipatoni',
