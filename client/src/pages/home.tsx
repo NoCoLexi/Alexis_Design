@@ -80,32 +80,33 @@ export default function Home() {
               <span className="text-purple-400 font-light text-xl ml-1">PMP, CMP</span>
             </div>
             <div className="hidden md:flex space-x-8 items-center">
-              {[
-                { id: 'work', label: 'Check out my work' },
-                { id: 'about', label: 'My Expertise' }
-              ].map(item => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`transition-colors font-medium px-3 py-2 rounded-md ${
-                    activeSection === item.id 
-                      ? 'text-purple-400 bg-purple-400/10' 
-                      : 'text-white hover:text-purple-400 hover:bg-white/5'
-                  }`}
-                  style={{fontSize: '14px', fontWeight: '500'}}
-                >
-                  {item.label}
-                </button>
-              ))}
+              <button
+                onClick={() => setIsSiteModalOpen(true)}
+                className={`transition-colors font-medium px-3 py-2 rounded-md text-white hover:text-purple-400 hover:bg-white/5`}
+                style={{fontSize: '14px', fontWeight: '500'}}
+                data-testid="button-about-site"
+              >
+                How I built this site
+              </button>
+              <button
+                onClick={() => scrollToSection('about')}
+                className={`transition-colors font-medium px-3 py-2 rounded-md ${
+                  activeSection === 'about' 
+                    ? 'text-purple-400 bg-purple-400/10' 
+                    : 'text-white hover:text-purple-400 hover:bg-white/5'
+                }`}
+                style={{fontSize: '14px', fontWeight: '500'}}
+              >
+                My Expertise
+              </button>
               <div className="ml-4 flex items-center gap-3">
                 <div 
                   className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600/60 to-purple-500/70 rounded-full px-4 py-2 hover:from-purple-500/70 hover:to-purple-400/80 transition-all duration-300 cursor-pointer border border-purple-400/30 transform hover:scale-105 hover:brightness-110"
-                  onClick={() => setIsSiteModalOpen(true)}
-                  data-testid="button-about-site"
+                  onClick={() => scrollToSection('work')}
+                  data-testid="button-check-out-work"
                 >
-                  <Code className="w-4 h-4 text-purple-300" />
-                  <span className="text-sm font-medium hidden lg:inline" style={{ color: '#F3E8B9' }}>
-                    How I built this site
+                  <span className="text-sm font-medium" style={{ color: '#F3E8B9' }}>
+                    Check out my work
                   </span>
                 </div>
               </div>
@@ -121,30 +122,33 @@ export default function Home() {
           {/* Mobile Menu */}
           {isMobileMenuOpen && (
             <div className="md:hidden mt-4 pb-4 space-y-2 bg-black/50 rounded-lg p-4 border border-purple-400/20">
-              {[
-                { id: 'work', label: 'Check out my work' },
-                { id: 'about', label: 'My Expertise' }
-              ].map(item => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className="block w-full text-left py-3 px-4 text-white hover:text-purple-400 hover:bg-white/5 transition-colors rounded-md font-medium"
-                >
-                  {item.label}
-                </button>
-              ))}
+              <button
+                onClick={() => {
+                  setIsSiteModalOpen(true);
+                  setIsMobileMenuOpen(false);
+                }}
+                className="block w-full text-left py-3 px-4 text-white hover:text-purple-400 hover:bg-white/5 transition-colors rounded-md font-medium"
+                data-testid="button-about-site-mobile"
+              >
+                How I built this site
+              </button>
+              <button
+                onClick={() => scrollToSection('about')}
+                className="block w-full text-left py-3 px-4 text-white hover:text-purple-400 hover:bg-white/5 transition-colors rounded-md font-medium"
+              >
+                My Expertise
+              </button>
               <div className="pt-2 border-t border-purple-400/20 space-y-2">
                 <div 
                   className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600/60 to-purple-500/70 rounded-full px-4 py-2 hover:from-purple-500/70 hover:to-purple-400/80 transition-all duration-300 cursor-pointer w-full justify-center transform hover:scale-105 hover:brightness-110"
                   onClick={() => {
-                    setIsSiteModalOpen(true);
+                    scrollToSection('work');
                     setIsMobileMenuOpen(false);
                   }}
-                  data-testid="button-about-site-mobile"
+                  data-testid="button-check-out-work-mobile"
                 >
-                  <Code className="w-4 h-4 text-purple-300" />
                   <span className="text-sm font-medium" style={{ color: '#F3E8B9' }}>
-                    How I built this site
+                    Check out my work
                   </span>
                 </div>
               </div>
