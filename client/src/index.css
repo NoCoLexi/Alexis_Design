@@ -470,6 +470,33 @@
   z-index: 2147483647;
 }
 
+/* Hide any bottom-right fixed elements when disco is playing */
+body:has(.disco-overlay) .fixed.bottom-6.right-6,
+body:has(.disco-overlay) .fixed.bottom-4.right-4,
+body:has(.disco-overlay) .fixed.bottom-24.right-6,
+body:has(.disco-overlay) [class*="fixed"][class*="bottom"][class*="right"],
+body:has(.disco-overlay) [class*="bottom-"][class*="right-"],
+body:has(.disco-overlay) button[class*="bottom"],
+body:has(.disco-overlay) button[class*="right"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Cover entire bottom-right with overlay when disco is playing */
+body:has(.disco-overlay)::after {
+  content: '';
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  background: transparent;
+  z-index: 1000000;
+  pointer-events: none;
+}
+
 /* Full-page disco lights - covers entire hero section */
 .disco-button.playing::before {
   content: '';
