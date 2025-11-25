@@ -352,16 +352,24 @@ const projects: Project[] = [
     tags: ['Brand Identity', 'Product Licensing', 'Retail Partnership', 'Alexis Design']
   },
   {
-    id: 'tf-green-gala',
-    title: 'T.F. Green Airport Gala Invitation',
-    description: 'Elegant event branding and invitation design for TF Green Airport\'s Grand Opening Gala, featuring sophisticated passport-themed materials and premium event presentation.',
+    id: 'budweiser-zipatoni',
+    title: 'Budweiser',
+    description: 'Beer brand campaign development during my time at Zipatoni, creating compelling marketing materials and brand campaigns for one of America\'s most iconic beer brands.',
     category: 'brand-development',
-    image: tfGreenGalaImage,
-    metrics: [
-      { label: 'Premium Event Design', value: '100%', color: 'text-chart-1' },
-      { label: 'Aviation Theme Integration', value: '95%', color: 'text-primary' }
+    image: budweiserIceImage,
+    slideshow: [
+      budweiserGuide1Image,
+      budweiserGuide2Image,
+      budweiserGuide3Image,
+      budweiserGuide4Image,
+      budweiserGuide5Image,
+      budweiserGuide6Image
     ],
-    tags: ['Event Design', 'Aviation Branding', 'Premium Invitations', 'Gala Marketing']
+    metrics: [
+      { label: 'Campaign Concepts', value: '12+', color: 'text-chart-1' },
+      { label: 'Brand Consistency', value: '98%', color: 'text-primary' }
+    ],
+    tags: ['Beer Marketing', 'Campaign Development', 'Brand Strategy', 'Zipatoni Agency']
   },
   {
     id: 'ri-convention-center',
@@ -410,24 +418,16 @@ const projects: Project[] = [
     tags: ['University Branding', 'Higher Education', 'Capital Campaign', 'Strategic Communications']
   },
   {
-    id: 'budweiser-zipatoni',
-    title: 'Budweiser',
-    description: 'Beer brand campaign development during my time at Zipatoni, creating compelling marketing materials and brand campaigns for one of America\'s most iconic beer brands.',
+    id: 'tf-green-gala',
+    title: 'T.F. Green Airport Gala Invitation',
+    description: 'Elegant event branding and invitation design for TF Green Airport\'s Grand Opening Gala, featuring sophisticated passport-themed materials and premium event presentation.',
     category: 'brand-development',
-    image: budweiserIceImage,
-    slideshow: [
-      budweiserGuide1Image,
-      budweiserGuide2Image,
-      budweiserGuide3Image,
-      budweiserGuide4Image,
-      budweiserGuide5Image,
-      budweiserGuide6Image
-    ],
+    image: tfGreenGalaImage,
     metrics: [
-      { label: 'Campaign Concepts', value: '12+', color: 'text-chart-1' },
-      { label: 'Brand Consistency', value: '98%', color: 'text-primary' }
+      { label: 'Premium Event Design', value: '100%', color: 'text-chart-1' },
+      { label: 'Aviation Theme Integration', value: '95%', color: 'text-primary' }
     ],
-    tags: ['Beer Marketing', 'Campaign Development', 'Brand Strategy', 'Zipatoni Agency']
+    tags: ['Event Design', 'Aviation Branding', 'Premium Invitations', 'Gala Marketing']
   }
 ];
 
