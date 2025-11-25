@@ -560,17 +560,18 @@ const caseStudies: Record<string, CaseStudy> = {
     id: 'providence-school-system',
     title: 'Providence School System Brand Development',
     subtitle: 'Strategic Planning & Educational Framework Design',
-    description: 'Comprehensive strategic planning and brand development for Providence School Department, creating mission-driven materials and strategic frameworks to support educational excellence and community engagement across the entire school system.',
+    description: 'Comprehensive strategic planning and brand development for Providence School Department, creating mission-driven materials and strategic frameworks to support educational excellence and community engagement across the entire school system. This project merges the former Providence Magnet School Program into the broader Providence School System brand.',
     role: 'Strategic Brand Designer & Educational Consultant',
-    duration: '6 months',
-    team: 'Providence School Department leadership and strategic planning committee',
-    challenge: 'Develop a comprehensive strategic framework and brand identity for the Providence School Department that would effectively communicate the district\'s mission, vision, and objectives while supporting educational excellence across diverse urban communities.',
-    solution: 'Created a holistic strategic planning framework that includes mission statement development, comprehensive objectives mapping, and action-oriented implementation strategies. Designed materials that clearly articulate the district\'s commitment to educational excellence and community engagement.',
-    outcome: 'Successfully delivered a complete strategic brand framework that enhanced the school district\'s ability to communicate its mission and goals, resulting in improved community engagement and clearer organizational direction.',
+    duration: '9 months',
+    team: 'Providence School Department leadership, strategic planning committee, and Providence Magnet School Program stakeholders',
+    challenge: 'Develop a comprehensive strategic framework and brand identity for the Providence School Department that would effectively communicate the district\'s mission, vision, and objectives while supporting educational excellence across diverse urban communities, and integrate the specialized offerings of the magnet program under this unified brand.',
+    solution: 'Created a holistic strategic planning framework that includes mission statement development, comprehensive objectives mapping, and action-oriented implementation strategies. Designed materials that clearly articulate the district\'s commitment to educational excellence and community engagement, and integrated the Providence Magnet School Program\'s offerings into this overarching brand narrative.',
+    outcome: 'Successfully delivered a complete strategic brand framework that enhanced the school district\'s ability to communicate its mission and goals, resulting in improved community engagement, clearer organizational direction, and successful integration of specialized magnet programs under a unified system-wide brand.',
     metrics: [
       { label: '5+', value: 'Strategic Frameworks', description: 'Comprehensive planning documents created' },
       { label: '100%', value: 'Community Impact', description: 'District-wide implementation success' },
-      { label: '15+', value: 'Stakeholder Groups', description: 'Engaged in planning process' }
+      { label: '15+', value: 'Stakeholder Groups', description: 'Engaged in planning process' },
+      { label: '12+', value: 'Educational Programs Integrated', description: 'Magnet school specializations now part of system-wide brand' }
     ],
     process: [
       'District-wide stakeholder analysis and community assessment',
@@ -578,20 +579,26 @@ const caseStudies: Record<string, CaseStudy> = {
       'Strategic objective mapping and framework creation',
       'Action plan development with measurable outcomes',
       'Implementation timeline and responsibility matrix design',
-      'Community engagement strategy and communication planning'
+      'Community engagement strategy and communication planning',
+      'Integration strategy for specialized programs (e.g., Magnet Schools)'
     ],
     learnings: [
       'Educational strategy requires deep community understanding and engagement',
       'Strategic frameworks must balance ambitious vision with practical implementation',
+      'Educational materials must appeal to both students and parents',
+      'Vibrant, accessible design increases engagement with educational materials',
       'School district branding must serve diverse community stakeholders',
-      'Clear mission articulation enables better organizational alignment'
+      'Consistent branding across programs builds trust and recognition'
     ],
     slideshow: [
       providenceSystemCoverImage,
       providenceSystemFullSpreadImage,
       providenceSystemMissionImage,
       providenceSystemVisionImage,
-      providenceSystemObjectivesImage
+      providenceSystemObjectivesImage,
+      providenceSchoolsCoverImage,
+      providenceSchoolsBrochureImage,
+      providenceSchoolsMaterialsImage
     ]
   },
   'gatorade-zipatoni': {
@@ -1022,7 +1029,7 @@ export default function CaseStudyModal() {
               {caseStudy.award && (
                 <div className="mt-4">
                   <Badge variant="secondary" className="bg-chart-3/20 text-chart-3 flex items-center gap-2 w-fit">
-                    <Award className="w-4 h-4" />
+                    <Award className="w-4 h-6" />
                     {caseStudy.award}
                   </Badge>
                 </div>
