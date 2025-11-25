@@ -276,22 +276,6 @@ const projects: Project[] = [
     tags: ['Brand Identity', 'Logo Design', 'Product Packaging', 'Community Coffee']
   },
   {
-    id: 'providence-schools',
-    title: 'Providence Magnet School Program',
-    description: 'Comprehensive educational branding and materials design for Providence Schools magnet program, creating vibrant promotional materials and program guides to showcase specialized educational opportunities.',
-    category: 'brand-development',
-    image: providenceSchoolsCoverImage,
-    slideshow: [
-      providenceSchoolsCoverImage,
-      providenceSchoolsBrochureImage
-    ],
-    metrics: [
-      { label: 'Educational Programs', value: '12+', color: 'text-chart-1' },
-      { label: 'Material Design Impact', value: '95%', color: 'text-primary' }
-    ],
-    tags: ['Educational Branding', 'Magnet Schools', 'Print Design', 'Program Materials']
-  },
-  {
     id: 'abc6-rebrand-alexis-design',
     title: 'WLNE-ABC6 Brand Transformation',
     description: 'Company-wide brand transformation for ABC6 News under Alexis Design, working directly with the marketing director to redesign everything from studio backdrops to mic holders and outdoor advertising.',
@@ -500,23 +484,23 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
       }`}
       onClick={() => onOpenCaseStudy(project.id)}
       style={{
-        transform: disableParallax 
-          ? `scale(${isVisible ? 1 : 0.95})` 
+        transform: disableParallax
+          ? `scale(${isVisible ? 1 : 0.95})`
           : `translateY(${isVisible ? -parallaxY * 0.2 : 20}px) scale(${isVisible ? 1 : 0.95})`,
         transition: 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
         backgroundColor: '#303032'
       }}
     >
       <div className="aspect-video relative overflow-hidden">
-        <img 
-          src={project.image} 
+        <img
+          src={project.image}
           alt={project.title}
           className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
           loading={index < 2 ? "eager" : "lazy"}
           decoding="async"
-          style={disableParallax ? 
-            (project.image === riConventionCenterImage ? { objectPosition: 'center 35%' } : {}) : 
-            { 
+          style={disableParallax ?
+            (project.image === riConventionCenterImage ? { objectPosition: 'center 35%' } : {}) :
+            {
               transform: `translateY(${parallaxY * 0.1}px)`,
               transition: 'transform 0.1s ease-out',
               ...(project.image === riConventionCenterImage ? { objectPosition: 'center 35%' } : {})
@@ -633,8 +617,8 @@ export default function FeaturedWork() {
     }
   }, [settings.jobType]);
 
-  const filteredProjects = useMemo(() => 
-    projects.filter(project => 
+  const filteredProjects = useMemo(() =>
+    projects.filter(project =>
       activeFilter === 'all' || project.category === activeFilter
     ), [activeFilter]
   );
