@@ -439,6 +439,10 @@
 .disco-button {
   position: relative;
   display: inline-block;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 .disco-button > * {
