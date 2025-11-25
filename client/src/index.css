@@ -438,11 +438,7 @@
 
 .disco-button {
   position: relative;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
+  display: inline-block;
 }
 
 .disco-button > * {
@@ -469,14 +465,6 @@
   animation: disco-lights-fullscreen 3s linear infinite;
   pointer-events: none;
   z-index: 1;
-}
-
-/* Remove any disco button container effects */
-.disco-button.playing {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  outline: none !important;
 }
 
 /* Header Disco Effects */
