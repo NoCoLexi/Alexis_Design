@@ -175,7 +175,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
           {/* Buttons Side by Side */}
           <div className="mb-4 pt-2 pb-4 flex justify-center gap-4 max-w-3xl mx-auto">
-            <div className={`disco-button ${isPlaying ? 'playing' : ''} flex-1 max-w-sm transition-all duration-300 transform hover:scale-105`} style={{ boxShadow: '0 4px 12px rgba(255, 255, 255, 0.3)', height: '48px' }}>
+            <div className={`disco-button ${isPlaying ? 'playing' : ''} flex-1 max-w-sm transition-all duration-300 transform hover:scale-105`} style={{ boxShadow: '0 4px 12px rgba(255, 255, 255, 0.3)' }}>
               <NavMusicPlayer
                 onPlayingChange={setIsPlaying}
                 renderAs="button"
@@ -191,7 +191,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
                 fontWeight: 700, 
                 fontSize: '1.1rem',
                 boxShadow: '0 4px 12px rgba(255, 255, 255, 0.3)',
-                height: '48px'
+                height: '56px'
               }}
             >
               <Play className="h-4 w-4 flex-shrink-0" />

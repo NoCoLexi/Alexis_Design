@@ -148,9 +148,9 @@ export default function NavMusicPlayer({ onPlayingChange, renderAs = 'circle', b
             console.log('🖱️ Button clicked!', e);
             togglePlayPause();
           }}
-          className="px-6 py-3 bg-transparent hover:bg-white/10 rounded-xl font-inter-bold flex items-center gap-2 w-full justify-center relative z-10 border-2 border-white transition-all duration-300 transform hover:scale-105"
+          className="px-6 bg-transparent hover:bg-white/10 rounded-xl font-inter-bold flex items-center gap-2 w-full justify-center relative z-10 border-2 border-white transition-all duration-300 transform hover:scale-105"
           style={{ 
-            fontSize: '1.25rem', 
+            fontSize: '1.1rem', 
             pointerEvents: 'auto', 
             fontFamily: 'Inter, sans-serif', 
             fontWeight: 700,
@@ -161,12 +161,12 @@ export default function NavMusicPlayer({ onPlayingChange, renderAs = 'circle', b
         >
           {isPlaying ? (
             <>
-              <Pause className="h-5 w-5 flex-shrink-0" />
+              <Pause className="h-4 w-4 flex-shrink-0" />
               <span className="text-center font-bold">Pause my Hire Me song</span>
             </>
           ) : (
             <>
-              <Play className="h-5 w-5 flex-shrink-0" />
+              <Play className="h-4 w-4 flex-shrink-0" />
               <span className="text-center font-bold">{buttonText}</span>
             </>
           )}
