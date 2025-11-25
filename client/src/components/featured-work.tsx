@@ -136,6 +136,22 @@ const projects: Project[] = [
     tags: ['Gov Tech', 'Innovation Award', 'Public Service']
   },
   {
+    id: 'gatorade-zipatoni',
+    title: 'Gatorade',
+    description: 'Brand development and sports marketing design concepts created during my tenure at Zipatoni, focusing on label design and sports marketing materials for the iconic brand.',
+    category: 'brand-development',
+    image: gatoradeSportsImage,
+    slideshow: [
+      gatoradeLabelImage,
+      gatoradeSportsImage
+    ],
+    metrics: [
+      { label: 'Design Concepts', value: '15+', color: 'text-chart-1' },
+      { label: 'Brand Recognition', value: '95%', color: 'text-primary' }
+    ],
+    tags: ['Brand Development', 'Sports Marketing', 'Label Design', 'Zipatoni Agency']
+  },
+  {
     id: 'pa-portal',
     title: 'Public Assistance Closeouts App',
     description: 'Streamlining the reimbursement process for California subrecipients. Winner of the 2023 California Government Technology Innovation Award.',
@@ -392,22 +408,6 @@ const projects: Project[] = [
       { label: 'Strategic Messaging', value: '95%', color: 'text-primary' }
     ],
     tags: ['University Branding', 'Higher Education', 'Capital Campaign', 'Strategic Communications']
-  },
-  {
-    id: 'gatorade-zipatoni',
-    title: 'Gatorade',
-    description: 'Brand development and sports marketing design concepts created during my tenure at Zipatoni, focusing on label design and sports marketing materials for the iconic brand.',
-    category: 'brand-development',
-    image: gatoradeSportsImage,
-    slideshow: [
-      gatoradeLabelImage,
-      gatoradeSportsImage
-    ],
-    metrics: [
-      { label: 'Design Concepts', value: '15+', color: 'text-chart-1' },
-      { label: 'Brand Recognition', value: '95%', color: 'text-primary' }
-    ],
-    tags: ['Brand Development', 'Sports Marketing', 'Label Design', 'Zipatoni Agency']
   },
   {
     id: 'budweiser-zipatoni',
