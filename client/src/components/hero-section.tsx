@@ -175,24 +175,23 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
           {/* Buttons Side by Side */}
           <div className="mb-4 pt-2 pb-4 flex justify-center gap-4 max-w-3xl mx-auto">
-            <div className="flex-1 max-w-sm">
-              <div className={`disco-button ${isPlaying ? 'playing' : ''} transition-all duration-300 transform hover:scale-105 h-[48px]`} style={{ boxShadow: '0 4px 12px rgba(255, 255, 255, 0.3)' }}>
-                <NavMusicPlayer
-                  onPlayingChange={setIsPlaying}
-                  renderAs="button"
-                  buttonText='Play my "Hire Me" song'
-                />
-              </div>
+            <div className={`disco-button ${isPlaying ? 'playing' : ''} flex-1 max-w-sm transition-all duration-300 transform hover:scale-105`} style={{ boxShadow: '0 4px 12px rgba(255, 255, 255, 0.3)', height: '48px' }}>
+              <NavMusicPlayer
+                onPlayingChange={setIsPlaying}
+                renderAs="button"
+                buttonText='Play my "Hire Me" song'
+              />
             </div>
             <button
               onClick={scrollToExpertise}
-              className="flex-1 max-w-sm px-4 py-2.5 bg-transparent hover:bg-white/10 rounded-xl font-inter-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2 border-white h-[48px]"
+              className="flex-1 max-w-sm px-4 bg-transparent hover:bg-white/10 rounded-xl font-inter-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2 border-white"
               data-testid="button-watch-video-about-me"
               style={{ 
                 fontFamily: 'Inter, sans-serif', 
                 fontWeight: 700, 
                 fontSize: '1.1rem',
-                boxShadow: '0 4px 12px rgba(255, 255, 255, 0.3)'
+                boxShadow: '0 4px 12px rgba(255, 255, 255, 0.3)',
+                height: '48px'
               }}
             >
               <Play className="h-4 w-4 flex-shrink-0" />

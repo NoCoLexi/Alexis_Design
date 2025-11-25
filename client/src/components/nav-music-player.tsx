@@ -174,9 +174,14 @@ export default function NavMusicPlayer({ onPlayingChange, renderAs = 'circle', b
       ) : (
         <button
           onClick={togglePlayPause}
-          className="w-full px-6 py-3 bg-transparent hover:bg-white/5 rounded-xl font-inter-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2 border-white shadow-lg"
+          className="px-4 bg-transparent hover:bg-white/10 rounded-xl font-inter-bold transition-all duration-300 flex items-center justify-center gap-2 border-2 border-white w-full h-full"
           title={isPlaying ? 'Pause music' : 'Play Me'}
           data-testid="button-disco-music-player"
+          style={{ 
+            fontFamily: 'Inter, sans-serif', 
+            fontWeight: 700, 
+            fontSize: '1.1rem'
+          }}
         >
           {isPlaying ? <Pause className="h-5 w-5 relative z-10" /> : <Play className="h-5 w-5 relative z-10" />}
         </button>
