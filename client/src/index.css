@@ -441,6 +441,8 @@
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 .disco-button > * {
@@ -474,6 +476,7 @@
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
+  outline: none !important;
 }
 
 /* Header Disco Effects */
