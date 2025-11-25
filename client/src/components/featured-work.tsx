@@ -277,6 +277,27 @@ const projects: Project[] = [
     tags: ['Brand Identity', 'Logo Design', 'Product Packaging', 'Community Coffee']
   },
   {
+    id: 'providence-school-system',
+    title: 'Providence School System brand development',
+    description: 'Comprehensive strategic planning and brand development for Providence School Department, including magnet program branding, mission-driven materials, and strategic frameworks to support educational excellence and community engagement across the entire school system.',
+    category: 'brand-development',
+    image: providenceSystemCoverImage,
+    slideshow: [
+      providenceSystemOldCoverImage,
+      providenceSystemFullSpreadImage,
+      providenceSystemMissionImage,
+      providenceSystemVisionImage,
+      providenceSystemObjectivesImage,
+      providenceSchoolsCoverImage,
+      providenceSchoolsBrochureImage
+    ],
+    metrics: [
+      { label: 'Strategic Frameworks', value: '5+', color: 'text-chart-1' },
+      { label: 'Educational Programs', value: '12+', color: 'text-primary' }
+    ],
+    tags: ['Educational Strategy', 'Strategic Planning', 'Magnet Schools', 'Community Engagement', 'School Systems']
+  },
+  {
     id: 'abc6-rebrand-alexis-design',
     title: 'WLNE-ABC6 Brand Transformation',
     description: 'Company-wide brand transformation for ABC6 News under Alexis Design, working directly with the marketing director to redesign everything from studio backdrops to mic holders and outdoor advertising.',
@@ -337,27 +358,6 @@ const projects: Project[] = [
       { label: 'Community Focus', value: '95%', color: 'text-primary' }
     ],
     tags: ['Healthcare Branding', 'Medical Marketing', 'Community Health', 'Patient Care']
-  },
-  {
-    id: 'providence-school-system',
-    title: 'Providence School System brand development',
-    description: 'Comprehensive strategic planning and brand development for Providence School Department, including magnet program branding, mission-driven materials, and strategic frameworks to support educational excellence and community engagement across the entire school system.',
-    category: 'brand-development',
-    image: providenceSystemCoverImage,
-    slideshow: [
-      providenceSystemOldCoverImage,
-      providenceSystemFullSpreadImage,
-      providenceSystemMissionImage,
-      providenceSystemVisionImage,
-      providenceSystemObjectivesImage,
-      providenceSchoolsCoverImage,
-      providenceSchoolsBrochureImage
-    ],
-    metrics: [
-      { label: 'Strategic Frameworks', value: '5+', color: 'text-chart-1' },
-      { label: 'Educational Programs', value: '12+', color: 'text-primary' }
-    ],
-    tags: ['Educational Strategy', 'Strategic Planning', 'Magnet Schools', 'Community Engagement', 'School Systems']
   },
   {
     id: 'ttools-alexis-design',
