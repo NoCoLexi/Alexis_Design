@@ -94,10 +94,6 @@ import lifespanHealthBrochureImage from "@assets/FullSizeRender_1755219971125.jp
 import lifespanHealthBookletImage from "@assets/FullSizeRender 17_1755219971125.jpg";
 import lifespanHealthCoverImage from "@assets/FullSizeRender 13_1764028488191.jpg";
 
-// Import the missing image
-import providenceSchoolsMaterialsImage from "@assets/Providence Schools Materials.png";
-
-
 // Preload critical images immediately when component loads
 const preloadImage = (src: string) => {
   const img = new Image();
@@ -357,8 +353,8 @@ const projects: Project[] = [
   },
   {
     id: 'providence-school-system',
-    title: 'Providence School System brand development',
-    description: 'Comprehensive strategic planning and brand development for Providence School Department, including magnet program branding, mission-driven materials, and strategic frameworks to support educational excellence and community engagement across the entire school system.',
+    title: 'Providence School System Brand Development',
+    description: 'Comprehensive strategic planning and brand development for Providence School Department, creating mission-driven materials and strategic frameworks to support educational excellence and community engagement.',
     category: 'brand-development',
     image: providenceSystemCoverImage,
     slideshow: [
@@ -366,16 +362,13 @@ const projects: Project[] = [
       providenceSystemFullSpreadImage,
       providenceSystemMissionImage,
       providenceSystemVisionImage,
-      providenceSystemObjectivesImage,
-      providenceSchoolsCoverImage,
-      providenceSchoolsBrochureImage,
-      providenceSchoolsMaterialsImage
+      providenceSystemObjectivesImage
     ],
     metrics: [
       { label: 'Strategic Frameworks', value: '5+', color: 'text-chart-1' },
-      { label: 'Educational Programs', value: '12+', color: 'text-primary' }
+      { label: 'Community Impact', value: '100%', color: 'text-primary' }
     ],
-    tags: ['Educational Strategy', 'Strategic Planning', 'Magnet Schools', 'Community Engagement', 'School Systems']
+    tags: ['Educational Strategy', 'Strategic Planning', 'Community Engagement', 'School Systems']
   },
   {
     id: 'ttools-alexis-design',
@@ -497,7 +490,7 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
   return (
     <div
       ref={cardRef}
-      className={`glass rounded-2xl overflow-hidden hover:glow-purple group transition-all duration-700 ${
+      className={`glass rounded-2xl overflow-hidden hover:glow-purple group cursor-pointer transition-all duration-700 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       }`}
       onClick={() => onOpenCaseStudy(project.id)}
@@ -580,11 +573,11 @@ export default function FeaturedWork() {
   const [activeFilter, setActiveFilter] = useState(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const focusFromUrl = urlParams.get('focus');
-
+    
     if (focusFromUrl === 'pm') return 'product-management';
     if (focusFromUrl === 'design') return 'product-design';
     if (focusFromUrl === 'brand') return 'brand-development';
-
+    
     return 'product-management'; // default
   });
   const [isVisible, setIsVisible] = useState(false);
@@ -707,7 +700,7 @@ export default function FeaturedWork() {
             </div>
           </div>
 
-
+          
         </div>
 
         {/* Project Grid */}
