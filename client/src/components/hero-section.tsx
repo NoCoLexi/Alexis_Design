@@ -148,7 +148,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
           <h1 className="text-5xl md:text-6xl font-inter-black" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.1', paddingBottom: '0.25rem' }}>
             <span className={`disco-text ${isPlaying ? 'dancing' : ''}`} style={{ color: '#F3E8B9' }}>
-              Hey hiring team
+              {getCustomGreeting()}
             </span>
           </h1>
 
