@@ -91,7 +91,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
           <div className="text-center max-w-4xl mx-auto">
             <p className="text-xl md:text-2xl leading-relaxed text-muted-foreground">
               <strong className="text-foreground">"My colleagues nickname me: 'Idea Factory' but I prefer 'Solution Factory'"</strong> <br />
-              because every idea I come up with stems from a problem. Without problems there are no solutions. Without solutions, there are no relevant ideas.
+              because every idea I come up with stems from a problem. Without problems there are no solutions. Without solutions, there are no relevant opportunities.
             </p>
           </div>
 
