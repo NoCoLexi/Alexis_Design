@@ -28,7 +28,15 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
     const urlParams = new URLSearchParams(window.location.search);
     const companyFromUrl = urlParams.get('company');
 
-    // Always return the same greeting regardless of company parameter
+    if (companyFromUrl) {
+      return `Hi ${companyFromUrl}, I'm Alexis`;
+    }
+    
+    // Check admin panel settings
+    if (settings.companyName && settings.companyName.trim()) {
+      return `Hi ${settings.companyName}, I'm Alexis`;
+    }
+    
     return "Hi, I'm Alexis";
   };
 
@@ -146,7 +154,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
           <h1 className="text-5xl md:text-6xl font-inter-black" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.1', paddingBottom: '0.25rem' }}>
             <span className={`disco-text ${isPlaying ? 'dancing' : ''}`} style={{ color: '#F3E8B9' }}>
-              Hi, I'm Alexis
+              {getCustomGreeting()}
             </span>
           </h1>
 
@@ -258,7 +266,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         {/* 2. Headline */}
         <h1 className="text-4xl font-inter-black" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.1' }}>
           <span className={`disco-text ${isPlaying ? 'dancing' : ''}`} style={{ color: '#F3E8B9' }}>
-            Hi [company], I'm Alexis
+            {getCustomGreeting()}
           </span>
         </h1>
 
