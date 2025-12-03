@@ -143,7 +143,6 @@ export default function Services() {
               </h2>
               <Sparkles className="w-6 h-6 text-blue-400" />
             </div>
-            <p className="text-muted-foreground text-lg">Transformative presentations on AI, change management, and experience design for conferences and team workshops.</p>
           </div>
           
           {/* Bucket Headers - Horizontal Layout */}
