@@ -134,7 +134,7 @@ export default function Services() {
 
       {/* Speaking Topics Grid */}
       <section className="py-16 px-6">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-3 mb-2">
               <Sparkles className="w-6 h-6 text-purple-400" />
@@ -146,50 +146,64 @@ export default function Services() {
             <p className="text-muted-foreground text-lg">Transformative insights for your next event</p>
           </div>
           
-          <div className="space-y-16">
+          {/* Bucket Headers - Horizontal Layout */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {topicBuckets.map((bucket, bucketIndex) => (
-              <div key={bucketIndex} className="space-y-6">
-                {/* Bucket Header */}
-                <div className="text-center mb-8">
-                  <h3 className="text-3xl font-bold mb-2" style={{ fontFamily: 'Montserrat, sans-serif', color: '#F3E8B9' }}>
-                    {bucket.bucketTitle}
-                  </h3>
-                  <p className="text-purple-300 text-lg italic mb-3">
-                    {bucket.tagline}
-                  </p>
-                  <p className="text-muted-foreground max-w-3xl mx-auto">
-                    {bucket.whyStatement}
-                  </p>
-                </div>
+              <div 
+                key={bucketIndex} 
+                className="text-center p-6 rounded-2xl border-2 border-purple-500/30 bg-gradient-to-b from-purple-900/20 to-transparent backdrop-blur-sm"
+              >
+                <h3 className="text-2xl font-bold mb-2" style={{ fontFamily: 'Montserrat, sans-serif', color: '#F3E8B9' }}>
+                  {bucket.bucketTitle}
+                </h3>
+                <p className="text-purple-300 text-base italic mb-3">
+                  {bucket.tagline}
+                </p>
+                <p className="text-muted-foreground text-sm">
+                  {bucket.whyStatement}
+                </p>
+              </div>
+            ))}
+          </div>
 
+          {/* Topic Cards - Grid with Visual Separators */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {topicBuckets.map((bucket, bucketIndex) => (
+              <div 
+                key={bucketIndex} 
+                className="space-y-4 relative"
+              >
+                {/* Vertical separator line */}
+                {bucketIndex < topicBuckets.length - 1 && (
+                  <div className="hidden md:block absolute top-0 -right-4 bottom-0 w-px bg-gradient-to-b from-transparent via-purple-500/30 to-transparent"></div>
+                )}
+                
                 {/* Topic Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {bucket.topics.map((topic, topicIndex) => (
-                    <div 
-                      key={topicIndex}
-                      className="group p-6 rounded-2xl border border-border bg-background/50 backdrop-blur-sm hover:border-purple-500/50 hover:bg-purple-500/5 transition-all duration-300"
-                      data-testid={`card-topic-${bucketIndex}-${topicIndex}`}
-                    >
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600/20 to-blue-600/20 flex items-center justify-center mb-4 group-hover:from-purple-600/30 group-hover:to-blue-600/30 transition-all">
-                        <topic.icon className="w-6 h-6 text-purple-400" />
-                      </div>
-                      <h4 className="text-xl font-semibold mb-2 text-white group-hover:text-purple-300 transition-colors">
-                        {topic.title}
-                      </h4>
-                      <p className="text-muted-foreground text-sm leading-relaxed mb-3">
-                        {topic.summary}
-                      </p>
-                      <details className="text-muted-foreground/80 text-xs leading-relaxed">
-                        <summary className="cursor-pointer text-purple-400 hover:text-purple-300 font-medium mb-2">
-                          Learn more
-                        </summary>
-                        <p className="mt-2 pl-2 border-l-2 border-purple-500/30">
-                          {topic.details}
-                        </p>
-                      </details>
+                {bucket.topics.map((topic, topicIndex) => (
+                  <div 
+                    key={topicIndex}
+                    className="group p-5 rounded-xl border border-border bg-background/50 backdrop-blur-sm hover:border-purple-500/50 hover:bg-purple-500/5 transition-all duration-300"
+                    data-testid={`card-topic-${bucketIndex}-${topicIndex}`}
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-600/20 to-blue-600/20 flex items-center justify-center mb-3 group-hover:from-purple-600/30 group-hover:to-blue-600/30 transition-all">
+                      <topic.icon className="w-5 h-5 text-purple-400" />
                     </div>
-                  ))}
-                </div>
+                    <h4 className="text-lg font-semibold mb-2 text-white group-hover:text-purple-300 transition-colors">
+                      {topic.title}
+                    </h4>
+                    <p className="text-muted-foreground text-xs leading-relaxed mb-2">
+                      {topic.summary}
+                    </p>
+                    <details className="text-muted-foreground/80 text-xs leading-relaxed">
+                      <summary className="cursor-pointer text-purple-400 hover:text-purple-300 font-medium mb-2">
+                        Learn more
+                      </summary>
+                      <p className="mt-2 pl-2 border-l-2 border-purple-500/30">
+                        {topic.details}
+                      </p>
+                    </details>
+                  </div>
+                ))}
               </div>
             ))}
           </div>
