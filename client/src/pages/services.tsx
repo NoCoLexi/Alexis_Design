@@ -95,9 +95,16 @@ export default function Services() {
       {/* Speaking Topics Grid */}
       <section className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center">
-            <span className="gradient-text">Speaking Topics</span>
-          </h2>
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-3 mb-2">
+              <Sparkles className="w-6 h-6 text-purple-400" />
+              <h2 className="text-4xl md:text-5xl font-bold" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                <span className="gradient-text">Speaking Topics</span>
+              </h2>
+              <Sparkles className="w-6 h-6 text-blue-400" />
+            </div>
+            <p className="text-muted-foreground text-lg">Transformative insights for your next event</p>
+          </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {speakingTopics.map((topic, index) => (
