@@ -58,9 +58,10 @@ export default function Services() {
               <ArrowLeft className="w-5 h-5" />
               <span className="font-medium">Back to Portfolio</span>
             </Link>
-            <div className="flex items-center gap-4">
-              <span className="name-first text-white font-bold text-xl">Alexis</span>
-              <span className="name-last text-purple-400 font-bold text-xl">Brochu</span>
+            <div className="flex items-center gap-2">
+              <span className="text-white font-bold text-xl">Alexis</span>
+              <span className="text-purple-400 font-bold text-xl">Brochu</span>
+              <span className="text-white font-medium text-sm ml-1">PMP, CMP</span>
             </div>
           </div>
         </div>
