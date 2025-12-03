@@ -156,21 +156,21 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             className="text-xl md:text-2xl font-inter-medium text-muted-foreground mb-1 leading-relaxed max-w-3xl mx-auto text-center"
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
           >
-            I'm Alexis, your next
+            I'm Alexis
           </p>
 
           <p
-            className={`text-xl md:text-2xl font-inter-black text-foreground mb-1 cycling-role text-center ${isExiting ? 'exit' : ''}`}
-            style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300, whiteSpace: 'pre' }}
+            className="text-xl md:text-2xl font-inter-medium text-muted-foreground mb-1 leading-relaxed max-w-3xl mx-auto text-center"
+            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
           >
-            {roles[currentRoleIndex]}
+            I connect vision through to adoption
           </p>
 
           <p
             className="text-lg md:text-xl font-inter-medium text-muted-foreground mb-4 leading-relaxed max-w-3xl mx-auto text-center"
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400 }}
           >
-            Product Manager with Design & Change Management DNA
+            IT starts with humans
           </p>
 
           {/* Buttons Side by Side */}
@@ -276,22 +276,22 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           className="text-xl font-inter-medium text-muted-foreground leading-relaxed mt-0"
           style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
         >
-          I'm Alexis, your next
+          I'm Alexis
         </p>
 
-        {/* 4. Roles */}
+        {/* 4. Subhead */}
         <p
-          className={`text-xl font-inter-black text-foreground cycling-role mt-0 pt-0 ${isExiting ? 'exit' : ''}`}
-          style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300, whiteSpace: 'pre' }}
+          className="text-xl font-inter-medium text-muted-foreground leading-relaxed mt-0"
+          style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
         >
-          {roles[currentRoleIndex]}
+          I connect vision through to adoption
         </p>
 
         <p
           className="text-lg font-inter-medium text-muted-foreground leading-relaxed"
           style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400 }}
         >
-          Where Product + Design + Change Management meet
+          IT starts with humans
         </p>
 
         {/* 5. Buttons Side by Side */}
