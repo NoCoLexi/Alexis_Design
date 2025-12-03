@@ -98,9 +98,6 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
       <div className="absolute inset-0 opacity-20">
         <div className="w-full h-full bg-gradient-to-br from-primary/20 via-transparent to-chart-1/20"></div>
       </div>
-
-
-
       {/* Desktop Layout (2 columns) */}
       <div className="hidden md:flex items-center px-6 py-12 relative space-x-6 text-center w-full z-10">
         <div style={{ flexGrow: 0, flexShrink: 0, width: '40%' }}>
@@ -162,9 +159,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           <p
             className="text-xl md:text-2xl font-inter-medium text-muted-foreground mb-1 leading-relaxed max-w-3xl mx-auto text-center"
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
-          >
-            I connect vision through to adoption
-          </p>
+          >Connecting vision through to adoption</p>
 
           <p
             className="text-lg md:text-xl font-inter-medium text-muted-foreground mb-4 leading-relaxed max-w-3xl mx-auto text-center"
@@ -246,7 +241,6 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           </div>
         </div>
       </div>
-
       {/* Mobile Layout (1 column) */}
       <div className="md:hidden flex flex-col items-center px-6 py-20 relative w-full z-10 text-center space-y-6">
         {/* 1. Award Winner button */}
@@ -382,15 +376,12 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           </button>
         </div>
       </div>
-
       {/* Hidden Admin Panel */}
       <AdminPanel
         isVisible={isVisible}
         onClose={closePanel}
         onApply={applySettings}
       />
-
-
     </section>
   );
 }
