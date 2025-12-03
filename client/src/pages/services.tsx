@@ -154,17 +154,17 @@ export default function Services() {
             </div>
           </div>
           
-          {/* Collapsible Category Cards */}
-          <div className="space-y-4">
+          {/* Category Cards - 3 Across with Expandable Topics */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {topicBuckets.map((bucket, bucketIndex) => (
-              <div key={bucketIndex}>
-                {/* Category Header - Clickable */}
+              <div key={bucketIndex} className="flex flex-col">
+                {/* Category Header - Clickable Card */}
                 <button
                   onClick={() => toggleBucket(bucketIndex)}
-                  className="w-full text-left p-6 rounded-2xl border-2 border-purple-500/30 bg-gradient-to-b from-purple-900/20 to-transparent backdrop-blur-sm hover:border-purple-400/50 hover:from-purple-900/30 transition-all duration-300"
+                  className="text-left p-6 rounded-2xl border-2 border-purple-500/30 bg-gradient-to-b from-purple-900/20 to-transparent backdrop-blur-sm hover:border-purple-400/50 hover:from-purple-900/30 transition-all duration-300 flex-1"
                   data-testid={`button-expand-bucket-${bucketIndex}`}
                 >
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
                       <h3 className="text-2xl font-bold mb-2" style={{ fontFamily: 'Montserrat, sans-serif', color: '#F3E8B9' }}>
                         {bucket.bucketTitle}
@@ -177,31 +177,31 @@ export default function Services() {
                       </p>
                     </div>
                     <ChevronDown 
-                      className={`w-6 h-6 text-purple-400 flex-shrink-0 ml-4 transition-transform duration-300 ${expandedBuckets.includes(bucketIndex) ? 'transform rotate-180' : ''}`}
+                      className={`w-6 h-6 text-purple-400 flex-shrink-0 transition-transform duration-300 ${expandedBuckets.includes(bucketIndex) ? 'transform rotate-180' : ''}`}
                     />
                   </div>
                 </button>
 
                 {/* Topics - Shown when expanded */}
                 {expandedBuckets.includes(bucketIndex) && (
-                  <div className="mt-4 pl-4 space-y-4 border-l-2 border-purple-500/30">
+                  <div className="mt-4 space-y-3">
                     {bucket.topics.map((topic, topicIndex) => (
                       <div 
                         key={topicIndex}
-                        className="group p-5 rounded-xl border border-border bg-background/50 backdrop-blur-sm hover:border-purple-500/50 hover:bg-purple-500/5 transition-all duration-300"
+                        className="group p-4 rounded-xl border border-border bg-background/50 backdrop-blur-sm hover:border-purple-500/50 hover:bg-purple-500/5 transition-all duration-300"
                         data-testid={`card-topic-${bucketIndex}-${topicIndex}`}
                       >
-                        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-600/20 to-blue-600/20 flex items-center justify-center mb-3 group-hover:from-purple-600/30 group-hover:to-blue-600/30 transition-all">
+                        <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-purple-600/20 to-blue-600/20 flex items-center justify-center mb-2 group-hover:from-purple-600/30 group-hover:to-blue-600/30 transition-all">
                           <topic.icon className="w-5 h-5 text-purple-400" />
                         </div>
-                        <h4 className="text-lg font-semibold mb-2 text-white group-hover:text-purple-300 transition-colors">
+                        <h4 className="text-base font-semibold mb-1 text-white group-hover:text-purple-300 transition-colors">
                           {topic.title}
                         </h4>
-                        <p className="text-muted-foreground text-sm leading-relaxed mb-2">
+                        <p className="text-muted-foreground text-xs leading-relaxed mb-2">
                           {topic.summary}
                         </p>
-                        <details className="text-muted-foreground/80 text-sm leading-relaxed">
-                          <summary className="cursor-pointer text-purple-400 hover:text-purple-300 font-medium mb-2">
+                        <details className="text-muted-foreground/80 text-xs leading-relaxed">
+                          <summary className="cursor-pointer text-purple-400 hover:text-purple-300 font-medium">
                             Learn more
                           </summary>
                           <p className="mt-2 pl-2 border-l-2 border-purple-500/30">
