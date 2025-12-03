@@ -54,7 +54,7 @@ export default function Services() {
       <nav className="fixed top-0 left-0 right-0 w-full z-50 bg-gradient-to-r from-background/95 via-primary/20 to-background/95 backdrop-blur-lg border-b border-primary/30 shadow-lg">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            <Link href="/" className="flex items-center gap-2 text-white hover:text-purple-400 transition-colors">
+            <Link href="/#work" className="flex items-center gap-2 text-white hover:text-purple-400 transition-colors">
               <ArrowLeft className="w-5 h-5" />
               <span className="font-medium">Back to Portfolio</span>
             </Link>
