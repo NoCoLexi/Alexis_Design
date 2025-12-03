@@ -35,7 +35,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
   };
 
   const roles = [
-    "AI Product Manager"
+    "AI  Product  Manager"
   ];
 
   useEffect(() => {
