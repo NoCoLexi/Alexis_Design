@@ -31,7 +31,7 @@ export default function ContactSection({ onOpenAwardModal }: ContactSectionProps
             <div className="glass rounded-2xl p-8">
               <div className="flex flex-col md:flex-row md:justify-center md:space-x-8 space-y-4 md:space-y-0">
                 <a 
-                  href="mailto:alexis@alexisdesign.com" 
+                  href="mailto:alexis.brochu@gmail.com" 
                   className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
                   onClick={() => trackPortfolioClick('email')}
                   data-testid="contact-email"
@@ -41,7 +41,7 @@ export default function ContactSection({ onOpenAwardModal }: ContactSectionProps
                   </div>
                   <div>
                     <div className="font-medium text-foreground text-sm">Email</div>
-                    <div className="text-muted-foreground text-sm">alexis@alexisdesign.com</div>
+                    <div className="text-muted-foreground text-sm">alexis.brochu@gmail.com</div>
                   </div>
                 </a>
                 
