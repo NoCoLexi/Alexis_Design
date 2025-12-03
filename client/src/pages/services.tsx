@@ -116,7 +116,7 @@ export default function Services() {
         
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h1 className="text-4xl md:text-6xl font-bold mb-6" style={{ fontFamily: 'Montserrat, sans-serif', color: '#F3E8B9' }}>
-            Speaking & Workshops
+            Equip Your Team to Thrive in the AI Era
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Engaging presentations on AI, product leadership, and experience design for conferences, corporate events, and team workshops.
