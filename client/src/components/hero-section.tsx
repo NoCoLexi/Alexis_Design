@@ -227,14 +227,15 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
           {/* Message Me Button */}
           <div className="flex justify-center mt-4 max-w-3xl mx-auto">
-            <button
-              onClick={scrollToContact}
+            <a
+              href="mailto:alexis.brochu@gmail.com"
               className="w-full px-8 py-4 bg-gradient-to-r from-purple-600/80 to-blue-600/80 hover:from-purple-500/90 hover:to-blue-500/90 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3 border-2 border-white shadow-lg"
               style={{ fontFamily: 'Inter, sans-serif', color: '#F3E8B9' }}
+              data-testid="link-send-email"
             >
               MESSAGE ME
               <span className="text-2xl">→</span>
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -367,14 +368,15 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
         {/* Message Me Button */}
         <div className="flex justify-center mt-6 w-full max-w-sm mx-auto">
-          <button
-            onClick={scrollToContact}
+          <a
+            href="mailto:alexis.brochu@gmail.com"
             className="w-full px-6 py-3 bg-gradient-to-r from-purple-600/80 to-blue-600/80 hover:from-purple-500/90 hover:to-blue-500/90 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2 border-white shadow-lg"
             style={{ fontFamily: 'Inter, sans-serif', color: '#F3E8B9' }}
+            data-testid="link-send-email-mobile"
           >
             MESSAGE ME
             <span className="text-xl">→</span>
-          </button>
+          </a>
         </div>
       </div>
       {/* Hidden Admin Panel */}
