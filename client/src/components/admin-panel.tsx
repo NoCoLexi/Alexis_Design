@@ -280,7 +280,7 @@ export default function AdminPanel({ isVisible, onClose, onApply }: AdminPanelPr
         {companyName && (
           <div className="mt-4 p-3 bg-secondary/50 rounded-lg">
             <p className="text-sm text-muted-foreground">
-              Preview: "Hey <strong>{companyName}</strong> hiring team" • 
+              Preview: "Hi <strong>{companyName}</strong>, I'm Alexis" • 
               Focus: <strong>{jobType === 'Auto' ? 'Auto-detect' : 
                               jobType === 'PM' ? 'Product Management' : 
                               jobType === 'Design' ? 'Product Design' : 'Brand Development'}</strong>
