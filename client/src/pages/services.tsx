@@ -80,14 +80,14 @@ export default function Services() {
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Engaging presentations on AI, product leadership, and experience design for conferences, corporate events, and team workshops.
           </p>
-          <Button 
+          <button 
             onClick={scrollToContact}
-            className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white px-8 py-6 text-lg rounded-xl"
+            className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white px-8 py-6 text-lg rounded-xl inline-flex items-center justify-center font-semibold transition-all duration-300 transform hover:scale-105"
             data-testid="button-contact-hero"
           >
             <Mail className="w-5 h-5 mr-2" />
             Book a Speaking Engagement
-          </Button>
+          </button>
         </div>
       </section>
 
