@@ -58,9 +58,9 @@ export const useAdminPanel = () => {
   // Get personalized greeting
   const getGreeting = () => {
     if (settings.companyName.trim()) {
-      return `Hey ${settings.companyName} hiring team`;
+      return `Hi ${settings.companyName}, I'm Alexis`;
     }
-    return 'Hey hiring team';
+    return "Hi, I'm Alexis";
   };
 
   // Get case study focus based on job type

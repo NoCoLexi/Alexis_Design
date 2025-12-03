@@ -29,9 +29,9 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
     const companyFromUrl = urlParams.get('company');
 
     if (companyFromUrl) {
-      return `Hey ${companyFromUrl} hiring team`;
+      return `Hi ${companyFromUrl}, I'm Alexis`;
     }
-    return getGreeting() || "Hey, [company] hiring team";
+    return getGreeting();
   };
 
   const roles = [
