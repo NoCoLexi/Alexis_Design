@@ -221,7 +221,7 @@ export default function Services() {
                 Have Questions?
               </h2>
               <p className="text-muted-foreground mb-6">
-                Looking for a speaker for your next event? I'd love to discuss how I can bring value to your audience with engaging, actionable insights.
+                Looking for a speaker for your next event? I'd love to discuss how I can bring value to your audience.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a 
