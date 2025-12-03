@@ -28,10 +28,8 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
     const urlParams = new URLSearchParams(window.location.search);
     const companyFromUrl = urlParams.get('company');
 
-    if (companyFromUrl) {
-      return `Hey ${companyFromUrl} hiring team`;
-    }
-    return getGreeting() || "Hey, [company] hiring team";
+    // Always return the same greeting regardless of company parameter
+    return "Hi, I'm Alexis";
   };
 
   const roles = [
@@ -148,7 +146,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
           <h1 className="text-5xl md:text-6xl font-inter-black" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.1', paddingBottom: '0.25rem' }}>
             <span className={`disco-text ${isPlaying ? 'dancing' : ''}`} style={{ color: '#F3E8B9' }}>
-              {getCustomGreeting()}
+              Hi, I'm Alexis
             </span>
           </h1>
 
