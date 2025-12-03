@@ -102,12 +102,11 @@ export default function Home() {
               </button>
               <Link
                 href="/services"
-                className="transition-colors font-medium px-3 py-2 rounded-md text-white hover:text-purple-400 hover:bg-white/5 flex items-center gap-2"
+                className="transition-colors font-medium px-3 py-2 rounded-md text-white hover:text-purple-400 hover:bg-white/5"
                 style={{fontSize: '14px', fontWeight: '500'}}
                 data-testid="link-services"
               >
-                <Mic className="w-4 h-4" />
-                Speaking
+                Speaking Engagements
               </Link>
               <div className="ml-4 flex items-center gap-3">
                 <div 
@@ -150,12 +149,11 @@ export default function Home() {
               </button>
               <Link
                 href="/services"
-                className="flex items-center gap-2 w-full py-3 px-4 text-white hover:text-purple-400 hover:bg-white/5 transition-colors rounded-md font-medium"
+                className="block w-full py-3 px-4 text-white hover:text-purple-400 hover:bg-white/5 transition-colors rounded-md font-medium"
                 onClick={() => setIsMobileMenuOpen(false)}
                 data-testid="link-services-mobile"
               >
-                <Mic className="w-4 h-4" />
-                Speaking
+                Speaking Engagements
               </Link>
               <div className="pt-2 border-t border-purple-400/20 space-y-2">
                 <div 
