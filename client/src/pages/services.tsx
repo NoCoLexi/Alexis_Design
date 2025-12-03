@@ -155,7 +155,7 @@ export default function Services() {
           </div>
           
           {/* Category Cards - 3 Across with Expandable Topics */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
             {topicBuckets.map((bucket, bucketIndex) => (
               <div key={bucketIndex} className="flex flex-col">
                 {/* Category Header - Clickable Card */}
