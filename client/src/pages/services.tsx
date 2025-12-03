@@ -2,41 +2,81 @@ import { Link } from "wouter";
 import { ArrowLeft, Mail, Mic, Users, Brain, Cpu, Palette, CheckCircle, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const speakingTopics = [
+const topicBuckets = [
   {
-    title: "Presentation Techniques",
-    description: "Master the art of compelling presentations that captivate audiences and drive action.",
-    icon: Mic
+    bucketTitle: "For Individuals",
+    tagline: "Sharpening your professional edge",
+    whyStatement: "These skills help you stand out, communicate with impact, and work smarter — whether you're pitching an idea, rallying support, or just trying to stay organized in a noisy world.",
+    topics: [
+      {
+        title: "Presentation Techniques",
+        summary: "Master the art of compelling presentations that captivate audiences and drive action",
+        details: "Learn how to structure your message, design visuals that support (not distract), and deliver with confidence. Walk away with a repeatable framework for any presentation — from team updates to executive pitches.",
+        icon: Mic
+      },
+      {
+        title: "Getting Buy-In for Your Work",
+        summary: "Strategic approaches to building consensus and securing stakeholder support for your initiatives",
+        details: "Understand what motivates different stakeholders, how to frame your ideas in terms of their priorities, and when to push versus when to listen. Turn \"no\" and \"maybe\" into momentum.",
+        icon: Users
+      },
+      {
+        title: "Organizing Your Ideas with AI",
+        summary: "Using AI to capture, structure, and resurface your notes and thoughts",
+        details: "Discover practical ways to use AI as a second brain — capturing fleeting ideas, connecting scattered notes, and resurfacing relevant thoughts when you need them. Build a personal system that grows with you.",
+        icon: Brain
+      }
+    ]
   },
   {
-    title: "Getting Buy-In for Your Work",
-    description: "Strategic approaches to building consensus and securing stakeholder support for your initiatives.",
-    icon: Users
+    bucketTitle: "For Leaders",
+    tagline: "Guiding your team through change",
+    whyStatement: "AI is reshaping how teams work, and your people are looking to you for direction. These topics help you lead the transition with clarity, reduce fear, and unlock your team's potential.",
+    topics: [
+      {
+        title: "Leading Through AI Anxiety",
+        summary: "Helping your team embrace AI as an amplifier, not a replacement",
+        details: "Address the unspoken fears your team has about AI and job security. Learn how to reframe the conversation, model healthy AI use, and create an environment where experimentation feels safe.",
+        icon: Brain
+      },
+      {
+        title: "Implementing AI for Executives",
+        summary: "Executive-level guidance on AI adoption strategies, governance, and organizational transformation",
+        details: "Cut through the hype and understand what AI adoption actually requires — from selecting the right use cases to building governance frameworks. Make informed decisions without needing a technical background.",
+        icon: Cpu
+      },
+      {
+        title: "Utilizing AI for Teams",
+        summary: "Practical frameworks for integrating AI tools into team workflows and boosting productivity",
+        details: "Move beyond individual AI use to team-wide integration. Learn how to identify high-impact workflows, establish shared practices, and measure what's actually working.",
+        icon: Sparkles
+      }
+    ]
   },
   {
-    title: "The Importance of Human QA",
-    description: "Why human quality assurance remains critical in an increasingly automated world.",
-    icon: CheckCircle
-  },
-  {
-    title: "Importance of Human in the Loop",
-    description: "Balancing AI capabilities with human oversight for optimal outcomes and safety.",
-    icon: Brain
-  },
-  {
-    title: "Implementing AI for Executives",
-    description: "Executive-level guidance on AI adoption strategies, governance, and organizational transformation.",
-    icon: Cpu
-  },
-  {
-    title: "Utilizing AI for Teams",
-    description: "Practical frameworks for integrating AI tools into team workflows and boosting productivity.",
-    icon: Sparkles
-  },
-  {
-    title: "Experience Design for Everything",
-    description: "Applying user-centered design principles beyond digital products to transform any experience.",
-    icon: Palette
+    bucketTitle: "Foundational Principles",
+    tagline: "The \"why\" behind the practices",
+    whyStatement: "Tools and tactics change, but principles endure. These topics give you the mental models to make better decisions — even when the technology evolves.",
+    topics: [
+      {
+        title: "Experience Design for Everything",
+        summary: "Applying user-centered design principles beyond digital products to transform any experience",
+        details: "Design thinking isn't just for apps and websites. Learn how to apply user-centered principles to meetings, processes, communications, and any experience you're responsible for shaping.",
+        icon: Palette
+      },
+      {
+        title: "The Importance of Human QA",
+        summary: "Why human quality assurance remains critical in an increasingly automated world",
+        details: "Automation can scale output, but humans catch what machines miss. Understand where human review adds the most value, how to design effective QA checkpoints, and why \"good enough\" from AI often isn't.",
+        icon: CheckCircle
+      },
+      {
+        title: "The Ethics of AI at Work",
+        summary: "Navigating responsibility, transparency, and fairness when deploying AI tools",
+        details: "Who's accountable when AI makes a mistake? What do you owe your customers and colleagues in terms of transparency? Explore the ethical questions that don't have easy answers — and frameworks for thinking through them.",
+        icon: Brain
+      }
+    ]
   }
 ];
 
@@ -106,22 +146,50 @@ export default function Services() {
             <p className="text-muted-foreground text-lg">Transformative insights for your next event</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {speakingTopics.map((topic, index) => (
-              <div 
-                key={index}
-                className="group p-6 rounded-2xl border border-border bg-background/50 backdrop-blur-sm hover:border-purple-500/50 hover:bg-purple-500/5 transition-all duration-300"
-                data-testid={`card-topic-${index}`}
-              >
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600/20 to-blue-600/20 flex items-center justify-center mb-4 group-hover:from-purple-600/30 group-hover:to-blue-600/30 transition-all">
-                  <topic.icon className="w-6 h-6 text-purple-400" />
+          <div className="space-y-16">
+            {topicBuckets.map((bucket, bucketIndex) => (
+              <div key={bucketIndex} className="space-y-6">
+                {/* Bucket Header */}
+                <div className="text-center mb-8">
+                  <h3 className="text-3xl font-bold mb-2" style={{ fontFamily: 'Montserrat, sans-serif', color: '#F3E8B9' }}>
+                    {bucket.bucketTitle}
+                  </h3>
+                  <p className="text-purple-300 text-lg italic mb-3">
+                    {bucket.tagline}
+                  </p>
+                  <p className="text-muted-foreground max-w-3xl mx-auto">
+                    {bucket.whyStatement}
+                  </p>
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-white group-hover:text-purple-300 transition-colors">
-                  {topic.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {topic.description}
-                </p>
+
+                {/* Topic Cards */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {bucket.topics.map((topic, topicIndex) => (
+                    <div 
+                      key={topicIndex}
+                      className="group p-6 rounded-2xl border border-border bg-background/50 backdrop-blur-sm hover:border-purple-500/50 hover:bg-purple-500/5 transition-all duration-300"
+                      data-testid={`card-topic-${bucketIndex}-${topicIndex}`}
+                    >
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600/20 to-blue-600/20 flex items-center justify-center mb-4 group-hover:from-purple-600/30 group-hover:to-blue-600/30 transition-all">
+                        <topic.icon className="w-6 h-6 text-purple-400" />
+                      </div>
+                      <h4 className="text-xl font-semibold mb-2 text-white group-hover:text-purple-300 transition-colors">
+                        {topic.title}
+                      </h4>
+                      <p className="text-muted-foreground text-sm leading-relaxed mb-3">
+                        {topic.summary}
+                      </p>
+                      <details className="text-muted-foreground/80 text-xs leading-relaxed">
+                        <summary className="cursor-pointer text-purple-400 hover:text-purple-300 font-medium mb-2">
+                          Learn more
+                        </summary>
+                        <p className="mt-2 pl-2 border-l-2 border-purple-500/30">
+                          {topic.details}
+                        </p>
+                      </details>
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
