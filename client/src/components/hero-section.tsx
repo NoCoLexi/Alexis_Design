@@ -156,13 +156,6 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             className="text-xl md:text-2xl font-inter-medium text-muted-foreground mb-1 leading-relaxed max-w-3xl mx-auto text-center"
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
           >
-            I'm Alexis
-          </p>
-
-          <p
-            className="text-xl md:text-2xl font-inter-medium text-muted-foreground mb-1 leading-relaxed max-w-3xl mx-auto text-center"
-            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
-          >
             I connect vision through to adoption
           </p>
 
