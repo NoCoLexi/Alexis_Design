@@ -29,15 +29,9 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
     const companyFromUrl = urlParams.get('company');
 
     if (companyFromUrl) {
-      return `Hi ${companyFromUrl}, I'm Alexis`;
+      return `Hey ${companyFromUrl} hiring team`;
     }
-    
-    // Check admin panel settings
-    if (settings.companyName && settings.companyName.trim()) {
-      return `Hi ${settings.companyName}, I'm Alexis`;
-    }
-    
-    return "Hi, I'm Alexis";
+    return getGreeting() || "Hey, [company] hiring team";
   };
 
   const roles = [
@@ -162,6 +156,13 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             className="text-xl md:text-2xl font-inter-medium text-muted-foreground mb-1 leading-relaxed max-w-3xl mx-auto text-center"
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
           >
+            I'm Alexis
+          </p>
+
+          <p
+            className="text-xl md:text-2xl font-inter-medium text-muted-foreground mb-1 leading-relaxed max-w-3xl mx-auto text-center"
+            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
+          >
             I connect vision through to adoption
           </p>
 
@@ -266,7 +267,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         {/* 2. Headline */}
         <h1 className="text-4xl font-inter-black" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.1' }}>
           <span className={`disco-text ${isPlaying ? 'dancing' : ''}`} style={{ color: '#F3E8B9' }}>
-            {getCustomGreeting()}
+            Hi [company], I'm Alexis
           </span>
         </h1>
 
@@ -389,7 +390,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         onApply={applySettings}
       />
 
-      
+
     </section>
   );
 }
