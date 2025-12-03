@@ -80,14 +80,14 @@ export default function Services() {
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Engaging presentations on AI, product leadership, and experience design for conferences, corporate events, and team workshops.
           </p>
-          <button 
-            onClick={scrollToContact}
+          <a 
+            href="mailto:alexis.brochu@gmail.com?subject=Speaking%20Inquiry"
             className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white px-8 py-6 text-lg rounded-xl inline-flex items-center justify-center font-semibold transition-all duration-300 transform hover:scale-105"
             data-testid="button-contact-hero"
           >
             <Mail className="w-5 h-5 mr-2" />
             Book a Speaking Engagement
-          </button>
+          </a>
         </div>
       </section>
 
