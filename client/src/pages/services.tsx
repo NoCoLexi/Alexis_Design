@@ -119,7 +119,7 @@ export default function Services() {
             Equip Your Team to Thrive in the AI Era
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Practical, engaging sessions that turn uncertainty into confidence — for conferences, corporate events, and team workshops.
+            Practical, engaging sessions that turn uncertainty into confidence for conferences, and team workshops.
           </p>
           <a 
             href="mailto:alexis.brochu@gmail.com?subject=Speaking%20Inquiry"
