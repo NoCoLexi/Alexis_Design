@@ -161,7 +161,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
           <p
             className={`text-xl md:text-2xl font-inter-black text-foreground mb-1 cycling-role text-center ${isExiting ? 'exit' : ''}`}
-            style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300 }}
+            style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300, whiteSpace: 'pre' }}
           >
             {roles[currentRoleIndex]}
           </p>
@@ -282,7 +282,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         {/* 4. Roles */}
         <p
           className={`text-xl font-inter-black text-foreground cycling-role mt-0 pt-0 ${isExiting ? 'exit' : ''}`}
-          style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300 }}
+          style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 300, whiteSpace: 'pre' }}
         >
           {roles[currentRoleIndex]}
         </p>
