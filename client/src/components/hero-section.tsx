@@ -116,10 +116,14 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             }}
             onClick={(e) => {
               const video = e.currentTarget;
+              video.muted = true;
               if (video.paused) {
                 video.currentTime = 0;
                 video.play();
               }
+            }}
+            onPlay={(e) => {
+              e.currentTarget.muted = true;
             }}
           />
         </div>
@@ -315,10 +319,14 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             }}
             onClick={(e) => {
               const video = e.currentTarget;
+              video.muted = true;
               if (video.paused) {
                 video.currentTime = 0;
                 video.play();
               }
+            }}
+            onPlay={(e) => {
+              e.currentTarget.muted = true;
             }}
           />
         </div>
