@@ -119,7 +119,7 @@ export default function Services() {
             Equip Your Team to Thrive in the AI Era
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Engaging presentations on AI, product leadership, and experience design for conferences, corporate events, and team workshops.
+            Transformative presentations on AI, change management, and experience design for conferences and team workshops.
           </p>
           <a 
             href="mailto:alexis.brochu@gmail.com?subject=Speaking%20Inquiry"
