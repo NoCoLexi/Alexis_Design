@@ -10,15 +10,13 @@ export default function ContactSection({ onOpenAwardModal }: ContactSectionProps
   return (
     <section id="contact" className="py-20 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-background to-secondary/50"></div>
-      
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="gradient-text">Let's Create Something Amazing</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Seeking a Project/Product Management position where my rare blend of product strategy, human-centered design, and Prosci-certified change management helps deliver products users happily embrace (not just tolerate.)
-          </p>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Seeking a Project/Product Management position where my rare blend of 
+          product strategy, human-centered design, and Prosci-certified change management helps deliver products users happily embrace (not just tolerate.)</p>
           
           
         </div>
