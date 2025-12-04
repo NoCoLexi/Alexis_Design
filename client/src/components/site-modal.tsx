@@ -74,12 +74,12 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
                 </div>
               </div>
 
-              {/* 5th Iteration (Most Recent) */}
+              {/* 7th Iteration (Most Recent) */}
               <div className="glass rounded-xl p-4 border border-green-400/20">
-                <h4 className="text-lg font-semibold text-green-400 mb-4">5th Iteration (Most Recent)</h4>
+                <h4 className="text-lg font-semibold text-green-400 mb-4">7th Iteration (Most Recent)</h4>
                 <div className="space-y-3">
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-white">5 Weeks</div>
+                    <div className="text-2xl font-bold text-white">7 Weeks</div>
                     <div className="text-xs text-gray-400">Build Time (2 Days per iteration)</div>
                   </div>
                   <div className="text-center">
@@ -87,7 +87,7 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
                     <div className="text-xs text-gray-400">User Testing</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-white">$271</div>
+                    <div className="text-2xl font-bold text-white">$349</div>
                     <div className="text-xs text-gray-400">Total Cost</div>
                   </div>
                 </div>
