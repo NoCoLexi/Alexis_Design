@@ -15,9 +15,12 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
 
   const tools = [
     { name: "Replit", url: "https://replit.com", description: "Development platform" },
-    { name: "NotebookLM", url: "https://notebooklm.google.com", description: "AI research assistant" },
+    { name: "GitHub", url: "https://github.com", description: "Version control & collaboration" },
+    { name: "NotebookLM", url: "https://notebooklm.google.com", description: "Explainer video & note organization" },
     { name: "Claude", url: "https://claude.ai", description: "AI coding partner" },
     { name: "ChatGPT", url: "https://chatgpt.com", description: "AI brainstorming" },
+    { name: "Gemini", url: "https://gemini.google.com", description: "AI proofreading & checking" },
+    { name: "Sora", url: "https://openai.com/sora", description: "AI image creation" },
     { name: "Suno", url: "https://suno.ai", description: "AI music generation" },
     { name: "Tailwind CSS", url: "https://tailwindcss.com", description: "Utility-first CSS framework" },
     { name: "Adobe Creative Cloud", url: "https://adobe.com", description: "Design suite" },
