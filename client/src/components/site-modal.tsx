@@ -83,7 +83,7 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
                     <div className="text-xs text-gray-400">Build Time (2 Days per iteration)</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-white">17 testers</div>
+                    <div className="text-2xl font-bold text-white">18 testers</div>
                     <div className="text-xs text-gray-400">User Testing</div>
                   </div>
                   <div className="text-center">
