@@ -76,7 +76,7 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
 
               {/* 7th Iteration (Most Recent) */}
               <div className="glass rounded-xl p-4 border border-green-400/20">
-                <h4 className="text-lg font-semibold text-green-400 mb-4">7th Iteration (Most Recent)</h4>
+                <h4 className="text-lg font-semibold text-green-400 mb-4">6th Iteration (Most Recent)</h4>
                 <div className="space-y-3">
                   <div className="text-center">
                     <div className="text-2xl font-bold text-white">7 Weeks</div>
