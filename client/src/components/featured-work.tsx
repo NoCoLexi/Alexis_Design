@@ -799,70 +799,86 @@ export default function FeaturedWork() {
             <span className="gradient-text">Product Portfolio</span>
           </h2>
 
-          {/* View Mode Toggle */}
-          <div className="flex justify-center mb-4">
-            <div className="inline-flex rounded-full bg-muted/30 p-1 backdrop-blur-sm border border-border/50">
+          {/* Segmented Control for View Mode */}
+          <div className="flex justify-center mb-6">
+            <div className="inline-flex rounded-full bg-muted/20 p-1 backdrop-blur-sm border border-border/30">
               <button
                 onClick={() => setViewMode('vertical')}
-                className={`px-4 py-1.5 text-xs font-medium rounded-full transition-all duration-200 ${
+                className={`px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
                   viewMode === 'vertical'
-                    ? 'bg-primary/80 text-primary-foreground shadow-sm'
+                    ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg shadow-purple-500/25'
                     : 'text-muted-foreground hover:text-foreground'
                 }`}
                 data-testid="toggle-view-vertical"
               >
-                By Vertical
+                Verticals
               </button>
               <button
                 onClick={() => setViewMode('role')}
-                className={`px-4 py-1.5 text-xs font-medium rounded-full transition-all duration-200 ${
+                className={`px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
                   viewMode === 'role'
-                    ? 'bg-primary/80 text-primary-foreground shadow-sm'
+                    ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg shadow-purple-500/25'
                     : 'text-muted-foreground hover:text-foreground'
                 }`}
                 data-testid="toggle-view-role"
               >
-                By Role
+                Roles
               </button>
             </div>
           </div>
 
-          {/* Portfolio Filter Tabs */}
+          {/* Horizontal Scrollable Filter Chips */}
           <div className="flex justify-center mb-8">
-            <div className="inline-flex flex-wrap justify-center rounded-lg bg-background/50 p-1 backdrop-blur-sm border border-border">
+            <div className="flex gap-2 overflow-x-auto pb-2 px-4 max-w-full scrollbar-hide">
               {viewMode === 'role' ? (
                 <>
-                  {(['product-management', 'product-design', 'brand-development', 'all'] as const).map((role) => (
-                    <button
-                      key={role}
-                      onClick={() => setActiveRoleFilter(role)}
-                      className={`px-6 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
-                        activeRoleFilter === role
-                          ? 'bg-primary text-primary-foreground shadow-sm'
-                          : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
-                      }`}
-                      data-testid={`filter-role-${role}`}
-                    >
-                      {roleLabels[role]}
-                    </button>
-                  ))}
+                  {(['product-management', 'product-design', 'brand-development', 'all'] as const).map((role) => {
+                    const count = role === 'all' 
+                      ? projects.length 
+                      : projects.filter(p => displayGroups.role[role]?.includes(p.id)).length;
+                    return (
+                      <button
+                        key={role}
+                        onClick={() => setActiveRoleFilter(role)}
+                        className={`flex-shrink-0 px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 whitespace-nowrap ${
+                          activeRoleFilter === role
+                            ? 'bg-gradient-to-r from-purple-500/90 to-pink-500/90 text-white shadow-md shadow-purple-500/20 scale-105'
+                            : 'bg-muted/30 text-muted-foreground hover:text-foreground hover:bg-muted/50 border border-border/50'
+                        }`}
+                        data-testid={`filter-role-${role}`}
+                      >
+                        {roleLabels[role]}
+                        <span className={`ml-2 text-xs ${activeRoleFilter === role ? 'text-white/80' : 'text-muted-foreground/70'}`}>
+                          ({count})
+                        </span>
+                      </button>
+                    );
+                  })}
                 </>
               ) : (
                 <>
-                  {(['government', 'healthcare', 'education', 'food-beverage', 'all'] as const).map((vertical) => (
-                    <button
-                      key={vertical}
-                      onClick={() => setActiveVerticalFilter(vertical)}
-                      className={`px-6 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
-                        activeVerticalFilter === vertical
-                          ? 'bg-primary text-primary-foreground shadow-sm'
-                          : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
-                      }`}
-                      data-testid={`filter-vertical-${vertical}`}
-                    >
-                      {verticalLabels[vertical]}
-                    </button>
-                  ))}
+                  {(['government', 'healthcare', 'education', 'food-beverage', 'all'] as const).map((vertical) => {
+                    const count = vertical === 'all' 
+                      ? projects.length 
+                      : projects.filter(p => displayGroups.vertical[vertical]?.includes(p.id)).length;
+                    return (
+                      <button
+                        key={vertical}
+                        onClick={() => setActiveVerticalFilter(vertical)}
+                        className={`flex-shrink-0 px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 whitespace-nowrap ${
+                          activeVerticalFilter === vertical
+                            ? 'bg-gradient-to-r from-purple-500/90 to-pink-500/90 text-white shadow-md shadow-purple-500/20 scale-105'
+                            : 'bg-muted/30 text-muted-foreground hover:text-foreground hover:bg-muted/50 border border-border/50'
+                        }`}
+                        data-testid={`filter-vertical-${vertical}`}
+                      >
+                        {verticalLabels[vertical]}
+                        <span className={`ml-2 text-xs ${activeVerticalFilter === vertical ? 'text-white/80' : 'text-muted-foreground/70'}`}>
+                          ({count})
+                        </span>
+                      </button>
+                    );
+                  })}
                 </>
               )}
             </div>

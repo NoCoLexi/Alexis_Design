@@ -816,3 +816,13 @@ html {
     transform: translateY(-50%); 
   }
 }
+
+/* Hide scrollbar for filter chips */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
