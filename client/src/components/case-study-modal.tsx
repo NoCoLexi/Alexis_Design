@@ -378,7 +378,7 @@ const caseStudies: Record<string, CaseStudy> = {
     team: 'Personal project',
     challenge: 'Parents struggle to motivate children to complete household chores consistently, while traditional task management apps are not designed for young users.',
     solution: 'Developed a gamified, age-appropriate interface that makes chore completion engaging and rewarding for children while providing parents with oversight capabilities.',
-    outcome: 'Created a research-validated design that reduces friction in family chore management.',
+    outcome: 'Created a research-validated application that reduces friction in family chore and schoolwork management.',
     metrics: [
       { label: '12', value: 'Parent Interviews', description: 'Primary user research' },
       { label: '8', value: 'Child Usability Tests', description: 'Ages 6-12 testing sessions' },
