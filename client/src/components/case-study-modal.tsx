@@ -372,7 +372,7 @@ const caseStudies: Record<string, CaseStudy> = {
     id: 'wechore',
     title: 'WeChore Task Management App',
     subtitle: 'Encouraging Kids Through Design',
-    description: 'A task management app encouraging kids to complete household chores through research-based, human-centered design solutions.',
+    description: 'A task management app encouraging kids to complete household chores and schoolwork through research-based, human-centered design solutions.',
     role: 'UX Designer & Researcher',
     duration: '4 months',
     team: 'Personal project',
