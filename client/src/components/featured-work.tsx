@@ -121,7 +121,7 @@ const roleLabels: Record<Role | 'all', string> = {
 };
 
 const verticalLabels: Record<Vertical | 'all', string> = {
-  'government': 'Government UX',
+  'government': 'Government',
   'healthcare': 'Healthcare',
   'education': 'Education',
   'food-beverage': 'Food & Beverage',
@@ -308,7 +308,7 @@ const projects: Project[] = [
     description: 'A modern task management platform designed to streamline household responsibilities through intuitive design and smart automation.',
     category: 'product-design',
     roles: ['product-design'],
-    verticals: [],
+    verticals: ['education'],
     image: weChoreImage,
     metrics: [
       { label: 'Task Completion', value: '92%', color: 'text-chart-3' },
@@ -345,7 +345,7 @@ const projects: Project[] = [
     description: 'Comprehensive strategic planning and brand development for Providence School Department, including magnet program branding, mission-driven materials, and strategic frameworks to support educational excellence and community engagement across the entire school system.',
     category: 'brand-development',
     roles: ['brand-development'],
-    verticals: ['education'],
+    verticals: ['government', 'education'],
     image: providenceSystemCoverImage,
     slideshow: [
       providenceSystemOldCoverImage,
@@ -431,7 +431,7 @@ const projects: Project[] = [
     description: 'Professional brochure design for Rhode Island Convention Center Authority featuring sophisticated architectural photography and premium hospitality branding.',
     category: 'brand-development',
     roles: ['brand-development'],
-    verticals: [],
+    verticals: ['government'],
     image: riConventionCenterImage,
     slideshow: [
       riConventionCenterImage,
@@ -483,13 +483,56 @@ const projects: Project[] = [
     description: 'Elegant event branding and invitation design for TF Green Airport\'s Grand Opening Gala, featuring sophisticated passport-themed materials and premium event presentation.',
     category: 'brand-development',
     roles: ['brand-development'],
-    verticals: [],
+    verticals: ['government'],
     image: tfGreenGalaImage,
     metrics: [
       { label: 'Premium Event Design', value: '100%', color: 'text-chart-1' },
       { label: 'Aviation Theme Integration', value: '95%', color: 'text-primary' }
     ],
     tags: ['Event Design', 'Aviation Branding', 'Premium Invitations', 'Gala Marketing']
+  },
+  {
+    id: 'abc6-playroom',
+    title: 'ABC6 Playroom',
+    description: 'Interactive educational exhibit designed for Emerald Square Mall in partnership with WLNE-TV. Working with educators, we created age-appropriate experiences that helped parents make pit stops while shopping. Featured in the Providence Journal at launch.',
+    category: 'brand-development',
+    roles: ['brand-development', 'product-design'],
+    verticals: ['education'],
+    image: abc6CoverImage,
+    metrics: [
+      { label: 'Educational Exhibits', value: '10+', color: 'text-chart-1' },
+      { label: 'Age-Targeted Design', value: '100%', color: 'text-primary' }
+    ],
+    tags: ['Educational Design', 'Interactive Exhibits', 'Child Development', 'Alexis Design']
+  },
+  {
+    id: 'mallinckrodt-medical',
+    title: 'Mallinckrodt Medical',
+    description: 'Corporate communications and brand development during the Imcera merger and company split between Chemicals and Medical divisions. Worked directly with scientists on internal and external materials, supporting crisis communications and sales team initiatives.',
+    category: 'brand-development',
+    roles: ['brand-development'],
+    verticals: ['healthcare'],
+    image: lifespanHealthCoverImage,
+    metrics: [
+      { label: 'Corporate Rebrand', value: '100%', color: 'text-chart-1' },
+      { label: 'Crisis Communications', value: 'Strategic', color: 'text-primary' }
+    ],
+    tags: ['Healthcare Branding', 'Corporate Communications', 'Crisis PR', 'Pharmaceutical']
+  },
+  {
+    id: 'health-wellness-expertise',
+    title: 'Health & Wellness',
+    description: 'Certified Personal Trainer (CPT) and NASM Nutrition Coach with 23+ years dedicated to metabolic health. Certifications include AFAA Group Fitness, Les Mills BodyCOMBAT, TRX Sports Medicine, and YogaFit Level I-V. Voted Top 3 Best Personal Trainer in Mount Washington Valley.',
+    category: 'brand-development',
+    roles: ['brand-development'],
+    verticals: ['healthcare'],
+    image: lifespanHealthCoverImage,
+    award: 'Top Trainer Award',
+    metrics: [
+      { label: '23+', value: 'Years Experience', color: 'text-chart-1' },
+      { label: '7+', value: 'Certifications', color: 'text-primary' }
+    ],
+    tags: ['Personal Training', 'Nutrition Coaching', 'Health Sciences', 'Fitness Instruction']
   }
 ];
 
@@ -633,8 +676,8 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
 });
 
 export default function FeaturedWork() {
-  const { getCaseStudyFocus, settings } = useAdminPanel();
-  const [viewMode, setViewMode] = useState<ViewMode>('role');
+  const { getCaseStudyFocus, getVerticalFocus, settings } = useAdminPanel();
+  const [viewMode, setViewMode] = useState<ViewMode>('vertical');
   const [activeRoleFilter, setActiveRoleFilter] = useState<Role | 'all'>(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const focusFromUrl = urlParams.get('focus');
@@ -645,7 +688,17 @@ export default function FeaturedWork() {
 
     return 'product-management'; // default
   });
-  const [activeVerticalFilter, setActiveVerticalFilter] = useState<Vertical | 'all'>('all');
+  const [activeVerticalFilter, setActiveVerticalFilter] = useState<Vertical | 'all'>(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const verticalFromUrl = urlParams.get('vertical');
+
+    if (verticalFromUrl === 'government') return 'government';
+    if (verticalFromUrl === 'healthcare') return 'healthcare';
+    if (verticalFromUrl === 'education') return 'education';
+    if (verticalFromUrl === 'food-beverage') return 'food-beverage';
+
+    return 'government'; // default
+  });
   const [isVisible, setIsVisible] = useState(false);
   const [parallaxY, setParallaxY] = useState(0);
 
@@ -664,12 +717,13 @@ export default function FeaturedWork() {
     };
   }, []);
 
-  // Only apply admin filter when specifically set to PM or Design (not Auto) and no URL params
+  // Apply admin settings when no URL params are present
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const focusFromUrl = urlParams.get('focus');
+    const verticalFromUrl = urlParams.get('vertical');
 
-    // URL parameters take precedence over admin settings
+    // URL parameters take precedence over admin settings for role
     if (!focusFromUrl) {
       if (settings.jobType === 'PM') {
         setActiveRoleFilter('product-management');
@@ -679,7 +733,13 @@ export default function FeaturedWork() {
         setActiveRoleFilter('product-management'); // Default to Product Management even for Auto
       }
     }
-  }, [settings.jobType]);
+
+    // URL parameters take precedence over admin settings for vertical
+    if (!verticalFromUrl) {
+      const adminVertical = getVerticalFocus();
+      setActiveVerticalFilter(adminVertical);
+    }
+  }, [settings.jobType, settings.vertical, getVerticalFocus]);
 
   const filteredProjects = useMemo(() => {
     if (viewMode === 'role') {
@@ -717,17 +777,6 @@ export default function FeaturedWork() {
           <div className="flex justify-center mb-4">
             <div className="inline-flex rounded-full bg-muted/30 p-1 backdrop-blur-sm border border-border/50">
               <button
-                onClick={() => setViewMode('role')}
-                className={`px-4 py-1.5 text-xs font-medium rounded-full transition-all duration-200 ${
-                  viewMode === 'role'
-                    ? 'bg-primary/80 text-primary-foreground shadow-sm'
-                    : 'text-muted-foreground hover:text-foreground'
-                }`}
-                data-testid="toggle-view-role"
-              >
-                View by Role
-              </button>
-              <button
                 onClick={() => setViewMode('vertical')}
                 className={`px-4 py-1.5 text-xs font-medium rounded-full transition-all duration-200 ${
                   viewMode === 'vertical'
@@ -736,7 +785,18 @@ export default function FeaturedWork() {
                 }`}
                 data-testid="toggle-view-vertical"
               >
-                View by Vertical
+                By Vertical
+              </button>
+              <button
+                onClick={() => setViewMode('role')}
+                className={`px-4 py-1.5 text-xs font-medium rounded-full transition-all duration-200 ${
+                  viewMode === 'role'
+                    ? 'bg-primary/80 text-primary-foreground shadow-sm'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
+                data-testid="toggle-view-role"
+              >
+                By Role
               </button>
             </div>
           </div>

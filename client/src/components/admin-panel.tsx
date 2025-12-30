@@ -11,9 +11,12 @@ import {
 } from "@/components/ui/select";
 
 
+type Vertical = 'government' | 'healthcare' | 'education' | 'food-beverage' | 'auto';
+
 interface AdminSettings {
   companyName: string;
   jobType: 'PM' | 'Design' | 'Brand' | 'Auto';
+  vertical: Vertical;
   jobUrl: string;
 }
 
@@ -27,6 +30,7 @@ export default function AdminPanel({ isVisible, onClose, onApply }: AdminPanelPr
   const [jobUrl, setJobUrl] = useState('');
   const [companyName, setCompanyName] = useState('');
   const [jobType, setJobType] = useState<'PM' | 'Design' | 'Brand' | 'Auto'>('Auto');
+  const [vertical, setVertical] = useState<Vertical>('government');
   const [isDetecting, setIsDetecting] = useState(false);
 
   // Load saved settings on mount
@@ -37,6 +41,7 @@ export default function AdminPanel({ isVisible, onClose, onApply }: AdminPanelPr
       setJobUrl(settings.jobUrl || '');
       setCompanyName(settings.companyName || '');
       setJobType(settings.jobType || 'Auto');
+      setVertical(settings.vertical || 'government');
     }
   }, []);
 
@@ -117,6 +122,7 @@ export default function AdminPanel({ isVisible, onClose, onApply }: AdminPanelPr
     const settings: AdminSettings = {
       companyName: companyName.trim(),
       jobType,
+      vertical,
       jobUrl
     };
 
@@ -124,6 +130,7 @@ export default function AdminPanel({ isVisible, onClose, onApply }: AdminPanelPr
     const params = new URLSearchParams();
     if (settings.companyName) params.set('company', settings.companyName);
     if (settings.jobType !== 'Auto') params.set('focus', settings.jobType.toLowerCase());
+    if (settings.vertical !== 'auto') params.set('vertical', settings.vertical);
 
     const customUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
 
@@ -148,6 +155,7 @@ export default function AdminPanel({ isVisible, onClose, onApply }: AdminPanelPr
     setJobUrl('');
     setCompanyName('');
     setJobType('Auto');
+    setVertical('government');
     onClose();
   };
 
@@ -204,10 +212,77 @@ export default function AdminPanel({ isVisible, onClose, onApply }: AdminPanelPr
           </div>
         </div>
 
-        {/* Job Type Selection */}
+        {/* Vertical Selection */}
         <div className="mt-6">
-          <label className="text-sm font-medium mb-3 block">Job Type Focus</label>
-          <div className="flex gap-4">
+          <label className="text-sm font-medium mb-3 block">Industry Vertical (Default View)</label>
+          <div className="flex flex-wrap gap-4">
+            <div className="flex items-center space-x-2">
+              <input
+                type="radio"
+                id="vertical-government"
+                name="vertical"
+                value="government"
+                checked={vertical === 'government'}
+                onChange={() => setVertical('government')}
+                className="w-4 h-4 text-primary border-2 border-primary/50 focus:ring-2 focus:ring-primary"
+              />
+              <label htmlFor="vertical-government" className="text-sm cursor-pointer">Government</label>
+            </div>
+            <div className="flex items-center space-x-2">
+              <input
+                type="radio"
+                id="vertical-healthcare"
+                name="vertical"
+                value="healthcare"
+                checked={vertical === 'healthcare'}
+                onChange={() => setVertical('healthcare')}
+                className="w-4 h-4 text-primary border-2 border-primary/50 focus:ring-2 focus:ring-primary"
+              />
+              <label htmlFor="vertical-healthcare" className="text-sm cursor-pointer">Healthcare</label>
+            </div>
+            <div className="flex items-center space-x-2">
+              <input
+                type="radio"
+                id="vertical-education"
+                name="vertical"
+                value="education"
+                checked={vertical === 'education'}
+                onChange={() => setVertical('education')}
+                className="w-4 h-4 text-primary border-2 border-primary/50 focus:ring-2 focus:ring-primary"
+              />
+              <label htmlFor="vertical-education" className="text-sm cursor-pointer">Education</label>
+            </div>
+            <div className="flex items-center space-x-2">
+              <input
+                type="radio"
+                id="vertical-food-beverage"
+                name="vertical"
+                value="food-beverage"
+                checked={vertical === 'food-beverage'}
+                onChange={() => setVertical('food-beverage')}
+                className="w-4 h-4 text-primary border-2 border-primary/50 focus:ring-2 focus:ring-primary"
+              />
+              <label htmlFor="vertical-food-beverage" className="text-sm cursor-pointer">Food & Beverage</label>
+            </div>
+            <div className="flex items-center space-x-2">
+              <input
+                type="radio"
+                id="vertical-auto"
+                name="vertical"
+                value="auto"
+                checked={vertical === 'auto'}
+                onChange={() => setVertical('auto')}
+                className="w-4 h-4 text-primary border-2 border-primary/50 focus:ring-2 focus:ring-primary"
+              />
+              <label htmlFor="vertical-auto" className="text-sm cursor-pointer">Default (Government)</label>
+            </div>
+          </div>
+        </div>
+
+        {/* Job Type Selection (Role) */}
+        <div className="mt-6">
+          <label className="text-sm font-medium mb-3 block">Role Focus (By Role View)</label>
+          <div className="flex flex-wrap gap-4">
             <div className="flex items-center space-x-2">
               <input
                 type="radio"
@@ -254,7 +329,7 @@ export default function AdminPanel({ isVisible, onClose, onApply }: AdminPanelPr
                 onChange={(e) => setJobType('Auto')}
                 className="w-4 h-4 text-primary border-2 border-primary/50 focus:ring-2 focus:ring-primary"
               />
-              <label htmlFor="auto" className="text-sm cursor-pointer">Auto-detect</label>
+              <label htmlFor="auto" className="text-sm cursor-pointer">Default (PM)</label>
             </div>
           </div>
         </div>
@@ -281,7 +356,11 @@ export default function AdminPanel({ isVisible, onClose, onApply }: AdminPanelPr
           <div className="mt-4 p-3 bg-secondary/50 rounded-lg">
             <p className="text-sm text-muted-foreground">
               Preview: "Hi <strong>{companyName}</strong>, I'm Alexis" • 
-              Focus: <strong>{jobType === 'Auto' ? 'Auto-detect' : 
+              Vertical: <strong>{vertical === 'auto' ? 'Government' : 
+                              vertical === 'government' ? 'Government' :
+                              vertical === 'healthcare' ? 'Healthcare' :
+                              vertical === 'education' ? 'Education' : 'Food & Beverage'}</strong> • 
+              Role: <strong>{jobType === 'Auto' ? 'Product Management' : 
                               jobType === 'PM' ? 'Product Management' : 
                               jobType === 'Design' ? 'Product Design' : 'Brand Development'}</strong>
             </p>

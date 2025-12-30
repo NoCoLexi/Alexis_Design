@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react';
 
+type Vertical = 'government' | 'healthcare' | 'education' | 'food-beverage' | 'auto';
+
 interface AdminSettings {
   companyName: string;
   jobType: 'PM' | 'Design' | 'Auto';
+  vertical: Vertical;
   jobUrl: string;
 }
 
@@ -11,6 +14,7 @@ export const useAdminPanel = () => {
   const [settings, setSettings] = useState<AdminSettings>({
     companyName: '',
     jobType: 'Auto',
+    vertical: 'government',
     jobUrl: ''
   });
 
@@ -20,7 +24,10 @@ export const useAdminPanel = () => {
     if (saved) {
       try {
         const parsedSettings: AdminSettings = JSON.parse(saved);
-        setSettings(parsedSettings);
+        setSettings({
+          ...parsedSettings,
+          vertical: parsedSettings.vertical || 'government'
+        });
       } catch (error) {
         console.warn('Could not parse admin settings:', error);
       }
@@ -72,11 +79,20 @@ export const useAdminPanel = () => {
     return 'PM';
   };
 
+  // Get vertical focus
+  const getVerticalFocus = (): 'government' | 'healthcare' | 'education' | 'food-beverage' => {
+    if (settings.vertical === 'auto' || !settings.vertical) {
+      return 'government';
+    }
+    return settings.vertical;
+  };
+
   return {
     isVisible,
     settings,
     getGreeting,
     getCaseStudyFocus,
+    getVerticalFocus,
     applySettings,
     closePanel
   };
