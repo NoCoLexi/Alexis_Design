@@ -128,6 +128,21 @@ const verticalLabels: Record<Vertical | 'all', string> = {
   'all': 'All Projects'
 };
 
+// Display groups: curated project lists for each tab (exclusive assignments)
+const displayGroups = {
+  vertical: {
+    'government': ['ca-innovation-award', 'pa-portal', 'caloes', 'ocm', 'eag', 'coe-engage', 'grants-management-sikich', 'ri-convention-center', 'tf-green-gala'],
+    'healthcare': ['lifespan-health-care', 'mallinckrodt-medical', 'health-wellness-expertise'],
+    'education': ['providence-school-system', 'jwu-branding', 'abc6-playroom', 'wechore'],
+    'food-beverage': ['fairgrounds-coffee', 'gatorade-zipatoni', 'budweiser-zipatoni']
+  },
+  role: {
+    'product-management': ['ca-innovation-award', 'pa-portal', 'caloes', 'ocm', 'eag', 'coe-engage'],
+    'product-design': ['grants-management-sikich', 'ilave', 'subscriptex', 'wechore', 'abc6-playroom'],
+    'brand-development': ['fairgrounds-coffee', 'gatorade-zipatoni', 'budweiser-zipatoni', 'providence-school-system', 'abc6-rebrand-alexis-design', 'ttools-alexis-design', 'ri-convention-center', 'lifespan-health-care', 'jwu-branding', 'tf-green-gala', 'mallinckrodt-medical', 'health-wellness-expertise']
+  }
+};
+
 interface Project {
   id: string;
   title: string;
@@ -717,8 +732,13 @@ export default function FeaturedWork() {
     };
   }, []);
 
-  // Apply admin settings when no URL params are present
+  // Apply admin settings only once on mount (not on every settings change)
+  // This prevents user tab clicks from being overwritten
+  const hasInitialized = useRef(false);
   useEffect(() => {
+    if (hasInitialized.current) return;
+    hasInitialized.current = true;
+
     const urlParams = new URLSearchParams(window.location.search);
     const focusFromUrl = urlParams.get('focus');
     const verticalFromUrl = urlParams.get('vertical');
@@ -730,7 +750,7 @@ export default function FeaturedWork() {
       } else if (settings.jobType === 'Design') {
         setActiveRoleFilter('product-design');
       } else if (settings.jobType === 'Auto') {
-        setActiveRoleFilter('product-management'); // Default to Product Management even for Auto
+        setActiveRoleFilter('product-management');
       }
     }
 
@@ -743,13 +763,19 @@ export default function FeaturedWork() {
 
   const filteredProjects = useMemo(() => {
     if (viewMode === 'role') {
-      return projects.filter(project =>
-        activeRoleFilter === 'all' || project.roles.includes(activeRoleFilter)
-      );
+      if (activeRoleFilter === 'all') {
+        return projects;
+      }
+      // Use display groups for curated project lists
+      const projectIds = displayGroups.role[activeRoleFilter] || [];
+      return projects.filter(project => projectIds.includes(project.id));
     } else {
-      return projects.filter(project =>
-        activeVerticalFilter === 'all' || project.verticals.includes(activeVerticalFilter)
-      );
+      if (activeVerticalFilter === 'all') {
+        return projects;
+      }
+      // Use display groups for curated project lists
+      const projectIds = displayGroups.vertical[activeVerticalFilter] || [];
+      return projects.filter(project => projectIds.includes(project.id));
     }
   }, [viewMode, activeRoleFilter, activeVerticalFilter]);
 
