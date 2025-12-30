@@ -108,11 +108,33 @@ const preloadImage = (src: string) => {
 preloadImage(eagWhiteBgImage);
 preloadImage(paPortalImage);
 
+// Type definitions for roles and verticals
+type Role = 'product-management' | 'product-design' | 'brand-development';
+type Vertical = 'government' | 'healthcare' | 'education' | 'food-beverage';
+type ViewMode = 'role' | 'vertical';
+
+const roleLabels: Record<Role | 'all', string> = {
+  'product-management': 'Product Management',
+  'product-design': 'Product Design',
+  'brand-development': 'Brand Development',
+  'all': 'All Projects'
+};
+
+const verticalLabels: Record<Vertical | 'all', string> = {
+  'government': 'Government UX',
+  'healthcare': 'Healthcare',
+  'education': 'Education',
+  'food-beverage': 'Food & Beverage',
+  'all': 'All Projects'
+};
+
 interface Project {
   id: string;
   title: string;
   description: string;
   category: 'product-management' | 'product-design' | 'brand-development' | 'marketing';
+  roles: Role[];
+  verticals: Vertical[];
   image: string;
   images?: string[]; // For rotating images
   slideshow?: string[]; // For case study slideshow
@@ -127,6 +149,8 @@ const projects: Project[] = [
     title: 'California GovTech Innovation Award',
     description: 'I led the team that won the 2023 California Government Technology Innovation Award for outstanding contributions to public-sector technology.',
     category: 'product-management',
+    roles: ['product-management'],
+    verticals: ['government'],
     image: caAwardImage,
     award: 'Innovation Award',
     metrics: [
@@ -140,6 +164,8 @@ const projects: Project[] = [
     title: 'Gatorade',
     description: 'Brand development and sports marketing design concepts created during my tenure at Zipatoni, focusing on label design and sports marketing materials for the iconic brand.',
     category: 'brand-development',
+    roles: ['brand-development'],
+    verticals: ['food-beverage'],
     image: gatoradeSportsImage,
     slideshow: [
       gatoradeLabelImage,
@@ -156,6 +182,8 @@ const projects: Project[] = [
     title: 'Public Assistance Closeouts App',
     description: 'Streamlining the reimbursement process for California subrecipients. Winner of the 2023 California Government Technology Innovation Award.',
     category: 'product-management',
+    roles: ['product-management'],
+    verticals: ['government'],
     image: paCloseoutNewImage,
     award: 'Innovation Award',
     metrics: [
@@ -169,6 +197,8 @@ const projects: Project[] = [
     title: 'Cal OES Engage Community Portal',
     description: 'California Governor\'s Office of Emergency Services Engage Community Portal. Modernizing legacy software with a CRM platform connecting residents to state and local municipalities for accessible grant funding.',
     category: 'product-management',
+    roles: ['product-management'],
+    verticals: ['government'],
     image: calOesImage,
     metrics: [
       { label: '545.5%', value: 'User Base Increase', color: 'text-chart-1' },
@@ -181,6 +211,8 @@ const projects: Project[] = [
     title: 'Office of Change Management (OCM)',
     description: 'Leading a comprehensive government, state-wide system change initiative to transform California\'s digital infrastructure by unifying different legacy applications into a cohesive user experience.',
     category: 'product-management',
+    roles: ['product-management'],
+    verticals: ['government'],
     image: ocmWarningCenterImage,
     metrics: [
       { label: '86.3%', value: 'User Adoption', color: 'text-chart-1' },
@@ -193,6 +225,8 @@ const projects: Project[] = [
     title: 'Enterprise Architecture Group (EAG)',
     description: 'Integrating Cal OES technology infrastructure through strategic platform consolidation, Centers of Excellence initiatives, standardization of development practices, and implementation of governance frameworks.',
     category: 'product-management',
+    roles: ['product-management'],
+    verticals: ['government'],
     image: eagCoverImage,
     metrics: [
       { label: '83%', value: 'Compliance', color: 'text-chart-1' },
@@ -205,6 +239,8 @@ const projects: Project[] = [
     title: 'Cal OES IT Center of Excellence',
     description: 'Transforming the Engage Center of Excellence into a unified development framework that integrates competing consulting agencies and siloed programs to create consistent user experiences across state applications.',
     category: 'product-management',
+    roles: ['product-management'],
+    verticals: ['government'],
     image: coeScreen1Image,
     slideshow: [
       coeSite1Image,
@@ -221,6 +257,8 @@ const projects: Project[] = [
     title: 'Grants Management',
     description: 'Comprehensive grants management system built on Salesforce to map together systems across the state, enabling management to run unified reports and streamline grant oversight processes.',
     category: 'product-design',
+    roles: ['product-design', 'product-management'],
+    verticals: ['government'],
     image: grantsManagementReportingNewImage,
     slideshow: [
       grantsManagementPortalNewImage,
@@ -241,6 +279,8 @@ const projects: Project[] = [
     title: 'iLave',
     description: 'Developing a fintech solution for the German market focused on modern banking experiences and user-centered financial services.',
     category: 'product-design',
+    roles: ['product-design'],
+    verticals: [],
     image: iLaveImage,
     metrics: [
       { label: 'User Adoption', value: '300%', color: 'text-primary' },
@@ -253,6 +293,8 @@ const projects: Project[] = [
     title: 'Subscriptex',
     description: 'A comprehensive subscription management system with advanced analytics and user experience optimization for the German financial sector.',
     category: 'product-design',
+    roles: ['product-design'],
+    verticals: [],
     image: subscriptexImage,
     metrics: [
       { label: 'Subscription Growth', value: '156%', color: 'text-chart-4' },
@@ -265,6 +307,8 @@ const projects: Project[] = [
     title: 'WeChore',
     description: 'A modern task management platform designed to streamline household responsibilities through intuitive design and smart automation.',
     category: 'product-design',
+    roles: ['product-design'],
+    verticals: [],
     image: weChoreImage,
     metrics: [
       { label: 'Task Completion', value: '92%', color: 'text-chart-3' },
@@ -277,6 +321,8 @@ const projects: Project[] = [
     title: 'FairGrounds',
     description: 'Complete brand identity and product packaging design for a hip underground coffee bar in Maine, featuring vibrant drink packaging, merchandise, and seasonal storefront design.',
     category: 'brand-development',
+    roles: ['brand-development'],
+    verticals: ['food-beverage'],
     image: fairGroundsCoffeeImage,
     slideshow: [
       fairGroundsDrinksNewImage,
@@ -298,6 +344,8 @@ const projects: Project[] = [
     title: 'Providence School System',
     description: 'Comprehensive strategic planning and brand development for Providence School Department, including magnet program branding, mission-driven materials, and strategic frameworks to support educational excellence and community engagement across the entire school system.',
     category: 'brand-development',
+    roles: ['brand-development'],
+    verticals: ['education'],
     image: providenceSystemCoverImage,
     slideshow: [
       providenceSystemOldCoverImage,
@@ -319,6 +367,8 @@ const projects: Project[] = [
     title: 'WLNE-ABC6',
     description: 'Company-wide brand transformation for ABC6 News under Alexis Design, working directly with the marketing director to redesign everything from studio backdrops to mic holders and outdoor advertising.',
     category: 'brand-development',
+    roles: ['brand-development'],
+    verticals: [],
     image: abc6CoverImage,
     slideshow: [
       abc6SeinfeldImage,
@@ -335,6 +385,8 @@ const projects: Project[] = [
     title: 'TTools',
     description: 'Complete brand identity and product licensing system created under Alexis Design for stylus technology products, successfully sold to Fellows Office Products at Staples.',
     category: 'brand-development',
+    roles: ['brand-development'],
+    verticals: [],
     image: ttoolsCoverImage,
     slideshow: [
       ttoolsPressKitImage,
@@ -356,6 +408,8 @@ const projects: Project[] = [
     title: 'Budweiser',
     description: 'Beer brand campaign development during my time at Zipatoni, creating compelling marketing materials and brand campaigns for one of America\'s most iconic beer brands.',
     category: 'brand-development',
+    roles: ['brand-development'],
+    verticals: ['food-beverage'],
     image: budweiserIceImage,
     slideshow: [
       budweiserGuide1Image,
@@ -376,6 +430,8 @@ const projects: Project[] = [
     title: 'RI Convention Center Authority',
     description: 'Professional brochure design for Rhode Island Convention Center Authority featuring sophisticated architectural photography and premium hospitality branding.',
     category: 'brand-development',
+    roles: ['brand-development'],
+    verticals: [],
     image: riConventionCenterImage,
     slideshow: [
       riConventionCenterImage,
@@ -393,6 +449,8 @@ const projects: Project[] = [
     title: 'Lifespan Health Care',
     description: 'Comprehensive healthcare brand development featuring patient-focused messaging, community healthcare positioning, and professional medical marketing materials.',
     category: 'brand-development',
+    roles: ['brand-development'],
+    verticals: ['healthcare'],
     image: lifespanHealthCoverImage,
     slideshow: [
       lifespanHealthCoverImage,
@@ -410,6 +468,8 @@ const projects: Project[] = [
     title: 'Johnson & Wales University',
     description: 'Comprehensive university brand development including capital campaign materials, mission statement design, core values communication, and strategic marketing collateral.',
     category: 'brand-development',
+    roles: ['brand-development'],
+    verticals: ['education'],
     image: jwuBrandingImage,
     metrics: [
       { label: 'University Branding', value: '100%', color: 'text-chart-1' },
@@ -422,6 +482,8 @@ const projects: Project[] = [
     title: 'T.F. Green Airport Gala Invitation',
     description: 'Elegant event branding and invitation design for TF Green Airport\'s Grand Opening Gala, featuring sophisticated passport-themed materials and premium event presentation.',
     category: 'brand-development',
+    roles: ['brand-development'],
+    verticals: [],
     image: tfGreenGalaImage,
     metrics: [
       { label: 'Premium Event Design', value: '100%', color: 'text-chart-1' },
@@ -572,7 +634,8 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
 
 export default function FeaturedWork() {
   const { getCaseStudyFocus, settings } = useAdminPanel();
-  const [activeFilter, setActiveFilter] = useState(() => {
+  const [viewMode, setViewMode] = useState<ViewMode>('role');
+  const [activeRoleFilter, setActiveRoleFilter] = useState<Role | 'all'>(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const focusFromUrl = urlParams.get('focus');
 
@@ -582,6 +645,7 @@ export default function FeaturedWork() {
 
     return 'product-management'; // default
   });
+  const [activeVerticalFilter, setActiveVerticalFilter] = useState<Vertical | 'all'>('all');
   const [isVisible, setIsVisible] = useState(false);
   const [parallaxY, setParallaxY] = useState(0);
 
@@ -590,7 +654,8 @@ export default function FeaturedWork() {
   // Listen for filter events from other components
   useEffect(() => {
     const handleFilterEvent = (event: CustomEvent) => {
-      setActiveFilter(event.detail.category);
+      setActiveRoleFilter(event.detail.category);
+      setViewMode('role');
     };
 
     window.addEventListener('filterPortfolio', handleFilterEvent as EventListener);
@@ -599,19 +664,7 @@ export default function FeaturedWork() {
     };
   }, []);
 
-  // Get initial filter from URL parameters or default
-  const getInitialFilter = () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const focusFromUrl = urlParams.get('focus');
-
-    if (focusFromUrl === 'pm') return 'product-management';
-    if (focusFromUrl === 'design') return 'product-design';
-    if (focusFromUrl === 'brand') return 'brand-development';
-
-    return 'product-management'; // default to Product Management
-  };
-
-  // Only apply admin filter when specifically set to PM, Design, or Brand (not Auto) and no URL params
+  // Only apply admin filter when specifically set to PM or Design (not Auto) and no URL params
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const focusFromUrl = urlParams.get('focus');
@@ -619,22 +672,26 @@ export default function FeaturedWork() {
     // URL parameters take precedence over admin settings
     if (!focusFromUrl) {
       if (settings.jobType === 'PM') {
-        setActiveFilter('product-management');
+        setActiveRoleFilter('product-management');
       } else if (settings.jobType === 'Design') {
-        setActiveFilter('product-design');
-      } else if (settings.jobType === 'Brand') {
-        setActiveFilter('brand-development');
+        setActiveRoleFilter('product-design');
       } else if (settings.jobType === 'Auto') {
-        setActiveFilter('product-management'); // Default to Product Management even for Auto
+        setActiveRoleFilter('product-management'); // Default to Product Management even for Auto
       }
     }
   }, [settings.jobType]);
 
-  const filteredProjects = useMemo(() =>
-    projects.filter(project =>
-      activeFilter === 'all' || project.category === activeFilter
-    ), [activeFilter]
-  );
+  const filteredProjects = useMemo(() => {
+    if (viewMode === 'role') {
+      return projects.filter(project =>
+        activeRoleFilter === 'all' || project.roles.includes(activeRoleFilter)
+      );
+    } else {
+      return projects.filter(project =>
+        activeVerticalFilter === 'all' || project.verticals.includes(activeVerticalFilter)
+      );
+    }
+  }, [viewMode, activeRoleFilter, activeVerticalFilter]);
 
   const openCaseStudy = useCallback((projectId: string) => {
     // Track case study viewing
@@ -656,49 +713,72 @@ export default function FeaturedWork() {
             <span className="gradient-text">Product Portfolio</span>
           </h2>
 
+          {/* View Mode Toggle */}
+          <div className="flex justify-center mb-4">
+            <div className="inline-flex rounded-full bg-muted/30 p-1 backdrop-blur-sm border border-border/50">
+              <button
+                onClick={() => setViewMode('role')}
+                className={`px-4 py-1.5 text-xs font-medium rounded-full transition-all duration-200 ${
+                  viewMode === 'role'
+                    ? 'bg-primary/80 text-primary-foreground shadow-sm'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
+                data-testid="toggle-view-role"
+              >
+                View by Role
+              </button>
+              <button
+                onClick={() => setViewMode('vertical')}
+                className={`px-4 py-1.5 text-xs font-medium rounded-full transition-all duration-200 ${
+                  viewMode === 'vertical'
+                    ? 'bg-primary/80 text-primary-foreground shadow-sm'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
+                data-testid="toggle-view-vertical"
+              >
+                View by Vertical
+              </button>
+            </div>
+          </div>
+
           {/* Portfolio Filter Tabs */}
           <div className="flex justify-center mb-8">
-            <div className="inline-flex rounded-lg bg-background/50 p-1 backdrop-blur-sm border border-border">
-              <button
-                onClick={() => setActiveFilter('product-management')}
-                className={`px-6 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
-                  activeFilter === 'product-management'
-                    ? 'bg-primary text-primary-foreground shadow-sm'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
-                }`}
-              >
-                Product Management
-              </button>
-              <button
-                onClick={() => setActiveFilter('product-design')}
-                className={`px-6 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
-                  activeFilter === 'product-design'
-                    ? 'bg-primary text-primary-foreground shadow-sm'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
-                }`}
-              >
-                Product Design
-              </button>
-              <button
-                onClick={() => setActiveFilter('brand-development')}
-                className={`px-6 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
-                  activeFilter === 'brand-development'
-                    ? 'bg-primary text-primary-foreground shadow-sm'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
-                }`}
-              >
-                Brand Development
-              </button>
-              <button
-                onClick={() => setActiveFilter('all')}
-                className={`px-6 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
-                  activeFilter === 'all'
-                    ? 'bg-primary text-primary-foreground shadow-sm'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
-                }`}
-              >
-                All Projects
-              </button>
+            <div className="inline-flex flex-wrap justify-center rounded-lg bg-background/50 p-1 backdrop-blur-sm border border-border">
+              {viewMode === 'role' ? (
+                <>
+                  {(['product-management', 'product-design', 'brand-development', 'all'] as const).map((role) => (
+                    <button
+                      key={role}
+                      onClick={() => setActiveRoleFilter(role)}
+                      className={`px-6 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
+                        activeRoleFilter === role
+                          ? 'bg-primary text-primary-foreground shadow-sm'
+                          : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                      }`}
+                      data-testid={`filter-role-${role}`}
+                    >
+                      {roleLabels[role]}
+                    </button>
+                  ))}
+                </>
+              ) : (
+                <>
+                  {(['government', 'healthcare', 'education', 'food-beverage', 'all'] as const).map((vertical) => (
+                    <button
+                      key={vertical}
+                      onClick={() => setActiveVerticalFilter(vertical)}
+                      className={`px-6 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
+                        activeVerticalFilter === vertical
+                          ? 'bg-primary text-primary-foreground shadow-sm'
+                          : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                      }`}
+                      data-testid={`filter-vertical-${vertical}`}
+                    >
+                      {verticalLabels[vertical]}
+                    </button>
+                  ))}
+                </>
+              )}
             </div>
           </div>
 
