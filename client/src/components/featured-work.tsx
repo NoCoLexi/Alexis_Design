@@ -320,7 +320,7 @@ const projects: Project[] = [
   {
     id: 'wechore',
     title: 'WeChore',
-    description: 'A modern task management platform designed to streamline household responsibilities through intuitive design and smart automation.',
+    description: 'A modern task management platform designed to streamline household responsibilities, school homework, and assignments through intuitive design and smart automation for families and students.',
     category: 'product-design',
     roles: ['product-design'],
     verticals: ['education'],
@@ -329,7 +329,7 @@ const projects: Project[] = [
       { label: 'Task Completion', value: '92%', color: 'text-chart-3' },
       { label: 'User Retention', value: '78%', color: 'text-primary' }
     ],
-    tags: ['Task Management', 'Home Automation', 'Productivity']
+    tags: ['Task Management', 'Education', 'Family Productivity']
   },
   {
     id: 'fairgrounds-coffee',
