@@ -1,19 +1,16 @@
 import React, { useState, useMemo, useCallback, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Award, ExternalLink, X } from "lucide-react";
+import { Award, ExternalLink } from "lucide-react";
 import { trackEvent, trackSynthesizerEvent } from "@/lib/analytics";
 import { useAdminPanel } from "@/hooks/use-admin-panel";
 import { 
   usePortfolioFilters, 
   RoleFilter, 
   VerticalFilter, 
-  TagSlug,
   roleLabels, 
   verticalLabels, 
-  availableVerticals,
-  canonicalTags,
-  tagLabels 
+  availableVerticals
 } from "@/hooks/use-portfolio-filters";
 import calOesImage from "@assets/Cal OES Engage Landing Page Phase I_v2_1754580174186.png";
 import paPortalImage from "@assets/Grants Management Reporting 1-1_1754840000206.png";
@@ -125,16 +122,16 @@ type Vertical = 'government' | 'healthcare' | 'education' | 'food-beverage';
 
 // Role descriptions for card labels
 const roleDescriptions: Record<RoleFilter, string> = {
-  'ux': 'UX / Design',
-  'pm': 'Product / PM',
-  'brand': 'Brand / Strategy'
+  'ux-design-strategy': 'UX/Design/Strategy',
+  'product-pm': 'Product/PM',
+  'project-management': 'Project/Change Management'
 };
 
 // Projects visible under each role filter (curated lists)
 const roleProjects: Record<RoleFilter, string[]> = {
-  'ux': ['grants-management-sikich', 'ilave', 'subscriptex', 'wechore', 'caloes', 'pa-portal', 'ocm', 'coe-engage'],
-  'pm': ['ca-innovation-award', 'pa-portal', 'caloes', 'ocm', 'eag', 'coe-engage', 'grants-management-sikich'],
-  'brand': ['fairgrounds-coffee', 'gatorade-zipatoni', 'budweiser-zipatoni', 'providence-school-system', 'abc6-rebrand-alexis-design', 'ttools-alexis-design', 'ri-convention-center', 'lifespan-health-care', 'jwu-branding', 'tf-green-gala', 'mallinckrodt-medical', 'health-wellness-expertise']
+  'ux-design-strategy': ['grants-management-sikich', 'ilave', 'subscriptex', 'wechore', 'caloes', 'pa-portal', 'ocm', 'coe-engage'],
+  'product-pm': ['ca-innovation-award', 'pa-portal', 'caloes', 'ocm', 'eag', 'coe-engage', 'grants-management-sikich'],
+  'project-management': ['fairgrounds-coffee', 'gatorade-zipatoni', 'budweiser-zipatoni', 'providence-school-system', 'abc6-rebrand-alexis-design', 'ttools-alexis-design', 'ri-convention-center', 'lifespan-health-care', 'jwu-branding', 'tf-green-gala', 'mallinckrodt-medical', 'health-wellness-expertise']
 };
 
 interface Project {
@@ -149,7 +146,7 @@ interface Project {
   slideshow?: string[]; // For case study slideshow
   metrics: { label: string; value: string; color: string }[];
   tags: string[];
-  canonicalTags: TagSlug[]; // Canonical tags for filtering
+  canonicalTags: string[]; // Canonical tags for filtering
   award?: string;
 }
 
@@ -572,12 +569,11 @@ const projects: Project[] = [
 
 
 // Project card with conditional parallax effects
-const ProjectCard = React.memo(({ project, index, onOpenCaseStudy, activeRole, onTagClick }: {
+const ProjectCard = React.memo(({ project, index, onOpenCaseStudy, activeRole }: {
   project: Project;
   index: number;
   onOpenCaseStudy: (id: string) => void;
   activeRole?: RoleFilter;
-  onTagClick?: (tag: TagSlug) => void;
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -682,31 +678,15 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy, activeRole, o
         )}
         
         <div className="flex flex-wrap gap-2 mb-4">
-          {project.tags.map((tag, tagIndex) => {
-            const normalizedTag = tag.toLowerCase().replace(/\s+/g, '').replace(/&/g, '');
-            const matchingCanonicalTag = project.canonicalTags.find(ct => {
-              const normalizedCanonical = ct.replace(/-/g, '');
-              const normalizedLabel = tagLabels[ct]?.toLowerCase().replace(/\s+/g, '').replace(/&/g, '') || '';
-              return normalizedTag.includes(normalizedCanonical) || 
-                     normalizedCanonical.includes(normalizedTag) ||
-                     normalizedTag === normalizedLabel;
-            });
-            return (
-              <Badge 
-                key={`${project.id}-tag-${tagIndex}`} 
-                variant="outline" 
-                className={`text-xs ${matchingCanonicalTag ? 'cursor-pointer hover:bg-primary/20' : ''}`}
-                onClick={(e) => {
-                  if (matchingCanonicalTag && onTagClick) {
-                    e.stopPropagation();
-                    onTagClick(matchingCanonicalTag);
-                  }
-                }}
-              >
-                {tag}
-              </Badge>
-            );
-          })}
+          {project.tags.map((tag, tagIndex) => (
+            <Badge 
+              key={`${project.id}-tag-${tagIndex}`} 
+              variant="outline" 
+              className="text-xs"
+            >
+              {tag}
+            </Badge>
+          ))}
         </div>
 
         <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">
@@ -740,23 +720,12 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy, activeRole, o
 });
 
 export default function FeaturedWork() {
-  const { filters, setRole, setVertical, toggleTag, clearTags, isTagActive } = usePortfolioFilters();
-  
-  // Get available tags from current filtered projects
-  const availableTags = useMemo(() => {
-    const tagsSet = new Set<TagSlug>();
-    projects.forEach(project => {
-      if (roleProjects[filters.role].includes(project.id)) {
-        project.canonicalTags.forEach(tag => tagsSet.add(tag));
-      }
-    });
-    return canonicalTags.filter(tag => tagsSet.has(tag));
-  }, [filters.role]);
+  const { filters, setRole, setVertical } = usePortfolioFilters();
 
   // Map project IDs to their canonical finance category (fintech projects)
   const financeProjects = ['ilave', 'subscriptex'];
   
-  // Filter projects with three-tier AND logic
+  // Filter projects with two-tier AND logic (role + vertical)
   const filteredProjects = useMemo(() => {
     return projects.filter(project => {
       // Must match role (using roleProjects mapping)
@@ -768,20 +737,14 @@ export default function FeaturedWork() {
           // Finance filter only matches explicitly listed fintech projects
           if (!financeProjects.includes(project.id)) return false;
         } else {
-          // Other verticals must match project's verticals array
+          // All other verticals use the project's verticals array
           if (!project.verticals.includes(filters.vertical as Vertical)) return false;
         }
       }
       
-      // Must match ALL selected tags (AND logic)
-      if (filters.tags.length > 0) {
-        const hasAllTags = filters.tags.every(tag => project.canonicalTags.includes(tag));
-        if (!hasAllTags) return false;
-      }
-      
       return true;
     });
-  }, [filters.role, filters.vertical, filters.tags]);
+  }, [filters.role, filters.vertical]);
 
   const openCaseStudy = useCallback((projectId: string) => {
     trackEvent('case_study_viewed', 'portfolio', projectId);
@@ -798,48 +761,34 @@ export default function FeaturedWork() {
             <span className="gradient-text">Case Studies</span>
           </h2>
 
-          {/* Primary Filter: Role (required, single-select) */}
-          <div className="mb-6">
-            <div className="flex flex-col sm:flex-row justify-center gap-2 sm:gap-3">
-              {(['ux', 'pm', 'brand'] as const).map((role) => {
+          {/* Primary Filter: Role (tabbed navigation) */}
+          <div className="mb-8">
+            <div className="inline-flex bg-muted/20 rounded-lg p-1 border border-border/30">
+              {(['ux-design-strategy', 'product-pm', 'project-management'] as const).map((role) => {
                 const isActive = filters.role === role;
-                const count = roleProjects[role].length;
                 return (
                   <button
                     key={role}
                     onClick={() => setRole(role)}
-                    className={`group relative px-5 py-3 rounded-xl transition-all duration-300 ${
+                    className={`relative px-6 py-2.5 rounded-md text-sm font-medium transition-all duration-300 ${
                       isActive
-                        ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-500/25'
-                        : 'bg-muted/20 hover:bg-muted/40 text-muted-foreground hover:text-foreground border border-border/50 hover:border-primary/50'
+                        ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md'
+                        : 'text-muted-foreground hover:text-foreground hover:bg-muted/30'
                     }`}
                     data-testid={`role-filter-${role}`}
                   >
-                    <div className="flex items-center gap-2">
-                      <div className={`w-4 h-4 rounded border-2 flex items-center justify-center transition-all ${
-                        isActive ? 'border-white bg-white/20' : 'border-muted-foreground/50'
-                      }`}>
-                        {isActive && (
-                          <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                          </svg>
-                        )}
-                      </div>
-                      <span className="font-semibold text-sm">{roleLabels[role]}</span>
-                      <span className={`text-xs px-1.5 py-0.5 rounded-full ${
-                        isActive ? 'bg-white/20 text-white' : 'bg-muted/30 text-muted-foreground'
-                      }`}>
-                        {count}
-                      </span>
-                    </div>
+                    <span className="relative z-10">{roleLabels[role]}</span>
+                    {!isActive && (
+                      <span className="absolute inset-0 rounded-md opacity-0 hover:opacity-100 bg-gradient-to-r from-purple-600/10 to-pink-600/10 transition-opacity duration-300" />
+                    )}
                   </button>
                 );
               })}
             </div>
           </div>
 
-          {/* Secondary Filter: Vertical (optional) */}
-          <div className="mb-4">
+          {/* Secondary Filter: Vertical (pills) */}
+          <div className="mb-6">
             <div className="flex flex-wrap justify-center gap-2">
               {availableVerticals.map((vertical) => {
                 const isActive = filters.vertical === vertical;
@@ -847,9 +796,9 @@ export default function FeaturedWork() {
                   <button
                     key={vertical}
                     onClick={() => setVertical(vertical)}
-                    className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                    className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
                       isActive
-                        ? 'bg-primary text-primary-foreground'
+                        ? 'bg-primary text-primary-foreground shadow-sm'
                         : 'bg-muted/30 text-muted-foreground hover:bg-muted/50 hover:text-foreground'
                     }`}
                     data-testid={`vertical-filter-${vertical}`}
@@ -860,43 +809,6 @@ export default function FeaturedWork() {
               })}
             </div>
           </div>
-
-          {/* Tertiary Filter: Tags (optional, multi-select) */}
-          {availableTags.length > 0 && (
-            <div className="mb-6">
-              <div className="flex flex-wrap justify-center gap-2">
-                {availableTags.map((tag) => {
-                  const isActive = isTagActive(tag);
-                  return (
-                    <button
-                      key={tag}
-                      onClick={() => toggleTag(tag)}
-                      className={`px-2.5 py-1 rounded-md text-xs font-medium transition-all border ${
-                        isActive
-                          ? 'bg-purple-500/20 text-purple-300 border-purple-500/50'
-                          : 'bg-transparent text-muted-foreground border-border/50 hover:border-purple-500/30 hover:text-purple-300'
-                      }`}
-                      data-testid={`tag-filter-${tag}`}
-                    >
-                      {tagLabels[tag]}
-                      {isActive && (
-                        <X className="w-3 h-3 ml-1 inline-block" />
-                      )}
-                    </button>
-                  );
-                })}
-                {filters.tags.length > 0 && (
-                  <button
-                    onClick={clearTags}
-                    className="px-2.5 py-1 rounded-md text-xs font-medium text-muted-foreground hover:text-foreground transition-all"
-                    data-testid="clear-tags"
-                  >
-                    Clear all
-                  </button>
-                )}
-              </div>
-            </div>
-          )}
 
           {/* Results count */}
           <p className="text-sm text-muted-foreground">
@@ -913,7 +825,6 @@ export default function FeaturedWork() {
               index={index}
               onOpenCaseStudy={openCaseStudy}
               activeRole={filters.role}
-              onTagClick={toggleTag}
             />
           ))}
         </div>
@@ -923,10 +834,7 @@ export default function FeaturedWork() {
           <div className="text-center py-12">
             <p className="text-muted-foreground mb-4">No projects match the current filters.</p>
             <button
-              onClick={() => {
-                setVertical('all');
-                clearTags();
-              }}
+              onClick={() => setVertical('all')}
               className="text-primary hover:underline text-sm"
             >
               Reset filters
