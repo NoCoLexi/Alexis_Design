@@ -1,9 +1,20 @@
 import React, { useState, useMemo, useCallback, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Award, ExternalLink } from "lucide-react";
+import { Award, ExternalLink, X } from "lucide-react";
 import { trackEvent, trackSynthesizerEvent } from "@/lib/analytics";
 import { useAdminPanel } from "@/hooks/use-admin-panel";
+import { 
+  usePortfolioFilters, 
+  RoleFilter, 
+  VerticalFilter, 
+  TagSlug,
+  roleLabels, 
+  verticalLabels, 
+  availableVerticals,
+  canonicalTags,
+  tagLabels 
+} from "@/hooks/use-portfolio-filters";
 import calOesImage from "@assets/Cal OES Engage Landing Page Phase I_v2_1754580174186.png";
 import paPortalImage from "@assets/Grants Management Reporting 1-1_1754840000206.png";
 import dashboardImage from "@assets/image_1754580387947.png";
@@ -108,59 +119,22 @@ const preloadImage = (src: string) => {
 preloadImage(eagWhiteBgImage);
 preloadImage(paPortalImage);
 
-// Type definitions for roles, verticals, and lenses
+// Type definitions for roles and verticals
 type Role = 'product-management' | 'product-design' | 'brand-development';
 type Vertical = 'government' | 'healthcare' | 'education' | 'food-beverage';
-type ViewMode = 'role' | 'vertical';
-type Lens = 'ux' | 'pm' | 'brand';
 
-const lensLabels: Record<Lens, string> = {
+// Role descriptions for card labels
+const roleDescriptions: Record<RoleFilter, string> = {
   'ux': 'UX / Design',
   'pm': 'Product / PM',
   'brand': 'Brand / Strategy'
 };
 
-const lensDescriptions: Record<Lens, string> = {
-  'ux': 'Viewed through a UX lens',
-  'pm': 'Viewed as PM',
-  'brand': 'Viewed through a Brand lens'
-};
-
-const roleLabels: Record<Role | 'all', string> = {
-  'product-management': 'Product Management',
-  'product-design': 'Product Design',
-  'brand-development': 'Brand Development',
-  'all': 'All Projects'
-};
-
-const verticalLabels: Record<Vertical | 'all', string> = {
-  'government': 'Government',
-  'healthcare': 'Healthcare',
-  'education': 'Education',
-  'food-beverage': 'Food & Beverage',
-  'all': 'All Projects'
-};
-
-// Projects visible under each lens (curated lists)
-const lensProjects: Record<Lens, string[]> = {
+// Projects visible under each role filter (curated lists)
+const roleProjects: Record<RoleFilter, string[]> = {
   'ux': ['grants-management-sikich', 'ilave', 'subscriptex', 'wechore', 'caloes', 'pa-portal', 'ocm', 'coe-engage'],
   'pm': ['ca-innovation-award', 'pa-portal', 'caloes', 'ocm', 'eag', 'coe-engage', 'grants-management-sikich'],
   'brand': ['fairgrounds-coffee', 'gatorade-zipatoni', 'budweiser-zipatoni', 'providence-school-system', 'abc6-rebrand-alexis-design', 'ttools-alexis-design', 'ri-convention-center', 'lifespan-health-care', 'jwu-branding', 'tf-green-gala', 'mallinckrodt-medical', 'health-wellness-expertise']
-};
-
-// Display groups: curated project lists for each tab (exclusive assignments)
-const displayGroups = {
-  vertical: {
-    'government': ['ca-innovation-award', 'pa-portal', 'caloes', 'ocm', 'eag', 'coe-engage', 'grants-management-sikich', 'ri-convention-center', 'tf-green-gala'],
-    'healthcare': ['lifespan-health-care', 'mallinckrodt-medical', 'health-wellness-expertise'],
-    'education': ['providence-school-system', 'jwu-branding', 'abc6-playroom', 'wechore'],
-    'food-beverage': ['fairgrounds-coffee', 'gatorade-zipatoni', 'budweiser-zipatoni']
-  },
-  role: {
-    'product-management': ['ca-innovation-award', 'pa-portal', 'caloes', 'ocm', 'eag', 'coe-engage'],
-    'product-design': ['grants-management-sikich', 'ilave', 'subscriptex', 'wechore', 'abc6-playroom'],
-    'brand-development': ['fairgrounds-coffee', 'gatorade-zipatoni', 'budweiser-zipatoni', 'providence-school-system', 'abc6-rebrand-alexis-design', 'ttools-alexis-design', 'ri-convention-center', 'lifespan-health-care', 'jwu-branding', 'tf-green-gala', 'mallinckrodt-medical', 'health-wellness-expertise']
-  }
 };
 
 interface Project {
@@ -175,17 +149,9 @@ interface Project {
   slideshow?: string[]; // For case study slideshow
   metrics: { label: string; value: string; color: string }[];
   tags: string[];
+  canonicalTags: TagSlug[]; // Canonical tags for filtering
   award?: string;
 }
-
-// Helper function to get lenses for a project based on lensProjects mapping
-const getProjectLenses = (projectId: string): Lens[] => {
-  const lenses: Lens[] = [];
-  if (lensProjects.ux.includes(projectId)) lenses.push('ux');
-  if (lensProjects.pm.includes(projectId)) lenses.push('pm');
-  if (lensProjects.brand.includes(projectId)) lenses.push('brand');
-  return lenses;
-};
 
 const projects: Project[] = [
   {
@@ -201,7 +167,8 @@ const projects: Project[] = [
       { label: '4', value: 'Award-Winning Applications', color: 'text-chart-1' },
       { label: '2023', value: 'Innovation Summit', color: 'text-primary' }
     ],
-    tags: ['Gov Tech', 'Innovation Award', 'Public Service']
+    tags: ['Gov Tech', 'Innovation Award', 'Public Service'],
+    canonicalTags: ['govtech', 'award', 'public-service']
   },
   {
     id: 'gatorade-zipatoni',
@@ -219,7 +186,8 @@ const projects: Project[] = [
       { label: 'Design Concepts', value: '15+', color: 'text-chart-1' },
       { label: 'Brand Recognition', value: '95%', color: 'text-primary' }
     ],
-    tags: ['Brand Development', 'Sports Marketing', 'Label Design', 'Zipatoni Agency']
+    tags: ['Brand Development', 'Sports Marketing', 'Label Design', 'Zipatoni Agency'],
+    canonicalTags: []
   },
   {
     id: 'pa-portal',
@@ -234,7 +202,8 @@ const projects: Project[] = [
       { label: '75%', value: 'Support Ticket Reduction', color: 'text-chart-1' },
       { label: '$243M', value: 'Projects Closed Out', color: 'text-primary' }
     ],
-    tags: ['Gov Tech', 'Process Automation', 'Public Service']
+    tags: ['Gov Tech', 'Process Automation', 'Public Service'],
+    canonicalTags: ['govtech', 'award', 'public-service']
   },
   {
     id: 'caloes',
@@ -248,7 +217,8 @@ const projects: Project[] = [
       { label: '545.5%', value: 'User Base Increase', color: 'text-chart-1' },
       { label: '30k+', value: 'Subrecipient Users', color: 'text-primary' }
     ],
-    tags: ['Product Management', 'Government Tech', 'SaaS CRM']
+    tags: ['Product Management', 'Government Tech', 'SaaS CRM'],
+    canonicalTags: ['govtech', 'public-service', 'salesforce']
   },
   {
     id: 'ocm',
@@ -262,7 +232,8 @@ const projects: Project[] = [
       { label: '86.3%', value: 'User Adoption', color: 'text-chart-1' },
       { label: '23', value: 'Org-wide Applications', color: 'text-primary' }
     ],
-    tags: ['Change Management', 'Product Strategy', 'Government Innovation']
+    tags: ['Change Management', 'Product Strategy', 'Government Innovation'],
+    canonicalTags: ['govtech', 'public-service']
   },
   {
     id: 'eag',
@@ -276,7 +247,8 @@ const projects: Project[] = [
       { label: '83%', value: 'Compliance', color: 'text-chart-1' },
       { label: '39M', value: 'Californian Residents', color: 'text-primary' }
     ],
-    tags: ['Platform Engineering', 'Tech Strategy', 'Process Optimization']
+    tags: ['Platform Engineering', 'Tech Strategy', 'Process Optimization'],
+    canonicalTags: ['govtech']
   },
   {
     id: 'coe-engage',
@@ -294,7 +266,8 @@ const projects: Project[] = [
       { label: '33', value: 'Developers Unified', color: 'text-chart-1' },
       { label: '76%', value: 'Compliance Rate', color: 'text-primary' }
     ],
-    tags: ['Center of Excellence', 'Development Standards', 'Team Integration']
+    tags: ['Center of Excellence', 'Development Standards', 'Team Integration'],
+    canonicalTags: ['govtech']
   },
   {
     id: 'grants-management-sikich',
@@ -316,7 +289,8 @@ const projects: Project[] = [
       { label: 'System Integration', value: '100%', color: 'text-chart-1' },
       { label: 'Reporting Efficiency', value: '85%', color: 'text-primary' }
     ],
-    tags: ['Salesforce', 'Government Systems', 'Data Integration', 'Reporting Dashboard']
+    tags: ['Salesforce', 'Government Systems', 'Data Integration', 'Reporting Dashboard'],
+    canonicalTags: ['govtech', 'salesforce', 'public-service']
   },
   {
     id: 'ilave',
@@ -330,7 +304,8 @@ const projects: Project[] = [
       { label: 'User Adoption', value: '300%', color: 'text-primary' },
       { label: 'Market Penetration', value: '85%', color: 'text-chart-2' }
     ],
-    tags: ['Fintech', 'German Market', 'Banking UX']
+    tags: ['Fintech', 'German Market', 'Banking UX'],
+    canonicalTags: []
   },
   {
     id: 'subscriptex',
@@ -344,7 +319,8 @@ const projects: Project[] = [
       { label: 'Subscription Growth', value: '156%', color: 'text-chart-4' },
       { label: 'Churn Reduction', value: '43%', color: 'text-chart-2' }
     ],
-    tags: ['Design System', 'German Market', 'Financial UX']
+    tags: ['Design System', 'German Market', 'Financial UX'],
+    canonicalTags: []
   },
   {
     id: 'wechore',
@@ -358,7 +334,8 @@ const projects: Project[] = [
       { label: 'Task Completion', value: '92%', color: 'text-chart-3' },
       { label: 'User Retention', value: '78%', color: 'text-primary' }
     ],
-    tags: ['Task Management', 'Education', 'Family Productivity']
+    tags: ['Task Management', 'Education', 'Family Productivity'],
+    canonicalTags: ['accessibility']
   },
   {
     id: 'fairgrounds-coffee',
@@ -381,7 +358,8 @@ const projects: Project[] = [
       { label: 'Brand Identity Score', value: '94%', color: 'text-chart-1' },
       { label: 'Design Recognition', value: '89%', color: 'text-primary' }
     ],
-    tags: ['Brand Identity', 'Logo Design', 'Product Packaging', 'Community Coffee']
+    tags: ['Brand Identity', 'Logo Design', 'Product Packaging', 'Community Coffee'],
+    canonicalTags: []
   },
   {
     id: 'providence-school-system',
@@ -404,7 +382,8 @@ const projects: Project[] = [
       { label: 'Strategic Frameworks', value: '5+', color: 'text-chart-1' },
       { label: 'Educational Programs', value: '12+', color: 'text-primary' }
     ],
-    tags: ['Educational Strategy', 'Strategic Planning', 'Magnet Schools', 'Community Engagement', 'School Systems']
+    tags: ['Educational Strategy', 'Strategic Planning', 'Magnet Schools', 'Community Engagement', 'School Systems'],
+    canonicalTags: ['public-service']
   },
   {
     id: 'abc6-rebrand-alexis-design',
@@ -422,7 +401,8 @@ const projects: Project[] = [
       { label: 'Brand Touchpoints', value: '100+', color: 'text-chart-1' },
       { label: 'Complete Transformation', value: '100%', color: 'text-primary' }
     ],
-    tags: ['Television Branding', 'Studio Design', 'Outdoor Advertising', 'Alexis Design']
+    tags: ['Television Branding', 'Studio Design', 'Outdoor Advertising', 'Alexis Design'],
+    canonicalTags: []
   },
   {
     id: 'ttools-alexis-design',
@@ -445,7 +425,8 @@ const projects: Project[] = [
       { label: 'Brand Guidelines', value: '50+', color: 'text-chart-1' },
       { label: 'Commercial Success', value: '100%', color: 'text-primary' }
     ],
-    tags: ['Brand Identity', 'Product Licensing', 'Retail Partnership', 'Alexis Design']
+    tags: ['Brand Identity', 'Product Licensing', 'Retail Partnership', 'Alexis Design'],
+    canonicalTags: []
   },
   {
     id: 'budweiser-zipatoni',
@@ -467,7 +448,8 @@ const projects: Project[] = [
       { label: 'Campaign Concepts', value: '12+', color: 'text-chart-1' },
       { label: 'Brand Consistency', value: '98%', color: 'text-primary' }
     ],
-    tags: ['Beer Marketing', 'Campaign Development', 'Brand Strategy', 'Zipatoni Agency']
+    tags: ['Beer Marketing', 'Campaign Development', 'Brand Strategy', 'Zipatoni Agency'],
+    canonicalTags: []
   },
   {
     id: 'ri-convention-center',
@@ -486,7 +468,8 @@ const projects: Project[] = [
       { label: 'Professional Branding', value: '100%', color: 'text-chart-1' },
       { label: 'Hospitality Focus', value: '95%', color: 'text-primary' }
     ],
-    tags: ['Hospitality Branding', 'Convention Marketing', 'Architectural Photography', 'Tourism Promotion']
+    tags: ['Hospitality Branding', 'Convention Marketing', 'Architectural Photography', 'Tourism Promotion'],
+    canonicalTags: ['govtech']
   },
   {
     id: 'lifespan-health-care',
@@ -505,7 +488,8 @@ const projects: Project[] = [
       { label: 'Healthcare Branding', value: '100%', color: 'text-chart-1' },
       { label: 'Community Focus', value: '95%', color: 'text-primary' }
     ],
-    tags: ['Healthcare Branding', 'Medical Marketing', 'Community Health', 'Patient Care']
+    tags: ['Healthcare Branding', 'Medical Marketing', 'Community Health', 'Patient Care'],
+    canonicalTags: []
   },
   {
     id: 'jwu-branding',
@@ -519,7 +503,8 @@ const projects: Project[] = [
       { label: 'University Branding', value: '100%', color: 'text-chart-1' },
       { label: 'Strategic Messaging', value: '95%', color: 'text-primary' }
     ],
-    tags: ['University Branding', 'Higher Education', 'Capital Campaign', 'Strategic Communications']
+    tags: ['University Branding', 'Higher Education', 'Capital Campaign', 'Strategic Communications'],
+    canonicalTags: []
   },
   {
     id: 'tf-green-gala',
@@ -533,7 +518,8 @@ const projects: Project[] = [
       { label: 'Premium Event Design', value: '100%', color: 'text-chart-1' },
       { label: 'Aviation Theme Integration', value: '95%', color: 'text-primary' }
     ],
-    tags: ['Event Design', 'Aviation Branding', 'Premium Invitations', 'Gala Marketing']
+    tags: ['Event Design', 'Aviation Branding', 'Premium Invitations', 'Gala Marketing'],
+    canonicalTags: ['govtech']
   },
   {
     id: 'abc6-playroom',
@@ -547,7 +533,8 @@ const projects: Project[] = [
       { label: 'Educational Exhibits', value: '10+', color: 'text-chart-1' },
       { label: 'Age-Targeted Design', value: '100%', color: 'text-primary' }
     ],
-    tags: ['Educational Design', 'Interactive Exhibits', 'Child Development', 'Alexis Design']
+    tags: ['Educational Design', 'Interactive Exhibits', 'Child Development', 'Alexis Design'],
+    canonicalTags: ['accessibility']
   },
   {
     id: 'mallinckrodt-medical',
@@ -561,7 +548,8 @@ const projects: Project[] = [
       { label: 'Corporate Rebrand', value: '100%', color: 'text-chart-1' },
       { label: 'Crisis Communications', value: 'Strategic', color: 'text-primary' }
     ],
-    tags: ['Healthcare Branding', 'Corporate Communications', 'Crisis PR', 'Pharmaceutical']
+    tags: ['Healthcare Branding', 'Corporate Communications', 'Crisis PR', 'Pharmaceutical'],
+    canonicalTags: []
   },
   {
     id: 'health-wellness-expertise',
@@ -576,18 +564,20 @@ const projects: Project[] = [
       { label: '23+', value: 'Years Experience', color: 'text-chart-1' },
       { label: '7+', value: 'Certifications', color: 'text-primary' }
     ],
-    tags: ['Personal Training', 'Nutrition Coaching', 'Health Sciences', 'Fitness Instruction']
+    tags: ['Personal Training', 'Nutrition Coaching', 'Health Sciences', 'Fitness Instruction'],
+    canonicalTags: ['award']
   }
 ];
 
 
 
 // Project card with conditional parallax effects
-const ProjectCard = React.memo(({ project, index, onOpenCaseStudy, activeLens }: {
+const ProjectCard = React.memo(({ project, index, onOpenCaseStudy, activeRole, onTagClick }: {
   project: Project;
   index: number;
   onOpenCaseStudy: (id: string) => void;
-  activeLens?: Lens;
+  activeRole?: RoleFilter;
+  onTagClick?: (tag: TagSlug) => void;
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -682,21 +672,41 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy, activeLens }:
       </div>
 
       <div className="p-8">
-        {/* Lens label */}
-        {activeLens && (
+        {/* Role label */}
+        {activeRole && (
           <div className="mb-3">
             <span className="text-xs font-medium text-purple-400/80 tracking-wide uppercase">
-              {lensDescriptions[activeLens]}
+              {roleDescriptions[activeRole]}
             </span>
           </div>
         )}
         
         <div className="flex flex-wrap gap-2 mb-4">
-          {project.tags.map((tag, tagIndex) => (
-            <Badge key={`${project.id}-tag-${tagIndex}`} variant="outline" className="text-xs">
-              {tag}
-            </Badge>
-          ))}
+          {project.tags.map((tag, tagIndex) => {
+            const normalizedTag = tag.toLowerCase().replace(/\s+/g, '').replace(/&/g, '');
+            const matchingCanonicalTag = project.canonicalTags.find(ct => {
+              const normalizedCanonical = ct.replace(/-/g, '');
+              const normalizedLabel = tagLabels[ct]?.toLowerCase().replace(/\s+/g, '').replace(/&/g, '') || '';
+              return normalizedTag.includes(normalizedCanonical) || 
+                     normalizedCanonical.includes(normalizedTag) ||
+                     normalizedTag === normalizedLabel;
+            });
+            return (
+              <Badge 
+                key={`${project.id}-tag-${tagIndex}`} 
+                variant="outline" 
+                className={`text-xs ${matchingCanonicalTag ? 'cursor-pointer hover:bg-primary/20' : ''}`}
+                onClick={(e) => {
+                  if (matchingCanonicalTag && onTagClick) {
+                    e.stopPropagation();
+                    onTagClick(matchingCanonicalTag);
+                  }
+                }}
+              >
+                {tag}
+              </Badge>
+            );
+          })}
         </div>
 
         <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">
@@ -730,108 +740,93 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy, activeLens }:
 });
 
 export default function FeaturedWork() {
-  const { settings } = useAdminPanel();
+  const { filters, setRole, setVertical, toggleTag, clearTags, isTagActive } = usePortfolioFilters();
   
-  // Lens filter state - primary filter for viewing work
-  const [activeLens, setActiveLens] = useState<Lens>(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const lensFromUrl = urlParams.get('lens');
-    const focusFromUrl = urlParams.get('focus');
-    
-    // Check lens parameter first
-    if (lensFromUrl === 'ux' || lensFromUrl === 'design') return 'ux';
-    if (lensFromUrl === 'pm') return 'pm';
-    if (lensFromUrl === 'brand') return 'brand';
-    
-    // Fall back to focus parameter for backward compatibility
-    if (focusFromUrl === 'design') return 'ux';
-    if (focusFromUrl === 'pm') return 'pm';
-    if (focusFromUrl === 'brand') return 'brand';
-    
-    return 'pm'; // default
-  });
-
-  // Apply admin settings for lens only once on mount
-  const hasInitialized = useRef(false);
-  useEffect(() => {
-    if (hasInitialized.current) return;
-    hasInitialized.current = true;
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const lensFromUrl = urlParams.get('lens');
-    const focusFromUrl = urlParams.get('focus');
-
-    // Set lens from admin settings if no URL params
-    if (!lensFromUrl && !focusFromUrl) {
-      if (settings.jobType === 'PM') {
-        setActiveLens('pm');
-      } else if (settings.jobType === 'Design') {
-        setActiveLens('ux');
-      } else if (settings.jobType === 'Auto') {
-        setActiveLens('pm');
+  // Get available tags from current filtered projects
+  const availableTags = useMemo(() => {
+    const tagsSet = new Set<TagSlug>();
+    projects.forEach(project => {
+      if (roleProjects[filters.role].includes(project.id)) {
+        project.canonicalTags.forEach(tag => tagsSet.add(tag));
       }
-    }
-  }, [settings.jobType]);
+    });
+    return canonicalTags.filter(tag => tagsSet.has(tag));
+  }, [filters.role]);
 
-  // Filter projects based on lens only - lens is the primary filter
+  // Map project IDs to their canonical finance category (fintech projects)
+  const financeProjects = ['ilave', 'subscriptex'];
+  
+  // Filter projects with three-tier AND logic
   const filteredProjects = useMemo(() => {
-    // Filter by lens - this is the only filter now
-    return projects.filter(project => 
-      lensProjects[activeLens].includes(project.id)
-    );
-  }, [activeLens]);
+    return projects.filter(project => {
+      // Must match role (using roleProjects mapping)
+      if (!roleProjects[filters.role].includes(project.id)) return false;
+      
+      // Must match vertical if selected (not 'all')
+      if (filters.vertical !== 'all') {
+        if (filters.vertical === 'finance') {
+          // Finance filter only matches explicitly listed fintech projects
+          if (!financeProjects.includes(project.id)) return false;
+        } else {
+          // Other verticals must match project's verticals array
+          if (!project.verticals.includes(filters.vertical as Vertical)) return false;
+        }
+      }
+      
+      // Must match ALL selected tags (AND logic)
+      if (filters.tags.length > 0) {
+        const hasAllTags = filters.tags.every(tag => project.canonicalTags.includes(tag));
+        if (!hasAllTags) return false;
+      }
+      
+      return true;
+    });
+  }, [filters.role, filters.vertical, filters.tags]);
 
   const openCaseStudy = useCallback((projectId: string) => {
-    // Track case study viewing
     trackEvent('case_study_viewed', 'portfolio', projectId);
-
     const event = new CustomEvent('openCaseStudy', { detail: { projectId } });
     window.dispatchEvent(event);
   }, []);
 
   return (
     <section id="work" className="py-24 px-6 relative overflow-hidden">
-      {/* Background */}
       <div className="absolute inset-0 bg-gradient-radial from-primary/5 via-transparent to-transparent"></div>
       <div className="max-w-7xl mx-auto relative">
-        <div className="text-center mb-16">
-
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-center">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">
             <span className="gradient-text">Case Studies</span>
           </h2>
 
-          {/* Prominent Lens Filter - "View work as:" */}
-          <div className="mb-10">
-            <p className="text-muted-foreground text-sm mb-4">View work as:</p>
-            <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
-              {(['ux', 'pm', 'brand'] as const).map((lens) => {
-                const isActive = activeLens === lens;
-                const count = lensProjects[lens].length;
+          {/* Primary Filter: Role (required, single-select) */}
+          <div className="mb-6">
+            <div className="flex flex-col sm:flex-row justify-center gap-2 sm:gap-3">
+              {(['ux', 'pm', 'brand'] as const).map((role) => {
+                const isActive = filters.role === role;
+                const count = roleProjects[role].length;
                 return (
                   <button
-                    key={lens}
-                    onClick={() => setActiveLens(lens)}
-                    className={`group relative px-6 py-4 rounded-xl transition-all duration-300 ${
+                    key={role}
+                    onClick={() => setRole(role)}
+                    className={`group relative px-5 py-3 rounded-xl transition-all duration-300 ${
                       isActive
-                        ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-xl shadow-purple-500/30 scale-105'
+                        ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-500/25'
                         : 'bg-muted/20 hover:bg-muted/40 text-muted-foreground hover:text-foreground border border-border/50 hover:border-primary/50'
                     }`}
-                    data-testid={`lens-filter-${lens}`}
+                    data-testid={`role-filter-${role}`}
                   >
-                    <div className="flex items-center gap-3">
-                      <div className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-all ${
-                        isActive 
-                          ? 'border-white bg-white/20' 
-                          : 'border-muted-foreground/50 group-hover:border-primary'
+                    <div className="flex items-center gap-2">
+                      <div className={`w-4 h-4 rounded border-2 flex items-center justify-center transition-all ${
+                        isActive ? 'border-white bg-white/20' : 'border-muted-foreground/50'
                       }`}>
                         {isActive && (
-                          <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                           </svg>
                         )}
                       </div>
-                      <span className="font-semibold text-base">{lensLabels[lens]}</span>
-                      <span className={`text-xs px-2 py-0.5 rounded-full ${
+                      <span className="font-semibold text-sm">{roleLabels[role]}</span>
+                      <span className={`text-xs px-1.5 py-0.5 rounded-full ${
                         isActive ? 'bg-white/20 text-white' : 'bg-muted/30 text-muted-foreground'
                       }`}>
                         {count}
@@ -843,6 +838,70 @@ export default function FeaturedWork() {
             </div>
           </div>
 
+          {/* Secondary Filter: Vertical (optional) */}
+          <div className="mb-4">
+            <div className="flex flex-wrap justify-center gap-2">
+              {availableVerticals.map((vertical) => {
+                const isActive = filters.vertical === vertical;
+                return (
+                  <button
+                    key={vertical}
+                    onClick={() => setVertical(vertical)}
+                    className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                      isActive
+                        ? 'bg-primary text-primary-foreground'
+                        : 'bg-muted/30 text-muted-foreground hover:bg-muted/50 hover:text-foreground'
+                    }`}
+                    data-testid={`vertical-filter-${vertical}`}
+                  >
+                    {verticalLabels[vertical]}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Tertiary Filter: Tags (optional, multi-select) */}
+          {availableTags.length > 0 && (
+            <div className="mb-6">
+              <div className="flex flex-wrap justify-center gap-2">
+                {availableTags.map((tag) => {
+                  const isActive = isTagActive(tag);
+                  return (
+                    <button
+                      key={tag}
+                      onClick={() => toggleTag(tag)}
+                      className={`px-2.5 py-1 rounded-md text-xs font-medium transition-all border ${
+                        isActive
+                          ? 'bg-purple-500/20 text-purple-300 border-purple-500/50'
+                          : 'bg-transparent text-muted-foreground border-border/50 hover:border-purple-500/30 hover:text-purple-300'
+                      }`}
+                      data-testid={`tag-filter-${tag}`}
+                    >
+                      {tagLabels[tag]}
+                      {isActive && (
+                        <X className="w-3 h-3 ml-1 inline-block" />
+                      )}
+                    </button>
+                  );
+                })}
+                {filters.tags.length > 0 && (
+                  <button
+                    onClick={clearTags}
+                    className="px-2.5 py-1 rounded-md text-xs font-medium text-muted-foreground hover:text-foreground transition-all"
+                    data-testid="clear-tags"
+                  >
+                    Clear all
+                  </button>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Results count */}
+          <p className="text-sm text-muted-foreground">
+            {filteredProjects.length} project{filteredProjects.length !== 1 ? 's' : ''}
+          </p>
         </div>
 
         {/* Project Grid */}
@@ -853,10 +912,27 @@ export default function FeaturedWork() {
               project={project}
               index={index}
               onOpenCaseStudy={openCaseStudy}
-              activeLens={activeLens}
+              activeRole={filters.role}
+              onTagClick={toggleTag}
             />
           ))}
         </div>
+
+        {/* Empty state */}
+        {filteredProjects.length === 0 && (
+          <div className="text-center py-12">
+            <p className="text-muted-foreground mb-4">No projects match the current filters.</p>
+            <button
+              onClick={() => {
+                setVertical('all');
+                clearTags();
+              }}
+              className="text-primary hover:underline text-sm"
+            >
+              Reset filters
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
