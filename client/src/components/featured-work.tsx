@@ -791,12 +791,11 @@ export default function FeaturedWork() {
     <section id="work" className="py-24 px-6 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-radial from-primary/5 via-transparent to-transparent"></div>
-
       <div className="max-w-7xl mx-auto relative">
         <div className="text-center mb-16">
 
           <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">
-            <span className="gradient-text">Product Portfolio</span>
+            <span className="gradient-text">Case Studies</span>
           </h2>
 
           {/* Segmented Control for View Mode */}
