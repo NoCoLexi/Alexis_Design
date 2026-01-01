@@ -108,10 +108,23 @@ const preloadImage = (src: string) => {
 preloadImage(eagWhiteBgImage);
 preloadImage(paPortalImage);
 
-// Type definitions for roles and verticals
+// Type definitions for roles, verticals, and lenses
 type Role = 'product-management' | 'product-design' | 'brand-development';
 type Vertical = 'government' | 'healthcare' | 'education' | 'food-beverage';
 type ViewMode = 'role' | 'vertical';
+type Lens = 'ux' | 'pm' | 'brand';
+
+const lensLabels: Record<Lens, string> = {
+  'ux': 'UX / Design',
+  'pm': 'Product / PM',
+  'brand': 'Brand / Strategy'
+};
+
+const lensDescriptions: Record<Lens, string> = {
+  'ux': 'Viewed through a UX lens',
+  'pm': 'Viewed as PM',
+  'brand': 'Viewed through a Brand lens'
+};
 
 const roleLabels: Record<Role | 'all', string> = {
   'product-management': 'Product Management',
@@ -126,6 +139,13 @@ const verticalLabels: Record<Vertical | 'all', string> = {
   'education': 'Education',
   'food-beverage': 'Food & Beverage',
   'all': 'All Projects'
+};
+
+// Projects visible under each lens (curated lists)
+const lensProjects: Record<Lens, string[]> = {
+  'ux': ['grants-management-sikich', 'ilave', 'subscriptex', 'wechore', 'caloes', 'pa-portal', 'ocm', 'coe-engage'],
+  'pm': ['ca-innovation-award', 'pa-portal', 'caloes', 'ocm', 'eag', 'coe-engage', 'grants-management-sikich'],
+  'brand': ['fairgrounds-coffee', 'gatorade-zipatoni', 'budweiser-zipatoni', 'providence-school-system', 'abc6-rebrand-alexis-design', 'ttools-alexis-design', 'ri-convention-center', 'lifespan-health-care', 'jwu-branding', 'tf-green-gala', 'mallinckrodt-medical', 'health-wellness-expertise']
 };
 
 // Display groups: curated project lists for each tab (exclusive assignments)
@@ -157,6 +177,15 @@ interface Project {
   tags: string[];
   award?: string;
 }
+
+// Helper function to get lenses for a project based on lensProjects mapping
+const getProjectLenses = (projectId: string): Lens[] => {
+  const lenses: Lens[] = [];
+  if (lensProjects.ux.includes(projectId)) lenses.push('ux');
+  if (lensProjects.pm.includes(projectId)) lenses.push('pm');
+  if (lensProjects.brand.includes(projectId)) lenses.push('brand');
+  return lenses;
+};
 
 const projects: Project[] = [
   {
@@ -554,10 +583,11 @@ const projects: Project[] = [
 
 
 // Project card with conditional parallax effects
-const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
+const ProjectCard = React.memo(({ project, index, onOpenCaseStudy, activeLens }: {
   project: Project;
   index: number;
   onOpenCaseStudy: (id: string) => void;
+  activeLens?: Lens;
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -652,6 +682,15 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
       </div>
 
       <div className="p-8">
+        {/* Lens label */}
+        {activeLens && (
+          <div className="mb-3">
+            <span className="text-xs font-medium text-purple-400/80 tracking-wide uppercase">
+              {lensDescriptions[activeLens]}
+            </span>
+          </div>
+        )}
+        
         <div className="flex flex-wrap gap-2 mb-4">
           {project.tags.map((tag, tagIndex) => (
             <Badge key={`${project.id}-tag-${tagIndex}`} variant="outline" className="text-xs">
@@ -691,93 +730,56 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
 });
 
 export default function FeaturedWork() {
-  const { getCaseStudyFocus, getVerticalFocus, settings } = useAdminPanel();
-  const [viewMode, setViewMode] = useState<ViewMode>('vertical');
-  const [activeRoleFilter, setActiveRoleFilter] = useState<Role | 'all'>(() => {
+  const { settings } = useAdminPanel();
+  
+  // Lens filter state - primary filter for viewing work
+  const [activeLens, setActiveLens] = useState<Lens>(() => {
     const urlParams = new URLSearchParams(window.location.search);
+    const lensFromUrl = urlParams.get('lens');
     const focusFromUrl = urlParams.get('focus');
-
-    if (focusFromUrl === 'pm') return 'product-management';
-    if (focusFromUrl === 'design') return 'product-design';
-    if (focusFromUrl === 'brand') return 'brand-development';
-
-    return 'product-management'; // default
+    
+    // Check lens parameter first
+    if (lensFromUrl === 'ux' || lensFromUrl === 'design') return 'ux';
+    if (lensFromUrl === 'pm') return 'pm';
+    if (lensFromUrl === 'brand') return 'brand';
+    
+    // Fall back to focus parameter for backward compatibility
+    if (focusFromUrl === 'design') return 'ux';
+    if (focusFromUrl === 'pm') return 'pm';
+    if (focusFromUrl === 'brand') return 'brand';
+    
+    return 'pm'; // default
   });
-  const [activeVerticalFilter, setActiveVerticalFilter] = useState<Vertical | 'all'>(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const verticalFromUrl = urlParams.get('vertical');
 
-    if (verticalFromUrl === 'government') return 'government';
-    if (verticalFromUrl === 'healthcare') return 'healthcare';
-    if (verticalFromUrl === 'education') return 'education';
-    if (verticalFromUrl === 'food-beverage') return 'food-beverage';
-
-    return 'government'; // default
-  });
-  const [isVisible, setIsVisible] = useState(false);
-  const [parallaxY, setParallaxY] = useState(0);
-
-  const sectionRef = useRef<HTMLElement>(null);
-
-  // Listen for filter events from other components
-  useEffect(() => {
-    const handleFilterEvent = (event: CustomEvent) => {
-      setActiveRoleFilter(event.detail.category);
-      setViewMode('role');
-    };
-
-    window.addEventListener('filterPortfolio', handleFilterEvent as EventListener);
-    return () => {
-      window.removeEventListener('filterPortfolio', handleFilterEvent as EventListener);
-    };
-  }, []);
-
-  // Apply admin settings only once on mount (not on every settings change)
-  // This prevents user tab clicks from being overwritten
+  // Apply admin settings for lens only once on mount
   const hasInitialized = useRef(false);
   useEffect(() => {
     if (hasInitialized.current) return;
     hasInitialized.current = true;
 
     const urlParams = new URLSearchParams(window.location.search);
+    const lensFromUrl = urlParams.get('lens');
     const focusFromUrl = urlParams.get('focus');
-    const verticalFromUrl = urlParams.get('vertical');
 
-    // URL parameters take precedence over admin settings for role
-    if (!focusFromUrl) {
+    // Set lens from admin settings if no URL params
+    if (!lensFromUrl && !focusFromUrl) {
       if (settings.jobType === 'PM') {
-        setActiveRoleFilter('product-management');
+        setActiveLens('pm');
       } else if (settings.jobType === 'Design') {
-        setActiveRoleFilter('product-design');
+        setActiveLens('ux');
       } else if (settings.jobType === 'Auto') {
-        setActiveRoleFilter('product-management');
+        setActiveLens('pm');
       }
     }
+  }, [settings.jobType]);
 
-    // URL parameters take precedence over admin settings for vertical
-    if (!verticalFromUrl) {
-      const adminVertical = getVerticalFocus();
-      setActiveVerticalFilter(adminVertical);
-    }
-  }, [settings.jobType, settings.vertical, getVerticalFocus]);
-
+  // Filter projects based on lens only - lens is the primary filter
   const filteredProjects = useMemo(() => {
-    if (viewMode === 'role') {
-      if (activeRoleFilter === 'all') {
-        return projects;
-      }
-      // Use display groups for curated project lists
-      const projectIds = displayGroups.role[activeRoleFilter] || [];
-      return projects.filter(project => projectIds.includes(project.id));
-    } else {
-      if (activeVerticalFilter === 'all') {
-        return projects;
-      }
-      // Use display groups for curated project lists
-      const projectIds = displayGroups.vertical[activeVerticalFilter] || [];
-      return projects.filter(project => projectIds.includes(project.id));
-    }
-  }, [viewMode, activeRoleFilter, activeVerticalFilter]);
+    // Filter by lens - this is the only filter now
+    return projects.filter(project => 
+      lensProjects[activeLens].includes(project.id)
+    );
+  }, [activeLens]);
 
   const openCaseStudy = useCallback((projectId: string) => {
     // Track case study viewing
@@ -794,95 +796,52 @@ export default function FeaturedWork() {
       <div className="max-w-7xl mx-auto relative">
         <div className="text-center mb-16">
 
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-center">
             <span className="gradient-text">Case Studies</span>
           </h2>
 
-          {/* Segmented Control for View Mode */}
-          <div className="flex justify-center mb-6">
-            <div className="inline-flex rounded-full bg-muted/20 p-1 backdrop-blur-sm border border-border/30">
-              <button
-                onClick={() => setViewMode('vertical')}
-                className={`px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
-                  viewMode === 'vertical'
-                    ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg shadow-purple-500/25'
-                    : 'text-muted-foreground hover:text-foreground'
-                }`}
-                data-testid="toggle-view-vertical"
-              >
-                Verticals
-              </button>
-              <button
-                onClick={() => setViewMode('role')}
-                className={`px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
-                  viewMode === 'role'
-                    ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg shadow-purple-500/25'
-                    : 'text-muted-foreground hover:text-foreground'
-                }`}
-                data-testid="toggle-view-role"
-              >
-                Roles
-              </button>
+          {/* Prominent Lens Filter - "View work as:" */}
+          <div className="mb-10">
+            <p className="text-muted-foreground text-sm mb-4">View work as:</p>
+            <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
+              {(['ux', 'pm', 'brand'] as const).map((lens) => {
+                const isActive = activeLens === lens;
+                const count = lensProjects[lens].length;
+                return (
+                  <button
+                    key={lens}
+                    onClick={() => setActiveLens(lens)}
+                    className={`group relative px-6 py-4 rounded-xl transition-all duration-300 ${
+                      isActive
+                        ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-xl shadow-purple-500/30 scale-105'
+                        : 'bg-muted/20 hover:bg-muted/40 text-muted-foreground hover:text-foreground border border-border/50 hover:border-primary/50'
+                    }`}
+                    data-testid={`lens-filter-${lens}`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-all ${
+                        isActive 
+                          ? 'border-white bg-white/20' 
+                          : 'border-muted-foreground/50 group-hover:border-primary'
+                      }`}>
+                        {isActive && (
+                          <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          </svg>
+                        )}
+                      </div>
+                      <span className="font-semibold text-base">{lensLabels[lens]}</span>
+                      <span className={`text-xs px-2 py-0.5 rounded-full ${
+                        isActive ? 'bg-white/20 text-white' : 'bg-muted/30 text-muted-foreground'
+                      }`}>
+                        {count}
+                      </span>
+                    </div>
+                  </button>
+                );
+              })}
             </div>
           </div>
-
-          {/* Horizontal Scrollable Filter Chips */}
-          <div className="flex justify-center mb-8">
-            <div className="flex gap-2 overflow-x-auto pb-2 px-4 max-w-full scrollbar-hide">
-              {viewMode === 'role' ? (
-                <>
-                  {(['product-management', 'product-design', 'brand-development', 'all'] as const).map((role) => {
-                    const count = role === 'all' 
-                      ? projects.length 
-                      : projects.filter(p => displayGroups.role[role]?.includes(p.id)).length;
-                    return (
-                      <button
-                        key={role}
-                        onClick={() => setActiveRoleFilter(role)}
-                        className={`flex-shrink-0 px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 whitespace-nowrap ${
-                          activeRoleFilter === role
-                            ? 'bg-gradient-to-r from-purple-500/90 to-pink-500/90 text-white shadow-md shadow-purple-500/20 scale-105'
-                            : 'bg-muted/30 text-muted-foreground hover:text-foreground hover:bg-muted/50 border border-border/50'
-                        }`}
-                        data-testid={`filter-role-${role}`}
-                      >
-                        {roleLabels[role]}
-                        <span className={`ml-2 text-xs ${activeRoleFilter === role ? 'text-white/80' : 'text-muted-foreground/70'}`}>
-                          ({count})
-                        </span>
-                      </button>
-                    );
-                  })}
-                </>
-              ) : (
-                <>
-                  {(['government', 'healthcare', 'education', 'food-beverage', 'all'] as const).map((vertical) => {
-                    const count = vertical === 'all' 
-                      ? projects.length 
-                      : projects.filter(p => displayGroups.vertical[vertical]?.includes(p.id)).length;
-                    return (
-                      <button
-                        key={vertical}
-                        onClick={() => setActiveVerticalFilter(vertical)}
-                        className={`flex-shrink-0 px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 whitespace-nowrap ${
-                          activeVerticalFilter === vertical
-                            ? 'bg-gradient-to-r from-purple-500/90 to-pink-500/90 text-white shadow-md shadow-purple-500/20 scale-105'
-                            : 'bg-muted/30 text-muted-foreground hover:text-foreground hover:bg-muted/50 border border-border/50'
-                        }`}
-                        data-testid={`filter-vertical-${vertical}`}
-                      >
-                        {verticalLabels[vertical]}
-                        <span className={`ml-2 text-xs ${activeVerticalFilter === vertical ? 'text-white/80' : 'text-muted-foreground/70'}`}>
-                          ({count})
-                        </span>
-                      </button>
-                    );
-                  })}
-                </>
-              )}
-            </div>
-          </div>
-
 
         </div>
 
@@ -894,6 +853,7 @@ export default function FeaturedWork() {
               project={project}
               index={index}
               onOpenCaseStudy={openCaseStudy}
+              activeLens={activeLens}
             />
           ))}
         </div>
