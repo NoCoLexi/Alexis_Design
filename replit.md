@@ -77,3 +77,32 @@ Comprehensive analytics implementation for tracking user engagement and demonstr
 - **Business Value**: Quantifiable engagement metrics for employer presentations
 - **Real-time Monitoring**: Live dashboard tracking for immediate insights
 - **Implementation Date**: January 17, 2025
+
+### UX Portfolio Card Template (for Hiring Audiences)
+Standard structure for writing project cards aimed at UX recruiters and hiring managers:
+
+**Card Preview (featured-work.tsx):**
+- Title: Project name
+- Description: One-sentence problem statement + personal contribution (under 120 characters)
+- Tags: UX-focused skills demonstrated (e.g., "UX Research", "Stakeholder Alignment", "Process Design")
+
+**Case Study Detail (case-study-modal.tsx):**
+1. **Subtitle**: One-sentence problem statement in plain language
+2. **Description**: Context + what I personally needed to do
+3. **Role**: My specific role (e.g., "Lead UX Researcher & Process Designer")
+4. **Duration**: Timeframe
+5. **Team**: Breakdown of team composition
+6. **Challenge**: The problem restated with context on why it was blocked
+7. **Solution**: What I personally did (research methods, artifacts created, stakeholder work)
+8. **Outcome**: Results with metrics
+9. **Metrics**: 2-4 quantified results with descriptions
+10. **Process**: 3-5 UX Process Highlights bullets showing how I approached the problem
+11. **Learnings**: Insights that demonstrate UX thinking
+12. **Slideshow**: Process images (research artifacts, wireframes, final UI)
+13. **Award**: If applicable
+
+**Tone Guidelines:**
+- Plainspoken, human-centered, not marketing-heavy
+- Process-first, outcome-supported
+- Written so a recruiter understands contribution in under 30 seconds
+- Distinguish personal role vs. team outcomes

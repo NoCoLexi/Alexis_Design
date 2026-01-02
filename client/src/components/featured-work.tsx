@@ -211,7 +211,7 @@ const projects: Project[] = [
   {
     id: 'pa-portal',
     title: 'Public Assistance Closeouts App',
-    description: 'Streamlining the reimbursement process for California subrecipients. Winner of the 2023 California Government Technology Innovation Award.',
+    description: 'A stalled grant app needed stakeholder alignment. I led 100+ hours of research and created artifacts that unblocked progress.',
     category: 'product-management',
     roles: ['product-management'],
     verticals: ['government'],
@@ -221,7 +221,7 @@ const projects: Project[] = [
       { label: '75%', value: 'Support Ticket Reduction', color: 'text-chart-1' },
       { label: '$243M', value: 'Projects Closed Out', color: 'text-primary' }
     ],
-    tags: ['Gov Tech', 'Process Automation', 'Public Service'],
+    tags: ['UX Research', 'Stakeholder Alignment', 'Process Design'],
     canonicalTags: ['govtech', 'award', 'public-service']
   },
   {

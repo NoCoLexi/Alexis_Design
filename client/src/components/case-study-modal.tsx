@@ -112,6 +112,9 @@ import cagis23Photo1Image from "@assets/CAGIS23_Photo1_1756172218878.jpg";
 import cagis23Photo2Image from "@assets/CAGIS23_Photo2_1756172218879.jpg";
 import bestOfCaAwardsJpgImage from "@assets/Best_Of_CA_Awards_2023_1756172218880.jpg";
 import bestOfCaAwardsPngImage from "@assets/Best Of California Awards 2023_1756172218880.png";
+import paCloseoutFinalizedImage from "@assets/PA_Closeouts_CR_finalized_2024_1767315365563.png";
+import paConcernsByDeptImage from "@assets/Concerns_by_Department_1767315565518.png";
+import paProcessSummaryImage from "@assets/image_1767315991050.png";
 
 interface CaseStudy {
   id: string;
@@ -304,34 +307,35 @@ const caseStudies: Record<string, CaseStudy> = {
   'pa-portal': {
     id: 'pa-portal',
     title: 'Public Assistance Closeouts App',
-    subtitle: '2023 California Government Technology Innovation Award Winner',
-    description: 'Part of the Cal OES Engage Community Portal, this app connects Californian subrecipients to state government to make the reimbursement process quicker and more efficient.',
-    role: 'Product Manager & UX Research Designer',
-    duration: '12 months',
-    team: '8 cross-functional team members',
-    challenge: 'The public assistance reimbursement process was slow, complex, and opaque, leading to delayed payments and frustrated subrecipients.',
-    solution: 'Created a streamlined digital workflow that automates key processes, provides real-time status updates, and simplifies documentation requirements.',
-    outcome: 'Revolutionized the public assistance process, earning recognition from the state of California.',
+    subtitle: 'A critical grant closeout application was stalled because stakeholders had conflicting understandings of scope, blocking all progress.',
+    description: 'Part of the Cal OES Engage Community Portal, this app connects Californian subrecipients to state government to make the reimbursement process quicker and more efficient. The Salesforce product owner had made me the product manager, but the close outs app was stalled—the product owner was not approving anything. I needed to uncover the real blockers and align stakeholders before any progress could happen.',
+    role: 'Lead UX Researcher & Process Designer',
+    duration: '6 months',
+    team: '1 product manager, 6 contractors/developers, 4 state-side POs, 4 state leadership',
+    challenge: 'A critical grant closeout application was stalled because stakeholders had conflicting understandings of scope. The product owner was blocking approvals, and the team could not identify why progress had stopped.',
+    solution: 'I reverse-engineered the existing system to identify blockers, then conducted 100+ hours of recorded stakeholder interviews. I synthesized findings into spreadsheets mapping concerns by department, created a value-effort matrix that revealed low-value features were consuming high effort, and designed visual scope documents to align the product owner without dismissing future requests.',
+    outcome: 'Delivered under budget and ahead of schedule. Won the 2023 California Government Technology Innovation Award for Public Assistance.',
     metrics: [
       { label: '75%', value: 'Support Ticket Reduction', description: 'Decreased user issues and support requests' },
-      { label: '$243M', value: 'Projects Closed Out', description: 'Total value of successfully processed reimbursements' }
+      { label: '$243M', value: 'Projects Closed Out', description: 'Total value of successfully processed reimbursements' },
+      { label: '100+', value: 'Hours of Interviews', description: 'Recorded stakeholder research sessions' },
+      { label: '12+', value: 'Stakeholders Interviewed', description: 'Cross-departmental research coverage' }
     ],
     process: [
-      'Process mapping and pain point identification',
-      'Stakeholder alignment on requirements',
-      'User journey optimization',
-      'Automated workflow design',
-      'Integration with existing systems',
-      'Comprehensive testing and validation',
-      'Phased rollout and adoption support'
+      'Reverse-engineered the existing system to identify what was blocking progress',
+      'Conducted 100+ hours of recorded interviews with 12+ stakeholders across departments',
+      'Synthesized interview data into spreadsheets mapping concerns by department (data integrity, public trust, status tracking, etc.)',
+      'Created value-effort matrix that revealed low-value features were consuming high effort—shifting project priorities',
+      'Designed visual scope documents and "parking lot" artifacts to get product owner alignment without dismissing future requests'
     ],
     learnings: [
-      'Process automation significantly improves user satisfaction',
-      'Real-time visibility reduces anxiety and support requests',
-      'Award recognition validates user-centered design approach',
-      'Measurable impact drives continued investment in UX'
+      'Stakeholder alignment requires understanding each person\'s mental model of the project',
+      'Visual artifacts communicate scope more effectively than verbal explanations',
+      'Documenting "not now" requests in a living document builds trust with stakeholders',
+      'Process-first UX work often delivers more value than jumping straight to interface design'
     ],
     image: paDirectorsDeck4Image,
+    slideshow: [paCloseoutFinalizedImage, paConcernsByDeptImage, paProcessSummaryImage, paDirectorsDeck4Image],
     award: '2023 California Government Technology Innovation Award for Public Service'
   },
   ilave: {
