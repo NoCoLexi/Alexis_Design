@@ -127,11 +127,32 @@ const roleDescriptions: Record<RoleFilter, string> = {
   'project-management': 'Project/Change Management'
 };
 
-// Projects visible under each role filter (curated lists)
+// Projects visible under each role filter (based on Primary Category from spreadsheet)
+// Projects can appear in multiple tabs
 const roleProjects: Record<RoleFilter, string[]> = {
-  'ux-design-strategy': ['grants-management-sikich', 'ilave', 'subscriptex', 'wechore', 'caloes', 'pa-portal', 'ocm', 'coe-engage'],
-  'product-pm': ['ca-innovation-award', 'pa-portal', 'caloes', 'ocm', 'eag', 'coe-engage', 'grants-management-sikich'],
-  'project-management': ['fairgrounds-coffee', 'gatorade-zipatoni', 'budweiser-zipatoni', 'providence-school-system', 'abc6-rebrand-alexis-design', 'ttools-alexis-design', 'ri-convention-center', 'lifespan-health-care', 'jwu-branding', 'tf-green-gala', 'mallinckrodt-medical', 'health-wellness-expertise']
+  'ux-design-strategy': [
+    // Cal OES projects (Design)
+    'ca-innovation-award', 'caloes', 'pa-portal', 'ocm', 'coe-engage', 'grants-management-sikich',
+    // UNH projects (Design)
+    'ilave', 'subscriptex', 'wechore',
+    // Branding projects (Design)
+    'gatorade-zipatoni', 'budweiser-zipatoni', 'fairgrounds-coffee', 'providence-school-system',
+    'abc6-rebrand-alexis-design', 'ttools-alexis-design', 'ri-convention-center', 'lifespan-health-care',
+    'jwu-branding', 'tf-green-gala'
+  ],
+  'product-pm': [
+    // Cal OES projects (Product)
+    'ca-innovation-award', 'caloes', 'pa-portal', 'grants-management-sikich',
+    // Branding projects with Product
+    'fairgrounds-coffee', 'providence-school-system', 'abc6-rebrand-alexis-design',
+    'ttools-alexis-design', 'ri-convention-center', 'jwu-branding'
+  ],
+  'project-management': [
+    // Cal OES projects (Management)
+    'ca-innovation-award', 'caloes', 'pa-portal', 'ocm', 'eag', 'coe-engage', 'grants-management-sikich',
+    // UNH projects (Management)
+    'ilave', 'subscriptex', 'wechore'
+  ]
 };
 
 interface Project {
