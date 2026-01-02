@@ -320,15 +320,15 @@ const caseStudies: Record<string, CaseStudy> = {
     metrics: [
       { label: '75%', value: 'Support Ticket Reduction', description: 'Decreased user issues and support requests' },
       { label: '$243M', value: 'Projects Closed Out', description: 'Total value of successfully processed reimbursements' },
-      { label: '100+', value: 'Hours of Interviews', description: 'Recorded stakeholder research sessions' },
-      { label: '12+', value: 'Stakeholders Interviewed', description: 'Cross-departmental research coverage' }
+      { label: '100+', value: 'Hours of Interviews', description: 'Recorded stakeholder research sessions' }
     ],
     process: [
       'Reverse-engineered the existing system to identify what was blocking progress',
       'Conducted 100+ hours of recorded interviews with 12+ stakeholders across departments',
       'Synthesized interview data into spreadsheets mapping concerns by department (data integrity, public trust, status tracking, etc.)',
       'Created value-effort matrix that revealed low-value features were consuming high effort—shifting project priorities',
-      'Designed visual scope documents and "parking lot" artifacts to get product owner alignment without dismissing future requests'
+      'Designed visual scope documents and "parking lot" artifacts to get product owner alignment without dismissing future requests',
+      'Iterated on designs through multiple rounds of stakeholder presentations and feedback'
     ],
     learnings: [
       'Stakeholder alignment requires understanding each person\'s mental model of the project',
