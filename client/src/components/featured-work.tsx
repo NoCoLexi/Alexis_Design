@@ -150,7 +150,9 @@ const roleProjects: Record<RoleFilter, string[]> = {
     // Cal OES projects (Management)
     'ca-innovation-award', 'caloes', 'pa-portal', 'ocm', 'eag', 'coe-engage', 'grants-management-sikich',
     // UNH projects (Management)
-    'ilave', 'subscriptex', 'wechore'
+    'ilave', 'subscriptex', 'wechore',
+    // Branding with Management
+    'fairgrounds-coffee'
   ]
 };
 
