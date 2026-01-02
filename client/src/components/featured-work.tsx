@@ -145,7 +145,7 @@ const roleProjects: Record<RoleFilter, string[]> = {
     'ca-innovation-award', 'caloes', 'pa-portal', 'grants-management-sikich',
     // Branding projects with Product
     'fairgrounds-coffee', 'providence-school-system', 'abc6-rebrand-alexis-design',
-    'ttools-alexis-design', 'ri-convention-center', 'jwu-branding'
+    'ttools-alexis-design'
   ],
   'project-management': [
     // Cal OES projects (Management)
