@@ -115,6 +115,7 @@ import bestOfCaAwardsPngImage from "@assets/Best Of California Awards 2023_17561
 import paCloseoutFinalizedImage from "@assets/PA_Closeouts_CR_finalized_2024_1767315365563.png";
 import paConcernsByDeptImage from "@assets/Concerns_by_Department_1767315565518.png";
 import paProcessSummaryImage from "@assets/image_1767315991050.png";
+import paCloseoutFlowImage from "@assets/image_1767316740730.png";
 
 interface CaseStudy {
   id: string;
@@ -135,6 +136,7 @@ interface CaseStudy {
   video?: string;
   award?: string;
   awards?: string[];
+  processImages?: { src: string; caption: string }[];
 }
 
 const caseStudies: Record<string, CaseStudy> = {
@@ -335,7 +337,11 @@ const caseStudies: Record<string, CaseStudy> = {
       'Process-first UX work often delivers more value than jumping straight to interface design'
     ],
     image: paDirectorsDeck4Image,
-    slideshow: [paCloseoutFinalizedImage, paConcernsByDeptImage, paProcessSummaryImage, paDirectorsDeck4Image],
+    processImages: [
+      { src: paCloseoutFlowImage, caption: 'Closeout Workflow: Mapped the full process to identify blockers' },
+      { src: paConcernsByDeptImage, caption: 'Concerns Matrix: Synthesized 100+ hours of interviews by department' },
+      { src: paCloseoutFinalizedImage, caption: 'Final UI: The completed closeout request interface' }
+    ],
     award: '2023 California Government Technology Innovation Award for Public Service'
   },
   ilave: {
@@ -1086,6 +1092,25 @@ export default function CaseStudyModal() {
               ))}
             </div>
           </div>
+
+          {/* Process Images */}
+          {caseStudy.processImages && caseStudy.processImages.length > 0 && (
+            <div>
+              <h4 className="text-xl font-semibold mb-6">Process Artifacts</h4>
+              <div className="space-y-6">
+                {caseStudy.processImages.map((img, index) => (
+                  <div key={index} className="glass rounded-xl p-4">
+                    <img 
+                      src={img.src} 
+                      alt={img.caption} 
+                      className="w-full h-auto object-contain rounded-lg"
+                    />
+                    <p className="text-sm text-muted-foreground mt-3 text-center">{img.caption}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Learnings */}
           <div>
