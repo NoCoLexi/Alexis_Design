@@ -103,6 +103,7 @@ import lifespanHealthCoverImage from "@assets/FullSizeRender 13_1764028488191.jp
 import providenceSchoolsMaterialsImage from "@assets/providence-schools-materials_1756173000000.jpg";
 import jwuBrandingImage from "@assets/FullSizeRender 2_1754523503518.jpg";
 import outsideTvImage from "@assets/Screenshot_2014-01-06_22.29.34_1770666947914.png";
+import outsideTvCoverImage from "@assets/Screenshot_2014-01-06_22.29.55_1770667850426.png";
 import trxGroupImage from "@assets/IMG_6319_1770666807153.jpg";
 import trxPlankImage from "@assets/IMG_6349_1770666810955.jpg";
 import magazineArticleImage from "@assets/20181006_071644_1770666824971.jpg";
@@ -547,7 +548,7 @@ const projects: Project[] = [
     category: 'brand-development',
     roles: ['brand-development'],
     verticals: ['healthcare'],
-    image: outsideTvImage,
+    image: outsideTvCoverImage,
     slideshow: [
       trxGroupImage,
       trxPlankImage,
