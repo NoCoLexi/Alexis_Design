@@ -1,12 +1,6 @@
 import { useState, useCallback, useEffect } from 'react';
 
-export type RoleFilter = 'ux-design-strategy' | 'product-pm';
 export type VerticalFilter = 'government' | 'healthcare' | 'food-beverage' | 'finance' | 'education' | 'all';
-
-export const roleLabels: Record<RoleFilter, string> = {
-  'ux-design-strategy': 'UX/Design/Strategy',
-  'product-pm': 'Product/PM'
-};
 
 export const verticalLabels: Record<VerticalFilter, string> = {
   'government': 'Government',
@@ -20,23 +14,16 @@ export const verticalLabels: Record<VerticalFilter, string> = {
 export const availableVerticals: VerticalFilter[] = ['all', 'government', 'healthcare', 'food-beverage', 'finance', 'education'];
 
 interface PortfolioFiltersState {
-  role: RoleFilter;
   vertical: VerticalFilter;
 }
 
 interface UsePortfolioFiltersReturn {
   filters: PortfolioFiltersState;
-  setRole: (role: RoleFilter) => void;
   setVertical: (vertical: VerticalFilter) => void;
 }
 
 function parseUrlParams(): PortfolioFiltersState {
   const urlParams = new URLSearchParams(window.location.search);
-  
-  const roleParam = urlParams.get('role') || urlParams.get('lens') || urlParams.get('focus');
-  let role: RoleFilter = 'product-pm';
-  if (roleParam === 'ux-design-strategy' || roleParam === 'ux' || roleParam === 'design') role = 'ux-design-strategy';
-  else if (roleParam === 'product-pm' || roleParam === 'pm' || roleParam === 'project-management' || roleParam === 'brand') role = 'product-pm';
   
   const verticalParam = urlParams.get('vertical');
   let vertical: VerticalFilter = 'all';
@@ -46,7 +33,7 @@ function parseUrlParams(): PortfolioFiltersState {
   else if (verticalParam === 'finance') vertical = 'finance';
   else if (verticalParam === 'education') vertical = 'education';
   
-  return { role, vertical };
+  return { vertical };
 }
 
 function updateUrlParams(state: PortfolioFiltersState) {
@@ -56,8 +43,6 @@ function updateUrlParams(state: PortfolioFiltersState) {
   url.searchParams.delete('lens');
   url.searchParams.delete('focus');
   url.searchParams.delete('vertical');
-  
-  url.searchParams.set('role', state.role);
   
   if (state.vertical !== 'all') {
     url.searchParams.set('vertical', state.vertical);
@@ -73,17 +58,12 @@ export function usePortfolioFilters(): UsePortfolioFiltersReturn {
     updateUrlParams(filters);
   }, [filters]);
   
-  const setRole = useCallback((role: RoleFilter) => {
-    setFilters(prev => ({ ...prev, role }));
-  }, []);
-  
   const setVertical = useCallback((vertical: VerticalFilter) => {
     setFilters(prev => ({ ...prev, vertical }));
   }, []);
   
   return {
     filters,
-    setRole,
     setVertical
   };
 }

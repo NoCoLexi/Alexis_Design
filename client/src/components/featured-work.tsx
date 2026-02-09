@@ -6,9 +6,7 @@ import { trackEvent, trackSynthesizerEvent } from "@/lib/analytics";
 import { useAdminPanel } from "@/hooks/use-admin-panel";
 import { 
   usePortfolioFilters, 
-  RoleFilter, 
   VerticalFilter, 
-  roleLabels, 
   verticalLabels, 
   availableVerticals
 } from "@/hooks/use-portfolio-filters";
@@ -120,32 +118,6 @@ preloadImage(paPortalImage);
 type Role = 'product-management' | 'product-design' | 'brand-development';
 type Vertical = 'government' | 'healthcare' | 'education' | 'food-beverage';
 
-// Role descriptions for card labels
-const roleDescriptions: Record<RoleFilter, string> = {
-  'ux-design-strategy': 'UX/Design/Strategy',
-  'product-pm': 'Product/PM'
-};
-
-// Projects visible under each role filter (based on Primary Category from spreadsheet)
-// Projects can appear in multiple tabs
-const roleProjects: Record<RoleFilter, string[]> = {
-  'ux-design-strategy': [
-    // Cal OES projects (Design)
-    'ca-innovation-award', 'caloes', 'pa-portal', 'ocm', 'eag', 'coe-engage', 'grants-management-sikich',
-    // UNH projects (Design)
-    'ilave', 'subscriptex', 'wechore',
-    // Branding projects (Design)
-    'gatorade-zipatoni', 'budweiser-zipatoni', 'fairgrounds-coffee', 'providence-school-system',
-    'abc6-rebrand-alexis-design', 'ttools-alexis-design', 'ri-convention-center', 'lifespan-health-care',
-    'jwu-branding', 'tf-green-gala'
-  ],
-  'product-pm': [
-    // Cal OES projects (Product)
-    'ca-innovation-award', 'caloes', 'pa-portal', 'eag', 'grants-management-sikich',
-    // Branding projects with Product
-    'fairgrounds-coffee', 'abc6-rebrand-alexis-design', 'ttools-alexis-design'
-  ]
-};
 
 interface Project {
   id: string;
@@ -582,11 +554,10 @@ const projects: Project[] = [
 
 
 // Project card with conditional parallax effects
-const ProjectCard = React.memo(({ project, index, onOpenCaseStudy, activeRole }: {
+const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
   project: Project;
   index: number;
   onOpenCaseStudy: (id: string) => void;
-  activeRole?: RoleFilter;
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -681,15 +652,6 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy, activeRole }:
       </div>
 
       <div className="p-8">
-        {/* Role label */}
-        {activeRole && (
-          <div className="mb-3">
-            <span className="text-xs font-medium text-purple-400/80 tracking-wide uppercase">
-              {roleDescriptions[activeRole]}
-            </span>
-          </div>
-        )}
-        
         <div className="flex flex-wrap gap-2 mb-4">
           {project.tags.map((tag, tagIndex) => (
             <Badge 
@@ -733,31 +695,23 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy, activeRole }:
 });
 
 export default function FeaturedWork() {
-  const { filters, setRole, setVertical } = usePortfolioFilters();
+  const { filters, setVertical } = usePortfolioFilters();
 
-  // Map project IDs to their canonical finance category (fintech projects)
   const financeProjects = ['ilave', 'subscriptex'];
   
-  // Filter projects with two-tier AND logic (role + vertical)
   const filteredProjects = useMemo(() => {
     return projects.filter(project => {
-      // Must match role (using roleProjects mapping)
-      if (!roleProjects[filters.role].includes(project.id)) return false;
-      
-      // Must match vertical if selected (not 'all')
       if (filters.vertical !== 'all') {
         if (filters.vertical === 'finance') {
-          // Finance filter only matches explicitly listed fintech projects
           if (!financeProjects.includes(project.id)) return false;
         } else {
-          // All other verticals use the project's verticals array
           if (!project.verticals.includes(filters.vertical as Vertical)) return false;
         }
       }
       
       return true;
     });
-  }, [filters.role, filters.vertical]);
+  }, [filters.vertical]);
 
   const openCaseStudy = useCallback((projectId: string) => {
     trackEvent('case_study_viewed', 'portfolio', projectId);
@@ -771,36 +725,10 @@ export default function FeaturedWork() {
       <div className="max-w-7xl mx-auto relative">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">
-            <span className="gradient-text">Case Studies</span>
+            <span className="gradient-text">Product, Design & Strategy</span>
           </h2>
 
-          {/* Primary Filter: Role (tabbed navigation) */}
-          <div className="mb-8">
-            <div className="inline-flex bg-muted/20 rounded-lg p-1 border border-border/30">
-              {(['ux-design-strategy', 'product-pm'] as const).map((role) => {
-                const isActive = filters.role === role;
-                return (
-                  <button
-                    key={role}
-                    onClick={() => setRole(role)}
-                    className={`relative px-6 py-2.5 rounded-md text-sm font-medium transition-all duration-300 ${
-                      isActive
-                        ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md'
-                        : 'text-muted-foreground hover:text-foreground hover:bg-muted/30'
-                    }`}
-                    data-testid={`role-filter-${role}`}
-                  >
-                    <span className="relative z-10">{roleLabels[role]}</span>
-                    {!isActive && (
-                      <span className="absolute inset-0 rounded-md opacity-0 hover:opacity-100 bg-gradient-to-r from-purple-600/10 to-pink-600/10 transition-opacity duration-300" />
-                    )}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Secondary Filter: Vertical (pills) */}
+          {/* Industry Filter (pills) */}
           <div className="mb-6">
             <div className="flex flex-wrap justify-center gap-2">
               {availableVerticals.map((vertical) => {
@@ -837,7 +765,6 @@ export default function FeaturedWork() {
               project={project}
               index={index}
               onOpenCaseStudy={openCaseStudy}
-              activeRole={filters.role}
             />
           ))}
         </div>
