@@ -102,6 +102,13 @@ import lifespanHealthBookletImage from "@assets/FullSizeRender 17_1755219971125.
 import lifespanHealthCoverImage from "@assets/FullSizeRender 13_1764028488191.jpg";
 import providenceSchoolsMaterialsImage from "@assets/providence-schools-materials_1756173000000.jpg";
 import jwuBrandingImage from "@assets/FullSizeRender 2_1754523503518.jpg";
+import outsideTvImage from "@assets/Screenshot_2014-01-06_22.29.34_1770666947914.png";
+import trxGroupImage from "@assets/IMG_6319_1770666807153.jpg";
+import trxPlankImage from "@assets/IMG_6349_1770666810955.jpg";
+import magazineArticleImage from "@assets/20181006_071644_1770666824971.jpg";
+import trxPortraitImage from "@assets/Alexis_TRX_1_1770666878409.jpg";
+import trxHandstandImage from "@assets/Alexis_TRX_handstand_1770666909059.png";
+import trxRipImage from "@assets/Alexis_6_1770667005999.jpg";
 
 
 // Preload critical images immediately when component loads
@@ -535,12 +542,20 @@ const projects: Project[] = [
   },
   {
     id: 'health-wellness-expertise',
-    title: 'Health & Wellness',
+    title: 'NASM Personal Trainer',
     description: 'Certified Personal Trainer (CPT) and NASM Nutrition Coach with 23+ years dedicated to metabolic health. Certifications include AFAA Group Fitness, Les Mills BodyCOMBAT, TRX Sports Medicine, and YogaFit Level I-V. Voted Top 3 Best Personal Trainer in Mount Washington Valley.',
     category: 'brand-development',
     roles: ['brand-development'],
     verticals: ['healthcare'],
-    image: lifespanHealthCoverImage,
+    image: outsideTvImage,
+    slideshow: [
+      trxGroupImage,
+      trxPlankImage,
+      magazineArticleImage,
+      trxPortraitImage,
+      trxHandstandImage,
+      trxRipImage
+    ],
     award: 'Top Trainer Award',
     metrics: [
       { label: '23+', value: 'Years Experience', color: 'text-chart-1' },

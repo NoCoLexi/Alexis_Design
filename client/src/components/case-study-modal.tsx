@@ -116,6 +116,14 @@ import paCloseoutFinalizedImage from "@assets/PA_Closeouts_CR_finalized_2024_176
 import paConcernsByDeptImage from "@assets/Concerns_by_Department_1767315565518.png";
 import paProcessSummaryImage from "@assets/image_1767315991050.png";
 import paCloseoutFlowImage from "@assets/image_1767316740730.png";
+import outsideTvImage from "@assets/Screenshot_2014-01-06_22.29.34_1770666947914.png";
+import trxGroupImage from "@assets/IMG_6319_1770666807153.jpg";
+import trxPlankImage from "@assets/IMG_6349_1770666810955.jpg";
+import magazineArticleImage from "@assets/20181006_071644_1770666824971.jpg";
+import trxPortraitImage from "@assets/Alexis_TRX_1_1770666878409.jpg";
+import trxHandstandImage from "@assets/Alexis_TRX_handstand_1770666909059.png";
+import trxRipImage from "@assets/Alexis_6_1770667005999.jpg";
+import mountainViewImage from "@assets/20181006_093528_1770666865642.jpg";
 
 interface CaseStudy {
   id: string;
@@ -904,6 +912,49 @@ const caseStudies: Record<string, CaseStudy> = {
     slideshow: [
       coeSite1Image,
       coeSite2Image
+    ]
+  },
+  'health-wellness-expertise': {
+    id: 'health-wellness-expertise',
+    title: 'NASM Personal Trainer',
+    subtitle: '23+ Years in Health, Fitness & Metabolic Wellness',
+    description: 'Certified Personal Trainer and NASM Nutrition Coach with over two decades of experience in metabolic health, group fitness instruction, and sports medicine. Built a loyal client base through evidence-based programming and community-centered coaching in New Hampshire\'s Mount Washington Valley.',
+    role: 'Certified Personal Trainer & Nutrition Coach',
+    duration: '23+ years (2000–present)',
+    team: 'Solo practitioner; collaborated with gym management, physical therapists, and media partners',
+    challenge: 'Helping diverse populations — from competitive athletes to aging adults with chronic conditions — achieve sustainable fitness goals in a rural mountain community with limited access to specialized health services.',
+    solution: 'Developed individualized and group training programs grounded in NASM methodology, TRX Sports Medicine protocols, and YogaFit progressive training. Created low-impact conditioning curricula featured in regional publications and demonstrated on live television. Built multi-format class offerings spanning kickboxing, yoga, spin, TRX suspension training, and Les Mills BodyCOMBAT.',
+    outcome: 'Recognized as a Top 3 Personal Trainer in the Mount Washington Valley (Conway Daily Sun Readers\' Choice Awards, 2017). Named Cranmore Mountain Resort Employee of the Year (2017). Featured in Vibe Magazine and interviewed on RSN Outside TV for fitness programming expertise.',
+    metrics: [
+      { label: '23+', value: 'Years Experience', description: 'Continuous practice since 2000' },
+      { label: '7+', value: 'Active Certifications', description: 'NASM, AFAA, TRX, YogaFit, Les Mills, CPR/AED' },
+      { label: 'Top 3', value: 'Best Personal Trainer', description: 'Mt. Washington Valley Readers\' Choice 2017' },
+      { label: '2017', value: 'Employee of the Year', description: 'Cranmore Mountain Resort Summit Award' }
+    ],
+    process: [
+      'NASM-certified assessment and program design for individual clients',
+      'TRX Sports Medicine suspension training for injury recovery and prevention',
+      'YogaFit Level I–V progressive yoga instruction',
+      'Les Mills BodyCOMBAT group fitness choreography and coaching',
+      'Low-impact ski conditioning curriculum published in Vibe Magazine',
+      'Live TV demonstrations on RSN Outside TV (2014, 2017, 2018)'
+    ],
+    learnings: [
+      'Sustainable fitness requires meeting people where they are — physically and mentally',
+      'Evidence-based programming builds trust and long-term client retention',
+      'Community visibility through media and events drives organic growth in rural markets',
+      'Cross-discipline certifications enable more holistic, adaptable coaching'
+    ],
+    award: 'Top Trainer Award',
+    slideshow: [
+      outsideTvImage,
+      trxPortraitImage,
+      trxGroupImage,
+      trxPlankImage,
+      magazineArticleImage,
+      trxHandstandImage,
+      trxRipImage,
+      mountainViewImage
     ]
   }
 };
