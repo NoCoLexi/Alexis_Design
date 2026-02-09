@@ -104,6 +104,7 @@ import providenceSchoolsMaterialsImage from "@assets/providence-schools-material
 import jwuBrandingImage from "@assets/FullSizeRender 2_1754523503518.jpg";
 import outsideTvImage from "@assets/Screenshot_2014-01-06_22.29.34_1770666947914.png";
 import outsideTvCoverImage from "@assets/Screenshot_2014-01-06_22.29.55_1770667850426.png";
+import mallinckrodtMedicalLogo from "@assets/Mallinckrodt_Medical_transparent_1770668716629.png";
 import trxGroupImage from "@assets/IMG_6319_1770666807153.jpg";
 import trxPlankImage from "@assets/IMG_6349_1770666810955.jpg";
 import magazineArticleImage from "@assets/20181006_071644_1770666824971.jpg";
@@ -533,7 +534,7 @@ const projects: Project[] = [
     category: 'brand-development',
     roles: ['brand-development'],
     verticals: ['healthcare'],
-    image: lifespanHealthCoverImage,
+    image: mallinckrodtMedicalLogo,
     metrics: [
       { label: 'Corporate Rebrand', value: '100%', color: 'text-chart-1' },
       { label: 'Crisis Communications', value: 'Strategic', color: 'text-primary' }
@@ -642,17 +643,19 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+          className={`w-full h-full ${project.image === mallinckrodtMedicalLogo ? 'object-contain p-8' : 'object-cover object-top'} group-hover:scale-105 transition-transform duration-500`}
           loading={index < 2 ? "eager" : "lazy"}
           decoding="async"
-          style={disableParallax ?
-            (project.image === riConventionCenterImage ? { objectPosition: 'center 35%' } : {}) :
-            {
-              transform: `translateY(${parallaxY * 0.1}px)`,
-              transition: 'transform 0.1s ease-out',
-              ...(project.image === riConventionCenterImage ? { objectPosition: 'center 35%' } : {})
-            }
-          }
+          style={{
+            ...(project.image === mallinckrodtMedicalLogo ? { backgroundColor: '#ffffff' } : {}),
+            ...(disableParallax
+              ? (project.image === riConventionCenterImage ? { objectPosition: 'center 35%' } : {})
+              : {
+                  transform: `translateY(${parallaxY * 0.1}px)`,
+                  transition: 'transform 0.1s ease-out',
+                  ...(project.image === riConventionCenterImage ? { objectPosition: 'center 35%' } : {})
+                })
+          }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
         <div className="absolute top-4 left-4 flex gap-2">

@@ -124,6 +124,7 @@ import trxPortraitImage from "@assets/Alexis_TRX_1_1770666878409.jpg";
 import trxHandstandImage from "@assets/Alexis_TRX_handstand_1770666909059.png";
 import trxRipImage from "@assets/Alexis_6_1770667005999.jpg";
 import mountainViewImage from "@assets/20181006_093528_1770666865642.jpg";
+import mallinckrodtMedicalLogo from "@assets/Mallinckrodt_Medical_transparent_1770668716629.png";
 
 interface CaseStudy {
   id: string;
@@ -954,6 +955,38 @@ const caseStudies: Record<string, CaseStudy> = {
       trxRipImage,
       mountainViewImage
     ]
+  },
+  'mallinckrodt-medical': {
+    id: 'mallinckrodt-medical',
+    title: 'Mallinckrodt Medical',
+    subtitle: 'Corporate Communications During a Major Pharmaceutical Merger & Split',
+    description: 'Mallinckrodt Chemical Works was founded in 1867 in St. Louis, Missouri, specializing in pharmaceuticals and medical imaging products. After acquisition by International Minerals & Chemical Corporation (Imcera) in 1986, the company split in 1989 into Mallinckrodt Medical Inc. and Mallinckrodt Specialty Chemicals Inc. I supported the Medical division through this critical transition period, working directly with scientists on internal and external communications materials.',
+    role: 'Corporate Communications & Brand Development',
+    duration: 'During Imcera merger and Medical/Chemical division split',
+    team: 'Corporate communications team, scientists, sales teams, and senior leadership',
+    challenge: 'Navigating a complex corporate restructuring as Mallinckrodt transitioned from a single entity under Imcera into two distinct companies — Medical and Chemical — each requiring its own brand identity, messaging, and stakeholder communications while maintaining continuity for clients and regulatory partners.',
+    solution: 'Developed corporate communications strategy and brand materials for the newly formed Mallinckrodt Medical division. Worked hands-on with scientists to translate technical research into accessible internal and external materials. Supported crisis communications efforts during the transition and created sales enablement materials to maintain market confidence throughout the restructuring.',
+    outcome: 'Successfully supported the corporate rebrand and division split, ensuring Mallinckrodt Medical emerged with a clear, professional identity. The Medical division continued as a standalone entity through 1998 when it merged back into the parent company as Mallinckrodt, Inc. The company has since merged with Endo International.',
+    metrics: [
+      { label: 'Corporate Rebrand', value: 'Complete', description: 'Full brand identity for new Medical division' },
+      { label: 'Crisis Comms', value: 'Strategic', description: 'Managed communications through merger and split' },
+      { label: '1867–Present', value: 'Company Legacy', description: 'Founded in St. Louis, now part of Endo International' },
+      { label: '2 Divisions', value: 'Medical & Chemical', description: 'Supported the split into distinct business units' }
+    ],
+    process: [
+      'Collaborated directly with scientists to develop technical content for internal and external audiences',
+      'Created corporate communications materials for the Mallinckrodt Medical division during the Imcera restructuring',
+      'Supported crisis communications strategy during the merger and company split',
+      'Developed sales team collateral and enablement materials for the Medical division',
+      'Maintained brand consistency across internal and external touchpoints during transition'
+    ],
+    learnings: [
+      'Corporate restructuring requires clear, consistent messaging to maintain stakeholder trust',
+      'Translating scientific research into accessible communications bridges the gap between technical teams and broader audiences',
+      'Crisis communications during mergers demands both speed and precision in messaging',
+      'Brand identity work during organizational change sets the foundation for long-term market positioning'
+    ],
+    image: mallinckrodtMedicalLogo
   }
 };
 
@@ -1075,7 +1108,7 @@ export default function CaseStudyModal() {
                 initialIndex={caseStudy.id === 'pa-portal' ? 2 : 0}
               />
             ) : caseStudy.image ? (
-              <img src={caseStudy.image} alt={caseStudy.title} className="w-full h-full object-cover" />
+              <img src={caseStudy.image} alt={caseStudy.title} className={`w-full h-full ${caseStudy.image === mallinckrodtMedicalLogo ? 'object-contain p-8 bg-white' : 'object-cover'}`} />
             ) : null}
           </div>
 
