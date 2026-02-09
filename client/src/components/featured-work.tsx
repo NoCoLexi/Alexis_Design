@@ -552,8 +552,6 @@ const projects: Project[] = [
       trxGroupImage,
       trxPlankImage,
       magazineArticleImage,
-      trxPortraitImage,
-      trxHandstandImage,
       trxRipImage
     ],
     award: 'Top Trainer Award',

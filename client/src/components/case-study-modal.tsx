@@ -948,11 +948,9 @@ const caseStudies: Record<string, CaseStudy> = {
     award: 'Top Trainer Award',
     slideshow: [
       outsideTvImage,
-      trxPortraitImage,
       trxGroupImage,
       trxPlankImage,
       magazineArticleImage,
-      trxHandstandImage,
       trxRipImage,
       mountainViewImage
     ]
