@@ -772,10 +772,6 @@ export default function FeaturedWork() {
             </div>
           </div>
 
-          {/* Results count */}
-          <p className="text-sm text-muted-foreground">
-            {filteredProjects.length} project{filteredProjects.length !== 1 ? 's' : ''}
-          </p>
         </div>
 
         {/* Project Grid */}
