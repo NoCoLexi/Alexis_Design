@@ -1,12 +1,11 @@
 import { useState, useCallback, useEffect } from 'react';
 
-export type RoleFilter = 'ux-design-strategy' | 'product-pm' | 'project-management';
+export type RoleFilter = 'ux-design-strategy' | 'product-pm';
 export type VerticalFilter = 'government' | 'healthcare' | 'food-beverage' | 'finance' | 'education' | 'all';
 
 export const roleLabels: Record<RoleFilter, string> = {
   'ux-design-strategy': 'UX/Design/Strategy',
-  'product-pm': 'Product/PM',
-  'project-management': 'Project/Change Management'
+  'product-pm': 'Product/PM'
 };
 
 export const verticalLabels: Record<VerticalFilter, string> = {
@@ -37,8 +36,7 @@ function parseUrlParams(): PortfolioFiltersState {
   const roleParam = urlParams.get('role') || urlParams.get('lens') || urlParams.get('focus');
   let role: RoleFilter = 'product-pm';
   if (roleParam === 'ux-design-strategy' || roleParam === 'ux' || roleParam === 'design') role = 'ux-design-strategy';
-  else if (roleParam === 'product-pm' || roleParam === 'pm') role = 'product-pm';
-  else if (roleParam === 'project-management' || roleParam === 'brand') role = 'project-management';
+  else if (roleParam === 'product-pm' || roleParam === 'pm' || roleParam === 'project-management' || roleParam === 'brand') role = 'product-pm';
   
   const verticalParam = urlParams.get('vertical');
   let vertical: VerticalFilter = 'all';

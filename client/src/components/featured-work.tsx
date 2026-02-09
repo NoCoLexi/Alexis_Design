@@ -123,8 +123,7 @@ type Vertical = 'government' | 'healthcare' | 'education' | 'food-beverage';
 // Role descriptions for card labels
 const roleDescriptions: Record<RoleFilter, string> = {
   'ux-design-strategy': 'UX/Design/Strategy',
-  'product-pm': 'Product/PM',
-  'project-management': 'Project/Change Management'
+  'product-pm': 'Product/PM'
 };
 
 // Projects visible under each role filter (based on Primary Category from spreadsheet)
@@ -132,7 +131,7 @@ const roleDescriptions: Record<RoleFilter, string> = {
 const roleProjects: Record<RoleFilter, string[]> = {
   'ux-design-strategy': [
     // Cal OES projects (Design)
-    'ca-innovation-award', 'caloes', 'pa-portal', 'ocm', 'coe-engage', 'grants-management-sikich',
+    'ca-innovation-award', 'caloes', 'pa-portal', 'ocm', 'eag', 'coe-engage', 'grants-management-sikich',
     // UNH projects (Design)
     'ilave', 'subscriptex', 'wechore',
     // Branding projects (Design)
@@ -142,17 +141,9 @@ const roleProjects: Record<RoleFilter, string[]> = {
   ],
   'product-pm': [
     // Cal OES projects (Product)
-    'ca-innovation-award', 'caloes', 'pa-portal', 'grants-management-sikich',
+    'ca-innovation-award', 'caloes', 'pa-portal', 'eag', 'grants-management-sikich',
     // Branding projects with Product
     'fairgrounds-coffee', 'abc6-rebrand-alexis-design', 'ttools-alexis-design'
-  ],
-  'project-management': [
-    // Cal OES projects (Management)
-    'ca-innovation-award', 'caloes', 'pa-portal', 'ocm', 'eag', 'coe-engage', 'grants-management-sikich',
-    // UNH projects (Management)
-    'ilave', 'subscriptex', 'wechore',
-    // Branding with Management
-    'fairgrounds-coffee'
   ]
 };
 
@@ -786,7 +777,7 @@ export default function FeaturedWork() {
           {/* Primary Filter: Role (tabbed navigation) */}
           <div className="mb-8">
             <div className="inline-flex bg-muted/20 rounded-lg p-1 border border-border/30">
-              {(['ux-design-strategy', 'product-pm', 'project-management'] as const).map((role) => {
+              {(['ux-design-strategy', 'product-pm'] as const).map((role) => {
                 const isActive = filters.role === role;
                 return (
                   <button
