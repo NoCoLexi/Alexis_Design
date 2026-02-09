@@ -721,6 +721,10 @@ export default function FeaturedWork() {
       if (filters.vertical !== 'all') {
         if (filters.vertical === 'finance') {
           if (!financeProjects.includes(project.id)) return false;
+        } else if (filters.vertical === 'healthcare') {
+          if (project.verticals.includes('healthcare')) return true;
+          if (project.verticals.length === 0 && !financeProjects.includes(project.id)) return true;
+          return false;
         } else {
           if (!project.verticals.includes(filters.vertical as Vertical)) return false;
         }

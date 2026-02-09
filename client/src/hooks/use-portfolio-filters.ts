@@ -4,11 +4,11 @@ export type VerticalFilter = 'government' | 'healthcare' | 'food-beverage' | 'fi
 
 export const verticalLabels: Record<VerticalFilter, string> = {
   'government': 'Government',
-  'healthcare': 'Health & Fitness',
+  'healthcare': 'Additional Projects',
   'food-beverage': 'Food/Bev',
   'finance': 'Finance',
   'education': 'Education',
-  'all': 'All'
+  'all': 'All Projects'
 };
 
 export const availableVerticals: VerticalFilter[] = ['all', 'government', 'healthcare', 'food-beverage', 'finance', 'education'];
