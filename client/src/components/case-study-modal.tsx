@@ -969,7 +969,6 @@ const caseStudies: Record<string, CaseStudy> = {
     outcome: 'Successfully supported the corporate rebrand and division split, ensuring Mallinckrodt Medical emerged with a clear, professional identity. The Medical division continued as a standalone entity through 1998 when it merged back into the parent company as Mallinckrodt, Inc. The company has since merged with Endo International.',
     metrics: [
       { label: 'Corporate Rebrand', value: 'Complete', description: 'Full brand identity for new Medical division' },
-      { label: 'Crisis Comms', value: 'Strategic', description: 'Managed communications through merger and split' },
       { label: '1867–Present', value: 'Company Legacy', description: 'Founded in St. Louis, now part of Endo International' },
       { label: '2 Divisions', value: 'Medical & Chemical', description: 'Supported the split into distinct business units' }
     ],
