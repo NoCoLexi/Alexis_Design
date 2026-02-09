@@ -4,6 +4,7 @@ import originalHero1 from "@assets/image_1755621221671.png";
 import navDevelopment from "@assets/image_1755632165306.png";
 import codeDevelopment from "@assets/image_1755782692797.png";
 import finalDiscoHero from "@assets/image_1755783740539.png";
+import iteration7Screenshot from "@assets/screencapture-a14568b2-3e00-4807-abe4-0a773c66598f-00-zrs0bmni_1770670302371.png";
 import iteration6Screenshot from "@assets/AlexisDesign_screen_capture_8-26-2025_1770669623478.png";
 import iteration1Screenshot from "@assets/AlexisDesign_screen_capture_8-21-2025_1770669663551.png";
 
@@ -75,6 +76,9 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
                     <div className="text-2xl font-bold text-white">$534</div>
                     <div className="text-xs text-gray-400">Total Cost</div>
                   </div>
+                </div>
+                <div className="mt-4 h-48 overflow-y-auto rounded-lg border border-green-400/10">
+                  <img src={iteration7Screenshot} alt="7th iteration screenshot" className="w-full" />
                 </div>
               </div>
 
