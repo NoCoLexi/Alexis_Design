@@ -1,0 +1,41 @@
+Here’s a prompt you can paste into Replit’s Agent to get the changes you want:
+
+Update the portfolio navigation and case study tabs to combine UX/Design/Strategy with Product/PM and ensure coverage across all industry tabs.
+
+Goals
+
+Rename the main “Case Studies” section label to something that reflects the full scope of my work, such as “Product Management, Design, & Strategy.” If a more concise, professional label is clearly better, propose 2–3 options and select one.
+
+Remove the first line of role-based tabs (currently: “UX/Design/Strategy” and “Product/PM”) so that visitors only see a single consolidated case study area.
+
+Keep the third line of industry tabs exactly as-is: “All, Government, Healthcare, Food/Bev, Finance, Education.”
+
+Ensure every project/case study is still discoverable via at least one industry tab.
+
+Identify and report back any projects that do not map cleanly to one of the existing industry tabs; do not silently drop or hide them.
+
+Implementation details
+
+Find wherever the role-based tabs and case study section heading are defined (likely in client/src/components/featured-work.tsx or related components/hooks).
+
+Replace the “Case Studies” title with a single umbrella label that communicates both product management and design/strategy (for example: “Product Management, Design, & Strategy”).
+
+Remove the top-level role tabs entirely from the UI and any routing/query param logic (for example, ?role=ux-design-strategy, ?role=product-pm, or any former ?role=project-management handling), while preserving deep links if possible with sensible redirects.
+
+Keep the industry tabs (“All, Government, Healthcare, Food/Bev, Finance, Education”) as the only visible filters for case studies.
+
+Review the data source for the tiles (where projects are defined, including their categories/industries). Make sure each project is tagged so that it appears in at least one industry tab and in “All.”
+
+If any projects currently only rely on a role-based tab and have no industry mapping, assign them to the most appropriate industry. If one truly does not fit into any existing industry, leave it visible in “All,” and list its slug/id and suggested new category or approach in a short summary in your response.
+
+After updating, do a quick pass over the layout and styling so that the removal of the top role tabs doesn’t leave awkward spacing or broken alignment.
+
+Deliverables
+
+Updated code implementing the new single “Case Studies” label and removed role-based tabs.
+
+Updated project metadata so every case study appears under at least one industry tab and “All.”
+
+A brief list (in your response) of any case studies that could not be mapped cleanly to Government, Healthcare, Food/Bev, Finance, or Education, along with a suggested placement or new category.
+
+Work directly in the existing SynthTunes project and explain what files you changed and why, using concise commit-style notes.
