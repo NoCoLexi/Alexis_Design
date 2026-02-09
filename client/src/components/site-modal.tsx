@@ -4,6 +4,8 @@ import originalHero1 from "@assets/image_1755621221671.png";
 import navDevelopment from "@assets/image_1755632165306.png";
 import codeDevelopment from "@assets/image_1755782692797.png";
 import finalDiscoHero from "@assets/image_1755783740539.png";
+import iteration6Screenshot from "@assets/AlexisDesign_screen_capture_8-26-2025_1770669623478.png";
+import iteration1Screenshot from "@assets/AlexisDesign_screen_capture_8-21-2025_1770669663551.png";
 
 interface SiteModalProps {
   isOpen: boolean;
@@ -55,10 +57,51 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
               Built in harmony with AI tools, refined through iterative improvement and user feedback. This portfolio demonstrates product design and management mixed with my AI-PM skills.
             </p>
 
-            {/* Iteration Comparison */}
+            {/* Iteration Comparison - Most recent first */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-              {/* 1st Iteration */}
+              {/* 7th Iteration (Most Recent) */}
+              <div className="glass rounded-xl p-4 border border-green-400/20">
+                <h4 className="text-lg font-semibold text-green-400 mb-4">7th Iteration (Most Recent)</h4>
+                <div className="space-y-3">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-white">12 Weeks</div>
+                    <div className="text-xs text-gray-400">Build Time</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-white">20 testers</div>
+                    <div className="text-xs text-gray-400">User Testing</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-white">$534</div>
+                    <div className="text-xs text-gray-400">Total Cost</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 6th Iteration */}
               <div className="glass rounded-xl p-4 border border-purple-400/20">
+                <h4 className="text-lg font-semibold text-purple-400 mb-4">6th Iteration</h4>
+                <div className="space-y-3">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-white">7 Weeks</div>
+                    <div className="text-xs text-gray-400">Build Time (2 Days per iteration)</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-white">18 testers</div>
+                    <div className="text-xs text-gray-400">User Testing</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-white">$349</div>
+                    <div className="text-xs text-gray-400">Total Cost</div>
+                  </div>
+                </div>
+                <div className="mt-4 h-48 overflow-y-auto rounded-lg border border-purple-400/10">
+                  <img src={iteration6Screenshot} alt="6th iteration screenshot" className="w-full" />
+                </div>
+              </div>
+
+              {/* 1st Iteration */}
+              <div className="glass rounded-xl p-4 border border-blue-400/20">
                 <h4 className="text-lg font-semibold text-blue-400 mb-4">1st Iteration</h4>
                 <div className="space-y-3">
                   <div className="text-center">
@@ -74,24 +117,8 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
                     <div className="text-xs text-gray-400">Total Cost</div>
                   </div>
                 </div>
-              </div>
-
-              {/* 7th Iteration (Most Recent) */}
-              <div className="glass rounded-xl p-4 border border-green-400/20">
-                <h4 className="text-lg font-semibold text-green-400 mb-4">6th Iteration (Most Recent)</h4>
-                <div className="space-y-3">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-white">7 Weeks</div>
-                    <div className="text-xs text-gray-400">Build Time (2 Days per iteration)</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-white">18 testers</div>
-                    <div className="text-xs text-gray-400">User Testing</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-white">$349</div>
-                    <div className="text-xs text-gray-400">Total Cost</div>
-                  </div>
+                <div className="mt-4 h-48 overflow-y-auto rounded-lg border border-blue-400/10">
+                  <img src={iteration1Screenshot} alt="1st iteration screenshot" className="w-full" />
                 </div>
               </div>
             </div>
