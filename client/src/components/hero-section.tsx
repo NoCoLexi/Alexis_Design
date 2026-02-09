@@ -244,20 +244,20 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         {/* 1. Award Winner button */}
         <div className="flex justify-center">
           <div
-            className="inline-flex items-center gap-2 rounded-full px-6 py-3 hover:glow-yellow transition-all duration-300 cursor-pointer transform hover:scale-105 shadow-lg border border-chart-3/20"
+            className="inline-flex items-center gap-2 rounded-full px-4 py-2 hover:glow-yellow transition-all duration-300 cursor-pointer transform hover:scale-105 shadow-lg border border-chart-3/20"
             style={{ background: 'rgba(255, 255, 255, 0.15)', backdropFilter: 'blur(20px)' }}
             onClick={onOpenAwardModal}
             data-testid="button-hero-tech-award"
           >
-            <Award className="w-5 h-5" style={{ color: '#0081BC' }} />
-            <span className="text-sm font-medium" style={{ color: '#F3E8B9' }}>
+            <Award className="w-4 h-4" style={{ color: '#0081BC' }} />
+            <span className="text-xs font-medium" style={{ color: '#F3E8B9' }}>
               2023 California GovTech Award Winner
             </span>
           </div>
         </div>
 
         {/* 2. Headline */}
-        <h1 className="text-4xl font-inter-black" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.1' }}>
+        <h1 className="text-2xl font-inter-black" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.1' }}>
           <span className={`disco-text ${isPlaying ? 'dancing' : ''}`} style={{ color: '#F3E8B9' }}>
             {getCustomGreeting()}
           </span>
@@ -265,14 +265,14 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
         {/* 3. Subhead */}
         <p
-          className="text-xl font-inter-medium text-muted-foreground leading-relaxed mt-0"
+          className="text-base font-inter-medium text-muted-foreground leading-relaxed mt-0"
           style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
         >
           I connect vision through to adoption
         </p>
 
         <p
-          className="text-lg font-inter-medium text-muted-foreground leading-relaxed"
+          className="text-sm font-inter-medium text-muted-foreground leading-relaxed"
           style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400 }}
         >
           IT starts with humans
