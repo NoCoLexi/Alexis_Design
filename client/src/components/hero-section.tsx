@@ -158,13 +158,6 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
           >I design products that get used, not just shipped</p>
 
-          <p
-            className="text-lg md:text-xl font-inter-medium text-muted-foreground mb-4 leading-relaxed max-w-3xl mx-auto text-center"
-            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400 }}
-          >
-            IT starts with humans
-          </p>
-
           {/* Buttons Side by Side */}
           <div className="mb-4 pt-2 pb-4 flex justify-center gap-4 max-w-3xl mx-auto">
             <div className={`disco-button ${isPlaying ? 'playing' : ''} flex-1 max-w-sm transition-all duration-300 transform hover:scale-105`}>
@@ -271,12 +264,6 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           I design products that get used, not just shipped
         </p>
 
-        <p
-          className="text-sm font-inter-medium text-muted-foreground leading-relaxed"
-          style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400 }}
-        >
-          IT starts with humans
-        </p>
 
         {/* 5. Buttons Side by Side */}
         <div className="flex flex-col gap-3 w-full max-w-sm mx-auto">
