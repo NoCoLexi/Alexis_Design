@@ -136,7 +136,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
             <div className="glass rounded-xl p-6 hover:glow-purple transition-all duration-300">
               <h3 className="text-xl font-semibold mb-4" style={{ color: '#F3E8B9' }}>Project Management</h3>
               <p className="text-gray-300 leading-relaxed">
-                I am a servant leader. Two of my greatest strengths are stakeholder communication, and inter-stakeholder translation. Holding a Project Management Professional (PMP) certification through Project Management Institute (PMI).
+                Two of my greatest strengths are stakeholder communication, and inter-stakeholder translation. Holding a Project Management Professional (PMP) certification through Project Management Institute (PMI).
               </p>
             </div>
 
