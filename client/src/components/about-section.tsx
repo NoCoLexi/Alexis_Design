@@ -228,6 +228,13 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                           </div>
                         </div>
                         <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                          <div>
+                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Core Education</div>
+                            <div className="text-foreground font-medium">University of New Hampshire - Business Analytics Science</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
                           <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
                           <div>
                             <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
@@ -318,6 +325,13 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                           <div>
                             <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Core Education</div>
                             <div className="text-foreground font-medium">University of New Hampshire - UI/UX Design Certification</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                          <div>
+                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Core Education</div>
+                            <div className="text-foreground font-medium">University of New Hampshire - Business Analytics Science</div>
                           </div>
                         </div>
                         <div className="education-item">
