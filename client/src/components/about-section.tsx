@@ -656,6 +656,13 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                       <div className="absolute w-full education-scroll">
                         {/* First set */}
                         <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Professional Group</div>
+                            <div className="text-foreground font-medium">PMI NH Chapter | Member</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
                           <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
                           <div className="text-left">
                             <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Leadership</div>
@@ -797,6 +804,13 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                         </div>
 
                         {/* Duplicate set for seamless loop */}
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Professional Group</div>
+                            <div className="text-foreground font-medium">PMI NH Chapter | Member</div>
+                          </div>
+                        </div>
                         <div className="education-item">
                           <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
                           <div className="text-left">
