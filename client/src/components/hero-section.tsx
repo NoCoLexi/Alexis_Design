@@ -156,7 +156,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           <p
             className="text-xl md:text-2xl font-inter-medium text-muted-foreground mb-1 leading-relaxed max-w-3xl mx-auto text-center"
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
-          >Connecting vision through to adoption</p>
+          >I design products that get used, not just shipped</p>
 
           <p
             className="text-lg md:text-xl font-inter-medium text-muted-foreground mb-4 leading-relaxed max-w-3xl mx-auto text-center"
@@ -268,7 +268,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           className="text-base font-inter-medium text-muted-foreground leading-relaxed mt-0"
           style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
         >
-          I connect vision through to adoption
+          I design products that get used, not just shipped
         </p>
 
         <p
