@@ -659,6 +659,13 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                           <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
                           <div className="text-left">
                             <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Keynote Speaker</div>
+                            <div className="text-foreground font-medium">AIxUX Summit | Keynote Speaker</div>
+                          </div>
+                        </div>
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Keynote Speaker</div>
                             <div className="text-foreground font-medium">Fortune 500 Fintech | Keynote Speaker</div>
                           </div>
                         </div>
@@ -818,6 +825,13 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                         </div>
 
                         {/* Duplicate set for seamless loop */}
+                        <div className="education-item">
+                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                          <div className="text-left">
+                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Keynote Speaker</div>
+                            <div className="text-foreground font-medium">AIxUX Summit | Keynote Speaker</div>
+                          </div>
+                        </div>
                         <div className="education-item">
                           <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
                           <div className="text-left">
