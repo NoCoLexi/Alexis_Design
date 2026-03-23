@@ -19,7 +19,7 @@ interface AboutSectionProps {
 }
 
 export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
-  const [activeTab, setActiveTab] = useState<'education' | 'publications' | 'community' | 'funfact'>('education');
+  const [activeTab, setActiveTab] = useState<'education' | 'publications' | 'community' | 'funfact'>('funfact');
   const [isDragging, setIsDragging] = useState(false);
   const [startY, setStartY] = useState(0);
   const [scrollTop, setScrollTop] = useState(0);
