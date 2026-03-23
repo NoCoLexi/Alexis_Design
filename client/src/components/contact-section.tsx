@@ -16,9 +16,7 @@ export default function ContactSection({ onOpenAwardModal }: ContactSectionProps
             <span className="gradient-text">Let's Create Something Amazing</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Seeking a Product/Project Management position where my rare blend of<br />
-            product strategy, human-centered design, and Prosci-certified change management<br />
-            helps deliver products users embrace (not just tolerate.)
+            My rare blend of product strategy, product design, and change management delivers products users embrace (not just tolerate).
           </p>
           
           
