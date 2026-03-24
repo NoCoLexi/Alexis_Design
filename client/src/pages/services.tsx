@@ -231,9 +231,9 @@ export default function Services() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { org: 'AIxUI Summit', role: '2025 Presenter', year: '', upcoming: false },
-              { org: 'Enterprise FinTech', role: 'Keynote Speaker', year: '', upcoming: false },
-              { org: 'American Red Cross', role: 'Spring Keynote Speaker', year: '', upcoming: true },
-              { org: 'PMI', role: 'Keynote Speaker', year: '', upcoming: true },
+              { org: 'Enterprise FinTech', role: '2026 AI Strategy Keynote (NDA)', year: '', upcoming: true },
+              { org: 'American Red Cross', role: '2026 Spring Keynote', year: '', upcoming: true },
+              { org: 'PMI', role: '2026 Keynote TBA', year: '', upcoming: true },
             ].map((item, i) => (
               <div
                 key={i}
