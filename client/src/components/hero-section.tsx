@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Award, Sparkles, Mail, Calendar } from "lucide-react";
+import { ArrowDown, Award, Sparkles, Mail, Calendar, Play } from "lucide-react";
 import { SiLinkedin } from "react-icons/si";
-import NavMusicPlayer from "./nav-music-player";
 import AdminPanel from "./admin-panel";
 
 import { useAdminPanel } from "@/hooks/use-admin-panel";
@@ -82,6 +81,14 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
     }
   };
 
+  const scrollToExpertise = () => {
+    const videoElement = document.querySelector('[data-testid="video-expertise-product-leader"]');
+    if (videoElement) {
+      const y = videoElement.getBoundingClientRect().top + window.pageYOffset - 100;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="home" className="min-h-screen flex items-center relative overflow-hidden">
       <div className="absolute inset-0 gradient-bg-secondary opacity-30"></div>
@@ -131,15 +138,23 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
           >I design products that get used, not just shipped</p>
 
-          {/* CTA — music player as "How I Drive Product Adoption" */}
+          {/* CTA */}
           <div className="flex justify-center max-w-3xl mx-auto w-full">
-            <div className={`disco-button ${isPlaying ? 'playing' : ''} w-full max-w-md transition-all duration-300 transform hover:scale-105`}>
-              <NavMusicPlayer
-                onPlayingChange={setIsPlaying}
-                renderAs="button"
-                buttonText='How I Drive Product Adoption'
-              />
-            </div>
+            <button
+              onClick={scrollToExpertise}
+              className="w-full max-w-md px-6 bg-transparent hover:bg-white/10 rounded-xl font-inter-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2 border-white"
+              data-testid="button-watch-video-about-me"
+              style={{
+                fontFamily: 'Inter, sans-serif',
+                fontWeight: 700,
+                fontSize: '1.1rem',
+                boxShadow: '0 4px 12px rgba(255, 255, 255, 0.3)',
+                height: '56px'
+              }}
+            >
+              <Play className="h-4 w-4 flex-shrink-0" />
+              <span>How I Drive Product Adoption</span>
+            </button>
           </div>
 
           {/* Key Metrics */}
@@ -225,13 +240,20 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
         {/* CTA */}
         <div className="w-full max-w-sm mx-auto">
-          <div className={`disco-button ${isPlaying ? 'playing' : ''} w-full transition-all duration-300 transform hover:scale-105`}>
-            <NavMusicPlayer
-              onPlayingChange={setIsPlaying}
-              renderAs="button"
-              buttonText='How I Drive Product Adoption'
-            />
-          </div>
+          <button
+            onClick={scrollToExpertise}
+            className="w-full px-4 py-3 bg-transparent hover:bg-white/10 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2 border-white text-sm"
+            data-testid="button-watch-video-about-me"
+            style={{
+              fontFamily: 'Inter, sans-serif',
+              fontWeight: 700,
+              height: '56px',
+              boxShadow: '0 4px 12px rgba(255, 255, 255, 0.3)'
+            }}
+          >
+            <Play className="h-5 w-5 flex-shrink-0" />
+            <span>How I Drive Product Adoption</span>
+          </button>
         </div>
 
         {/* 6. Portrait */}
