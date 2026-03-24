@@ -4,6 +4,7 @@ import originalHero1 from "@assets/image_1755621221671.png";
 import navDevelopment from "@assets/image_1755632165306.png";
 import codeDevelopment from "@assets/image_1755782692797.png";
 import finalDiscoHero from "@assets/image_1755783740539.png";
+import iteration8Screenshot from "@assets/screencapture-alexisdesign-2026-03-23-23_28_39_1774364491171.png";
 import iteration7Screenshot from "@assets/screencapture-a14568b2-3e00-4807-abe4-0a773c66598f-00-zrs0bmni_1770670302371.png";
 import iteration6Screenshot from "@assets/AlexisDesign_screen_capture_8-26-2025_1770669623478.png";
 import iteration1Screenshot from "@assets/AlexisDesign_screen_capture_8-21-2025_1770669663551.png";
@@ -55,73 +56,95 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
             <h3 className="text-xl font-semibold text-purple-400">Development Story</h3>
             
             <p className="text-gray-300 leading-relaxed">
-              Built in harmony with AI tools, refined through iterative improvement and user feedback. This portfolio demonstrates product design and management mixed with my AI-PM skills.
+              This portfolio is a working demonstration of AI fluency — knowing when, how, and why to bring AI into the process. Each iteration was designed and directed by me, with AI tools handling execution where they add the most value. The result is a product built in days, not months, without sacrificing quality or judgment.
             </p>
 
             {/* Iteration Comparison - Most recent first */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-              {/* 7th Iteration (Most Recent) */}
+              {/* 8th Iteration (Most Recent) */}
               <div className="glass rounded-xl p-4 border border-green-400/20">
-                <h4 className="text-lg font-semibold text-green-400 mb-4">7th Iteration (Most Recent)</h4>
+                <h4 className="text-lg font-semibold text-green-400 mb-4">8th Iteration (Most Recent)</h4>
                 <div className="space-y-3">
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-white">12 Weeks</div>
-                    <div className="text-xs text-gray-400">Build Time</div>
+                    <div className="text-2xl font-bold text-white">1.5 Days</div>
+                    <div className="text-xs text-gray-400">Iteration Build Time</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-white">20 testers</div>
-                    <div className="text-xs text-gray-400">User Testing</div>
+                    <div className="text-2xl font-bold text-white">4 testers</div>
+                    <div className="text-xs text-gray-400">Total Users Tested</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-white">$534</div>
-                    <div className="text-xs text-gray-400">Total Cost</div>
+                    <div className="text-2xl font-bold text-white">$642</div>
+                    <div className="text-xs text-gray-400">Total Project Cost</div>
                   </div>
                 </div>
                 <div className="mt-4 h-48 overflow-y-auto rounded-lg border border-green-400/10">
+                  <img src={iteration8Screenshot} alt="8th iteration screenshot" className="w-full" />
+                </div>
+              </div>
+
+              {/* 7th Iteration */}
+              <div className="glass rounded-xl p-4 border border-purple-400/20">
+                <h4 className="text-lg font-semibold text-purple-400 mb-4">7th Iteration</h4>
+                <div className="space-y-3">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-white">1.5 Days</div>
+                    <div className="text-xs text-gray-400">Iteration Build Time</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-white">4 testers</div>
+                    <div className="text-xs text-gray-400">Total Users Tested</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-white">$534</div>
+                    <div className="text-xs text-gray-400">Total Project Cost</div>
+                  </div>
+                </div>
+                <div className="mt-4 h-48 overflow-y-auto rounded-lg border border-purple-400/10">
                   <img src={iteration7Screenshot} alt="7th iteration screenshot" className="w-full" />
                 </div>
               </div>
 
               {/* 6th Iteration */}
-              <div className="glass rounded-xl p-4 border border-purple-400/20">
-                <h4 className="text-lg font-semibold text-purple-400 mb-4">6th Iteration</h4>
+              <div className="glass rounded-xl p-4 border border-blue-400/20">
+                <h4 className="text-lg font-semibold text-blue-400 mb-4">6th Iteration</h4>
                 <div className="space-y-3">
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-white">7 Weeks</div>
-                    <div className="text-xs text-gray-400">Build Time (2 Days per iteration)</div>
+                    <div className="text-2xl font-bold text-white">2 Days</div>
+                    <div className="text-xs text-gray-400">Iteration Build Time</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-white">18 testers</div>
-                    <div className="text-xs text-gray-400">User Testing</div>
+                    <div className="text-2xl font-bold text-white">6 testers</div>
+                    <div className="text-xs text-gray-400">Total Users Tested</div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold text-white">$349</div>
-                    <div className="text-xs text-gray-400">Total Cost</div>
+                    <div className="text-xs text-gray-400">Total Project Cost</div>
                   </div>
                 </div>
-                <div className="mt-4 h-48 overflow-y-auto rounded-lg border border-purple-400/10">
+                <div className="mt-4 h-48 overflow-y-auto rounded-lg border border-blue-400/10">
                   <img src={iteration6Screenshot} alt="6th iteration screenshot" className="w-full" />
                 </div>
               </div>
 
               {/* 1st Iteration */}
-              <div className="glass rounded-xl p-4 border border-blue-400/20">
-                <h4 className="text-lg font-semibold text-blue-400 mb-4">1st Iteration</h4>
+              <div className="glass rounded-xl p-4 border border-gray-400/20">
+                <h4 className="text-lg font-semibold text-gray-400 mb-4">1st Iteration</h4>
                 <div className="space-y-3">
                   <div className="text-center">
                     <div className="text-2xl font-bold text-white">2 Days</div>
-                    <div className="text-xs text-gray-400">Build Time</div>
+                    <div className="text-xs text-gray-400">Iteration Build Time</div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold text-white">5 testers</div>
-                    <div className="text-xs text-gray-400">User Testing</div>
+                    <div className="text-xs text-gray-400">Total Users Tested</div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold text-white">$48.10</div>
-                    <div className="text-xs text-gray-400">Total Cost</div>
+                    <div className="text-xs text-gray-400">Total Project Cost</div>
                   </div>
                 </div>
-                <div className="mt-4 h-48 overflow-y-auto rounded-lg border border-blue-400/10">
+                <div className="mt-4 h-48 overflow-y-auto rounded-lg border border-gray-400/10">
                   <img src={iteration1Screenshot} alt="1st iteration screenshot" className="w-full" />
                 </div>
               </div>
