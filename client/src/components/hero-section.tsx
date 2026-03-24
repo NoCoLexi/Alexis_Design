@@ -95,13 +95,26 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
       <div className="absolute inset-0 opacity-20">
         <div className="w-full h-full bg-gradient-to-br from-primary/20 via-transparent to-chart-1/20"></div>
       </div>
-      {/* Desktop Layout */}
-      <div className="hidden md:flex flex-col items-center px-8 py-10 relative text-center w-full z-10">
-        {/* Unified container — everything aligns to this width */}
-        <div className="flex flex-col gap-4 w-full max-w-5xl mx-auto">
+      {/* Desktop Layout — two-column: photo left, content right */}
+      <div className="hidden md:grid grid-cols-[38%_1fr] items-stretch w-full relative z-10" style={{ minHeight: '100vh' }}>
+
+        {/* Left column: photo fills full height */}
+        <div className="relative overflow-hidden">
+          <img
+            src={headshot}
+            alt="Alexis Brochu"
+            className="w-full h-full object-cover object-top"
+            data-testid="video-professional-photo"
+          />
+          {/* Subtle gradient fade on right edge to blend into content */}
+          <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-r from-transparent to-background/60 pointer-events-none" />
+        </div>
+
+        {/* Right column: all content, left-aligned, vertically centered */}
+        <div className="flex flex-col justify-center px-12 py-16 gap-6">
 
           {/* Award badge */}
-          <div className="flex justify-center">
+          <div>
             <div
               className="inline-flex items-center gap-2 rounded-full px-5 py-2 hover:glow-yellow transition-all duration-300 cursor-pointer transform hover:scale-105 shadow-lg border border-chart-3/20"
               style={{ background: 'rgba(255, 255, 255, 0.15)', backdropFilter: 'blur(20px)' }}
@@ -116,7 +129,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           </div>
 
           {/* Headline */}
-          <h1 className="text-7xl md:text-8xl font-inter-black" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.05' }}>
+          <h1 className="text-5xl lg:text-6xl font-inter-black leading-tight" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.08' }}>
             <span className={`disco-text ${isPlaying ? 'dancing' : ''}`} style={{ color: '#F3E8B9' }}>
               {getCustomGreeting()}
             </span>
@@ -124,26 +137,12 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
           {/* Subhead */}
           <p
-            className="text-2xl md:text-3xl font-inter-medium text-muted-foreground leading-relaxed"
+            className="text-xl lg:text-2xl font-inter-medium text-muted-foreground leading-relaxed"
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
           >I design products that get used, not just shipped</p>
 
-          {/* Bottom row: photo left | CTAs right */}
-          <div className="grid grid-cols-[auto_1fr] items-center gap-8 mt-2">
-          {/* Photo */}
-          <div style={{ width: '220px' }}>
-            <img
-              src={headshot}
-              alt="Alexis Brochu"
-              className="rounded-lg"
-              style={{ width: '100%', objectFit: 'cover', objectPosition: 'top' }}
-              data-testid="video-professional-photo"
-            />
-          </div>
-
-          {/* CTA column */}
-          <div className="grid gap-4 text-left">
-            {/* How I Drive Product Adoption */}
+          {/* CTA button */}
+          <div>
             <button
               onClick={scrollToExpertise}
               className="w-full px-6 bg-transparent hover:bg-white/10 rounded-xl font-inter-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2 border-white"
@@ -151,50 +150,52 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
               style={{
                 fontFamily: 'Inter, sans-serif',
                 fontWeight: 700,
-                fontSize: '1.1rem',
+                fontSize: '1.05rem',
                 boxShadow: '0 4px 12px rgba(255, 255, 255, 0.3)',
-                height: '56px'
+                height: '52px'
               }}
             >
               <Play className="h-4 w-4 flex-shrink-0" />
               <span>How I Drive Product Adoption</span>
             </button>
+          </div>
 
-            {/* Key Metrics */}
-            <div className="grid grid-cols-3 gap-4">
-              <div
-                className="text-center cursor-pointer transition-all duration-300 transform hover:scale-105"
-                onClick={() => {
-                  const event = new CustomEvent('openCaseStudy', { detail: { projectId: 'caloes' } });
-                  window.dispatchEvent(event);
-                }}
-              >
-                <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>545.5%</div>
-                <div className="text-xs text-white/70">User Base Increase</div>
-              </div>
-              <div
-                className="text-center cursor-pointer transition-all duration-300 transform hover:scale-105"
-                onClick={() => {
-                  const event = new CustomEvent('openCaseStudy', { detail: { projectId: 'pa-portal' } });
-                  window.dispatchEvent(event);
-                }}
-              >
-                <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>$243M</div>
-                <div className="text-xs text-white/70">Projects Closed out</div>
-              </div>
-              <div
-                className="text-center cursor-pointer transition-all duration-300 transform hover:scale-105"
-                onClick={() => {
-                  const event = new CustomEvent('openCaseStudy', { detail: { projectId: 'pa-portal' } });
-                  window.dispatchEvent(event);
-                }}
-              >
-                <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>75%</div>
-                <div className="text-xs text-white/70">Support Ticket Reduction</div>
-              </div>
+          {/* Key Metrics */}
+          <div className="grid grid-cols-3 gap-6 py-2 border-t border-b border-white/10">
+            <div
+              className="cursor-pointer transition-all duration-300 transform hover:scale-105"
+              onClick={() => {
+                const event = new CustomEvent('openCaseStudy', { detail: { projectId: 'caloes' } });
+                window.dispatchEvent(event);
+              }}
+            >
+              <div className="text-3xl font-bold" style={{ color: '#F3E8B9' }}>545.5%</div>
+              <div className="text-xs text-white/60 mt-1">User Base Increase</div>
             </div>
+            <div
+              className="cursor-pointer transition-all duration-300 transform hover:scale-105"
+              onClick={() => {
+                const event = new CustomEvent('openCaseStudy', { detail: { projectId: 'pa-portal' } });
+                window.dispatchEvent(event);
+              }}
+            >
+              <div className="text-3xl font-bold" style={{ color: '#F3E8B9' }}>$243M</div>
+              <div className="text-xs text-white/60 mt-1">Projects Closed out</div>
+            </div>
+            <div
+              className="cursor-pointer transition-all duration-300 transform hover:scale-105"
+              onClick={() => {
+                const event = new CustomEvent('openCaseStudy', { detail: { projectId: 'pa-portal' } });
+                window.dispatchEvent(event);
+              }}
+            >
+              <div className="text-3xl font-bold" style={{ color: '#F3E8B9' }}>75%</div>
+              <div className="text-xs text-white/60 mt-1">Support Ticket Reduction</div>
+            </div>
+          </div>
 
-            {/* Message Me */}
+          {/* Message Me */}
+          <div>
             <a
               href="mailto:alexis.brochu@gmail.com"
               className="w-full px-8 py-4 bg-gradient-to-r from-purple-600/80 to-blue-600/80 hover:from-purple-500/90 hover:to-blue-500/90 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3 border-2 border-white shadow-lg"
@@ -205,7 +206,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
               <span className="text-2xl">→</span>
             </a>
           </div>
-        </div>
+
         </div>
       </div>
       {/* Mobile Layout (1 column) */}
