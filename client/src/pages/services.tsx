@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "wouter";
-import { ArrowLeft, Mail, Mic, Users, Brain, Cpu, Palette, CheckCircle, Sparkles, ChevronDown } from "lucide-react";
+import { ArrowLeft, Mail, Mic, Mic2, Users, Brain, Cpu, Palette, CheckCircle, Sparkles, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const topicBuckets = [
@@ -211,6 +211,47 @@ export default function Services() {
                     ))}
                   </div>
                 )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Where I've Spoken */}
+      <section className="py-16 px-6 border-t border-white/10">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-3 mb-2">
+              <Mic2 className="w-6 h-6 text-purple-400" />
+              <h2 className="text-4xl md:text-5xl font-bold" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                <span className="gradient-text">Where I've Spoken</span>
+              </h2>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { org: 'AIxUI Summit', role: 'Presenter', year: '2025', upcoming: false },
+              { org: 'Enterprise FinTech Company', role: 'Keynote Speaker', year: '', upcoming: false },
+              { org: 'American Red Cross', role: 'Spring Keynote Speaker', year: '', upcoming: false },
+              { org: 'PMI', role: 'Keynote Speaker', year: '', upcoming: true },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="relative rounded-2xl border border-purple-500/20 bg-gradient-to-b from-purple-900/20 to-transparent backdrop-blur-sm p-6 flex flex-col gap-3"
+              >
+                {item.upcoming && (
+                  <span className="absolute top-4 right-4 text-xs font-semibold px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30">
+                    Upcoming
+                  </span>
+                )}
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-600/30 to-blue-600/30 flex items-center justify-center">
+                  <Mic2 className="w-5 h-5 text-purple-400" />
+                </div>
+                <div>
+                  <div className="font-bold text-white text-base leading-snug">{item.org}</div>
+                  {item.year && <div className="text-xs text-white/40 mt-0.5">{item.year}</div>}
+                </div>
+                <div className="text-sm text-purple-300 font-medium">{item.role}</div>
               </div>
             ))}
           </div>
