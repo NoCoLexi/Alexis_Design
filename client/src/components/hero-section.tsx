@@ -95,54 +95,56 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
       <div className="absolute inset-0 opacity-20">
         <div className="w-full h-full bg-gradient-to-br from-primary/20 via-transparent to-chart-1/20"></div>
       </div>
-      {/* Desktop Layout (CSS grid: photo | content) */}
-      <div className="hidden md:grid grid-cols-[25%_1fr] items-center gap-8 px-8 py-12 relative text-center w-full z-10">
-        {/* Photo column */}
+      {/* Desktop Layout */}
+      <div className="hidden md:flex flex-col items-center px-8 py-10 relative text-center w-full z-10 gap-4">
+
+        {/* Award badge — full width, centered */}
         <div>
-          <img
-            src={headshot}
-            alt="Alexis Brochu"
-            className="mx-auto rounded-lg"
-            style={{ width: '100%', maxHeight: '70vh', objectFit: 'cover', objectPosition: 'top' }}
-            data-testid="video-professional-photo"
-          />
+          <div
+            className="inline-flex items-center gap-2 rounded-full px-5 py-2 hover:glow-yellow transition-all duration-300 cursor-pointer transform hover:scale-105 shadow-lg border border-chart-3/20"
+            style={{ background: 'rgba(255, 255, 255, 0.15)', backdropFilter: 'blur(20px)' }}
+            onClick={onOpenAwardModal}
+            data-testid="button-hero-tech-award"
+          >
+            <Award className="w-4 h-4" style={{ color: '#0081BC' }} />
+            <span className="text-sm font-medium" style={{ color: '#F3E8B9' }}>
+              2023 California GovTech Award Winner
+            </span>
+          </div>
         </div>
 
-        {/* Content column — inner grid for vertical rhythm */}
-        <div className="grid gap-5">
-          {/* Award badge */}
-          <div className="flex justify-center">
-            <div
-              className="inline-flex items-center gap-2 rounded-full px-5 py-2 hover:glow-yellow transition-all duration-300 cursor-pointer transform hover:scale-105 shadow-lg border border-chart-3/20"
-              style={{ background: 'rgba(255, 255, 255, 0.15)', backdropFilter: 'blur(20px)' }}
-              onClick={onOpenAwardModal}
-              data-testid="button-hero-tech-award"
-            >
-              <Award className="w-4 h-4" style={{ color: '#0081BC' }} />
-              <span className="text-sm font-medium" style={{ color: '#F3E8B9' }}>
-                2023 California GovTech Award Winner
-              </span>
-            </div>
+        {/* Headline — full width */}
+        <h1 className="text-7xl md:text-8xl font-inter-black w-full" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.05' }}>
+          <span className={`disco-text ${isPlaying ? 'dancing' : ''}`} style={{ color: '#F3E8B9' }}>
+            {getCustomGreeting()}
+          </span>
+        </h1>
+
+        {/* Subhead — full width */}
+        <p
+          className="text-2xl md:text-3xl font-inter-medium text-muted-foreground leading-relaxed w-full"
+          style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
+        >I design products that get used, not just shipped</p>
+
+        {/* Bottom row: photo left | CTAs right */}
+        <div className="grid grid-cols-[auto_1fr] items-center gap-8 w-full max-w-5xl mx-auto mt-2">
+          {/* Photo */}
+          <div style={{ width: '220px' }}>
+            <img
+              src={headshot}
+              alt="Alexis Brochu"
+              className="rounded-lg"
+              style={{ width: '100%', objectFit: 'cover', objectPosition: 'top' }}
+              data-testid="video-professional-photo"
+            />
           </div>
 
-          {/* Headline */}
-          <h1 className="text-6xl md:text-7xl font-inter-black" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.1' }}>
-            <span className={`disco-text ${isPlaying ? 'dancing' : ''}`} style={{ color: '#F3E8B9' }}>
-              {getCustomGreeting()}
-            </span>
-          </h1>
-
-          {/* Subhead */}
-          <p
-            className="text-2xl md:text-3xl font-inter-medium text-muted-foreground leading-relaxed max-w-3xl mx-auto"
-            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
-          >I design products that get used, not just shipped</p>
-
-          {/* CTA */}
-          <div className="flex justify-center max-w-3xl mx-auto w-full">
+          {/* CTA column */}
+          <div className="grid gap-4 text-left">
+            {/* How I Drive Product Adoption */}
             <button
               onClick={scrollToExpertise}
-              className="w-full max-w-md px-6 bg-transparent hover:bg-white/10 rounded-xl font-inter-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2 border-white"
+              className="w-full px-6 bg-transparent hover:bg-white/10 rounded-xl font-inter-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2 border-white"
               data-testid="button-watch-video-about-me"
               style={{
                 fontFamily: 'Inter, sans-serif',
@@ -155,44 +157,42 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
               <Play className="h-4 w-4 flex-shrink-0" />
               <span>How I Drive Product Adoption</span>
             </button>
-          </div>
 
-          {/* Key Metrics */}
-          <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto w-full">
-            <div
-              className="text-center cursor-pointer transition-all duration-300 transform hover:scale-105"
-              onClick={() => {
-                const event = new CustomEvent('openCaseStudy', { detail: { projectId: 'caloes' } });
-                window.dispatchEvent(event);
-              }}
-            >
-              <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>545.5%</div>
-              <div className="text-xs text-white/70">User Base Increase</div>
+            {/* Key Metrics */}
+            <div className="grid grid-cols-3 gap-4">
+              <div
+                className="text-center cursor-pointer transition-all duration-300 transform hover:scale-105"
+                onClick={() => {
+                  const event = new CustomEvent('openCaseStudy', { detail: { projectId: 'caloes' } });
+                  window.dispatchEvent(event);
+                }}
+              >
+                <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>545.5%</div>
+                <div className="text-xs text-white/70">User Base Increase</div>
+              </div>
+              <div
+                className="text-center cursor-pointer transition-all duration-300 transform hover:scale-105"
+                onClick={() => {
+                  const event = new CustomEvent('openCaseStudy', { detail: { projectId: 'pa-portal' } });
+                  window.dispatchEvent(event);
+                }}
+              >
+                <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>$243M</div>
+                <div className="text-xs text-white/70">Projects Closed out</div>
+              </div>
+              <div
+                className="text-center cursor-pointer transition-all duration-300 transform hover:scale-105"
+                onClick={() => {
+                  const event = new CustomEvent('openCaseStudy', { detail: { projectId: 'pa-portal' } });
+                  window.dispatchEvent(event);
+                }}
+              >
+                <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>75%</div>
+                <div className="text-xs text-white/70">Support Ticket Reduction</div>
+              </div>
             </div>
-            <div
-              className="text-center cursor-pointer transition-all duration-300 transform hover:scale-105"
-              onClick={() => {
-                const event = new CustomEvent('openCaseStudy', { detail: { projectId: 'pa-portal' } });
-                window.dispatchEvent(event);
-              }}
-            >
-              <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>$243M</div>
-              <div className="text-xs text-white/70">Projects Closed out</div>
-            </div>
-            <div
-              className="text-center cursor-pointer transition-all duration-300 transform hover:scale-105"
-              onClick={() => {
-                const event = new CustomEvent('openCaseStudy', { detail: { projectId: 'pa-portal' } });
-                window.dispatchEvent(event);
-              }}
-            >
-              <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>75%</div>
-              <div className="text-xs text-white/70">Support Ticket Reduction</div>
-            </div>
-          </div>
 
-          {/* Message Me */}
-          <div className="flex justify-center max-w-3xl mx-auto w-full">
+            {/* Message Me */}
             <a
               href="mailto:alexis.brochu@gmail.com"
               className="w-full px-8 py-4 bg-gradient-to-r from-purple-600/80 to-blue-600/80 hover:from-purple-500/90 hover:to-blue-500/90 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3 border-2 border-white shadow-lg"
