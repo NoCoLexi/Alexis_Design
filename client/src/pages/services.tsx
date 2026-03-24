@@ -230,14 +230,14 @@ export default function Services() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { org: 'AIxUX Summit', role: 'Keynote: AI & Product Design', year: '2025', upcoming: false },
-              { org: 'Enterprise FinTech', role: '2026 AI Strategy Keynote (NDA)', year: '', upcoming: true },
-              { org: 'American Red Cross', role: '2026 Spring Keynote', year: '', upcoming: true },
-              { org: 'PMI', role: '2026 Keynote TBA', year: '', upcoming: true },
+              { org: 'AIxUX Summit', year: '2025', topic: 'AI & Product Design', upcoming: false },
+              { org: 'Enterprise FinTech', year: '2026', topic: 'AI Strategy (NDA)', upcoming: true },
+              { org: 'American Red Cross', year: '2026', topic: 'Spring Keynote', upcoming: true },
+              { org: 'PMI', year: '2026', topic: 'TBA', upcoming: true },
             ].map((item, i) => (
               <div
                 key={i}
-                className="relative rounded-2xl border border-purple-500/20 bg-gradient-to-b from-purple-900/20 to-transparent backdrop-blur-sm p-6 flex flex-col gap-3"
+                className="relative rounded-2xl border border-purple-500/20 bg-gradient-to-b from-purple-900/20 to-transparent backdrop-blur-sm p-6 flex flex-col gap-2"
               >
                 {item.upcoming && (
                   <span className="absolute top-4 right-4 text-xs font-semibold px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30">
@@ -247,11 +247,9 @@ export default function Services() {
                 <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-600/30 to-blue-600/30 flex items-center justify-center">
                   <Mic2 className="w-5 h-5 text-purple-400" />
                 </div>
-                <div>
-                  <div className="font-bold text-white text-base leading-snug">{item.org}</div>
-                  {item.year && <div className="text-xs text-white/40 mt-0.5">{item.year}</div>}
-                </div>
-                <div className="text-sm text-purple-300 font-medium">{item.role}</div>
+                <div className="font-bold text-white text-base leading-snug">{item.org}</div>
+                <div className="text-xs text-white/40">{item.year}</div>
+                <div className="text-sm text-purple-300 font-medium">Keynote: {item.topic}</div>
               </div>
             ))}
           </div>
