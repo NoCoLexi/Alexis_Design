@@ -113,10 +113,8 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         {/* Right column: all content, left-aligned, vertically centered */}
         <div className="flex flex-col justify-center px-12 py-8 gap-4">
 
-          {/* Constrained-width column for interactive controls + content */}
-          <div className="flex flex-col gap-4 w-fit">
-
-            {/* Award badge */}
+          {/* Award badge */}
+          <div>
             <div
               className="inline-flex items-center gap-2 rounded-full px-5 py-2 hover:glow-yellow transition-all duration-300 cursor-pointer transform hover:scale-105 shadow-lg border border-chart-3/20"
               style={{ background: 'rgba(255, 255, 255, 0.15)', backdropFilter: 'blur(20px)' }}
@@ -128,86 +126,85 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
                 2023 California GovTech Award Winner
               </span>
             </div>
+          </div>
 
-            {/* Headline */}
-            <h1 className="text-5xl lg:text-6xl font-inter-black leading-tight" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.08', wordSpacing: '0.08em' }}>
-              <span className={`disco-text ${isPlaying ? 'dancing' : ''}`} style={{ color: '#F3E8B9' }}>
-                {getCustomGreeting()}
-              </span>
-            </h1>
+          {/* Headline */}
+          <h1 className="text-5xl lg:text-6xl font-inter-black leading-tight" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.08', wordSpacing: '0.08em' }}>
+            <span className={`disco-text ${isPlaying ? 'dancing' : ''}`} style={{ color: '#F3E8B9' }}>
+              {getCustomGreeting()}
+            </span>
+          </h1>
 
-            {/* Subhead */}
-            <p
-              className="text-xl lg:text-2xl font-inter-medium text-muted-foreground leading-relaxed"
-              style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
-            >I design products that get used, not just shipped</p>
+          {/* Subhead */}
+          <p
+            className="text-xl lg:text-2xl font-inter-medium text-muted-foreground leading-relaxed"
+            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
+          >I design products that get used, not just shipped</p>
 
-            {/* CTA button */}
-            <div className="mt-3">
-              <button
-                onClick={scrollToExpertise}
-                className="w-full px-6 bg-transparent hover:bg-white/10 rounded-xl font-inter-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2 border-white"
-                data-testid="button-watch-video-about-me"
-                style={{
-                  fontFamily: 'Inter, sans-serif',
-                  fontWeight: 700,
-                  fontSize: '1.05rem',
-                  boxShadow: '0 4px 12px rgba(255, 255, 255, 0.3)',
-                  height: '52px'
-                }}
-              >
-                <Play className="h-4 w-4 flex-shrink-0" />
-                <span>How I Drive Product Adoption</span>
-              </button>
+          {/* CTA button */}
+          <div className="mt-3">
+            <button
+              onClick={scrollToExpertise}
+              className="px-6 bg-transparent hover:bg-white/10 rounded-xl font-inter-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2 border-white"
+              data-testid="button-watch-video-about-me"
+              style={{
+                fontFamily: 'Inter, sans-serif',
+                fontWeight: 700,
+                fontSize: '1.05rem',
+                boxShadow: '0 4px 12px rgba(255, 255, 255, 0.3)',
+                height: '52px'
+              }}
+            >
+              <Play className="h-4 w-4 flex-shrink-0" />
+              <span>How I Drive Product Adoption</span>
+            </button>
+          </div>
+
+          {/* Key Metrics */}
+          <div className="grid grid-cols-3 gap-6 py-2 border-t border-b border-white/10">
+            <div
+              className="cursor-pointer transition-all duration-300 transform hover:scale-105"
+              onClick={() => {
+                const event = new CustomEvent('openCaseStudy', { detail: { projectId: 'caloes' } });
+                window.dispatchEvent(event);
+              }}
+            >
+              <div className="text-3xl font-bold" style={{ color: '#F3E8B9' }}>545.5%</div>
+              <div className="text-xs text-white/60 mt-1">User Base Increase</div>
             </div>
-
-            {/* Key Metrics */}
-            <div className="grid grid-cols-3 gap-6 py-2 border-t border-b border-white/10">
-              <div
-                className="cursor-pointer transition-all duration-300 transform hover:scale-105"
-                onClick={() => {
-                  const event = new CustomEvent('openCaseStudy', { detail: { projectId: 'caloes' } });
-                  window.dispatchEvent(event);
-                }}
-              >
-                <div className="text-3xl font-bold" style={{ color: '#F3E8B9' }}>545.5%</div>
-                <div className="text-xs text-white/60 mt-1">User Base Increase</div>
-              </div>
-              <div
-                className="cursor-pointer transition-all duration-300 transform hover:scale-105"
-                onClick={() => {
-                  const event = new CustomEvent('openCaseStudy', { detail: { projectId: 'pa-portal' } });
-                  window.dispatchEvent(event);
-                }}
-              >
-                <div className="text-3xl font-bold" style={{ color: '#F3E8B9' }}>$2.1B</div>
-                <div className="text-xs text-white/60 mt-1">Disaster Relief Platform</div>
-              </div>
-              <div
-                className="cursor-pointer transition-all duration-300 transform hover:scale-105"
-                onClick={() => {
-                  const event = new CustomEvent('openCaseStudy', { detail: { projectId: 'pa-portal' } });
-                  window.dispatchEvent(event);
-                }}
-              >
-                <div className="text-3xl font-bold" style={{ color: '#F3E8B9' }}>75%</div>
-                <div className="text-xs text-white/60 mt-1">Support Ticket Reduction</div>
-              </div>
+            <div
+              className="cursor-pointer transition-all duration-300 transform hover:scale-105"
+              onClick={() => {
+                const event = new CustomEvent('openCaseStudy', { detail: { projectId: 'pa-portal' } });
+                window.dispatchEvent(event);
+              }}
+            >
+              <div className="text-3xl font-bold" style={{ color: '#F3E8B9' }}>$2.1B</div>
+              <div className="text-xs text-white/60 mt-1">Disaster Relief Platform</div>
             </div>
-
-            {/* Message Me */}
-            <div className="mt-8">
-              <a
-                href="mailto:alexis.brochu@gmail.com"
-                className="w-full px-8 py-4 bg-gradient-to-r from-purple-600/80 to-blue-600/80 hover:from-purple-500/90 hover:to-blue-500/90 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3 border-2 border-white shadow-lg"
-                style={{ fontFamily: 'Inter, sans-serif', color: '#F3E8B9' }}
-                data-testid="link-send-email"
-              >
-                MESSAGE ME
-                <span className="text-2xl">→</span>
-              </a>
+            <div
+              className="cursor-pointer transition-all duration-300 transform hover:scale-105"
+              onClick={() => {
+                const event = new CustomEvent('openCaseStudy', { detail: { projectId: 'pa-portal' } });
+                window.dispatchEvent(event);
+              }}
+            >
+              <div className="text-3xl font-bold" style={{ color: '#F3E8B9' }}>75%</div>
+              <div className="text-xs text-white/60 mt-1">Support Ticket Reduction</div>
             </div>
+          </div>
 
+          {/* Message Me */}
+          <div className="mt-8">
+            <a
+              href="mailto:alexis.brochu@gmail.com"
+              className="px-8 py-4 bg-gradient-to-r from-purple-600/80 to-blue-600/80 hover:from-purple-500/90 hover:to-blue-500/90 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3 border-2 border-white shadow-lg"
+              style={{ fontFamily: 'Inter, sans-serif', color: '#F3E8B9' }}
+              data-testid="link-send-email"
+            >
+              MESSAGE ME
+              <span className="text-2xl">→</span>
+            </a>
           </div>
 
         </div>
