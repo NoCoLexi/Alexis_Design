@@ -142,7 +142,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           >I design products that get used, not just shipped.</p>
 
           {/* Primary CTA — unmistakably the most important action */}
-          <div className="mt-3">
+          <div className="mt-3 md:mt-8">
             <button
               onClick={scrollToExpertise}
               className="px-7 rounded-xl font-inter-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3 border-2 border-white/85"
