@@ -96,38 +96,40 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         <div className="w-full h-full bg-gradient-to-br from-primary/20 via-transparent to-chart-1/20"></div>
       </div>
       {/* Desktop Layout */}
-      <div className="hidden md:flex flex-col items-center px-8 py-10 relative text-center w-full z-10 gap-4">
+      <div className="hidden md:flex flex-col items-center px-8 py-10 relative text-center w-full z-10">
+        {/* Unified container — everything aligns to this width */}
+        <div className="flex flex-col gap-4 w-full max-w-5xl mx-auto">
 
-        {/* Award badge — full width, centered */}
-        <div>
-          <div
-            className="inline-flex items-center gap-2 rounded-full px-5 py-2 hover:glow-yellow transition-all duration-300 cursor-pointer transform hover:scale-105 shadow-lg border border-chart-3/20"
-            style={{ background: 'rgba(255, 255, 255, 0.15)', backdropFilter: 'blur(20px)' }}
-            onClick={onOpenAwardModal}
-            data-testid="button-hero-tech-award"
-          >
-            <Award className="w-4 h-4" style={{ color: '#0081BC' }} />
-            <span className="text-sm font-medium" style={{ color: '#F3E8B9' }}>
-              2023 California GovTech Award Winner
-            </span>
+          {/* Award badge */}
+          <div className="flex justify-center">
+            <div
+              className="inline-flex items-center gap-2 rounded-full px-5 py-2 hover:glow-yellow transition-all duration-300 cursor-pointer transform hover:scale-105 shadow-lg border border-chart-3/20"
+              style={{ background: 'rgba(255, 255, 255, 0.15)', backdropFilter: 'blur(20px)' }}
+              onClick={onOpenAwardModal}
+              data-testid="button-hero-tech-award"
+            >
+              <Award className="w-4 h-4" style={{ color: '#0081BC' }} />
+              <span className="text-sm font-medium" style={{ color: '#F3E8B9' }}>
+                2023 California GovTech Award Winner
+              </span>
+            </div>
           </div>
-        </div>
 
-        {/* Headline — full width */}
-        <h1 className="text-7xl md:text-8xl font-inter-black w-full" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.05' }}>
-          <span className={`disco-text ${isPlaying ? 'dancing' : ''}`} style={{ color: '#F3E8B9' }}>
-            {getCustomGreeting()}
-          </span>
-        </h1>
+          {/* Headline */}
+          <h1 className="text-7xl md:text-8xl font-inter-black" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.05' }}>
+            <span className={`disco-text ${isPlaying ? 'dancing' : ''}`} style={{ color: '#F3E8B9' }}>
+              {getCustomGreeting()}
+            </span>
+          </h1>
 
-        {/* Subhead — full width */}
-        <p
-          className="text-2xl md:text-3xl font-inter-medium text-muted-foreground leading-relaxed w-full"
-          style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
-        >I design products that get used, not just shipped</p>
+          {/* Subhead */}
+          <p
+            className="text-2xl md:text-3xl font-inter-medium text-muted-foreground leading-relaxed"
+            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
+          >I design products that get used, not just shipped</p>
 
-        {/* Bottom row: photo left | CTAs right */}
-        <div className="grid grid-cols-[auto_1fr] items-center gap-8 w-full max-w-5xl mx-auto mt-2">
+          {/* Bottom row: photo left | CTAs right */}
+          <div className="grid grid-cols-[auto_1fr] items-center gap-8 mt-2">
           {/* Photo */}
           <div style={{ width: '220px' }}>
             <img
@@ -203,6 +205,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
               <span className="text-2xl">→</span>
             </a>
           </div>
+        </div>
         </div>
       </div>
       {/* Mobile Layout (1 column) */}
