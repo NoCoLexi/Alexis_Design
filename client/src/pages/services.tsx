@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { ArrowLeft, Mail, Mic, Mic2, Users, Brain, Cpu, Palette, CheckCircle, Sparkles, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -83,6 +83,10 @@ const topicBuckets = [
 
 export default function Services() {
   const [expandedBuckets, setExpandedBuckets] = useState<number[]>([]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const toggleBucket = (index: number) => {
     setExpandedBuckets(prev => 
