@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Award, Sparkles, Mail, Calendar, Play } from "lucide-react";
+import { ArrowDown, Award, Sparkles, Mail, Calendar } from "lucide-react";
 import { SiLinkedin } from "react-icons/si";
 import NavMusicPlayer from "./nav-music-player";
 import AdminPanel from "./admin-panel";
@@ -82,24 +82,16 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
     }
   };
 
-  const scrollToExpertise = () => {
-    const videoElement = document.querySelector('[data-testid="video-expertise-product-leader"]');
-    if (videoElement) {
-      const yOffset = -100; // Account for fixed nav menu height
-      const y = videoElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
-    }
-  };
-
   return (
     <section id="home" className="min-h-screen flex items-center relative overflow-hidden">
       <div className="absolute inset-0 gradient-bg-secondary opacity-30"></div>
       <div className="absolute inset-0 opacity-20">
         <div className="w-full h-full bg-gradient-to-br from-primary/20 via-transparent to-chart-1/20"></div>
       </div>
-      {/* Desktop Layout (2 columns) */}
-      <div className="hidden md:flex items-center px-6 py-12 relative space-x-6 text-center w-full z-10">
-        <div style={{ flexGrow: 0, flexShrink: 0, width: '25%' }}>
+      {/* Desktop Layout (CSS grid: photo | content) */}
+      <div className="hidden md:grid grid-cols-[25%_1fr] items-center gap-8 px-8 py-12 relative text-center w-full z-10">
+        {/* Photo column */}
+        <div>
           <img
             src={headshot}
             alt="Alexis Brochu"
@@ -109,12 +101,10 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           />
         </div>
 
-        <div className="max-w-4xl mx-auto relative" style={{
-          flexGrow: 1,
-          flexShrink: 1
-        }}>
-          {/* Award Button - positioned above the heading */}
-          <div className="mb-4 pb-2 flex justify-center">
+        {/* Content column — inner grid for vertical rhythm */}
+        <div className="grid gap-5">
+          {/* Award badge */}
+          <div className="flex justify-center">
             <div
               className="inline-flex items-center gap-2 rounded-full px-5 py-2 hover:glow-yellow transition-all duration-300 cursor-pointer transform hover:scale-105 shadow-lg border border-chart-3/20"
               style={{ background: 'rgba(255, 255, 255, 0.15)', backdropFilter: 'blur(20px)' }}
@@ -128,46 +118,33 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             </div>
           </div>
 
-          <h1 className="text-6xl md:text-7xl font-inter-black" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.1', paddingBottom: '0.25rem' }}>
+          {/* Headline */}
+          <h1 className="text-6xl md:text-7xl font-inter-black" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.1' }}>
             <span className={`disco-text ${isPlaying ? 'dancing' : ''}`} style={{ color: '#F3E8B9' }}>
               {getCustomGreeting()}
             </span>
           </h1>
 
+          {/* Subhead */}
           <p
-            className="text-2xl md:text-3xl font-inter-medium text-muted-foreground mb-1 leading-relaxed max-w-3xl mx-auto text-center"
+            className="text-2xl md:text-3xl font-inter-medium text-muted-foreground leading-relaxed max-w-3xl mx-auto"
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
           >I design products that get used, not just shipped</p>
 
-          {/* Buttons Side by Side */}
-          <div className="mb-4 pt-2 pb-4 flex justify-center gap-4 max-w-3xl mx-auto">
-            <div className={`disco-button ${isPlaying ? 'playing' : ''} flex-1 max-w-sm transition-all duration-300 transform hover:scale-105`}>
+          {/* CTA — music player as "How I Drive Product Adoption" */}
+          <div className="flex justify-center max-w-3xl mx-auto w-full">
+            <div className={`disco-button ${isPlaying ? 'playing' : ''} w-full max-w-md transition-all duration-300 transform hover:scale-105`}>
               <NavMusicPlayer
                 onPlayingChange={setIsPlaying}
                 renderAs="button"
-                buttonText='Play my "Hire Me" song'
+                buttonText='How I Drive Product Adoption'
               />
             </div>
-            <button
-              onClick={scrollToExpertise}
-              className="flex-1 max-w-sm px-4 bg-transparent hover:bg-white/10 rounded-xl font-inter-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2 border-white"
-              data-testid="button-watch-video-about-me"
-              style={{ 
-                fontFamily: 'Inter, sans-serif', 
-                fontWeight: 700, 
-                fontSize: '1.1rem',
-                boxShadow: '0 4px 12px rgba(255, 255, 255, 0.3)',
-                height: '56px'
-              }}
-            >
-              <Play className="h-4 w-4 flex-shrink-0" />
-              <span>How I drive product adoption</span>
-            </button>
           </div>
 
           {/* Key Metrics */}
-          <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto pt-3 relative">
-            <div 
+          <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto w-full">
+            <div
               className="text-center cursor-pointer transition-all duration-300 transform hover:scale-105"
               onClick={() => {
                 const event = new CustomEvent('openCaseStudy', { detail: { projectId: 'caloes' } });
@@ -177,7 +154,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
               <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>545.5%</div>
               <div className="text-xs text-white/70">User Base Increase</div>
             </div>
-            <div 
+            <div
               className="text-center cursor-pointer transition-all duration-300 transform hover:scale-105"
               onClick={() => {
                 const event = new CustomEvent('openCaseStudy', { detail: { projectId: 'pa-portal' } });
@@ -187,7 +164,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
               <div className="text-2xl md:text-3xl font-bold" style={{ color: '#F3E8B9' }}>$243M</div>
               <div className="text-xs text-white/70">Projects Closed out</div>
             </div>
-            <div 
+            <div
               className="text-center cursor-pointer transition-all duration-300 transform hover:scale-105"
               onClick={() => {
                 const event = new CustomEvent('openCaseStudy', { detail: { projectId: 'pa-portal' } });
@@ -199,8 +176,8 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             </div>
           </div>
 
-          {/* Message Me Button */}
-          <div className="flex justify-center mt-4 max-w-3xl mx-auto">
+          {/* Message Me */}
+          <div className="flex justify-center max-w-3xl mx-auto w-full">
             <a
               href="mailto:alexis.brochu@gmail.com"
               className="w-full px-8 py-4 bg-gradient-to-r from-purple-600/80 to-blue-600/80 hover:from-purple-500/90 hover:to-blue-500/90 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3 border-2 border-white shadow-lg"
@@ -246,29 +223,15 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         </p>
 
 
-        {/* 5. Buttons Side by Side */}
-        <div className="flex flex-col gap-3 w-full max-w-sm mx-auto">
+        {/* CTA */}
+        <div className="w-full max-w-sm mx-auto">
           <div className={`disco-button ${isPlaying ? 'playing' : ''} w-full transition-all duration-300 transform hover:scale-105`}>
             <NavMusicPlayer
               onPlayingChange={setIsPlaying}
               renderAs="button"
-              buttonText='Play my "Hire Me" song'
+              buttonText='How I Drive Product Adoption'
             />
           </div>
-          <button
-            onClick={scrollToExpertise}
-            className="w-full px-4 py-3 bg-transparent hover:bg-white/10 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2 border-white text-sm"
-            data-testid="button-watch-video-about-me"
-            style={{ 
-              fontFamily: 'Inter, sans-serif', 
-              fontWeight: 700,
-              height: '56px',
-              boxShadow: '0 4px 12px rgba(255, 255, 255, 0.3)'
-            }}
-          >
-            <Play className="h-5 w-5 flex-shrink-0" />
-            <span>How I drive product adoption</span>
-          </button>
         </div>
 
         {/* 6. Portrait */}
