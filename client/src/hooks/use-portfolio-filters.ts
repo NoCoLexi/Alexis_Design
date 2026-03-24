@@ -26,8 +26,9 @@ function parseUrlParams(): PortfolioFiltersState {
   const urlParams = new URLSearchParams(window.location.search);
   
   const verticalParam = urlParams.get('vertical');
-  let vertical: VerticalFilter = 'all';
-  if (verticalParam === 'government') vertical = 'government';
+  let vertical: VerticalFilter = 'government';
+  if (verticalParam === 'all') vertical = 'all';
+  else if (verticalParam === 'government') vertical = 'government';
   else if (verticalParam === 'healthcare') vertical = 'healthcare';
   else if (verticalParam === 'food-beverage') vertical = 'food-beverage';
   else if (verticalParam === 'finance') vertical = 'finance';
@@ -44,7 +45,7 @@ function updateUrlParams(state: PortfolioFiltersState) {
   url.searchParams.delete('focus');
   url.searchParams.delete('vertical');
   
-  if (state.vertical !== 'all') {
+  if (state.vertical !== 'government') {
     url.searchParams.set('vertical', state.vertical);
   }
   
