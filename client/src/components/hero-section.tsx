@@ -145,7 +145,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           <div className="mt-3">
             <button
               onClick={scrollToExpertise}
-              className="w-full px-6 bg-transparent hover:bg-white/10 rounded-xl font-inter-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2 border-white"
+              className="px-6 bg-transparent hover:bg-white/10 rounded-xl font-inter-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2 border-white"
               data-testid="button-watch-video-about-me"
               style={{
                 fontFamily: 'Inter, sans-serif',
@@ -198,7 +198,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           <div className="mt-8">
             <a
               href="mailto:alexis.brochu@gmail.com"
-              className="w-full px-8 py-4 bg-gradient-to-r from-purple-600/80 to-blue-600/80 hover:from-purple-500/90 hover:to-blue-500/90 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3 border-2 border-white shadow-lg"
+              className="px-8 py-4 bg-gradient-to-r from-purple-600/80 to-blue-600/80 hover:from-purple-500/90 hover:to-blue-500/90 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3 border-2 border-white shadow-lg"
               style={{ fontFamily: 'Inter, sans-serif', color: '#F3E8B9' }}
               data-testid="link-send-email"
             >
