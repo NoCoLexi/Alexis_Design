@@ -4,7 +4,7 @@ import { Award, Play, ArrowRight } from "lucide-react";
 import AdminPanel from "./admin-panel";
 
 import { useAdminPanel } from "@/hooks/use-admin-panel";
-import headshot from "@assets/headshot_pollack_1774311837148.png";
+import headshot from "@assets/headshot_bw_1774321770406.png";
 
 import goldenTrophyIcon from "@assets/golden-star-trophy.png";
 
