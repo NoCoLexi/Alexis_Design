@@ -1,7 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Award, Sparkles, Mail, Calendar, Play } from "lucide-react";
-import { SiLinkedin } from "react-icons/si";
+import { Award, Play, ArrowRight } from "lucide-react";
 import AdminPanel from "./admin-panel";
 
 import { useAdminPanel } from "@/hooks/use-admin-panel";
@@ -17,19 +16,6 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [isExiting, setIsExiting] = useState(false);
-  const ctaButtonRef = useRef<HTMLButtonElement>(null);
-  const [ctaWidth, setCtaWidth] = useState<number | undefined>();
-
-  useEffect(() => {
-    const measure = () => {
-      if (ctaButtonRef.current) {
-        setCtaWidth(ctaButtonRef.current.offsetWidth);
-      }
-    };
-    measure();
-    window.addEventListener('resize', measure);
-    return () => window.removeEventListener('resize', measure);
-  }, []);
 
   // Admin panel integration
   const { isVisible, settings, getGreeting, getCaseStudyFocus, applySettings, closePanel } = useAdminPanel();
@@ -129,15 +115,16 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           {/* Award badge */}
           <div>
             <div
-              className="inline-flex items-center gap-2 rounded-full px-5 py-2 hover:glow-yellow transition-all duration-300 cursor-pointer transform hover:scale-105 shadow-lg border border-chart-3/20"
-              style={{ background: 'rgba(255, 255, 255, 0.15)', backdropFilter: 'blur(20px)' }}
+              className="inline-flex items-center gap-2 rounded-full px-5 py-2 transition-all duration-300 cursor-pointer transform hover:scale-105"
+              style={{ background: 'rgba(0,129,188,0.12)', border: '1.5px solid rgba(0,129,188,0.5)' }}
               onClick={onOpenAwardModal}
               data-testid="button-hero-tech-award"
             >
-              <Award className="w-4 h-4" style={{ color: '#0081BC' }} />
-              <span className="text-sm font-medium" style={{ color: '#F3E8B9' }}>
+              <Award className="w-4 h-4" style={{ color: '#5fc5f8' }} />
+              <span className="text-sm font-semibold" style={{ color: '#5fc5f8' }}>
                 2023 California GovTech Award Winner
               </span>
+              <ArrowRight className="w-3 h-3" style={{ color: '#5fc5f8', opacity: 0.6 }} />
             </div>
           </div>
 
@@ -154,70 +141,71 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
           >I design products that get used, not just shipped</p>
 
-          {/* CTA button */}
+          {/* Primary CTA — unmistakably the most important action */}
           <div className="mt-3">
             <button
-              ref={ctaButtonRef}
               onClick={scrollToExpertise}
-              className="px-6 bg-transparent hover:bg-white/10 rounded-xl font-inter-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2 border-white"
+              className="px-7 rounded-xl font-inter-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3 border-2 border-white/85"
               data-testid="button-watch-video-about-me"
+              style={{
+                fontFamily: 'Inter, sans-serif',
+                fontWeight: 800,
+                fontSize: '1.05rem',
+                height: '56px',
+                background: 'linear-gradient(135deg, #6D5592, #0081BC)',
+                color: '#ffffff',
+                boxShadow: '0 6px 20px rgba(109,85,146,0.5)',
+                letterSpacing: '0.01em'
+              }}
+            >
+              <Play className="h-4 w-4 flex-shrink-0" fill="white" />
+              <span>How I Drive Product Adoption</span>
+              <ArrowRight className="h-4 w-4 flex-shrink-0" />
+            </button>
+          </div>
+
+          {/* Key Metrics — each card has clear borders and a "View case study" affordance */}
+          <div className="grid grid-cols-3 gap-3 py-2">
+            {[
+              { value: '545.5%', label: 'User Base Increase', projectId: 'caloes' },
+              { value: '$2.1B', label: 'Disaster Relief Platform', projectId: 'pa-portal' },
+              { value: '75%', label: 'Support Ticket Reduction', projectId: 'pa-portal' },
+            ].map((m) => (
+              <div
+                key={m.value}
+                className="cursor-pointer transition-all duration-300 transform hover:scale-105 rounded-xl px-4 py-3"
+                style={{ background: 'rgba(255,255,255,0.05)', border: '1.5px solid rgba(255,255,255,0.12)' }}
+                onClick={() => {
+                  const event = new CustomEvent('openCaseStudy', { detail: { projectId: m.projectId } });
+                  window.dispatchEvent(event);
+                }}
+              >
+                <div className="text-3xl font-bold" style={{ color: '#F3E8B9' }}>{m.value}</div>
+                <div className="text-xs text-white/50 mt-1">{m.label}</div>
+                <div className="text-xs font-semibold mt-2" style={{ color: '#5fc5f8' }}>View case study →</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Message Me — secondary action, ghost/outline style */}
+          <div className="mt-4">
+            <a
+              href="mailto:alexis.brochu@gmail.com"
+              className="rounded-xl font-bold transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center gap-2 border-2"
               style={{
                 fontFamily: 'Inter, sans-serif',
                 fontWeight: 700,
                 fontSize: '1.05rem',
-                boxShadow: '0 4px 12px rgba(255, 255, 255, 0.3)',
-                height: '52px'
+                color: 'rgba(255,255,255,0.85)',
+                height: '50px',
+                padding: '0 24px',
+                background: 'transparent',
+                borderColor: 'rgba(255,255,255,0.35)'
               }}
-            >
-              <Play className="h-4 w-4 flex-shrink-0" />
-              <span>How I Drive Product Adoption</span>
-            </button>
-          </div>
-
-          {/* Key Metrics */}
-          <div className="grid grid-cols-3 gap-6 py-2 border-t border-b border-white/10">
-            <div
-              className="cursor-pointer transition-all duration-300 transform hover:scale-105"
-              onClick={() => {
-                const event = new CustomEvent('openCaseStudy', { detail: { projectId: 'caloes' } });
-                window.dispatchEvent(event);
-              }}
-            >
-              <div className="text-3xl font-bold" style={{ color: '#F3E8B9' }}>545.5%</div>
-              <div className="text-xs text-white/60 mt-1">User Base Increase</div>
-            </div>
-            <div
-              className="cursor-pointer transition-all duration-300 transform hover:scale-105"
-              onClick={() => {
-                const event = new CustomEvent('openCaseStudy', { detail: { projectId: 'pa-portal' } });
-                window.dispatchEvent(event);
-              }}
-            >
-              <div className="text-3xl font-bold" style={{ color: '#F3E8B9' }}>$2.1B</div>
-              <div className="text-xs text-white/60 mt-1">Disaster Relief Platform</div>
-            </div>
-            <div
-              className="cursor-pointer transition-all duration-300 transform hover:scale-105"
-              onClick={() => {
-                const event = new CustomEvent('openCaseStudy', { detail: { projectId: 'pa-portal' } });
-                window.dispatchEvent(event);
-              }}
-            >
-              <div className="text-3xl font-bold" style={{ color: '#F3E8B9' }}>75%</div>
-              <div className="text-xs text-white/60 mt-1">Support Ticket Reduction</div>
-            </div>
-          </div>
-
-          {/* Message Me */}
-          <div className="mt-8">
-            <a
-              href="mailto:alexis.brochu@gmail.com"
-              className="px-6 bg-gradient-to-r from-purple-600/80 to-blue-600/80 hover:from-purple-500/90 hover:to-blue-500/90 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center gap-2 border-2 border-white shadow-lg"
-              style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: '1.05rem', color: '#F3E8B9', height: '52px', width: ctaWidth ? `${ctaWidth}px` : undefined }}
               data-testid="link-send-email"
             >
               MESSAGE ME
-              <span className="text-2xl">→</span>
+              <span className="text-xl" style={{ lineHeight: 1 }}>→</span>
             </a>
           </div>
 
@@ -228,15 +216,16 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         {/* 1. Award Winner button */}
         <div className="flex justify-center">
           <div
-            className="inline-flex items-center gap-2 rounded-full px-4 py-2 hover:glow-yellow transition-all duration-300 cursor-pointer transform hover:scale-105 shadow-lg border border-chart-3/20"
-            style={{ background: 'rgba(255, 255, 255, 0.15)', backdropFilter: 'blur(20px)' }}
+            className="inline-flex items-center gap-2 rounded-full px-4 py-2 transition-all duration-300 cursor-pointer transform hover:scale-105"
+            style={{ background: 'rgba(0,129,188,0.12)', border: '1.5px solid rgba(0,129,188,0.5)' }}
             onClick={onOpenAwardModal}
             data-testid="button-hero-tech-award"
           >
-            <Award className="w-4 h-4" style={{ color: '#0081BC' }} />
-            <span className="text-xs font-medium" style={{ color: '#F3E8B9' }}>
+            <Award className="w-4 h-4" style={{ color: '#5fc5f8' }} />
+            <span className="text-xs font-semibold" style={{ color: '#5fc5f8' }}>
               2023 California GovTech Award Winner
             </span>
+            <ArrowRight className="w-3 h-3" style={{ color: '#5fc5f8', opacity: 0.6 }} />
           </div>
         </div>
 
@@ -260,17 +249,20 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         <div className="w-full max-w-sm mx-auto">
           <button
             onClick={scrollToExpertise}
-            className="w-full px-4 py-3 bg-transparent hover:bg-white/10 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2 border-white text-sm"
+            className="w-full px-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2 border-white/85 text-sm"
             data-testid="button-watch-video-about-me"
             style={{
               fontFamily: 'Inter, sans-serif',
-              fontWeight: 700,
+              fontWeight: 800,
               height: '56px',
-              boxShadow: '0 4px 12px rgba(255, 255, 255, 0.3)'
+              background: 'linear-gradient(135deg, #6D5592, #0081BC)',
+              color: '#ffffff',
+              boxShadow: '0 6px 20px rgba(109,85,146,0.5)'
             }}
           >
-            <Play className="h-5 w-5 flex-shrink-0" />
+            <Play className="h-5 w-5 flex-shrink-0" fill="white" />
             <span>How I Drive Product Adoption</span>
+            <ArrowRight className="h-4 w-4 flex-shrink-0" />
           </button>
         </div>
 
@@ -286,49 +278,44 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         </div>
 
         {/* 8. Metrics */}
-        <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto pt-4 relative">
-          <div 
-            className="text-center cursor-pointer transition-all duration-300 transform hover:scale-105"
-            onClick={() => {
-              const event = new CustomEvent('openCaseStudy', { detail: { projectId: 'caloes' } });
-              window.dispatchEvent(event);
-            }}
-          >
-            <div className="text-2xl font-bold" style={{ color: '#F3E8B9' }}>545.5%</div>
-            <div className="text-xs text-white/70">User Base Increase</div>
-          </div>
-          <div 
-            className="text-center cursor-pointer transition-all duration-300 transform hover:scale-105"
-            onClick={() => {
-              const event = new CustomEvent('openCaseStudy', { detail: { projectId: 'pa-portal' } });
-              window.dispatchEvent(event);
-            }}
-          >
-            <div className="text-2xl font-bold" style={{ color: '#F3E8B9' }}>$2.1B</div>
-            <div className="text-xs text-white/70">Disaster Relief Platform</div>
-          </div>
-          <div 
-            className="text-center cursor-pointer transition-all duration-300 transform hover:scale-105"
-            onClick={() => {
-              const event = new CustomEvent('openCaseStudy', { detail: { projectId: 'pa-portal' } });
-              window.dispatchEvent(event);
-            }}
-          >
-            <div className="text-2xl font-bold" style={{ color: '#F3E8B9' }}>75%</div>
-            <div className="text-xs text-white/70">Support Ticket Reduction</div>
-          </div>
+        <div className="grid grid-cols-3 gap-2 w-full max-w-2xl mx-auto">
+          {[
+            { value: '545.5%', label: 'User Base Increase', projectId: 'caloes' },
+            { value: '$2.1B', label: 'Disaster Relief Platform', projectId: 'pa-portal' },
+            { value: '75%', label: 'Support Ticket Reduction', projectId: 'pa-portal' },
+          ].map((m) => (
+            <div
+              key={m.value}
+              className="text-center cursor-pointer transition-all duration-300 transform hover:scale-105 rounded-xl px-2 py-3"
+              style={{ background: 'rgba(255,255,255,0.05)', border: '1.5px solid rgba(255,255,255,0.12)' }}
+              onClick={() => {
+                const event = new CustomEvent('openCaseStudy', { detail: { projectId: m.projectId } });
+                window.dispatchEvent(event);
+              }}
+            >
+              <div className="text-xl font-bold" style={{ color: '#F3E8B9' }}>{m.value}</div>
+              <div className="text-xs text-white/50 mt-1" style={{ fontSize: '10px' }}>{m.label}</div>
+              <div className="font-semibold mt-2" style={{ color: '#5fc5f8', fontSize: '10px' }}>View →</div>
+            </div>
+          ))}
         </div>
 
         {/* Message Me Button */}
-        <div className="flex justify-center mt-6 w-full max-w-sm mx-auto">
+        <div className="flex justify-center w-full max-w-sm mx-auto">
           <a
             href="mailto:alexis.brochu@gmail.com"
-            className="w-full px-6 py-3 bg-gradient-to-r from-purple-600/80 to-blue-600/80 hover:from-purple-500/90 hover:to-blue-500/90 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2 border-white shadow-lg"
-            style={{ fontFamily: 'Inter, sans-serif', color: '#F3E8B9' }}
+            className="w-full px-6 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2"
+            style={{
+              fontFamily: 'Inter, sans-serif',
+              color: 'rgba(255,255,255,0.85)',
+              height: '50px',
+              background: 'transparent',
+              borderColor: 'rgba(255,255,255,0.35)'
+            }}
             data-testid="link-send-email-mobile"
           >
             MESSAGE ME
-            <span className="text-xl">→</span>
+            <span className="text-xl" style={{ lineHeight: 1 }}>→</span>
           </a>
         </div>
       </div>
