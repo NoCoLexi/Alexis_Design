@@ -6,8 +6,7 @@ import NavMusicPlayer from "./nav-music-player";
 import AdminPanel from "./admin-panel";
 
 import { useAdminPanel } from "@/hooks/use-admin-panel";
-import profileImage from "@assets/Alexis_Profile_3_Crop_1759970309304.png";
-import profileVideo from "@/../../attached_assets/Alexis and the Brain (online-video-cutter.com)_1764024995337.mp4";
+import headshot from "@assets/headshot_pollack_1774311837148.png";
 
 import goldenTrophyIcon from "@assets/golden-star-trophy.png";
 
@@ -100,31 +99,13 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
       </div>
       {/* Desktop Layout (2 columns) */}
       <div className="hidden md:flex items-center px-6 py-12 relative space-x-6 text-center w-full z-10">
-        <div style={{ flexGrow: 0, flexShrink: 0, width: '40%' }}>
-          <video
-            src={profileVideo}
-            className="mx-auto rounded-lg cursor-pointer"
-            style={{ width: '85%', maxHeight: '70vh', objectFit: 'cover' }}
-            autoPlay
-            muted
-            playsInline
+        <div style={{ flexGrow: 0, flexShrink: 0, width: '25%' }}>
+          <img
+            src={headshot}
+            alt="Alexis Brochu"
+            className="mx-auto rounded-lg"
+            style={{ width: '100%', maxHeight: '70vh', objectFit: 'cover', objectPosition: 'top' }}
             data-testid="video-professional-photo"
-            onEnded={(e) => {
-              const video = e.currentTarget;
-              video.currentTime = 0;
-              video.pause();
-            }}
-            onClick={(e) => {
-              const video = e.currentTarget;
-              video.muted = true;
-              if (video.paused) {
-                video.currentTime = 0;
-                video.play();
-              }
-            }}
-            onPlay={(e) => {
-              e.currentTarget.muted = true;
-            }}
           />
         </div>
 
@@ -147,14 +128,14 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             </div>
           </div>
 
-          <h1 className="text-5xl md:text-6xl font-inter-black" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.1', paddingBottom: '0.25rem' }}>
+          <h1 className="text-6xl md:text-7xl font-inter-black" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.1', paddingBottom: '0.25rem' }}>
             <span className={`disco-text ${isPlaying ? 'dancing' : ''}`} style={{ color: '#F3E8B9' }}>
               {getCustomGreeting()}
             </span>
           </h1>
 
           <p
-            className="text-xl md:text-2xl font-inter-medium text-muted-foreground mb-1 leading-relaxed max-w-3xl mx-auto text-center"
+            className="text-2xl md:text-3xl font-inter-medium text-muted-foreground mb-1 leading-relaxed max-w-3xl mx-auto text-center"
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
           >I design products that get used, not just shipped</p>
 
@@ -291,31 +272,13 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         </div>
 
         {/* 6. Portrait */}
-        <div className="w-full max-w-sm mx-auto">
-          <video
-            src={profileVideo}
-            className="mx-auto rounded-lg cursor-pointer"
-            style={{ width: '72%' }}
-            autoPlay
-            muted
-            playsInline
+        <div className="w-full max-w-xs mx-auto">
+          <img
+            src={headshot}
+            alt="Alexis Brochu"
+            className="mx-auto rounded-lg"
+            style={{ width: '60%', objectFit: 'cover', objectPosition: 'top' }}
             data-testid="video-professional-photo"
-            onEnded={(e) => {
-              const video = e.currentTarget;
-              video.currentTime = 0;
-              video.pause();
-            }}
-            onClick={(e) => {
-              const video = e.currentTarget;
-              video.muted = true;
-              if (video.paused) {
-                video.currentTime = 0;
-                video.play();
-              }
-            }}
-            onPlay={(e) => {
-              e.currentTarget.muted = true;
-            }}
           />
         </div>
 
