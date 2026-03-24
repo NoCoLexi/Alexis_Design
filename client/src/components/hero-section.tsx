@@ -111,7 +111,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         </div>
 
         {/* Right column: all content, left-aligned, vertically centered */}
-        <div className="flex flex-col justify-center px-12 py-16 gap-6">
+        <div className="flex flex-col justify-center px-12 py-8 gap-4">
 
           {/* Award badge */}
           <div>
