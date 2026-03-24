@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Award, Sparkles, Mail, Calendar, Play } from "lucide-react";
 import { SiLinkedin } from "react-icons/si";
@@ -17,6 +17,19 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [isExiting, setIsExiting] = useState(false);
+  const ctaButtonRef = useRef<HTMLButtonElement>(null);
+  const [ctaWidth, setCtaWidth] = useState<number | undefined>();
+
+  useEffect(() => {
+    const measure = () => {
+      if (ctaButtonRef.current) {
+        setCtaWidth(ctaButtonRef.current.offsetWidth);
+      }
+    };
+    measure();
+    window.addEventListener('resize', measure);
+    return () => window.removeEventListener('resize', measure);
+  }, []);
 
   // Admin panel integration
   const { isVisible, settings, getGreeting, getCaseStudyFocus, applySettings, closePanel } = useAdminPanel();
@@ -144,6 +157,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           {/* CTA button */}
           <div className="mt-3">
             <button
+              ref={ctaButtonRef}
               onClick={scrollToExpertise}
               className="px-6 bg-transparent hover:bg-white/10 rounded-xl font-inter-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2 border-white"
               data-testid="button-watch-video-about-me"
@@ -199,7 +213,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             <a
               href="mailto:alexis.brochu@gmail.com"
               className="px-6 bg-gradient-to-r from-purple-600/80 to-blue-600/80 hover:from-purple-500/90 hover:to-blue-500/90 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center gap-2 border-2 border-white shadow-lg"
-              style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: '1.05rem', color: '#F3E8B9', height: '52px' }}
+              style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: '1.05rem', color: '#F3E8B9', height: '52px', width: ctaWidth ? `${ctaWidth}px` : undefined }}
               data-testid="link-send-email"
             >
               MESSAGE ME
