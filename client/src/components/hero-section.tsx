@@ -179,8 +179,8 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
                 window.dispatchEvent(event);
               }}
             >
-              <div className="text-3xl font-bold" style={{ color: '#F3E8B9' }}>$243M</div>
-              <div className="text-xs text-white/60 mt-1">Projects Closed out</div>
+              <div className="text-3xl font-bold" style={{ color: '#F3E8B9' }}>$2.1B</div>
+              <div className="text-xs text-white/60 mt-1">Disaster Relief Platform</div>
             </div>
             <div
               className="cursor-pointer transition-all duration-300 transform hover:scale-105"
@@ -290,8 +290,8 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
               window.dispatchEvent(event);
             }}
           >
-            <div className="text-2xl font-bold" style={{ color: '#F3E8B9' }}>$243M</div>
-            <div className="text-xs text-white/70">Projects Closed out</div>
+            <div className="text-2xl font-bold" style={{ color: '#F3E8B9' }}>$2.1B</div>
+            <div className="text-xs text-white/70">Disaster Relief Platform</div>
           </div>
           <div 
             className="text-center cursor-pointer transition-all duration-300 transform hover:scale-105"
