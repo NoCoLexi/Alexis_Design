@@ -198,7 +198,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           <div className="mt-8">
             <a
               href="mailto:alexis.brochu@gmail.com"
-              className="px-6 bg-gradient-to-r from-purple-600/80 to-blue-600/80 hover:from-purple-500/90 hover:to-blue-500/90 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2 border-white shadow-lg"
+              className="px-6 bg-gradient-to-r from-purple-600/80 to-blue-600/80 hover:from-purple-500/90 hover:to-blue-500/90 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center gap-2 border-2 border-white shadow-lg"
               style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: '1.05rem', color: '#F3E8B9', height: '52px' }}
               data-testid="link-send-email"
             >
