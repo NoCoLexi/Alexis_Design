@@ -139,7 +139,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           <p
             className="text-xl lg:text-2xl font-inter-medium text-muted-foreground leading-relaxed"
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
-          >I design products that get used, not just shipped</p>
+          >I design products that get used, not just shipped.</p>
 
           {/* Primary CTA — unmistakably the most important action */}
           <div className="mt-3">
@@ -169,7 +169,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             {[
               { value: '545.5%', label: 'User Base Increase', projectId: 'caloes' },
               { value: '$2.1B', label: 'Disaster Relief Platform', projectId: 'pa-portal' },
-              { value: '75%', label: 'Support Ticket Reduction', projectId: 'pa-portal' },
+              { value: '75%', label: 'Ticket Reduction', projectId: 'pa-portal' },
             ].map((m) => (
               <div
                 key={m.value}
@@ -241,7 +241,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           className="text-base font-inter-medium text-muted-foreground leading-relaxed mt-0"
           style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
         >
-          I design products that get used, not just shipped
+          I design products that get used, not just shipped.
         </p>
 
 
@@ -282,7 +282,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           {[
             { value: '545.5%', label: 'User Base Increase', projectId: 'caloes' },
             { value: '$2.1B', label: 'Disaster Relief Platform', projectId: 'pa-portal' },
-            { value: '75%', label: 'Support Ticket Reduction', projectId: 'pa-portal' },
+            { value: '75%', label: 'Ticket Reduction', projectId: 'pa-portal' },
           ].map((m) => (
             <div
               key={m.value}
