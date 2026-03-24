@@ -190,7 +190,7 @@ const projects: Project[] = [
     image: paCloseoutNewImage,
     award: 'Innovation Award',
     metrics: [
-      { label: '75%', value: 'Support Ticket Reduction', color: 'text-chart-1' },
+      { label: '$2.1B', value: 'Disaster Relief Platform', color: 'text-chart-1' },
       { label: '$243M', value: 'Projects Closed Out', color: 'text-primary' }
     ],
     tags: ['UX Research', 'Stakeholder Alignment', 'Process Design'],

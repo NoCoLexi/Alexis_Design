@@ -327,7 +327,7 @@ const caseStudies: Record<string, CaseStudy> = {
     solution: 'I reverse-engineered the existing system to identify blockers, then conducted 100+ hours of recorded stakeholder interviews. I synthesized findings into spreadsheets mapping concerns by department, created a value-effort matrix that revealed low-value features were consuming high effort, and designed visual scope documents to align the product owner without dismissing future requests.',
     outcome: 'Delivered under budget and ahead of schedule. Won the 2023 California Government Technology Innovation Award for Public Assistance.',
     metrics: [
-      { label: '75%', value: 'Support Ticket Reduction', description: 'Decreased user issues and support requests' },
+      { label: '$2.1B', value: 'Disaster Relief Platform', description: 'Total value of the disaster relief platform served' },
       { label: '$243M', value: 'Projects Closed Out', description: 'Total value of successfully processed reimbursements' },
       { label: '100+', value: 'Hours of Interviews', description: 'Recorded stakeholder research sessions' }
     ],
