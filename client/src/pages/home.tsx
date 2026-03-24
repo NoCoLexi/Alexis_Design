@@ -199,7 +199,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center">
             <div className="text-muted-foreground">
-              © 2025 Alexis Design
+              © {new Date().getFullYear()} Alexis Design
             </div>
           </div>
         </div>
