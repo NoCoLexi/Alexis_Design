@@ -232,7 +232,7 @@ export default function Services() {
             {[
               { org: 'AIxUX Summit', year: '2025', topic: 'AI & Product Design', upcoming: false },
               { org: 'Enterprise FinTech', year: '2026', topic: 'AI Strategy (NDA)', upcoming: true },
-              { org: 'American Red Cross', year: '2026', topic: 'Spring Keynote', upcoming: true },
+              { org: 'American Red Cross', year: '2026', topic: 'NotebookLM', upcoming: true },
               { org: 'PMI', year: '2026', topic: 'TBA', upcoming: true },
             ].map((item, i) => (
               <div
