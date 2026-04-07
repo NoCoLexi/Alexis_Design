@@ -139,7 +139,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           <p
             className="text-xl lg:text-2xl font-inter-medium text-muted-foreground leading-relaxed"
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
-          >I design products that get used, not just shipped.</p>
+          >I build products that get used, not just shipped.</p>
 
           {/* Primary CTA — unmistakably the most important action */}
           <div className="mt-3 md:mt-8">
@@ -241,7 +241,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           className="text-base font-inter-medium text-muted-foreground leading-relaxed mt-0"
           style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
         >
-          I design products that get used, not just shipped.
+          I build products that get used, not just shipped.
         </p>
 
 
