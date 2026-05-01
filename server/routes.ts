@@ -3,6 +3,47 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertContactSchema } from "@shared/schema";
 import { z } from "zod";
+import rateLimit from "express-rate-limit";
+
+const MAX_MESSAGES = 20;
+const MAX_CONTENT_LENGTH = 2000;
+
+const chatMessageSchema = z.object({
+  role: z.enum(["user", "assistant"]),
+  content: z.string().min(1).max(MAX_CONTENT_LENGTH),
+});
+
+const chatRequestSchema = z.object({
+  messages: z
+    .array(chatMessageSchema)
+    .min(1)
+    .max(MAX_MESSAGES),
+});
+
+const chatRateLimiter = rateLimit({
+  windowMs: 60 * 1000,
+  max: 10,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: "Too many requests, please slow down." },
+});
+
+const DAILY_REQUEST_LIMIT = 200;
+let dailyRequestCount = 0;
+let dailyResetDate = new Date().toDateString();
+
+function checkDailyBudget(): boolean {
+  const today = new Date().toDateString();
+  if (today !== dailyResetDate) {
+    dailyRequestCount = 0;
+    dailyResetDate = today;
+  }
+  if (dailyRequestCount >= DAILY_REQUEST_LIMIT) {
+    return false;
+  }
+  dailyRequestCount++;
+  return true;
+}
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Simple test route to bypass security
@@ -36,12 +77,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Chat API endpoint for Career Chatbot
-  app.post("/api/chat", async (req, res) => {
+  app.post("/api/chat", chatRateLimiter, async (req, res) => {
     try {
-      const { messages } = req.body;
-      
-      if (!messages || !Array.isArray(messages)) {
-        return res.status(400).json({ error: "Messages array required" });
+      const parsed = chatRequestSchema.safeParse(req.body);
+      if (!parsed.success) {
+        return res.status(400).json({ error: "Invalid request", details: parsed.error.errors });
+      }
+      const { messages } = parsed.data;
+
+      if (!checkDailyBudget()) {
+        return res.status(503).json({ error: "Daily request limit reached. Please try again tomorrow." });
       }
 
       const apiKey = process.env.ANTHROPIC_API_KEY;
@@ -61,7 +106,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         body: JSON.stringify({
           model: "claude-3-sonnet-20240229",
           max_tokens: 1000,
-          messages: messages.filter((msg: any) => msg.role !== "assistant" || msg.content !== "👋 Hi! I'm Alexis's AI assistant. I can help you learn about her product leadership experience, personality traits, work style, and professional accomplishments. What would you like to know?").map((msg: any) => ({
+          messages: messages.filter((msg) => msg.role !== "assistant" || msg.content !== "👋 Hi! I'm Alexis's AI assistant. I can help you learn about her product leadership experience, personality traits, work style, and professional accomplishments. What would you like to know?").map((msg) => ({
             role: msg.role === "assistant" ? "assistant" : "user",
             content: msg.content,
           })),
