@@ -6,7 +6,6 @@ interface Particle {
   vx: number;
   vy: number;
   length: number;
-  angle: number;
   opacity: number;
   parallax: number;
   curl: number;
@@ -16,119 +15,126 @@ interface Particle {
 
 export default function FloatingBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const particlesRef = useRef<Particle[]>([]);
-  const mouseRef = useRef({ x: 0, y: 0, tx: 0, ty: 0 });
-  const animationRef = useRef<number>();
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext("2d", { alpha: true });
     if (!ctx) return;
 
-    const dpr = window.devicePixelRatio || 1;
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    let particles: Particle[] = [];
+    const mouse = { x: 0, y: 0, tx: 0, ty: 0 };
+    let rafId = 0;
+    let lastFrame = 0;
+    const targetFps = 30;
+    const frameInterval = 1000 / targetFps;
+    let running = true;
+
+    const seed = (w: number, h: number) => {
+      const count = Math.max(12, Math.min(22, Math.floor((w * h) / 55000)));
+      particles = Array.from({ length: count }, () => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.1,
+        vy: (Math.random() - 0.5) * 0.1,
+        length: 100 + Math.random() * 160,
+        opacity: 0.12 + Math.random() * 0.18,
+        parallax: 0.4 + Math.random() * 1.4,
+        curl: 1.8 + Math.random() * 2.2,
+        spin: (Math.random() < 0.5 ? -1 : 1) * (0.6 + Math.random() * 0.8),
+        phase: Math.random() * Math.PI * 2,
+      }));
+    };
 
     const resize = () => {
       const parent = canvas.parentElement;
       if (!parent) return;
       const { width, height } = parent.getBoundingClientRect();
-      canvas.width = width * dpr;
-      canvas.height = height * dpr;
+      if (width === 0 || height === 0) return;
+      canvas.width = Math.floor(width * dpr);
+      canvas.height = Math.floor(height * dpr);
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      seedParticles(width, height);
-    };
-
-    const seedParticles = (w: number, h: number) => {
-      const count = Math.max(18, Math.min(36, Math.floor((w * h) / 28000)));
-      particlesRef.current = Array.from({ length: count }, () => ({
-        x: Math.random() * w,
-        y: Math.random() * h,
-        vx: (Math.random() - 0.5) * 0.12,
-        vy: (Math.random() - 0.5) * 0.12,
-        length: 90 + Math.random() * 180,
-        angle: Math.random() * Math.PI * 2,
-        opacity: 0.1 + Math.random() * 0.22,
-        parallax: 0.4 + Math.random() * 1.6,
-        curl: 1.5 + Math.random() * 3,
-        spin: (Math.random() < 0.5 ? -1 : 1) * (0.6 + Math.random() * 1.2),
-        phase: Math.random() * Math.PI * 2,
-      }));
+      seed(width, height);
     };
 
     const handleMouseMove = (e: MouseEvent) => {
       const rect = canvas.getBoundingClientRect();
-      const cx = rect.left + rect.width / 2;
-      const cy = rect.top + rect.height / 2;
-      mouseRef.current.tx = (e.clientX - cx) / rect.width;
-      mouseRef.current.ty = (e.clientY - cy) / rect.height;
+      if (rect.width === 0) return;
+      mouse.tx = (e.clientX - (rect.left + rect.width / 2)) / rect.width;
+      mouse.ty = (e.clientY - (rect.top + rect.height / 2)) / rect.height;
     };
 
-    const draw = () => {
+    const handleVisibility = () => {
+      running = !document.hidden;
+      if (running) {
+        lastFrame = 0;
+        rafId = requestAnimationFrame(draw);
+      }
+    };
+
+    const draw = (now: number) => {
+      if (!running) return;
+      rafId = requestAnimationFrame(draw);
+      if (now - lastFrame < frameInterval) return;
+      lastFrame = now;
+
       const w = canvas.clientWidth;
       const h = canvas.clientHeight;
       ctx.clearRect(0, 0, w, h);
 
-      mouseRef.current.x += (mouseRef.current.tx - mouseRef.current.x) * 0.04;
-      mouseRef.current.y += (mouseRef.current.ty - mouseRef.current.y) * 0.04;
+      mouse.x += (mouse.tx - mouse.x) * 0.04;
+      mouse.y += (mouse.ty - mouse.y) * 0.04;
 
-      for (const p of particlesRef.current) {
+      ctx.lineWidth = 1.2;
+      ctx.lineCap = "round";
+
+      const steps = 28;
+
+      for (const p of particles) {
         p.x += p.vx;
         p.y += p.vy;
-        p.angle += 0.0012;
-        p.phase += 0.003 * p.spin;
+        p.phase += 0.004 * p.spin;
 
         if (p.x < -200) p.x = w + 200;
-        if (p.x > w + 200) p.x = -200;
+        else if (p.x > w + 200) p.x = -200;
         if (p.y < -200) p.y = h + 200;
-        if (p.y > h + 200) p.y = -200;
+        else if (p.y > h + 200) p.y = -200;
 
-        const offsetX = mouseRef.current.x * 30 * p.parallax;
-        const offsetY = mouseRef.current.y * 30 * p.parallax;
-        const px = p.x + offsetX;
-        const py = p.y + offsetY;
-
-        const steps = 48;
+        const px = p.x + mouse.x * 30 * p.parallax;
+        const py = p.y + mouse.y * 30 * p.parallax;
         const maxRadius = p.length / 2;
+        const turns = p.curl * Math.PI * 2 * p.spin;
 
-        ctx.lineWidth = 1.2;
-        ctx.lineCap = "round";
-
-        let prevX = 0;
-        let prevY = 0;
+        ctx.strokeStyle = `rgba(95, 197, 248, ${p.opacity})`;
+        ctx.beginPath();
         for (let i = 0; i <= steps; i++) {
           const t = i / steps;
-          const angle = p.phase + t * p.curl * Math.PI * 2 * p.spin;
-          const radius = maxRadius * t;
-          const x = px + Math.cos(angle) * radius;
-          const y = py + Math.sin(angle) * radius;
-
-          if (i > 0) {
-            const fade = Math.sin(t * Math.PI);
-            ctx.strokeStyle = `rgba(95, 197, 248, ${p.opacity * fade})`;
-            ctx.beginPath();
-            ctx.moveTo(prevX, prevY);
-            ctx.lineTo(x, y);
-            ctx.stroke();
-          }
-          prevX = x;
-          prevY = y;
+          const a = p.phase + t * turns;
+          const r = maxRadius * t;
+          const x = px + Math.cos(a) * r;
+          const y = py + Math.sin(a) * r;
+          if (i === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
         }
+        ctx.stroke();
       }
-
-      animationRef.current = requestAnimationFrame(draw);
     };
 
     resize();
-    draw();
+    rafId = requestAnimationFrame(draw);
     window.addEventListener("resize", resize);
-    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    document.addEventListener("visibilitychange", handleVisibility);
 
     return () => {
-      if (animationRef.current) cancelAnimationFrame(animationRef.current);
+      running = false;
+      cancelAnimationFrame(rafId);
       window.removeEventListener("resize", resize);
       window.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("visibilitychange", handleVisibility);
     };
   }, []);
 
