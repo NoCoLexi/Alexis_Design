@@ -1,4 +1,4 @@
-import { useEffect, type RefObject } from "react";
+import { type RefObject } from "react";
 import type { GameInputs } from "./types";
 
 interface Props {
@@ -8,7 +8,6 @@ interface Props {
 
 export function TouchControls({ inputsRef, onCycleTactic }: Props) {
   // Detect touch capability — only render on touch devices
-  useEffect(() => {}, []);
   const hasTouch = typeof window !== "undefined" && ("ontouchstart" in window || (navigator.maxTouchPoints ?? 0) > 0);
   if (!hasTouch) return null;
 

@@ -11,7 +11,7 @@ export function StartScreen({ highScore, onStart, onHowTo, muted, onToggleMute }
     <div className="absolute inset-0 z-20 flex flex-col items-center justify-center px-6 text-center"
       style={{ background: "radial-gradient(ellipse at center, rgba(0,129,188,0.18) 0%, rgba(8,8,10,0.94) 70%)" }}>
       <div className="font-arcade text-[10px] sm:text-xs text-cyan-300 mb-3 flicker">A CHANGE-MANAGEMENT ARCADE</div>
-      <h1 className="font-arcade text-2xl sm:text-4xl md:text-5xl text-[#F3E8B9] leading-tight tracking-wider"
+      <h1 className="font-display font-black text-3xl sm:text-5xl md:text-6xl text-[#F3E8B9] leading-tight tracking-wide uppercase"
         style={{ textShadow: "0 0 18px rgba(243,232,185,0.45), 0 0 6px rgba(95,197,248,0.5)" }}>
         STAKEHOLDER<br />INVADERS
       </h1>

@@ -12,7 +12,7 @@ export function WinScreen({ score, advocates, highScore, onRestart, onMenu }: Pr
     <div className="absolute inset-0 z-20 flex flex-col items-center justify-center px-6 text-center"
       style={{ background: "radial-gradient(ellipse at center, rgba(243,232,185,0.18) 0%, rgba(8,8,10,0.96) 70%)" }}>
       <div className="font-arcade text-xs sm:text-sm text-cyan-300 mb-2 flicker">CHANGE ADOPTED</div>
-      <h2 className="font-arcade text-2xl sm:text-4xl text-[#F3E8B9] tracking-widest"
+      <h2 className="font-display font-black text-3xl sm:text-5xl text-[#F3E8B9] tracking-wide uppercase"
         style={{ textShadow: "0 0 16px rgba(243,232,185,0.5)" }}>
         COALITION BUILT
       </h2>

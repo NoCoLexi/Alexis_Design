@@ -12,7 +12,7 @@ export function GameOverScreen({ score, advocates, highScore, onRestart, onMenu 
     <div className="absolute inset-0 z-20 flex flex-col items-center justify-center px-6 text-center"
       style={{ background: "radial-gradient(ellipse at center, rgba(212,84,108,0.18) 0%, rgba(8,8,10,0.96) 70%)" }}>
       <div className="font-arcade text-xs sm:text-sm text-[#d4546c] mb-2 flicker">INITIATIVE STALLED</div>
-      <h2 className="font-arcade text-2xl sm:text-4xl text-white tracking-widest">GAME OVER</h2>
+      <h2 className="font-display font-black text-3xl sm:text-5xl text-white tracking-wide uppercase">GAME OVER</h2>
 
       <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-2 text-left">
         <div className="font-arcade text-[10px] text-white/60">SCORE</div>
