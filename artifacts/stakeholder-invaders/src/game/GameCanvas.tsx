@@ -1,5 +1,6 @@
 import { useEffect, useRef, type RefObject } from "react";
 import type { GameInputs, GameStatus, StakeholderId, TacticId } from "./types";
+import { MAX_WAVE } from "./types";
 import { STAKEHOLDERS, TACTICS } from "./data";
 import {
   drawSprite,
@@ -107,6 +108,7 @@ interface Props {
   onCredibility: (n: number) => void;
   onWave: (n: number) => void;
   onGameOver: (score: number, advocates: number) => void;
+  onWin: (score: number, advocates: number) => void;
 }
 
 const SPRITE_FOR: Record<StakeholderId, string[]> = {
@@ -208,7 +210,7 @@ function initState(wave = 1, credibility = 3, score = 0, advocates = 0): State {
 }
 
 export function GameCanvas(props: Props) {
-  const { status, inputsRef, tactic, muted, onScore, onAdvocates, onCredibility, onWave, onGameOver } = props;
+  const { status, inputsRef, tactic, muted, onScore, onAdvocates, onCredibility, onWave, onGameOver, onWin } = props;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const stateRef = useRef<State | null>(null);
   const tacticRef = useRef<TacticId>(tactic);
@@ -428,8 +430,17 @@ export function GameCanvas(props: Props) {
       // Wave clear?
       const stillThreat = s.enemies.some((e) => e.alive && e.converting === 0);
       if (!stillThreat) {
-        const nextWave = s.wave + 1;
+        const wavesCompleted = s.wave;
         const carryScore = s.score + 250; // wave bonus
+        if (wavesCompleted >= MAX_WAVE) {
+          // Final victory: every wave cleared.
+          const finalScore = carryScore + 1000; // coalition bonus
+          onScore(finalScore);
+          sfx.wave(mutedRef.current);
+          onWin(finalScore, s.advocates);
+          return;
+        }
+        const nextWave = wavesCompleted + 1;
         const carryCred = Math.min(5, s.credibility + 1); // recover a little
         const advs = s.advocates;
         stateRef.current = initState(nextWave, carryCred, carryScore, advs);
@@ -519,7 +530,7 @@ export function GameCanvas(props: Props) {
 
     raf = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(raf);
-  }, [inputsRef, onAdvocates, onCredibility, onGameOver, onScore, onWave]);
+  }, [inputsRef, onAdvocates, onCredibility, onGameOver, onScore, onWave, onWin]);
 
   return (
     <canvas

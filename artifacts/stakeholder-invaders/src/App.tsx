@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { GameCanvas } from "./game/GameCanvas";
 import { StartScreen } from "./game/StartScreen";
 import { GameOverScreen } from "./game/GameOverScreen";
+import { WinScreen } from "./game/WinScreen";
 import { HowToPlay } from "./game/HowToPlay";
 import { HUD } from "./game/HUD";
 import { TouchControls } from "./game/TouchControls";
@@ -88,6 +89,17 @@ function App() {
     });
   }, []);
 
+  const handleWin = useCallback((finalScoreValue: number, advocatesWon: number) => {
+    setFinalScore(finalScoreValue);
+    setAdvocates(advocatesWon);
+    setStatus("win");
+    setHighScore((prev) => {
+      const next = Math.max(prev, finalScoreValue);
+      try { localStorage.setItem(HIGH_SCORE_KEY, String(next)); } catch {}
+      return next;
+    });
+  }, []);
+
   const cycleTactic = useCallback(() => {
     setTactic((t) => {
       const idx = TACTICS.findIndex((x) => x.id === t);
@@ -112,6 +124,7 @@ function App() {
           onCredibility={setCredibility}
           onWave={setWave}
           onGameOver={handleGameOver}
+          onWin={handleWin}
         />
 
         {status === "playing" && (
@@ -151,6 +164,16 @@ function App() {
           />
         )}
 
+        {status === "win" && (
+          <WinScreen
+            score={finalScore}
+            advocates={advocates}
+            highScore={highScore}
+            onRestart={startGame}
+            onMenu={() => setStatus("start")}
+          />
+        )}
+
         {status === "playing" && (
           <TouchControls
             inputsRef={inputsRef}
@@ -160,7 +183,14 @@ function App() {
       </div>
 
       <p className="mt-4 text-xs text-white/40 font-sans text-center px-2">
-        Built by Alexis Brochu — change-management arcade. <span className="text-white/60">Convert skeptics. Don't destroy them.</span>
+        Built by Alexis Brochu —{" "}
+        <a
+          href="https://alexisbrochu.com"
+          className="text-cyan-300/80 hover:text-cyan-300 underline-offset-2 hover:underline"
+        >
+          alexisbrochu.com
+        </a>
+        . <span className="text-white/60">Convert skeptics. Don't destroy them.</span>
       </p>
     </div>
   );

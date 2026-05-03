@@ -1,4 +1,6 @@
-export type GameStatus = "start" | "playing" | "gameover";
+export type GameStatus = "start" | "playing" | "gameover" | "win";
+
+export const MAX_WAVE = 6;
 
 export type TacticId = "demo" | "pilot" | "interview" | "data" | "quickwin";
 
