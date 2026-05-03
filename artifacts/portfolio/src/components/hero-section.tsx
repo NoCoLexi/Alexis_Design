@@ -139,7 +139,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           <div className="mt-3 md:mt-8">
             <a
               href="/stakeholder-invaders/"
-              className="group relative inline-flex items-center justify-center gap-3 transition-all duration-300 transform hover:scale-105"
+              className="group relative inline-flex items-center justify-center gap-3 transition-all duration-300 transform hover:scale-105 rounded-full"
               data-testid="button-play-game-hero"
               style={{
                 fontFamily: "'Press Start 2P', monospace",
@@ -151,7 +151,6 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
                 background: '#0B0A0E',
                 color: '#F3E8B9',
                 border: '2px solid #5fc5f8',
-                borderRadius: '4px',
                 textShadow: '0 0 8px rgba(243,232,185,0.55)',
                 boxShadow: '0 0 0 2px #0B0A0E, 0 0 18px rgba(95,197,248,0.45), inset 0 0 14px rgba(95,197,248,0.12)'
               }}
@@ -188,7 +187,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           <div className="mt-4">
             <a
               href="mailto:alexis.brochu@gmail.com"
-              className="rounded-xl font-bold transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center gap-2 border-2"
+              className="rounded-full font-bold transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center gap-2 border-2"
               style={{
                 fontFamily: 'Inter, sans-serif',
                 fontWeight: 700,
@@ -246,7 +245,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         <div className="w-full max-w-sm mx-auto">
           <a
             href="/stakeholder-invaders/"
-            className="w-full transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
+            className="w-full transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 rounded-full"
             data-testid="button-play-game-hero-mobile"
             style={{
               fontFamily: "'Press Start 2P', monospace",
@@ -258,7 +257,6 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
               background: '#0B0A0E',
               color: '#F3E8B9',
               border: '2px solid #5fc5f8',
-              borderRadius: '4px',
               textShadow: '0 0 8px rgba(243,232,185,0.55)',
               boxShadow: '0 0 0 2px #0B0A0E, 0 0 16px rgba(95,197,248,0.45), inset 0 0 12px rgba(95,197,248,0.12)',
               textAlign: 'center'
@@ -307,7 +305,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         <div className="flex justify-center w-full max-w-sm mx-auto">
           <a
             href="mailto:alexis.brochu@gmail.com"
-            className="w-full px-6 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2"
+            className="w-full px-6 rounded-full font-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2"
             style={{
               fontFamily: 'Inter, sans-serif',
               color: 'rgba(255,255,255,0.85)',
