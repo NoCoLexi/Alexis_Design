@@ -995,9 +995,14 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                       <video
                         src={profileVideo}
                         autoPlay
-                        loop
                         muted
                         playsInline
+                        controls
+                        onEnded={(e) => {
+                          const v = e.currentTarget;
+                          v.pause();
+                          v.currentTime = 0;
+                        }}
                         className="w-full h-full object-cover"
                         data-testid="video-profile"
                       />
