@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Award, Play, ArrowRight } from "lucide-react";
+import { Award, ArrowRight, Gamepad2 } from "lucide-react";
 import AdminPanel from "./admin-panel";
 import FloatingBackground from "./floating-background";
 
@@ -81,14 +81,6 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
     }
   };
 
-  const scrollToExpertise = () => {
-    const videoElement = document.querySelector('[data-testid="video-expertise-product-leader"]');
-    if (videoElement) {
-      const y = videoElement.getBoundingClientRect().top + window.pageYOffset - 100;
-      window.scrollTo({ top: y, behavior: 'smooth' });
-    }
-  };
-
   return (
     <section id="home" className="min-h-screen flex items-center relative overflow-hidden">
       <div className="absolute inset-0 gradient-bg-secondary opacity-30"></div>
@@ -143,12 +135,12 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
           >I build products that get used, not just shipped.</p>
 
-          {/* Primary CTA — unmistakably the most important action */}
+          {/* Primary CTA — Play the Game */}
           <div className="mt-3 md:mt-8">
-            <button
-              onClick={scrollToExpertise}
-              className="px-7 rounded-xl font-inter-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3 border-2 border-white/85"
-              data-testid="button-watch-video-about-me"
+            <a
+              href="/stakeholder-invaders/"
+              className="px-7 rounded-xl font-inter-bold transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center gap-3 border-2 border-white/85"
+              data-testid="button-play-game-hero"
               style={{
                 fontFamily: 'Inter, sans-serif',
                 fontWeight: 800,
@@ -160,10 +152,10 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
                 letterSpacing: '0.01em'
               }}
             >
-              <Play className="h-4 w-4 flex-shrink-0" fill="white" />
-              <span>How I Drive Product Adoption</span>
+              <Gamepad2 className="h-5 w-5 flex-shrink-0" />
+              <span>Play the Game</span>
               <ArrowRight className="h-4 w-4 flex-shrink-0" />
-            </button>
+            </a>
           </div>
 
           {/* Key Metrics — each card has clear borders and a "View case study" affordance */}
@@ -247,12 +239,12 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         </p>
 
 
-        {/* CTA */}
+        {/* CTA — Play the Game */}
         <div className="w-full max-w-sm mx-auto">
-          <button
-            onClick={scrollToExpertise}
+          <a
+            href="/stakeholder-invaders/"
             className="w-full px-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2 border-white/85 text-sm"
-            data-testid="button-watch-video-about-me"
+            data-testid="button-play-game-hero-mobile"
             style={{
               fontFamily: 'Inter, sans-serif',
               fontWeight: 800,
@@ -262,10 +254,10 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
               boxShadow: '0 6px 20px rgba(109,85,146,0.5)'
             }}
           >
-            <Play className="h-5 w-5 flex-shrink-0" fill="white" />
-            <span>How I Drive Product Adoption</span>
+            <Gamepad2 className="h-5 w-5 flex-shrink-0" />
+            <span>Play the Game</span>
             <ArrowRight className="h-4 w-4 flex-shrink-0" />
-          </button>
+          </a>
         </div>
 
         {/* 6. Portrait */}

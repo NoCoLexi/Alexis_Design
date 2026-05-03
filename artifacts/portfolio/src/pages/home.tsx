@@ -107,15 +107,6 @@ export default function Home() {
               >
                 Speaking Engagements
               </Link>
-              <a
-                href="/stakeholder-invaders/"
-                className="inline-flex items-center gap-2 transition-colors font-medium px-3 py-2 rounded-md text-white hover:text-purple-400 hover:bg-white/5"
-                style={{fontSize: '14px', fontWeight: '500'}}
-                data-testid="link-play-game"
-              >
-                <Gamepad2 className="w-4 h-4" />
-                Play the game
-              </a>
               <div className="ml-4 flex items-center gap-3">
                 <div 
                   className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600/60 to-purple-500/70 rounded-full px-4 py-2 hover:from-purple-500/70 hover:to-purple-400/80 transition-all duration-300 cursor-pointer border border-purple-400/30 transform hover:scale-105 hover:brightness-110"
@@ -163,15 +154,6 @@ export default function Home() {
               >
                 Speaking Engagements
               </Link>
-              <a
-                href="/stakeholder-invaders/"
-                className="flex items-center gap-2 w-full py-3 px-4 text-white hover:text-purple-400 hover:bg-white/5 transition-colors rounded-md font-medium"
-                onClick={() => setIsMobileMenuOpen(false)}
-                data-testid="link-play-game-mobile"
-              >
-                <Gamepad2 className="w-4 h-4" />
-                Play the game
-              </a>
               <div className="pt-2 border-t border-purple-400/20 space-y-2">
                 <div 
                   className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600/60 to-purple-500/70 rounded-full px-4 py-2 hover:from-purple-500/70 hover:to-purple-400/80 transition-all duration-300 cursor-pointer w-full justify-center transform hover:scale-105 hover:brightness-110"
