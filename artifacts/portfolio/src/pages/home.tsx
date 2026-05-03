@@ -79,45 +79,43 @@ export default function Home() {
               <span className="name-first text-white font-bold text-xl">Alexis</span>
               <span className="name-last text-purple-400 font-bold text-xl">Brochu</span>
             </div>
-            <div className="hidden md:flex space-x-8 items-center">
+            <div className="hidden md:flex space-x-3 items-center">
               <button
                 onClick={() => setIsSiteModalOpen(true)}
-                className={`transition-colors font-medium px-3 py-2 rounded-md text-white hover:text-purple-400 hover:bg-white/5`}
-                style={{fontSize: '14px', fontWeight: '500'}}
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600/60 to-purple-500/70 rounded-full px-4 py-2 hover:from-purple-500/70 hover:to-purple-400/80 transition-all duration-300 cursor-pointer border border-purple-400/30 transform hover:scale-105 hover:brightness-110"
                 data-testid="button-about-site"
               >
-                How I built this site
+                <span className="text-sm font-medium" style={{ color: '#F3E8B9' }}>
+                  How I built this site
+                </span>
               </button>
               <button
                 onClick={() => scrollToSection('about')}
-                className={`transition-colors font-medium px-3 py-2 rounded-md ${
-                  activeSection === 'about' 
-                    ? 'text-purple-400 bg-purple-400/10' 
-                    : 'text-white hover:text-purple-400 hover:bg-white/5'
-                }`}
-                style={{fontSize: '14px', fontWeight: '500'}}
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600/60 to-purple-500/70 rounded-full px-4 py-2 hover:from-purple-500/70 hover:to-purple-400/80 transition-all duration-300 cursor-pointer border border-purple-400/30 transform hover:scale-105 hover:brightness-110"
+                data-testid="button-my-expertise"
               >
-                My Expertise
+                <span className="text-sm font-medium" style={{ color: '#F3E8B9' }}>
+                  My Expertise
+                </span>
               </button>
               <Link
                 href="/services"
-                className="transition-colors font-medium px-3 py-2 rounded-md text-white hover:text-purple-400 hover:bg-white/5"
-                style={{fontSize: '14px', fontWeight: '500'}}
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600/60 to-purple-500/70 rounded-full px-4 py-2 hover:from-purple-500/70 hover:to-purple-400/80 transition-all duration-300 cursor-pointer border border-purple-400/30 transform hover:scale-105 hover:brightness-110"
                 data-testid="link-services"
               >
-                Speaking Engagements
+                <span className="text-sm font-medium" style={{ color: '#F3E8B9' }}>
+                  Speaking Engagements
+                </span>
               </Link>
-              <div className="ml-4 flex items-center gap-3">
-                <div 
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600/60 to-purple-500/70 rounded-full px-4 py-2 hover:from-purple-500/70 hover:to-purple-400/80 transition-all duration-300 cursor-pointer border border-purple-400/30 transform hover:scale-105 hover:brightness-110"
-                  onClick={() => scrollToSection('work')}
-                  data-testid="button-check-out-work"
-                >
-                  <span className="text-sm font-medium" style={{ color: '#F3E8B9' }}>
-                    Check out my work
-                  </span>
-                </div>
-              </div>
+              <button
+                onClick={() => scrollToSection('work')}
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600/60 to-purple-500/70 rounded-full px-4 py-2 hover:from-purple-500/70 hover:to-purple-400/80 transition-all duration-300 cursor-pointer border border-purple-400/30 transform hover:scale-105 hover:brightness-110"
+                data-testid="button-check-out-work"
+              >
+                <span className="text-sm font-medium" style={{ color: '#F3E8B9' }}>
+                  Check out my work
+                </span>
+              </button>
             </div>
             <button
               className="md:hidden text-white hover:text-purple-400 p-2 rounded-md hover:bg-white/5 transition-colors"
@@ -135,39 +133,47 @@ export default function Home() {
                   setIsSiteModalOpen(true);
                   setIsMobileMenuOpen(false);
                 }}
-                className="block w-full text-left py-3 px-4 text-white hover:text-purple-400 hover:bg-white/5 transition-colors rounded-md font-medium"
+                className="inline-flex items-center justify-center gap-2 w-full bg-gradient-to-r from-purple-600/60 to-purple-500/70 rounded-full px-4 py-2 hover:from-purple-500/70 hover:to-purple-400/80 transition-all duration-300 cursor-pointer border border-purple-400/30 transform hover:scale-105 hover:brightness-110"
                 data-testid="button-about-site-mobile"
               >
-                How I built this site
+                <span className="text-sm font-medium" style={{ color: '#F3E8B9' }}>
+                  How I built this site
+                </span>
               </button>
               <button
-                onClick={() => scrollToSection('about')}
-                className="block w-full text-left py-3 px-4 text-white hover:text-purple-400 hover:bg-white/5 transition-colors rounded-md font-medium"
+                onClick={() => {
+                  scrollToSection('about');
+                  setIsMobileMenuOpen(false);
+                }}
+                className="inline-flex items-center justify-center gap-2 w-full bg-gradient-to-r from-purple-600/60 to-purple-500/70 rounded-full px-4 py-2 hover:from-purple-500/70 hover:to-purple-400/80 transition-all duration-300 cursor-pointer border border-purple-400/30 transform hover:scale-105 hover:brightness-110"
+                data-testid="button-my-expertise-mobile"
               >
-                My Expertise
+                <span className="text-sm font-medium" style={{ color: '#F3E8B9' }}>
+                  My Expertise
+                </span>
               </button>
               <Link
                 href="/services"
-                className="block w-full py-3 px-4 text-white hover:text-purple-400 hover:bg-white/5 transition-colors rounded-md font-medium"
+                className="inline-flex items-center justify-center gap-2 w-full bg-gradient-to-r from-purple-600/60 to-purple-500/70 rounded-full px-4 py-2 hover:from-purple-500/70 hover:to-purple-400/80 transition-all duration-300 cursor-pointer border border-purple-400/30 transform hover:scale-105 hover:brightness-110"
                 onClick={() => setIsMobileMenuOpen(false)}
                 data-testid="link-services-mobile"
               >
-                Speaking Engagements
+                <span className="text-sm font-medium" style={{ color: '#F3E8B9' }}>
+                  Speaking Engagements
+                </span>
               </Link>
-              <div className="pt-2 border-t border-purple-400/20 space-y-2">
-                <div 
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600/60 to-purple-500/70 rounded-full px-4 py-2 hover:from-purple-500/70 hover:to-purple-400/80 transition-all duration-300 cursor-pointer w-full justify-center transform hover:scale-105 hover:brightness-110"
-                  onClick={() => {
-                    scrollToSection('work');
-                    setIsMobileMenuOpen(false);
-                  }}
-                  data-testid="button-check-out-work-mobile"
-                >
-                  <span className="text-sm font-medium" style={{ color: '#F3E8B9' }}>
-                    Check out my work
-                  </span>
-                </div>
-              </div>
+              <button
+                onClick={() => {
+                  scrollToSection('work');
+                  setIsMobileMenuOpen(false);
+                }}
+                className="inline-flex items-center justify-center gap-2 w-full bg-gradient-to-r from-purple-600/60 to-purple-500/70 rounded-full px-4 py-2 hover:from-purple-500/70 hover:to-purple-400/80 transition-all duration-300 cursor-pointer border border-purple-400/30 transform hover:scale-105 hover:brightness-110"
+                data-testid="button-check-out-work-mobile"
+              >
+                <span className="text-sm font-medium" style={{ color: '#F3E8B9' }}>
+                  Check out my work
+                </span>
+              </button>
             </div>
           )}
         </div>
