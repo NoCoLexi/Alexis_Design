@@ -3,8 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Award, ArrowDown } from "lucide-react";
 import professionalPhoto from "@assets/Brochu, Alexis 2023 Ireland_1754523029765.png";
 import profileVideo from "@assets/20181006_190845_1754603621565.mp4";
-import expertiseVideo from "@assets/Alexis_Deconstructing_a_Modern_Product_Leader.mp4";
-import expertisePoster from "@assets/Product Leader Video Still.png";
 import { useState, useRef, useEffect } from "react";
 
 const skills = [
@@ -93,21 +91,6 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
               <strong className="text-foreground">"My colleagues nickname me: 'Idea Factory' but I prefer 'Solution Factory'"</strong> <br />
               because every idea I come up with stems from a problem. Without problems there are no solutions. Without solutions, there are no relevant opportunities.
             </p>
-          </div>
-
-          {/* Expertise Video */}
-          <div className="flex justify-center">
-            <div className="max-w-3xl w-full glass rounded-2xl p-6">
-              <video
-                src={expertiseVideo}
-                controls
-                className="w-full rounded-xl shadow-lg"
-                data-testid="video-expertise-product-leader"
-                poster={expertisePoster}
-              >
-                Your browser does not support the video tag.
-              </video>
-            </div>
           </div>
 
           {/* Expertise Cards Grid */}
