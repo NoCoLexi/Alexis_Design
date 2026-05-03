@@ -55,24 +55,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/contact", async (req, res) => {
     try {
       const contactData = insertContactSchema.parse(req.body);
-      const contact = await storage.createContact(contactData);
-      res.json({ success: true, contact });
+      await storage.createContact(contactData);
+      res.json({ success: true });
     } catch (error) {
       if (error instanceof z.ZodError) {
         res.status(400).json({ error: "Validation failed", details: error.errors });
       } else {
         res.status(500).json({ error: "Failed to submit contact form" });
       }
-    }
-  });
-
-  // Get all contacts (for admin purposes)
-  app.get("/api/contacts", async (req, res) => {
-    try {
-      const contacts = await storage.getContacts();
-      res.json(contacts);
-    } catch (error) {
-      res.status(500).json({ error: "Failed to fetch contacts" });
     }
   });
 
