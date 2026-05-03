@@ -732,19 +732,16 @@ nav {
   top: 0 !important;
   will-change: transform;
   transition: background 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
-  background: linear-gradient(135deg, 
-    rgba(0, 129, 188, 0.45) 0%, 
-    rgba(20, 150, 220, 0.55) 35%,
-    rgba(40, 170, 255, 0.60) 65%, 
-    rgba(60, 190, 255, 0.50) 100%) !important;
-  backdrop-filter: blur(80px) saturate(220%) brightness(110%) contrast(115%);
-  -webkit-backdrop-filter: blur(80px) saturate(220%) brightness(110%) contrast(115%);
-  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 
-    0 8px 32px rgba(0, 129, 188, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.10),
-    0 0 40px rgba(40, 170, 255, 0.15);
+  background: linear-gradient(135deg,
+    rgba(8, 8, 12, 0.92) 0%,
+    rgba(14, 12, 24, 0.94) 50%,
+    rgba(8, 8, 12, 0.92) 100%) !important;
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border-bottom: 1px solid rgba(109, 85, 146, 0.35);
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 /* Navigation menu items styling */

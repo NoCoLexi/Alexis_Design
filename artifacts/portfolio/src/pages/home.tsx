@@ -63,7 +63,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground" style={{backgroundColor: '#08080A'}}>
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 w-full z-50 bg-gradient-to-r from-background/95 via-primary/20 to-background/95 backdrop-blur-lg border-b border-primary/30 shadow-lg">
+      <nav className="fixed top-0 left-0 right-0 w-full z-50 backdrop-blur-lg border-b border-primary/30 shadow-lg" style={{ backgroundColor: 'rgba(5,5,8,0.92)' }}>
         <div className="max-w-7xl mx-auto px-6 py-2">
           <div className="flex justify-between items-center">
             <div 
