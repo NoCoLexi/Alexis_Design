@@ -79,40 +79,40 @@ export default function Home() {
               <span className="name-first text-white font-bold text-xl">Alexis</span>
               <span className="name-last text-purple-400 font-bold text-xl">Brochu</span>
             </div>
-            <div className="hidden md:flex space-x-3 items-center">
+            <div className="hidden md:flex space-x-2 items-center">
               <button
                 onClick={() => setIsSiteModalOpen(true)}
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600/60 to-purple-500/70 rounded-full px-4 py-2 hover:from-purple-500/70 hover:to-purple-400/80 transition-all duration-300 cursor-pointer border border-purple-400/30 transform hover:scale-105 hover:brightness-110"
+                className="nav-link inline-flex items-center px-4 py-2 rounded-full transition-all duration-300 cursor-pointer"
                 data-testid="button-about-site"
               >
-                <span className="text-sm font-medium" style={{ color: '#F3E8B9' }}>
+                <span className="text-sm font-medium text-white">
                   How I built this site
                 </span>
               </button>
               <button
                 onClick={() => scrollToSection('about')}
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600/60 to-purple-500/70 rounded-full px-4 py-2 hover:from-purple-500/70 hover:to-purple-400/80 transition-all duration-300 cursor-pointer border border-purple-400/30 transform hover:scale-105 hover:brightness-110"
+                className="nav-link inline-flex items-center px-4 py-2 rounded-full transition-all duration-300 cursor-pointer"
                 data-testid="button-my-expertise"
               >
-                <span className="text-sm font-medium" style={{ color: '#F3E8B9' }}>
+                <span className="text-sm font-medium text-white">
                   My Expertise
                 </span>
               </button>
               <Link
                 href="/services"
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600/60 to-purple-500/70 rounded-full px-4 py-2 hover:from-purple-500/70 hover:to-purple-400/80 transition-all duration-300 cursor-pointer border border-purple-400/30 transform hover:scale-105 hover:brightness-110"
+                className="nav-link inline-flex items-center px-4 py-2 rounded-full transition-all duration-300 cursor-pointer"
                 data-testid="link-services"
               >
-                <span className="text-sm font-medium" style={{ color: '#F3E8B9' }}>
+                <span className="text-sm font-medium text-white">
                   Speaking Engagements
                 </span>
               </Link>
               <button
                 onClick={() => scrollToSection('work')}
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600/60 to-purple-500/70 rounded-full px-4 py-2 hover:from-purple-500/70 hover:to-purple-400/80 transition-all duration-300 cursor-pointer border border-purple-400/30 transform hover:scale-105 hover:brightness-110"
+                className="nav-link inline-flex items-center px-4 py-2 rounded-full transition-all duration-300 cursor-pointer"
                 data-testid="button-check-out-work"
               >
-                <span className="text-sm font-medium" style={{ color: '#F3E8B9' }}>
+                <span className="text-sm font-medium text-white">
                   Check out my work
                 </span>
               </button>
@@ -127,16 +127,16 @@ export default function Home() {
 
           {/* Mobile Menu */}
           {isMobileMenuOpen && (
-            <div className="md:hidden mt-4 pb-4 space-y-2 bg-black/50 rounded-lg p-4 border border-purple-400/20">
+            <div className="md:hidden mt-4 pb-4 space-y-1 bg-black/60 rounded-lg p-3 border border-white/10">
               <button
                 onClick={() => {
                   setIsSiteModalOpen(true);
                   setIsMobileMenuOpen(false);
                 }}
-                className="inline-flex items-center justify-center gap-2 w-full bg-gradient-to-r from-purple-600/60 to-purple-500/70 rounded-full px-4 py-2 hover:from-purple-500/70 hover:to-purple-400/80 transition-all duration-300 cursor-pointer border border-purple-400/30 transform hover:scale-105 hover:brightness-110"
+                className="nav-link inline-flex items-center justify-center w-full px-4 py-3 rounded-full transition-all duration-300 cursor-pointer"
                 data-testid="button-about-site-mobile"
               >
-                <span className="text-sm font-medium" style={{ color: '#F3E8B9' }}>
+                <span className="text-sm font-medium text-white">
                   How I built this site
                 </span>
               </button>
@@ -145,20 +145,20 @@ export default function Home() {
                   scrollToSection('about');
                   setIsMobileMenuOpen(false);
                 }}
-                className="inline-flex items-center justify-center gap-2 w-full bg-gradient-to-r from-purple-600/60 to-purple-500/70 rounded-full px-4 py-2 hover:from-purple-500/70 hover:to-purple-400/80 transition-all duration-300 cursor-pointer border border-purple-400/30 transform hover:scale-105 hover:brightness-110"
+                className="nav-link inline-flex items-center justify-center w-full px-4 py-3 rounded-full transition-all duration-300 cursor-pointer"
                 data-testid="button-my-expertise-mobile"
               >
-                <span className="text-sm font-medium" style={{ color: '#F3E8B9' }}>
+                <span className="text-sm font-medium text-white">
                   My Expertise
                 </span>
               </button>
               <Link
                 href="/services"
-                className="inline-flex items-center justify-center gap-2 w-full bg-gradient-to-r from-purple-600/60 to-purple-500/70 rounded-full px-4 py-2 hover:from-purple-500/70 hover:to-purple-400/80 transition-all duration-300 cursor-pointer border border-purple-400/30 transform hover:scale-105 hover:brightness-110"
+                className="nav-link inline-flex items-center justify-center w-full px-4 py-3 rounded-full transition-all duration-300 cursor-pointer"
                 onClick={() => setIsMobileMenuOpen(false)}
                 data-testid="link-services-mobile"
               >
-                <span className="text-sm font-medium" style={{ color: '#F3E8B9' }}>
+                <span className="text-sm font-medium text-white">
                   Speaking Engagements
                 </span>
               </Link>
@@ -167,10 +167,10 @@ export default function Home() {
                   scrollToSection('work');
                   setIsMobileMenuOpen(false);
                 }}
-                className="inline-flex items-center justify-center gap-2 w-full bg-gradient-to-r from-purple-600/60 to-purple-500/70 rounded-full px-4 py-2 hover:from-purple-500/70 hover:to-purple-400/80 transition-all duration-300 cursor-pointer border border-purple-400/30 transform hover:scale-105 hover:brightness-110"
+                className="nav-link inline-flex items-center justify-center w-full px-4 py-3 rounded-full transition-all duration-300 cursor-pointer"
                 data-testid="button-check-out-work-mobile"
               >
-                <span className="text-sm font-medium" style={{ color: '#F3E8B9' }}>
+                <span className="text-sm font-medium text-white">
                   Check out my work
                 </span>
               </button>
