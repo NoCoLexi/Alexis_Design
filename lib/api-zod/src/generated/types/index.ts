@@ -13,4 +13,6 @@ export * from "./chatResponse";
 export * from "./contactInput";
 export * from "./errorResponse";
 export * from "./healthStatus";
+export * from "./scoreEntry";
+export * from "./submitScoreInput";
 export * from "./successResponse";

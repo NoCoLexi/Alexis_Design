@@ -14,6 +14,8 @@ tags:
     description: Contact form operations
   - name: chat
     description: AI chat operations
+  - name: scores
+    description: Stakeholder Invaders leaderboard operations
 paths:
   /healthz:
     get:
@@ -82,6 +84,51 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorResponse"
+  /scores/top:
+    get:
+      operationId: getTopScores
+      tags: [scores]
+      summary: Get top Stakeholder Invaders scores
+      description: Returns the top 10 leaderboard entries, highest score first
+      responses:
+        "200":
+          description: Top scores
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ScoreEntry"
+  /scores:
+    post:
+      operationId: submitScore
+      tags: [scores]
+      summary: Submit a Stakeholder Invaders score
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SubmitScoreInput"
+      responses:
+        "201":
+          description: Score recorded
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ScoreEntry"
+        "400":
+          description: Invalid score
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "429":
+          description: Too many submissions
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
 components:
   schemas:
     HealthStatus:
@@ -144,6 +191,50 @@ components:
           type: string
       required:
         - message
+    ScoreEntry:
+      type: object
+      properties:
+        id:
+          type: string
+        handle:
+          type: string
+        score:
+          type: integer
+        advocates:
+          type: integer
+        wave:
+          type: integer
+        createdAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - handle
+        - score
+        - advocates
+        - wave
+        - createdAt
+    SubmitScoreInput:
+      type: object
+      properties:
+        handle:
+          type: string
+          minLength: 1
+          maxLength: 3
+        score:
+          type: integer
+          minimum: 0
+        advocates:
+          type: integer
+          minimum: 0
+        wave:
+          type: integer
+          minimum: 1
+      required:
+        - handle
+        - score
+        - advocates
+        - wave
     ErrorResponse:
       type: object
       properties:

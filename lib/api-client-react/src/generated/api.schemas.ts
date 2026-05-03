@@ -42,6 +42,29 @@ export interface ChatResponse {
   message: string;
 }
 
+export interface ScoreEntry {
+  id: string;
+  handle: string;
+  score: number;
+  advocates: number;
+  wave: number;
+  createdAt: string;
+}
+
+export interface SubmitScoreInput {
+  /**
+   * @minLength 1
+   * @maxLength 3
+   */
+  handle: string;
+  /** @minimum 0 */
+  score: number;
+  /** @minimum 0 */
+  advocates: number;
+  /** @minimum 1 */
+  wave: number;
+}
+
 export interface ErrorResponse {
   error: string;
   message?: string;

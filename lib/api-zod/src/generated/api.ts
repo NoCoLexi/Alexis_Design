@@ -45,3 +45,33 @@ export const SendChatMessageBody = zod.object({
 export const SendChatMessageResponse = zod.object({
   message: zod.string(),
 });
+
+/**
+ * Returns the top 10 leaderboard entries, highest score first
+ * @summary Get top Stakeholder Invaders scores
+ */
+export const GetTopScoresResponseItem = zod.object({
+  id: zod.string(),
+  handle: zod.string(),
+  score: zod.number(),
+  advocates: zod.number(),
+  wave: zod.number(),
+  createdAt: zod.coerce.date(),
+});
+export const GetTopScoresResponse = zod.array(GetTopScoresResponseItem);
+
+/**
+ * @summary Submit a Stakeholder Invaders score
+ */
+export const submitScoreBodyHandleMax = 3;
+
+export const submitScoreBodyScoreMin = 0;
+
+export const submitScoreBodyAdvocatesMin = 0;
+
+export const SubmitScoreBody = zod.object({
+  handle: zod.string().min(1).max(submitScoreBodyHandleMax),
+  score: zod.number().min(submitScoreBodyScoreMin),
+  advocates: zod.number().min(submitScoreBodyAdvocatesMin),
+  wave: zod.number().min(1),
+});

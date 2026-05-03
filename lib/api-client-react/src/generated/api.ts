@@ -22,6 +22,8 @@ import type {
   ContactInput,
   ErrorResponse,
   HealthStatus,
+  ScoreEntry,
+  SubmitScoreInput,
   SuccessResponse,
 } from "./api.schemas";
 
@@ -280,4 +282,166 @@ export const useSendChatMessage = <
   TContext
 > => {
   return useMutation(getSendChatMessageMutationOptions(options));
+};
+
+/**
+ * Returns the top 10 leaderboard entries, highest score first
+ * @summary Get top Stakeholder Invaders scores
+ */
+export const getGetTopScoresUrl = () => {
+  return `/api/scores/top`;
+};
+
+export const getTopScores = async (
+  options?: RequestInit,
+): Promise<ScoreEntry[]> => {
+  return customFetch<ScoreEntry[]>(getGetTopScoresUrl(), {
+    ...options,
+    method: "GET",
+  });
+};
+
+export const getGetTopScoresQueryKey = () => {
+  return [`/api/scores/top`] as const;
+};
+
+export const getGetTopScoresQueryOptions = <
+  TData = Awaited<ReturnType<typeof getTopScores>>,
+  TError = ErrorType<unknown>,
+>(options?: {
+  query?: UseQueryOptions<
+    Awaited<ReturnType<typeof getTopScores>>,
+    TError,
+    TData
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}) => {
+  const { query: queryOptions, request: requestOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getGetTopScoresQueryKey();
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof getTopScores>>> = ({
+    signal,
+  }) => getTopScores({ signal, ...requestOptions });
+
+  return { queryKey, queryFn, ...queryOptions } as UseQueryOptions<
+    Awaited<ReturnType<typeof getTopScores>>,
+    TError,
+    TData
+  > & { queryKey: QueryKey };
+};
+
+export type GetTopScoresQueryResult = NonNullable<
+  Awaited<ReturnType<typeof getTopScores>>
+>;
+export type GetTopScoresQueryError = ErrorType<unknown>;
+
+/**
+ * @summary Get top Stakeholder Invaders scores
+ */
+
+export function useGetTopScores<
+  TData = Awaited<ReturnType<typeof getTopScores>>,
+  TError = ErrorType<unknown>,
+>(options?: {
+  query?: UseQueryOptions<
+    Awaited<ReturnType<typeof getTopScores>>,
+    TError,
+    TData
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseQueryResult<TData, TError> & { queryKey: QueryKey } {
+  const queryOptions = getGetTopScoresQueryOptions(options);
+
+  const query = useQuery(queryOptions) as UseQueryResult<TData, TError> & {
+    queryKey: QueryKey;
+  };
+
+  return { ...query, queryKey: queryOptions.queryKey };
+}
+
+/**
+ * @summary Submit a Stakeholder Invaders score
+ */
+export const getSubmitScoreUrl = () => {
+  return `/api/scores`;
+};
+
+export const submitScore = async (
+  submitScoreInput: SubmitScoreInput,
+  options?: RequestInit,
+): Promise<ScoreEntry> => {
+  return customFetch<ScoreEntry>(getSubmitScoreUrl(), {
+    ...options,
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...options?.headers },
+    body: JSON.stringify(submitScoreInput),
+  });
+};
+
+export const getSubmitScoreMutationOptions = <
+  TError = ErrorType<ErrorResponse>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof submitScore>>,
+    TError,
+    { data: BodyType<SubmitScoreInput> },
+    TContext
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseMutationOptions<
+  Awaited<ReturnType<typeof submitScore>>,
+  TError,
+  { data: BodyType<SubmitScoreInput> },
+  TContext
+> => {
+  const mutationKey = ["submitScore"];
+  const { mutation: mutationOptions, request: requestOptions } = options
+    ? options.mutation &&
+      "mutationKey" in options.mutation &&
+      options.mutation.mutationKey
+      ? options
+      : { ...options, mutation: { ...options.mutation, mutationKey } }
+    : { mutation: { mutationKey }, request: undefined };
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof submitScore>>,
+    { data: BodyType<SubmitScoreInput> }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return submitScore(data, requestOptions);
+  };
+
+  return { mutationFn, ...mutationOptions };
+};
+
+export type SubmitScoreMutationResult = NonNullable<
+  Awaited<ReturnType<typeof submitScore>>
+>;
+export type SubmitScoreMutationBody = BodyType<SubmitScoreInput>;
+export type SubmitScoreMutationError = ErrorType<ErrorResponse>;
+
+/**
+ * @summary Submit a Stakeholder Invaders score
+ */
+export const useSubmitScore = <
+  TError = ErrorType<ErrorResponse>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof submitScore>>,
+    TError,
+    { data: BodyType<SubmitScoreInput> },
+    TContext
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseMutationResult<
+  Awaited<ReturnType<typeof submitScore>>,
+  TError,
+  { data: BodyType<SubmitScoreInput> },
+  TContext
+> => {
+  return useMutation(getSubmitScoreMutationOptions(options));
 };

@@ -62,21 +62,24 @@ appRouter.post("/contact", async (req, res) => {
 });
 
 // Chat API endpoint for Career Chatbot
-appRouter.post("/chat", chatRateLimiter, async (req, res) => {
+appRouter.post("/chat", chatRateLimiter, async (req, res): Promise<void> => {
   try {
     const parsed = chatRequestSchema.safeParse(req.body);
     if (!parsed.success) {
-      return res.status(400).json({ error: "Invalid request", details: parsed.error.errors });
+      res.status(400).json({ error: "Invalid request", details: parsed.error.errors });
+      return;
     }
     const { messages } = parsed.data;
 
     if (!checkDailyBudget()) {
-      return res.status(503).json({ error: "Daily request limit reached. Please try again tomorrow." });
+      res.status(503).json({ error: "Daily request limit reached. Please try again tomorrow." });
+      return;
     }
 
     const apiKey = process.env.ANTHROPIC_API_KEY;
     if (!apiKey) {
-      return res.status(500).json({ error: "AI service not configured" });
+      res.status(500).json({ error: "AI service not configured" });
+      return;
     }
 
     const response = await fetch("https://api.anthropic.com/v1/messages", {

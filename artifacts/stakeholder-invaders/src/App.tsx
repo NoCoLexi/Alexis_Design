@@ -158,6 +158,7 @@ function App() {
           <GameOverScreen
             score={finalScore}
             advocates={advocates}
+            wave={wave}
             highScore={highScore}
             onRestart={startGame}
             onMenu={() => setStatus("start")}

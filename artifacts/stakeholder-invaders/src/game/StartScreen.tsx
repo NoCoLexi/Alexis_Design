@@ -1,3 +1,5 @@
+import { Leaderboard } from "./Leaderboard";
+
 interface Props {
   highScore: number;
   onStart: () => void;
@@ -8,7 +10,7 @@ interface Props {
 
 export function StartScreen({ highScore, onStart, onHowTo, muted, onToggleMute }: Props) {
   return (
-    <div className="absolute inset-0 z-20 flex flex-col items-center justify-center px-6 text-center"
+    <div className="absolute inset-0 z-20 flex flex-col items-center justify-start overflow-y-auto px-6 py-6 text-center"
       style={{ background: "radial-gradient(ellipse at center, rgba(0,129,188,0.18) 0%, rgba(8,8,10,0.94) 70%)" }}>
       <div className="font-arcade text-[10px] sm:text-xs text-cyan-300 mb-3 flicker">A CHANGE-MANAGEMENT ARCADE</div>
       <h1 className="font-display font-black text-3xl sm:text-5xl md:text-6xl text-[#F3E8B9] leading-tight tracking-wide uppercase"
@@ -50,7 +52,9 @@ export function StartScreen({ highScore, onStart, onHowTo, muted, onToggleMute }
         </button>
       </div>
 
-      <div className="mt-8 font-arcade text-[8px] sm:text-[9px] text-white/40 tracking-widest blink">
+      <Leaderboard />
+
+      <div className="mt-6 font-arcade text-[8px] sm:text-[9px] text-white/40 tracking-widest blink">
         INSERT COURAGE TO CONTINUE
       </div>
     </div>
