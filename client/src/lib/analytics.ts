@@ -6,9 +6,34 @@ declare global {
   }
 }
 
+// Personalization parameters that must not be forwarded to third-party analytics
+const PRIVATE_PARAMS = ['company', 'focus', 'vertical'];
+
+// Returns a sanitized full URL with personalization query parameters removed
+const sanitizeUrl = (url: string): string => {
+  try {
+    const parsed = new URL(url, window.location.origin);
+    PRIVATE_PARAMS.forEach((param) => parsed.searchParams.delete(param));
+    return parsed.toString();
+  } catch {
+    return url;
+  }
+};
+
+// Returns just the path+search+hash with personalization parameters removed
+const sanitizePath = (url: string): string => {
+  try {
+    const parsed = new URL(url, window.location.origin);
+    PRIVATE_PARAMS.forEach((param) => parsed.searchParams.delete(param));
+    return parsed.pathname + parsed.search + parsed.hash;
+  } catch {
+    return url;
+  }
+};
+
 // Initialize Google Analytics
 export const initGA = () => {
-  const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-VQSYD4QSG7';
+  const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
 
   if (!measurementId) {
     console.warn('Missing required Google Analytics key: VITE_GA_MEASUREMENT_ID');
@@ -21,7 +46,11 @@ export const initGA = () => {
   script1.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
   document.head.appendChild(script1);
 
-  // Initialize gtag
+  const sanitizedLocation = sanitizeUrl(window.location.href);
+  const sanitizedPath = sanitizePath(window.location.href);
+
+  // Initialize gtag — disable automatic page view so we can send a sanitized one
+  // that strips personalization query parameters from page_location and page_path
   const script2 = document.createElement('script');
   script2.textContent = `
     window.dataLayer = window.dataLayer || [];
@@ -29,7 +58,11 @@ export const initGA = () => {
     gtag('js', new Date());
     gtag('config', '${measurementId}', {
       cookie_flags: 'SameSite=None;Secure',
-      send_page_view: true
+      send_page_view: false
+    });
+    gtag('event', 'page_view', {
+      page_location: ${JSON.stringify(sanitizedLocation)},
+      page_path: ${JSON.stringify(sanitizedPath)}
     });
   `;
   document.head.appendChild(script2);
@@ -38,24 +71,28 @@ export const initGA = () => {
 // Track page views - useful for single-page applications
 export const trackPageView = (url: string) => {
   if (typeof window === 'undefined' || !window.gtag) return;
-  
-  const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-VQSYD4QSG7';
+
+  const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
   if (!measurementId) return;
-  
-  window.gtag('config', measurementId, {
-    page_path: url
+
+  const sanitizedLocation = sanitizeUrl(url);
+  const sanitizedPath = sanitizePath(url);
+
+  window.gtag('event', 'page_view', {
+    page_location: sanitizedLocation,
+    page_path: sanitizedPath
   });
 };
 
 // Track events
 export const trackEvent = (
-  action: string, 
-  category?: string, 
-  label?: string, 
+  action: string,
+  category?: string,
+  label?: string,
   value?: number
 ) => {
   if (typeof window === 'undefined' || !window.gtag) return;
-  
+
   window.gtag('event', action, {
     event_category: category,
     event_label: label,
@@ -82,7 +119,7 @@ export const trackUserEngagement = (action: 'session_start' | 'session_end' | 'i
 export const trackDeviceInfo = () => {
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   trackEvent('device_type', 'technical', isMobile ? 'mobile' : 'desktop');
-  
+
   // Track screen size for responsive design insights
   trackEvent('screen_size', 'technical', `${window.screen.width}x${window.screen.height}`);
 };

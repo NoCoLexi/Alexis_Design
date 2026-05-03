@@ -26,9 +26,7 @@ function Router() {
 function App() {
   // Initialize Google Analytics when app loads
   useEffect(() => {
-    // Initialize with your GA4 Measurement ID
     initGA();
-    console.log('Google Analytics initialized with ID: G-VQSYD4QSG7');
   }, []);
 
   return (
