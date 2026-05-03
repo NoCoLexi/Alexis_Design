@@ -135,26 +135,29 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
           >I build products that get used, not just shipped.</p>
 
-          {/* Primary CTA — Play the Game */}
+          {/* Primary CTA — Play Stakeholders' Invaders (arcade style) */}
           <div className="mt-3 md:mt-8">
             <a
               href="/stakeholder-invaders/"
-              className="px-7 rounded-xl font-inter-bold transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center gap-3 border-2 border-white/85"
+              className="group relative inline-flex items-center justify-center gap-3 transition-all duration-300 transform hover:scale-105"
               data-testid="button-play-game-hero"
               style={{
-                fontFamily: 'Inter, sans-serif',
-                fontWeight: 800,
-                fontSize: '1.05rem',
-                height: '56px',
-                background: 'linear-gradient(135deg, #6D5592, #0081BC)',
-                color: '#ffffff',
-                boxShadow: '0 6px 20px rgba(109,85,146,0.5)',
-                letterSpacing: '0.01em'
+                fontFamily: "'Press Start 2P', monospace",
+                fontWeight: 400,
+                fontSize: '0.85rem',
+                lineHeight: 1,
+                letterSpacing: '0.06em',
+                padding: '18px 26px',
+                background: '#0B0A0E',
+                color: '#F3E8B9',
+                border: '2px solid #5fc5f8',
+                borderRadius: '4px',
+                textShadow: '0 0 8px rgba(243,232,185,0.55)',
+                boxShadow: '0 0 0 2px #0B0A0E, 0 0 18px rgba(95,197,248,0.45), inset 0 0 14px rgba(95,197,248,0.12)'
               }}
             >
-              <Gamepad2 className="h-5 w-5 flex-shrink-0" />
-              <span>Play the Game</span>
-              <ArrowRight className="h-4 w-4 flex-shrink-0" />
+              <Gamepad2 className="h-5 w-5 flex-shrink-0" style={{ color: '#5fc5f8' }} />
+              <span>▸ PLAY STAKEHOLDERS' INVADERS</span>
             </a>
           </div>
 
@@ -239,24 +242,30 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         </p>
 
 
-        {/* CTA — Play the Game */}
+        {/* CTA — Play Stakeholders' Invaders (arcade style) */}
         <div className="w-full max-w-sm mx-auto">
           <a
             href="/stakeholder-invaders/"
-            className="w-full px-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2 border-white/85 text-sm"
+            className="w-full transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
             data-testid="button-play-game-hero-mobile"
             style={{
-              fontFamily: 'Inter, sans-serif',
-              fontWeight: 800,
-              height: '56px',
-              background: 'linear-gradient(135deg, #6D5592, #0081BC)',
-              color: '#ffffff',
-              boxShadow: '0 6px 20px rgba(109,85,146,0.5)'
+              fontFamily: "'Press Start 2P', monospace",
+              fontWeight: 400,
+              fontSize: '0.7rem',
+              lineHeight: 1.2,
+              letterSpacing: '0.05em',
+              padding: '16px 14px',
+              background: '#0B0A0E',
+              color: '#F3E8B9',
+              border: '2px solid #5fc5f8',
+              borderRadius: '4px',
+              textShadow: '0 0 8px rgba(243,232,185,0.55)',
+              boxShadow: '0 0 0 2px #0B0A0E, 0 0 16px rgba(95,197,248,0.45), inset 0 0 12px rgba(95,197,248,0.12)',
+              textAlign: 'center'
             }}
           >
-            <Gamepad2 className="h-5 w-5 flex-shrink-0" />
-            <span>Play the Game</span>
-            <ArrowRight className="h-4 w-4 flex-shrink-0" />
+            <Gamepad2 className="h-4 w-4 flex-shrink-0" style={{ color: '#5fc5f8' }} />
+            <span>▸ PLAY STAKEHOLDERS' INVADERS</span>
           </a>
         </div>
 
