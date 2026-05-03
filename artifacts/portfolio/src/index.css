@@ -751,6 +751,21 @@ nav button {
   transition: all 0.3s ease;
 }
 
+/* Unified purple glow on all four nav pills (desktop + mobile) */
+[data-testid="button-about-site"]:hover,
+[data-testid="button-about-site-mobile"]:hover,
+[data-testid="button-my-expertise"]:hover,
+[data-testid="button-my-expertise-mobile"]:hover,
+[data-testid="link-services"]:hover,
+[data-testid="link-services-mobile"]:hover,
+[data-testid="button-check-out-work"]:hover,
+[data-testid="button-check-out-work-mobile"]:hover {
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.6),
+              0 0 40px rgba(168, 85, 247, 0.4),
+              0 0 60px rgba(168, 85, 247, 0.2) !important;
+  filter: brightness(1.2) !important;
+}
+
 /* Ensure proper spacing for fixed header */
 body {
   padding-top: 0;
