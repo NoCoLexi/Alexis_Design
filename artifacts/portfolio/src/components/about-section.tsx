@@ -76,7 +76,6 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
   return (
     <section id="about" className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-secondary/50 to-accent/50"></div>
-
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">
           <span className="gradient-text">My Expertise</span>
@@ -97,13 +96,11 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             <div className="glass rounded-xl p-6 hover:glow-purple transition-all duration-300">
               <h3 className="text-xl font-semibold mb-4" style={{ color: '#F3E8B9' }}>Adoption & Change Management</h3>
-              <p className="text-gray-300 leading-relaxed">
-                I lead AI enablement and adoption strategies that drive organizational transformation — turning new tools and ways of working into lasting habits. Prosci-certified in change management.
-              </p>
+              <p className="text-gray-300 leading-relaxed">I lead AI enablement strategies for organizational adoption and transformation. Holding a Prosci Change Management Certification.</p>
             </div>
 
             <div className="glass rounded-xl p-6 hover:glow-purple transition-all duration-300">
-              <h3 className="text-xl font-semibold mb-4" style={{ color: '#F3E8B9' }}>Product Design</h3>
+              <h3 className="text-xl font-semibold mb-4" style={{ color: '#F3E8B9' }}>AX-UX Product Design</h3>
               <p className="text-gray-300 leading-relaxed">
                 I create intuitive, data-driven products that solve real user problems. Holding a Washington University BFA in Visual Communications, along with a UNH UI/UX design certification.
               </p>
