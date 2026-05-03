@@ -10,7 +10,7 @@ import NavMusicPlayer from "@/components/nav-music-player";
 import AdminPanel from "@/components/admin-panel";
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { Menu, X, Award, Code, ExternalLink, Home as HomeIcon, Settings, Mic } from "lucide-react";
+import { Menu, X, Award, Code, ExternalLink, Home as HomeIcon, Settings, Mic, Gamepad2 } from "lucide-react";
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -107,6 +107,15 @@ export default function Home() {
               >
                 Speaking Engagements
               </Link>
+              <a
+                href="/stakeholder-invaders/"
+                className="inline-flex items-center gap-2 transition-colors font-medium px-3 py-2 rounded-md text-white hover:text-purple-400 hover:bg-white/5"
+                style={{fontSize: '14px', fontWeight: '500'}}
+                data-testid="link-play-game"
+              >
+                <Gamepad2 className="w-4 h-4" />
+                Play the game
+              </a>
               <div className="ml-4 flex items-center gap-3">
                 <div 
                   className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600/60 to-purple-500/70 rounded-full px-4 py-2 hover:from-purple-500/70 hover:to-purple-400/80 transition-all duration-300 cursor-pointer border border-purple-400/30 transform hover:scale-105 hover:brightness-110"
@@ -154,6 +163,15 @@ export default function Home() {
               >
                 Speaking Engagements
               </Link>
+              <a
+                href="/stakeholder-invaders/"
+                className="flex items-center gap-2 w-full py-3 px-4 text-white hover:text-purple-400 hover:bg-white/5 transition-colors rounded-md font-medium"
+                onClick={() => setIsMobileMenuOpen(false)}
+                data-testid="link-play-game-mobile"
+              >
+                <Gamepad2 className="w-4 h-4" />
+                Play the game
+              </a>
               <div className="pt-2 border-t border-purple-400/20 space-y-2">
                 <div 
                   className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600/60 to-purple-500/70 rounded-full px-4 py-2 hover:from-purple-500/70 hover:to-purple-400/80 transition-all duration-300 cursor-pointer w-full justify-center transform hover:scale-105 hover:brightness-110"
@@ -197,7 +215,17 @@ export default function Home() {
       {/* Footer */}
       <footer className="py-12 border-t border-primary/20">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center">
+          <div className="flex flex-col items-center gap-6">
+            <a
+              href="/stakeholder-invaders/"
+              className="group inline-flex items-center gap-3 rounded-full border border-purple-400/30 bg-gradient-to-r from-purple-600/40 to-purple-500/50 px-5 py-3 hover:from-purple-500/60 hover:to-purple-400/70 transition-all duration-300 transform hover:scale-105 hover:brightness-110"
+              data-testid="link-play-game-footer"
+            >
+              <Gamepad2 className="w-5 h-5" style={{ color: '#F3E8B9' }} />
+              <span className="text-sm font-medium tracking-wide" style={{ color: '#F3E8B9' }}>
+                Insert Coin · Play Stakeholder Invaders
+              </span>
+            </a>
             <div className="text-muted-foreground">
               © {new Date().getFullYear()} Alexis Design
             </div>
