@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Award, Play, ArrowRight } from "lucide-react";
 import AdminPanel from "./admin-panel";
+import FloatingBackground from "./floating-background";
 
 import { useAdminPanel } from "@/hooks/use-admin-panel";
 import headshot from "@assets/headshot_bw_1774321770406.png";
@@ -94,6 +95,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
       <div className="absolute inset-0 opacity-20">
         <div className="w-full h-full bg-gradient-to-br from-primary/20 via-transparent to-chart-1/20"></div>
       </div>
+      <FloatingBackground />
       {/* Desktop Layout — two-column: photo left, content right */}
       <div className="hidden md:grid grid-cols-[38%_1fr] items-stretch w-full relative z-10" style={{ minHeight: '100vh' }}>
 
