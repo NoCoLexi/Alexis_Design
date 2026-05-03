@@ -96,6 +96,13 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
           {/* Expertise Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             <div className="glass rounded-xl p-6 hover:glow-purple transition-all duration-300">
+              <h3 className="text-xl font-semibold mb-4" style={{ color: '#F3E8B9' }}>Adoption & Change Management</h3>
+              <p className="text-gray-300 leading-relaxed">
+                I lead AI enablement and adoption strategies that drive organizational transformation — turning new tools and ways of working into lasting habits. Prosci-certified in change management.
+              </p>
+            </div>
+
+            <div className="glass rounded-xl p-6 hover:glow-purple transition-all duration-300">
               <h3 className="text-xl font-semibold mb-4" style={{ color: '#F3E8B9' }}>Product Design</h3>
               <p className="text-gray-300 leading-relaxed">
                 I create intuitive, data-driven products that solve real user problems. Holding a Washington University BFA in Visual Communications, along with a UNH UI/UX design certification.
@@ -106,13 +113,6 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
               <h3 className="text-xl font-semibold mb-4" style={{ color: '#F3E8B9' }}>AI Product Strategy</h3>
               <p className="text-gray-300 leading-relaxed">
                 If the user can't use it, then the product is unusable! I leverage AI tools and agents to automate my work and create my own team. Holding an AI product management certificate from Pendo.
-              </p>
-            </div>
-
-            <div className="glass rounded-xl p-6 hover:glow-purple transition-all duration-300">
-              <h3 className="text-xl font-semibold mb-4" style={{ color: '#F3E8B9' }}>Adoption & Change Management</h3>
-              <p className="text-gray-300 leading-relaxed">
-                Adoption strategies for organizational transformation so that our product launches successfully each time. Holding a change management certification from Prosci.
               </p>
             </div>
 
