@@ -9,6 +9,9 @@ interface Particle {
   angle: number;
   opacity: number;
   parallax: number;
+  curl: number;
+  spin: number;
+  phase: number;
 }
 
 export default function FloatingBackground() {
@@ -44,10 +47,13 @@ export default function FloatingBackground() {
         y: Math.random() * h,
         vx: (Math.random() - 0.5) * 0.12,
         vy: (Math.random() - 0.5) * 0.12,
-        length: 80 + Math.random() * 200,
+        length: 90 + Math.random() * 180,
         angle: Math.random() * Math.PI * 2,
         opacity: 0.1 + Math.random() * 0.22,
         parallax: 0.4 + Math.random() * 1.6,
+        curl: 1.5 + Math.random() * 3,
+        spin: (Math.random() < 0.5 ? -1 : 1) * (0.6 + Math.random() * 1.2),
+        phase: Math.random() * Math.PI * 2,
       }));
     };
 
@@ -71,30 +77,44 @@ export default function FloatingBackground() {
         p.x += p.vx;
         p.y += p.vy;
         p.angle += 0.0012;
+        p.phase += 0.003 * p.spin;
 
-        if (p.x < -120) p.x = w + 120;
-        if (p.x > w + 120) p.x = -120;
-        if (p.y < -120) p.y = h + 120;
-        if (p.y > h + 120) p.y = -120;
+        if (p.x < -200) p.x = w + 200;
+        if (p.x > w + 200) p.x = -200;
+        if (p.y < -200) p.y = h + 200;
+        if (p.y > h + 200) p.y = -200;
 
         const offsetX = mouseRef.current.x * 30 * p.parallax;
         const offsetY = mouseRef.current.y * 30 * p.parallax;
         const px = p.x + offsetX;
         const py = p.y + offsetY;
-        const dx = (Math.cos(p.angle) * p.length) / 2;
-        const dy = (Math.sin(p.angle) * p.length) / 2;
 
-        const grad = ctx.createLinearGradient(px - dx, py - dy, px + dx, py + dy);
-        grad.addColorStop(0, `rgba(95, 197, 248, 0)`);
-        grad.addColorStop(0.5, `rgba(95, 197, 248, ${p.opacity})`);
-        grad.addColorStop(1, `rgba(95, 197, 248, 0)`);
+        const steps = 48;
+        const maxRadius = p.length / 2;
 
-        ctx.strokeStyle = grad;
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(px - dx, py - dy);
-        ctx.lineTo(px + dx, py + dy);
-        ctx.stroke();
+        ctx.lineWidth = 1.2;
+        ctx.lineCap = "round";
+
+        let prevX = 0;
+        let prevY = 0;
+        for (let i = 0; i <= steps; i++) {
+          const t = i / steps;
+          const angle = p.phase + t * p.curl * Math.PI * 2 * p.spin;
+          const radius = maxRadius * t;
+          const x = px + Math.cos(angle) * radius;
+          const y = py + Math.sin(angle) * radius;
+
+          if (i > 0) {
+            const fade = Math.sin(t * Math.PI);
+            ctx.strokeStyle = `rgba(95, 197, 248, ${p.opacity * fade})`;
+            ctx.beginPath();
+            ctx.moveTo(prevX, prevY);
+            ctx.lineTo(x, y);
+            ctx.stroke();
+          }
+          prevX = x;
+          prevY = y;
+        }
       }
 
       animationRef.current = requestAnimationFrame(draw);
