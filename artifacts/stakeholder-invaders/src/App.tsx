@@ -111,6 +111,16 @@ function App() {
     <div className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-center p-2 sm:p-6"
       style={{ background: "radial-gradient(ellipse at top, #0B0A0E 0%, #08080A 70%)" }}>
 
+      <a
+        href="/"
+        className="fixed top-3 left-3 sm:top-4 sm:left-4 z-50 inline-flex items-center gap-2 px-3 py-2 rounded-md border border-cyan-300/30 bg-black/60 backdrop-blur text-cyan-200 hover:text-white hover:border-cyan-200/70 hover:bg-cyan-400/10 transition-colors text-xs sm:text-sm font-sans"
+        data-testid="link-back-to-portfolio"
+        aria-label="Back to portfolio"
+      >
+        <span aria-hidden="true">←</span>
+        <span>Back to portfolio</span>
+      </a>
+
       <div className="relative w-full max-w-[960px] aspect-[4/3] rounded-md overflow-hidden border border-white/10 shadow-2xl crt"
         style={{ boxShadow: "0 0 60px rgba(95,197,248,0.08), inset 0 0 80px rgba(0,0,0,0.6)" }}>
 
