@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/stakeholder-invaders/"
+title = "Stakeholder Invaders"
+version = "1.0.0"
+id = "artifacts/stakeholder-invaders"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/stakeholder-invaders/" ]
+localPort = 18974
+
+[services.development]
+run = "pnpm --filter @workspace/stakeholder-invaders run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/stakeholder-invaders", "run", "build" ]
+publicDir = "artifacts/stakeholder-invaders/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18974"
+BASE_PATH = "/stakeholder-invaders/"
