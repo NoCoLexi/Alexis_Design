@@ -44,9 +44,9 @@ export default function FloatingBackground() {
         y: Math.random() * h,
         vx: (Math.random() - 0.5) * 0.12,
         vy: (Math.random() - 0.5) * 0.12,
-        length: 28 + Math.random() * 80,
+        length: 80 + Math.random() * 200,
         angle: Math.random() * Math.PI * 2,
-        opacity: 0.08 + Math.random() * 0.18,
+        opacity: 0.1 + Math.random() * 0.22,
         parallax: 0.4 + Math.random() * 1.6,
       }));
     };
