@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Award, ArrowDown } from "lucide-react";
+import { Award, ArrowDown, Play, Pause } from "lucide-react";
 import professionalPhoto from "@assets/Brochu, Alexis 2023 Ireland_1754523029765.png";
 import profileVideo from "@assets/20181006_190845_1754603621565.mp4";
 import { useState, useRef, useEffect } from "react";
@@ -22,6 +22,29 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
   const [startY, setStartY] = useState(0);
   const [scrollTop, setScrollTop] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
+
+  const toggleVideoPlayback = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused || video.ended) {
+      if (video.ended) {
+        video.currentTime = 0;
+      }
+      void video.play();
+    } else {
+      video.pause();
+    }
+  };
+
+  const handleVideoEnded = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.pause();
+    video.currentTime = 0;
+    setIsVideoPlaying(false);
+  };
 
   const handleMouseDown = (e: React.MouseEvent) => {
     if (!scrollContainerRef.current) return;
@@ -991,21 +1014,32 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                 <div className="text-center">
                   <h3 className="font-semibold mb-6 text-xl" style={{ color: '#F3E8B9' }}>I'm also a certified personal trainer</h3>
                   <div className="flex justify-center">
-                    <div className="aspect-video max-w-sm rounded-xl overflow-hidden animate-float glass">
+                    <div className="relative aspect-video max-w-sm rounded-xl overflow-hidden animate-float glass">
                       <video
+                        ref={videoRef}
                         src={profileVideo}
                         autoPlay
                         muted
                         playsInline
-                        controls
-                        onEnded={(e) => {
-                          const v = e.currentTarget;
-                          v.pause();
-                          v.currentTime = 0;
-                        }}
+                        onPlay={() => setIsVideoPlaying(true)}
+                        onPause={() => setIsVideoPlaying(false)}
+                        onEnded={handleVideoEnded}
                         className="w-full h-full object-cover"
                         data-testid="video-profile"
                       />
+                      <button
+                        type="button"
+                        onClick={toggleVideoPlayback}
+                        aria-label={isVideoPlaying ? 'Pause video' : 'Play video'}
+                        data-testid="button-video-toggle"
+                        className="absolute bottom-3 right-3 flex items-center justify-center w-10 h-10 rounded-full glass text-white/90 hover:text-white hover:scale-105 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black/30"
+                      >
+                        {isVideoPlaying ? (
+                          <Pause className="w-4 h-4" fill="currentColor" />
+                        ) : (
+                          <Play className="w-4 h-4 ml-0.5" fill="currentColor" />
+                        )}
+                      </button>
                     </div>
                   </div>
                 </div>
