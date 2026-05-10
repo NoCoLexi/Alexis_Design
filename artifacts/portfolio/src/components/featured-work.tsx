@@ -21,7 +21,7 @@ import coeSite1Image from "@assets/COE site-1_1756170324613.png";
 import coeSite2Image from "@assets/COE site 2_1756170324613.png";
 import eagWhiteBgImage from "@assets/Cal OES IT apps_1754843508712.png";
 import eagCoverImage from "@assets/Cal OES IT apps_1755789738496.png";
-import iLaveImage from "@assets/!-Lave group Alt_1754580875717.png";
+import iLaveImage from "@assets/!-Lave_frames_1_1778442960084.png";
 import weChoreImage from "@assets/WeChore Diagonal_1754581130624.png";
 import subscriptexImage from "@assets/Subscriptex Layers_1754581352868.png";
 import fairGroundsCoffeeImage from "@assets/FairGrounds drinks_1754847440176.jpg";
