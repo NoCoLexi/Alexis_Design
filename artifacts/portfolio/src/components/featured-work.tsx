@@ -773,11 +773,18 @@ export default function FeaturedWork() {
       return [...filtered].sort((a, b) => rank(a.id) - rank(b.id));
     }
 
-    return [...filtered].sort((a, b) => {
-      if (a.id === 'ca-innovation-award') return -1;
-      if (b.id === 'ca-innovation-award') return 1;
-      return 0;
-    });
+    const pinnedPositions: Record<string, number> = {
+      'ca-innovation-award': 0,
+      'lifespan-health-care': 6,
+    };
+    const unpinned = filtered.filter(p => !(p.id in pinnedPositions));
+    const result = [...unpinned];
+    const sortedPins = Object.entries(pinnedPositions).sort(([, a], [, b]) => a - b);
+    for (const [id, pos] of sortedPins) {
+      const project = filtered.find(p => p.id === id);
+      if (project) result.splice(Math.min(pos, result.length), 0, project);
+    }
+    return result;
   }, [filters.vertical]);
 
   const openCaseStudy = useCallback((projectId: string) => {
