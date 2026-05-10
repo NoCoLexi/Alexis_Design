@@ -112,9 +112,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
           <div className="text-center max-w-[61.6rem] mx-auto">
             <p className="text-xl md:text-2xl leading-relaxed text-muted-foreground">
               <strong className="text-foreground">Most products fail post-launch because they weren't designed for humans to use them.</strong> <br />
-              The code is good. The design looks clean. But users don't understand what to do. <br />Teams can't agree on what matters. Stakeholders don't trust it. Change gets resisted. <br />The whole system pulls in different directions.
-              <br /><br />
-              <strong className="text-foreground">I fix that.</strong>
+              The code is good. The design looks clean. But users don't understand what to do. <br />Teams can't agree on what matters. Stakeholders don't trust it. Change gets resisted. <br />The whole system pulls in different directions. <strong className="text-foreground">I fix that.</strong>
             </p>
           </div>
 
