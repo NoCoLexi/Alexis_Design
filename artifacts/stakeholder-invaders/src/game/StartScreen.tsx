@@ -18,7 +18,7 @@ export function StartScreen({ highScore, onStart, onHowTo, muted, onToggleMute }
         STAKEHOLDER<br />INVADERS
       </h1>
       <p className="mt-4 max-w-md text-xs sm:text-sm text-white/70 font-sans leading-relaxed">
-        Skeptics descend. You are the change agent. Your tactics don't destroy them —
+        Skeptics descend. You are the change agent. Your tactics don't destroy them
         they <span className="text-[#F3E8B9]">convert them into advocates</span>.
       </p>
 

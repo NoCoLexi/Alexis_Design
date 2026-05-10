@@ -194,7 +194,7 @@ function App() {
       </div>
 
       <p className="mt-4 text-xs text-white/40 font-sans text-center px-2">
-        Built by Alexis Brochu —{" "}
+        Built by Alexis Brochu {" "}
         <a
           href="https://alexisbrochu.com"
           className="text-cyan-300/80 hover:text-cyan-300 underline-offset-2 hover:underline"

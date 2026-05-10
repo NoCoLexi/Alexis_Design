@@ -17,7 +17,7 @@ export function WinScreen({ score, advocates, highScore, onRestart, onMenu }: Pr
         COALITION BUILT
       </h2>
       <p className="mt-3 max-w-md text-xs sm:text-sm text-white/75 font-sans leading-relaxed">
-        Every skeptic converted. The org tipped. You shipped the change —
+        Every skeptic converted. The org tipped. You shipped the change
         and the change <span className="text-[#F3E8B9]">stuck</span>.
       </p>
 
