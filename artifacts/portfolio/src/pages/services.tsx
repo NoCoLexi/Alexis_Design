@@ -118,7 +118,6 @@ export default function Services() {
           </div>
         </div>
       </nav>
-
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-6 relative">
         <div className="absolute inset-0 gradient-bg-secondary opacity-30"></div>
@@ -143,7 +142,6 @@ export default function Services() {
           </a>
         </div>
       </section>
-
       {/* Speaking Topics Grid */}
       <section className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
@@ -220,7 +218,6 @@ export default function Services() {
           </div>
         </div>
       </section>
-
       {/* Where I've Spoken */}
       <section className="py-16 px-6 border-t border-white/10">
         <div className="max-w-6xl mx-auto">
@@ -228,7 +225,7 @@ export default function Services() {
             <div className="inline-flex items-center gap-3 mb-2">
               <Mic2 className="w-6 h-6 text-purple-400" />
               <h2 className="text-4xl md:text-5xl font-bold" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                <span className="gradient-text">Where I've Spoken</span>
+                <span className="gradient-text">Speaking Engagements</span>
               </h2>
             </div>
           </div>
@@ -262,7 +259,6 @@ export default function Services() {
           </div>
         </div>
       </section>
-
       {/* Contact CTA Section */}
       <section id="services-contact" className="py-20 px-6 relative">
         <div className="absolute inset-0 bg-gradient-to-t from-purple-900/20 to-transparent"></div>
@@ -325,7 +321,6 @@ export default function Services() {
           </div>
         </div>
       </section>
-
       {/* Footer */}
       <footer className="py-8 px-6 border-t border-border">
         <div className="max-w-4xl mx-auto text-center text-muted-foreground text-sm">
