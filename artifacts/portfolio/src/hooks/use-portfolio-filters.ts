@@ -6,7 +6,7 @@ export const verticalLabels: Record<VerticalFilter, string> = {
   'government': 'Government',
   'healthcare': 'Marketing & PR',
   'food-beverage': 'Food/Bev',
-  'finance': 'Finance',
+  'finance': 'Productivity',
   'education': 'Education',
   'all': 'All Projects'
 };
