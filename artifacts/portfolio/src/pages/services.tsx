@@ -234,18 +234,19 @@ export default function Services() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { org: 'AIxUX Summit', year: '2025', topic: 'AI & Product Design', upcoming: false },
-              { org: 'Enterprise FinTech', year: '2026', topic: 'AI Strategy (NDA)', upcoming: true },
-              { org: 'American Red Cross', year: '2026', topic: 'NotebookLM', upcoming: true },
-              { org: 'PMI', year: '2026', topic: 'TBA', upcoming: true },
+              { org: 'AIxUX Summit', year: '2025', topic: 'AI & Product Design', upcoming: false, tag: null },
+              { org: 'AIxUX Summit 2026', year: '2026', topic: 'Agentic workflow', upcoming: true, tag: 'upcoming' },
+              { org: 'Enterprise FinTech', year: '2026', topic: 'AI Strategy (NDA)', upcoming: false, tag: null },
+              { org: 'American Red Cross', year: '2026', topic: 'NotebookLM', upcoming: false, tag: null },
+              { org: 'PMI', year: '2026', topic: 'TBA', upcoming: true, tag: 'upcoming' },
             ].map((item, i) => (
               <div
                 key={i}
                 className="relative rounded-2xl border border-purple-500/20 bg-gradient-to-b from-purple-900/20 to-transparent backdrop-blur-sm p-6 flex flex-col gap-2"
               >
-                {item.upcoming && (
+                {item.tag && (
                   <span className="absolute top-4 right-4 text-xs font-semibold px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30">
-                    Upcoming
+                    {item.tag}
                   </span>
                 )}
                 <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-600/30 to-blue-600/30 flex items-center justify-center">
