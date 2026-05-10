@@ -125,6 +125,7 @@ import trxHandstandImage from "@assets/Alexis_TRX_handstand_1770666909059.png";
 import trxRipImage from "@assets/Alexis_6_1770667005999.jpg";
 import mountainViewImage from "@assets/20181006_093528_1770666865642.jpg";
 import mallinckrodtMedicalLogo from "@assets/Mallinckrodt_Medical_transparent_1770668716629.png";
+import handshakrHeroImage from "@assets/handshakr_hero_1778000000000.png";
 
 interface CaseStudy {
   id: string;
@@ -146,9 +147,44 @@ interface CaseStudy {
   award?: string;
   awards?: string[];
   processImages?: { src: string; caption: string }[];
+  liveUrl?: string;
 }
 
 const caseStudies: Record<string, CaseStudy> = {
+  handshakr: {
+    id: 'handshakr',
+    title: 'HandShakr',
+    subtitle: 'AI-powered networking follow-up — built solo in 10 hours at a Replit build-a-thon',
+    description: 'HandShakr solves the problem of meeting lots of people at a networking event and forgetting what you talked about and when you said you would reach out. It captures each new contact, analyzes the conversation, syncs the person into a Notion database, and auto-blocks time on your calendar with a reminder of who they are and why you connected.',
+    role: 'Solo Builder & Designer',
+    duration: '10 hours',
+    team: '1 — me + Replit Agent 4',
+    challenge: 'Networking events generate dozens of meaningful conversations in a single night, but follow-ups slip through the cracks. Names blur together, business cards get lost, and the calendar reminder you swore you would set never happens — so warm intros go cold.',
+    solution: 'Designed and shipped HandShakr end-to-end during a Replit build-a-thon: a lightweight AI agent that captures contact details, summarizes what you talked about, writes the person into a Notion CRM, and drops a calendar block on your schedule pre-filled with context for the follow-up. Branding and visual system were built in Figma; the entire app was built solely with Replit Agent 4.',
+    outcome: 'Working prototype shipped at the build-a-thon in 10 hours, demonstrating that a single PM with a single AI agent can take an idea from problem statement to a functional networking tool with real integrations (Notion + Calendar) inside one evening.',
+    metrics: [
+      { label: '10 hrs', value: 'Solo Build', description: 'Concept to working app at the Replit build-a-thon' },
+      { label: '1', value: 'AI Agent', description: 'Built solely with Replit Agent 4' },
+      { label: '2', value: 'Live Integrations', description: 'Notion database + calendar follow-up blocks' }
+    ],
+    process: [
+      'Framed the problem: dropped follow-ups after networking events',
+      'Sketched the user flow — capture → analyze → sync → remind',
+      'Designed brand and UI in Figma (logo, color, type)',
+      'Built the full app with Replit Agent 4 (no other tooling)',
+      'Wired up Notion as the contact database',
+      'Wired up calendar to auto-block follow-up time with context',
+      'Demoed the working prototype at the build-a-thon'
+    ],
+    learnings: [
+      'A single PM + a strong AI agent can ship a real, integrated tool in a single sitting',
+      'Tight scope ("never forget a follow-up") beats a broad CRM rebuild every time',
+      'Designing the brand in Figma first kept the AI-built UI on-aesthetic',
+      'Calendar reminders + Notion context turn passive contact lists into active follow-ups'
+    ],
+    image: handshakrHeroImage,
+    liveUrl: 'https://d229c4b2-c97f-4b8e-8222-3dca09043c01-00-33rcao8ngry12.janeway.replit.dev/cockpit/'
+  },
   'ca-innovation-award': {
     id: 'ca-innovation-award',
     title: 'California Government Technology Innovation Award',
@@ -1056,14 +1092,30 @@ export default function CaseStudyModal() {
     <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-6">
       <div className="bg-background rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
         {/* Header */}
-        <div className="sticky top-0 bg-background border-b border-border p-6 flex justify-between items-center">
-          <div>
+        <div className="sticky top-0 bg-background border-b border-border p-6 flex justify-between items-center gap-4">
+          <div className="min-w-0">
             <h3 className="text-2xl font-bold text-primary">{caseStudy.title}</h3>
             <p className="text-muted-foreground">{caseStudy.subtitle}</p>
           </div>
-          <Button variant="ghost" size="icon" onClick={closeCaseStudy}>
-            <X className="w-6 h-6" />
-          </Button>
+          <div className="flex items-center gap-2 shrink-0">
+            {caseStudy.liveUrl && (
+              <Button
+                asChild
+                variant="outline"
+                size="sm"
+                className="gap-2"
+                onClick={() => trackEvent('case_study_live_link_clicked', 'portfolio', caseStudy.id)}
+              >
+                <a href={caseStudy.liveUrl} target="_blank" rel="noopener noreferrer">
+                  View live app
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+              </Button>
+            )}
+            <Button variant="ghost" size="icon" onClick={closeCaseStudy}>
+              <X className="w-6 h-6" />
+            </Button>
+          </div>
         </div>
 
         {/* Content */}

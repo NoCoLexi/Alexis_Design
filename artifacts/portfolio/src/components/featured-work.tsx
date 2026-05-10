@@ -111,6 +111,7 @@ import magazineArticleImage from "@assets/20181006_071644_1770666824971.jpg";
 import trxPortraitImage from "@assets/Alexis_TRX_1_1770666878409.jpg";
 import trxHandstandImage from "@assets/Alexis_TRX_handstand_1770666909059.png";
 import trxRipImage from "@assets/Alexis_6_1770667005999.jpg";
+import handshakrHeroImage from "@assets/handshakr_hero_1778000000000.png";
 
 
 // Preload critical images immediately when component loads
@@ -145,6 +146,21 @@ interface Project {
 }
 
 const projects: Project[] = [
+  {
+    id: 'handshakr',
+    title: 'HandShakr',
+    description: 'An AI-powered networking companion that captures the people you meet, analyzes your conversation, syncs the contact to a Notion database, and auto-blocks calendar time to remind you to follow up — so a great handshake never goes cold.',
+    category: 'product-design',
+    roles: ['product-design', 'product-management'],
+    verticals: [],
+    image: handshakrHeroImage,
+    metrics: [
+      { label: '10 Hours', value: 'Solo Build', color: 'text-chart-1' },
+      { label: '1 Agent', value: 'Replit Agent 4', color: 'text-primary' }
+    ],
+    tags: ['AI Agent', 'Networking', 'Replit Agent 4', 'Build-a-thon'],
+    canonicalTags: []
+  },
   {
     id: 'gatorade-zipatoni',
     title: 'Gatorade',
@@ -714,7 +730,7 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
 export default function FeaturedWork() {
   const { filters, setVertical } = usePortfolioFilters();
 
-  const financeProjects = ['ilave', 'subscriptex'];
+  const financeProjects = ['handshakr', 'ilave', 'subscriptex'];
   
   const filteredProjects = useMemo(() => {
     return projects.filter(project => {
