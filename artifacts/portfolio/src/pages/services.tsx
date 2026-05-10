@@ -236,6 +236,7 @@ export default function Services() {
             {[
               { org: 'AIxUX Summit', year: '2025', topic: 'AI & Product Design', upcoming: false, tag: null },
               { org: 'AIxUX Summit 2026', year: '2026', topic: 'Agentic workflow', upcoming: true, tag: 'upcoming' },
+              { org: 'UXSG', year: '2025-2026', topic: 'AI Learn and Share', upcoming: false, tag: null },
               { org: 'Enterprise FinTech', year: '2026', topic: 'AI Strategy (NDA)', upcoming: false, tag: null },
               { org: 'American Red Cross', year: '2026', topic: 'NotebookLM', upcoming: false, tag: null },
               { org: 'PMI', year: '2026', topic: 'TBA', upcoming: true, tag: 'upcoming' },
