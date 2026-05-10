@@ -397,7 +397,7 @@ const projects: Project[] = [
     description: 'Comprehensive strategic planning and brand development for Providence School Department, including magnet program branding, mission-driven materials, and strategic frameworks to support educational excellence and community engagement across the entire school system.',
     category: 'brand-development',
     roles: ['brand-development'],
-    verticals: ['government', 'education'],
+    verticals: ['government', 'healthcare'],
     image: providenceSystemCoverImage,
     slideshow: [
       providenceSystemOldCoverImage,
@@ -504,7 +504,7 @@ const projects: Project[] = [
     description: 'Comprehensive university brand development including capital campaign materials, mission statement design, core values communication, and strategic marketing collateral.',
     category: 'brand-development',
     roles: ['brand-development'],
-    verticals: ['education'],
+    verticals: ['healthcare'],
     image: jwuBrandingImage,
     metrics: [
       { label: 'University Branding', value: '100%', color: 'text-chart-1' },
