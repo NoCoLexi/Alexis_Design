@@ -111,7 +111,7 @@ import magazineArticleImage from "@assets/20181006_071644_1770666824971.jpg";
 import trxPortraitImage from "@assets/Alexis_TRX_1_1770666878409.jpg";
 import trxHandstandImage from "@assets/Alexis_TRX_handstand_1770666909059.png";
 import trxRipImage from "@assets/Alexis_6_1770667005999.jpg";
-import handshakrHeroImage from "@assets/!-Lave_frames_1_1778442741566.png";
+import handshakrHeroImage from "@assets/screenshot-1778439647569.png";
 
 
 // Preload critical images immediately when component loads
