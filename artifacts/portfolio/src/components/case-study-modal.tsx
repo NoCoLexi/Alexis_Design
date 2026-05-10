@@ -166,7 +166,7 @@ const caseStudies: Record<string, CaseStudy> = {
     metrics: [
       { label: '10 hrs', value: 'Solo Build', description: 'Concept to working app at the Replit build-a-thon' },
       { label: '1', value: 'AI Agent', description: 'Built solely with Replit Agent 4' },
-      { label: '2', value: 'Live Integrations', description: 'Notion database + calendar follow-up blocks' }
+      { label: '3', value: 'Live Integrations', description: 'Contact capture, Notion database, and calendar follow-up blocks' }
     ],
     process: [
       'Framed the problem: dropped follow-ups after networking events',
