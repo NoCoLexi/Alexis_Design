@@ -529,21 +529,6 @@ const projects: Project[] = [
     canonicalTags: ['govtech']
   },
   {
-    id: 'abc6-playroom',
-    title: 'ABC6 Playroom',
-    description: 'Interactive educational exhibit designed for Emerald Square Mall in partnership with WLNE-TV. Working with educators, we created age-appropriate experiences that helped parents make pit stops while shopping. Featured in the Providence Journal at launch.',
-    category: 'brand-development',
-    roles: ['brand-development', 'product-design'],
-    verticals: ['education'],
-    image: abc6CoverImage,
-    metrics: [
-      { label: 'Educational Exhibits', value: '10+', color: 'text-chart-1' },
-      { label: 'Age-Targeted Design', value: '100%', color: 'text-primary' }
-    ],
-    tags: ['Educational Design', 'Interactive Exhibits', 'Child Development', 'Alexis Design'],
-    canonicalTags: ['accessibility']
-  },
-  {
     id: 'mallinckrodt-medical',
     title: 'Mallinckrodt Medical',
     description: 'Corporate communications and brand development during the Imcera merger and company split between Chemicals and Medical divisions. Worked directly with scientists on internal and external materials, supporting crisis communications and sales team initiatives.',
