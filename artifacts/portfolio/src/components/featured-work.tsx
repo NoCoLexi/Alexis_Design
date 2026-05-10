@@ -693,7 +693,7 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
           <div className="grid grid-cols-2 gap-4 mb-6">
             {project.metrics.map((metric, metricIndex) => (
               <div key={`${project.id}-metric-${metricIndex}`} className="text-center">
-                <div className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-1">
+                <div className={`text-4xl font-bold mb-1 ${metric.color}`}>
                   {metric.label}
                 </div>
                 <div className="text-sm font-medium text-foreground">

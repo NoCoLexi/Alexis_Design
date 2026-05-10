@@ -1127,7 +1127,7 @@ export default function CaseStudyModal() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {caseStudy.metrics.map((metric, index) => (
                 <div key={index} className="glass rounded-xl p-6 text-center">
-                  <div className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">{metric.label}</div>
+                  <div className="text-4xl font-bold text-purple-400 mb-2">{metric.label}</div>
                   <div className="text-sm font-medium text-muted-foreground">{metric.value}</div>
                   <div className="text-xs text-muted-foreground mt-1">{metric.description}</div>
                 </div>
