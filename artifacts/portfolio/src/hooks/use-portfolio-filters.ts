@@ -10,7 +10,7 @@ export const verticalLabels: Record<VerticalFilter, string> = {
   'all': 'All Projects'
 };
 
-export const availableVerticals: VerticalFilter[] = ['all', 'government', 'finance', 'education', 'healthcare'];
+export const availableVerticals: VerticalFilter[] = ['all', 'finance', 'government', 'education', 'healthcare'];
 
 interface PortfolioFiltersState {
   vertical: VerticalFilter;
