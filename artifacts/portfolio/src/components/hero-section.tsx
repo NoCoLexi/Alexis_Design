@@ -133,7 +133,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           <p
             className="text-xl lg:text-2xl font-inter-medium text-muted-foreground leading-relaxed"
             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
-          >I build products that get adopted, not just shipped.</p>
+          >I design the human layer of product and systems of adoption</p>
 
           {/* Primary CTA — Play Stakeholders' Invaders (arcade style) */}
           <div className="mt-3 md:mt-8">
