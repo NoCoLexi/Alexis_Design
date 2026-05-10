@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Award, ArrowDown, Play, Pause } from "lucide-react";
 import professionalPhoto from "@assets/Brochu, Alexis 2023 Ireland_1754523029765.png";
 import profileVideo from "@assets/20181006_190845_1754603621565.mp4";
+import architectImage from "@assets/Architect_of_the_Human_Layer_1778447747325.png";
 import { useState, useRef, useEffect } from "react";
 
 const skills = [
@@ -117,47 +118,13 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
             </p>
           </div>
 
-          {/* Expertise Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            <div className="glass rounded-xl p-6 hover:glow-purple transition-all duration-300">
-              <h3 className="text-xl font-semibold mb-4" style={{ color: '#F3E8B9' }}>Adoption & Change Management</h3>
-              <p className="text-gray-300 leading-relaxed">I lead AI enablement strategies for organizational adoption and transformation. Holding a Prosci Change Management Certification.</p>
-            </div>
-
-            <div className="glass rounded-xl p-6 hover:glow-purple transition-all duration-300">
-              <h3 className="text-xl font-semibold mb-4" style={{ color: '#F3E8B9' }}>AX-UX Product Design</h3>
-              <p className="text-gray-300 leading-relaxed">
-                I create intuitive, data-driven products that solve real user problems. Holding a Washington University BFA in Visual Communications, along with a UNH UI/UX design certification.
-              </p>
-            </div>
-
-            <div className="glass rounded-xl p-6 hover:glow-purple transition-all duration-300">
-              <h3 className="text-xl font-semibold mb-4" style={{ color: '#F3E8B9' }}>AI Product Strategy</h3>
-              <p className="text-gray-300 leading-relaxed">
-                If the user can't use it, then the product is unusable! I leverage AI tools and agents to automate my work and create my own team. Holding an AI product management certificate from Pendo.
-              </p>
-            </div>
-
-            <div className="glass rounded-xl p-6 hover:glow-purple transition-all duration-300">
-              <h3 className="text-xl font-semibold mb-4" style={{ color: '#F3E8B9' }}>Project Management</h3>
-              <p className="text-gray-300 leading-relaxed">
-                Two of my greatest strengths are stakeholder communication, and inter-stakeholder translation. Holding a Project Management Professional (PMP) certification through Project Management Institute (PMI).
-              </p>
-            </div>
-
-            <div className="glass rounded-xl p-6 hover:glow-purple transition-all duration-300">
-              <h3 className="text-xl font-semibold mb-4" style={{ color: '#F3E8B9' }}>Business Analytics</h3>
-              <p className="text-gray-300 leading-relaxed">
-                It's all about the data! I use data interpretation and behavioral insights to shape my product decisions. Holding an Applied Business Science certification from UNH.
-              </p>
-            </div>
-
-            <div className="glass rounded-xl p-6 hover:glow-purple transition-all duration-300">
-              <h3 className="text-xl font-semibold mb-4" style={{ color: '#F3E8B9' }}>UX Research & Testing</h3>
-              <p className="text-gray-300 leading-relaxed">
-                Having developed a UX testing methodology, my research is insightful, unconventional, and thorough. Always considering the user's experience, I hold a UI/UX design certification through UNH.
-              </p>
-            </div>
+          {/* Expertise Diagram */}
+          <div className="w-full max-w-6xl mx-auto rounded-2xl overflow-hidden">
+            <img
+              src={architectImage}
+              alt="Alexis Brochu: Architect of the Human Layer"
+              className="w-full h-auto object-cover"
+            />
           </div>
 
           {/* Education Tabs - Centered and Wide */}

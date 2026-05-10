@@ -156,7 +156,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
               }}
             >
               <Gamepad2 className="h-5 w-5 flex-shrink-0" style={{ color: '#5fc5f8' }} />
-              <span>▸ PLAY STAKEHOLDERS' INVADERS</span>
+              <span>▸ PLAY STAKEHOLDERS INVADERS</span>
             </a>
           </div>
 
