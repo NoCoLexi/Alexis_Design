@@ -147,6 +147,26 @@ interface Project {
 
 const projects: Project[] = [
   {
+    id: 'lifespan-health-care',
+    title: 'Lifespan Health Care',
+    description: 'Comprehensive healthcare brand development featuring patient-focused messaging, community healthcare positioning, and professional medical marketing materials.',
+    category: 'brand-development',
+    roles: ['brand-development'],
+    verticals: ['healthcare'],
+    image: lifespanHealthCoverImage,
+    slideshow: [
+      lifespanHealthCoverImage,
+      lifespanHealthBrochureImage,
+      lifespanHealthBookletImage
+    ],
+    metrics: [
+      { label: 'Healthcare Branding', value: '100%', color: 'text-chart-1' },
+      { label: 'Community Focus', value: '95%', color: 'text-primary' }
+    ],
+    tags: ['Healthcare Branding', 'Medical Marketing', 'Community Health', 'Patient Care'],
+    canonicalTags: []
+  },
+  {
     id: 'handshakr',
     title: 'HandShakr',
     description: 'An AI-powered networking companion that captures the people you meet, analyzes your conversation, syncs the contact to a Notion database, and auto-blocks calendar time to remind you to follow up — so a great handshake never goes cold.',
@@ -477,26 +497,6 @@ const projects: Project[] = [
     ],
     tags: ['Hospitality Branding', 'Convention Marketing', 'Architectural Photography', 'Tourism Promotion'],
     canonicalTags: ['govtech']
-  },
-  {
-    id: 'lifespan-health-care',
-    title: 'Lifespan Health Care',
-    description: 'Comprehensive healthcare brand development featuring patient-focused messaging, community healthcare positioning, and professional medical marketing materials.',
-    category: 'brand-development',
-    roles: ['brand-development'],
-    verticals: ['healthcare'],
-    image: lifespanHealthCoverImage,
-    slideshow: [
-      lifespanHealthCoverImage,
-      lifespanHealthBrochureImage,
-      lifespanHealthBookletImage
-    ],
-    metrics: [
-      { label: 'Healthcare Branding', value: '100%', color: 'text-chart-1' },
-      { label: 'Community Focus', value: '95%', color: 'text-primary' }
-    ],
-    tags: ['Healthcare Branding', 'Medical Marketing', 'Community Health', 'Patient Care'],
-    canonicalTags: []
   },
   {
     id: 'jwu-branding',
