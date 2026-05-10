@@ -417,7 +417,7 @@ const projects: Project[] = [
     description: 'Comprehensive strategic planning and brand development for Providence School Department, including magnet program branding, mission-driven materials, and strategic frameworks to support educational excellence and community engagement across the entire school system.',
     category: 'brand-development',
     roles: ['brand-development'],
-    verticals: ['government', 'healthcare'],
+    verticals: ['healthcare'],
     image: providenceSystemCoverImage,
     slideshow: [
       providenceSystemOldCoverImage,
@@ -484,7 +484,7 @@ const projects: Project[] = [
     description: 'Professional brochure design for Rhode Island Convention Center Authority featuring sophisticated architectural photography and premium hospitality branding.',
     category: 'brand-development',
     roles: ['brand-development'],
-    verticals: ['government'],
+    verticals: ['healthcare'],
     image: riConventionCenterImage,
     slideshow: [
       riConventionCenterImage,
@@ -519,7 +519,7 @@ const projects: Project[] = [
     description: 'Elegant event branding and invitation design for TF Green Airport\'s Grand Opening Gala, featuring sophisticated passport-themed materials and premium event presentation.',
     category: 'brand-development',
     roles: ['brand-development'],
-    verticals: ['government'],
+    verticals: ['healthcare'],
     image: tfGreenGalaImage,
     metrics: [
       { label: 'Premium Event Design', value: '100%', color: 'text-chart-1' },
