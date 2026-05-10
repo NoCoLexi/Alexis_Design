@@ -81,12 +81,12 @@ export default function Home() {
             </div>
             <div className="hidden md:flex space-x-2 items-center">
               <button
-                onClick={() => setIsSiteModalOpen(true)}
+                onClick={() => scrollToSection('work')}
                 className="nav-link inline-flex items-center px-4 py-2 rounded-full transition-all duration-300 cursor-pointer"
-                data-testid="button-about-site"
+                data-testid="button-check-out-work"
               >
                 <span className="text-sm font-medium text-white">
-                  How I built this site
+                  Check out my work!
                 </span>
               </button>
               <button
@@ -95,7 +95,7 @@ export default function Home() {
                 data-testid="button-my-expertise"
               >
                 <span className="text-sm font-medium text-white">
-                  My Expertise
+                  My expertise
                 </span>
               </button>
               <Link
@@ -104,16 +104,16 @@ export default function Home() {
                 data-testid="link-services"
               >
                 <span className="text-sm font-medium text-white">
-                  Speaking Engagements
+                  Speaking engagements
                 </span>
               </Link>
               <button
-                onClick={() => scrollToSection('work')}
+                onClick={() => setIsSiteModalOpen(true)}
                 className="nav-link inline-flex items-center px-4 py-2 rounded-full transition-all duration-300 cursor-pointer"
-                data-testid="button-check-out-work"
+                data-testid="button-about-site"
               >
                 <span className="text-sm font-medium text-white">
-                  Check out my work
+                  How I built this site.
                 </span>
               </button>
             </div>
