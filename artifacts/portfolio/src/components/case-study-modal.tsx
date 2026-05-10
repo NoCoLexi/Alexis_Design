@@ -126,6 +126,7 @@ import trxRipImage from "@assets/Alexis_6_1770667005999.jpg";
 import mountainViewImage from "@assets/20181006_093528_1770666865642.jpg";
 import mallinckrodtMedicalLogo from "@assets/Mallinckrodt_Medical_transparent_1770668716629.png";
 import handshakrHeroImage from "@assets/screenshot-1778439647569.png";
+import handshakrDemoVideo from "@assets/Handshakr_demo_1778441171218.mp4";
 
 interface CaseStudy {
   id: string;
@@ -182,7 +183,8 @@ const caseStudies: Record<string, CaseStudy> = {
       'Designing the brand in Figma first kept the AI-built UI on-aesthetic',
       'Calendar reminders + Notion context turn passive contact lists into active follow-ups'
     ],
-    image: handshakrHeroImage
+    image: handshakrHeroImage,
+    video: handshakrDemoVideo
   },
   'ca-innovation-award': {
     id: 'ca-innovation-award',
