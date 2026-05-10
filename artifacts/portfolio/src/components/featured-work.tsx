@@ -716,6 +716,7 @@ export default function FeaturedWork() {
   const { filters, setVertical } = usePortfolioFilters();
 
   const financeProjects = ['handshakr', 'wechore', 'ilave', 'subscriptex'];
+  const healthcarePriority = ['fairgrounds-coffee'];
   
   const filteredProjects = useMemo(() => {
     const filtered = projects.filter(project => {
@@ -738,6 +739,14 @@ export default function FeaturedWork() {
       return [...filtered].sort(
         (a, b) => financeProjects.indexOf(a.id) - financeProjects.indexOf(b.id)
       );
+    }
+
+    if (filters.vertical === 'healthcare') {
+      const rank = (id: string) => {
+        const i = healthcarePriority.indexOf(id);
+        return i === -1 ? healthcarePriority.length : i;
+      };
+      return [...filtered].sort((a, b) => rank(a.id) - rank(b.id));
     }
 
     return filtered;
