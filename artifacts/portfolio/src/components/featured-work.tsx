@@ -382,7 +382,7 @@ const projects: Project[] = [
     description: 'A modern task management platform designed to streamline household responsibilities, school homework, and assignments through intuitive design and smart automation for families and students.',
     category: 'product-design',
     roles: ['product-design'],
-    verticals: ['education'],
+    verticals: [],
     image: weChoreImage,
     metrics: [
       { label: 'Task Completion', value: '92%', color: 'text-chart-3' },
