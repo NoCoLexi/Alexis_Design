@@ -3,6 +3,7 @@ import { X, ExternalLink, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { trackEvent, trackSynthesizerEvent } from "@/lib/analytics";
+import siDemoVideo from "@assets/Stakeholder_Invaders_demo_1778449674753.mp4";
 import engageOnboardingVideo from "@assets/Engage_Onboarding_1_1754580372224.mp4";
 import directorsPreziVideo from "@assets/Directors Deck Engage 2023 prezi_1754842640035.mp4";
 import engageRoadmapImage from "@assets/Engage Roadmap_1754580703265.png";
@@ -224,7 +225,7 @@ const caseStudies: Record<string, CaseStudy> = {
       'Scoping to "one wave loop" first let the full game emerge naturally from iteration'
     ],
     image: siOpengraphImage,
-    slideshow: [siOpengraphImage, siStartScreenImage, siPlayingImage, siWinImage, siGameoverImage],
+    video: siDemoVideo,
     liveUrl: '/stakeholder-invaders/'
   },
   'ca-innovation-award': {
