@@ -369,7 +369,7 @@ const projects: Project[] = [
   {
     id: 'ilave',
     title: 'iLave',
-    description: 'Designed a mobile app connecting busy professionals with on-demand laundry pickup and delivery services, streamlining the user experience from scheduling to payment.',
+    description: 'Led the product team for this mobile app, connecting busy professionals with on-demand laundry pickup and delivery services, streamlining the user experience from scheduling to payment.',
     category: 'product-design',
     roles: ['product-design'],
     verticals: [],
