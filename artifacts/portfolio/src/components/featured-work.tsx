@@ -716,7 +716,7 @@ export default function FeaturedWork() {
   const { filters, setVertical } = usePortfolioFilters();
 
   const financeProjects = ['handshakr', 'wechore', 'ilave', 'subscriptex'];
-  const healthcarePriority = ['fairgrounds-coffee'];
+  const healthcarePriority = ['fairgrounds-coffee', 'providence-school-system'];
   
   const filteredProjects = useMemo(() => {
     const filtered = projects.filter(project => {
