@@ -112,6 +112,8 @@ import trxPortraitImage from "@assets/Alexis_TRX_1_1770666878409.jpg";
 import trxHandstandImage from "@assets/Alexis_TRX_handstand_1770666909059.png";
 import trxRipImage from "@assets/Alexis_6_1770667005999.jpg";
 import handshakrHeroImage from "@assets/screenshot-1778439647569.png";
+import siStartScreenImage from "@assets/si-start-screen_1778447747326.jpg";
+import siOpengraphImage from "@assets/si-opengraph_1778447747327.jpg";
 
 
 // Preload critical images immediately when component loads
@@ -143,6 +145,7 @@ interface Project {
   tags: string[];
   canonicalTags: string[]; // Canonical tags for filtering
   award?: string;
+  liveUrl?: string;
 }
 
 const projects: Project[] = [
@@ -179,6 +182,23 @@ const projects: Project[] = [
       { label: '1 Agent', value: 'Replit Agent 4', color: 'text-primary' }
     ],
     tags: ['AI Agent', 'Networking', 'Replit Agent 4', 'Build-a-thon'],
+    canonicalTags: []
+  },
+  {
+    id: 'stakeholder-invaders',
+    title: 'Stakeholder Invaders',
+    description: 'A change-management arcade game where you play as the change agent, converting skeptical stakeholders into advocates using tactics drawn from real organizational strategy — not bullets.',
+    category: 'product-design',
+    roles: ['product-design', 'product-management'],
+    verticals: [],
+    image: siOpengraphImage,
+    slideshow: [siOpengraphImage, siStartScreenImage],
+    liveUrl: '/stakeholder-invaders/',
+    metrics: [
+      { label: 'Solo Build', value: '1 Evening', color: 'text-chart-1' },
+      { label: '5 Tactics', value: 'Real OCM', color: 'text-primary' }
+    ],
+    tags: ['Game Design', 'Change Management', 'AI-Built', 'Replit'],
     canonicalTags: []
   },
   {
@@ -715,7 +735,7 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
 export default function FeaturedWork() {
   const { filters, setVertical } = usePortfolioFilters();
 
-  const financeProjects = ['handshakr', 'wechore', 'ilave', 'subscriptex'];
+  const financeProjects = ['handshakr', 'wechore', 'stakeholder-invaders', 'ilave', 'subscriptex'];
   const healthcarePriority = ['fairgrounds-coffee', 'providence-school-system'];
   
   const filteredProjects = useMemo(() => {

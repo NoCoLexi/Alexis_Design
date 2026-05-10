@@ -127,6 +127,8 @@ import mountainViewImage from "@assets/20181006_093528_1770666865642.jpg";
 import mallinckrodtMedicalLogo from "@assets/Mallinckrodt_Medical_transparent_1770668716629.png";
 import handshakrHeroImage from "@assets/screenshot-1778439647569.png";
 import handshakrDemoVideo from "@assets/Handshakr_demo_1778441171218.mp4";
+import siStartScreenImage from "@assets/si-start-screen_1778447747326.jpg";
+import siOpengraphImage from "@assets/si-opengraph_1778447747327.jpg";
 
 interface CaseStudy {
   id: string;
@@ -185,6 +187,42 @@ const caseStudies: Record<string, CaseStudy> = {
     ],
     image: handshakrHeroImage,
     video: handshakrDemoVideo
+  },
+  'stakeholder-invaders': {
+    id: 'stakeholder-invaders',
+    title: 'Stakeholder Invaders',
+    subtitle: 'A change-management arcade — convert skeptics, don\'t destroy them',
+    description: 'Stakeholder Invaders is a Space Invaders-style browser game built to demonstrate that the core skill of a change agent is persuasion, not force. Descending waves of stakeholder archetypes — Engineers, Budget Holders, Directors, Process Gatekeepers, and the VP boss — can only be neutralized by selecting the right OCM tactic for each type. Shooting the wrong tactic costs credibility; converting an enemy turns them into an Advocate worth bonus points.',
+    role: 'Solo Designer & Builder',
+    duration: '1 evening',
+    team: '1 — me + Replit Agent',
+    challenge: 'Portfolios are full of case studies that describe change management in the abstract. The challenge was to make the core idea — stakeholder conversion through tactics, not force — visceral and immediately understandable to anyone who plays for 60 seconds.',
+    solution: 'Built a fully playable arcade game that maps real OCM tactics (Data & Evidence, Empathy Listening, Coalition Building, Vision & Story, Quick Win Showcase) to specific stakeholder archetypes. Each wave requires the player to switch tactics intelligently; brute-force play drains credibility fast. The game is pixel-art first, procedurally rendered on canvas — no external image assets — and ships as a standalone route inside the portfolio monorepo.',
+    outcome: 'A live, playable artifact that communicates the PM\'s change-management philosophy in 60 seconds of gameplay. The game itself becomes a talking point: it shows product thinking, systems design, UX craft, and OCM expertise simultaneously — no slide deck required.',
+    metrics: [
+      { label: '1 Evening', value: 'Solo Build', description: 'Concept to deployed game in a single evening using Replit Agent' },
+      { label: '5', value: 'OCM Tactics', description: 'Data & Evidence, Empathy Listening, Coalition Building, Vision & Story, Quick Win Showcase' },
+      { label: '6', value: 'Stakeholder Types', description: 'Engineer, Budget Holder, Customer, Director, Process Gatekeeper, VP Boss' }
+    ],
+    process: [
+      'Defined the game metaphor: stakeholder conversion mirrors OCM — wrong tactic = credibility loss',
+      'Mapped real OCM tactics to stakeholder archetypes (e.g. Budget Holder → Data & Evidence)',
+      'Designed pixel-art sprites for each stakeholder type, rendered procedurally on canvas',
+      'Built wave logic, tactic-matching system, and credibility mechanics',
+      'Added Advocate conversion animations for correct-tactic hits',
+      'Implemented HUD with live tactic selector, credibility bar, and wave counter',
+      'Added touch controls for mobile play and a How-to-Play overlay',
+      'Deployed as a standalone route inside the portfolio monorepo'
+    ],
+    learnings: [
+      'A playable artifact communicates expertise faster than any written case study',
+      'Forcing tactic selection (not just shooting) creates a teachable moment mid-gameplay',
+      'Pixel art and a CRT filter can carry strong brand identity with zero external assets',
+      'Scoping to "one wave loop" first let the full game emerge naturally from iteration'
+    ],
+    image: siOpengraphImage,
+    slideshow: [siOpengraphImage, siStartScreenImage],
+    liveUrl: '/stakeholder-invaders/'
   },
   'ca-innovation-award': {
     id: 'ca-innovation-award',
