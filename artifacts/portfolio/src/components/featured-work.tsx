@@ -773,18 +773,37 @@ export default function FeaturedWork() {
       return [...filtered].sort((a, b) => rank(a.id) - rank(b.id));
     }
 
-    const pinnedPositions: Record<string, number> = {
-      'ca-innovation-award': 0,
-      'lifespan-health-care': 6,
+    const allProjectsOrder = [
+      'ca-innovation-award',
+      'handshakr',
+      'grants-management-sikich',
+      'pa-portal',
+      'stakeholder-invaders',
+      'fairgrounds-coffee',
+      'caloes',
+      'ocm',
+      'eag',
+      'coe-engage',
+      'ilave',
+      'subscriptex',
+      'wechore',
+      'providence-school-system',
+      'abc6-rebrand-alexis-design',
+      'lifespan-health-care',
+      'ttools-alexis-design',
+      'ri-convention-center',
+      'jwu-branding',
+      'tf-green-gala',
+      'gatorade-zipatoni',
+      'budweiser-zipatoni',
+      'mallinckrodt-medical',
+      'health-wellness-expertise',
+    ];
+    const rank = (id: string) => {
+      const i = allProjectsOrder.indexOf(id);
+      return i === -1 ? allProjectsOrder.length : i;
     };
-    const unpinned = filtered.filter(p => !(p.id in pinnedPositions));
-    const result = [...unpinned];
-    const sortedPins = Object.entries(pinnedPositions).sort(([, a], [, b]) => a - b);
-    for (const [id, pos] of sortedPins) {
-      const project = filtered.find(p => p.id === id);
-      if (project) result.splice(Math.min(pos, result.length), 0, project);
-    }
-    return result;
+    return [...filtered].sort((a, b) => rank(a.id) - rank(b.id));
   }, [filters.vertical]);
 
   const openCaseStudy = useCallback((projectId: string) => {
