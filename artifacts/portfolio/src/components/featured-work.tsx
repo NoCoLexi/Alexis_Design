@@ -704,7 +704,7 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
           {project.description}
         </p>
 
-        {project.metrics.length > 0 && (project.category === 'product-management' || project.id === 'handshakr') && (
+        {project.metrics.length > 0 && project.category === 'product-management' && (
           <div className="grid grid-cols-2 gap-4 mb-6">
             {project.metrics.map((metric, metricIndex) => (
               <div key={`${project.id}-metric-${metricIndex}`} className="text-center">
