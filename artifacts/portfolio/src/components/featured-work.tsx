@@ -773,7 +773,11 @@ export default function FeaturedWork() {
       return [...filtered].sort((a, b) => rank(a.id) - rank(b.id));
     }
 
-    return filtered;
+    return [...filtered].sort((a, b) => {
+      if (a.id === 'ca-innovation-award') return -1;
+      if (b.id === 'ca-innovation-award') return 1;
+      return 0;
+    });
   }, [filters.vertical]);
 
   const openCaseStudy = useCallback((projectId: string) => {
