@@ -256,7 +256,7 @@ export default function Services() {
                 </div>
                 <div className="font-bold text-white text-base leading-snug">{item.org}</div>
                 <div className="text-xs text-white/40">{item.year}</div>
-                <div className="text-sm text-purple-300 font-medium">Keynote: {item.topic}</div>
+                <div className="text-sm text-purple-300 font-medium">{item.org === 'AI with Alexis' ? `Podcast: ${item.topic}` : `Keynote: ${item.topic}`}</div>
               </div>
             ))}
           </div>
