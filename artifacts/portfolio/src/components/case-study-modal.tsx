@@ -182,8 +182,7 @@ const caseStudies: Record<string, CaseStudy> = {
       'Designing the brand in Figma first kept the AI-built UI on-aesthetic',
       'Calendar reminders + Notion context turn passive contact lists into active follow-ups'
     ],
-    image: handshakrHeroImage,
-    liveUrl: 'https://handshakr-network-assistant.replit.app/cockpit/'
+    image: handshakrHeroImage
   },
   'ca-innovation-award': {
     id: 'ca-innovation-award',
