@@ -264,6 +264,29 @@ const projects: Project[] = [
     canonicalTags: ['govtech', 'award', 'public-service']
   },
   {
+    id: 'grants-management-sikich',
+    title: 'Grants Management',
+    description: 'Comprehensive grants management system built on Salesforce to map together systems across the state, enabling management to run unified reports and streamline grant oversight processes.',
+    category: 'product-design',
+    roles: ['product-design', 'product-management'],
+    verticals: ['government'],
+    image: grantsManagementReportingNewImage,
+    slideshow: [
+      grantsManagementPortalNewImage,
+      grantsManagementIntroImage,
+      grantsManagementHcdImage,
+      grantsManagementBackOfficeImage,
+      grantsManagementReportingImage,
+      grantsManagementPresentationImage
+    ],
+    metrics: [
+      { label: 'System Integration', value: '100%', color: 'text-chart-1' },
+      { label: 'Reporting Efficiency', value: '85%', color: 'text-primary' }
+    ],
+    tags: ['Salesforce', 'Government Systems', 'Data Integration', 'Reporting Dashboard'],
+    canonicalTags: ['govtech', 'salesforce', 'public-service']
+  },
+  {
     id: 'pa-portal',
     title: 'Public Assistance Closeouts App',
     description: 'A stalled grant app needed stakeholder alignment. I led 100+ hours of research and created artifacts that unblocked progress.',
@@ -342,29 +365,6 @@ const projects: Project[] = [
     ],
     tags: ['Center of Excellence', 'Development Standards', 'Team Integration'],
     canonicalTags: ['govtech']
-  },
-  {
-    id: 'grants-management-sikich',
-    title: 'Grants Management',
-    description: 'Comprehensive grants management system built on Salesforce to map together systems across the state, enabling management to run unified reports and streamline grant oversight processes.',
-    category: 'product-design',
-    roles: ['product-design', 'product-management'],
-    verticals: ['government'],
-    image: grantsManagementReportingNewImage,
-    slideshow: [
-      grantsManagementPortalNewImage,
-      grantsManagementIntroImage,
-      grantsManagementHcdImage,
-      grantsManagementBackOfficeImage,
-      grantsManagementReportingImage,
-      grantsManagementPresentationImage
-    ],
-    metrics: [
-      { label: 'System Integration', value: '100%', color: 'text-chart-1' },
-      { label: 'Reporting Efficiency', value: '85%', color: 'text-primary' }
-    ],
-    tags: ['Salesforce', 'Government Systems', 'Data Integration', 'Reporting Dashboard'],
-    canonicalTags: ['govtech', 'salesforce', 'public-service']
   },
   {
     id: 'ilave',
