@@ -730,10 +730,10 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
 export default function FeaturedWork() {
   const { filters, setVertical } = usePortfolioFilters();
 
-  const financeProjects = ['handshakr', 'ilave', 'subscriptex'];
+  const financeProjects = ['handshakr', 'wechore', 'ilave', 'subscriptex'];
   
   const filteredProjects = useMemo(() => {
-    return projects.filter(project => {
+    const filtered = projects.filter(project => {
       if (filters.vertical !== 'all') {
         if (filters.vertical === 'finance') {
           if (!financeProjects.includes(project.id)) return false;
@@ -748,6 +748,14 @@ export default function FeaturedWork() {
       
       return true;
     });
+
+    if (filters.vertical === 'finance') {
+      return [...filtered].sort(
+        (a, b) => financeProjects.indexOf(a.id) - financeProjects.indexOf(b.id)
+      );
+    }
+
+    return filtered;
   }, [filters.vertical]);
 
   const openCaseStudy = useCallback((projectId: string) => {
