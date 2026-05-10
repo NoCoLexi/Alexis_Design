@@ -183,7 +183,7 @@ const caseStudies: Record<string, CaseStudy> = {
       'Calendar reminders + Notion context turn passive contact lists into active follow-ups'
     ],
     image: handshakrHeroImage,
-    liveUrl: 'https://d229c4b2-c97f-4b8e-8222-3dca09043c01-00-33rcao8ngry12.janeway.replit.dev/cockpit/'
+    liveUrl: 'https://handshakr-network-assistant.replit.app/cockpit/'
   },
   'ca-innovation-award': {
     id: 'ca-innovation-award',
