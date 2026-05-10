@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, useCallback } from "react";
+import { ArrowLeft } from "lucide-react";
 import { GameCanvas } from "./game/GameCanvas";
 import { StartScreen } from "./game/StartScreen";
 import { GameOverScreen } from "./game/GameOverScreen";
@@ -108,18 +109,34 @@ function App() {
   }, []);
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-center p-2 sm:p-6"
+    <div className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-center p-2 sm:p-6 pt-24 sm:pt-28"
       style={{ background: "radial-gradient(ellipse at top, #0B0A0E 0%, #08080A 70%)" }}>
 
-      <a
-        href="/"
-        className="fixed top-3 left-3 sm:top-4 sm:left-4 z-50 inline-flex items-center gap-2 px-3 py-2 rounded-md border border-cyan-300/30 bg-black/60 backdrop-blur text-cyan-200 hover:text-white hover:border-cyan-200/70 hover:bg-cyan-400/10 transition-colors text-xs sm:text-sm font-sans"
-        data-testid="link-back-to-portfolio"
-        aria-label="Back to portfolio"
+      <nav
+        className="fixed top-0 left-0 right-0 w-full z-50 backdrop-blur-lg border-b shadow-lg"
+        style={{
+          background:
+            "linear-gradient(to right, rgba(8,8,10,0.95) 0%, rgba(109,85,146,0.20) 50%, rgba(8,8,10,0.95) 100%)",
+          borderColor: "rgba(109,85,146,0.30)",
+        }}
       >
-        <span aria-hidden="true">←</span>
-        <span>Back to portfolio</span>
-      </a>
+        <div className="max-w-7xl mx-auto px-6 py-4">
+          <div className="flex justify-between items-center">
+            <a
+              href="/"
+              className="flex items-center gap-2 text-white hover:text-purple-400 transition-colors"
+              data-testid="link-back-to-portfolio"
+            >
+              <ArrowLeft className="w-5 h-5" />
+              <span className="font-medium font-sans">Back to Portfolio</span>
+            </a>
+            <div className="flex items-center font-sans">
+              <span className="text-white font-bold text-xl">Alexis</span>
+              <span className="text-purple-400 font-bold text-xl">Brochu</span>
+            </div>
+          </div>
+        </div>
+      </nav>
 
       <div className="relative w-full max-w-[960px] aspect-[4/3] rounded-md overflow-hidden border border-white/10 shadow-2xl crt"
         style={{ boxShadow: "0 0 60px rgba(95,197,248,0.08), inset 0 0 80px rgba(0,0,0,0.6)" }}>
