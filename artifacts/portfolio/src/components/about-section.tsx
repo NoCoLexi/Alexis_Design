@@ -110,8 +110,10 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
           {/* Introduction Quote */}
           <div className="text-center max-w-4xl mx-auto">
             <p className="text-xl md:text-2xl leading-relaxed text-muted-foreground">
-              <strong className="text-foreground">"My colleagues nickname me: 'Idea Factory' but I prefer 'Solution Factory'"</strong> <br />
-              because every idea I come up with stems from a problem. Without problems there are no solutions. Without solutions, there are no relevant opportunities.
+              <strong className="text-foreground">Most products fail after launch because nobody's designed for humans to actually use them.</strong> <br />
+              The code is usually fine. The design looks clean. But users don't understand what to do. Teams can't agree on what matters. Stakeholders don't trust it. Change gets resisted. The whole system pulls in different directions.
+              <br /><br />
+              <strong className="text-foreground">I fix that.</strong>
             </p>
           </div>
 
