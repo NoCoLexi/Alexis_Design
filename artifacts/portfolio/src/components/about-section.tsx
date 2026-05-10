@@ -1020,7 +1020,6 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                       <video
                         ref={videoRef}
                         src={profileVideo}
-                        autoPlay
                         muted
                         playsInline
                         onPlay={() => setIsVideoPlaying(true)}
