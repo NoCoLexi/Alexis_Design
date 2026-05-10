@@ -112,9 +112,7 @@ export default function Home() {
                 className="nav-link inline-flex items-center px-4 py-2 rounded-full transition-all duration-300 cursor-pointer"
                 data-testid="button-about-site"
               >
-                <span className="text-sm font-medium text-white">
-                  How I built this site.
-                </span>
+                <span className="text-sm font-medium text-white">How I built this site</span>
               </button>
             </div>
             <button
