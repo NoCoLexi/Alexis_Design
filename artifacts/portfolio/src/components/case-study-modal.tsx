@@ -125,7 +125,7 @@ import trxHandstandImage from "@assets/Alexis_TRX_handstand_1770666909059.png";
 import trxRipImage from "@assets/Alexis_6_1770667005999.jpg";
 import mountainViewImage from "@assets/20181006_093528_1770666865642.jpg";
 import mallinckrodtMedicalLogo from "@assets/Mallinckrodt_Medical_transparent_1770668716629.png";
-import handshakrHeroImage from "@assets/handshakr_hero_1778000000000.png";
+import handshakrHeroImage from "@assets/screenshot-1778439647569.png";
 
 interface CaseStudy {
   id: string;
