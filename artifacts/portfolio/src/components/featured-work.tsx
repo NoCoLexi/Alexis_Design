@@ -190,7 +190,7 @@ const projects: Project[] = [
   {
     id: 'stakeholder-invaders',
     title: 'Stakeholder Invaders',
-    description: 'A change-management arcade game where you play as the change agent, converting skeptical stakeholders into advocates using tactics drawn from real organizational strategy — not bullets.',
+    description: 'A change-management arcade game where you play as the change agent, converting skeptical stakeholders into advocates using tactics drawn from real organizational strategy, not bullets.',
     category: 'product-design',
     roles: ['product-design', 'product-management'],
     verticals: [],
