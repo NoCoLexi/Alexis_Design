@@ -125,7 +125,7 @@ preloadImage(paPortalImage);
 
 // Type definitions for roles and verticals
 type Role = 'product-management' | 'product-design' | 'brand-development';
-type Vertical = 'government' | 'healthcare' | 'education' | 'food-beverage';
+type Vertical = 'government' | 'healthcare' | 'education';
 
 
 interface Project {
@@ -146,6 +146,72 @@ interface Project {
 
 const projects: Project[] = [
   {
+    id: 'gatorade-zipatoni',
+    title: 'Gatorade',
+    description: 'Brand development and sports marketing design concepts created during my tenure at Zipatoni, focusing on label design and sports marketing materials for the iconic brand.',
+    category: 'brand-development',
+    roles: ['brand-development'],
+    verticals: ['healthcare'],
+    image: gatoradeSportsImage,
+    slideshow: [
+      gatoradeLabelImage,
+      gatoradeSportsImage
+    ],
+    metrics: [
+      { label: 'Design Concepts', value: '15+', color: 'text-chart-1' },
+      { label: 'Brand Recognition', value: '95%', color: 'text-primary' }
+    ],
+    tags: ['Brand Development', 'Sports Marketing', 'Label Design', 'Zipatoni Agency'],
+    canonicalTags: []
+  },
+  {
+    id: 'fairgrounds-coffee',
+    title: 'FairGrounds',
+    description: 'Complete brand identity and product packaging design for a hip underground coffee bar in Maine, featuring vibrant drink packaging, merchandise, and seasonal storefront design.',
+    category: 'brand-development',
+    roles: ['brand-development'],
+    verticals: ['healthcare'],
+    image: fairGroundsCoffeeImage,
+    slideshow: [
+      fairGroundsDrinksNewImage,
+      fairGroundsWinterNewImage,
+      fairGroundsLogoSheetImage,
+      fairGroundsDrinkNewImage,
+      fairGroundsSwagNewImage,
+      fairGroundsHatNewImage,
+      fairGroundsShamrockNewImage
+    ],
+    metrics: [
+      { label: 'Brand Identity Score', value: '94%', color: 'text-chart-1' },
+      { label: 'Design Recognition', value: '89%', color: 'text-primary' }
+    ],
+    tags: ['Brand Identity', 'Logo Design', 'Product Packaging', 'Community Coffee'],
+    canonicalTags: []
+  },
+  {
+    id: 'budweiser-zipatoni',
+    title: 'Budweiser',
+    description: 'Beer brand campaign development during my time at Zipatoni, creating compelling marketing materials and brand campaigns for one of America\'s most iconic beer brands.',
+    category: 'brand-development',
+    roles: ['brand-development'],
+    verticals: ['healthcare'],
+    image: budweiserIceImage,
+    slideshow: [
+      budweiserGuide1Image,
+      budweiserGuide2Image,
+      budweiserGuide3Image,
+      budweiserGuide4Image,
+      budweiserGuide5Image,
+      budweiserGuide6Image
+    ],
+    metrics: [
+      { label: 'Campaign Concepts', value: '12+', color: 'text-chart-1' },
+      { label: 'Brand Consistency', value: '98%', color: 'text-primary' }
+    ],
+    tags: ['Beer Marketing', 'Campaign Development', 'Brand Strategy', 'Zipatoni Agency'],
+    canonicalTags: []
+  },
+  {
     id: 'ca-innovation-award',
     title: 'California GovTech Innovation Award',
     description: 'I led the team that won the 2023 California Government Technology Innovation Award for outstanding contributions to public-sector technology.',
@@ -160,25 +226,6 @@ const projects: Project[] = [
     ],
     tags: ['Gov Tech', 'Innovation Award', 'Public Service'],
     canonicalTags: ['govtech', 'award', 'public-service']
-  },
-  {
-    id: 'gatorade-zipatoni',
-    title: 'Gatorade',
-    description: 'Brand development and sports marketing design concepts created during my tenure at Zipatoni, focusing on label design and sports marketing materials for the iconic brand.',
-    category: 'brand-development',
-    roles: ['brand-development'],
-    verticals: ['food-beverage'],
-    image: gatoradeSportsImage,
-    slideshow: [
-      gatoradeLabelImage,
-      gatoradeSportsImage
-    ],
-    metrics: [
-      { label: 'Design Concepts', value: '15+', color: 'text-chart-1' },
-      { label: 'Brand Recognition', value: '95%', color: 'text-primary' }
-    ],
-    tags: ['Brand Development', 'Sports Marketing', 'Label Design', 'Zipatoni Agency'],
-    canonicalTags: []
   },
   {
     id: 'pa-portal',
@@ -329,30 +376,6 @@ const projects: Project[] = [
     canonicalTags: ['accessibility']
   },
   {
-    id: 'fairgrounds-coffee',
-    title: 'FairGrounds',
-    description: 'Complete brand identity and product packaging design for a hip underground coffee bar in Maine, featuring vibrant drink packaging, merchandise, and seasonal storefront design.',
-    category: 'brand-development',
-    roles: ['brand-development'],
-    verticals: ['food-beverage'],
-    image: fairGroundsCoffeeImage,
-    slideshow: [
-      fairGroundsDrinksNewImage,
-      fairGroundsWinterNewImage,
-      fairGroundsLogoSheetImage,
-      fairGroundsDrinkNewImage,
-      fairGroundsSwagNewImage,
-      fairGroundsHatNewImage,
-      fairGroundsShamrockNewImage
-    ],
-    metrics: [
-      { label: 'Brand Identity Score', value: '94%', color: 'text-chart-1' },
-      { label: 'Design Recognition', value: '89%', color: 'text-primary' }
-    ],
-    tags: ['Brand Identity', 'Logo Design', 'Product Packaging', 'Community Coffee'],
-    canonicalTags: []
-  },
-  {
     id: 'providence-school-system',
     title: 'Providence School System',
     description: 'Comprehensive strategic planning and brand development for Providence School Department, including magnet program branding, mission-driven materials, and strategic frameworks to support educational excellence and community engagement across the entire school system.',
@@ -417,29 +440,6 @@ const projects: Project[] = [
       { label: 'Commercial Success', value: '100%', color: 'text-primary' }
     ],
     tags: ['Brand Identity', 'Product Licensing', 'Retail Partnership', 'Alexis Design'],
-    canonicalTags: []
-  },
-  {
-    id: 'budweiser-zipatoni',
-    title: 'Budweiser',
-    description: 'Beer brand campaign development during my time at Zipatoni, creating compelling marketing materials and brand campaigns for one of America\'s most iconic beer brands.',
-    category: 'brand-development',
-    roles: ['brand-development'],
-    verticals: ['food-beverage'],
-    image: budweiserIceImage,
-    slideshow: [
-      budweiserGuide1Image,
-      budweiserGuide2Image,
-      budweiserGuide3Image,
-      budweiserGuide4Image,
-      budweiserGuide5Image,
-      budweiserGuide6Image
-    ],
-    metrics: [
-      { label: 'Campaign Concepts', value: '12+', color: 'text-chart-1' },
-      { label: 'Brand Consistency', value: '98%', color: 'text-primary' }
-    ],
-    tags: ['Beer Marketing', 'Campaign Development', 'Brand Strategy', 'Zipatoni Agency'],
     canonicalTags: []
   },
   {

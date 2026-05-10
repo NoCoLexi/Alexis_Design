@@ -1,17 +1,16 @@
 import { useState, useCallback, useEffect } from 'react';
 
-export type VerticalFilter = 'government' | 'healthcare' | 'food-beverage' | 'finance' | 'education' | 'all';
+export type VerticalFilter = 'government' | 'healthcare' | 'finance' | 'education' | 'all';
 
 export const verticalLabels: Record<VerticalFilter, string> = {
   'government': 'Government',
   'healthcare': 'Marketing & PR',
-  'food-beverage': 'Food/Bev',
   'finance': 'Productivity',
   'education': 'Education',
   'all': 'All Projects'
 };
 
-export const availableVerticals: VerticalFilter[] = ['all', 'government', 'food-beverage', 'finance', 'education', 'healthcare'];
+export const availableVerticals: VerticalFilter[] = ['all', 'government', 'finance', 'education', 'healthcare'];
 
 interface PortfolioFiltersState {
   vertical: VerticalFilter;
@@ -30,7 +29,6 @@ function parseUrlParams(): PortfolioFiltersState {
   if (verticalParam === 'all') vertical = 'all';
   else if (verticalParam === 'government') vertical = 'government';
   else if (verticalParam === 'healthcare') vertical = 'healthcare';
-  else if (verticalParam === 'food-beverage') vertical = 'food-beverage';
   else if (verticalParam === 'finance') vertical = 'finance';
   else if (verticalParam === 'education') vertical = 'education';
   
