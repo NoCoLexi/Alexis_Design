@@ -114,6 +114,9 @@ import trxRipImage from "@assets/Alexis_6_1770667005999.jpg";
 import handshakrHeroImage from "@assets/screenshot-1778439647569.png";
 import siStartScreenImage from "@assets/si-start-screen_1778447747326.jpg";
 import siOpengraphImage from "@assets/si-opengraph_1778447747327.jpg";
+import siPlayingImage from "@assets/si-playing_1778447747328.jpg";
+import siGameoverImage from "@assets/si-gameover_1778447747329.jpg";
+import siWinImage from "@assets/si-win_1778447747330.jpg";
 
 
 // Preload critical images immediately when component loads
@@ -192,7 +195,7 @@ const projects: Project[] = [
     roles: ['product-design', 'product-management'],
     verticals: [],
     image: siOpengraphImage,
-    slideshow: [siOpengraphImage, siStartScreenImage],
+    slideshow: [siOpengraphImage, siStartScreenImage, siPlayingImage, siWinImage, siGameoverImage],
     liveUrl: '/stakeholder-invaders/',
     metrics: [
       { label: 'Solo Build', value: '1 Evening', color: 'text-chart-1' },
