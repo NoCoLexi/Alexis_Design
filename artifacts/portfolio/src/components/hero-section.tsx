@@ -88,23 +88,11 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         <div className="w-full h-full bg-gradient-to-br from-primary/20 via-transparent to-chart-1/20"></div>
       </div>
       <FloatingBackground />
-      {/* Desktop Layout — two-column: photo left, content right */}
-      <div className="hidden md:grid grid-cols-[38%_1fr] items-stretch w-full relative z-10" style={{ minHeight: '100vh' }}>
+      {/* Desktop Layout — single column, content centered */}
+      <div className="hidden md:flex justify-center items-center w-full relative z-10" style={{ minHeight: '100vh' }}>
 
-        {/* Left column: photo fills full height */}
-        <div className="relative overflow-hidden">
-          <img
-            src={headshot}
-            alt="Alexis Brochu"
-            className="w-full h-full object-cover object-top"
-            data-testid="video-professional-photo"
-          />
-          {/* Subtle gradient fade on right edge to blend into content */}
-          <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-r from-transparent to-background/60 pointer-events-none" />
-        </div>
-
-        {/* Right column: all content, left-aligned, vertically centered */}
-        <div className="flex flex-col justify-center px-12 py-8 gap-4">
+        {/* Content column: centered */}
+        <div className="flex flex-col justify-center px-12 py-8 gap-4 max-w-3xl w-full">
 
           {/* Award badge */}
           <div>
@@ -237,7 +225,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           className="text-base font-inter-medium text-muted-foreground leading-relaxed mt-0"
           style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 500 }}
         >
-          I build products that get used, not just shipped.
+          We build products that get used, not just shipped.
         </p>
 
 
@@ -265,17 +253,6 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             <Gamepad2 className="h-4 w-4 flex-shrink-0" style={{ color: '#5fc5f8' }} />
             <span>▸ PLAY STAKEHOLDERS' INVADERS</span>
           </a>
-        </div>
-
-        {/* 6. Portrait */}
-        <div className="w-full max-w-xs mx-auto">
-          <img
-            src={headshot}
-            alt="Alexis Brochu"
-            className="mx-auto rounded-lg"
-            style={{ width: '60%', objectFit: 'cover', objectPosition: 'top' }}
-            data-testid="video-professional-photo"
-          />
         </div>
 
         {/* 8. Metrics */}

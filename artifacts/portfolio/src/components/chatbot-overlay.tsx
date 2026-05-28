@@ -84,8 +84,8 @@ export default function ChatbotOverlay({
               <MessageCircle className="h-12 w-12 text-primary mb-4" />
               <h3 className="font-semibold mb-2">Let's Connect!</h3>
               <p className="text-sm text-muted-foreground mb-6">
-                I'd love to discuss your next project or answer any questions
-                about my work in product management and design.
+                We'd love to discuss your next project or answer any questions
+                about our work in product management and design.
               </p>
               <div className="space-y-3 w-full">
                 <Button
@@ -109,7 +109,7 @@ export default function ChatbotOverlay({
                       ?.scrollIntoView({ behavior: "smooth" });
                   }}
                 >
-                  View My Work
+                  View Our Work
                 </Button>
                 <div className="text-xs text-muted-foreground pt-2">
                   Ready to transform your next project?

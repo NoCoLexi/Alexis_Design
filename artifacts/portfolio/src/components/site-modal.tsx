@@ -36,7 +36,7 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
         {/* Header */}
         <div className="sticky top-0 bg-gradient-to-r from-purple-600/10 to-blue-600/10 backdrop-blur border-b border-purple-400/20 p-6">
           <div className="flex justify-between items-center">
-            <h2 className="text-2xl font-bold gradient-text">How I built this site</h2>
+            <h2 className="text-2xl font-bold gradient-text">How we built this site</h2>
             <Button 
               variant="ghost" 
               size="sm" 
@@ -56,7 +56,7 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
             <h3 className="text-xl font-semibold text-purple-400">Development Story</h3>
             
             <p className="text-gray-300 leading-relaxed">
-              This portfolio is a working demonstration of AI fluency — knowing when, how, and why to bring AI into the process. Each iteration was designed and directed by me, with AI tools handling execution where they add the most value. The result is a product built in days, not months, without sacrificing quality or judgment.
+              This portfolio is a working demonstration of AI fluency — knowing when, how, and why to bring AI into the process. Each iteration was designed and directed by us, with AI tools handling execution where they add the most value. The result is a product built in days, not months, without sacrificing quality or judgment.
             </p>
 
             {/* Iteration Comparison - Most recent first */}

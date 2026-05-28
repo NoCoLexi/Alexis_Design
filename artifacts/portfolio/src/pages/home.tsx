@@ -88,7 +88,7 @@ export default function Home() {
                       <span className="opacity-70">·</span>
                       <span className="mx-3">JUNE 10, 2026</span>
                       <span className="opacity-70">·</span>
-                      <span className="mx-3" style={{ color: '#F3E8B9' }}>DESIGN YOUR AI NETWORKING AGENT</span>
+                      <span className="mx-3 font-light" style={{ color: '#F3E8B9' }}>DESIGN YOUR AI NETWORKING AGENT</span>
                       <span className="opacity-70">·</span>
                       <span className="mx-3 underline underline-offset-2">VIEW CASE STUDY →</span>
                       <span className="opacity-40 mx-2">●</span>
@@ -202,7 +202,7 @@ export default function Home() {
                 data-testid="button-check-out-work-mobile"
               >
                 <span className="text-sm font-medium text-white">
-                  Check out my work
+                  Check out our work
                 </span>
               </button>
             </div>
@@ -246,7 +246,7 @@ export default function Home() {
               </span>
             </a>
             <div className="text-muted-foreground">
-              © {new Date().getFullYear()} Alexis Design
+              © {new Date().getFullYear()} Upstart-Labs
             </div>
           </div>
         </div>
