@@ -27,7 +27,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
     const companyFromUrl = urlParams.get('company');
 
     if (companyFromUrl) {
-      return `Hi ${companyFromUrl}, I'm Alexis`;
+      return `Hi ${companyFromUrl}, we're Upstart-Labs`;
     }
     return getGreeting();
   };
@@ -124,7 +124,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
           {/* Headline */}
           <h1 className="text-5xl lg:text-6xl leading-tight" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.08', wordSpacing: '0.08em' }}>
-            <span className={`disco-text ${isPlaying ? 'dancing' : ''}`} style={{ color: '#F3E8B9' }}>
+            <span className="disco-text text-[40px]" style={{ color: '#F3E8B9' }}>
               {getCustomGreeting()}
             </span>
           </h1>
