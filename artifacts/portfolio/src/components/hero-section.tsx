@@ -26,7 +26,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
     const companyFromUrl = urlParams.get('company');
 
     if (companyFromUrl) {
-      return `Hi ${companyFromUrl}, we're Upstart-Labs`;
+      return `Hi ${companyFromUrl}, we're UPSTART-Labs`;
     }
     return getGreeting();
   };
