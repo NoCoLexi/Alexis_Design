@@ -5,5 +5,8 @@ export const modules: ModuleMap = {
   "./components/mockups/hero-variants/AffordanceFirst.tsx": () => import("../components/mockups/hero-variants/AffordanceFirst.tsx"),
   "./components/mockups/hero-variants/AffordanceRefinedCinematic.tsx": () => import("../components/mockups/hero-variants/AffordanceRefinedCinematic.tsx"),
   "./components/mockups/hero-variants/AffordanceRefinedEditorial.tsx": () => import("../components/mockups/hero-variants/AffordanceRefinedEditorial.tsx"),
-  "./components/mockups/hero-variants/HierarchyClear.tsx": () => import("../components/mockups/hero-variants/HierarchyClear.tsx")
+  "./components/mockups/hero-variants/Editorial.tsx": () => import("../components/mockups/hero-variants/Editorial.tsx"),
+  "./components/mockups/hero-variants/HierarchyClear.tsx": () => import("../components/mockups/hero-variants/HierarchyClear.tsx"),
+  "./components/mockups/hero-variants/Midnight.tsx": () => import("../components/mockups/hero-variants/Midnight.tsx"),
+  "./components/mockups/hero-variants/Signal.tsx": () => import("../components/mockups/hero-variants/Signal.tsx")
 };
