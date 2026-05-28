@@ -102,7 +102,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
       <div className="absolute inset-0 bg-gradient-to-b from-secondary/50 to-accent/50"></div>
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">
-          <span className="gradient-text">My Expertise</span>
+          <span className="gradient-text">Our Expertise</span>
         </h2>
 
 
@@ -112,7 +112,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
           <div className="text-center max-w-[61.6rem] mx-auto">
             <p className="text-xl md:text-2xl leading-relaxed text-muted-foreground">
               <strong className="text-foreground">Most products fail post-launch because they weren't designed for humans to use them.</strong> <br />
-              The code is good. The design looks clean. But users don't understand what to do. <br />Teams can't agree on what matters. Stakeholders don't trust it. Change gets resisted. <br />The whole system pulls in different directions. <strong className="text-foreground">I fix that.</strong>
+              The code is good. The design looks clean. But users don't understand what to do. <br />Teams can't agree on what matters. Stakeholders don't trust it. Change gets resisted. <br />The whole system pulls in different directions. <strong className="text-foreground">We fix that.</strong>
             </p>
           </div>
 

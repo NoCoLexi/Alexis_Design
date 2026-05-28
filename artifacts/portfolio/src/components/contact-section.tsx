@@ -14,9 +14,7 @@ export default function ContactSection({ onOpenAwardModal }: ContactSectionProps
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="gradient-text">Let's Create Something Amazing</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            My rare blend of product strategy, product design, and Prosci-certified change management delivers products users embrace (not just tolerate).
-          </p>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Our rare blend of product strategy, product design, and change management delivers products users embrace (not just tolerate).</p>
           
           
         </div>
