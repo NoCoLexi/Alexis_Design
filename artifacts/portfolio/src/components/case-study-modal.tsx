@@ -156,6 +156,7 @@ interface CaseStudy {
   awards?: string[];
   processImages?: { src: string; caption: string }[];
   liveUrl?: string;
+  embedUrl?: string;
 }
 
 const caseStudies: Record<string, CaseStudy> = {
@@ -191,7 +192,8 @@ const caseStudies: Record<string, CaseStudy> = {
       'A live working demo as the session anchor outperforms a polished deck every time when the topic is "things AI can actually do"'
     ],
     image: aixuxSummitCoverImage,
-    liveUrl: 'https://three-dimensional-layered-agent.replit.app'
+    liveUrl: 'https://three-dimensional-layered-agent.replit.app',
+    embedUrl: 'https://three-dimensional-layered-agent.replit.app'
   },
   handshakr: {
     id: 'handshakr',
@@ -261,7 +263,8 @@ const caseStudies: Record<string, CaseStudy> = {
     ],
     image: siOpengraphImage,
     video: siDemoVideo,
-    liveUrl: '/stakeholder-invaders/'
+    liveUrl: '/stakeholder-invaders/',
+    embedUrl: '/stakeholder-invaders/'
   },
   'ca-innovation-award': {
     id: 'ca-innovation-award',
@@ -1198,29 +1201,18 @@ export default function CaseStudyModal() {
 
         {/* Content */}
         <div className="p-6 space-y-8">
-          {/* Key Results */}
-          <div>
-            <h4 className="text-xl font-semibold mb-6">Key Results</h4>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {caseStudy.metrics.map((metric, index) => (
-                <div key={index} className="glass rounded-xl p-6 text-center">
-                  <div className="text-4xl font-bold text-purple-400 mb-2">{metric.label}</div>
-                  <div className="text-sm font-medium text-muted-foreground">{metric.value}</div>
-                  <div className="text-xs text-muted-foreground mt-1">{metric.description}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Outcome */}
-          <div className="glass rounded-xl p-6">
-            <h4 className="text-xl font-semibold mb-4">Outcome</h4>
-            <p className="text-muted-foreground leading-relaxed">{caseStudy.outcome}</p>
-          </div>
-
-          {/* Hero Image/Video/Slideshow */}
-          <div className="aspect-video rounded-xl overflow-hidden">
-            {caseStudy.video ? (
+          {/* Hero Embed/Video/Slideshow/Image */}
+          <div className="aspect-video rounded-xl overflow-hidden bg-black">
+            {caseStudy.embedUrl ? (
+              <iframe
+                src={caseStudy.embedUrl}
+                title={caseStudy.title}
+                className="w-full h-full border-0"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                allowFullScreen
+              />
+            ) : caseStudy.video ? (
               <video 
                 src={caseStudy.id === 'pa-portal' ? `${caseStudy.video}#t=4` : caseStudy.video}
                 className="w-full h-full object-cover"
@@ -1239,6 +1231,26 @@ export default function CaseStudyModal() {
             ) : caseStudy.image ? (
               <img src={caseStudy.image} alt={caseStudy.title} className={`w-full h-full ${caseStudy.image === mallinckrodtMedicalLogo ? 'object-contain p-8 bg-white' : 'object-cover'}`} />
             ) : null}
+          </div>
+
+          {/* Key Results */}
+          <div>
+            <h4 className="text-xl font-semibold mb-6">Key Results</h4>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {caseStudy.metrics.map((metric, index) => (
+                <div key={index} className="glass rounded-xl p-6 text-center">
+                  <div className="text-4xl font-bold text-purple-400 mb-2">{metric.label}</div>
+                  <div className="text-sm font-medium text-muted-foreground">{metric.value}</div>
+                  <div className="text-xs text-muted-foreground mt-1">{metric.description}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Outcome */}
+          <div className="glass rounded-xl p-6">
+            <h4 className="text-xl font-semibold mb-4">Outcome</h4>
+            <p className="text-muted-foreground leading-relaxed">{caseStudy.outcome}</p>
           </div>
 
           {/* Overview */}

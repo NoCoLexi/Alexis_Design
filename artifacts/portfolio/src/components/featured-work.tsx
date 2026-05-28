@@ -151,6 +151,7 @@ interface Project {
   canonicalTags: string[]; // Canonical tags for filtering
   award?: string;
   liveUrl?: string;
+  embedUrl?: string;
 }
 
 const projects: Project[] = [
@@ -163,6 +164,7 @@ const projects: Project[] = [
     verticals: [],
     image: aixuxSummitCoverImage,
     liveUrl: 'https://three-dimensional-layered-agent.replit.app',
+    embedUrl: 'https://three-dimensional-layered-agent.replit.app',
     metrics: [
       { label: 'Day 2 Close', value: 'Keynote', color: 'text-chart-1' },
       { label: '3 Agents', value: 'Live Demo', color: 'text-primary' }
@@ -682,24 +684,39 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
       }}
     >
       <div className="aspect-video relative overflow-hidden">
-        <img
-          src={project.image}
-          alt={project.title}
-          className={`w-full h-full ${project.image === mallinckrodtMedicalLogo ? 'object-contain p-8' : 'object-cover object-top'} group-hover:scale-105 transition-transform duration-500`}
-          loading={index < 2 ? "eager" : "lazy"}
-          decoding="async"
-          style={{
-            ...(project.image === mallinckrodtMedicalLogo ? { backgroundColor: '#ffffff' } : {}),
-            ...(disableParallax
-              ? (project.image === riConventionCenterImage ? { objectPosition: 'center 35%' } : {})
-              : {
-                  transform: `translateY(${parallaxY * 0.1}px)`,
-                  transition: 'transform 0.1s ease-out',
-                  ...(project.image === riConventionCenterImage ? { objectPosition: 'center 35%' } : {})
-                })
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+        {project.embedUrl ? (
+          <>
+            <iframe
+              src={project.embedUrl}
+              title={project.title}
+              className="absolute inset-0 w-full h-full border-0"
+              loading="lazy"
+              referrerPolicy="no-referrer"
+              sandbox="allow-scripts allow-same-origin"
+              style={{ pointerEvents: 'none', backgroundColor: '#000' }}
+            />
+            <div className="absolute inset-0" aria-hidden="true" />
+          </>
+        ) : (
+          <img
+            src={project.image}
+            alt={project.title}
+            className={`w-full h-full ${project.image === mallinckrodtMedicalLogo ? 'object-contain p-8' : 'object-cover object-top'} group-hover:scale-105 transition-transform duration-500`}
+            loading={index < 2 ? "eager" : "lazy"}
+            decoding="async"
+            style={{
+              ...(project.image === mallinckrodtMedicalLogo ? { backgroundColor: '#ffffff' } : {}),
+              ...(disableParallax
+                ? (project.image === riConventionCenterImage ? { objectPosition: 'center 35%' } : {})
+                : {
+                    transform: `translateY(${parallaxY * 0.1}px)`,
+                    transition: 'transform 0.1s ease-out',
+                    ...(project.image === riConventionCenterImage ? { objectPosition: 'center 35%' } : {})
+                  })
+            }}
+          />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent pointer-events-none"></div>
         <div className="absolute top-4 left-4 flex gap-2">
           {project.award && (
             <Badge variant="secondary" className="bg-chart-3/80 text-foreground flex items-center gap-1">
