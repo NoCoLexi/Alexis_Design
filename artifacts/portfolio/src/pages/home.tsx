@@ -83,7 +83,7 @@ export default function Home() {
               {[0, 1].map((dup) => (
                 <div key={dup} className="flex items-center shrink-0" aria-hidden={dup === 1 ? 'true' : undefined}>
                   {Array.from({ length: 4 }).map((_, i) => (
-                    <span key={i} className="inline-flex items-center text-xs md:text-sm font-semibold tracking-wide" style={{ color: '#5fc5f8' }}>
+                    <span key={i} className="inline-flex items-center text-xs md:text-sm font-light tracking-wide" style={{ color: '#5fc5f8' }}>
                       <span className="mx-3" style={{ color: '#F3E8B9' }}>🎙 SPEAKING AT AIxUX SUMMIT</span>
                       <span className="opacity-70">·</span>
                       <span className="mx-3">JUNE 10, 2026</span>
