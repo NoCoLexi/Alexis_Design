@@ -133,6 +133,7 @@ import siOpengraphImage from "@assets/si-opengraph_1778447747327.jpg";
 import siPlayingImage from "@assets/si-playing_1778447747328.jpg";
 import siGameoverImage from "@assets/si-gameover_1778447747329.jpg";
 import siWinImage from "@assets/si-win_1778447747330.jpg";
+import aixuxSummitCoverImage from "@assets/aixux-3d-agent-cover.png";
 
 interface CaseStudy {
   id: string;
@@ -158,6 +159,40 @@ interface CaseStudy {
 }
 
 const caseStudies: Record<string, CaseStudy> = {
+  'aixux-summit-keynote': {
+    id: 'aixux-summit-keynote',
+    title: 'AIxUX Summit 2026 — Closing Keynote',
+    subtitle: 'Design Your AI Networking Agent — a live multi-agent orchestration experience',
+    description: 'The Day 2 closing session of AIxUX Summit 2026. Across two days, attendees built a personal agent layer-by-layer with each speaker — trust rules, workflows, multimodal capability, decomposition, process, evaluation, and a 30-day commitment. This final session is where they feel it: directing three specialist agents (Writer, Strategist, Connector) toward a real outcome they cannot deliver alone. The 3D layered visualization makes the orchestration handoff visceral, not theoretical.',
+    role: 'Closing Keynote Speaker & Experience Designer',
+    duration: 'Day 2, 13:00 — final session of the summit',
+    team: '1 — me, orchestrating three specialist agents live with the room',
+    challenge: 'The hardest part of working agentically is not the technology — it is the handoff. Most agentic content stays abstract: slides about orchestration, diagrams of multi-agent systems, theory about delegation. Attendees walk away knowing what an agent is, but not feeling what it is like to direct several at once toward a goal they care about.',
+    solution: 'Built a live orchestration experience anchored on a 3D layered visualization of the agent stack. Attendees walked in with a personal agent already loaded with eight summit sessions worth of context — identity, trust rules, a real workflow, multimodal capability, decomposition thinking, a redesigned process, eval criteria, and a 30-day commitment. The session put them in the director seat: send the same goal through three specialist agents (Writer, Strategist, Connector), watch the handoffs happen, decide which output ships. The 3D visualization shows each agent layer activating, passing context forward, and resolving into a single result.',
+    outcome: 'Closed the summit\'s capability-layer arc with the moment everything was built toward. Attendees left having felt the handoff problem — not just heard about it — which is the foundation Renata\'s 30-day commitment depends on. The live 3D demo (linked below) remains available as a public artifact of the session and as a working reference for the orchestration pattern.',
+    metrics: [
+      { label: 'Day 2 Close', value: 'Keynote Slot', description: 'Final session of the two-day AIxUX Summit capability arc' },
+      { label: '3', value: 'Specialist Agents', description: 'Writer, Strategist, Connector — orchestrated live with the room' },
+      { label: '8', value: 'Prior Layers Stacked', description: 'Goal + memory, trust, workflow, multimodal, decomposition, process, evals, 30-day commitment' }
+    ],
+    process: [
+      'Co-designed the summit\'s capability-layer spine with the facilitator team (Danny, Suyen, and Day 1/2 speakers)',
+      'Owned overall arc integrity: each session adds exactly one capability layer to the attendee\'s personal agent',
+      'Built the 3D layered agent visualization as the session\'s anchor — a working demo, not a slide',
+      'Wrote the session brief: pick up Renata\'s 30-day commitment, run the orchestration exercise, hand off to Day 2 Close',
+      'Defined the three specialist agents (Writer, Strategist, Connector) and the goal pattern that runs through all three',
+      'Designed the hands-on beat: attendees send their commitment through the agent stack and decide which output to ship',
+      'Authored the facilitator handoff SOP so every session in the program flowed as one experience, not ten standalone talks'
+    ],
+    learnings: [
+      'Agentic capability lands through doing, not listening — every session needs a hands-on beat or the arc breaks',
+      'Multi-agent orchestration is felt, not taught — the 3D visualization made the handoff visceral in a way diagrams never do',
+      'The hardest part of agentic work is the handoff, not the agent — and the only way to teach it is to put people in the director seat',
+      'A live working demo as the session anchor outperforms a polished deck every time when the topic is "things AI can actually do"'
+    ],
+    image: aixuxSummitCoverImage,
+    liveUrl: 'https://three-dimensional-layered-agent.replit.app'
+  },
   handshakr: {
     id: 'handshakr',
     title: 'HandShakr',

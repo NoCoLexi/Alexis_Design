@@ -64,6 +64,41 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground" style={{backgroundColor: '#08080A'}}>
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 w-full z-50 backdrop-blur-lg border-b border-primary/30 shadow-lg" style={{ backgroundColor: 'rgba(5,5,8,0.92)' }}>
+        {/* AIxUX Summit announcement ticker — visible through June 10, 2026 (summit day); hides June 11 onward */}
+        {new Date() < new Date('2026-06-11T00:00:00') && (
+          <div
+            className="w-full overflow-hidden cursor-pointer group border-b"
+            style={{
+              background: 'linear-gradient(90deg, rgba(95,197,248,0.12) 0%, rgba(95,197,248,0.22) 50%, rgba(95,197,248,0.12) 100%)',
+              borderColor: 'rgba(95,197,248,0.35)'
+            }}
+            onClick={() => {
+              const event = new CustomEvent('openCaseStudy', { detail: { projectId: 'aixux-summit-keynote' } });
+              window.dispatchEvent(event);
+            }}
+            data-testid="ticker-aixux-summit"
+            aria-label="Open AIxUX Summit case study"
+          >
+            <div className="flex whitespace-nowrap py-1.5 group-hover:[animation-play-state:paused]" style={{ animation: 'ticker-scroll 30s linear infinite' }}>
+              {[0, 1].map((dup) => (
+                <div key={dup} className="flex items-center shrink-0" aria-hidden={dup === 1 ? 'true' : undefined}>
+                  {Array.from({ length: 4 }).map((_, i) => (
+                    <span key={i} className="inline-flex items-center text-xs md:text-sm font-semibold tracking-wide" style={{ color: '#5fc5f8' }}>
+                      <span className="mx-3" style={{ color: '#F3E8B9' }}>🎙 SPEAKING AT AIxUX SUMMIT</span>
+                      <span className="opacity-70">·</span>
+                      <span className="mx-3">JUNE 10, 2026</span>
+                      <span className="opacity-70">·</span>
+                      <span className="mx-3" style={{ color: '#F3E8B9' }}>DESIGN YOUR AI NETWORKING AGENT</span>
+                      <span className="opacity-70">·</span>
+                      <span className="mx-3 underline underline-offset-2">VIEW CASE STUDY →</span>
+                      <span className="opacity-40 mx-2">●</span>
+                    </span>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
         <div className="max-w-7xl mx-auto px-6 py-2">
           <div className="flex justify-between items-center">
             <div 

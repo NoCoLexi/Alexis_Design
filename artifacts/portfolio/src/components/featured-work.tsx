@@ -118,6 +118,7 @@ import siHomeImage from "@assets/Stakeholder_invaders_home_1778449156633.png";
 import siPlayingImage from "@assets/si-playing_1778447747328.jpg";
 import siGameoverImage from "@assets/si-gameover_1778447747329.jpg";
 import siWinImage from "@assets/si-win_1778447747330.jpg";
+import aixuxSummitCoverImage from "@assets/aixux-3d-agent-cover.png";
 
 
 // Preload critical images immediately when component loads
@@ -153,6 +154,22 @@ interface Project {
 }
 
 const projects: Project[] = [
+  {
+    id: 'aixux-summit-keynote',
+    title: 'AIxUX Summit — Closing Keynote',
+    description: 'Designed and delivered the Day 2 closing keynote for AIxUX Summit 2026: a live orchestration experience where attendees direct three specialist agents toward a real outcome. The 3D layered visualization makes the multi-agent handoff visceral — not theoretical.',
+    category: 'product-management',
+    roles: ['product-management', 'product-design'],
+    verticals: [],
+    image: aixuxSummitCoverImage,
+    liveUrl: 'https://three-dimensional-layered-agent.replit.app',
+    metrics: [
+      { label: 'Day 2 Close', value: 'Keynote', color: 'text-chart-1' },
+      { label: '3 Agents', value: 'Live Demo', color: 'text-primary' }
+    ],
+    tags: ['Agentic AI', 'Keynote', 'AIxUX Summit', 'Multi-Agent Orchestration'],
+    canonicalTags: []
+  },
   {
     id: 'lifespan-health-care',
     title: 'Lifespan Health Care',
@@ -739,7 +756,7 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
 export default function FeaturedWork() {
   const { filters, setVertical } = usePortfolioFilters();
 
-  const financeProjects = ['handshakr', 'wechore', 'stakeholder-invaders', 'ilave', 'subscriptex'];
+  const financeProjects = ['aixux-summit-keynote', 'handshakr', 'wechore', 'stakeholder-invaders', 'ilave', 'subscriptex'];
   const healthcarePriority = ['fairgrounds-coffee', 'providence-school-system'];
   
   const filteredProjects = useMemo(() => {
@@ -775,6 +792,7 @@ export default function FeaturedWork() {
 
     const allProjectsOrder = [
       'ca-innovation-award',
+      'aixux-summit-keynote',
       'handshakr',
       'grants-management-sikich',
       'pa-portal',
