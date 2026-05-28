@@ -120,9 +120,7 @@ export default function Home() {
                 className="nav-link inline-flex items-center px-4 py-2 rounded-full transition-all duration-300 cursor-pointer"
                 data-testid="button-check-out-work"
               >
-                <span className="text-sm font-medium text-white">
-                  Check out my work!
-                </span>
+                <span className="text-sm font-medium text-white">Check out our work!</span>
               </button>
               <button
                 onClick={() => scrollToSection('about')}
@@ -130,7 +128,7 @@ export default function Home() {
                 data-testid="button-my-expertise"
               >
                 <span className="text-sm font-medium text-white">
-                  My expertise
+                  Our expertise
                 </span>
               </button>
               <Link
@@ -147,7 +145,7 @@ export default function Home() {
                 className="nav-link inline-flex items-center px-4 py-2 rounded-full transition-all duration-300 cursor-pointer"
                 data-testid="button-about-site"
               >
-                <span className="text-sm font-medium text-white">How I built this site</span>
+                <span className="text-sm font-medium text-white">How we built this site</span>
               </button>
             </div>
             <button
@@ -170,7 +168,7 @@ export default function Home() {
                 data-testid="button-about-site-mobile"
               >
                 <span className="text-sm font-medium text-white">
-                  How I built this site
+                  How we built this site
                 </span>
               </button>
               <button
@@ -182,7 +180,7 @@ export default function Home() {
                 data-testid="button-my-expertise-mobile"
               >
                 <span className="text-sm font-medium text-white">
-                  My Expertise
+                  Our Expertise
                 </span>
               </button>
               <Link
