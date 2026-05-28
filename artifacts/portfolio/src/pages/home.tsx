@@ -90,7 +90,7 @@ export default function Home() {
                       <span className="opacity-70">·</span>
                       <span className="mx-3 font-light" style={{ color: '#F3E8B9' }}>DESIGN YOUR AI NETWORKING AGENT</span>
                       <span className="opacity-70">·</span>
-                      <span className="mx-3 underline underline-offset-2">VIEW CASE STUDY →</span>
+                      <span className="mx-3 font-light underline underline-offset-2">VIEW CASE STUDY →</span>
                       <span className="opacity-40 mx-2">●</span>
                     </span>
                   ))}
