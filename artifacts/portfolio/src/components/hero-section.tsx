@@ -81,17 +81,17 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center relative overflow-hidden">
-      <div className="absolute inset-0 gradient-bg-secondary opacity-30"></div>
-      <div className="absolute inset-0 opacity-20">
+    <section id="home" className="min-h-screen flex items-start relative">
+      <div className="absolute inset-0 gradient-bg-secondary opacity-30 overflow-hidden pointer-events-none"></div>
+      <div className="absolute inset-0 opacity-20 overflow-hidden pointer-events-none">
         <div className="w-full h-full bg-gradient-to-br from-primary/20 via-transparent to-chart-1/20"></div>
       </div>
       <FloatingBackground />
-      {/* Desktop Layout — single column, content centered */}
-      <div className="hidden md:flex justify-center items-center w-full relative z-10" style={{ minHeight: '100vh' }}>
+      {/* Desktop Layout — single column, content top-aligned */}
+      <div className="hidden md:flex justify-center items-start w-full relative z-10" style={{ minHeight: '100vh' }}>
 
-        {/* Content column: centered */}
-        <div className="flex flex-col justify-center px-12 py-8 gap-4 max-w-3xl w-full">
+        {/* Content column: top-aligned with generous top padding */}
+        <div className="flex flex-col px-12 gap-6 max-w-3xl w-full" style={{ paddingTop: '10vh', paddingBottom: '6vh' }}>
 
           {/* Award badge */}
           <div>
@@ -195,7 +195,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         </div>
       </div>
       {/* Mobile Layout (1 column) */}
-      <div className="md:hidden flex flex-col items-center px-6 py-20 relative w-full z-10 text-center space-y-6">
+      <div className="md:hidden flex flex-col items-center px-6 pt-28 pb-16 relative w-full z-10 text-center space-y-8">
         {/* 1. Award Winner button */}
         <div className="flex justify-center">
           <div
