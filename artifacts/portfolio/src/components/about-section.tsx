@@ -424,7 +424,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                           <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
                           <div className="text-left">
                             <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Publication</div>
-                            <div className="text-foreground font-medium">UX Collective (uxdesign.cc) - "13 ways my boyfriend Claude is helping me find a job with AI"</div>
+                            <div className="text-foreground font-medium">UX Collective (uxdesign.cc) - "13 ways AI assistants can accelerate your job search" (Founder's article)</div>
                           </div>
                         </div>
                         <div className="education-item">
@@ -459,7 +459,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                           <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
                           <div className="text-left">
                             <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Publication</div>
-                            <div className="text-foreground font-medium">UX Collective (uxdesign.cc) - "What my surgery taught me about product design"</div>
+                            <div className="text-foreground font-medium">UX Collective (uxdesign.cc) - "What a health crisis taught us about product design" (Founder's article)</div>
                           </div>
                         </div>
                         <div className="education-item">
@@ -517,7 +517,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                           <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
                           <div className="text-left">
                             <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Publication</div>
-                            <div className="text-foreground font-medium">UX Collective (uxdesign.cc) - "13 ways my boyfriend Claude is helping me find a job with AI"</div>
+                            <div className="text-foreground font-medium">UX Collective (uxdesign.cc) - "13 ways AI assistants can accelerate your job search" (Founder's article)</div>
                           </div>
                         </div>
                         <div className="education-item">
@@ -552,7 +552,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                           <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
                           <div className="text-left">
                             <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Publication</div>
-                            <div className="text-foreground font-medium">UX Collective (uxdesign.cc) - "What my surgery taught me about product design"</div>
+                            <div className="text-foreground font-medium">UX Collective (uxdesign.cc) - "What a health crisis taught us about product design" (Founder's article)</div>
                           </div>
                         </div>
                         <div className="education-item">
