@@ -133,7 +133,7 @@ export default function Services() {
             Practical, engaging sessions that turn uncertainty into confidence for conferences, and team workshops.
           </p>
           <a 
-            href="mailto:alexis.brochu@gmail.com?subject=Speaking%20Inquiry"
+            href="mailto:alexis@upstart-labs.com?subject=Speaking%20Inquiry"
             className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white px-8 py-6 text-lg rounded-xl inline-flex items-center justify-center font-semibold transition-all duration-300 transform hover:scale-105"
             data-testid="button-contact-hero"
           >
@@ -275,7 +275,7 @@ export default function Services() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a 
-                  href="mailto:alexis.brochu@gmail.com?subject=Speaking%20Inquiry"
+                  href="mailto:alexis@upstart-labs.com?subject=Speaking%20Inquiry"
                   className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105"
                   data-testid="button-contact-email"
                 >

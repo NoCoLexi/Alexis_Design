@@ -186,7 +186,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           {/* Message Me — secondary action, ghost/outline style */}
           <div className="mt-4">
             <a
-              href="mailto:alexis.brochu@gmail.com"
+              href="mailto:alexis@upstart-labs.com"
               className="rounded-full font-bold transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center gap-2 border-2"
               style={{
                 fontFamily: 'Montserrat, sans-serif',
@@ -304,7 +304,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         {/* Message Me Button */}
         <div className="flex justify-center w-full max-w-sm mx-auto">
           <a
-            href="mailto:alexis.brochu@gmail.com"
+            href="mailto:alexis@upstart-labs.com"
             className="w-full px-6 rounded-full font-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2"
             style={{
               fontFamily: 'Montserrat, sans-serif',
