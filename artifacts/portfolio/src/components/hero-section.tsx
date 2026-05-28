@@ -132,7 +132,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           {/* Subhead */}
           <p
             className="text-xl lg:text-2xl font-inter-medium text-muted-foreground leading-relaxed"
-            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
+            style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 500 }}
           >I design the human layer of product and systems of adoption</p>
 
           {/* Primary CTA — Play Stakeholders' Invaders (arcade style) */}
@@ -189,7 +189,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
               href="mailto:alexis.brochu@gmail.com"
               className="rounded-full font-bold transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center gap-2 border-2"
               style={{
-                fontFamily: 'Inter, sans-serif',
+                fontFamily: 'Montserrat, sans-serif',
                 fontWeight: 700,
                 fontSize: '1.05rem',
                 color: 'rgba(255,255,255,0.85)',
@@ -235,7 +235,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         {/* 3. Subhead */}
         <p
           className="text-base font-inter-medium text-muted-foreground leading-relaxed mt-0"
-          style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
+          style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 500 }}
         >
           I build products that get used, not just shipped.
         </p>
@@ -307,7 +307,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             href="mailto:alexis.brochu@gmail.com"
             className="w-full px-6 rounded-full font-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 border-2"
             style={{
-              fontFamily: 'Inter, sans-serif',
+              fontFamily: 'Montserrat, sans-serif',
               color: 'rgba(255,255,255,0.85)',
               height: '50px',
               background: 'transparent',
