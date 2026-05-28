@@ -123,7 +123,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
           </div>
 
           {/* Headline */}
-          <h1 className="text-5xl lg:text-6xl leading-tight" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.08', wordSpacing: '0.08em' }}>
+          <h1 className="text-5xl lg:text-6xl leading-tight" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, lineHeight: '1.08', wordSpacing: '0.08em' }}>
             <span className="disco-text text-[40px]" style={{ color: '#F3E8B9' }}>
               {getCustomGreeting()}
             </span>
@@ -226,7 +226,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         </div>
 
         {/* 2. Headline */}
-        <h1 className="text-2xl" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, lineHeight: '1.1', wordSpacing: '0.08em' }}>
+        <h1 className="text-2xl" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, lineHeight: '1.1', wordSpacing: '0.08em' }}>
           <span className={`disco-text ${isPlaying ? 'dancing' : ''}`} style={{ color: '#F3E8B9' }}>
             {getCustomGreeting()}
           </span>
