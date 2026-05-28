@@ -200,7 +200,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
               }}
               data-testid="link-send-email"
             >
-              MESSAGE ME
+              MESSAGE US
               <span className="text-xl" style={{ lineHeight: 1 }}>→</span>
             </a>
           </div>
@@ -315,7 +315,7 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
             }}
             data-testid="link-send-email-mobile"
           >
-            MESSAGE ME
+            MESSAGE US
             <span className="text-xl" style={{ lineHeight: 1 }}>→</span>
           </a>
         </div>
