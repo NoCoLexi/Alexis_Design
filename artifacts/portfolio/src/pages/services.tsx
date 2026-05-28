@@ -112,8 +112,8 @@ export default function Services() {
               <span className="font-medium">Back to Portfolio</span>
             </Link>
             <div className="logo-style flex items-center">
-              <span className="name-first text-white font-bold text-xl">Alexis</span>
-              <span className="name-last text-purple-400 font-bold text-xl">Brochu</span>
+              <span className="name-first text-white font-bold text-xl">UPSTART</span>
+              <span className="name-last text-purple-400 font-bold text-xl">-Labs</span>
             </div>
           </div>
         </div>
@@ -271,7 +271,7 @@ export default function Services() {
                 Have Questions?
               </h2>
               <p className="text-muted-foreground mb-6">
-                Looking for a speaker for your next event? I'd love to discuss how I can bring value to your audience.
+                Looking for a speaker for your next event? We'd love to discuss how we can bring value to your audience.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a 
@@ -280,14 +280,14 @@ export default function Services() {
                   data-testid="button-contact-email"
                 >
                   <Mail className="w-5 h-5" />
-                  Contact Me
+                  Contact Us
                 </a>
                 <Link 
                   href="/"
                   className="inline-flex items-center justify-center gap-2 border-2 border-white/30 hover:border-purple-400 text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 hover:bg-white/5"
                   data-testid="link-view-portfolio"
                 >
-                  View My Portfolio
+                  View Our Portfolio
                 </Link>
               </div>
             </div>
@@ -324,7 +324,7 @@ export default function Services() {
       {/* Footer */}
       <footer className="py-8 px-6 border-t border-border">
         <div className="max-w-4xl mx-auto text-center text-muted-foreground text-sm">
-          <p>&copy; {new Date().getFullYear()} Alexis Brochu. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Upstart-Labs. All rights reserved.</p>
         </div>
       </footer>
     </div>

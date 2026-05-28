@@ -5,7 +5,6 @@ import AdminPanel from "./admin-panel";
 import FloatingBackground from "./floating-background";
 
 import { useAdminPanel } from "@/hooks/use-admin-panel";
-import headshot from "@assets/headshot_bw_1774321770406.png";
 
 import goldenTrophyIcon from "@assets/golden-star-trophy.png";
 

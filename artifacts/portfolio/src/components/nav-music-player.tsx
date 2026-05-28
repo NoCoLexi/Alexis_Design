@@ -139,6 +139,8 @@ export default function NavMusicPlayer({ onPlayingChange, renderAs = 'circle', b
     }
   };
 
+  return null;
+
   return (
     <>
       <audio ref={audioRef} src={hireMeSong} preload="auto" />

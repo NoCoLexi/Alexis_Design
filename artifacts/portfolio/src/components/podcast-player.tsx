@@ -55,6 +55,8 @@ export default function PodcastPlayer() {
     }
   };
 
+  return null;
+
   return (
     <>
       <audio ref={audioRef} src={podcastFile} preload="auto" />

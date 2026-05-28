@@ -227,7 +227,7 @@ const projects: Project[] = [
   {
     id: 'gatorade-zipatoni',
     title: 'Gatorade',
-    description: 'Brand development and sports marketing design concepts created during my tenure at Zipatoni, focusing on label design and sports marketing materials for the iconic brand.',
+    description: 'Brand development and sports marketing design concepts created during our tenure at Zipatoni, focusing on label design and sports marketing materials for the iconic brand.',
     category: 'brand-development',
     roles: ['brand-development'],
     verticals: ['healthcare'],
@@ -270,7 +270,7 @@ const projects: Project[] = [
   {
     id: 'budweiser-zipatoni',
     title: 'Budweiser',
-    description: 'Beer brand campaign development during my time at Zipatoni, creating compelling marketing materials and brand campaigns for one of America\'s most iconic beer brands.',
+    description: 'Beer brand campaign development during our time at Zipatoni, creating compelling marketing materials and brand campaigns for one of America\'s most iconic beer brands.',
     category: 'brand-development',
     roles: ['brand-development'],
     verticals: ['healthcare'],
@@ -293,7 +293,7 @@ const projects: Project[] = [
   {
     id: 'ca-innovation-award',
     title: 'California GovTech Innovation Award',
-    description: 'I led the team that won the 2023 California Government Technology Innovation Award for outstanding contributions to public-sector technology.',
+    description: 'We led the team that won the 2023 California Government Technology Innovation Award for outstanding contributions to public-sector technology.',
     category: 'product-management',
     roles: ['product-management'],
     verticals: ['government'],
@@ -332,7 +332,7 @@ const projects: Project[] = [
   {
     id: 'pa-portal',
     title: 'Public Assistance Closeouts App',
-    description: 'A stalled grant app needed stakeholder alignment. I led 100+ hours of research and created artifacts that unblocked progress.',
+    description: 'A stalled grant app needed stakeholder alignment. We led 100+ hours of research and created artifacts that unblocked progress.',
     category: 'product-management',
     roles: ['product-management'],
     verticals: ['government'],

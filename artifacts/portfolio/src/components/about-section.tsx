@@ -4,6 +4,7 @@ import { Award, ArrowDown, Play, Pause } from "lucide-react";
 import professionalPhoto from "@assets/Brochu, Alexis 2023 Ireland_1754523029765.png";
 import profileVideo from "@assets/20181006_190845_1754603621565.mp4";
 import architectImage from "@assets/Architect_of_the_Human_Layer_1778447747325.png";
+import headshot from "@assets/headshot_bw_1774321770406.png";
 import { useState, useRef, useEffect } from "react";
 
 const skills = [
@@ -18,7 +19,7 @@ interface AboutSectionProps {
 }
 
 export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
-  const [activeTab, setActiveTab] = useState<'education' | 'publications' | 'community' | 'funfact'>('education');
+  const [activeTab, setActiveTab] = useState<'education' | 'publications' | 'community' | 'funfact'>('publications');
   const [isDragging, setIsDragging] = useState(false);
   const [startY, setStartY] = useState(0);
   const [scrollTop, setScrollTop] = useState(0);
@@ -102,12 +103,20 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
       <div className="absolute inset-0 bg-gradient-to-b from-secondary/50 to-accent/50"></div>
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">
-          <span className="gradient-text">Our Expertise</span>
+          <span className="gradient-text">About the Founder</span>
         </h2>
 
-
-
         <div className="space-y-16">
+          {/* Founder headshot */}
+          <div className="flex justify-center">
+            <img
+              src={headshot}
+              alt="Upstart-Labs Founder"
+              className="rounded-2xl shadow-lg"
+              style={{ maxWidth: '260px', width: '100%', objectFit: 'cover', objectPosition: 'top' }}
+            />
+          </div>
+
           {/* Introduction Quote */}
           <div className="text-center max-w-[61.6rem] mx-auto">
             <p className="text-xl md:text-2xl leading-relaxed text-muted-foreground">
@@ -120,7 +129,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
           <div className="w-full max-w-6xl mx-auto rounded-2xl overflow-hidden">
             <img
               src={architectImage}
-              alt="Alexis Brochu: Architect of the Human Layer"
+              alt="Upstart-Labs: Architect of the Human Layer"
               className="w-full h-auto object-cover"
             />
           </div>
@@ -131,14 +140,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
               {/* Tab Navigation */}
               <div className="flex justify-center mb-8">
                 <div className="glass rounded-xl p-2">
-                  <Button
-                    variant={activeTab === 'education' ? 'default' : 'ghost'}
-                    onClick={() => setActiveTab('education')}
-                    className={activeTab === 'education' ? 'gradient-bg-primary' : ''}
-                    data-testid="tab-education-certs"
-                  >
-                    Education/Certs
-                  </Button>
+                  {/* Education/Certs tab hidden — content deferred */}
                   <Button
                     variant={activeTab === 'publications' ? 'default' : 'ghost'}
                     onClick={() => setActiveTab('publications')}
@@ -979,7 +981,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
 
               {activeTab === 'funfact' && (
                 <div className="text-center">
-                  <h3 className="font-semibold mb-6 text-xl" style={{ color: '#F3E8B9' }}>I'm also a certified personal trainer</h3>
+                  <h3 className="font-semibold mb-6 text-xl" style={{ color: '#F3E8B9' }}>Also a certified personal trainer</h3>
                   <div className="flex justify-center">
                     <div className="relative aspect-video max-w-sm rounded-xl overflow-hidden animate-float glass">
                       <video
