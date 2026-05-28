@@ -707,18 +707,18 @@ body:has(.disco-overlay) button[class*="right"] {
     scrollbar-width: none;
   }
 
-  /* Button and anchor outline removal */
+  /* Button and anchor outline/focus removal */
 button,
 a {
   outline: none;
-  border: none;
 }
 
 button:focus,
-a:focus {
+a:focus,
+button:focus-visible,
+a:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 2px #4f46e5; /* nice purple glow */
-  border-radius: 6px;           /* soften corners */
+  box-shadow: none;
 }
 
 /* Hero section styling */

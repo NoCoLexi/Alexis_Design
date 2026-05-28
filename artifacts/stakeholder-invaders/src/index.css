@@ -67,9 +67,19 @@ html, body, #root {
   z-index: 6;
 }
 
-button {
+button,
+a {
   cursor: pointer;
   font-family: inherit;
+  outline: none;
+}
+
+button:focus,
+a:focus,
+button:focus-visible,
+a:focus-visible {
+  outline: none;
+  box-shadow: none;
 }
 
 @keyframes flicker {
