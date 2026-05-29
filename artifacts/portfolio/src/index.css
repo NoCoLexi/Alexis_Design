@@ -732,6 +732,29 @@ a:focus-visible {
   padding-top: 80px; /* adjust to match your nav bar's height */
 }
 
+/* Labs fingerprint watermark */
+.labs {
+  position: relative;
+  display: inline-block;
+}
+
+.labs .fp-watermark {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 90%;
+  width: 1.9em;
+  height: 1.9em;
+  transform: translate(-50%, -40%);
+  pointer-events: none;
+  opacity: 0.18;
+}
+
+.labs .fp-label {
+  position: relative;
+  z-index: 1;
+}
+
 /* Enhanced sticky navigation */
 nav {
   position: fixed !important;
