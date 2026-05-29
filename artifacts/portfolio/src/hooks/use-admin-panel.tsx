@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 
-type Vertical = 'government' | 'healthcare' | 'education' | 'food-beverage' | 'auto';
+type Vertical = 'government' | 'healthcare' | 'finance' | 'education';
 
 interface AdminSettings {
   companyName: string;
-  jobType: 'PM' | 'Design' | 'Auto';
+  jobType: 'PM' | 'Design' | 'Brand' | 'Auto';
   vertical: Vertical;
   jobUrl: string;
 }
@@ -80,11 +80,8 @@ export const useAdminPanel = () => {
   };
 
   // Get vertical focus
-  const getVerticalFocus = (): 'government' | 'healthcare' | 'education' | 'food-beverage' => {
-    if (settings.vertical === 'auto' || !settings.vertical) {
-      return 'government';
-    }
-    return settings.vertical;
+  const getVerticalFocus = (): Vertical => {
+    return settings.vertical || 'government';
   };
 
   return {

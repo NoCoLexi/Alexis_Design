@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/select";
 
 
-type Vertical = 'government' | 'healthcare' | 'education' | 'food-beverage' | 'auto';
+type Vertical = 'government' | 'healthcare' | 'finance' | 'education';
 
 interface AdminSettings {
   companyName: string;
@@ -130,7 +130,7 @@ export default function AdminPanel({ isVisible, onClose, onApply }: AdminPanelPr
     const params = new URLSearchParams();
     if (settings.companyName) params.set('company', settings.companyName);
     if (settings.jobType !== 'Auto') params.set('focus', settings.jobType.toLowerCase());
-    if (settings.vertical !== 'auto') params.set('vertical', settings.vertical);
+    if (settings.vertical !== 'government') params.set('vertical', settings.vertical);
 
     const customUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
 
@@ -231,6 +231,18 @@ export default function AdminPanel({ isVisible, onClose, onApply }: AdminPanelPr
             <div className="flex items-center space-x-2">
               <input
                 type="radio"
+                id="vertical-finance"
+                name="vertical"
+                value="finance"
+                checked={vertical === 'finance'}
+                onChange={() => setVertical('finance')}
+                className="w-4 h-4 text-primary border-2 border-primary/50 focus:ring-2 focus:ring-primary"
+              />
+              <label htmlFor="vertical-finance" className="text-sm cursor-pointer">Productivity</label>
+            </div>
+            <div className="flex items-center space-x-2">
+              <input
+                type="radio"
                 id="vertical-healthcare"
                 name="vertical"
                 value="healthcare"
@@ -238,7 +250,7 @@ export default function AdminPanel({ isVisible, onClose, onApply }: AdminPanelPr
                 onChange={() => setVertical('healthcare')}
                 className="w-4 h-4 text-primary border-2 border-primary/50 focus:ring-2 focus:ring-primary"
               />
-              <label htmlFor="vertical-healthcare" className="text-sm cursor-pointer">Healthcare</label>
+              <label htmlFor="vertical-healthcare" className="text-sm cursor-pointer">Brand Dev</label>
             </div>
             <div className="flex items-center space-x-2">
               <input
@@ -251,30 +263,6 @@ export default function AdminPanel({ isVisible, onClose, onApply }: AdminPanelPr
                 className="w-4 h-4 text-primary border-2 border-primary/50 focus:ring-2 focus:ring-primary"
               />
               <label htmlFor="vertical-education" className="text-sm cursor-pointer">Education</label>
-            </div>
-            <div className="flex items-center space-x-2">
-              <input
-                type="radio"
-                id="vertical-food-beverage"
-                name="vertical"
-                value="food-beverage"
-                checked={vertical === 'food-beverage'}
-                onChange={() => setVertical('food-beverage')}
-                className="w-4 h-4 text-primary border-2 border-primary/50 focus:ring-2 focus:ring-primary"
-              />
-              <label htmlFor="vertical-food-beverage" className="text-sm cursor-pointer">Food & Beverage</label>
-            </div>
-            <div className="flex items-center space-x-2">
-              <input
-                type="radio"
-                id="vertical-auto"
-                name="vertical"
-                value="auto"
-                checked={vertical === 'auto'}
-                onChange={() => setVertical('auto')}
-                className="w-4 h-4 text-primary border-2 border-primary/50 focus:ring-2 focus:ring-primary"
-              />
-              <label htmlFor="vertical-auto" className="text-sm cursor-pointer">Default (Government)</label>
             </div>
           </div>
         </div>
@@ -356,10 +344,9 @@ export default function AdminPanel({ isVisible, onClose, onApply }: AdminPanelPr
           <div className="mt-4 p-3 bg-secondary/50 rounded-lg">
             <p className="text-sm text-muted-foreground">
               Preview: "Hi <strong>{companyName}</strong>, I'm Alexis" • 
-              Vertical: <strong>{vertical === 'auto' ? 'Government' : 
-                              vertical === 'government' ? 'Government' :
-                              vertical === 'healthcare' ? 'Healthcare' :
-                              vertical === 'education' ? 'Education' : 'Food & Beverage'}</strong> • 
+              Vertical: <strong>{vertical === 'government' ? 'Government' :
+                              vertical === 'finance' ? 'Productivity' :
+                              vertical === 'healthcare' ? 'Brand Dev' : 'Education'}</strong> • 
               Role: <strong>{jobType === 'Auto' ? 'Product Management' : 
                               jobType === 'PM' ? 'Product Management' : 
                               jobType === 'Design' ? 'Product Design' : 'Brand Development'}</strong>
