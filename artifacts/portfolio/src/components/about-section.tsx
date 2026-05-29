@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Award, ArrowDown, Play, Pause } from "lucide-react";
 import professionalPhoto from "@assets/Brochu, Alexis 2023 Ireland_1754523029765.png";
 import profileVideo from "@assets/20181006_190845_1754603621565.mp4";
-import architectImage from "@assets/Architect_of_the_Human_Layer_1778447747325.png";
 import headshot from "@assets/headshot_bw_1774321770406.png";
 import { useState, useRef, useEffect } from "react";
 
@@ -126,15 +125,6 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                 The code is solid. The UX is clean. But adoption still stalls because no one designed for the office misunderstandings, the training gap, or the stakeholders who never bought in. <br />She built Upstart-Labs around a single belief: <strong className="text-foreground">that the human side of change is just as engineerable as the product itself.</strong>
               </p>
             </div>
-          </div>
-
-          {/* Expertise Diagram */}
-          <div className="w-full max-w-6xl mx-auto rounded-2xl overflow-hidden">
-            <img
-              src={architectImage}
-              alt="Upstart-Labs: Architect of the Human Layer"
-              className="w-full h-auto object-cover"
-            />
           </div>
 
           {/* Education Tabs - Centered and Wide */}
