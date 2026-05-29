@@ -131,7 +131,7 @@ export default function Home() {
               </button>
               <button
                 onClick={() => scrollToSection('work')}
-                className="nav-link inline-flex items-center px-4 py-2 rounded-full transition-all duration-300 cursor-pointer"
+                className="nav-link-primary inline-flex items-center px-4 py-2 rounded-full transition-all duration-300 cursor-pointer"
                 data-testid="button-check-out-work"
               >
                 <span className="text-sm font-medium text-white">Check out our work!</span>
@@ -177,7 +177,7 @@ export default function Home() {
                   scrollToSection('work');
                   setIsMobileMenuOpen(false);
                 }}
-                className="nav-link inline-flex items-center justify-center w-full px-4 py-3 rounded-full transition-all duration-300 cursor-pointer"
+                className="nav-link-primary inline-flex items-center justify-center w-full px-4 py-3 rounded-full transition-all duration-300 cursor-pointer"
                 data-testid="button-check-out-work-mobile"
               >
                 <span className="text-sm font-medium text-white">

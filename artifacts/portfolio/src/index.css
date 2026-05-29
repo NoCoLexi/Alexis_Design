@@ -767,6 +767,27 @@ nav .nav-link:hover span {
   text-shadow: 0 0 8px rgba(95, 197, 248, 0.55);
 }
 
+/* Primary nav link — reverse state: glow by default, plain on hover */
+nav .nav-link-primary {
+  background-color: rgba(95, 197, 248, 0.08);
+  color: #5fc5f8;
+  box-shadow: 0 0 18px rgba(95, 197, 248, 0.45),
+              0 0 36px rgba(95, 197, 248, 0.25);
+}
+nav .nav-link-primary span {
+  color: #5fc5f8 !important;
+  text-shadow: 0 0 8px rgba(95, 197, 248, 0.55);
+}
+nav .nav-link-primary:hover {
+  background: transparent;
+  color: #ffffff;
+  box-shadow: none;
+}
+nav .nav-link-primary:hover span {
+  color: #ffffff !important;
+  text-shadow: none;
+}
+
 /* Ensure proper spacing for fixed header */
 body {
   padding-top: 0;
