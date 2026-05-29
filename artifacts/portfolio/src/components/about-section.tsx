@@ -110,12 +110,12 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
           {/* Two-column: portrait + intro quote */}
           <div className="flex flex-col md:flex-row gap-12 md:gap-16 items-start justify-between">
             {/* Portrait - left */}
-            <div className="flex-shrink-0">
+            <div className="flex-shrink-0 self-stretch flex flex-col">
               <img
                 src={headshot}
                 alt="Upstart-Labs Founder"
                 className="rounded-2xl shadow-lg rounded-tl-[12px] rounded-tr-[12px] rounded-br-[12px] rounded-bl-[12px]"
-                style={{ maxWidth: '320px', width: '100%', objectFit: 'cover', objectPosition: 'top' }}
+                style={{ maxWidth: '320px', width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }}
               />
             </div>
 
