@@ -19,6 +19,7 @@ interface AboutSectionProps {
 
 export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
   const [activeTab, setActiveTab] = useState<'education' | 'publications' | 'community' | 'funfact'>('publications');
+  const [inlineTab, setInlineTab] = useState<'community' | 'funfact'>('community');
   const [isDragging, setIsDragging] = useState(false);
   const [startY, setStartY] = useState(0);
   const [scrollTop, setScrollTop] = useState(0);
@@ -118,22 +119,279 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
               />
             </div>
 
-            {/* Introduction Quote - right */}
-            <div className="flex-1 max-w-xl">
-              <p className="text-xl md:text-2xl leading-relaxed text-muted-foreground">
+            {/* Introduction + Inline Tabs - right */}
+            <div className="flex-1 flex flex-col gap-8">
+              <p className="md:text-2xl text-muted-foreground text-[18px]">
                 <strong className="text-foreground">Alexis has spent her career inside the gap between what teams build and what people actually adopt.</strong> <br />
                 The code is solid. The UX is clean. But adoption still stalls because no one designed for the office misunderstandings, the training gap, or the stakeholders who never bought in. <br />She built Upstart-Labs around a single belief: <strong className="text-foreground">that the human side of change is just as engineerable as the product itself.</strong>
               </p>
+
+              {/* Inline 2-tab panel */}
+              <div>
+                <div className="mb-4">
+                  <div className="glass rounded-xl p-2 inline-flex">
+                    <Button
+                      variant={inlineTab === 'community' ? 'default' : 'ghost'}
+                      onClick={() => setInlineTab('community')}
+                      className={inlineTab === 'community' ? 'gradient-bg-primary' : ''}
+                    >
+                      Community/Leadership
+                    </Button>
+                    <Button
+                      variant={inlineTab === 'funfact' ? 'default' : 'ghost'}
+                      onClick={() => setInlineTab('funfact')}
+                      className={inlineTab === 'funfact' ? 'gradient-bg-primary' : ''}
+                    >
+                      Fun Fact
+                    </Button>
+                  </div>
+                </div>
+
+                {inlineTab === 'community' && (
+                  <div>
+                    <div
+                      className={`glass rounded-xl p-6 relative overflow-hidden ${isDragging ? 'dragging cursor-grabbing' : 'cursor-grab'}`}
+                      onMouseDown={handleMouseDown}
+                      onMouseMove={handleMouseMove}
+                      onMouseUp={handleMouseUp}
+                      onMouseLeave={handleMouseLeave}
+                      onTouchStart={handleTouchStart}
+                      onTouchMove={handleTouchMove}
+                      onTouchEnd={handleTouchEnd}
+                    >
+                      <div className="h-64 relative overflow-y-auto scrollbar-hide" ref={scrollContainerRef}>
+                        <div className="absolute w-full education-scroll">
+                          <div className="education-item">
+                            <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                            <div className="text-left">
+                              <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Keynote Speaker</div>
+                              <div className="text-foreground font-medium">AIxUX Summit | Keynote Speaker</div>
+                            </div>
+                          </div>
+                          <div className="education-item">
+                            <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                            <div className="text-left">
+                              <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Keynote Speaker</div>
+                              <div className="text-foreground font-medium">Fortune 500 Fintech | Keynote Speaker</div>
+                            </div>
+                          </div>
+                          <div className="education-item">
+                            <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                            <div className="text-left">
+                              <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Keynote Speaker</div>
+                              <div className="text-foreground font-medium">American Red Cross | Keynote Speaker, Spring 2026</div>
+                            </div>
+                          </div>
+                          <div className="education-item">
+                            <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                            <div className="text-left">
+                              <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Professional Group</div>
+                              <div className="text-foreground font-medium">PMI NH Chapter | Member</div>
+                            </div>
+                          </div>
+                          <div className="education-item">
+                            <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                            <div className="text-left">
+                              <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Leadership</div>
+                              <div className="text-foreground font-medium">New Hampshire AI Task Force | AI Adoption Specialist</div>
+                            </div>
+                          </div>
+                          <div className="education-item">
+                            <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                            <div className="text-left">
+                              <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Professional Group</div>
+                              <div className="text-foreground font-medium">AI in New Hampshire | Chapter Member</div>
+                            </div>
+                          </div>
+                          <div className="education-item">
+                            <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                            <div className="text-left">
+                              <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Professional Group</div>
+                              <div className="text-foreground font-medium">AI Tinkerers NH | Chapter Member</div>
+                            </div>
+                          </div>
+                          <div className="education-item">
+                            <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                            <div className="text-left">
+                              <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Professional Group</div>
+                              <div className="text-foreground font-medium">Salesforce User Group – NH division | Salesforce Member</div>
+                            </div>
+                          </div>
+                          <div className="education-item">
+                            <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                            <div className="text-left">
+                              <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Content Creation</div>
+                              <div className="text-foreground font-medium">UX Collective (uxdesign.cc) | Contributing Author</div>
+                            </div>
+                          </div>
+                          <div className="education-item">
+                            <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                            <div className="text-left">
+                              <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Leadership</div>
+                              <div className="text-foreground font-medium">AI UX/UI at UXSG | Co-host & Founding Contributor</div>
+                            </div>
+                          </div>
+                          <div className="education-item">
+                            <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                            <div className="text-left">
+                              <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Beta Testing</div>
+                              <div className="text-foreground font-medium">AI Copilot Enterprise | Sikich Beta Team Contributor</div>
+                            </div>
+                          </div>
+                          <div className="education-item">
+                            <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                            <div className="text-left">
+                              <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Leadership</div>
+                              <div className="text-foreground font-medium">Job Search Council (JSC) | Council Moderator</div>
+                            </div>
+                          </div>
+                          <div className="education-item">
+                            <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                            <div className="text-left">
+                              <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Education</div>
+                              <div className="text-foreground font-medium">Mt. Washington Valley STEM Expos | Science Fair Judge</div>
+                            </div>
+                          </div>
+                          <div className="education-item">
+                            <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                            <div className="text-left">
+                              <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Leadership</div>
+                              <div className="text-foreground font-medium">Mt. Washington Valley Community Band | Section Leader - Percussion</div>
+                            </div>
+                          </div>
+                          <div className="education-item">
+                            <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                            <div className="text-left">
+                              <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Community Service</div>
+                              <div className="text-foreground font-medium">Habitat for Humanity – MWV Chapter | Volunteer & Videographer</div>
+                            </div>
+                          </div>
+                          <div className="education-item">
+                            <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                            <div className="text-left">
+                              <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Board Leadership</div>
+                              <div className="text-foreground font-medium">Mt. Washington Valley Children's Museum | Vice President Board of Directors</div>
+                            </div>
+                          </div>
+                          <div className="education-item">
+                            <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                            <div className="text-left">
+                              <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Community Service</div>
+                              <div className="text-foreground font-medium">Conway Cares Revolving Closet | Volunteer & Donor</div>
+                            </div>
+                          </div>
+                          <div className="education-item">
+                            <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                            <div className="text-left">
+                              <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">International</div>
+                              <div className="text-foreground font-medium">Diverbo Pueblo Ingles | Salamanca, SPAIN | English Instructor</div>
+                            </div>
+                          </div>
+                          <div className="education-item">
+                            <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                            <div className="text-left">
+                              <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Education</div>
+                              <div className="text-foreground font-medium">SAU9 (ESSC) Eastern Slope Skier Community | Ski Instructor</div>
+                            </div>
+                          </div>
+                          <div className="education-item">
+                            <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                            <div className="text-left">
+                              <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Training & Safety</div>
+                              <div className="text-foreground font-medium">American Red Cross (ARC) – RI, NH Chapters | CPR & First Aid Instructor</div>
+                            </div>
+                          </div>
+                          <div className="education-item">
+                            <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                            <div className="text-left">
+                              <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Leadership</div>
+                              <div className="text-foreground font-medium">Mt. Washington Valley Div Cal Ripken Baseball | Head Coach</div>
+                            </div>
+                          </div>
+                          <div className="education-item">
+                            <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
+                            <div className="text-left">
+                              <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Arts & Culture</div>
+                              <div className="text-foreground font-medium">Arts in Motion Theater | Actor and Volunteer</div>
+                            </div>
+                          </div>
+                          <div className="education-item">
+                            <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
+                            <div className="text-left">
+                              <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Fitness & Wellness</div>
+                              <div className="text-foreground font-medium">Cranmore Mountain Fitness Center | Personal Trainer & Group Fitness Instructor</div>
+                            </div>
+                          </div>
+                          <div className="education-item">
+                            <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
+                            <div className="text-left">
+                              <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Founding Member</div>
+                              <div className="text-foreground font-medium">Delta Gamma Fraternity – Alpha Epsilon | Founding Sister</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-background to-transparent pointer-events-none z-10"></div>
+                        <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-background to-transparent pointer-events-none z-10"></div>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground text-sm mt-4 italic text-center">
+                      Drag to scroll or let it auto-scroll
+                    </p>
+                  </div>
+                )}
+
+                {inlineTab === 'funfact' && (
+                  <div className="text-center">
+                    <h3 className="font-semibold mb-6 text-xl" style={{ color: '#F3E8B9' }}>Also a certified personal trainer</h3>
+                    <div className="flex justify-center">
+                      <div className="relative aspect-video max-w-sm rounded-xl overflow-hidden animate-float glass">
+                        <video
+                          ref={videoRef}
+                          src={profileVideo}
+                          muted
+                          playsInline
+                          onPlay={() => setIsVideoPlaying(true)}
+                          onPause={() => setIsVideoPlaying(false)}
+                          onEnded={handleVideoEnded}
+                          className="w-full h-full object-cover"
+                          data-testid="video-profile"
+                        />
+                        <button
+                          type="button"
+                          onClick={toggleVideoPlayback}
+                          aria-label={isVideoPlaying ? 'Pause video' : 'Play video'}
+                          data-testid="button-video-toggle"
+                          className="absolute bottom-3 right-3 flex items-center justify-center w-10 h-10 rounded-full glass text-white/90 hover:text-white hover:scale-105 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black/30"
+                        >
+                          {isVideoPlaying ? (
+                            <Pause className="w-4 h-4" fill="currentColor" />
+                          ) : (
+                            <Play className="w-4 h-4 ml-0.5" fill="currentColor" />
+                          )}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 
-          {/* Education Tabs - Centered and Wide */}
+          {/* Education Tabs - preserved, hidden until ready */}
+          {false && (
           <div className="flex justify-center">
             <div className="max-w-3xl w-full">
               {/* Tab Navigation */}
               <div className="flex justify-center mb-8">
                 <div className="glass rounded-xl p-2">
-                  {/* Education/Certs tab hidden — content deferred */}
+                  <Button
+                    variant={activeTab === 'education' ? 'default' : 'ghost'}
+                    onClick={() => setActiveTab('education')}
+                    className={activeTab === 'education' ? 'gradient-bg-primary' : ''}
+                    data-testid="tab-education"
+                  >
+                    Education/Certs
+                  </Button>
                   <Button
                     variant={activeTab === 'publications' ? 'default' : 'ghost'}
                     onClick={() => setActiveTab('publications')}
@@ -1007,6 +1265,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
               )}
             </div>
           </div>
+          )}
 
 
         </div>
