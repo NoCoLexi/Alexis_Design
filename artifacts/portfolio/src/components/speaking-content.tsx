@@ -1,6 +1,7 @@
-import { useState } from "react";
 import { Link } from "wouter";
-import { Mail, Mic, Mic2, Users, Brain, Cpu, Palette, CheckCircle, Sparkles, ChevronDown } from "lucide-react";
+import { Mail, Mic, Mic2, Users, Brain, Cpu, Palette, CheckCircle, Sparkles, ExternalLink } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import aixuxSummitCoverImage from "@assets/aixux-3d-agent-cover.png";
 
 const topicBuckets = [
   {
@@ -80,113 +81,91 @@ const topicBuckets = [
   }
 ];
 
-const engagements = [
-  { org: 'AIxUX Summit', year: '2025', topic: 'AI & Product Design', upcoming: false, tag: null },
-  { org: 'AIxUX Summit 2026', year: '2026', topic: 'Agentic workflow', upcoming: true, tag: 'upcoming' },
-  { org: 'UXSG', year: '2025-2026', topic: 'AI Learn and Share', upcoming: false, tag: null },
-  { org: 'AI with Alexis', year: '2026', topic: 'Weekly', upcoming: false, tag: null },
-  { org: 'Enterprise FinTech', year: '2026', topic: 'AI Strategy (NDA)', upcoming: false, tag: null },
-  { org: 'American Red Cross', year: '2026', topic: 'NotebookLM', upcoming: false, tag: null },
-  { org: 'PMI', year: '2026', topic: 'TBA', upcoming: true, tag: 'upcoming' },
+interface EngagementCard {
+  org: string;
+  year: string;
+  topic: string;
+  upcoming: boolean;
+  tag: string | null;
+  image?: string;
+  link?: string;
+  description: string;
+  tags: string[];
+}
+
+const engagementCards: EngagementCard[] = [
+  {
+    org: 'AIxUX Summit 2026',
+    year: '2026',
+    topic: 'Agentic workflow',
+    upcoming: true,
+    tag: 'upcoming',
+    image: aixuxSummitCoverImage,
+    link: 'https://uxsupportgroup.com/summit',
+    description: 'Keynote on agentic AI workflows and how design teams can lead multi-agent orchestration.',
+    tags: ['Keynote', 'Agentic AI', 'Conference']
+  },
+  {
+    org: 'AIxUX Summit',
+    year: '2025',
+    topic: 'AI & Product Design',
+    upcoming: false,
+    tag: null,
+    description: 'Presented on the intersection of AI and product design for UX practitioners.',
+    tags: ['Talk', 'AI & Design', 'Conference']
+  },
+  {
+    org: 'UXSG',
+    year: '2025-2026',
+    topic: 'AI Learn and Share',
+    upcoming: false,
+    tag: null,
+    description: 'Recurring AI learning and knowledge-sharing sessions for the UX Singapore community.',
+    tags: ['Workshop', 'AI Literacy', 'Meetup']
+  },
+  {
+    org: 'AI with Alexis',
+    year: '2026',
+    topic: 'Weekly',
+    upcoming: false,
+    tag: null,
+    description: 'Weekly podcast exploring practical AI applications for product teams and individuals.',
+    tags: ['Podcast', 'AI Tools', 'Weekly']
+  },
+  {
+    org: 'Enterprise FinTech',
+    year: '2026',
+    topic: 'AI Strategy (NDA)',
+    upcoming: false,
+    tag: null,
+    description: 'Confidential AI strategy engagement with an enterprise FinTech organization.',
+    tags: ['Workshop', 'AI Strategy', 'Enterprise']
+  },
+  {
+    org: 'American Red Cross',
+    year: '2026',
+    topic: 'NotebookLM',
+    upcoming: false,
+    tag: null,
+    description: 'Introduced NotebookLM to Red Cross teams as a knowledge management and synthesis tool.',
+    tags: ['Workshop', 'AI Tools', 'Nonprofit']
+  },
+  {
+    org: 'PMI',
+    year: '2026',
+    topic: 'TBA',
+    upcoming: true,
+    tag: 'upcoming',
+    description: 'Upcoming session for Project Management Institute members. Topic to be announced.',
+    tags: ['Talk', 'AI & PM', 'Upcoming']
+  },
 ];
 
 export default function SpeakingContent() {
-  const [expandedBuckets, setExpandedBuckets] = useState<number[]>([]);
-
-  const toggleBucket = (index: number) => {
-    setExpandedBuckets(prev =>
-      prev.includes(index) ? prev.filter(i => i !== index) : [...prev, index]
-    );
-  };
-
   return (
     <div>
-      {/* Hero CTA */}
-      <div className="text-center mb-12">
-        <p className="text-xl text-muted-foreground mb-6 max-w-2xl mx-auto">
-          Practical, engaging sessions that turn uncertainty into confidence for conferences, and team workshops.
-        </p>
-        <a
-          href="mailto:alexis@upstart-labs.com?subject=Speaking%20Inquiry"
-          className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white px-8 py-4 text-lg rounded-xl inline-flex items-center justify-center font-semibold transition-all duration-300 transform hover:scale-105"
-        >
-          <Mail className="w-5 h-5 mr-2" />
-          Book a Speaking Engagement
-        </a>
-      </div>
-
-      {/* Speaking Topics Grid */}
-      <div className="mb-16">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-3 mb-2">
-            <Sparkles className="w-6 h-6 text-purple-400" />
-            <h2 className="text-4xl md:text-5xl font-bold" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-              <span className="gradient-text">Speaking Topics</span>
-            </h2>
-            <Sparkles className="w-6 h-6 text-blue-400" />
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
-          {topicBuckets.map((bucket, bucketIndex) => (
-            <div key={bucketIndex} className="flex flex-col">
-              <button
-                onClick={() => toggleBucket(bucketIndex)}
-                className="text-left p-6 rounded-2xl border-2 border-purple-500/30 bg-gradient-to-b from-purple-900/20 to-transparent backdrop-blur-sm hover:border-purple-400/50 hover:from-purple-900/30 transition-all duration-300 flex-1"
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold mb-2" style={{ fontFamily: 'Montserrat, sans-serif', color: '#F3E8B9' }}>
-                      {bucket.bucketTitle}
-                    </h3>
-                    <p className="text-purple-300 text-base italic mb-2">
-                      {bucket.tagline}
-                    </p>
-                    <p className="text-muted-foreground text-sm">
-                      {bucket.whyStatement}
-                    </p>
-                  </div>
-                  <ChevronDown
-                    className={`w-6 h-6 text-purple-400 flex-shrink-0 transition-transform duration-300 ${expandedBuckets.includes(bucketIndex) ? 'transform rotate-180' : ''}`}
-                  />
-                </div>
-              </button>
-
-              {expandedBuckets.includes(bucketIndex) && (
-                <div className="mt-4 space-y-3">
-                  {bucket.topics.map((topic, topicIndex) => (
-                    <div
-                      key={topicIndex}
-                      className="group p-4 rounded-xl border border-border bg-background/50 backdrop-blur-sm hover:border-purple-500/50 hover:bg-purple-500/5 transition-all duration-300"
-                    >
-                      <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-purple-600/20 to-blue-600/20 flex items-center justify-center mb-2 group-hover:from-purple-600/30 group-hover:to-blue-600/30 transition-all">
-                        <topic.icon className="w-5 h-5 text-purple-400" />
-                      </div>
-                      <h4 className="text-base font-semibold mb-1 text-white group-hover:text-purple-300 transition-colors">
-                        {topic.title}
-                      </h4>
-                      <p className="text-muted-foreground text-xs leading-relaxed mb-2">
-                        {topic.summary}
-                      </p>
-                      <details className="text-muted-foreground/80 text-xs leading-relaxed">
-                        <summary className="cursor-pointer text-purple-400 hover:text-purple-300 font-medium">
-                          Learn more
-                        </summary>
-                        <p className="mt-2 pl-2 border-l-2 border-purple-500/30">
-                          {topic.details}
-                        </p>
-                      </details>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* Speaking Engagements Grid */}
-      <div className="mb-16 border-t border-white/10 pt-16">
+      <div className="mb-16">
         <div className="text-center mb-10">
           <div className="inline-flex items-center gap-3 mb-2">
             <Mic2 className="w-6 h-6 text-purple-400" />
@@ -195,23 +174,74 @@ export default function SpeakingContent() {
             </h2>
           </div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {engagements.map((item, i) => (
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {engagementCards.map((item, i) => (
             <div
               key={i}
-              className="relative rounded-2xl border border-purple-500/20 bg-gradient-to-b from-purple-900/20 to-transparent backdrop-blur-sm p-6 flex flex-col gap-2"
+              className="glass rounded-2xl overflow-hidden hover:glow-purple group transition-all duration-700"
+              style={{
+                backgroundColor: '#303032',
+                transition: 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+              }}
             >
-              {item.tag && (
-                <span className="absolute top-4 right-4 text-xs font-semibold px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30">
-                  {item.tag}
-                </span>
-              )}
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-600/30 to-blue-600/30 flex items-center justify-center">
-                <Mic2 className="w-5 h-5 text-purple-400" />
+              {/* Image area */}
+              <div className="aspect-video relative overflow-hidden">
+                {item.image ? (
+                  <>
+                    <img
+                      src={item.image}
+                      alt={item.org}
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent pointer-events-none" />
+                  </>
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-br from-purple-900/60 to-blue-900/60 flex items-center justify-center">
+                    <Mic2 className="w-12 h-12 text-purple-400/60" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent pointer-events-none" />
+                  </div>
+                )}
+                {item.tag && (
+                  <div className="absolute top-4 left-4">
+                    <Badge variant="secondary" className="bg-purple-500/80 text-white border-purple-400/50 text-xs font-semibold">
+                      {item.tag}
+                    </Badge>
+                  </div>
+                )}
               </div>
-              <div className="font-bold text-white text-base leading-snug">{item.org}</div>
-              <div className="text-xs text-white/40">{item.year}</div>
-              <div className="text-sm text-purple-300 font-medium">{item.org === 'AI with Alexis' ? `Podcast: ${item.topic}` : `Meetup: ${item.topic}`}</div>
+
+              {/* Content area */}
+              <div className="p-6">
+                <div className="flex flex-wrap gap-2 mb-3">
+                  {item.tags.map((tag, ti) => (
+                    <Badge key={ti} variant="outline" className="text-xs">
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+
+                <h3 className="text-xl font-bold mb-1 group-hover:text-primary transition-colors">
+                  {item.org}
+                </h3>
+                <p className="text-xs text-white/40 mb-3">{item.year}</p>
+                <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                  {item.description}
+                </p>
+
+                {item.link && (
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    View Event
+                  </a>
+                )}
+              </div>
             </div>
           ))}
         </div>
@@ -258,7 +288,7 @@ export default function SpeakingContent() {
                 </li>
                 <li className="flex items-center gap-3 text-muted-foreground">
                   <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
-                  <span>Panel Discussions & Fireside Chats</span>
+                  <span>Panel Discussions and Fireside Chats</span>
                 </li>
                 <li className="flex items-center gap-3 text-muted-foreground">
                   <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
@@ -266,7 +296,7 @@ export default function SpeakingContent() {
                 </li>
                 <li className="flex items-center gap-3 text-muted-foreground">
                   <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
-                  <span>Virtual & In-Person Events</span>
+                  <span>Virtual and In-Person Events</span>
                 </li>
               </ul>
             </div>
