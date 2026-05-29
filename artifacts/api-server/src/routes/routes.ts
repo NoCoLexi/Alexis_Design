@@ -3,6 +3,7 @@ import { storage } from "../storage";
 import { insertContactSchema } from "@workspace/db";
 import { z } from "zod";
 import rateLimit from "express-rate-limit";
+import { PgRateLimitStore } from "../lib/pg-rate-limit-store";
 
 const MAX_MESSAGES = 20;
 const MAX_CONTENT_LENGTH = 2000;
@@ -24,6 +25,7 @@ const chatMinuteLimiter = rateLimit({
   max: 10,
   standardHeaders: true,
   legacyHeaders: false,
+  store: new PgRateLimitStore("chat-minute"),
   message: { error: "Too many requests, please slow down." },
 });
 
@@ -32,6 +34,7 @@ const chatDailyLimiter = rateLimit({
   max: 20,
   standardHeaders: true,
   legacyHeaders: false,
+  store: new PgRateLimitStore("chat-daily"),
   message: { error: "Daily chat limit reached. Please try again tomorrow." },
 });
 
@@ -51,6 +54,7 @@ const contactRateLimiter = rateLimit({
   max: 5,
   standardHeaders: true,
   legacyHeaders: false,
+  store: new PgRateLimitStore("contact"),
   message: { error: "Too many contact submissions, please try again later." },
 });
 

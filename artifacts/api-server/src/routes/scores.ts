@@ -3,6 +3,7 @@ import { randomUUID, randomBytes, createHmac, timingSafeEqual } from "crypto";
 import { desc } from "drizzle-orm";
 import rateLimit from "express-rate-limit";
 import { db, scoresTable } from "@workspace/db";
+import { PgRateLimitStore } from "../lib/pg-rate-limit-store";
 import {
   RecordWaveCheckpointBody,
   SubmitScoreBody,
@@ -415,6 +416,7 @@ const sessionLimiter = rateLimit({
   max: 10,
   standardHeaders: true,
   legacyHeaders: false,
+  store: new PgRateLimitStore("scores-session"),
   message: { error: "Too many session requests, please slow down." },
 });
 
@@ -423,6 +425,7 @@ const checkpointLimiter = rateLimit({
   max: 60,
   standardHeaders: true,
   legacyHeaders: false,
+  store: new PgRateLimitStore("scores-checkpoint"),
   message: { error: "Too many checkpoint requests, please slow down." },
 });
 
@@ -431,6 +434,7 @@ const submitLimiter = rateLimit({
   max: 5,
   standardHeaders: true,
   legacyHeaders: false,
+  store: new PgRateLimitStore("scores-submit"),
   message: { error: "Too many score submissions, please slow down." },
 });
 

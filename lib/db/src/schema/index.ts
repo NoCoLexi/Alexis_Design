@@ -19,3 +19,4 @@
 
 export * from "./schema";
 export * from "./scores";
+export * from "./rate-limit";
