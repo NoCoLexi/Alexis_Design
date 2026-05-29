@@ -119,15 +119,17 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
               />
             </div>
 
-            {/* Introduction + Inline Tabs - right */}
-            <div className="flex-1 flex flex-col gap-8">
+            {/* Introduction - right */}
+            <div className="flex-1">
               <p className="md:text-2xl text-muted-foreground text-[18px]">
                 <strong className="text-foreground">Alexis has spent her career inside the gap between what teams build and what people actually adopt.</strong> <br />
                 The code is solid. The UX is clean. But adoption still stalls because no one designed for the office misunderstandings, the training gap, or the stakeholders who never bought in. <br />She built Upstart-Labs around a single belief: <strong className="text-foreground">that the human side of change is just as engineerable as the product itself.</strong>
               </p>
+            </div>
+          </div>
 
-              {/* Inline 2-tab panel */}
-              <div>
+          {/* Inline 2-tab panel */}
+          <div>
                 <div className="mb-4">
                   <div className="glass rounded-xl p-2 inline-flex">
                     <Button
@@ -374,8 +376,6 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                   </div>
                 )}
               </div>
-            </div>
-          </div>
 
           {/* Education Tabs - preserved, hidden until ready */}
           {false && (
@@ -1263,9 +1263,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                   </div>
                 </div>
               )}
-            </div>
           </div>
-          )}
 
 
         </div>
