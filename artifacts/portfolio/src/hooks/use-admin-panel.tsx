@@ -14,7 +14,7 @@ export const useAdminPanel = () => {
   const [settings, setSettings] = useState<AdminSettings>({
     companyName: '',
     jobType: 'Auto',
-    vertical: 'government',
+    vertical: 'finance',
     jobUrl: ''
   });
 
