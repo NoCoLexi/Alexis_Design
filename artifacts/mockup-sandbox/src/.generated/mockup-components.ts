@@ -8,5 +8,9 @@ export const modules: ModuleMap = {
   "./components/mockups/hero-variants/Editorial.tsx": () => import("../components/mockups/hero-variants/Editorial.tsx"),
   "./components/mockups/hero-variants/HierarchyClear.tsx": () => import("../components/mockups/hero-variants/HierarchyClear.tsx"),
   "./components/mockups/hero-variants/Midnight.tsx": () => import("../components/mockups/hero-variants/Midnight.tsx"),
-  "./components/mockups/hero-variants/Signal.tsx": () => import("../components/mockups/hero-variants/Signal.tsx")
+  "./components/mockups/hero-variants/Signal.tsx": () => import("../components/mockups/hero-variants/Signal.tsx"),
+  "./components/mockups/hero-variants/SignalBento.tsx": () => import("../components/mockups/hero-variants/SignalBento.tsx"),
+  "./components/mockups/hero-variants/SignalProof.tsx": () => import("../components/mockups/hero-variants/SignalProof.tsx"),
+  "./components/mockups/hero-variants/SignalSplit.tsx": () => import("../components/mockups/hero-variants/SignalSplit.tsx"),
+  "./components/mockups/hero-variants/SignalTerminal.tsx": () => import("../components/mockups/hero-variants/SignalTerminal.tsx")
 };
