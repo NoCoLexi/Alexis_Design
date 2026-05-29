@@ -123,7 +123,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
             <div className="flex-1 max-w-xl">
               <p className="text-xl md:text-2xl leading-relaxed text-muted-foreground">
                 <strong className="text-foreground">Alexis has spent her career inside the gap between what teams build and what people actually adopt.</strong> <br />
-                The code is solid. The UX is clean. But adoption still stalls — because no one designed for the office politics, the training gap, or the stakeholders who never bought in. <br />She built Upstart-Labs around a single belief: <strong className="text-foreground">that the human side of change is just as engineerable as the product itself.</strong>
+                The code is solid. The UX is clean. But adoption still stalls — because no one designed for the office misunderstandings, the training gap, or the stakeholders who never bought in. <br />She built Upstart-Labs around a single belief: <strong className="text-foreground">that the human side of change is just as engineerable as the product itself.</strong>
               </p>
             </div>
           </div>
