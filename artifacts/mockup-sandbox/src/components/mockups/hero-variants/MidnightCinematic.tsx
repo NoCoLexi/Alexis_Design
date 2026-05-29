@@ -9,9 +9,37 @@ import { Gamepad2 } from "lucide-react";
  * - Headline scales even larger; the name fills nearly the full width
  * - Thin horizontal rules used as deliberate grammar (not decoration)
  * - Subhead is whisper-small, a caption beneath the title
+ * - Ticker tape belt with tech-stack / "how this was built" copy
  * - Metrics are a single tight bottom bar — footnote weight, not feature
- * - The overall feel: "before the credits roll"
  */
+
+const TICKER_ITEMS = [
+  "Built with React + TypeScript",
+  "◆",
+  "Designed in Replit with Claude",
+  "◆",
+  "Tailwind + shadcn/ui",
+  "◆",
+  "Vite · pnpm · Express",
+  "◆",
+  "Every pixel written with AI pair-programming",
+  "◆",
+  "Open-source stack, closed-loop workflow",
+  "◆",
+  "Built with React + TypeScript",
+  "◆",
+  "Designed in Replit with Claude",
+  "◆",
+  "Tailwind + shadcn/ui",
+  "◆",
+  "Vite · pnpm · Express",
+  "◆",
+  "Every pixel written with AI pair-programming",
+  "◆",
+  "Open-source stack, closed-loop workflow",
+  "◆",
+];
+
 export function MidnightCinematic() {
   return (
     <div
@@ -25,6 +53,21 @@ export function MidnightCinematic() {
         overflow: "hidden",
       }}
     >
+      <style>{`
+        @keyframes ticker {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .ticker-track {
+          display: flex;
+          width: max-content;
+          animation: ticker 28s linear infinite;
+        }
+        .ticker-track:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
+
       {/* Very faint vignette */}
       <div style={{
         position: "absolute", inset: 0, pointerEvents: "none",
@@ -66,7 +109,39 @@ export function MidnightCinematic() {
       {/* Thin rule */}
       <div style={{ height: "1px", background: "rgba(255,255,255,0.04)", margin: "0 60px", flexShrink: 0, position: "relative", zIndex: 10 }} />
 
-      {/* Title card — anchored to lower 50% */}
+      {/* ── Ticker tape belt ── */}
+      <div style={{
+        position: "relative", zIndex: 10, flexShrink: 0,
+        overflow: "hidden",
+        borderTop: "1px solid rgba(95,197,248,0.08)",
+        borderBottom: "1px solid rgba(95,197,248,0.08)",
+        background: "rgba(95,197,248,0.03)",
+        padding: "10px 0",
+        margin: "18px 0",
+        maskImage: "linear-gradient(90deg, transparent 0%, black 6%, black 94%, transparent 100%)",
+        WebkitMaskImage: "linear-gradient(90deg, transparent 0%, black 6%, black 94%, transparent 100%)",
+      }}>
+        <div className="ticker-track">
+          {TICKER_ITEMS.map((item, i) => (
+            <span key={i} style={{
+              display: "inline-block",
+              padding: "0 28px",
+              fontSize: item === "◆" ? "0.45rem" : "0.58rem",
+              letterSpacing: item === "◆" ? "0" : "0.18em",
+              textTransform: "uppercase",
+              color: item === "◆"
+                ? "rgba(95,197,248,0.25)"
+                : "rgba(255,255,255,0.28)",
+              whiteSpace: "nowrap",
+              lineHeight: 1,
+            }}>
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Title card — anchored to lower portion */}
       <div style={{
         flex: 1, display: "flex", flexDirection: "column", justifyContent: "flex-end",
         padding: "0 58px 20px", position: "relative", zIndex: 10,
@@ -85,7 +160,7 @@ export function MidnightCinematic() {
           fontSize: "clamp(64px, 11vw, 120px)",
           lineHeight: 0.95,
           letterSpacing: "-0.05em",
-          margin: "0 0 28px -4px",   /* optical left-align correction */
+          margin: "0 0 28px -4px",
           color: "#5fc5f8",
           textShadow: [
             "0 0 15px rgba(95,197,248,0.9)",
