@@ -106,11 +106,12 @@ const engagementCards: EngagementCard[] = [
     tags: ['Keynote', 'Agentic AI', 'Conference']
   },
   {
-    org: 'AIxUX Summit',
+    org: 'AIxUX Summit 2025',
     year: '2025',
     topic: 'AI & Product Design',
     upcoming: false,
     tag: null,
+    link: 'https://uxsupportgroup.com/summit-2025',
     description: 'Presented on the intersection of AI and product design for UX practitioners.',
     tags: ['Talk', 'AI & Design', 'Conference']
   },
