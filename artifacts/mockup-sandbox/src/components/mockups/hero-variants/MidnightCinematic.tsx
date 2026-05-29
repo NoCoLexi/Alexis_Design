@@ -135,7 +135,7 @@ export function MidnightCinematic() {
       }}>
         {/* Pre-title */}
         <div style={{
-          fontSize: "0.9rem", fontWeight: 200, color: "rgba(255,255,255,0.55)",
+          fontSize: "18px", fontWeight: 200, color: "rgba(255,255,255,0.55)",
           letterSpacing: "0.04em", marginBottom: "8px",
         }}>
           Hi, we're
