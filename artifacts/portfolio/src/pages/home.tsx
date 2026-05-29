@@ -116,18 +116,11 @@ export default function Home() {
             </div>
             <div className="hidden md:flex space-x-2 items-center">
               <button
-                onClick={() => scrollToSection('work')}
+                onClick={() => setIsSiteModalOpen(true)}
                 className="nav-link inline-flex items-center px-4 py-2 rounded-full transition-all duration-300 cursor-pointer"
-                data-testid="button-check-out-work"
+                data-testid="button-about-site"
               >
-                <span className="text-sm font-medium text-white">Check out our work!</span>
-              </button>
-              <button
-                onClick={() => scrollToSection('about')}
-                className="nav-link inline-flex items-center px-4 py-2 rounded-full transition-all duration-300 cursor-pointer"
-                data-testid="button-my-expertise"
-              >
-                <span className="text-sm font-medium text-white">About Us</span>
+                <span className="text-sm font-medium text-white">How we built this site</span>
               </button>
               <Link
                 href="/services"
@@ -139,11 +132,18 @@ export default function Home() {
                 </span>
               </Link>
               <button
-                onClick={() => setIsSiteModalOpen(true)}
+                onClick={() => scrollToSection('about')}
                 className="nav-link inline-flex items-center px-4 py-2 rounded-full transition-all duration-300 cursor-pointer"
-                data-testid="button-about-site"
+                data-testid="button-my-expertise"
               >
-                <span className="text-sm font-medium text-white">How we built this site</span>
+                <span className="text-sm font-medium text-white">About Us</span>
+              </button>
+              <button
+                onClick={() => scrollToSection('work')}
+                className="nav-link inline-flex items-center px-4 py-2 rounded-full transition-all duration-300 cursor-pointer"
+                data-testid="button-check-out-work"
+              >
+                <span className="text-sm font-medium text-white">Check out our work!</span>
               </button>
             </div>
             <button
@@ -169,18 +169,6 @@ export default function Home() {
                   How we built this site
                 </span>
               </button>
-              <button
-                onClick={() => {
-                  scrollToSection('about');
-                  setIsMobileMenuOpen(false);
-                }}
-                className="nav-link inline-flex items-center justify-center w-full px-4 py-3 rounded-full transition-all duration-300 cursor-pointer"
-                data-testid="button-my-expertise-mobile"
-              >
-                <span className="text-sm font-medium text-white">
-                  Our Expertise
-                </span>
-              </button>
               <Link
                 href="/services"
                 className="nav-link inline-flex items-center justify-center w-full px-4 py-3 rounded-full transition-all duration-300 cursor-pointer"
@@ -191,6 +179,18 @@ export default function Home() {
                   Speaking Engagements
                 </span>
               </Link>
+              <button
+                onClick={() => {
+                  scrollToSection('about');
+                  setIsMobileMenuOpen(false);
+                }}
+                className="nav-link inline-flex items-center justify-center w-full px-4 py-3 rounded-full transition-all duration-300 cursor-pointer"
+                data-testid="button-my-expertise-mobile"
+              >
+                <span className="text-sm font-medium text-white">
+                  About Us
+                </span>
+              </button>
               <button
                 onClick={() => {
                   scrollToSection('work');
