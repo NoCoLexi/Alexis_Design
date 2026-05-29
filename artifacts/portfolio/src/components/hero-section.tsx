@@ -65,7 +65,6 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
             margin-right: 0 !important;
             border-right: none !important;
           }
-          .hero-award-credit { margin-left: 0 !important; }
         }
       `}</style>
       {/* Subtle bottom vignette */}
@@ -141,6 +140,19 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
             How we built this site →
           </button>
         </div>
+
+        {/* GovTech Award credit */}
+        <div
+          onClick={onOpenAwardModal}
+          data-testid="button-hero-tech-award"
+          style={{
+            fontSize: "0.55rem", color: "rgba(255,255,255,0.35)",
+            letterSpacing: "0.1em", textTransform: "uppercase",
+            cursor: "pointer", marginBottom: "40px",
+          }}
+        >
+          2023 GovTech Award Winner
+        </div>
       </div>
       {/* Bottom rule */}
       <div style={{
@@ -174,17 +186,6 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
             }}>{m.label}</span>
           </div>
         ))}
-        <div
-          className="hero-award-credit"
-          onClick={onOpenAwardModal}
-          data-testid="button-hero-tech-award"
-          style={{
-            marginLeft: "auto", fontSize: "0.55rem", color: "rgba(255,255,255,0.35)",
-            letterSpacing: "0.1em", textTransform: "uppercase", cursor: "pointer",
-          }}
-        >
-          2023 GovTech Award Winner
-        </div>
       </div>
       <AdminPanel
         isVisible={isVisible}
