@@ -1263,6 +1263,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                   </div>
                 </div>
               )}
+          </div>
 
 
         </div>
