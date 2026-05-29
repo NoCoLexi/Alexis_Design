@@ -107,22 +107,25 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
         </h2>
 
         <div className="space-y-16">
-          {/* Founder headshot */}
-          <div className="flex justify-center">
-            <img
-              src={headshot}
-              alt="Upstart-Labs Founder"
-              className="rounded-2xl shadow-lg"
-              style={{ maxWidth: '260px', width: '100%', objectFit: 'cover', objectPosition: 'top' }}
-            />
-          </div>
+          {/* Two-column: portrait + intro quote */}
+          <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+            {/* Portrait - left */}
+            <div className="flex-shrink-0">
+              <img
+                src={headshot}
+                alt="Upstart-Labs Founder"
+                className="rounded-2xl shadow-lg"
+                style={{ maxWidth: '320px', width: '100%', objectFit: 'cover', objectPosition: 'top' }}
+              />
+            </div>
 
-          {/* Introduction Quote */}
-          <div className="text-center max-w-[61.6rem] mx-auto">
-            <p className="text-xl md:text-2xl leading-relaxed text-muted-foreground">
-              <strong className="text-foreground">Most products fail post-launch because they weren't designed for humans to use them.</strong> <br />
-              The code is good. The design looks clean. But users don't understand what to do. <br />Teams can't agree on what matters. Stakeholders don't trust it. Change gets resisted. <br />The whole system pulls in different directions. <strong className="text-foreground">We fix that.</strong>
-            </p>
+            {/* Introduction Quote - right */}
+            <div className="flex-1 max-w-xl">
+              <p className="text-xl md:text-2xl leading-relaxed text-muted-foreground">
+                <strong className="text-foreground">Most products fail post-launch because they weren't designed for humans to use them.</strong> <br />
+                The code is good. The design looks clean. But users don't understand what to do. <br />Teams can't agree on what matters. Stakeholders don't trust it. Change gets resisted. <br />The whole system pulls in different directions. <strong className="text-foreground">We fix that.</strong>
+              </p>
+            </div>
           </div>
 
           {/* Expertise Diagram */}
