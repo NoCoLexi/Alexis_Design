@@ -124,11 +124,13 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
         </p>
 
         {/* CTA row */}
-        <div style={{ display: "flex", alignItems: "center", gap: "36px", marginBottom: "40px", flexWrap: "wrap" }}>
+        <div
+          style={{ display: "flex", alignItems: "center", gap: "36px", marginBottom: "40px", flexWrap: "wrap" }}
+          className="mb-[10px]">
           <button
             onClick={onOpenSiteModal}
             data-testid="button-hero-site"
-            className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors"
+            className="inline-flex items-center text-white/70 hover:text-white transition-colors gap-[8px] pb-[3px]"
             style={{
               fontSize: "0.7rem", letterSpacing: "0.22em", textTransform: "uppercase",
               fontWeight: 600, textDecoration: "none",
