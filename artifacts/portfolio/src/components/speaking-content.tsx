@@ -166,16 +166,7 @@ export default function SpeakingContent() {
   return (
     <div>
       {/* Speaking Engagements Grid */}
-      <div className="mb-16">
-        <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-3 mb-2">
-            <Mic2 className="w-6 h-6 text-purple-400" />
-            <h2 className="text-4xl md:text-5xl font-bold" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-              <span className="gradient-text">Speaking Engagements</span>
-            </h2>
-          </div>
-        </div>
-
+      <div className="mb-16 pt-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {engagementCards.map((item, i) => (
             <div
