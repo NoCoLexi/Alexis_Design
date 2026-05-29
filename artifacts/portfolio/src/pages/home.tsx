@@ -10,7 +10,7 @@ import NavMusicPlayer from "@/components/nav-music-player";
 import AdminPanel from "@/components/admin-panel";
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { Menu, X, Award, Code, ExternalLink, Home as HomeIcon, Settings, Mic, Gamepad2 } from "lucide-react";
+import { Menu, X, Award, Code, ExternalLink, Home as HomeIcon, Settings, Gamepad2 } from "lucide-react";
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -122,15 +122,6 @@ export default function Home() {
               >
                 <span className="text-sm font-medium text-white">How we built this site</span>
               </button>
-              <Link
-                href="/services"
-                className="nav-link inline-flex items-center px-4 py-2 rounded-full transition-all duration-300 cursor-pointer"
-                data-testid="link-services"
-              >
-                <span className="text-sm font-medium text-white">
-                  Speaking engagements
-                </span>
-              </Link>
               <button
                 onClick={() => scrollToSection('about')}
                 className="nav-link inline-flex items-center px-4 py-2 rounded-full transition-all duration-300 cursor-pointer"
@@ -169,16 +160,6 @@ export default function Home() {
                   How we built this site
                 </span>
               </button>
-              <Link
-                href="/services"
-                className="nav-link inline-flex items-center justify-center w-full px-4 py-3 rounded-full transition-all duration-300 cursor-pointer"
-                onClick={() => setIsMobileMenuOpen(false)}
-                data-testid="link-services-mobile"
-              >
-                <span className="text-sm font-medium text-white">
-                  Speaking Engagements
-                </span>
-              </Link>
               <button
                 onClick={() => {
                   scrollToSection('about');

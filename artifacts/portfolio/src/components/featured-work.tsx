@@ -10,6 +10,7 @@ import {
   verticalLabels, 
   availableVerticals
 } from "@/hooks/use-portfolio-filters";
+import SpeakingContent from "@/components/speaking-content";
 import calOesImage from "@assets/Cal OES Engage Landing Page Phase I_v2_1754580174186.png";
 import paPortalImage from "@assets/Grants Management Reporting 1-1_1754840000206.png";
 import dashboardImage from "@assets/image_1754580387947.png";
@@ -847,6 +848,17 @@ export default function FeaturedWork() {
     window.dispatchEvent(event);
   }, []);
 
+  const [showSpeaking, setShowSpeaking] = useState(false);
+
+  const handleSetVertical = useCallback((vertical: VerticalFilter) => {
+    setShowSpeaking(false);
+    setVertical(vertical);
+  }, [setVertical]);
+
+  const handleSetSpeaking = useCallback(() => {
+    setShowSpeaking(true);
+  }, []);
+
   return (
     <section id="work" className="py-24 px-6 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-radial from-primary/5 via-transparent to-transparent"></div>
@@ -860,11 +872,11 @@ export default function FeaturedWork() {
           <div className="mb-6">
             <div className="flex flex-wrap justify-center gap-2">
               {availableVerticals.map((vertical) => {
-                const isActive = filters.vertical === vertical;
+                const isActive = !showSpeaking && filters.vertical === vertical;
                 return (
                   <button
                     key={vertical}
-                    onClick={() => setVertical(vertical)}
+                    onClick={() => handleSetVertical(vertical)}
                     className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
                       isActive
                         ? 'bg-primary text-primary-foreground shadow-sm'
@@ -876,34 +888,51 @@ export default function FeaturedWork() {
                   </button>
                 );
               })}
+              <button
+                onClick={() => handleSetSpeaking()}
+                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
+                  showSpeaking
+                    ? 'bg-primary text-primary-foreground shadow-sm'
+                    : 'bg-muted/30 text-muted-foreground hover:bg-muted/50 hover:text-foreground'
+                }`}
+                data-testid="vertical-filter-speaking"
+              >
+                Speaking Engagements
+              </button>
             </div>
           </div>
 
         </div>
 
-        {/* Project Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {filteredProjects.map((project, index) => (
-            <ProjectCard
-              key={project.id}
-              project={project}
-              index={index}
-              onOpenCaseStudy={openCaseStudy}
-            />
-          ))}
-        </div>
+        {showSpeaking ? (
+          <SpeakingContent />
+        ) : (
+          <>
+            {/* Project Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {filteredProjects.map((project, index) => (
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  index={index}
+                  onOpenCaseStudy={openCaseStudy}
+                />
+              ))}
+            </div>
 
-        {/* Empty state */}
-        {filteredProjects.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-muted-foreground mb-4">No projects match the current filters.</p>
-            <button
-              onClick={() => setVertical('all')}
-              className="text-primary hover:underline text-sm"
-            >
-              Reset filters
-            </button>
-          </div>
+            {/* Empty state */}
+            {filteredProjects.length === 0 && (
+              <div className="text-center py-12">
+                <p className="text-muted-foreground mb-4">No projects match the current filters.</p>
+                <button
+                  onClick={() => handleSetVertical('all')}
+                  className="text-primary hover:underline text-sm"
+                >
+                  Reset filters
+                </button>
+              </div>
+            )}
+          </>
         )}
       </div>
     </section>
