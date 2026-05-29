@@ -57,7 +57,7 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
             <h3 className="text-xl font-semibold text-purple-400">Development Story</h3>
             
             <p className="text-gray-300 leading-relaxed">
-              This portfolio is a working demonstration of AI fluency — knowing when, how, and why to bring AI into the process. Each iteration was designed and directed by us, with AI tools handling execution where they add the most value. The result is a product built in days, not months, without sacrificing quality or judgment.
+              Each iteration was designed and directed by us, with AI handling execution where it adds the most value. Built in days, not months.
             </p>
 
             {/* Iteration Comparison - Most recent first */}
