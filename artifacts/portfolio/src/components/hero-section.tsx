@@ -111,7 +111,7 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
             color: "#F3E8B9", margin: "0 0 16px",
             lineHeight: 1.3,
           }}
-          className="mb-[0px]">
+          className="mb-[1px]">
           It begins with humans.
         </p>
 
