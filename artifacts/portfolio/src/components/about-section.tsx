@@ -114,7 +114,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
               <img
                 src={headshot}
                 alt="Upstart-Labs Founder"
-                className="rounded-2xl shadow-lg"
+                className="rounded-2xl shadow-lg rounded-tl-[12px] rounded-tr-[12px] rounded-br-[12px] rounded-bl-[12px]"
                 style={{ maxWidth: '320px', width: '100%', objectFit: 'cover', objectPosition: 'top' }}
               />
             </div>
