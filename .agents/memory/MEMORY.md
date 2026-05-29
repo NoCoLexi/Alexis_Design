@@ -1,0 +1,1 @@
+- [No em dashes in user-facing copy](no-em-dashes.md) — User prefers no em dashes (\u2014) anywhere in marketing/site copy. Use plain periods, commas, or colons instead.
