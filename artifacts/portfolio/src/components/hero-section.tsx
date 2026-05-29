@@ -38,18 +38,20 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
     >
       <style>{`
         .hero-title-card {
-          padding: 0 60px 24px;
+          padding: 0 24px 24px;
           position: relative;
           z-index: 10;
           flex-shrink: 0;
         }
         .hero-metrics-bar {
-          display: flex;
-          align-items: center;
-          padding: 18px 60px;
+          padding: 18px 24px;
           flex-shrink: 0;
           position: relative;
           z-index: 10;
+        }
+        .hero-metrics-bar > .max-w-7xl {
+          display: flex;
+          align-items: center;
         }
         .hero-metric-item {
           display: flex;
@@ -59,7 +61,8 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
         }
         @media (max-width: 768px) {
           .hero-title-card { padding: 0 24px 20px; }
-          .hero-metrics-bar { padding: 14px 24px; flex-wrap: wrap; gap: 10px; }
+          .hero-metrics-bar { padding: 14px 24px; }
+          .hero-metrics-bar > .max-w-7xl { flex-wrap: wrap; gap: 10px; }
           .hero-metric-item {
             padding-right: 0 !important;
             margin-right: 0 !important;
@@ -76,6 +79,7 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
       <div style={{ flex: 1, position: "relative", zIndex: 10 }} />
       {/* Title card — anchored to lower portion */}
       <div className="hero-title-card">
+        <div className="max-w-7xl mx-auto">
         {/* Pre-title */}
         <div style={{
           fontSize: "18px", fontWeight: 200, color: "rgba(255,255,255,0.55)",
@@ -158,14 +162,16 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
           <Trophy style={{ width: "14px", height: "14px" }} />
           GovTech Award Winner →
         </button>
+        </div>
       </div>
       {/* Bottom rule */}
       <div style={{
         height: "1px", background: "rgba(255,255,255,0.05)",
-        margin: "0 60px", flexShrink: 0, position: "relative", zIndex: 10,
+        margin: "0 24px", flexShrink: 0, position: "relative", zIndex: 10,
       }} />
       {/* Metrics footnote bar */}
       <div className="hero-metrics-bar">
+        <div className="max-w-7xl mx-auto w-full flex items-center">
         {[
           { value: "545.5%", label: "User Base Increase", projectId: "caloes" },
           { value: "$2.1B", label: "Disaster Relief Platform", projectId: "pa-portal" },
@@ -191,6 +197,7 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
             }}>{m.label}</span>
           </div>
         ))}
+        </div>
       </div>
       <AdminPanel
         isVisible={isVisible}

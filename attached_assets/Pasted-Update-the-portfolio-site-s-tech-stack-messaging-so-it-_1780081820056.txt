@@ -1,0 +1,35 @@
+Update the portfolio site’s tech stack messaging so it is clearer, more current, and more client-facing. Keep the tone concise, polished, and credible. This is an informational portfolio site, so the copy should prioritize clear hierarchy, minimal clutter, and strong readability over jargon-heavy developer language.
+
+What to change
+In the scrolling ticker / marquee under the navigation, replace the current stack phrasing with cleaner purpose-based language. Keep references to actual technologies that are part of the site architecture: React 18, TypeScript, Vite, Tailwind CSS, shadcn/ui, Express.js, Wouter, TanStack Query, React Hook Form, Zod, PostgreSQL, and Drizzle ORM. Do not mention Replit or Claude in this updated stack section.
+
+Add one new row of concise descriptions written in the same visual style as the other ticker rows, using separators between items. Each item should explain purpose, not hype. Example style: “React — component-based UI” - “TypeScript — typed JavaScript” - “Tailwind — utility-first styling” - “shadcn/ui — accessible UI components”.
+
+Suggested replacement copy
+Use these lines as the updated stack content:
+
+React + TypeScript
+
+Tailwind CSS + shadcn/ui
+
+Vite + PNPM + Express
+
+Wouter + TanStack Query + React Hook Form + Zod
+
+PostgreSQL + Drizzle ORM
+
+Open-source stack - fast iteration - accessible UI
+
+Then add a concise purpose row like this:
+
+React — component-based UI - TypeScript — typed JavaScript - Tailwind CSS — utility-first styling - shadcn/ui — accessible component system - Vite — fast frontend tooling - PNPM — efficient package management - Express — backend API framework - Wouter — lightweight routing - TanStack Query — server-state fetching and caching - React Hook Form — performant form handling - Zod — schema validation - PostgreSQL — relational data storage - Drizzle ORM — type-safe database access
+
+Implementation notes
+Keep the marquee visually consistent with the existing rows: same casing treatment, spacing rhythm, separators, and motion behavior. Make sure the new purpose row stays concise enough to remain readable and does not feel denser than the surrounding ticker content.
+
+If the ticker becomes too crowded, reduce the number of top rows and preserve the purpose row as the most informative one. Favor clarity over repetition, since the site already emphasizes strong content hierarchy and concise presentation.
+
+Content source for accuracy
+Use the site’s existing architecture as the source of truth. The current build references React 18 with TypeScript, Vite, Tailwind CSS, shadcn/ui, Wouter, TanStack Query, React Hook Form, Zod, Express.js, PostgreSQL readiness, and Drizzle ORM in the “Site Architecture & Technology Stack” section.
+
+For your convenience, here is the informational site guidance I’m using for this request: content hierarchy should drive the design, personal portfolio pages should keep body copy compact, and the best portfolio copy leads with clear work-focused communication rather than excess explanation.
