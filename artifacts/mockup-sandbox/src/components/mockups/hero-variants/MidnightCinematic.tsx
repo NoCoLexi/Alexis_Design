@@ -81,7 +81,7 @@ export function MidnightCinematic() {
       }}>
         <span style={{
           fontWeight: 300, fontSize: "0.72rem", letterSpacing: "0.28em",
-          color: "rgba(255,255,255,0.35)", textTransform: "uppercase", whiteSpace: "nowrap",
+          color: "rgba(255,255,255,0.6)", textTransform: "uppercase", whiteSpace: "nowrap",
         }}>
           UPSTART-LABS
         </span>
@@ -89,7 +89,7 @@ export function MidnightCinematic() {
           {["Work", "Expertise", "Contact"].map(item => (
             <span key={item} style={{
               fontSize: "0.62rem", letterSpacing: "0.2em", textTransform: "uppercase",
-              color: "rgba(255,255,255,0.15)", cursor: "pointer",
+              color: "rgba(255,255,255,0.45)", cursor: "pointer",
             }}>{item}</span>
           ))}
         </div>
@@ -99,9 +99,9 @@ export function MidnightCinematic() {
       <div style={{ flex: "0 0 12%", display: "flex", alignItems: "flex-end", padding: "0 60px 0", position: "relative", zIndex: 10 }}>
         <div style={{
           fontSize: "0.56rem", letterSpacing: "0.3em", textTransform: "uppercase",
-          color: "rgba(95,197,248,0.4)", display: "flex", alignItems: "center", gap: "10px",
+          color: "rgba(95,197,248,0.7)", display: "flex", alignItems: "center", gap: "10px",
         }}>
-          <span style={{ display: "inline-block", width: "18px", height: "1px", background: "rgba(95,197,248,0.4)" }} />
+          <span style={{ display: "inline-block", width: "18px", height: "1px", background: "rgba(95,197,248,0.7)" }} />
           Product Strategy &amp; Design — Est. 2019
         </div>
       </div>
@@ -130,8 +130,8 @@ export function MidnightCinematic() {
               letterSpacing: item === "◆" ? "0" : "0.18em",
               textTransform: "uppercase",
               color: item === "◆"
-                ? "rgba(95,197,248,0.25)"
-                : "rgba(255,255,255,0.28)",
+                ? "rgba(95,197,248,0.55)"
+                : "rgba(255,255,255,0.55)",
               whiteSpace: "nowrap",
               lineHeight: 1,
             }}>
@@ -148,7 +148,7 @@ export function MidnightCinematic() {
       }}>
         {/* Pre-title */}
         <div style={{
-          fontSize: "0.9rem", fontWeight: 200, color: "rgba(255,255,255,0.28)",
+          fontSize: "0.9rem", fontWeight: 200, color: "rgba(255,255,255,0.55)",
           letterSpacing: "0.04em", marginBottom: "8px",
         }}>
           Hi, we're
@@ -175,7 +175,7 @@ export function MidnightCinematic() {
         {/* Caption / subhead */}
         <p style={{
           fontSize: "0.82rem", fontWeight: 300, letterSpacing: "0.02em",
-          color: "rgba(255,255,255,0.35)", margin: "0 0 36px",
+          color: "rgba(255,255,255,0.6)", margin: "0 0 36px",
           lineHeight: 1.6, maxWidth: "440px",
         }}>
           We help product teams ship things people actually adopt.
@@ -192,11 +192,11 @@ export function MidnightCinematic() {
           </a>
           <a href="#" style={{
             display: "inline-flex", alignItems: "center", gap: "6px",
-            fontFamily: "'Press Start 2P', monospace", fontSize: "0.45rem",
-            letterSpacing: "0.04em", color: "rgba(95,197,248,0.45)", textDecoration: "none",
-            textShadow: "0 0 12px rgba(95,197,248,0.3)",
+            fontFamily: "'Press Start 2P', monospace", fontSize: "0.6rem",
+            letterSpacing: "0.04em", color: "rgba(95,197,248,0.85)", textDecoration: "none",
+            textShadow: "0 0 16px rgba(95,197,248,0.6)",
           }}>
-            <Gamepad2 style={{ width: "10px", height: "10px" }} />
+            <Gamepad2 style={{ width: "14px", height: "14px" }} />
             ▸ Play Stakeholders Invaders
           </a>
         </div>
@@ -225,12 +225,12 @@ export function MidnightCinematic() {
               letterSpacing: "-0.02em", lineHeight: 1,
             }}>{m.value}</span>
             <span style={{
-              fontSize: "0.58rem", color: "rgba(255,255,255,0.18)",
+              fontSize: "0.58rem", color: "rgba(255,255,255,0.45)",
               letterSpacing: "0.1em", textTransform: "uppercase",
             }}>{m.label}</span>
           </div>
         ))}
-        <div style={{ marginLeft: "auto", fontSize: "0.55rem", color: "rgba(255,255,255,0.12)", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+        <div style={{ marginLeft: "auto", fontSize: "0.55rem", color: "rgba(255,255,255,0.35)", letterSpacing: "0.1em", textTransform: "uppercase" }}>
           2023 GovTech Award Winner
         </div>
       </div>
