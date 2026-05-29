@@ -19,7 +19,7 @@ const chatRequestSchema = z.object({
     .max(MAX_MESSAGES),
 });
 
-const chatRateLimiter = rateLimit({
+const chatMinuteLimiter = rateLimit({
   windowMs: 60 * 1000,
   max: 10,
   standardHeaders: true,
@@ -27,34 +27,51 @@ const chatRateLimiter = rateLimit({
   message: { error: "Too many requests, please slow down." },
 });
 
-const DAILY_REQUEST_LIMIT = 200;
-let dailyRequestCount = 0;
-let dailyResetDate = new Date().toDateString();
+const chatDailyLimiter = rateLimit({
+  windowMs: 24 * 60 * 60 * 1000,
+  max: 20,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: "Daily chat limit reached. Please try again tomorrow." },
+});
 
-function checkDailyBudget(): boolean {
-  const today = new Date().toDateString();
-  if (today !== dailyResetDate) {
-    dailyRequestCount = 0;
-    dailyResetDate = today;
-  }
-  if (dailyRequestCount >= DAILY_REQUEST_LIMIT) {
-    return false;
-  }
-  dailyRequestCount++;
-  return true;
-}
+const MAX_CONTACT_FIELD_LENGTH = 500;
+const MAX_CONTACT_MESSAGE_LENGTH = 2000;
+
+const contactBodySchema = z.object({
+  firstName: z.string().min(1).max(MAX_CONTACT_FIELD_LENGTH),
+  lastName: z.string().min(1).max(MAX_CONTACT_FIELD_LENGTH),
+  email: z.string().email().max(MAX_CONTACT_FIELD_LENGTH),
+  phone: z.string().max(MAX_CONTACT_FIELD_LENGTH).optional(),
+  message: z.string().min(1).max(MAX_CONTACT_MESSAGE_LENGTH),
+});
+
+const contactRateLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 5,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: "Too many contact submissions, please try again later." },
+});
 
 const appRouter = Router();
 
 // Contact form submission
-appRouter.post("/contact", async (req, res) => {
+appRouter.post("/contact", contactRateLimiter, async (req, res) => {
   try {
-    const contactData = insertContactSchema.parse(req.body);
+    const parsed = contactBodySchema.safeParse(req.body);
+    if (!parsed.success) {
+      res.status(400).json({ error: "Validation failed", details: parsed.error.issues });
+      return;
+    }
+    const contactData = insertContactSchema.parse(parsed.data);
     await storage.createContact(contactData);
     res.json({ success: true });
   } catch (error) {
     if (error instanceof z.ZodError) {
       res.status(400).json({ error: "Validation failed", details: error.errors });
+    } else if (error instanceof Error && error.message === "Contact storage limit reached") {
+      res.status(503).json({ error: "Service temporarily unavailable. Please try again later." });
     } else {
       res.status(500).json({ error: "Failed to submit contact form" });
     }
@@ -62,7 +79,7 @@ appRouter.post("/contact", async (req, res) => {
 });
 
 // Chat API endpoint for Career Chatbot
-appRouter.post("/chat", chatRateLimiter, async (req, res): Promise<void> => {
+appRouter.post("/chat", chatMinuteLimiter, chatDailyLimiter, async (req, res): Promise<void> => {
   try {
     const parsed = chatRequestSchema.safeParse(req.body);
     if (!parsed.success) {
@@ -70,11 +87,6 @@ appRouter.post("/chat", chatRateLimiter, async (req, res): Promise<void> => {
       return;
     }
     const { messages } = parsed.data;
-
-    if (!checkDailyBudget()) {
-      res.status(503).json({ error: "Daily request limit reached. Please try again tomorrow." });
-      return;
-    }
 
     const apiKey = process.env.ANTHROPIC_API_KEY;
     if (!apiKey) {

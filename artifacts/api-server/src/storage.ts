@@ -9,6 +9,8 @@ export interface IStorage {
   getContacts(): Promise<Contact[]>;
 }
 
+const MAX_CONTACTS = 500;
+
 export class MemStorage implements IStorage {
   private users: Map<string, User>;
   private contacts: Map<string, Contact>;
@@ -36,6 +38,9 @@ export class MemStorage implements IStorage {
   }
 
   async createContact(insertContact: InsertContact): Promise<Contact> {
+    if (this.contacts.size >= MAX_CONTACTS) {
+      throw new Error("Contact storage limit reached");
+    }
     const id = randomUUID();
     const contact: Contact = { 
       ...insertContact, 
