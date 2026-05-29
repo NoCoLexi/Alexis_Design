@@ -38,11 +38,11 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
         <div className="sticky top-0 bg-gradient-to-r from-purple-600/10 to-blue-600/10 backdrop-blur border-b border-purple-400/20 p-6">
           <div className="flex justify-between items-center">
             <h2 className="text-2xl font-bold gradient-text">How we built this site</h2>
-            <Button 
-              variant="ghost" 
-              size="sm" 
+            <Button
+              variant="ghost"
+              size="sm"
               onClick={onClose}
-              className="text-gray-400 hover:text-white"
+              className="text-white/70 hover:text-white hover:bg-white/10 transition-colors"
               data-testid="button-close-site-modal"
             >
               <X className="w-5 h-5" />

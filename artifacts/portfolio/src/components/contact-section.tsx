@@ -24,9 +24,14 @@ export default function ContactSection({ onOpenAwardModal }: ContactSectionProps
           <div className="space-y-8">
             <div className="glass rounded-2xl p-8">
               <div className="flex flex-col md:flex-row md:justify-center md:space-x-8 space-y-4 md:space-y-0">
-                <a 
-                  href="mailto:alexis@upstart-labs.com" 
-                  className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
+                <a
+                  href="mailto:alexis@upstart-labs.com"
+                  className="inline-flex items-center text-white/70 hover:text-white transition-colors gap-[8px] pb-[3px]"
+                  style={{
+                    fontSize: "0.7rem", letterSpacing: "0.22em", textTransform: "uppercase",
+                    fontWeight: 600, textDecoration: "none",
+                    borderBottom: "1px solid rgba(255,255,255,0.25)", paddingBottom: "3px",
+                  }}
                   onClick={() => trackPortfolioClick('email')}
                   data-testid="contact-email"
                 >
@@ -39,11 +44,16 @@ export default function ContactSection({ onOpenAwardModal }: ContactSectionProps
                   </div>
                 </a>
                 
-                <a 
-                  href="https://linkedin.com/in/alexisbrochu" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
+                <a
+                  href="https://linkedin.com/in/alexisbrochu"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-white/70 hover:text-white transition-colors gap-[8px] pb-[3px]"
+                  style={{
+                    fontSize: "0.7rem", letterSpacing: "0.22em", textTransform: "uppercase",
+                    fontWeight: 600, textDecoration: "none",
+                    borderBottom: "1px solid rgba(255,255,255,0.25)", paddingBottom: "3px",
+                  }}
                   onClick={() => trackPortfolioClick('linkedin')}
                   data-testid="contact-linkedin"
                 >
@@ -56,11 +66,16 @@ export default function ContactSection({ onOpenAwardModal }: ContactSectionProps
                   </div>
                 </a>
                 
-                <a 
-                  href="https://calendly.com/alexis-brochu/15min" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
+                <a
+                  href="https://calendly.com/alexis-brochu/15min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-white/70 hover:text-white transition-colors gap-[8px] pb-[3px]"
+                  style={{
+                    fontSize: "0.7rem", letterSpacing: "0.22em", textTransform: "uppercase",
+                    fontWeight: 600, textDecoration: "none",
+                    borderBottom: "1px solid rgba(255,255,255,0.25)", paddingBottom: "3px",
+                  }}
                   onClick={() => trackPortfolioClick('calendly')}
                   data-testid="contact-calendly"
                 >

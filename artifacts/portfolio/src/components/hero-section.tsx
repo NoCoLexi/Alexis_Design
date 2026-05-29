@@ -180,18 +180,33 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
             className="hero-metric-item"
             onClick={() => openCaseStudy(m.projectId)}
             style={{
+              cursor: "pointer",
               paddingRight: "36px",
               marginRight: "36px",
               borderRight: i < 2 ? "1px solid rgba(255,255,255,0.05)" : "none",
+              transition: "opacity 0.2s",
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLDivElement).style.opacity = "1";
+              (e.currentTarget.querySelectorAll("span") as NodeListOf<HTMLSpanElement>).forEach(s => {
+                if (s.style.fontSize === "1.05rem") s.style.color = "rgba(255,255,255,1)";
+                else s.style.color = "rgba(255,255,255,0.7)";
+              });
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget.querySelectorAll("span") as NodeListOf<HTMLSpanElement>).forEach(s => {
+                if (s.style.fontSize === "1.05rem") s.style.color = "rgba(255,255,255,0.7)";
+                else s.style.color = "rgba(255,255,255,0.45)";
+              });
             }}
           >
             <span style={{
               fontSize: "1.05rem", fontWeight: 700, color: "rgba(255,255,255,0.7)",
-              letterSpacing: "-0.02em", lineHeight: 1,
+              letterSpacing: "-0.02em", lineHeight: 1, transition: "color 0.2s",
             }}>{m.value}</span>
             <span style={{
               fontSize: "0.58rem", color: "rgba(255,255,255,0.45)",
-              letterSpacing: "0.1em", textTransform: "uppercase",
+              letterSpacing: "0.1em", textTransform: "uppercase", transition: "color 0.2s",
             }}>{m.label}</span>
           </div>
         ))}

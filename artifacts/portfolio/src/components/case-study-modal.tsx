@@ -1184,7 +1184,7 @@ export default function CaseStudyModal() {
                 asChild
                 variant="outline"
                 size="sm"
-                className="gap-2"
+                className="gap-2 text-white/70 hover:text-white hover:bg-white/10 hover:border-white/40 transition-colors"
                 onClick={() => trackEvent('case_study_live_link_clicked', 'portfolio', caseStudy.id)}
               >
                 <a href={caseStudy.liveUrl} target="_blank" rel="noopener noreferrer">
@@ -1193,7 +1193,7 @@ export default function CaseStudyModal() {
                 </a>
               </Button>
             )}
-            <Button variant="ghost" size="icon" onClick={closeCaseStudy}>
+            <Button variant="ghost" size="icon" onClick={closeCaseStudy} className="text-white/70 hover:text-white hover:bg-white/10 transition-colors">
               <X className="w-6 h-6" />
             </Button>
           </div>

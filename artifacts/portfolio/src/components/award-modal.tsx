@@ -120,14 +120,14 @@ export default function AwardModal({ isOpen, onClose }: AwardModalProps) {
               <>
                 <button
                   onClick={prevImage}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-200"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-white/10 text-white/70 hover:text-white p-2 rounded-full transition-all duration-200"
                   data-testid="button-award-prev-image"
                 >
                   ←
                 </button>
                 <button
                   onClick={nextImage}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-200"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-white/10 text-white/70 hover:text-white p-2 rounded-full transition-all duration-200"
                   data-testid="button-award-next-image"
                 >
                   →
@@ -229,7 +229,7 @@ export default function AwardModal({ isOpen, onClose }: AwardModalProps) {
               trackEvent('external_link_click', 'awards', 'best_of_ca_awards');
               window.open('https://cdt.ca.gov/newsroom/2023/09/the-best-of-california-awards-announced/', '_blank');
             }}
-            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2 rounded-xl transition-all duration-200"
+            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white px-6 py-2 rounded-xl transition-all duration-200"
             data-testid="link-innovation-summit"
           >
             <ExternalLink className="w-4 h-4 mr-2" />
@@ -251,7 +251,7 @@ export default function AwardModal({ isOpen, onClose }: AwardModalProps) {
               }
             }}
             variant="outline"
-            className="border-white/30 text-white hover:bg-white/10 px-6 py-2 rounded-xl transition-all duration-200"
+            className="border-white/30 text-white/70 hover:text-white hover:bg-white/10 hover:border-white/60 px-6 py-2 rounded-xl transition-all duration-200"
             data-testid="button-view-portfolio"
           >
             View Related Work

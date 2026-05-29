@@ -926,7 +926,12 @@ export default function FeaturedWork() {
                 <p className="text-muted-foreground mb-4">No projects match the current filters.</p>
                 <button
                   onClick={() => handleSetVertical('all')}
-                  className="text-primary hover:underline text-sm"
+                  className="inline-flex items-center text-white/70 hover:text-white transition-colors gap-[8px] pb-[3px]"
+                  style={{
+                    fontSize: "0.7rem", letterSpacing: "0.22em", textTransform: "uppercase",
+                    fontWeight: 600, textDecoration: "none",
+                    borderBottom: "1px solid rgba(255,255,255,0.25)", paddingBottom: "3px",
+                  }}
                 >
                   Reset filters
                 </button>

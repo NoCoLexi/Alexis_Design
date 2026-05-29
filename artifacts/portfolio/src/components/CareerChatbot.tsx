@@ -107,13 +107,13 @@ const CareerChatbot = () => {
           <div className="flex items-center space-x-2">
             <button
               onClick={() => setIsMinimized(!isMinimized)}
-              className="text-white hover:text-gray-200 transition-colors p-1 rounded"
+              className="text-white/70 hover:text-white hover:bg-white/10 transition-colors p-1 rounded"
             >
               {isMinimized ? <Maximize2 size={16} /> : <Minimize2 size={16} />}
             </button>
             <button
               onClick={() => setIsOpen(false)}
-              className="text-white hover:text-gray-200 transition-colors p-1 rounded"
+              className="text-white/70 hover:text-white hover:bg-white/10 transition-colors p-1 rounded"
             >
               <X size={16} />
             </button>
@@ -183,7 +183,7 @@ const CareerChatbot = () => {
                   type="button"
                   onClick={sendMessage}
                   disabled={isLoading}
-                  className="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white p-2 rounded-lg transition-colors"
+                  className="bg-blue-600 hover:bg-blue-500 disabled:bg-gray-400 text-white p-2 rounded-lg transition-colors"
                 >
                   <Send size={16} />
                 </button>
@@ -201,7 +201,7 @@ const CareerChatbot = () => {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-4 right-4 z-50 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+          className="fixed bottom-4 right-4 z-50 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
         >
           <MessageCircle size={24} />
         </button>

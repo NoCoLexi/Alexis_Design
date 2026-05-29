@@ -202,7 +202,7 @@ function CategoryCarousel({ items, title, description }: CarouselProps) {
             size="icon"
             onClick={scrollPrev}
             disabled={!canScrollPrev}
-            className="h-10 w-10"
+            className="h-10 w-10 text-white/70 hover:text-white hover:bg-white/10 hover:border-white/40 transition-colors"
           >
             <ChevronLeft className="h-4 w-4" />
           </Button>
@@ -211,7 +211,7 @@ function CategoryCarousel({ items, title, description }: CarouselProps) {
             size="icon"
             onClick={scrollNext}
             disabled={!canScrollNext}
-            className="h-10 w-10"
+            className="h-10 w-10 text-white/70 hover:text-white hover:bg-white/10 hover:border-white/40 transition-colors"
           >
             <ChevronRight className="h-4 w-4" />
           </Button>

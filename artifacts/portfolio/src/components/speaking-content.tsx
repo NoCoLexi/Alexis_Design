@@ -296,14 +296,24 @@ export default function SpeakingContent() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
                   href="mailto:alexis@upstart-labs.com?subject=Speaking%20Inquiry"
-                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105"
+                  className="inline-flex items-center text-white/70 hover:text-white transition-colors gap-[8px] pb-[3px]"
+                  style={{
+                    fontSize: "0.7rem", letterSpacing: "0.22em", textTransform: "uppercase",
+                    fontWeight: 600, textDecoration: "none",
+                    borderBottom: "1px solid rgba(255,255,255,0.25)", paddingBottom: "3px",
+                  }}
                 >
-                  <Mail className="w-5 h-5" />
+                  <Mail className="w-4 h-4" />
                   Contact Us
                 </a>
                 <Link
                   href="/"
-                  className="inline-flex items-center justify-center gap-2 border-2 border-white/30 hover:border-purple-400 text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 hover:bg-white/5"
+                  className="inline-flex items-center text-white/70 hover:text-white transition-colors gap-[8px] pb-[3px]"
+                  style={{
+                    fontSize: "0.7rem", letterSpacing: "0.22em", textTransform: "uppercase",
+                    fontWeight: 600, textDecoration: "none",
+                    borderBottom: "1px solid rgba(255,255,255,0.25)", paddingBottom: "3px",
+                  }}
                 >
                   View Our Portfolio
                 </Link>

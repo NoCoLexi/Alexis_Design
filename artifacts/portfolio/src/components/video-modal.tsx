@@ -67,7 +67,7 @@ export default function VideoModal({ isOpen, onClose, title }: VideoModalProps) 
         {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 text-white hover:text-gray-300 transition-colors bg-black/50 rounded-full p-2"
+          className="absolute top-4 right-4 z-10 text-white/70 hover:text-white transition-colors bg-black/50 hover:bg-white/10 rounded-full p-2"
         >
           <X className="w-6 h-6" />
         </button>

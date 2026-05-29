@@ -157,7 +157,7 @@ export default function NavMusicPlayer({ onPlayingChange, renderAs = 'circle', b
             console.log('🖱️ Button clicked!', e);
             togglePlayPause();
           }}
-          className="px-6 bg-transparent hover:bg-white/10 rounded-xl font-inter-bold flex items-center gap-2 w-full justify-center relative z-10 border-2 border-white transition-all duration-300 transform hover:scale-105 text-sm md:text-lg"
+          className="px-6 bg-transparent hover:bg-white/10 rounded-xl font-inter-bold flex items-center gap-2 w-full justify-center relative z-10 border-2 border-white/70 hover:border-white transition-all duration-300 transform hover:scale-105 text-sm md:text-lg"
           style={{ 
             pointerEvents: 'auto', 
             fontFamily: 'Inter, sans-serif', 
@@ -182,7 +182,7 @@ export default function NavMusicPlayer({ onPlayingChange, renderAs = 'circle', b
       ) : (
         <button
           onClick={togglePlayPause}
-          className="px-4 bg-transparent hover:bg-white/10 rounded-xl font-inter-bold transition-all duration-300 flex items-center justify-center gap-2 border-2 border-white w-full h-full"
+          className="px-4 bg-transparent hover:bg-white/10 rounded-xl font-inter-bold transition-all duration-300 flex items-center justify-center gap-2 border-2 border-white/70 hover:border-white w-full h-full"
           title={isPlaying ? 'Pause music' : 'Play Me'}
           data-testid="button-disco-music-player"
           style={{ 
