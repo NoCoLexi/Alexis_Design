@@ -4,6 +4,7 @@ import originalHero1 from "@assets/image_1755621221671.png";
 import navDevelopment from "@assets/image_1755632165306.png";
 import codeDevelopment from "@assets/image_1755782692797.png";
 import finalDiscoHero from "@assets/image_1755783740539.png";
+import iteration9Screenshot from "@assets/AlexisDesign_Screen_Capture_05-29-2026_1780078904404.png";
 import iteration8Screenshot from "@assets/screencapture-alexisdesign-2026-03-23-23_28_39_1774364491171.png";
 import iteration7Screenshot from "@assets/screencapture-a14568b2-3e00-4807-abe4-0a773c66598f-00-zrs0bmni_1770670302371.png";
 import iteration6Screenshot from "@assets/AlexisDesign_screen_capture_8-26-2025_1770669623478.png";
@@ -61,9 +62,31 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
 
             {/* Iteration Comparison - Most recent first */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-              {/* 8th Iteration (Most Recent) */}
+              {/* 9th Iteration (Most Recent) */}
               <div className="glass rounded-xl p-4 border border-green-400/20">
-                <h4 className="text-lg font-semibold text-green-400 mb-4">8th Iteration (Most Recent)</h4>
+                <h4 className="text-lg font-semibold text-green-400 mb-4">9th Iteration (Most Recent)</h4>
+                <div className="space-y-3">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-white">3 Days</div>
+                    <div className="text-xs text-gray-400">Iteration Build Time</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-white">3 testers</div>
+                    <div className="text-xs text-gray-400">Total Users Tested</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-white">$42</div>
+                    <div className="text-xs text-gray-400">Iteration Cost</div>
+                  </div>
+                </div>
+                <div className="mt-4 h-48 overflow-y-auto rounded-lg border border-green-400/10">
+                  <img src={iteration9Screenshot} alt="9th iteration screenshot" className="w-full" />
+                </div>
+              </div>
+
+              {/* 8th Iteration */}
+              <div className="glass rounded-xl p-4 border border-purple-400/20">
+                <h4 className="text-lg font-semibold text-purple-400 mb-4">8th Iteration</h4>
                 <div className="space-y-3">
                   <div className="text-center">
                     <div className="text-2xl font-bold text-white">1.5 Days</div>
@@ -78,7 +101,7 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
                     <div className="text-xs text-gray-400">Total Project Cost</div>
                   </div>
                 </div>
-                <div className="mt-4 h-48 overflow-y-auto rounded-lg border border-green-400/10">
+                <div className="mt-4 h-48 overflow-y-auto rounded-lg border border-purple-400/10">
                   <img src={iteration8Screenshot} alt="8th iteration screenshot" className="w-full" />
                 </div>
               </div>
@@ -258,12 +281,13 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
                 <h4 className="text-lg font-semibold text-blue-400 mb-3">Frontend (React + TypeScript)</h4>
                 <ul className="text-gray-300 text-sm space-y-1">
                   <li>• React 18 with TypeScript for type safety</li>
-                  <li>• Vite as the build tool for fast development</li>
-                  <li>• Tailwind CSS for styling with custom dark theme</li>
+                  <li>• Vite for fast builds and dev server</li>
+                  <li>• pnpm for efficient package management in a monorepo workspace</li>
+                  <li>• Tailwind CSS for utility-first styling with a custom dark theme</li>
                   <li>• shadcn/ui components built on Radix UI for accessibility</li>
-                  <li>• Wouter for lightweight routing</li>
-                  <li>• TanStack Query for data fetching and caching</li>
-                  <li>• React Hook Form + Zod for form validation</li>
+                  <li>• Wouter for lightweight client-side routing</li>
+                  <li>• TanStack Query for server-state fetching and caching</li>
+                  <li>• React Hook Form + Zod for performant form handling and schema validation</li>
                 </ul>
               </div>
 

@@ -1,60 +1,7 @@
-import { useMemo, useRef } from "react";
+import { useMemo } from "react";
 import { Code } from "lucide-react";
 import AdminPanel from "./admin-panel";
 import { useAdminPanel } from "@/hooks/use-admin-panel";
-
-function useDragScroll() {
-  const ref = useRef<HTMLDivElement>(null);
-  const isDown = useRef(false);
-  const startX = useRef(0);
-  const scrollLeft = useRef(0);
-
-  const onMouseDown = (e: React.MouseEvent) => {
-    if (!ref.current) return;
-    isDown.current = true;
-    ref.current.classList.add("active");
-    startX.current = e.pageX - ref.current.offsetLeft;
-    scrollLeft.current = ref.current.scrollLeft;
-  };
-  const onMouseLeave = () => {
-    isDown.current = false;
-    ref.current?.classList.remove("active");
-  };
-  const onMouseUp = () => {
-    isDown.current = false;
-    ref.current?.classList.remove("active");
-  };
-  const onMouseMove = (e: React.MouseEvent) => {
-    if (!isDown.current || !ref.current) return;
-    e.preventDefault();
-    const x = e.pageX - ref.current.offsetLeft;
-    const walk = (x - startX.current) * 1.5;
-    ref.current.scrollLeft = scrollLeft.current - walk;
-  };
-
-  return { ref, onMouseDown, onMouseLeave, onMouseUp, onMouseMove };
-}
-
-const TICKER_CORE = [
-  "React + TypeScript",
-  "◆",
-  "Tailwind CSS + shadcn/ui",
-  "◆",
-  "Vite + pnpm + Express",
-  "◆",
-  "Wouter + TanStack Query + React Hook Form + Zod",
-  "◆",
-  "PostgreSQL + Drizzle ORM",
-  "◆",
-  "Built in Replit with Claude",
-  "◆",
-  "Open-source stack · fast iteration · accessible UI",
-  "◆",
-  "React — component-based UI · TypeScript — typed JavaScript · Tailwind CSS — utility-first styling · shadcn/ui — accessible component system · Vite — fast frontend tooling · pnpm — efficient package management · Express — backend API · Wouter — lightweight routing · TanStack Query — server-state sync · React Hook Form — performant forms · Zod — schema validation · PostgreSQL — relational data · Drizzle ORM — type-safe queries",
-  "◆",
-];
-
-const TICKER_ITEMS = [...TICKER_CORE, ...TICKER_CORE];
 
 interface HeroSectionProps {
   onOpenAwardModal?: () => void;
@@ -63,7 +10,6 @@ interface HeroSectionProps {
 
 export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroSectionProps) {
   const { isVisible, settings, applySettings, closePanel } = useAdminPanel();
-  const dragScroll = useDragScroll();
 
   const companyName = useMemo(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -91,26 +37,6 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
       }}
     >
       <style>{`
-        .hero-ticker-wrap {
-          cursor: grab;
-          overflow-x: auto;
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-          transition: background 0.3s ease, box-shadow 0.3s ease;
-        }
-        .hero-ticker-wrap::-webkit-scrollbar { display: none; }
-        .hero-ticker-wrap:hover {
-          background: rgba(95,197,248,0.08);
-          box-shadow: inset 0 0 24px rgba(95,197,248,0.12);
-        }
-        .hero-ticker-wrap:active {
-          cursor: grabbing;
-        }
-        .hero-ticker-track {
-          display: flex;
-          width: max-content;
-          user-select: none;
-        }
         .hero-title-card {
           padding: 0 60px 24px;
           position: relative;
@@ -148,42 +74,6 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
         position: "absolute", inset: 0, pointerEvents: "none", zIndex: 0,
         background: "radial-gradient(ellipse 120% 100% at 50% 100%, rgba(5,6,8,0.55) 0%, transparent 55%)",
       }} />
-
-      {/* ── Ticker tape belt ── */}
-      <div
-        ref={dragScroll.ref}
-        className="hero-ticker-wrap"
-        onMouseDown={dragScroll.onMouseDown}
-        onMouseLeave={dragScroll.onMouseLeave}
-        onMouseUp={dragScroll.onMouseUp}
-        onMouseMove={dragScroll.onMouseMove}
-        style={{
-          position: "relative", zIndex: 10, flexShrink: 0,
-          borderTop: "1px solid rgba(95,197,248,0.08)",
-          borderBottom: "1px solid rgba(95,197,248,0.08)",
-          background: "rgba(95,197,248,0.03)",
-          padding: "10px 0",
-          maskImage: "linear-gradient(90deg, transparent 0%, black 6%, black 94%, transparent 100%)",
-          WebkitMaskImage: "linear-gradient(90deg, transparent 0%, black 6%, black 94%, transparent 100%)",
-        }}
-      >
-        <div className="hero-ticker-track">
-          {TICKER_ITEMS.map((item, i) => (
-            <span key={i} style={{
-              display: "inline-block",
-              padding: "0 28px",
-              fontSize: item === "◆" ? "0.45rem" : "0.58rem",
-              letterSpacing: item === "◆" ? "0" : "0.18em",
-              textTransform: "uppercase",
-              color: item === "◆" ? "rgba(95,197,248,0.55)" : "rgba(255,255,255,0.55)",
-              whiteSpace: "nowrap",
-              lineHeight: 1,
-            }}>
-              {item}
-            </span>
-          ))}
-        </div>
-      </div>
 
       {/* Breathing space */}
       <div style={{ flex: 1, position: "relative", zIndex: 10 }} />
