@@ -106,26 +106,26 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
           UPSTART-Labs
         </h1>
 
-        {/* Tagline */}
-        <p
-          style={{
-            fontSize: "clamp(1rem, 2vw, 1.25rem)", fontWeight: 300,
-            letterSpacing: "0.06em", textTransform: "uppercase",
-            color: "#F3E8B9", margin: "0 0 16px",
-            lineHeight: 1.3,
-          }}
-          className="mb-[1px]">
-          It begins with humans.
-        </p>
-
-        {/* Subhead */}
-        <p style={{
-          fontSize: "0.95rem", fontWeight: 300, letterSpacing: "0.02em",
-          color: "rgba(255,255,255,0.6)", margin: "0 0 36px",
-          lineHeight: 1.6, maxWidth: "480px",
-        }}>
-          We help teams ship products people actually adopt.
-        </p>
+        {/* Tagline + Subhead group */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "40px" }}>
+          <p
+            style={{
+              fontSize: "clamp(1rem, 2vw, 1.25rem)", fontWeight: 300,
+              letterSpacing: "0.06em", textTransform: "uppercase",
+              color: "#F3E8B9", margin: 0,
+              lineHeight: 1.3,
+            }}
+          >
+            It begins with humans.
+          </p>
+          <p style={{
+            fontSize: "0.95rem", fontWeight: 300, letterSpacing: "0.02em",
+            color: "rgba(255,255,255,0.6)", margin: 0,
+            lineHeight: 1.6, maxWidth: "480px",
+          }}>
+            We help teams ship products people actually adopt.
+          </p>
+        </div>
 
         {/* CTA row */}
         <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "40px" }}>
