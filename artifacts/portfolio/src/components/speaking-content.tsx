@@ -244,7 +244,7 @@ export default function SpeakingContent() {
         <div className="max-w-4xl mx-auto relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="text-center md:text-left">
-              <h2 className="text-3xl font-bold mb-4" style={{ color: '#F3E8B9' }}>
+              <h2 className="text-3xl font-bold mb-4 section-glow">
                 Have Questions?
               </h2>
               <p className="text-muted-foreground mb-6">

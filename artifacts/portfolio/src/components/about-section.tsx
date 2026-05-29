@@ -101,8 +101,8 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
     <section id="about" className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-secondary/50 to-accent/50"></div>
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">
-          <span className="gradient-text">About the Founder</span>
+        <h2 className="text-3xl md:text-4xl section-glow mb-8 text-center">
+          About the Founder
         </h2>
 
         <div className="space-y-16">

@@ -864,8 +864,8 @@ export default function FeaturedWork() {
       <div className="absolute inset-0 bg-gradient-radial from-primary/5 via-transparent to-transparent"></div>
       <div className="max-w-7xl mx-auto relative">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">
-            <span className="gradient-text">Product, Design & Strategy</span>
+          <h2 className="text-3xl md:text-4xl section-glow mb-8 text-center">
+            Product, Design & Strategy
           </h2>
 
           {/* Industry Filter (pills) */}
