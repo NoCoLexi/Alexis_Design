@@ -1,7 +1,39 @@
-import { useMemo } from "react";
+import { useMemo, useRef } from "react";
 import { Gamepad2 } from "lucide-react";
 import AdminPanel from "./admin-panel";
 import { useAdminPanel } from "@/hooks/use-admin-panel";
+
+function useDragScroll() {
+  const ref = useRef<HTMLDivElement>(null);
+  const isDown = useRef(false);
+  const startX = useRef(0);
+  const scrollLeft = useRef(0);
+
+  const onMouseDown = (e: React.MouseEvent) => {
+    if (!ref.current) return;
+    isDown.current = true;
+    ref.current.classList.add("active");
+    startX.current = e.pageX - ref.current.offsetLeft;
+    scrollLeft.current = ref.current.scrollLeft;
+  };
+  const onMouseLeave = () => {
+    isDown.current = false;
+    ref.current?.classList.remove("active");
+  };
+  const onMouseUp = () => {
+    isDown.current = false;
+    ref.current?.classList.remove("active");
+  };
+  const onMouseMove = (e: React.MouseEvent) => {
+    if (!isDown.current || !ref.current) return;
+    e.preventDefault();
+    const x = e.pageX - ref.current.offsetLeft;
+    const walk = (x - startX.current) * 1.5;
+    ref.current.scrollLeft = scrollLeft.current - walk;
+  };
+
+  return { ref, onMouseDown, onMouseLeave, onMouseUp, onMouseMove };
+}
 
 const TICKER_ITEMS = [
   "Built with React + TypeScript",
@@ -36,6 +68,7 @@ interface HeroSectionProps {
 
 export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
   const { isVisible, settings, applySettings, closePanel } = useAdminPanel();
+  const dragScroll = useDragScroll();
 
   const companyName = useMemo(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -63,17 +96,25 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
       }}
     >
       <style>{`
-        @keyframes hero-ticker {
-          0%   { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+        .hero-ticker-wrap {
+          cursor: grab;
+          overflow-x: auto;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+          transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hero-ticker-wrap::-webkit-scrollbar { display: none; }
+        .hero-ticker-wrap:hover {
+          background: rgba(95,197,248,0.08);
+          box-shadow: inset 0 0 24px rgba(95,197,248,0.12);
+        }
+        .hero-ticker-wrap:active {
+          cursor: grabbing;
         }
         .hero-ticker-track {
           display: flex;
           width: max-content;
-          animation: hero-ticker 28s linear infinite;
-        }
-        .hero-ticker-track:hover {
-          animation-play-state: paused;
+          user-select: none;
         }
         .hero-title-card {
           padding: 0 60px 24px;
@@ -114,16 +155,23 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
       }} />
 
       {/* ── Ticker tape belt ── */}
-      <div style={{
-        position: "relative", zIndex: 10, flexShrink: 0,
-        overflow: "hidden",
-        borderTop: "1px solid rgba(95,197,248,0.08)",
-        borderBottom: "1px solid rgba(95,197,248,0.08)",
-        background: "rgba(95,197,248,0.03)",
-        padding: "10px 0",
-        maskImage: "linear-gradient(90deg, transparent 0%, black 6%, black 94%, transparent 100%)",
-        WebkitMaskImage: "linear-gradient(90deg, transparent 0%, black 6%, black 94%, transparent 100%)",
-      }}>
+      <div
+        ref={dragScroll.ref}
+        className="hero-ticker-wrap"
+        onMouseDown={dragScroll.onMouseDown}
+        onMouseLeave={dragScroll.onMouseLeave}
+        onMouseUp={dragScroll.onMouseUp}
+        onMouseMove={dragScroll.onMouseMove}
+        style={{
+          position: "relative", zIndex: 10, flexShrink: 0,
+          borderTop: "1px solid rgba(95,197,248,0.08)",
+          borderBottom: "1px solid rgba(95,197,248,0.08)",
+          background: "rgba(95,197,248,0.03)",
+          padding: "10px 0",
+          maskImage: "linear-gradient(90deg, transparent 0%, black 6%, black 94%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(90deg, transparent 0%, black 6%, black 94%, transparent 100%)",
+        }}
+      >
         <div className="hero-ticker-track">
           {TICKER_ITEMS.map((item, i) => (
             <span key={i} style={{
