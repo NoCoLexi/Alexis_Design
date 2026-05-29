@@ -1,6 +1,7 @@
 import { Link } from "wouter";
-import { Mail, Mic, Mic2, Users, Brain, Cpu, Palette, CheckCircle, Sparkles, ExternalLink } from "lucide-react";
+import { Mail, Mic, Mic2, Users, Brain, Cpu, Palette, CheckCircle, Sparkles, ExternalLink, ChevronDown } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import aixuxSummitCoverImage from "@assets/aixux-3d-agent-cover.png";
 
 const topicBuckets = [
@@ -237,6 +238,48 @@ export default function SpeakingContent() {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Speaking Topics */}
+      <div className="mb-16 max-w-4xl mx-auto">
+        <h3 className="text-2xl font-bold mb-2 text-center section-glow">Speaking Topics</h3>
+        <p className="text-center text-muted-foreground mb-6 text-sm">
+          Topics grouped by audience. Expand each to explore what we cover.
+        </p>
+        <Accordion type="single" collapsible className="w-full">
+          {topicBuckets.map((bucket, bi) => (
+            <AccordionItem key={bi} value={`bucket-${bi}`} className="border-border/50">
+              <AccordionTrigger className="text-left hover:no-underline">
+                <div className="flex flex-col items-start">
+                  <span className="text-base font-semibold text-white">{bucket.bucketTitle}</span>
+                  <span className="text-xs text-muted-foreground">{bucket.tagline}</span>
+                </div>
+              </AccordionTrigger>
+              <AccordionContent>
+                <p className="text-sm text-muted-foreground mb-4">{bucket.whyStatement}</p>
+                <div className="space-y-3">
+                  {bucket.topics.map((topic, ti) => {
+                    const Icon = topic.icon;
+                    return (
+                      <div key={ti} className="glass rounded-lg p-4">
+                        <div className="flex items-start gap-3">
+                          <div className="p-2 rounded-lg bg-purple-500/10 flex-shrink-0">
+                            <Icon className="w-4 h-4 text-purple-400" />
+                          </div>
+                          <div>
+                            <h4 className="text-sm font-semibold text-white mb-1">{topic.title}</h4>
+                            <p className="text-xs text-muted-foreground mb-1">{topic.summary}</p>
+                            <p className="text-xs text-gray-400 leading-relaxed">{topic.details}</p>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </div>
 
       {/* Contact CTA */}
