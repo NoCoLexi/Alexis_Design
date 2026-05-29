@@ -1,4 +1,5 @@
 import { Gamepad2 } from "lucide-react";
+import { useMemo } from "react";
 
 /**
  * C2 — Midnight Cinematic
@@ -41,6 +42,13 @@ const TICKER_ITEMS = [
 ];
 
 export function MidnightCinematic() {
+  const companyName = useMemo(() => {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("company") || "";
+  }, []);
+
+  const preTitle = companyName ? `Hi ${companyName}, we're` : "Hi, we're";
+
   return (
     <div
       style={{
@@ -138,7 +146,7 @@ export function MidnightCinematic() {
           fontSize: "18px", fontWeight: 200, color: "rgba(255,255,255,0.55)",
           letterSpacing: "0.04em", marginBottom: "8px",
         }}>
-          Hi, we're
+          {preTitle}
         </div>
 
         {/* Hero name — fills the stage */}
