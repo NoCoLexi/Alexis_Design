@@ -127,7 +127,9 @@ export default function Home() {
                 className="nav-link inline-flex items-center px-4 py-2 rounded-full transition-all duration-300 cursor-pointer"
                 data-testid="button-my-expertise"
               >
-                <span className="text-sm font-medium text-white">About Us</span>
+                <span className="text-sm font-medium text-white">
+                  Our expertise
+                </span>
               </button>
               <Link
                 href="/services"
