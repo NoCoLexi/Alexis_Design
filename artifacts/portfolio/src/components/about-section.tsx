@@ -108,7 +108,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
 
         <div className="space-y-16">
           {/* Two-column: portrait + intro quote */}
-          <div className="flex flex-col md:flex-row gap-12 md:gap-16 justify-start items-start">
+          <div className="flex flex-col md:flex-row gap-12 md:gap-16 items-start justify-between">
             {/* Portrait - left */}
             <div className="flex-shrink-0">
               <img
