@@ -129,6 +129,13 @@ export default function Home() {
               >
                 <span className="text-sm font-medium text-white">About Us</span>
               </button>
+              <a
+                href="mailto:alexis@upstart-labs.com"
+                className="nav-link inline-flex items-center px-4 py-2 rounded-full transition-all duration-300 cursor-pointer"
+                data-testid="link-nav-send-email"
+              >
+                <span className="text-sm font-medium text-white">Message Us</span>
+              </a>
               <button
                 onClick={() => scrollToSection('work')}
                 className="nav-link-primary inline-flex items-center px-4 py-2 rounded-full transition-all duration-300 cursor-pointer"
@@ -172,6 +179,14 @@ export default function Home() {
                   About Us
                 </span>
               </button>
+              <a
+                href="mailto:alexis@upstart-labs.com"
+                className="nav-link inline-flex items-center justify-center w-full px-4 py-3 rounded-full transition-all duration-300 cursor-pointer"
+                data-testid="link-nav-send-email-mobile"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <span className="text-sm font-medium text-white">Message Us</span>
+              </a>
               <button
                 onClick={() => {
                   scrollToSection('work');

@@ -233,17 +233,6 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
         {/* CTA row */}
         <div style={{ display: "flex", alignItems: "center", gap: "36px", marginBottom: "40px", flexWrap: "wrap" }}>
           <a
-            href="mailto:alexis@upstart-labs.com"
-            data-testid="link-send-email"
-            style={{
-              fontSize: "0.7rem", letterSpacing: "0.22em", textTransform: "uppercase",
-              color: "rgba(255,255,255,0.7)", textDecoration: "none", fontWeight: 600,
-              borderBottom: "1px solid rgba(255,255,255,0.25)", paddingBottom: "3px",
-            }}
-          >
-            Message us →
-          </a>
-          <a
             href="/stakeholder-invaders/"
             data-testid="button-play-game-hero"
             style={{
