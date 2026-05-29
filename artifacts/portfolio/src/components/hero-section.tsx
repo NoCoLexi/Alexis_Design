@@ -68,16 +68,13 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
           .hero-award-credit { margin-left: 0 !important; }
         }
       `}</style>
-
       {/* Subtle bottom vignette */}
       <div style={{
         position: "absolute", inset: 0, pointerEvents: "none", zIndex: 0,
         background: "radial-gradient(ellipse 120% 100% at 50% 100%, rgba(5,6,8,0.55) 0%, transparent 55%)",
       }} />
-
       {/* Breathing space */}
       <div style={{ flex: 1, position: "relative", zIndex: 10 }} />
-
       {/* Title card — anchored to lower portion */}
       <div className="hero-title-card">
         {/* Pre-title */}
@@ -107,12 +104,14 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
         </h1>
 
         {/* Tagline */}
-        <p style={{
-          fontSize: "clamp(1rem, 2vw, 1.25rem)", fontWeight: 300,
-          letterSpacing: "0.06em", textTransform: "uppercase",
-          color: "#F3E8B9", margin: "0 0 16px",
-          lineHeight: 1.3,
-        }}>
+        <p
+          style={{
+            fontSize: "clamp(1rem, 2vw, 1.25rem)", fontWeight: 300,
+            letterSpacing: "0.06em", textTransform: "uppercase",
+            color: "#F3E8B9", margin: "0 0 16px",
+            lineHeight: 1.3,
+          }}
+          className="mb-[0px]">
           It begins with humans.
         </p>
 
@@ -143,13 +142,11 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
           </button>
         </div>
       </div>
-
       {/* Bottom rule */}
       <div style={{
         height: "1px", background: "rgba(255,255,255,0.05)",
         margin: "0 60px", flexShrink: 0, position: "relative", zIndex: 10,
       }} />
-
       {/* Metrics footnote bar */}
       <div className="hero-metrics-bar">
         {[
@@ -189,7 +186,6 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
           2023 GovTech Award Winner
         </div>
       </div>
-
       <AdminPanel
         isVisible={isVisible}
         onClose={closePanel}
