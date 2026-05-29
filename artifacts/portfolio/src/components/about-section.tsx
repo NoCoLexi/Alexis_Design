@@ -110,26 +110,24 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
           {/* Two-column: portrait + intro quote */}
           <div className="flex flex-col md:flex-row gap-12 md:gap-16 items-start justify-between">
             {/* Portrait - left */}
-            <div className="flex-shrink-0 self-stretch flex flex-col">
+            <div className="flex-shrink-0">
               <img
                 src={headshot}
                 alt="Upstart-Labs Founder"
                 className="rounded-2xl shadow-lg rounded-tl-[12px] rounded-tr-[12px] rounded-br-[12px] rounded-bl-[12px]"
-                style={{ maxWidth: '320px', width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }}
+                style={{ maxWidth: '320px', width: '100%', objectFit: 'cover', objectPosition: 'top' }}
               />
             </div>
 
-            {/* Introduction - right */}
-            <div className="flex-1">
+            {/* Introduction + Inline Tabs - right */}
+            <div className="flex-1 flex flex-col gap-8">
               <p className="md:text-2xl text-muted-foreground text-[18px]">
                 <strong className="text-foreground">Alexis has spent her career inside the gap between what teams build and what people actually adopt.</strong> <br />
                 The code is solid. The UX is clean. But adoption still stalls because no one designed for the office misunderstandings, the training gap, or the stakeholders who never bought in. <br />She built Upstart-Labs around a single belief: <strong className="text-foreground">that the human side of change is just as engineerable as the product itself.</strong>
               </p>
-            </div>
-          </div>
 
-          {/* Inline 2-tab panel */}
-          <div>
+              {/* Inline 2-tab panel */}
+              <div>
                 <div className="mb-4">
                   <div className="glass rounded-xl p-2 inline-flex">
                     <Button
@@ -376,6 +374,8 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                   </div>
                 )}
               </div>
+            </div>
+          </div>
 
           {/* Education Tabs - preserved, hidden until ready */}
           {false && (
@@ -1263,7 +1263,9 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
                   </div>
                 </div>
               )}
+            </div>
           </div>
+          )}
 
 
         </div>
