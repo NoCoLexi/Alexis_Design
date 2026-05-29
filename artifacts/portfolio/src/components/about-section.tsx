@@ -122,8 +122,8 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
             {/* Introduction Quote - right */}
             <div className="flex-1 max-w-xl">
               <p className="text-xl md:text-2xl leading-relaxed text-muted-foreground">
-                <strong className="text-foreground">Most products fail post-launch because they weren't designed for humans to use them.</strong> <br />
-                The code is good. The design looks clean. But users don't understand what to do. <br />Teams can't agree on what matters. Stakeholders don't trust it. Change gets resisted. <br />The whole system pulls in different directions. <strong className="text-foreground">We fix that.</strong>
+                <strong className="text-foreground">Alexis has spent her career inside the gap between what teams build and what people actually adopt.</strong> <br />
+                The code is solid. The UX is clean. But adoption still stalls — because no one designed for the office politics, the training gap, or the stakeholders who never bought in. <br />She built Upstart-Labs around a single belief: <strong className="text-foreground">that the human side of change is just as engineerable as the product itself.</strong>
               </p>
             </div>
           </div>
