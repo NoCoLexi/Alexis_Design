@@ -97,8 +97,8 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
                     <div className="text-xs text-gray-400">Total Users Tested</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-white">$642</div>
-                    <div className="text-xs text-gray-400">Total Project Cost</div>
+                    <div className="text-2xl font-bold text-white">$108</div>
+                    <div className="text-xs text-gray-400">Iteration Cost</div>
                   </div>
                 </div>
                 <div className="mt-4 h-48 overflow-y-auto rounded-lg border border-purple-400/10">
@@ -119,8 +119,8 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
                     <div className="text-xs text-gray-400">Total Users Tested</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-white">$534</div>
-                    <div className="text-xs text-gray-400">Total Project Cost</div>
+                    <div className="text-2xl font-bold text-white">$185</div>
+                    <div className="text-xs text-gray-400">Iteration Cost</div>
                   </div>
                 </div>
                 <div className="mt-4 h-48 overflow-y-auto rounded-lg border border-purple-400/10">
@@ -141,8 +141,8 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
                     <div className="text-xs text-gray-400">Total Users Tested</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-white">$349</div>
-                    <div className="text-xs text-gray-400">Total Project Cost</div>
+                    <div className="text-2xl font-bold text-white">$300.90</div>
+                    <div className="text-xs text-gray-400">Iteration Cost</div>
                   </div>
                 </div>
                 <div className="mt-4 h-48 overflow-y-auto rounded-lg border border-blue-400/10">
@@ -164,7 +164,7 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold text-white">$48.10</div>
-                    <div className="text-xs text-gray-400">Total Project Cost</div>
+                    <div className="text-xs text-gray-400">Iteration Cost</div>
                   </div>
                 </div>
                 <div className="mt-4 h-48 overflow-y-auto rounded-lg border border-gray-400/10">
