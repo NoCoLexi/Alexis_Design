@@ -128,9 +128,7 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
         </p>
 
         {/* CTA row */}
-        <div
-          style={{ display: "flex", alignItems: "center", gap: "36px", flexWrap: "wrap" }}
-          className="mb-[40px]">
+        <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "40px" }}>
           <button
             onClick={onOpenSiteModal}
             data-testid="button-hero-site"
@@ -145,23 +143,23 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
             <Code style={{ width: "14px", height: "14px" }} />
             How we built this site →
           </button>
-        </div>
 
-        {/* GovTech Award credit */}
-        <button
-          onClick={onOpenAwardModal}
-          data-testid="button-hero-tech-award"
-          className="inline-flex items-center text-white/70 hover:text-white transition-colors gap-[8px] pb-[3px]"
-          style={{
-            fontSize: "0.7rem", letterSpacing: "0.22em", textTransform: "uppercase",
-            fontWeight: 600, textDecoration: "none",
-            borderBottom: "1px solid rgba(255,255,255,0.25)", paddingBottom: "3px",
-            background: "none", cursor: "pointer", marginBottom: "40px",
-          }}
-        >
-          <Trophy style={{ width: "14px", height: "14px" }} />
-          GovTech Award Winner →
-        </button>
+          {/* GovTech Award credit */}
+          <button
+            onClick={onOpenAwardModal}
+            data-testid="button-hero-tech-award"
+            className="inline-flex items-center text-white/70 hover:text-white transition-colors gap-[8px] pb-[3px]"
+            style={{
+              fontSize: "0.7rem", letterSpacing: "0.22em", textTransform: "uppercase",
+              fontWeight: 600, textDecoration: "none",
+              borderBottom: "1px solid rgba(255,255,255,0.25)", paddingBottom: "3px",
+              background: "none", cursor: "pointer",
+            }}
+          >
+            <Trophy style={{ width: "14px", height: "14px" }} />
+            GovTech Award Winner →
+          </button>
+        </div>
         </div>
       </div>
       {/* Bottom rule */}
