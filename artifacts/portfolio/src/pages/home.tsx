@@ -116,13 +116,6 @@ export default function Home() {
             </div>
             <div className="hidden md:flex space-x-2 items-center">
               <button
-                onClick={() => setIsSiteModalOpen(true)}
-                className="nav-link inline-flex items-center px-4 py-2 rounded-full transition-all duration-300 cursor-pointer"
-                data-testid="button-about-site"
-              >
-                <span className="text-sm font-medium text-white">How we built this site</span>
-              </button>
-              <button
                 onClick={() => scrollToSection('about')}
                 className="nav-link inline-flex items-center px-4 py-2 rounded-full transition-all duration-300 cursor-pointer"
                 data-testid="button-my-expertise"
@@ -155,18 +148,6 @@ export default function Home() {
           {/* Mobile Menu */}
           {isMobileMenuOpen && (
             <div className="md:hidden mt-4 pb-4 space-y-1 bg-black/60 rounded-lg p-3 border border-white/10">
-              <button
-                onClick={() => {
-                  setIsSiteModalOpen(true);
-                  setIsMobileMenuOpen(false);
-                }}
-                className="nav-link inline-flex items-center justify-center w-full px-4 py-3 rounded-full transition-all duration-300 cursor-pointer"
-                data-testid="button-about-site-mobile"
-              >
-                <span className="text-sm font-medium text-white">
-                  How we built this site
-                </span>
-              </button>
               <button
                 onClick={() => {
                   scrollToSection('about');
@@ -204,7 +185,10 @@ export default function Home() {
         </div>
       </nav>
       {/* Page Sections */}
-      <HeroSection onOpenAwardModal={() => setIsAwardModalOpen(true)} />
+      <HeroSection
+        onOpenAwardModal={() => setIsAwardModalOpen(true)}
+        onOpenSiteModal={() => setIsSiteModalOpen(true)}
+      />
       <FeaturedWork />
       <AboutSection onOpenAwardModal={() => setIsAwardModalOpen(true)} />
       <ContactSection onOpenAwardModal={() => setIsAwardModalOpen(true)} />

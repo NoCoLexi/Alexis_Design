@@ -1,5 +1,5 @@
 import { useMemo, useRef } from "react";
-import { Gamepad2 } from "lucide-react";
+import { Code } from "lucide-react";
 import AdminPanel from "./admin-panel";
 import { useAdminPanel } from "@/hooks/use-admin-panel";
 
@@ -64,9 +64,10 @@ const TICKER_ITEMS = [
 
 interface HeroSectionProps {
   onOpenAwardModal?: () => void;
+  onOpenSiteModal?: () => void;
 }
 
-export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
+export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroSectionProps) {
   const { isVisible, settings, applySettings, closePanel } = useAdminPanel();
   const dragScroll = useDragScroll();
 
@@ -232,19 +233,20 @@ export default function HeroSection({ onOpenAwardModal }: HeroSectionProps) {
 
         {/* CTA row */}
         <div style={{ display: "flex", alignItems: "center", gap: "36px", marginBottom: "40px", flexWrap: "wrap" }}>
-          <a
-            href="/stakeholder-invaders/"
-            data-testid="button-play-game-hero"
+          <button
+            onClick={onOpenSiteModal}
+            data-testid="button-hero-site"
+            className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors"
             style={{
-              display: "inline-flex", alignItems: "center", gap: "8px",
-              fontFamily: "'Press Start 2P', monospace", fontSize: "0.6rem",
-              letterSpacing: "0.04em", color: "rgba(95,197,248,0.85)", textDecoration: "none",
-              textShadow: "0 0 16px rgba(95,197,248,0.6)",
+              fontSize: "0.7rem", letterSpacing: "0.22em", textTransform: "uppercase",
+              fontWeight: 600, textDecoration: "none",
+              borderBottom: "1px solid rgba(255,255,255,0.25)", paddingBottom: "3px",
+              background: "none", cursor: "pointer",
             }}
           >
-            <Gamepad2 style={{ width: "14px", height: "14px" }} />
-            ▸ Play Stakeholders Invaders
-          </a>
+            <Code style={{ width: "14px", height: "14px" }} />
+            How we built this site →
+          </button>
         </div>
       </div>
 
