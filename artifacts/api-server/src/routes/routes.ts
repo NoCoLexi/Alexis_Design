@@ -74,8 +74,6 @@ appRouter.post("/contact", contactRateLimiter, async (req, res) => {
   } catch (error) {
     if (error instanceof z.ZodError) {
       res.status(400).json({ error: "Validation failed", details: error.errors });
-    } else if (error instanceof Error && error.message === "Contact storage limit reached") {
-      res.status(503).json({ error: "Service temporarily unavailable. Please try again later." });
     } else {
       res.status(500).json({ error: "Failed to submit contact form" });
     }

@@ -1,5 +1,5 @@
-import { type User, type InsertUser, type Contact, type InsertContact } from "@workspace/db";
-import { randomUUID } from "crypto";
+import { db, type User, type InsertUser, type Contact, type InsertContact, users, contacts } from "@workspace/db";
+import { eq } from "drizzle-orm";
 
 export interface IStorage {
   getUser(id: string): Promise<User | undefined>;
@@ -9,54 +9,30 @@ export interface IStorage {
   getContacts(): Promise<Contact[]>;
 }
 
-const MAX_CONTACTS = 500;
-
-export class MemStorage implements IStorage {
-  private users: Map<string, User>;
-  private contacts: Map<string, Contact>;
-
-  constructor() {
-    this.users = new Map();
-    this.contacts = new Map();
-  }
-
+export class DbStorage implements IStorage {
   async getUser(id: string): Promise<User | undefined> {
-    return this.users.get(id);
+    const rows = await db.select().from(users).where(eq(users.id, id)).limit(1);
+    return rows[0];
   }
 
   async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username,
-    );
+    const rows = await db.select().from(users).where(eq(users.username, username)).limit(1);
+    return rows[0];
   }
 
   async createUser(insertUser: InsertUser): Promise<User> {
-    const id = randomUUID();
-    const user: User = { ...insertUser, id };
-    this.users.set(id, user);
-    return user;
+    const rows = await db.insert(users).values(insertUser).returning();
+    return rows[0];
   }
 
   async createContact(insertContact: InsertContact): Promise<Contact> {
-    if (this.contacts.size >= MAX_CONTACTS) {
-      throw new Error("Contact storage limit reached");
-    }
-    const id = randomUUID();
-    const contact: Contact = { 
-      ...insertContact, 
-      id,
-      createdAt: new Date(),
-      phone: insertContact.phone || null
-    };
-    this.contacts.set(id, contact);
-    return contact;
+    const rows = await db.insert(contacts).values(insertContact).returning();
+    return rows[0];
   }
 
   async getContacts(): Promise<Contact[]> {
-    return Array.from(this.contacts.values()).sort((a, b) => 
-      new Date(b.createdAt!).getTime() - new Date(a.createdAt!).getTime()
-    );
+    return db.select().from(contacts).orderBy(contacts.createdAt);
   }
 }
 
-export const storage = new MemStorage();
+export const storage = new DbStorage();
