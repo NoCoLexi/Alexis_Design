@@ -7,8 +7,10 @@ import { WinScreen } from "./game/WinScreen";
 import { HowToPlay } from "./game/HowToPlay";
 import { HUD } from "./game/HUD";
 import { TouchControls } from "./game/TouchControls";
-import type { GameStatus, TacticId, GameInputs } from "./game/types";
+import type { GameStatus, TacticId, GameInputs, StakeholderId } from "./game/types";
 import { TACTICS } from "./game/data";
+import { useStartGameSession, useRecordWaveCheckpoint } from "@workspace/api-client-react";
+import type { GameEvent } from "@workspace/api-client-react";
 
 const HIGH_SCORE_KEY = "stakeholderInvaders.highScore";
 const MUTE_KEY = "stakeholderInvaders.muted";
@@ -30,6 +32,29 @@ function App() {
   });
   const [finalScore, setFinalScore] = useState(0);
   const [advocates, setAdvocates] = useState(0);
+
+  // Attestation state: token + checkpoint promise both start null and are
+  // set once server round-trips complete. GameOverScreen disables Submit
+  // until the checkpoint promise resolves.
+  const gameTokenRef = useRef<string | null>(null);
+  const [gameToken, setGameToken] = useState<string | null>(null);
+  const [checkpointPromise, setCheckpointPromise] = useState<Promise<string> | null>(null);
+
+  // Mirrors the wave state so callbacks always have the latest wave number
+  // without stale-closure issues. Updated in lockstep with setWave.
+  const waveRef = useRef(1);
+
+  // Accumulates kill events for the current wave only. Flushed when the wave
+  // ends (via checkpoint call), or on game-over/win.
+  const waveEventsRef = useRef<GameEvent[]>([]);
+
+  // Server-issued nonce for the NEXT checkpoint call. Set from session
+  // creation response (wave-1 nonce) and updated after each checkpoint.
+  // Must be rotated with each successful checkpoint to enforce sequential play.
+  const gameNonceRef = useRef<string | null>(null);
+
+  const startSession = useStartGameSession();
+  const recordCheckpoint = useRecordWaveCheckpoint();
 
   const inputsRef = useRef<GameInputs>({
     left: false,
@@ -74,32 +99,134 @@ function App() {
     setScore(0);
     setAdvocates(0);
     setCredibility(3);
+    waveRef.current = 1;
     setWave(1);
     setTactic(TACTICS[0].id);
+    gameTokenRef.current = null;
+    gameNonceRef.current = null;
+    setGameToken(null);
+    setCheckpointPromise(null);
+    waveEventsRef.current = [];
     setStatus("playing");
-  }, []);
-
-  const handleGameOver = useCallback((finalScoreValue: number, advocatesWon: number) => {
-    setFinalScore(finalScoreValue);
-    setAdvocates(advocatesWon);
-    setStatus("gameover");
-    setHighScore((prev) => {
-      const next = Math.max(prev, finalScoreValue);
-      try { localStorage.setItem(HIGH_SCORE_KEY, String(next)); } catch {}
-      return next;
+    // Request a server-issued game session token and wave-1 nonce.
+    startSession.mutate(undefined, {
+      onSuccess: (data) => {
+        gameTokenRef.current = data.token;
+        gameNonceRef.current = data.nonce;
+        setGameToken(data.token);
+      },
     });
-  }, []);
+  }, [startSession]);
 
-  const handleWin = useCallback((finalScoreValue: number, advocatesWon: number) => {
-    setFinalScore(finalScoreValue);
-    setAdvocates(advocatesWon);
-    setStatus("win");
-    setHighScore((prev) => {
-      const next = Math.max(prev, finalScoreValue);
-      try { localStorage.setItem(HIGH_SCORE_KEY, String(next)); } catch {}
-      return next;
-    });
-  }, []);
+  const handleKill = useCallback(
+    (stakeholder: StakeholderId, tactic: TacticId, waveNum: number) => {
+      waveEventsRef.current.push({ type: "kill", stakeholder, tactic, wave: waveNum });
+    },
+    [],
+  );
+
+  /**
+   * Called by GameCanvas when a wave is cleared (waves 1-5).
+   * Submits this wave's events to the server for validation and gets a
+   * checkpoint HMAC back. The promise is stored so GameOverScreen can wait
+   * for it before enabling Submit.
+   */
+  const handleWaveClear = useCallback(
+    (clearedWave: number) => {
+      const token = gameTokenRef.current;
+      const nonce = gameNonceRef.current;
+      if (!token || !nonce) {
+        // Token/nonce not yet issued (very fast clear on session delay): clear buffer and continue.
+        waveEventsRef.current = [];
+        return;
+      }
+      const events: GameEvent[] = [
+        ...waveEventsRef.current,
+        { type: "wave_clear", wave: clearedWave },
+      ];
+      waveEventsRef.current = [];
+      const promise = new Promise<string>((resolve, reject) => {
+        recordCheckpoint.mutate(
+          { data: { token, nonce, events } },
+          {
+            onSuccess: (data) => {
+              // Rotate to the next wave's nonce so the next checkpoint call
+              // is gated on this server-issued value.
+              if (data.nextNonce) {
+                gameNonceRef.current = data.nextNonce;
+              }
+              resolve(data.checkpoint);
+            },
+            onError: (err) => reject(err),
+          },
+        );
+      });
+      setCheckpointPromise(promise);
+    },
+    [recordCheckpoint],
+  );
+
+  /**
+   * Sends the terminal event batch (wave kills + game_over or win) to the
+   * checkpoint endpoint and returns a promise that resolves to the checkpoint
+   * string. Used by both handleGameOver and handleWin.
+   */
+  const submitTerminalCheckpoint = useCallback(
+    (terminalEvent: GameEvent): Promise<string> => {
+      const token = gameTokenRef.current;
+      const nonce = gameNonceRef.current;
+      if (!token || !nonce) {
+        return Promise.reject(new Error("No session token or nonce"));
+      }
+      const events: GameEvent[] = [...waveEventsRef.current, terminalEvent];
+      waveEventsRef.current = [];
+      return new Promise<string>((resolve, reject) => {
+        recordCheckpoint.mutate(
+          { data: { token, nonce, events } },
+          {
+            // On terminal events the server returns no nextNonce (game over).
+            onSuccess: (data) => resolve(data.checkpoint),
+            onError: (err) => reject(err),
+          },
+        );
+      });
+    },
+    [recordCheckpoint],
+  );
+
+  const handleGameOver = useCallback(
+    (finalScoreValue: number, advocatesWon: number) => {
+      // Use waveRef (mirrors wave state) so this is correct even when the
+      // player dies on a new wave without having recorded any kills yet.
+      const promise = submitTerminalCheckpoint({ type: "game_over", wave: waveRef.current });
+      setCheckpointPromise(promise);
+      setFinalScore(finalScoreValue);
+      setAdvocates(advocatesWon);
+      setStatus("gameover");
+      setHighScore((prev) => {
+        const next = Math.max(prev, finalScoreValue);
+        try { localStorage.setItem(HIGH_SCORE_KEY, String(next)); } catch {}
+        return next;
+      });
+    },
+    [submitTerminalCheckpoint],
+  );
+
+  const handleWin = useCallback(
+    (finalScoreValue: number, advocatesWon: number) => {
+      const promise = submitTerminalCheckpoint({ type: "win" });
+      setCheckpointPromise(promise);
+      setFinalScore(finalScoreValue);
+      setAdvocates(advocatesWon);
+      setStatus("win");
+      setHighScore((prev) => {
+        const next = Math.max(prev, finalScoreValue);
+        try { localStorage.setItem(HIGH_SCORE_KEY, String(next)); } catch {}
+        return next;
+      });
+    },
+    [submitTerminalCheckpoint],
+  );
 
   const cycleTactic = useCallback(() => {
     setTactic((t) => {
@@ -149,9 +276,11 @@ function App() {
           onScore={setScore}
           onAdvocates={setAdvocates}
           onCredibility={setCredibility}
-          onWave={setWave}
+          onWave={(w) => { waveRef.current = w; setWave(w); }}
           onGameOver={handleGameOver}
           onWin={handleWin}
+          onKill={handleKill}
+          onWaveClear={handleWaveClear}
         />
 
         {status === "playing" && (
@@ -185,8 +314,9 @@ function App() {
           <GameOverScreen
             score={finalScore}
             advocates={advocates}
-            wave={wave}
             highScore={highScore}
+            gameToken={gameToken}
+            checkpointPromise={checkpointPromise}
             onRestart={startGame}
             onMenu={() => setStatus("start")}
           />

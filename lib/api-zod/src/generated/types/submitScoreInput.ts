@@ -6,16 +6,17 @@
  * OpenAPI spec version: 0.1.0
  */
 
+/**
+ * Final score submission. Score is taken from server session state; checkpoint proves sequential server-validated gameplay.
+ */
 export interface SubmitScoreInput {
   /**
    * @minLength 1
    * @maxLength 3
    */
   handle: string;
-  /** @minimum 0 */
-  score: number;
-  /** @minimum 0 */
-  advocates: number;
-  /** @minimum 1 */
-  wave: number;
+  /** Game session token from POST /scores/session */
+  token: string;
+  /** Final HMAC checkpoint from POST /scores/checkpoint */
+  checkpoint: string;
 }

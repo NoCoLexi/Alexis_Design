@@ -61,17 +61,98 @@ export const GetTopScoresResponseItem = zod.object({
 export const GetTopScoresResponse = zod.array(GetTopScoresResponseItem);
 
 /**
+ * Client submits the events for exactly one wave segment (kills + a
+single terminal: wave_clear, game_over, or win). The server verifies
+the nonce matches the one it issued for this wave, applies the events
+against its own game-state machine, enforces a minimum elapsed-time
+floor, and returns a server-signed HMAC checkpoint plus the next
+wave's nonce. Because each nonce is issued only after the previous
+wave is validated, waves cannot be batched or parallelised — forging
+a high-score run requires making sequential real API calls with the
+correct inter-wave delays.
+
+ * @summary Validate a single wave's events and advance the session
+ */
+export const recordWaveCheckpointBodyEventsItemWaveMax = 6;
+
+export const recordWaveCheckpointBodyEventsMax = 50;
+
+export const RecordWaveCheckpointBody = zod
+  .object({
+    token: zod
+      .string()
+      .describe("Game session token from POST \/scores\/session"),
+    nonce: zod
+      .string()
+      .describe(
+        "Wave nonce issued by the previous POST \/scores\/checkpoint (or from POST \/scores\/session for wave 1)",
+      ),
+    events: zod
+      .array(
+        zod
+          .object({
+            type: zod.enum(["kill", "wave_clear", "game_over", "win"]),
+            stakeholder: zod
+              .string()
+              .optional()
+              .describe("StakeholderId — required for kill events"),
+            tactic: zod
+              .string()
+              .optional()
+              .describe("TacticId — required for kill events"),
+            wave: zod
+              .number()
+              .min(1)
+              .max(recordWaveCheckpointBodyEventsItemWaveMax)
+              .optional()
+              .describe("Required for kill, wave_clear, and game_over events"),
+          })
+          .describe("A single gameplay event for one wave segment."),
+      )
+      .max(recordWaveCheckpointBodyEventsMax)
+      .describe(
+        "Ordered events for this wave: zero or more kill events followed by\nexactly one of wave_clear, game_over, or win. No events may follow\nthe terminal. Batching events from multiple waves is rejected.\n",
+      ),
+  })
+  .describe(
+    "Events for exactly one wave segment, gated by the server-issued nonce for this wave.",
+  );
+
+export const RecordWaveCheckpointResponse = zod
+  .object({
+    checkpoint: zod
+      .string()
+      .describe("HMAC signed by a server-only key; required by POST \/scores"),
+    nextNonce: zod
+      .string()
+      .optional()
+      .describe(
+        "Nonce for the next wave's checkpoint call; absent after game_over or win",
+      ),
+  })
+  .describe("Server-signed proof that this wave's events were validated.");
+
+/**
+ * Submits a score using the handle, session token, and the final
+checkpoint from POST /scores/checkpoint. Score, advocates, and wave
+are taken from server-held session state — no client-supplied totals
+are accepted. The checkpoint signature (HMAC with a server-only key)
+proves the client made real sequential API round-trips for each wave.
+
  * @summary Submit a Stakeholder Invaders score
  */
 export const submitScoreBodyHandleMax = 3;
 
-export const submitScoreBodyScoreMin = 0;
-
-export const submitScoreBodyAdvocatesMin = 0;
-
-export const SubmitScoreBody = zod.object({
-  handle: zod.string().min(1).max(submitScoreBodyHandleMax),
-  score: zod.number().min(submitScoreBodyScoreMin),
-  advocates: zod.number().min(submitScoreBodyAdvocatesMin),
-  wave: zod.number().min(1),
-});
+export const SubmitScoreBody = zod
+  .object({
+    handle: zod.string().min(1).max(submitScoreBodyHandleMax),
+    token: zod
+      .string()
+      .describe("Game session token from POST \/scores\/session"),
+    checkpoint: zod
+      .string()
+      .describe("Final HMAC checkpoint from POST \/scores\/checkpoint"),
+  })
+  .describe(
+    "Final score submission. Score is taken from server session state; checkpoint proves sequential server-validated gameplay.",
+  );

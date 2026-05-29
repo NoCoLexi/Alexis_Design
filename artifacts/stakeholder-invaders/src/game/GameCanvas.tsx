@@ -109,6 +109,8 @@ interface Props {
   onWave: (n: number) => void;
   onGameOver: (score: number, advocates: number) => void;
   onWin: (score: number, advocates: number) => void;
+  onKill?: (stakeholder: StakeholderId, tactic: TacticId, wave: number) => void;
+  onWaveClear?: (wave: number) => void;
 }
 
 const SPRITE_FOR: Record<StakeholderId, string[]> = {
@@ -210,7 +212,7 @@ function initState(wave = 1, credibility = 3, score = 0, advocates = 0): State {
 }
 
 export function GameCanvas(props: Props) {
-  const { status, inputsRef, tactic, muted, onScore, onAdvocates, onCredibility, onWave, onGameOver, onWin } = props;
+  const { status, inputsRef, tactic, muted, onScore, onAdvocates, onCredibility, onWave, onGameOver, onWin, onKill, onWaveClear } = props;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const stateRef = useRef<State | null>(null);
   const tacticRef = useRef<TacticId>(tactic);
@@ -360,6 +362,7 @@ export function GameCanvas(props: Props) {
               sfx.convert(mutedRef.current);
               onScore(s.score);
               onAdvocates(s.advocates);
+              onKill?.(e.type, sh.tactic, s.wave);
             }
             break;
           }
@@ -443,6 +446,7 @@ export function GameCanvas(props: Props) {
         const nextWave = wavesCompleted + 1;
         const carryCred = Math.min(5, s.credibility + 1); // recover a little
         const advs = s.advocates;
+        onWaveClear?.(wavesCompleted);
         stateRef.current = initState(nextWave, carryCred, carryScore, advs);
         onScore(carryScore);
         onCredibility(carryCred);

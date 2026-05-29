@@ -9,13 +9,14 @@ import { useQueryClient } from "@tanstack/react-query";
 interface Props {
   score: number;
   advocates: number;
-  wave: number;
   highScore: number;
+  gameToken: string | null;
+  /** Promise that resolves to the server-issued HMAC checkpoint. */
+  checkpointPromise: Promise<string> | null;
   onRestart: () => void;
   onMenu: () => void;
 }
 
-const HANDLE_LENGTH = 3;
 const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 const HANDLE_KEY = "stakeholderInvaders.handle";
 
@@ -32,8 +33,9 @@ function loadInitialHandle(): string[] {
 export function GameOverScreen({
   score,
   advocates,
-  wave,
   highScore,
+  gameToken,
+  checkpointPromise,
   onRestart,
   onMenu,
 }: Props) {
@@ -44,9 +46,25 @@ export function GameOverScreen({
 
   const [handle, setHandle] = useState<string[]>(loadInitialHandle);
   const [submitted, setSubmitted] = useState(false);
+  const [checkpoint, setCheckpoint] = useState<string | null>(null);
+  const [checkpointError, setCheckpointError] = useState(false);
   const submittingRef = useRef(false);
 
-  // Eligible to submit if score > 0 and would make top 10 (or fewer than 10 entries)
+  // Wait for the server-issued checkpoint before enabling submit.
+  useEffect(() => {
+    if (!checkpointPromise) return;
+    let cancelled = false;
+    checkpointPromise
+      .then((cp) => {
+        if (!cancelled) setCheckpoint(cp);
+      })
+      .catch(() => {
+        if (!cancelled) setCheckpointError(true);
+      });
+    return () => { cancelled = true; };
+  }, [checkpointPromise]);
+
+  // Eligible to submit if score > 0 and would make top 10
   const qualifies =
     score > 0 &&
     (!topScores ||
@@ -55,12 +73,16 @@ export function GameOverScreen({
 
   const handleString = handle.join("");
 
+  // Ready once we have the token AND the server-issued checkpoint.
+  const attestationReady = gameToken !== null && checkpoint !== null;
+
   const handleSubmit = () => {
     if (submitted || submittingRef.current) return;
     if (!/^[A-Z0-9]{3}$/.test(handleString)) return;
+    if (!gameToken || !checkpoint) return;
     submittingRef.current = true;
     submitScore.mutate(
-      { data: { handle: handleString, score, advocates, wave } },
+      { data: { handle: handleString, token: gameToken, checkpoint } },
       {
         onSuccess: () => {
           setSubmitted(true);
@@ -74,7 +96,6 @@ export function GameOverScreen({
     );
   };
 
-  // Arrow keys to change letters
   useEffect(() => {
     if (!qualifies || submitted) return;
     const onKey = (e: KeyboardEvent) => {
@@ -97,6 +118,14 @@ export function GameOverScreen({
     });
   };
 
+  const submitLabel = submitScore.isPending
+    ? "SUBMITTING..."
+    : checkpointError
+      ? "SERVER ERROR"
+      : !attestationReady
+        ? "VERIFYING..."
+        : "SUBMIT SCORE";
+
   return (
     <div className="absolute inset-0 z-20 flex flex-col items-center justify-center overflow-y-auto px-6 py-6 text-center"
       style={{ background: "radial-gradient(ellipse at center, rgba(212,84,108,0.18) 0%, rgba(8,8,10,0.96) 70%)" }}>
@@ -107,7 +136,7 @@ export function GameOverScreen({
         <div className="font-arcade text-[10px] text-white/60">SCORE</div>
         <div className="font-arcade text-base text-[#F3E8B9]">{score.toString().padStart(6, "0")}</div>
         <div className="font-arcade text-[10px] text-white/60">ADVOCATES</div>
-        <div className="font-arcade text-base text-cyan-300">×{advocates}</div>
+        <div className="font-arcade text-base text-cyan-300">x{advocates}</div>
         <div className="font-arcade text-[10px] text-white/60">HIGH SCORE</div>
         <div className="font-arcade text-base text-white">{highScore.toString().padStart(6, "0")}</div>
       </div>
@@ -151,15 +180,15 @@ export function GameOverScreen({
           </div>
           <button
             onClick={handleSubmit}
-            disabled={submitScore.isPending}
+            disabled={submitScore.isPending || !attestationReady || checkpointError}
             className="mt-3 font-arcade text-[10px] sm:text-xs px-4 py-2 text-[#08080A] disabled:opacity-50"
             style={{ background: "#F3E8B9", boxShadow: "0 0 12px rgba(243,232,185,0.4)" }}
           >
-            {submitScore.isPending ? "SUBMITTING…" : "SUBMIT SCORE"}
+            {submitLabel}
           </button>
-          {submitScore.isError && (
+          {(submitScore.isError || checkpointError) && (
             <div className="mt-2 font-arcade text-[9px] text-[#d4546c]">
-              SUBMISSION FAILED — TRY AGAIN
+              {checkpointError ? "VERIFICATION FAILED" : "SUBMISSION FAILED - TRY AGAIN"}
             </div>
           )}
         </div>
@@ -167,7 +196,7 @@ export function GameOverScreen({
 
       {submitted && (
         <div className="mt-4 font-arcade text-[10px] text-cyan-300 blink">
-          SCORE RECORDED — {handleString}
+          SCORE RECORDED - {handleString}
         </div>
       )}
 

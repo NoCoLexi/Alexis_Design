@@ -99,11 +99,80 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/ScoreEntry"
+  /scores/session:
+    post:
+      operationId: startGameSession
+      tags: [scores]
+      summary: Issue a one-time game session token and wave-1 nonce
+      description: |
+        Creates a server-side game session with a random HMAC signing key and
+        a wave-1 challenge nonce. The nonce must be presented in the first
+        POST /scores/checkpoint call. Each checkpoint issues the next wave's
+        nonce so the chain of round-trips cannot be skipped or parallelised.
+      responses:
+        "201":
+          description: Session token and wave-1 nonce issued
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GameSession"
+        "429":
+          description: Too many session requests
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /scores/checkpoint:
+    post:
+      operationId: recordWaveCheckpoint
+      tags: [scores]
+      summary: Validate a single wave's events and advance the session
+      description: |
+        Client submits the events for exactly one wave segment (kills + a
+        single terminal: wave_clear, game_over, or win). The server verifies
+        the nonce matches the one it issued for this wave, applies the events
+        against its own game-state machine, enforces a minimum elapsed-time
+        floor, and returns a server-signed HMAC checkpoint plus the next
+        wave's nonce. Because each nonce is issued only after the previous
+        wave is validated, waves cannot be batched or parallelised — forging
+        a high-score run requires making sequential real API calls with the
+        correct inter-wave delays.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WaveCheckpoint"
+      responses:
+        "200":
+          description: Wave events validated; signed checkpoint and next nonce returned
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CheckpointResult"
+        "400":
+          description: Invalid events, wrong nonce, or session state mismatch
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "429":
+          description: Too many checkpoint requests
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
   /scores:
     post:
       operationId: submitScore
       tags: [scores]
       summary: Submit a Stakeholder Invaders score
+      description: |
+        Submits a score using the handle, session token, and the final
+        checkpoint from POST /scores/checkpoint. Score, advocates, and wave
+        are taken from server-held session state — no client-supplied totals
+        are accepted. The checkpoint signature (HMAC with a server-only key)
+        proves the client made real sequential API round-trips for each wave.
       requestBody:
         required: true
         content:
@@ -118,7 +187,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/ScoreEntry"
         "400":
-          description: Invalid score
+          description: Invalid score or checkpoint
           content:
             application/json:
               schema:
@@ -214,27 +283,92 @@ components:
         - advocates
         - wave
         - createdAt
+    GameSession:
+      type: object
+      description: Server-issued game session credentials. Both token and nonce must be retained for gameplay.
+      properties:
+        token:
+          type: string
+          description: Single-use session identifier; included in every checkpoint and score call
+        nonce:
+          type: string
+          description: Wave-1 challenge nonce; must be presented in the first POST /scores/checkpoint call
+      required:
+        - token
+        - nonce
+    GameEvent:
+      type: object
+      description: A single gameplay event for one wave segment.
+      properties:
+        type:
+          type: string
+          enum: [kill, wave_clear, game_over, win]
+        stakeholder:
+          type: string
+          description: StakeholderId — required for kill events
+        tactic:
+          type: string
+          description: TacticId — required for kill events
+        wave:
+          type: integer
+          minimum: 1
+          maximum: 6
+          description: Required for kill, wave_clear, and game_over events
+      required:
+        - type
+    WaveCheckpoint:
+      type: object
+      description: Events for exactly one wave segment, gated by the server-issued nonce for this wave.
+      properties:
+        token:
+          type: string
+          description: Game session token from POST /scores/session
+        nonce:
+          type: string
+          description: Wave nonce issued by the previous POST /scores/checkpoint (or from POST /scores/session for wave 1)
+        events:
+          type: array
+          description: |
+            Ordered events for this wave: zero or more kill events followed by
+            exactly one of wave_clear, game_over, or win. No events may follow
+            the terminal. Batching events from multiple waves is rejected.
+          items:
+            $ref: "#/components/schemas/GameEvent"
+          maxItems: 50
+      required:
+        - token
+        - nonce
+        - events
+    CheckpointResult:
+      type: object
+      description: Server-signed proof that this wave's events were validated.
+      properties:
+        checkpoint:
+          type: string
+          description: HMAC signed by a server-only key; required by POST /scores
+        nextNonce:
+          type: string
+          description: Nonce for the next wave's checkpoint call; absent after game_over or win
+      required:
+        - checkpoint
     SubmitScoreInput:
       type: object
+      description: Final score submission. Score is taken from server session state; checkpoint proves sequential server-validated gameplay.
       properties:
         handle:
           type: string
           minLength: 1
           maxLength: 3
-        score:
-          type: integer
-          minimum: 0
-        advocates:
-          type: integer
-          minimum: 0
-        wave:
-          type: integer
-          minimum: 1
+        token:
+          type: string
+          description: Game session token from POST /scores/session
+        checkpoint:
+          type: string
+          description: Final HMAC checkpoint from POST /scores/checkpoint
       required:
         - handle
-        - score
-        - advocates
-        - wave
+        - token
+        - checkpoint
     ErrorResponse:
       type: object
       properties:

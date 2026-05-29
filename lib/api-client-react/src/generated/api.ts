@@ -19,12 +19,15 @@ import type {
 import type {
   ChatRequest,
   ChatResponse,
+  CheckpointResult,
   ContactInput,
   ErrorResponse,
+  GameSession,
   HealthStatus,
   ScoreEntry,
   SubmitScoreInput,
   SuccessResponse,
+  WaveCheckpoint,
 } from "./api.schemas";
 
 import { customFetch } from "../custom-fetch";
@@ -361,6 +364,194 @@ export function useGetTopScores<
 }
 
 /**
+ * Creates a server-side game session with a random HMAC signing key and
+a wave-1 challenge nonce. The nonce must be presented in the first
+POST /scores/checkpoint call. Each checkpoint issues the next wave's
+nonce so the chain of round-trips cannot be skipped or parallelised.
+
+ * @summary Issue a one-time game session token and wave-1 nonce
+ */
+export const getStartGameSessionUrl = () => {
+  return `/api/scores/session`;
+};
+
+export const startGameSession = async (
+  options?: RequestInit,
+): Promise<GameSession> => {
+  return customFetch<GameSession>(getStartGameSessionUrl(), {
+    ...options,
+    method: "POST",
+  });
+};
+
+export const getStartGameSessionMutationOptions = <
+  TError = ErrorType<ErrorResponse>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof startGameSession>>,
+    TError,
+    void,
+    TContext
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseMutationOptions<
+  Awaited<ReturnType<typeof startGameSession>>,
+  TError,
+  void,
+  TContext
+> => {
+  const mutationKey = ["startGameSession"];
+  const { mutation: mutationOptions, request: requestOptions } = options
+    ? options.mutation &&
+      "mutationKey" in options.mutation &&
+      options.mutation.mutationKey
+      ? options
+      : { ...options, mutation: { ...options.mutation, mutationKey } }
+    : { mutation: { mutationKey }, request: undefined };
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof startGameSession>>,
+    void
+  > = () => {
+    return startGameSession(requestOptions);
+  };
+
+  return { mutationFn, ...mutationOptions };
+};
+
+export type StartGameSessionMutationResult = NonNullable<
+  Awaited<ReturnType<typeof startGameSession>>
+>;
+
+export type StartGameSessionMutationError = ErrorType<ErrorResponse>;
+
+/**
+ * @summary Issue a one-time game session token and wave-1 nonce
+ */
+export const useStartGameSession = <
+  TError = ErrorType<ErrorResponse>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof startGameSession>>,
+    TError,
+    void,
+    TContext
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseMutationResult<
+  Awaited<ReturnType<typeof startGameSession>>,
+  TError,
+  void,
+  TContext
+> => {
+  return useMutation(getStartGameSessionMutationOptions(options));
+};
+
+/**
+ * Client submits the events for exactly one wave segment (kills + a
+single terminal: wave_clear, game_over, or win). The server verifies
+the nonce matches the one it issued for this wave, applies the events
+against its own game-state machine, enforces a minimum elapsed-time
+floor, and returns a server-signed HMAC checkpoint plus the next
+wave's nonce. Because each nonce is issued only after the previous
+wave is validated, waves cannot be batched or parallelised — forging
+a high-score run requires making sequential real API calls with the
+correct inter-wave delays.
+
+ * @summary Validate a single wave's events and advance the session
+ */
+export const getRecordWaveCheckpointUrl = () => {
+  return `/api/scores/checkpoint`;
+};
+
+export const recordWaveCheckpoint = async (
+  waveCheckpoint: WaveCheckpoint,
+  options?: RequestInit,
+): Promise<CheckpointResult> => {
+  return customFetch<CheckpointResult>(getRecordWaveCheckpointUrl(), {
+    ...options,
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...options?.headers },
+    body: JSON.stringify(waveCheckpoint),
+  });
+};
+
+export const getRecordWaveCheckpointMutationOptions = <
+  TError = ErrorType<ErrorResponse>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof recordWaveCheckpoint>>,
+    TError,
+    { data: BodyType<WaveCheckpoint> },
+    TContext
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseMutationOptions<
+  Awaited<ReturnType<typeof recordWaveCheckpoint>>,
+  TError,
+  { data: BodyType<WaveCheckpoint> },
+  TContext
+> => {
+  const mutationKey = ["recordWaveCheckpoint"];
+  const { mutation: mutationOptions, request: requestOptions } = options
+    ? options.mutation &&
+      "mutationKey" in options.mutation &&
+      options.mutation.mutationKey
+      ? options
+      : { ...options, mutation: { ...options.mutation, mutationKey } }
+    : { mutation: { mutationKey }, request: undefined };
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof recordWaveCheckpoint>>,
+    { data: BodyType<WaveCheckpoint> }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return recordWaveCheckpoint(data, requestOptions);
+  };
+
+  return { mutationFn, ...mutationOptions };
+};
+
+export type RecordWaveCheckpointMutationResult = NonNullable<
+  Awaited<ReturnType<typeof recordWaveCheckpoint>>
+>;
+export type RecordWaveCheckpointMutationBody = BodyType<WaveCheckpoint>;
+export type RecordWaveCheckpointMutationError = ErrorType<ErrorResponse>;
+
+/**
+ * @summary Validate a single wave's events and advance the session
+ */
+export const useRecordWaveCheckpoint = <
+  TError = ErrorType<ErrorResponse>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof recordWaveCheckpoint>>,
+    TError,
+    { data: BodyType<WaveCheckpoint> },
+    TContext
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseMutationResult<
+  Awaited<ReturnType<typeof recordWaveCheckpoint>>,
+  TError,
+  { data: BodyType<WaveCheckpoint> },
+  TContext
+> => {
+  return useMutation(getRecordWaveCheckpointMutationOptions(options));
+};
+
+/**
+ * Submits a score using the handle, session token, and the final
+checkpoint from POST /scores/checkpoint. Score, advocates, and wave
+are taken from server-held session state — no client-supplied totals
+are accepted. The checkpoint signature (HMAC with a server-only key)
+proves the client made real sequential API round-trips for each wave.
+
  * @summary Submit a Stakeholder Invaders score
  */
 export const getSubmitScoreUrl = () => {

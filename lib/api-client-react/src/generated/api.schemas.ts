@@ -51,18 +51,83 @@ export interface ScoreEntry {
   createdAt: string;
 }
 
+/**
+ * Server-issued game session credentials. Both token and nonce must be retained for gameplay.
+ */
+export interface GameSession {
+  /** Single-use session identifier; included in every checkpoint and score call */
+  token: string;
+  /** Wave-1 challenge nonce; must be presented in the first POST /scores/checkpoint call */
+  nonce: string;
+}
+
+export type GameEventType = (typeof GameEventType)[keyof typeof GameEventType];
+
+export const GameEventType = {
+  kill: "kill",
+  wave_clear: "wave_clear",
+  game_over: "game_over",
+  win: "win",
+} as const;
+
+/**
+ * A single gameplay event for one wave segment.
+ */
+export interface GameEvent {
+  type: GameEventType;
+  /** StakeholderId — required for kill events */
+  stakeholder?: string;
+  /** TacticId — required for kill events */
+  tactic?: string;
+  /**
+   * Required for kill, wave_clear, and game_over events
+   * @minimum 1
+   * @maximum 6
+   */
+  wave?: number;
+}
+
+/**
+ * Events for exactly one wave segment, gated by the server-issued nonce for this wave.
+ */
+export interface WaveCheckpoint {
+  /** Game session token from POST /scores/session */
+  token: string;
+  /** Wave nonce issued by the previous POST /scores/checkpoint (or from POST /scores/session for wave 1) */
+  nonce: string;
+  /**
+   * Ordered events for this wave: zero or more kill events followed by
+exactly one of wave_clear, game_over, or win. No events may follow
+the terminal. Batching events from multiple waves is rejected.
+
+   * @maxItems 50
+   */
+  events: GameEvent[];
+}
+
+/**
+ * Server-signed proof that this wave's events were validated.
+ */
+export interface CheckpointResult {
+  /** HMAC signed by a server-only key; required by POST /scores */
+  checkpoint: string;
+  /** Nonce for the next wave's checkpoint call; absent after game_over or win */
+  nextNonce?: string;
+}
+
+/**
+ * Final score submission. Score is taken from server session state; checkpoint proves sequential server-validated gameplay.
+ */
 export interface SubmitScoreInput {
   /**
    * @minLength 1
    * @maxLength 3
    */
   handle: string;
-  /** @minimum 0 */
-  score: number;
-  /** @minimum 0 */
-  advocates: number;
-  /** @minimum 1 */
-  wave: number;
+  /** Game session token from POST /scores/session */
+  token: string;
+  /** Final HMAC checkpoint from POST /scores/checkpoint */
+  checkpoint: string;
 }
 
 export interface ErrorResponse {
