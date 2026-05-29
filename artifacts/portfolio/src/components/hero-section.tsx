@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { Code } from "lucide-react";
+import { Code, Trophy } from "lucide-react";
 import AdminPanel from "./admin-panel";
 import { useAdminPanel } from "@/hooks/use-admin-panel";
 
@@ -144,17 +144,20 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
         </div>
 
         {/* GovTech Award credit */}
-        <div
+        <button
           onClick={onOpenAwardModal}
           data-testid="button-hero-tech-award"
+          className="inline-flex items-center text-white/70 hover:text-white transition-colors gap-[8px] pb-[3px]"
           style={{
-            fontSize: "0.55rem", color: "rgba(255,255,255,0.35)",
-            letterSpacing: "0.1em", textTransform: "uppercase",
-            cursor: "pointer", marginBottom: "40px",
+            fontSize: "0.7rem", letterSpacing: "0.22em", textTransform: "uppercase",
+            fontWeight: 600, textDecoration: "none",
+            borderBottom: "1px solid rgba(255,255,255,0.25)", paddingBottom: "3px",
+            background: "none", cursor: "pointer", marginBottom: "40px",
           }}
         >
-          2023 GovTech Award Winner
-        </div>
+          <Trophy style={{ width: "14px", height: "14px" }} />
+          2023 GovTech Award Winner →
+        </button>
       </div>
       {/* Bottom rule */}
       <div style={{
