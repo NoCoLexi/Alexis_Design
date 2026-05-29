@@ -35,32 +35,26 @@ function useDragScroll() {
   return { ref, onMouseDown, onMouseLeave, onMouseUp, onMouseMove };
 }
 
-const TICKER_ITEMS = [
-  "Built with React + TypeScript",
+const TICKER_CORE = [
+  "React + TypeScript",
   "◆",
-  "Designed in Replit with Claude",
+  "Tailwind CSS + shadcn/ui",
   "◆",
-  "Tailwind + shadcn/ui",
+  "Vite + pnpm + Express",
   "◆",
-  "Vite · pnpm · Express",
+  "Wouter + TanStack Query + React Hook Form + Zod",
   "◆",
-  "Every pixel written with AI pair-programming",
+  "PostgreSQL + Drizzle ORM",
   "◆",
-  "Open-source stack, closed-loop workflow",
+  "Built in Replit with Claude",
   "◆",
-  "Built with React + TypeScript",
+  "Open-source stack · fast iteration · accessible UI",
   "◆",
-  "Designed in Replit with Claude",
-  "◆",
-  "Tailwind + shadcn/ui",
-  "◆",
-  "Vite · pnpm · Express",
-  "◆",
-  "Every pixel written with AI pair-programming",
-  "◆",
-  "Open-source stack, closed-loop workflow",
+  "React — component-based UI · TypeScript — typed JavaScript · Tailwind CSS — utility-first styling · shadcn/ui — accessible component system · Vite — fast frontend tooling · pnpm — efficient package management · Express — backend API · Wouter — lightweight routing · TanStack Query — server-state sync · React Hook Form — performant forms · Zod — schema validation · PostgreSQL — relational data · Drizzle ORM — type-safe queries",
   "◆",
 ];
+
+const TICKER_ITEMS = [...TICKER_CORE, ...TICKER_CORE];
 
 interface HeroSectionProps {
   onOpenAwardModal?: () => void;
