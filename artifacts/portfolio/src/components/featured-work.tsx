@@ -141,7 +141,7 @@ interface Project {
   id: string;
   title: string;
   description: string;
-  category: 'product-management' | 'product-design' | 'brand-development' | 'marketing';
+  category: 'product-management' | 'product-design' | 'brand-development';
   roles: Role[];
   verticals: Vertical[];
   image: string;
@@ -176,7 +176,7 @@ const projects: Project[] = [
   {
     id: 'lifespan-health-care',
     title: 'Lifespan Health Care',
-    description: 'Comprehensive healthcare brand development featuring patient-focused messaging, community healthcare positioning, and professional medical marketing materials.',
+    description: 'Comprehensive healthcare brand development featuring patient-focused messaging, community healthcare positioning, and professional medical brand development materials.',
     category: 'brand-development',
     roles: ['brand-development'],
     verticals: ['healthcare'],
@@ -190,7 +190,7 @@ const projects: Project[] = [
       { label: 'Healthcare Branding', value: '100%', color: 'text-chart-1' },
       { label: 'Community Focus', value: '95%', color: 'text-primary' }
     ],
-    tags: ['Healthcare Branding', 'Medical Marketing', 'Community Health', 'Patient Care'],
+    tags: ['Healthcare Branding', 'Medical Brand Dev', 'Community Health', 'Patient Care'],
     canonicalTags: []
   },
   {
@@ -228,7 +228,7 @@ const projects: Project[] = [
   {
     id: 'gatorade-zipatoni',
     title: 'Gatorade',
-    description: 'Brand development and sports marketing design concepts created during our tenure at Zipatoni, focusing on label design and sports marketing materials for the iconic brand.',
+    description: 'Brand development and sports brand development design concepts created during our tenure at Zipatoni, focusing on label design and sports brand development materials for the iconic brand.',
     category: 'brand-development',
     roles: ['brand-development'],
     verticals: ['healthcare'],
@@ -241,7 +241,7 @@ const projects: Project[] = [
       { label: 'Design Concepts', value: '15+', color: 'text-chart-1' },
       { label: 'Brand Recognition', value: '95%', color: 'text-primary' }
     ],
-    tags: ['Brand Development', 'Sports Marketing', 'Label Design', 'Zipatoni Agency'],
+    tags: ['Brand Development', 'Sports Brand Dev', 'Label Design', 'Zipatoni Agency'],
     canonicalTags: []
   },
   {
@@ -271,7 +271,7 @@ const projects: Project[] = [
   {
     id: 'budweiser-zipatoni',
     title: 'Budweiser',
-    description: 'Beer brand campaign development during our time at Zipatoni, creating compelling marketing materials and brand campaigns for one of America\'s most iconic beer brands.',
+    description: 'Beer brand campaign development during our time at Zipatoni, creating compelling brand development materials and brand campaigns for one of America\'s most iconic beer brands.',
     category: 'brand-development',
     roles: ['brand-development'],
     verticals: ['healthcare'],
@@ -288,7 +288,7 @@ const projects: Project[] = [
       { label: 'Campaign Concepts', value: '12+', color: 'text-chart-1' },
       { label: 'Brand Consistency', value: '98%', color: 'text-primary' }
     ],
-    tags: ['Beer Marketing', 'Campaign Development', 'Brand Strategy', 'Zipatoni Agency'],
+    tags: ['Beer Brand Dev', 'Campaign Development', 'Brand Strategy', 'Zipatoni Agency'],
     canonicalTags: []
   },
   {
@@ -459,7 +459,7 @@ const projects: Project[] = [
     id: 'providence-school-system',
     title: 'Providence School System',
     description: 'Comprehensive strategic planning and brand development for Providence School Department, including magnet program branding, mission-driven materials, and strategic frameworks to support educational excellence and community engagement across the entire school system.',
-    category: 'marketing',
+    category: 'brand-development',
     roles: ['brand-development'],
     verticals: ['healthcare'],
     image: providenceSystemCoverImage,
@@ -482,7 +482,7 @@ const projects: Project[] = [
   {
     id: 'abc6-rebrand-alexis-design',
     title: 'WLNE-ABC6',
-    description: 'Company-wide brand transformation for ABC6 News under Alexis Design, working directly with the marketing director to redesign everything from studio backdrops to mic holders and outdoor advertising.',
+    description: 'Company-wide brand transformation for ABC6 News under Alexis Design, working directly with the brand development director to redesign everything from studio backdrops to mic holders and outdoor advertising.',
     category: 'brand-development',
     roles: ['brand-development'],
     verticals: [],
@@ -526,7 +526,7 @@ const projects: Project[] = [
     id: 'ri-convention-center',
     title: 'RI Convention Center Authority',
     description: 'Professional brochure design for Rhode Island Convention Center Authority featuring sophisticated architectural photography and premium hospitality branding.',
-    category: 'marketing',
+    category: 'brand-development',
     roles: ['brand-development'],
     verticals: ['healthcare'],
     image: riConventionCenterImage,
@@ -539,13 +539,13 @@ const projects: Project[] = [
       { label: 'Professional Branding', value: '100%', color: 'text-chart-1' },
       { label: 'Hospitality Focus', value: '95%', color: 'text-primary' }
     ],
-    tags: ['Hospitality Branding', 'Convention Marketing', 'Architectural Photography', 'Tourism Promotion'],
+    tags: ['Hospitality Branding', 'Convention Brand Dev', 'Architectural Photography', 'Tourism Promotion'],
     canonicalTags: ['govtech']
   },
   {
     id: 'jwu-branding',
     title: 'Johnson & Wales University',
-    description: 'Comprehensive university brand development including capital campaign materials, mission statement design, core values communication, and strategic marketing collateral.',
+    description: 'Comprehensive university brand development including capital campaign materials, mission statement design, core values communication, and strategic brand development collateral.',
     category: 'brand-development',
     roles: ['brand-development'],
     verticals: ['healthcare'],
@@ -561,7 +561,7 @@ const projects: Project[] = [
     id: 'tf-green-gala',
     title: 'T.F. Green Airport Gala Invitation',
     description: 'Elegant event branding and invitation design for TF Green Airport\'s Grand Opening Gala, featuring sophisticated passport-themed materials and premium event presentation.',
-    category: 'marketing',
+    category: 'brand-development',
     roles: ['brand-development'],
     verticals: ['healthcare'],
     image: tfGreenGalaImage,
@@ -569,7 +569,7 @@ const projects: Project[] = [
       { label: 'Premium Event Design', value: '100%', color: 'text-chart-1' },
       { label: 'Aviation Theme Integration', value: '95%', color: 'text-primary' }
     ],
-    tags: ['Event Design', 'Aviation Branding', 'Premium Invitations', 'Gala Marketing'],
+    tags: ['Event Design', 'Aviation Branding', 'Premium Invitations', 'Gala Brand Dev'],
     canonicalTags: ['govtech']
   },
   {
@@ -584,7 +584,7 @@ const projects: Project[] = [
       { label: 'Corporate Rebrand', value: '100%', color: 'text-chart-1' },
       { label: 'Crisis Communications', value: 'Strategic', color: 'text-primary' }
     ],
-    tags: ['Healthcare Branding', 'Corporate Communications', 'Crisis PR', 'Pharmaceutical'],
+    tags: ['Healthcare Branding', 'Corporate Communications', 'Crisis Brand Dev', 'Pharmaceutical'],
     canonicalTags: []
   },
   {

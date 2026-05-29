@@ -63,7 +63,7 @@ const galleryItems: GalleryItem[] = [
     category: 'print', 
     image: jwuPortfolio, 
     title: 'Johnson & Wales University Materials',
-    description: 'University marketing and recruitment materials'
+    description: 'University brand development and recruitment materials'
   },
   
   // Brand Design Items
@@ -71,7 +71,7 @@ const galleryItems: GalleryItem[] = [
     id: '6', 
     category: 'brand', 
     image: gatoradePoster, 
-    title: 'Gatorade Sports Marketing',
+    title: 'Gatorade Sports Brand Dev',
     description: 'Athletic brand campaign and poster design'
   },
   { 
@@ -85,7 +85,7 @@ const galleryItems: GalleryItem[] = [
     id: '8', 
     category: 'brand', 
     image: budweiserAd, 
-    title: 'Budweiser Marketing Campaign',
+    title: 'Budweiser Brand Dev Campaign',
     description: 'Premium beer brand advertising materials'
   },
   { 
@@ -251,7 +251,7 @@ export default function CreativeGallery() {
     { 
       id: 'print', 
       title: 'Print Design', 
-      description: 'Editorial layouts, brochures, and marketing materials'
+      description: 'Editorial layouts, brochures, and brand development materials'
     },
     { 
       id: 'outdoor', 

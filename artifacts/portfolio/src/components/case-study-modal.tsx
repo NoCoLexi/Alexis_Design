@@ -740,16 +740,16 @@ const caseStudies: Record<string, CaseStudy> = {
   'gatorade-zipatoni': {
     id: 'gatorade-zipatoni',
     title: 'Gatorade Brand Development',
-    subtitle: 'Sports Marketing & Label Design at Zipatoni',
-    description: 'Comprehensive brand development work for Gatorade during our tenure at Zipatoni, one of the leading sports marketing agencies. Focused on label design concepts and sports marketing materials that maintained brand consistency while exploring fresh visual approaches for the iconic sports drink brand.',
+    subtitle: 'Sports Brand Dev & Label Design at Zipatoni',
+    description: 'Comprehensive brand development work for Gatorade during our tenure at Zipatoni, one of the leading sports brand development agencies. Focused on label design concepts and sports brand development materials that maintained brand consistency while exploring fresh visual approaches for the iconic sports drink brand.',
     role: 'Brand Designer & Visual Strategist',
     duration: '6 months',
     team: 'Zipatoni Creative Team',
-    challenge: 'Developing fresh design concepts for an established, globally recognized brand while maintaining its core identity and appeal to athletes and sports enthusiasts. The challenge was to create innovative label designs and marketing materials that would stand out in a competitive market.',
-    solution: 'Created multiple design concept iterations that balanced innovation with brand heritage. Developed label design concepts featuring dynamic visual elements and sports marketing materials that emphasized energy, performance, and athletic achievement.',
-    outcome: 'Successfully delivered multiple design concepts that demonstrated strong understanding of brand positioning and sports marketing aesthetics.',
+    challenge: 'Developing fresh design concepts for an established, globally recognized brand while maintaining its core identity and appeal to athletes and sports enthusiasts. The challenge was to create innovative label designs and brand development materials that would stand out in a competitive market.',
+    solution: 'Created multiple design concept iterations that balanced innovation with brand heritage. Developed label design concepts featuring dynamic visual elements and sports brand development materials that emphasized energy, performance, and athletic achievement.',
+    outcome: 'Successfully delivered multiple design concepts that demonstrated strong understanding of brand positioning and sports brand development aesthetics.',
     metrics: [
-      { label: '15+', value: 'Design Concepts Created', description: 'Multiple label and marketing design variations' },
+      { label: '15+', value: 'Design Concepts Created', description: 'Multiple label and brand dev design variations' },
       { label: '95%', value: 'Brand Recognition Maintained', description: 'Preserved iconic brand elements' },
       { label: '100%', value: 'Client Satisfaction', description: 'All concepts delivered on schedule' }
     ],
@@ -757,13 +757,13 @@ const caseStudies: Record<string, CaseStudy> = {
       'Brand analysis and competitive research',
       'Conceptual sketching and ideation sessions',
       'Digital design development and refinement',
-      'Sports marketing material creation',
+      'Sports brand development material creation',
       'Client presentation and feedback incorporation',
       'Final asset preparation and delivery'
     ],
     learnings: [
       'Working with established brands requires careful balance of innovation and heritage',
-      'Sports marketing design must convey energy and performance',
+      'Sports brand development design must convey energy and performance',
       'Label design must work across multiple package formats',
       'Agency environment demands rapid iteration and client responsiveness'
     ],
@@ -774,17 +774,17 @@ const caseStudies: Record<string, CaseStudy> = {
   },
   'budweiser-zipatoni': {
     id: 'budweiser-zipatoni',
-    title: 'Budweiser Marketing Campaign',
+    title: 'Budweiser Brand Dev Campaign',
     subtitle: 'Beer Brand Campaign Development at Zipatoni',
-    description: 'Strategic beer brand campaign development during our tenure at Zipatoni, focusing on creating compelling marketing materials and brand campaigns for Budweiser, one of America\'s most iconic beer brands. Work included conceptual development, visual design, and campaign strategy.',
+    description: 'Strategic beer brand campaign development during our tenure at Zipatoni, focusing on creating compelling brand development materials and brand campaigns for Budweiser, one of America\'s most iconic beer brands. Work included conceptual development, visual design, and campaign strategy.',
     role: 'Brand Designer & Campaign Strategist',
     duration: '4 months',
     team: 'Zipatoni Creative Team',
-    challenge: 'Developing fresh campaign concepts for an established American beer brand while maintaining its heritage and appeal to diverse demographics. The challenge was creating marketing materials that would resonate with both traditional and younger audiences.',
-    solution: 'Created multiple campaign concept iterations that celebrated American heritage while incorporating contemporary design elements. Developed marketing materials that emphasized quality, tradition, and American pride.',
-    outcome: 'Successfully delivered comprehensive campaign concepts that demonstrated strong understanding of beer marketing and American brand positioning.',
+    challenge: 'Developing fresh campaign concepts for an established American beer brand while maintaining its heritage and appeal to diverse demographics. The challenge was creating brand development materials that would resonate with both traditional and younger audiences.',
+    solution: 'Created multiple campaign concept iterations that celebrated American heritage while incorporating contemporary design elements. Developed brand development materials that emphasized quality, tradition, and American pride.',
+    outcome: 'Successfully delivered comprehensive campaign concepts that demonstrated strong understanding of beer brand development and American brand positioning.',
     metrics: [
-      { label: '12+', value: 'Campaign Concepts Created', description: 'Multiple marketing and campaign variations' },
+      { label: '12+', value: 'Campaign Concepts Created', description: 'Multiple brand dev and campaign variations' },
       { label: '98%', value: 'Brand Consistency Maintained', description: 'Preserved iconic brand elements' },
       { label: '100%', value: 'Project Delivery Success', description: 'All concepts delivered on schedule' }
     ],
@@ -798,7 +798,7 @@ const caseStudies: Record<string, CaseStudy> = {
     ],
     learnings: [
       'Heritage brands require careful balance of tradition and innovation',
-      'Beer marketing must appeal to diverse demographic segments',
+      'Beer brand development must appeal to diverse demographic segments',
       'Campaign consistency across touchpoints reinforces brand strength',
       'Understanding American cultural values essential for authentic messaging'
     ],
@@ -856,10 +856,10 @@ const caseStudies: Record<string, CaseStudy> = {
     id: 'abc6-rebrand-alexis-design',
     title: 'WLNE-ABC6 Brand Transformation',
     subtitle: 'Television Network Brand Overhaul & Environmental Design',
-    description: 'Comprehensive company-wide brand transformation for ABC6 News under Alexis Design, collaborating directly with the marketing director to redesign all brand touchpoints from studio backdrops and mic holders to outdoor advertising campaigns and mall installations.',
+    description: 'Comprehensive company-wide brand transformation for ABC6 News under Alexis Design, collaborating directly with the brand development director to redesign all brand touchpoints from studio backdrops and mic holders to outdoor advertising campaigns and mall installations.',
     role: 'Brand Designer & Environmental Designer (Alexis Design)',
     duration: '12 months',
-    team: 'Direct collaboration with ABC6 Marketing Director',
+    team: 'Direct collaboration with ABC6 Brand Development Director',
     challenge: 'Execute a complete brand transformation across all ABC6 touchpoints while maintaining on-air operations, requiring coordination across studio environments, outdoor advertising, promotional materials, and experimental retail spaces.',
     solution: 'Developed a systematic brand rollout strategy that included studio environmental design, comprehensive outdoor advertising campaigns, branded merchandise, and innovative mall PlayRoom installation, ensuring consistent brand application across traditional and experimental media channels.',
     outcome: 'Successfully transformed ABC6\'s entire brand presence across Rhode Island, creating a cohesive visual identity that enhanced viewer recognition and expanded the network\'s community engagement through innovative retail experiences.',
@@ -869,7 +869,7 @@ const caseStudies: Record<string, CaseStudy> = {
       { label: '12', value: 'Month Implementation', description: 'Full brand rollout timeline' }
     ],
     process: [
-      'Brand discovery and stakeholder alignment with marketing director',
+      'Brand discovery and stakeholder alignment with brand development director',
       'Studio environmental design and backdrop system development',
       'Microphone holders and on-air equipment branding',
       'Outdoor advertising campaign design and implementation',
@@ -899,7 +899,7 @@ const caseStudies: Record<string, CaseStudy> = {
     description: 'Elegant event branding and invitation design for TF Green Airport\'s Grand Opening Gala, featuring sophisticated passport-themed materials that captured the aviation spirit and premium nature of the celebration.',
     role: 'Event Designer & Brand Strategist',
     duration: '2 months',
-    team: 'TF Green Airport marketing team and event coordinators',
+    team: 'TF Green Airport brand development team and event coordinators',
     challenge: 'Design premium event materials for a high-profile airport gala that would reflect the sophistication of aviation while creating memorable keepsakes for distinguished guests and stakeholders.',
     solution: 'Created an elegant passport-themed invitation system with gold accents and aviation-inspired design elements, positioning the event as a "Gateway to the World" experience that celebrated both local achievement and global connectivity.',
     outcome: 'Successfully delivered premium event materials that elevated the gala\'s prestige and created lasting impressions for airport stakeholders, dignitaries, and community leaders.',
@@ -930,18 +930,18 @@ const caseStudies: Record<string, CaseStudy> = {
   'ri-convention-center': {
     id: 'ri-convention-center',
     title: 'RI Convention Center Authority',
-    subtitle: 'Professional Hospitality Branding & Marketing Materials',
+    subtitle: 'Professional Hospitality Branding & Brand Development Materials',
     description: 'Professional brochure design for Rhode Island Convention Center Authority featuring sophisticated architectural photography and premium hospitality branding to attract events and promote Rhode Island as a premier destination.',
-    role: 'Brand Designer & Marketing Specialist',
+    role: 'Brand Designer & Brand Development Specialist',
     duration: '1 month',
-    team: 'RI Convention Center Authority marketing team',
-    challenge: 'Create professional marketing materials that would position Rhode Island Convention Center as a premier venue choice while showcasing the state\'s architectural heritage and hospitality excellence.',
+    team: 'RI Convention Center Authority brand development team',
+    challenge: 'Create professional brand development materials that would position Rhode Island Convention Center as a premier venue choice while showcasing the state\'s architectural heritage and hospitality excellence.',
     solution: 'Developed sophisticated brochure design featuring dramatic black and white architectural photography that emphasized the grandeur and professional atmosphere of Rhode Island\'s convention facilities.',
-    outcome: 'Successfully delivered professional marketing materials that enhanced the Convention Center Authority\'s ability to attract high-profile events and conferences to Rhode Island.',
+    outcome: 'Successfully delivered professional brand development materials that enhanced the Convention Center Authority\'s ability to attract high-profile events and conferences to Rhode Island.',
     metrics: [
       { label: '100%', value: 'Professional Branding', description: 'Sophisticated hospitality presentation' },
       { label: '95%', value: 'Hospitality Focus', description: 'Premium venue positioning' },
-      { label: '50+', value: 'Event Bookings Impact', description: 'Enhanced marketing effectiveness' }
+      { label: '50+', value: 'Event Bookings Impact', description: 'Enhanced brand development effectiveness' }
     ],
     process: [
       'Convention industry analysis and competitive research',
@@ -949,12 +949,12 @@ const caseStudies: Record<string, CaseStudy> = {
       'Brand identity development for hospitality sector',
       'Professional brochure design and layout',
       'Print production and quality control',
-      'Marketing distribution strategy development'
+      'Brand development distribution strategy development'
     ],
     learnings: [
       'Hospitality branding requires sophisticated, professional presentation',
       'Architectural photography can effectively convey venue grandeur',
-      'Convention marketing must appeal to event planners and corporate clients',
+      'Convention brand development must appeal to event planners and corporate clients',
       'Black and white photography creates timeless, premium aesthetic'
     ],
     slideshow: [
@@ -966,31 +966,31 @@ const caseStudies: Record<string, CaseStudy> = {
   'lifespan-health-care': {
     id: 'lifespan-health-care',
     title: 'Lifespan Health Care Brand Development',
-    subtitle: 'Community Healthcare Brand & Marketing Materials',
-    description: 'Comprehensive healthcare brand development featuring patient-focused messaging, community healthcare positioning, and professional medical marketing materials that communicate quality care and accessibility.',
-    role: 'Healthcare Brand Designer & Marketing Strategist',
+    subtitle: 'Community Healthcare Brand & Brand Development Materials',
+    description: 'Comprehensive healthcare brand development featuring patient-focused messaging, community healthcare positioning, and professional medical brand development materials that communicate quality care and accessibility.',
+    role: 'Healthcare Brand Designer & Brand Development Strategist',
     duration: '3 months',
-    team: 'Lifespan Health Care marketing team and medical staff',
-    challenge: 'Develop healthcare marketing materials that would communicate quality medical care while maintaining accessibility and community trust, positioning Lifespan as a leader in Rhode Island healthcare.',
-    solution: 'Created comprehensive brand materials including patient-focused brochures, community health messaging, and professional medical marketing that emphasized both quality care and community accessibility.',
+    team: 'Lifespan Health Care brand development team and medical staff',
+    challenge: 'Develop healthcare brand development materials that would communicate quality medical care while maintaining accessibility and community trust, positioning Lifespan as a leader in Rhode Island healthcare.',
+    solution: 'Created comprehensive brand materials including patient-focused brochures, community health messaging, and professional medical brand development that emphasized both quality care and community accessibility.',
     outcome: 'Successfully delivered healthcare brand materials that enhanced community trust and positioned Lifespan as Rhode Island\'s premier healthcare provider.',
     metrics: [
-      { label: '100%', value: 'Healthcare Branding', description: 'Professional medical marketing' },
+      { label: '100%', value: 'Healthcare Branding', description: 'Professional medical brand development' },
       { label: '95%', value: 'Community Focus', description: 'Accessible healthcare messaging' },
-      { label: '75+', value: 'Marketing Materials', description: 'Comprehensive brand system' }
+      { label: '75+', value: 'Brand Development Materials', description: 'Comprehensive brand system' }
     ],
     process: [
       'Healthcare industry analysis and competitive research',
       'Patient experience research and community needs assessment',
       'Medical brand identity development',
       'Patient-focused messaging strategy',
-      'Healthcare marketing materials design',
+      'Healthcare brand development materials design',
       'Community outreach strategy development'
     ],
     learnings: [
       'Healthcare branding must balance professionalism with accessibility',
       'Patient-focused messaging builds trust and community connection',
-      'Medical marketing requires careful attention to regulatory compliance',
+      'Medical brand development requires careful attention to regulatory compliance',
       'Community healthcare positioning enhances brand credibility'
     ],
     slideshow: [
