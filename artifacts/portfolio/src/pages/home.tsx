@@ -2,7 +2,7 @@ import HeroSection from "@/components/hero-section";
 import FeaturedWork from "@/components/featured-work";
 import AboutSection from "@/components/about-section";
 import ContactSection from "@/components/contact-section";
-import logoImage from "@assets/image_1754581825249.png";
+import logoMarkImg from "@assets/logo-mark-inverse-512_1780019104514.png";
 import CaseStudyModal from "@/components/case-study-modal";
 import AwardModal from "@/components/award-modal";
 import SiteModal from "@/components/site-modal";
@@ -110,7 +110,7 @@ export default function Home() {
                 }
               }}
             >
-              <HomeIcon className="w-4 h-4 mr-2" style={{ color: '#F3E8B9' }} />
+              <img src={logoMarkImg} alt="Upstart-Labs" className="w-7 h-7 mr-2" style={{ objectFit: 'contain' }} />
               <span className="name-first text-white font-bold text-xl">UPSTART</span>
               <span className="name-last text-purple-400 font-bold text-xl">-Labs</span>
             </div>
