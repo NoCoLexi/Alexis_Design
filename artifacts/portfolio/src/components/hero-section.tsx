@@ -129,8 +129,8 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
 
         {/* CTA row */}
         <div
-          style={{ display: "flex", alignItems: "center", gap: "36px", marginBottom: "40px", flexWrap: "wrap" }}
-          className="mb-[10px]">
+          style={{ display: "flex", alignItems: "center", gap: "36px", flexWrap: "wrap" }}
+          className="mb-[40px]">
           <button
             onClick={onOpenSiteModal}
             data-testid="button-hero-site"
