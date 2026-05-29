@@ -95,19 +95,6 @@ export function MidnightCinematic() {
         </div>
       </nav>
 
-      {/* Upper breathing space — discipline label floats here */}
-      <div style={{ flex: "0 0 12%", display: "flex", alignItems: "flex-end", padding: "0 60px 0", position: "relative", zIndex: 10 }}>
-        <div style={{
-          fontSize: "0.56rem", letterSpacing: "0.3em", textTransform: "uppercase",
-          color: "rgba(95,197,248,0.7)", display: "flex", alignItems: "center", gap: "10px",
-        }}>
-          <span style={{ display: "inline-block", width: "18px", height: "1px", background: "rgba(95,197,248,0.7)" }} />
-          Product Strategy &amp; Design — Est. 2019
-        </div>
-      </div>
-
-      {/* Thin rule */}
-      <div style={{ height: "1px", background: "rgba(255,255,255,0.04)", margin: "0 60px", flexShrink: 0, position: "relative", zIndex: 10 }} />
 
       {/* ── Ticker tape belt ── */}
       <div style={{
