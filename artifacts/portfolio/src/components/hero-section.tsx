@@ -156,7 +156,7 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
           }}
         >
           <Trophy style={{ width: "14px", height: "14px" }} />
-          2023 GovTech Award Winner →
+          GovTech Award Winner →
         </button>
       </div>
       {/* Bottom rule */}
