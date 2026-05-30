@@ -120,9 +120,9 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
 
             {/* Introduction + Inline Tabs - right */}
             <div className="flex-1 flex flex-col gap-8">
-              <p className="md:text-2xl text-muted-foreground text-[18px]">
+              <p className="md:text-2xl text-muted-foreground text-[18px] pt-[0px] pb-[0px]">
                 <strong className="text-foreground">Alexis has spent her career inside the gap between what teams build and what people actually adopt.</strong> <br />
-                The code is solid. The UX is clean. But adoption still stalls because no one designed for the office misunderstandings, the training gap, or the stakeholders who never bought in. <br />She built Upstart-Labs around a single belief: <strong className="text-foreground">that the human side of change is just as engineerable as the product itself.</strong>
+                The code is solid. The UX is clean. But adoption still stalls because no one designed for the office misunderstandings, the training gap, or the stakeholders who never bought in. <br />She built Upstart-Labs around a single belief: <strong className="text-foreground mt-[20px] mb-[20px]">that the human side of change is just as engineerable as the product itself.</strong>
               </p>
             </div>
           </div>
