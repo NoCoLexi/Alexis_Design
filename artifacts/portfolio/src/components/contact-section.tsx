@@ -45,7 +45,7 @@ export default function ContactSection({ onOpenAwardModal }: ContactSectionProps
                 </a>
                 
                 <a
-                  href="https://linkedin.com/in/alexisbrochu"
+                  href="https://www.linkedin.com/company/upstart-labs-co/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center text-white/70 hover:text-white transition-colors gap-[8px] pb-[3px]"
@@ -62,7 +62,7 @@ export default function ContactSection({ onOpenAwardModal }: ContactSectionProps
                   </div>
                   <div>
                     <div className="font-medium text-foreground text-sm">LinkedIn</div>
-                    <div className="text-muted-foreground text-sm">linkedin.com/in/alexisbrochu</div>
+                    <div className="text-muted-foreground text-sm">linkedin.com/company/upstart-labs-co</div>
                   </div>
                 </a>
                 
@@ -83,7 +83,7 @@ export default function ContactSection({ onOpenAwardModal }: ContactSectionProps
                     <Calendar className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="font-medium text-foreground text-sm">Schedule a Meeting</div>
+                    <div className="font-medium text-foreground text-sm">Schedule a quick meeting</div>
                     <div className="text-muted-foreground text-sm">calendly.com/alexis-brochu/15min</div>
                   </div>
                 </a>
