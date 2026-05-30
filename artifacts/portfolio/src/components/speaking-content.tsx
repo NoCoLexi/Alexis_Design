@@ -2,7 +2,7 @@ import { Link } from "wouter";
 import { Mail, Mic, Mic2, Users, Brain, Cpu, Palette, CheckCircle, Sparkles, ExternalLink, ChevronDown } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
-import aixuxSummitCoverImage from "@assets/aixux-3d-agent-cover.png";
+import aixuxSummit2026Image from "@assets/image_1780102727229.png";
 
 const topicBuckets = [
   {
@@ -101,7 +101,7 @@ const engagementCards: EngagementCard[] = [
     topic: 'Agentic workflow',
     upcoming: true,
     tag: 'upcoming',
-    image: aixuxSummitCoverImage,
+    image: aixuxSummit2026Image,
     link: 'https://uxsupportgroup.com/summit',
     description: 'Keynote on agentic AI workflows and how design teams can lead multi-agent orchestration.',
     tags: ['Keynote', 'Agentic AI', 'Conference']
