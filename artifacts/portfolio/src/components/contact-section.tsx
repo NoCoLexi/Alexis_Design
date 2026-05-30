@@ -26,11 +26,10 @@ export default function ContactSection({ onOpenAwardModal }: ContactSectionProps
               <div className="flex flex-col md:flex-row md:justify-center md:space-x-8 space-y-4 md:space-y-0">
                 <a
                   href="mailto:alexis@upstart-labs.com"
-                  className="inline-flex items-center text-white/70 hover:text-white transition-colors gap-[8px] pb-[3px]"
+                  className="inline-flex items-center text-white/70 hover:text-white transition-colors gap-[8px]"
                   style={{
                     fontSize: "0.7rem", letterSpacing: "0.22em", textTransform: "uppercase",
                     fontWeight: 600, textDecoration: "none",
-                    borderBottom: "1px solid rgba(255,255,255,0.25)", paddingBottom: "3px",
                   }}
                   onClick={() => trackPortfolioClick('email')}
                   data-testid="contact-email"
@@ -38,18 +37,17 @@ export default function ContactSection({ onOpenAwardModal }: ContactSectionProps
                   <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                     <Mail className="w-4 h-4" />
                   </div>
-                  <div className="font-medium text-foreground text-sm">Email Upstart-Labs</div>
+                  <span className="font-medium text-sm">Email Upstart-Labs</span>
                 </a>
                 
                 <a
                   href="https://www.linkedin.com/company/upstart-labs-co/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center text-white/70 hover:text-white transition-colors gap-[8px] pb-[3px]"
+                  className="inline-flex items-center text-white/70 hover:text-white transition-colors gap-[8px]"
                   style={{
                     fontSize: "0.7rem", letterSpacing: "0.22em", textTransform: "uppercase",
                     fontWeight: 600, textDecoration: "none",
-                    borderBottom: "1px solid rgba(255,255,255,0.25)", paddingBottom: "3px",
                   }}
                   onClick={() => trackPortfolioClick('linkedin')}
                   data-testid="contact-linkedin"
@@ -57,18 +55,17 @@ export default function ContactSection({ onOpenAwardModal }: ContactSectionProps
                   <div className="w-8 h-8 bg-[#0077B5] rounded-lg flex items-center justify-center">
                     <Linkedin className="w-4 h-4 text-white" />
                   </div>
-                  <div className="font-medium text-foreground text-sm">Find us on LinkedIn!</div>
+                  <span className="font-medium text-sm">Find us on LinkedIn!</span>
                 </a>
                 
                 <a
                   href="https://calendly.com/alexis-brochu/15min"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center text-white/70 hover:text-white transition-colors gap-[8px] pb-[3px]"
+                  className="inline-flex items-center text-white/70 hover:text-white transition-colors gap-[8px]"
                   style={{
                     fontSize: "0.7rem", letterSpacing: "0.22em", textTransform: "uppercase",
                     fontWeight: 600, textDecoration: "none",
-                    borderBottom: "1px solid rgba(255,255,255,0.25)", paddingBottom: "3px",
                   }}
                   onClick={() => trackPortfolioClick('calendly')}
                   data-testid="contact-calendly"
@@ -76,7 +73,7 @@ export default function ContactSection({ onOpenAwardModal }: ContactSectionProps
                   <div className="w-8 h-8 bg-chart-2 rounded-lg flex items-center justify-center">
                     <Calendar className="w-4 h-4" />
                   </div>
-                  <div className="font-medium text-foreground text-sm">Schedule a quick meeting</div>
+                  <span className="font-medium text-sm">Schedule a quick meeting</span>
                 </a>
               </div>
             </div>
