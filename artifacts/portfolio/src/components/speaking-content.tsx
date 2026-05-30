@@ -3,6 +3,7 @@ import { Mail, Mic, Mic2, Users, Brain, Cpu, Palette, CheckCircle, Sparkles, Ext
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import aixuxSummit2026Image from "@assets/image_1780102727229.png";
+import aixuxSummit2025Image from "@assets/image_1780102819737.png";
 
 const topicBuckets = [
   {
@@ -112,6 +113,7 @@ const engagementCards: EngagementCard[] = [
     topic: 'AI & Product Design',
     upcoming: false,
     tag: null,
+    image: aixuxSummit2025Image,
     link: 'https://uxsupportgroup.com/summit-2025',
     description: 'Presented on the intersection of AI and product design for UX practitioners.',
     tags: ['Talk', 'AI & Design', 'Conference']
