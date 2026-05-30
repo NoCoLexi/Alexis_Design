@@ -121,7 +121,7 @@ export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
             {/* Introduction + Inline Tabs - right */}
             <div className="flex-1 flex flex-col gap-8">
               <p className="md:text-2xl text-muted-foreground text-[18px] mb-[20px]">
-                <strong className="text-foreground">Alexis has spent her career inside the gap between what teams build and what people actually adopt.</strong>
+                <strong className="text-foreground text-[16px]">Alexis has spent her career inside the gap between what teams build and what people actually adopt.</strong>
               </p>
               <p className="md:text-2xl text-muted-foreground text-[16px]">
                 The code is solid. The UX is clean. But adoption still stalls because no one designed for the office misunderstandings, the training gap, or the stakeholders who never bought in.
