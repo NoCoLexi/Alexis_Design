@@ -38,10 +38,7 @@ export default function ContactSection({ onOpenAwardModal }: ContactSectionProps
                   <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                     <Mail className="w-4 h-4" />
                   </div>
-                  <div>
-                    <div className="font-medium text-foreground text-sm">Email</div>
-                    <div className="text-muted-foreground text-sm">alexis@upstart-labs.com</div>
-                  </div>
+                  <div className="font-medium text-foreground text-sm">Email Upstart-Labs</div>
                 </a>
                 
                 <a
@@ -60,10 +57,7 @@ export default function ContactSection({ onOpenAwardModal }: ContactSectionProps
                   <div className="w-8 h-8 bg-[#0077B5] rounded-lg flex items-center justify-center">
                     <Linkedin className="w-4 h-4 text-white" />
                   </div>
-                  <div>
-                    <div className="font-medium text-foreground text-sm">LinkedIn</div>
-                    <div className="text-muted-foreground text-sm">linkedin.com/company/upstart-labs-co</div>
-                  </div>
+                  <div className="font-medium text-foreground text-sm">Find us on LinkedIn!</div>
                 </a>
                 
                 <a
@@ -82,10 +76,7 @@ export default function ContactSection({ onOpenAwardModal }: ContactSectionProps
                   <div className="w-8 h-8 bg-chart-2 rounded-lg flex items-center justify-center">
                     <Calendar className="w-4 h-4" />
                   </div>
-                  <div>
-                    <div className="font-medium text-foreground text-sm">Schedule a quick meeting</div>
-                    <div className="text-muted-foreground text-sm">calendly.com/alexis-brochu/15min</div>
-                  </div>
+                  <div className="font-medium text-foreground text-sm">Schedule a quick meeting</div>
                 </a>
               </div>
             </div>
