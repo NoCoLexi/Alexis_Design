@@ -5,6 +5,7 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/
 import aixuxSummit2026Image from "@assets/image_1780102727229.png";
 import aixuxSummit2025Image from "@assets/image_1780102819737.png";
 import uxsgImage from "@assets/image_1780103054934.png";
+import aiWithAlexisImage from "@assets/ai-with-alexis-podcast.png";
 
 const topicBuckets = [
   {
@@ -134,8 +135,9 @@ const engagementCards: EngagementCard[] = [
     org: 'AI with Alexis',
     year: '2026',
     topic: 'Weekly',
-    upcoming: false,
-    tag: null,
+    upcoming: true,
+    tag: 'Coming Soon',
+    image: aiWithAlexisImage,
     description: 'Weekly podcast exploring practical AI applications for product teams and individuals.',
     tags: ['Podcast', 'AI Tools', 'Weekly']
   },
