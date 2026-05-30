@@ -18,3 +18,9 @@ id = "Y-aC4Sxn0EDlF7MMSCPX4"
 uri = "file://attached_assets/ai-with-alexis-podcast.png"
 type = "image"
 title = "ai-with-alexis-podcast-cover"
+
+[[generated]]
+id = "6fPS60ZVAu1z-ItZiTGa0"
+uri = "file://attached_assets/corporate-keynotes-cover.png"
+type = "image"
+title = "corporate-keynotes-cover"
