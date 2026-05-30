@@ -19,6 +19,7 @@ export default function Home() {
   const [isAwardModalOpen, setIsAwardModalOpen] = useState(false);
   const [isSiteModalOpen, setIsSiteModalOpen] = useState(false);
   const [isAdminPanelOpen, setIsAdminPanelOpen] = useState(false);
+  const [showNavLogo, setShowNavLogo] = useState(false);
 
   // Check for admin URL parameter
   useEffect(() => {
@@ -26,6 +27,18 @@ export default function Home() {
     if (params.get('admin') === 'true' || window.location.pathname === '/admin') {
       setIsAdminPanelOpen(true);
     }
+  }, []);
+
+  // Hide nav logo while hero is visible; fade it in once hero scrolls away
+  useEffect(() => {
+    const hero = document.getElementById('home');
+    if (!hero) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setShowNavLogo(!entry.isIntersecting),
+      { threshold: 0.20 }
+    );
+    observer.observe(hero);
+    return () => observer.disconnect();
   }, []);
 
 
@@ -102,7 +115,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 py-2">
           <div className="flex justify-between items-center">
             <div 
-              className="logo-style flex items-center cursor-pointer hover:opacity-80 transition-opacity duration-200"
+              className={`logo-style flex items-center cursor-pointer transition-all duration-500 ${showNavLogo ? 'opacity-100 hover:opacity-80' : 'opacity-0 pointer-events-none'}`}
               onClick={() => {
                 const homeElement = document.getElementById('home');
                 if (homeElement) {
