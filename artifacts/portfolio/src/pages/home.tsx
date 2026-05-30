@@ -124,7 +124,7 @@ export default function Home() {
               }}
             >
               <img src={logoMarkImg} alt="Upstart-Labs" className="w-7 h-7 mr-2" style={{ objectFit: 'contain' }} />
-              <span className="name-first text-white font-bold text-xl">UPSTART</span>
+              <span className="name-first font-bold text-xl text-[color:var(--color-lemon-yellow)]">UPSTART</span>
               <span className="name-last text-purple-400 font-bold text-xl">-Labs</span>
             </div>
             <div className="hidden md:flex space-x-2 items-center">
