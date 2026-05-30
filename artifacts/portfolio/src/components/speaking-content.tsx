@@ -192,7 +192,7 @@ export default function SpeakingContent() {
                     <img
                       src={item.image}
                       alt={item.org}
-                      className="w-full h-full object-cover object-left-top group-hover:scale-105 transition-transform duration-500"
+                      className="w-[120%] h-[120%] max-w-none max-h-none object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent pointer-events-none" />
                   </>
