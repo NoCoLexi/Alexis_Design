@@ -117,12 +117,12 @@ const engagementCards: EngagementCard[] = [
     tags: ['Talk', 'AI & Design', 'Conference']
   },
   {
-    org: 'UXSG',
+    org: 'UXSG: AI Learn & Share series',
     year: '2025-2026',
     topic: 'AI Learn and Share',
     upcoming: false,
     tag: null,
-    description: 'Recurring AI learning and knowledge-sharing sessions for the UX Singapore community.',
+    description: 'Recurring AI learning and knowledge-sharing sessions for an international community of product leaders, designers, developers, and entrepreneurs, based out of New York City.',
     tags: ['Workshop', 'AI Literacy', 'Meetup']
   },
   {
