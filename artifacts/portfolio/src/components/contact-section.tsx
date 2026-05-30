@@ -20,7 +20,7 @@ export default function ContactSection({ onOpenAwardModal }: ContactSectionProps
         {/* Speaking formats */}
         <div className="max-w-4xl mx-auto mb-12">
           <div className="bg-background/50 backdrop-blur-sm border border-border rounded-2xl p-6">
-            <h3 className="text-lg font-semibold mb-4 text-purple-300">Popular Formats</h3>
+            <h3 className="text-lg font-semibold mb-4 text-purple-300">Popular Speaking Formats</h3>
             <ul className="grid sm:grid-cols-2 gap-3">
               <li className="flex items-center gap-3 text-muted-foreground">
                 <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
