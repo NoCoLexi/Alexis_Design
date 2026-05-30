@@ -158,8 +158,8 @@ interface Project {
 const projects: Project[] = [
   {
     id: 'aixux-summit-keynote',
-    title: 'AIxUX Summit — Closing Keynote',
-    description: 'Designed and delivered the Day 2 closing keynote for AIxUX Summit 2026: a live orchestration experience where attendees direct three specialist agents toward a real outcome. The 3D layered visualization makes the multi-agent handoff visceral — not theoretical.',
+    title: 'AIxUX 2026 Summit',
+    description: 'Designed and delivered the Day 2 closing keynote for AIxUX Summit 2026: a live orchestration experience where attendees direct three specialist agents toward a real outcome. The 3D layered visualization makes the multi-agent handoff visceral, not theoretical.',
     category: 'product-management',
     roles: ['product-management', 'product-design'],
     verticals: [],
@@ -196,7 +196,7 @@ const projects: Project[] = [
   {
     id: 'handshakr',
     title: 'HandShakr',
-    description: 'An AI-powered networking companion that captures the people you meet, analyzes your conversation, syncs the contact to a Notion database, and auto-blocks calendar time to remind you to follow up — so a great handshake never goes cold.',
+    description: 'An AI-powered networking companion that captures the people you meet, analyzes your conversation, syncs the contact to a Notion database, and auto-blocks calendar time to remind you to follow up, so a great handshake never goes cold.',
     category: 'product-design',
     roles: ['product-design', 'product-management'],
     verticals: [],
