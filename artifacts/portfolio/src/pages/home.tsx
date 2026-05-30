@@ -69,7 +69,7 @@ export default function Home() {
           <div
             className="w-full overflow-hidden cursor-pointer group border-b"
             style={{
-              background: 'linear-gradient(90deg, rgba(95,197,248,0.12) 0%, rgba(95,197,248,0.22) 50%, rgba(95,197,248,0.12) 100%)',
+              background: 'linear-gradient(90deg, rgba(95,197,248,0.06) 0%, rgba(95,197,248,0.10) 50%, rgba(95,197,248,0.06) 100%)',
               borderColor: 'rgba(95,197,248,0.35)'
             }}
             onClick={() => {
@@ -84,11 +84,11 @@ export default function Home() {
                 <div key={dup} className="flex items-center shrink-0" aria-hidden={dup === 1 ? 'true' : undefined}>
                   {Array.from({ length: 4 }).map((_, i) => (
                     <span key={i} className="inline-flex items-center text-xs md:text-sm font-light tracking-wide" style={{ color: '#5fc5f8' }}>
-                      <span className="mx-3" style={{ color: '#F3E8B9' }}>🎙 SPEAKING AT AIxUX SUMMIT</span>
+                      <span className="mx-3">🎙 SPEAKING AT AIxUX SUMMIT</span>
                       <span className="opacity-70">·</span>
                       <span className="mx-3">JUNE 10, 2026</span>
                       <span className="opacity-70">·</span>
-                      <span className="mx-3 font-light" style={{ color: '#F3E8B9' }}>DESIGN YOUR AI NETWORKING AGENT</span>
+                      <span className="mx-3 font-light">DESIGN YOUR AI NETWORKING AGENT</span>
                       <span className="opacity-70">·</span>
                       <span className="mx-3 font-light underline underline-offset-2">VIEW CASE STUDY →</span>
                       <span className="opacity-40 mx-2">●</span>
