@@ -748,20 +748,6 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
           {project.description}
         </p>
 
-        {project.metrics.length > 0 && project.category === 'product-management' && (
-          <div className="grid grid-cols-2 gap-4 mb-6">
-            {project.metrics.map((metric, metricIndex) => (
-              <div key={`${project.id}-metric-${metricIndex}`} className="text-center">
-                <div className={`text-4xl font-bold mb-1 ${metric.color}`}>
-                  {metric.label}
-                </div>
-                <div className="text-sm font-medium text-foreground">
-                  {metric.value}
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
 
 
 
