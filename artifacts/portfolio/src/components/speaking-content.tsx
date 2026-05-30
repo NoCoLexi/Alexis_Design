@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import aixuxSummit2026Image from "@assets/image_1780102727229.png";
 import aixuxSummit2025Image from "@assets/image_1780102819737.png";
+import uxsgImage from "@assets/image_1780103054934.png";
 
 const topicBuckets = [
   {
@@ -124,6 +125,8 @@ const engagementCards: EngagementCard[] = [
     topic: 'AI Learn and Share',
     upcoming: false,
     tag: null,
+    image: uxsgImage,
+    link: 'https://www.meetup.com/ux-support-group/',
     description: 'Recurring AI learning and knowledge-sharing sessions for an international community of product leaders, designers, developers, and entrepreneurs, based out of New York City.',
     tags: ['Workshop', 'AI Literacy', 'Meetup']
   },
