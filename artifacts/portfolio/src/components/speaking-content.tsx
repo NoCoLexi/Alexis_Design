@@ -1,4 +1,5 @@
-import { Mic, Mic2, Users, Brain, Cpu, Palette, CheckCircle, Sparkles, ExternalLink, ChevronDown } from "lucide-react";
+import { Link } from "wouter";
+import { Mail, Mic, Mic2, Users, Brain, Cpu, Palette, CheckCircle, Sparkles, ExternalLink, ChevronDown } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import aixuxSummit2026Image from "@assets/image_1780102727229.png";
@@ -288,6 +289,72 @@ export default function SpeakingContent() {
         </Accordion>
       </div>
 
+      {/* Contact CTA */}
+      <div className="py-12 relative">
+        <div className="max-w-4xl mx-auto relative z-10">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="text-center md:text-left">
+              <h2 className="text-3xl font-bold mb-4 section-glow">
+                Have Questions?
+              </h2>
+              <p className="text-muted-foreground mb-6">
+                Looking for a speaker for your next event? We would love to discuss how we can bring value to your audience.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a
+                  href="mailto:alexis@upstart-labs.com?subject=Speaking%20Inquiry"
+                  className="inline-flex items-center text-white/70 hover:text-white transition-colors gap-[8px] pb-[3px]"
+                  style={{
+                    fontSize: "0.7rem", letterSpacing: "0.22em", textTransform: "uppercase",
+                    fontWeight: 600, textDecoration: "none",
+                    borderBottom: "1px solid rgba(255,255,255,0.25)", paddingBottom: "3px",
+                  }}
+                >
+                  <Mail className="w-4 h-4" />
+                  Contact Us
+                </a>
+                <Link
+                  href="/"
+                  className="inline-flex items-center text-white/70 hover:text-white transition-colors gap-[8px] pb-[3px]"
+                  style={{
+                    fontSize: "0.7rem", letterSpacing: "0.22em", textTransform: "uppercase",
+                    fontWeight: 600, textDecoration: "none",
+                    borderBottom: "1px solid rgba(255,255,255,0.25)", paddingBottom: "3px",
+                  }}
+                >
+                  View Our Portfolio
+                </Link>
+              </div>
+            </div>
+
+            <div className="bg-background/50 backdrop-blur-sm border border-border rounded-2xl p-6">
+              <h3 className="text-lg font-semibold mb-4 text-purple-300">Popular Formats</h3>
+              <ul className="space-y-3">
+                <li className="flex items-center gap-3 text-muted-foreground">
+                  <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                  <span>Keynote Presentations (45-60 min)</span>
+                </li>
+                <li className="flex items-center gap-3 text-muted-foreground">
+                  <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                  <span>Interactive Workshops (Half or Full Day)</span>
+                </li>
+                <li className="flex items-center gap-3 text-muted-foreground">
+                  <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                  <span>Panel Discussions and Fireside Chats</span>
+                </li>
+                <li className="flex items-center gap-3 text-muted-foreground">
+                  <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                  <span>Executive Briefings</span>
+                </li>
+                <li className="flex items-center gap-3 text-muted-foreground">
+                  <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                  <span>Virtual and In-Person Events</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

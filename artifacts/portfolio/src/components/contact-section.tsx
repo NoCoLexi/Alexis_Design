@@ -1,4 +1,4 @@
-import { Mail, Calendar, Award, Linkedin, CheckCircle } from "lucide-react";
+import { Mail, Calendar, Award, Linkedin } from "lucide-react";
 import { trackPortfolioClick } from "@/lib/analytics";
 
 interface ContactSectionProps {
@@ -15,35 +15,8 @@ export default function ContactSection({ onOpenAwardModal }: ContactSectionProps
             Let's Create Something Amazing
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Our rare blend of product strategy, product design, and change management delivers products users embrace (not just tolerate).</p>
-        </div>
-
-        {/* Speaking formats */}
-        <div className="max-w-4xl mx-auto mb-12">
-          <div className="bg-background/50 backdrop-blur-sm border border-border rounded-2xl p-6">
-            <h3 className="text-lg font-semibold mb-4 text-purple-300">Popular Speaking Formats</h3>
-            <ul className="grid sm:grid-cols-2 gap-3">
-              <li className="flex items-center gap-3 text-muted-foreground">
-                <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
-                <span>Keynote Presentations (45-60 min)</span>
-              </li>
-              <li className="flex items-center gap-3 text-muted-foreground">
-                <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
-                <span>Interactive Workshops (Half or Full Day)</span>
-              </li>
-              <li className="flex items-center gap-3 text-muted-foreground">
-                <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
-                <span>Panel Discussions and Fireside Chats</span>
-              </li>
-              <li className="flex items-center gap-3 text-muted-foreground">
-                <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
-                <span>Executive Briefings</span>
-              </li>
-              <li className="flex items-center gap-3 text-muted-foreground">
-                <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
-                <span>Virtual and In-Person Events</span>
-              </li>
-            </ul>
-          </div>
+          
+          
         </div>
 
         <div className="max-w-4xl mx-auto">
