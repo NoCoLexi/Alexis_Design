@@ -120,6 +120,7 @@ import siPlayingImage from "@assets/si-playing_1778447747328.jpg";
 import siGameoverImage from "@assets/si-gameover_1778447747329.jpg";
 import siWinImage from "@assets/si-win_1778447747330.jpg";
 import aixuxSummitCoverImage from "@assets/aixux-3d-agent-cover.png";
+import conductorGraphImage from "@assets/image_1781119435043.png";
 
 
 // Preload critical images immediately when component loads
@@ -197,7 +198,7 @@ const projects: Project[] = [
     category: 'product-management',
     roles: ['product-management', 'product-design'],
     verticals: [],
-    image: aixuxSummitCoverImage,
+    image: conductorGraphImage,
     liveUrl: 'https://agent-orchestrator-alexisbrochu.replit.app',
     embedUrl: 'https://agent-orchestrator-alexisbrochu.replit.app',
     metrics: [

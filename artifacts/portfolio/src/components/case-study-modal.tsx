@@ -134,6 +134,7 @@ import siPlayingImage from "@assets/si-playing_1778447747328.jpg";
 import siGameoverImage from "@assets/si-gameover_1778447747329.jpg";
 import siWinImage from "@assets/si-win_1778447747330.jpg";
 import aixuxSummitCoverImage from "@assets/aixux-3d-agent-cover.png";
+import conductorGraphImage from "@assets/image_1781119435043.png";
 
 interface CaseStudy {
   id: string;
@@ -258,7 +259,7 @@ const caseStudies: Record<string, CaseStudy> = {
       'Deploying a working tool to a live event audience is the fastest feedback loop available',
       'Building for a specific moment (the summit) creates the scope clarity that makes rapid deployment possible'
     ],
-    image: aixuxSummitCoverImage,
+    image: conductorGraphImage,
     liveUrl: 'https://agent-orchestrator-alexisbrochu.replit.app',
     embedUrl: 'https://agent-orchestrator-alexisbrochu.replit.app'
   },
