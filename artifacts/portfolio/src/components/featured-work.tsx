@@ -164,8 +164,8 @@ const projects: Project[] = [
     roles: ['product-management', 'product-design'],
     verticals: [],
     image: aixuxSummitCoverImage,
-    liveUrl: 'https://uxsupportgroup.com/summit',
-    embedUrl: 'https://uxsupportgroup.com/summit',
+    liveUrl: 'https://three-dimensional-layered-agent.replit.app',
+    embedUrl: 'https://three-dimensional-layered-agent.replit.app',
     metrics: [
       { label: 'Solo Build', value: 'Replit Agent', color: 'text-chart-1' },
       { label: '3 Agents', value: 'Live Onstage', color: 'text-primary' }

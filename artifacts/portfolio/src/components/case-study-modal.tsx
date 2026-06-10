@@ -191,8 +191,8 @@ const caseStudies: Record<string, CaseStudy> = {
       'Live deployment pressure is the best forcing function for scope clarity — the keynote deadline made every cut obvious'
     ],
     image: aixuxSummitCoverImage,
-    liveUrl: 'https://uxsupportgroup.com/summit',
-    embedUrl: 'https://uxsupportgroup.com/summit'
+    liveUrl: 'https://three-dimensional-layered-agent.replit.app',
+    embedUrl: 'https://three-dimensional-layered-agent.replit.app'
   },
   'aixux-summit-keynote': {
     id: 'aixux-summit-keynote',
