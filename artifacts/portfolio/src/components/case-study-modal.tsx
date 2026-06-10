@@ -229,6 +229,39 @@ const caseStudies: Record<string, CaseStudy> = {
     liveUrl: 'https://uxsupportgroup.com/summit',
     embedUrl: 'https://uxsupportgroup.com/summit'
   },
+  'conductor-networking-agent': {
+    id: 'conductor-networking-agent',
+    title: 'Conductor Networking Agent',
+    subtitle: 'Personal agent creation app built for AIxUX Summit 2026.',
+    description: 'Conductor is a personal-agent creation app built for AIxUX Summit 2026 attendees. It lets anyone compose their own networking agent in a single session — defining its identity, communication goals, and outreach style — then deploy it immediately. The app was designed so non-technical summit participants could walk out with a live personal agent they had built themselves, not just a concept they had heard about.',
+    role: 'Designer & Builder',
+    duration: 'Built for AIxUX Summit 2026',
+    team: '1 — Alexis + Replit Agent',
+    challenge: 'Summit attendees understood the idea of a personal AI agent intellectually, but had never actually built one. The challenge was to make the creation experience so approachable that anyone — regardless of technical background — could go from blank slate to a deployed, personalized networking agent inside a single guided session.',
+    solution: 'Designed and built Conductor as a step-by-step agent composition flow. Users define their agent\'s identity (who they are, what they do), set its networking goals, and tune its communication style. The app assembles those inputs into a deployable agent and hands it back to the user — live, running, and ready to use at the summit and beyond. Built entirely with Replit Agent.',
+    outcome: 'Deployed as a summit tool for AIxUX 2026 attendees. Participants left with a working personal networking agent they had created themselves — making the summit\'s core theme of personal AI tangible and immediately actionable.',
+    metrics: [
+      { label: 'Solo Build', value: 'Replit Agent', description: 'Designed and built entirely with Replit Agent' },
+      { label: 'AIxUX 2026', value: 'Summit Tool', description: 'Used live by summit attendees to create personal agents' },
+      { label: '1 Session', value: 'To Deploy', description: 'Attendees went from blank slate to a live agent in one sitting' }
+    ],
+    process: [
+      'Defined the attendee outcome: leave with a deployed personal networking agent, not just a concept',
+      'Designed the step-by-step composition flow: identity, goals, communication style',
+      'Built the agent assembly logic to turn user inputs into a deployable agent configuration',
+      'Tested the full creation-to-deploy flow against a non-technical user profile',
+      'Deployed and made available to AIxUX Summit 2026 attendees on the day'
+    ],
+    learnings: [
+      'Guided composition flows make AI agent creation accessible to non-technical audiences without sacrificing depth',
+      'Framing it as "your agent" rather than "the app" drove higher engagement — ownership changes the experience',
+      'Deploying a working tool to a live event audience is the fastest feedback loop available',
+      'Building for a specific moment (the summit) creates the scope clarity that makes rapid deployment possible'
+    ],
+    image: aixuxSummitCoverImage,
+    liveUrl: 'https://agent-orchestrator.replit.app',
+    embedUrl: 'https://agent-orchestrator.replit.app'
+  },
   handshakr: {
     id: 'handshakr',
     title: 'HandShakr',

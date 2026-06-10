@@ -191,6 +191,23 @@ const projects: Project[] = [
     canonicalTags: []
   },
   {
+    id: 'conductor-networking-agent',
+    title: 'Conductor Networking Agent',
+    description: 'Built a personal-agent creation app for AIxUX Summit 2026 attendees. Conductor lets anyone compose their own networking agent — defining its identity, goals, and outreach style — and deploy it live from a single session.',
+    category: 'product-management',
+    roles: ['product-management', 'product-design'],
+    verticals: [],
+    image: aixuxSummitCoverImage,
+    liveUrl: 'https://agent-orchestrator.replit.app',
+    embedUrl: 'https://agent-orchestrator.replit.app',
+    metrics: [
+      { label: 'Solo Build', value: 'Replit Agent', color: 'text-chart-1' },
+      { label: 'AIxUX 2026', value: 'Summit Tool', color: 'text-primary' }
+    ],
+    tags: ['AI Agent', 'Networking', 'AIxUX Summit', 'Personal Agent'],
+    canonicalTags: []
+  },
+  {
     id: 'lifespan-health-care',
     title: 'Lifespan Health Care',
     description: 'Comprehensive healthcare brand development featuring patient-focused messaging, community healthcare positioning, and professional medical brand development materials.',
@@ -777,7 +794,7 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
 export default function FeaturedWork() {
   const { filters, setVertical } = usePortfolioFilters();
 
-  const financeProjects = ['3d-layered-agent', 'aixux-summit-keynote', 'handshakr', 'wechore', 'stakeholder-invaders', 'ilave', 'subscriptex'];
+  const financeProjects = ['3d-layered-agent', 'aixux-summit-keynote', 'conductor-networking-agent', 'handshakr', 'wechore', 'stakeholder-invaders', 'ilave', 'subscriptex'];
   const healthcarePriority = ['fairgrounds-coffee', 'providence-school-system'];
   
   const filteredProjects = useMemo(() => {
@@ -815,6 +832,7 @@ export default function FeaturedWork() {
       'ca-innovation-award',
       '3d-layered-agent',
       'aixux-summit-keynote',
+      'conductor-networking-agent',
       'handshakr',
       'grants-management-sikich',
       'pa-portal',
