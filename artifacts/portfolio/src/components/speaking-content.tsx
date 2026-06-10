@@ -125,18 +125,18 @@ const engagementCards: EngagementCard[] = [
     tags: ['Talk', 'AI & Design', 'Conference']
   },
   {
-    org: 'Upstart-Labs: AI Learn & Share',
+    org: 'UXSG: AI Learn & Share',
     year: '2025-2026',
     topic: 'AI Learn and Share',
     upcoming: false,
     tag: null,
     image: uxsgImage,
-    link: 'https://www.meetup.com/upstart-labs/',
+    link: 'https://www.meetup.com/ux-support-group/',
     description: 'Recurring AI learning and knowledge-sharing sessions for an international community of product leaders, designers, developers, and entrepreneurs, based out of New York City.',
     tags: ['Workshop', 'AI Literacy', 'Meetup']
   },
   {
-    org: 'AI with Upstart-Labs',
+    org: 'AI with Alexis',
     year: '2026',
     topic: 'Weekly',
     upcoming: true,
@@ -258,7 +258,7 @@ function CorporateInfoModal({ isOpen, onClose }: { isOpen: boolean; onClose: () 
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href="mailto:hello@upstart-labs.com?subject=Speaking%20Inquiry"
+                  href="mailto:alexis@upstart-labs.com?subject=Speaking%20Inquiry"
                   className="inline-flex items-center text-white/70 hover:text-white transition-colors gap-[8px]"
                   style={{
                     fontSize: "0.7rem", letterSpacing: "0.22em", textTransform: "uppercase",

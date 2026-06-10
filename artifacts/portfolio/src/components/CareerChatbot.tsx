@@ -8,7 +8,7 @@ const CareerChatbot = () => {
     {
       role: "assistant",
       content:
-        "👋 Hi! I'm the Upstart-Labs AI assistant. I can help you learn about our product leadership experience, approach, and capabilities. What would you like to know?",
+        "👋 Hi! I'm Alexis's AI assistant. I can help you learn about her product leadership experience, approach, and capabilities. What would you like to know?",
     },
   ]);
   const [input, setInput] = useState("");
@@ -27,41 +27,41 @@ const CareerChatbot = () => {
   const getResponse = (userInput: string): string => {
     const input = userInput.toLowerCase();
 
-    // Knowledge base with information about Upstart-Labs
+    // Knowledge base with information about Alexis
     if (input.includes("experience") || input.includes("background") || input.includes("work")) {
-      return "Upstart-Labs has extensive product leadership experience, including leading 23 modernized applications for state and local government. We increased user app adoption by 40% among 30,000+ government users and won the California Innovation Technology Award for 'Best Application Serving the Public.' We also decrease development time by 40% through AI implementation.";
+      return "Alexis has extensive product leadership experience, including leading 23 modernized applications for state and local government. She increased user app adoption by 40% among 30,000+ government users and won the California Innovation Technology Award for 'Best Application Serving the Public.' She also decreased development time by 40% through AI implementation.";
     }
 
     if (input.includes("skill") || input.includes("expertise") || input.includes("strength")) {
-      return "Upstart-Labs specializes in Product Strategy, UX Research, Design Systems, and Cross-functional Leadership. We are particularly known for a 92% stakeholder buy-in rate and are Prosci® Certified Change Practitioners. Our approach blends human-centered design with engineering rigor.";
+      return "Alexis specializes in Product Strategy, UX Research, Design Systems, and Cross-functional Leadership. She is particularly known for a 92% stakeholder buy-in rate and is a Prosci® Certified Change Practitioner. Her approach blends human-centered design with engineering rigor.";
     }
 
     if (input.includes("approach") || input.includes("method") || input.includes("how")) {
-      return "We start every problem by asking 'What's really broken here?' and work backward like solving a puzzle. We are empathetic, data-driven leaders who champion user experience relentlessly. We are excellent at making complex things feel obvious and use visual communication with persuasive storytelling.";
+      return "Alexis starts every problem by asking 'What's really broken here?' and works backward like solving a puzzle. She is an empathetic, data-driven leader who champions user experience relentlessly. She excels at making complex things feel obvious and uses visual communication with persuasive storytelling.";
     }
 
     if (input.includes("award") || input.includes("achievement") || input.includes("accomplishment")) {
-      return "Upstart-Labs won the California Innovation Technology Award for 'Best Application Serving the Public.' We achieved a 92% successful buy-in rate from stakeholders, increased user adoption by 40% among 30,000+ users, and led 23 modernized applications. We also decrease development time by 40% through AI implementation.";
+      return "Alexis won the California Innovation Technology Award for 'Best Application Serving the Public.' She achieved a 92% successful buy-in rate from stakeholders, increased user adoption by 40% among 30,000+ users, and led 23 modernized applications. She also decreased development time by 40% through AI implementation.";
     }
 
     if (input.includes("contact") || input.includes("reach") || input.includes("hire") || input.includes("opportunity")) {
-      return "You can reach us through the contact form on this website. We are passionate about uniting teams, driving innovation, and making tangible impact. We are always happy to discuss product leadership opportunities and share our experience!";
+      return "You can reach Alexis through the contact form on this website. She is passionate about uniting teams, driving innovation, and making tangible impact. She is always happy to discuss product leadership opportunities and share her experience!";
     }
 
     if (input.includes("government") || input.includes("public") || input.includes("civic")) {
-      return "We have extensive experience in government technology, having led 23 modernized applications for state and local government. We increased user app adoption by 40% among 30,000+ government users and won the California Innovation Technology Award for 'Best Application Serving the Public.'";
+      return "Alexis has extensive experience in government technology, having led 23 modernized applications for state and local government. She increased user app adoption by 40% among 30,000+ government users and won the California Innovation Technology Award for 'Best Application Serving the Public.'";
     }
 
     if (input.includes("ai") || input.includes("artificial intelligence") || input.includes("technology")) {
-      return "We are AI implementation experts who decrease development time by 40%. We combine technical expertise with human-centered design principles to create products that teams and customers want to use. We are passionate about leveraging technology for tangible impact.";
+      return "Alexis is an AI implementation expert who decreased development time by 40%. She combines technical expertise with human-centered design principles to create products that teams and customers want to use. She is passionate about leveraging technology for tangible impact.";
     }
 
     if (input.includes("hello") || input.includes("hi") || input.includes("hey")) {
-      return "Hello! I'm here to help you learn about Upstart-Labs and our product leadership capabilities. Feel free to ask about our background, skills, achievements, or approach to product management. What would you like to know?";
+      return "Hello! I'm here to help you learn about Alexis and her product leadership capabilities. Feel free to ask about her background, skills, achievements, or approach to product management. What would you like to know?";
     }
 
     // Default response
-    return "I can tell you about Upstart-Labs' experience, skills, achievements, approach, or contact information. What specific aspect would you like to learn more about?";
+    return "I can tell you about Alexis's experience, skills, achievements, approach, or contact information. What specific aspect would you like to learn more about?";
   };
 
   const sendMessage = async () => {
@@ -98,7 +98,7 @@ const CareerChatbot = () => {
         <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <MessageCircle size={20} />
-            <span className="font-medium">Ask about Upstart-Labs</span>
+            <span className="font-medium">Ask about Alexis</span>
           </div>
           <div className="flex items-center space-x-2">
             <button
@@ -164,7 +164,7 @@ const CareerChatbot = () => {
                 <input
                   ref={inputRef}
                   type="text"
-                  placeholder="Ask about our experience, skills, or approach..."
+                  placeholder="Ask about her experience, skills, or approach..."
                   className="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-900 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   disabled={isLoading}
                   autoComplete="off"

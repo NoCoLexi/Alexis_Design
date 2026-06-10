@@ -136,7 +136,7 @@ export default function Home() {
                 <span className="text-sm font-medium text-white">About Us</span>
               </button>
               <a
-                href="mailto:hello@upstart-labs.com"
+                href="mailto:alexis@upstart-labs.com"
                 className="nav-link inline-flex items-center px-4 py-2 rounded-full transition-all duration-300 cursor-pointer"
                 data-testid="link-nav-send-email"
               >
@@ -174,7 +174,7 @@ export default function Home() {
                 </span>
               </button>
               <a
-                href="mailto:hello@upstart-labs.com"
+                href="mailto:alexis@upstart-labs.com"
                 className="nav-link inline-flex items-center justify-center w-full px-4 py-3 rounded-full transition-all duration-300 cursor-pointer"
                 data-testid="link-nav-send-email-mobile"
                 onClick={() => setIsMobileMenuOpen(false)}

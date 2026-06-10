@@ -25,7 +25,7 @@ export default function ContactSection({ onOpenAwardModal }: ContactSectionProps
             <div className="glass rounded-2xl p-8">
               <div className="flex flex-col md:flex-row md:justify-center md:space-x-8 space-y-4 md:space-y-0">
                 <a
-                  href="mailto:hello@upstart-labs.com"
+                  href="mailto:alexis@upstart-labs.com"
                   className="inline-flex items-center text-white/70 hover:text-white transition-colors gap-[8px]"
                   style={{
                     fontSize: "0.7rem", letterSpacing: "0.22em", textTransform: "uppercase",
@@ -59,7 +59,7 @@ export default function ContactSection({ onOpenAwardModal }: ContactSectionProps
                 </a>
                 
                 <a
-                  href="https://calendly.com/upstart-labs/15min"
+                  href="https://calendly.com/alexis-brochu/15min"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center text-white/70 hover:text-white transition-colors gap-[8px]"
