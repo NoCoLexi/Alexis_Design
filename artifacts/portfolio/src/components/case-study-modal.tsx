@@ -259,8 +259,8 @@ const caseStudies: Record<string, CaseStudy> = {
       'Building for a specific moment (the summit) creates the scope clarity that makes rapid deployment possible'
     ],
     image: aixuxSummitCoverImage,
-    liveUrl: 'https://agent-orchestrator.replit.app',
-    embedUrl: 'https://agent-orchestrator.replit.app'
+    liveUrl: 'https://agent-orchestrator-alexisbrochu.replit.app',
+    embedUrl: 'https://agent-orchestrator-alexisbrochu.replit.app'
   },
   handshakr: {
     id: 'handshakr',
