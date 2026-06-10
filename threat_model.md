@@ -29,6 +29,7 @@ Per deployment assumptions for this scan: TLS is handled by the platform, `NODE_
 
 - **Production entry points**: `artifacts/api-server/src/index.ts`, `artifacts/api-server/src/app.ts`, `artifacts/api-server/src/routes/*`
 - **Public write surfaces**: `POST /api/contact`, `POST /api/chat`, `POST /api/scores/session`, `POST /api/scores/checkpoint`, `POST /api/scores`
+- **State-retaining controls**: `artifacts/api-server/src/lib/pg-rate-limit-store.ts`, in-memory score session state in `artifacts/api-server/src/routes/scores.ts`
 - **Shared persistence and contracts**: `lib/db/src/schema/*`, `lib/api-spec/openapi.yaml`, `lib/api-client-react/src/generated/api.ts`
 - **Public frontends**: `artifacts/portfolio/src/*`, `artifacts/stakeholder-invaders/src/*`, `artifacts/portfolio/index.html`
 - **Usually ignore as dev-only**: `artifacts/mockup-sandbox/**`
@@ -49,7 +50,7 @@ The API accepts contact data and uses third-party and database credentials. Secr
 
 ### Denial of Service
 
-Because the deployment is public and several routes are unauthenticated, availability threats are central. Public write endpoints must have bounded request sizes, bounded storage growth, and rate limiting proportionate to their cost. Endpoints that retain attacker input in memory or trigger paid upstream requests are especially sensitive to abuse. On this autoscaled deployment, any limiter or quota that lives only in process memory is not a deployment-wide control and should not be treated as sufficient protection for paid or state-changing routes.
+Because the deployment is public and several routes are unauthenticated, availability threats are central. Public write endpoints must have bounded request sizes, bounded storage growth, and rate limiting proportionate to their cost. Endpoints that retain attacker input in memory, create persistent database rows, or trigger paid upstream requests are especially sensitive to abuse. On this autoscaled deployment, any limiter or quota that lives only in process memory is not a deployment-wide control and should not be treated as sufficient protection for paid or state-changing routes. Shared limiter state also needs retention or pruning; otherwise attacker-created buckets can become their own storage-growth vector.
 
 ### Elevation of Privilege
 
