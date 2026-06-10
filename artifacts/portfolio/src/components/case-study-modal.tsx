@@ -1222,7 +1222,7 @@ export default function CaseStudyModal() {
                 onClick={() => trackEvent('case_study_live_link_clicked', 'portfolio', caseStudy.id)}
               >
                 <a href={caseStudy.liveUrl} target="_blank" rel="noopener noreferrer">
-                  View Summit Experience
+                  {caseStudy.id === 'aixux-summit-keynote' ? 'View Summit Experience' : 'View Application'}
                   <ExternalLink className="w-4 h-4" />
                 </a>
               </Button>
