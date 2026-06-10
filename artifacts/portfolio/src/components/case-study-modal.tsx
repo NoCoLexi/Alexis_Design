@@ -160,6 +160,40 @@ interface CaseStudy {
 }
 
 const caseStudies: Record<string, CaseStudy> = {
+  '3d-layered-agent': {
+    id: '3d-layered-agent',
+    title: '3-D Layered Agent',
+    subtitle: 'Interactive multi-agent visualization — built as the anchor artifact for AIxUX Summit 2026',
+    description: 'Built the interactive 3D layered agent visualization that served as the closing keynote artifact for AIxUX Summit 2026. The app makes multi-agent orchestration tangible: each capability layer in the agent stack lights up in sequence as context passes between a Writer, Strategist, and Connector agent — making the handoff problem visceral rather than theoretical. Built solo with Replit Agent and deployed live for the room on the day of the keynote.',
+    role: 'Designer, Builder & Closing Keynote Speaker',
+    duration: '2 weeks pre-summit, deployed live on keynote day',
+    team: '1 — Alexis + Replit Agent',
+    challenge: 'Most agentic AI content stays abstract — slides about orchestration, diagrams of multi-agent systems, theory about delegation. The challenge was to build something attendees could feel, not just follow. It had to work live onstage with a room full of practitioners, demonstrate real agent handoffs, and make the orchestration pattern immediately legible to someone who had never directed multiple agents before.',
+    solution: 'Designed and built an interactive 3D visualization of the agent capability stack. Each layer — identity, trust rules, workflow, multimodal, decomposition, process, evals, commitment — is rendered in depth so attendees can see the full stack before the orchestration begins. When a goal is submitted, the app activates layer by layer, showing context passing from agent to agent (Writer to Strategist to Connector) in real time. The visualization resolves into a single output the user chooses to ship. Built entirely with Replit Agent in the two weeks leading up to the summit.',
+    outcome: 'Deployed and ran live onstage as the anchor artifact of the Day 2 closing keynote. Attendees directed three specialist agents toward a real outcome they cared about, experiencing the handoff problem firsthand. The app remains publicly accessible as a working reference for the orchestration pattern.',
+    metrics: [
+      { label: 'Solo Build', value: 'Replit Agent', description: 'Designed and built entirely with Replit Agent in 2 weeks' },
+      { label: '3', value: 'Specialist Agents', description: 'Writer, Strategist, Connector — orchestrated live with the room' },
+      { label: '8', value: 'Capability Layers', description: 'Each summit session stacked one layer into the attendee\'s personal agent' }
+    ],
+    process: [
+      'Defined the orchestration pattern: same goal, three specialist agents, one output to ship',
+      'Designed the 3D layer visualization to make the agent stack readable at a glance',
+      'Built the activation sequence: layer-by-layer context passing rendered in real time',
+      'Wired up Writer, Strategist, and Connector agents with distinct output modes',
+      'Tested the live orchestration flow against the summit\'s 30-day commitment exercise',
+      'Deployed to production and ran live onstage as the closing keynote anchor artifact'
+    ],
+    learnings: [
+      'A working demo beats a polished deck every time when the topic is what AI can actually do',
+      'The 3D layered format makes the agent stack legible to non-technical audiences without simplifying the concept',
+      'Building the artifact first, then designing the session around it, produced a more coherent experience than the reverse',
+      'Live deployment pressure is the best forcing function for scope clarity — the keynote deadline made every cut obvious'
+    ],
+    image: aixuxSummitCoverImage,
+    liveUrl: 'https://uxsupportgroup.com/summit',
+    embedUrl: 'https://uxsupportgroup.com/summit'
+  },
   'aixux-summit-keynote': {
     id: 'aixux-summit-keynote',
     title: 'AIxUX Summit 2026 — Closing Keynote',

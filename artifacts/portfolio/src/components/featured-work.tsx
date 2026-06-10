@@ -157,6 +157,23 @@ interface Project {
 
 const projects: Project[] = [
   {
+    id: '3d-layered-agent',
+    title: '3-D Layered Agent',
+    description: 'Built the interactive 3D visualization that anchored the AIxUX Summit 2026 closing keynote — a live multi-agent orchestration app where each capability layer lights up as the agent stack activates, passes context forward, and resolves into a single output.',
+    category: 'product-management',
+    roles: ['product-management', 'product-design'],
+    verticals: [],
+    image: aixuxSummitCoverImage,
+    liveUrl: 'https://uxsupportgroup.com/summit',
+    embedUrl: 'https://uxsupportgroup.com/summit',
+    metrics: [
+      { label: 'Solo Build', value: 'Replit Agent', color: 'text-chart-1' },
+      { label: '3 Agents', value: 'Live Onstage', color: 'text-primary' }
+    ],
+    tags: ['AI Agent', '3D Visualization', 'AIxUX Summit', 'Multi-Agent'],
+    canonicalTags: []
+  },
+  {
     id: 'aixux-summit-keynote',
     title: 'AIxUX 2026 Summit',
     description: 'Designed and delivered the Day 2 closing keynote for AIxUX Summit 2026: a live orchestration experience where attendees direct three specialist agents toward a real outcome. The 3D layered visualization makes the multi-agent handoff visceral, not theoretical.',
@@ -760,7 +777,7 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
 export default function FeaturedWork() {
   const { filters, setVertical } = usePortfolioFilters();
 
-  const financeProjects = ['aixux-summit-keynote', 'handshakr', 'wechore', 'stakeholder-invaders', 'ilave', 'subscriptex'];
+  const financeProjects = ['3d-layered-agent', 'aixux-summit-keynote', 'handshakr', 'wechore', 'stakeholder-invaders', 'ilave', 'subscriptex'];
   const healthcarePriority = ['fairgrounds-coffee', 'providence-school-system'];
   
   const filteredProjects = useMemo(() => {
@@ -796,6 +813,7 @@ export default function FeaturedWork() {
 
     const allProjectsOrder = [
       'ca-innovation-award',
+      '3d-layered-agent',
       'aixux-summit-keynote',
       'handshakr',
       'grants-management-sikich',
