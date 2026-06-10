@@ -1,6 +1,6 @@
 import { Router, type IRouter } from "express";
 import { randomUUID, randomBytes, createHmac, timingSafeEqual } from "crypto";
-import { desc } from "drizzle-orm";
+import { desc, eq, sql } from "drizzle-orm";
 import rateLimit from "express-rate-limit";
 import { db, scoresTable } from "@workspace/db";
 import { PgRateLimitStore } from "../lib/pg-rate-limit-store";
@@ -102,6 +102,16 @@ const MAX_ADVOCATES_BY_WAVE: Record<number, number> = {
 
 const SESSION_TTL_MS = 30 * 60 * 1000; // 30 minutes
 
+/**
+ * Hard cap on the number of live sessions this instance will retain.
+ * After eager pruning, if the store is still at or above this limit the
+ * session-creation endpoint returns 503 rather than growing without bound.
+ * The per-IP rate limiter (10 req/min) is a per-instance soft control;
+ * this cap is the absolute ceiling that applies regardless of source IP
+ * distribution across instances.
+ */
+const MAX_SESSION_STORE_SIZE = 500;
+
 interface SessionState {
   signingKey: Buffer;
   currentWave: number;
@@ -138,8 +148,16 @@ function pruneSessionStore() {
   }
 }
 
-function createSession(): string {
+/**
+ * Returns a new session token, or null if the store is at capacity.
+ * Pruning runs first so that expired/consumed sessions free up slots
+ * before the cap is evaluated.
+ */
+function createSession(): string | null {
   pruneSessionStore();
+  if (sessionStore.size >= MAX_SESSION_STORE_SIZE) {
+    return null;
+  }
   const token = randomUUID();
   const killCounts: Record<number, Record<string, number>> = {};
   for (let w = 1; w <= GAME_MAX_WAVE; w++) {
@@ -451,8 +469,13 @@ router.get("/scores/top", async (_req, res): Promise<void> => {
   res.json(GetTopScoresResponse.parse(rows));
 });
 
-router.post("/scores/session", sessionLimiter, (_req, res): void => {
+router.post("/scores/session", sessionLimiter, (req, res): void => {
   const token = createSession();
+  if (token === null) {
+    req.log.warn("Session store at capacity, rejecting new session request");
+    res.status(503).json({ error: "Service temporarily unavailable, please try again later." });
+    return;
+  }
   const session = sessionStore.get(token)!;
   res.status(201).json({ token, nonce: session.currentNonce });
 });
@@ -578,9 +601,6 @@ router.post("/scores", submitLimiter, async (req, res): Promise<void> => {
     return;
   }
 
-  // Mark consumed to prevent double-submission.
-  session.consumed = true;
-
   const cleanHandle = handle
     .toUpperCase()
     .replace(/[^A-Z0-9]/g, "")
@@ -592,17 +612,82 @@ router.post("/scores", submitLimiter, async (req, res): Promise<void> => {
 
   // Score, advocates, and wave come entirely from the server's own session
   // state, not from anything the client submitted.
-  const [row] = await db
-    .insert(scoresTable)
-    .values({
-      handle: cleanHandle,
-      score: session.score,
-      advocates: session.advocates,
-      wave: session.currentWave,
-    })
-    .returning();
 
-  res.status(201).json(row);
+  // Reject zero-point games unconditionally — they can never appear on the
+  // leaderboard and would only accumulate junk rows.
+  if (session.score === 0) {
+    req.log.info({ token: token.slice(0, 8) }, "Score submission rejected: zero score");
+    res.status(400).json({ error: "Score must be greater than zero to qualify" });
+    return;
+  }
+
+  // Mark consumed before the DB write to prevent concurrent double-submission
+  // for the same session. The session is already validated above.
+  session.consumed = true;
+
+  // Atomically insert the new score and trim the table to the top 10.
+  // This single transaction prevents the TOCTOU race that would arise from a
+  // separate SELECT-then-INSERT in application code: concurrent submissions
+  // could both read the same pre-insert leaderboard state, both qualify, and
+  // both persist rows, allowing unbounded table growth under parallelism.
+  //
+  // Instead:
+  //   1. Insert the candidate row unconditionally.
+  //   2. Delete every row that does not rank in the top 10 (score DESC,
+  //      created_at DESC). This includes the just-inserted row if it did not
+  //      make the cut.
+  //   3. Check whether the inserted row survived. If it was pruned, the score
+  //      did not qualify and we return 400.
+  //
+  // Acquire an exclusive table lock before inserting so the insert+trim is
+  // linearized across concurrent writers. Without this, two transactions
+  // running under the default READ COMMITTED isolation could each compute
+  // the trim against a view that excludes the other's uncommitted insert,
+  // preserve their own row, and allow the table to grow beyond the cap.
+  //
+  // LOCK TABLE ... IN EXCLUSIVE MODE blocks any concurrent transaction that
+  // reaches the same lock until the current one commits or rolls back.
+  // The lock is automatically released at transaction end — no explicit
+  // unlock or retry logic is required.
+  const qualifyingRow = await db.transaction(async (tx) => {
+    await tx.execute(sql`LOCK TABLE scores IN EXCLUSIVE MODE`);
+
+    const [inserted] = await tx
+      .insert(scoresTable)
+      .values({
+        handle: cleanHandle,
+        score: session.score,
+        advocates: session.advocates,
+        wave: session.currentWave,
+      })
+      .returning();
+
+    // Trim to top 10: delete any row (including the newly inserted one) that
+    // does not rank in the top 10 by score DESC, created_at DESC.
+    await tx.execute(
+      sql`DELETE FROM scores WHERE id NOT IN (
+        SELECT id FROM scores ORDER BY score DESC, created_at DESC LIMIT 10
+      )`,
+    );
+
+    // Return the inserted row only if it survived the trim.
+    const [survived] = await tx
+      .select()
+      .from(scoresTable)
+      .where(eq(scoresTable.id, inserted.id));
+    return survived ?? null;
+  });
+
+  if (!qualifyingRow) {
+    req.log.info(
+      { token: token.slice(0, 8), score: session.score },
+      "Score submission rejected: does not qualify for top 10",
+    );
+    res.status(400).json({ error: "Score does not qualify for the top 10 leaderboard" });
+    return;
+  }
+
+  res.status(201).json(qualifyingRow);
 });
 
 export default router;
