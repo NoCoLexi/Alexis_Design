@@ -112,7 +112,7 @@ export default function MusicPlayer() {
 
       <div className="flex-1 min-w-0">
         <div className="text-sm font-medium text-foreground mb-1">
-          {isPlaying ? 'Hire Alexis song (playing)' : 'Hire Alexis song (click to play)'}
+          {isPlaying ? 'Hire Upstart-Labs song (playing)' : 'Hire Upstart-Labs song (click to play)'}
         </div>
         <div className="flex items-center gap-2 text-xs text-muted-foreground">
           <Volume2 className="h-3 w-3" />

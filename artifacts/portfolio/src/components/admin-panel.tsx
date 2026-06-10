@@ -343,7 +343,7 @@ export default function AdminPanel({ isVisible, onClose, onApply }: AdminPanelPr
         {companyName && (
           <div className="mt-4 p-3 bg-secondary/50 rounded-lg">
             <p className="text-sm text-muted-foreground">
-              Preview: "Hi <strong>{companyName}</strong>, I'm Alexis" • 
+              Preview: "Hi <strong>{companyName}</strong>, we're Upstart-Labs" • 
               Vertical: <strong>{vertical === 'government' ? 'Government' :
                               vertical === 'finance' ? 'Productivity' :
                               vertical === 'healthcare' ? 'Brand Dev' : 'Education'}</strong> • 

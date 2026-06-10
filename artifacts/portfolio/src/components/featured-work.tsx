@@ -164,8 +164,8 @@ const projects: Project[] = [
     roles: ['product-management', 'product-design'],
     verticals: [],
     image: aixuxSummitCoverImage,
-    liveUrl: 'https://three-dimensional-layered-agent.replit.app',
-    embedUrl: 'https://three-dimensional-layered-agent.replit.app',
+    liveUrl: 'https://uxsupportgroup.com/summit',
+    embedUrl: 'https://uxsupportgroup.com/summit',
     metrics: [
       { label: 'Day 2 Close', value: 'Keynote', color: 'text-chart-1' },
       { label: '3 Agents', value: 'Live Demo', color: 'text-primary' }
@@ -482,7 +482,7 @@ const projects: Project[] = [
   {
     id: 'abc6-rebrand-alexis-design',
     title: 'WLNE-ABC6',
-    description: 'Company-wide brand transformation for ABC6 News under Alexis Design, working directly with the brand development director to redesign everything from studio backdrops to mic holders and outdoor advertising.',
+    description: 'Company-wide brand transformation for ABC6 News by Upstart-Labs, working directly with the brand development director to redesign everything from studio backdrops to mic holders and outdoor advertising.',
     category: 'brand-development',
     roles: ['brand-development'],
     verticals: [],
@@ -495,13 +495,13 @@ const projects: Project[] = [
       { label: 'Brand Touchpoints', value: '100+', color: 'text-chart-1' },
       { label: 'Complete Transformation', value: '100%', color: 'text-primary' }
     ],
-    tags: ['Television Branding', 'Studio Design', 'Outdoor Advertising', 'Alexis Design'],
+    tags: ['Television Branding', 'Studio Design', 'Outdoor Advertising', 'Upstart-Labs'],
     canonicalTags: []
   },
   {
     id: 'ttools-alexis-design',
     title: 'TTools',
-    description: 'Complete brand identity and product licensing system created under Alexis Design for stylus technology products, successfully sold to Fellows Office Products at Staples.',
+    description: 'Complete brand identity and product licensing system created by Upstart-Labs for stylus technology products, successfully sold to Fellows Office Products at Staples.',
     category: 'brand-development',
     roles: ['brand-development'],
     verticals: [],
@@ -519,7 +519,7 @@ const projects: Project[] = [
       { label: 'Brand Guidelines', value: '50+', color: 'text-chart-1' },
       { label: 'Commercial Success', value: '100%', color: 'text-primary' }
     ],
-    tags: ['Brand Identity', 'Product Licensing', 'Retail Partnership', 'Alexis Design'],
+    tags: ['Brand Identity', 'Product Licensing', 'Retail Partnership', 'Upstart-Labs'],
     canonicalTags: []
   },
   {

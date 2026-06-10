@@ -192,8 +192,8 @@ const caseStudies: Record<string, CaseStudy> = {
       'A live working demo as the session anchor outperforms a polished deck every time when the topic is "things AI can actually do"'
     ],
     image: aixuxSummitCoverImage,
-    liveUrl: 'https://three-dimensional-layered-agent.replit.app',
-    embedUrl: 'https://three-dimensional-layered-agent.replit.app'
+    liveUrl: 'https://uxsupportgroup.com/summit',
+    embedUrl: 'https://uxsupportgroup.com/summit'
   },
   handshakr: {
     id: 'handshakr',
@@ -620,7 +620,7 @@ const caseStudies: Record<string, CaseStudy> = {
     title: 'FairGrounds Community Coffee',
     subtitle: 'Complete Brand Identity & Product Design',
     description: 'Comprehensive brand identity and product packaging design for FairGrounds, a hip underground coffee bar in Maine, featuring vibrant drink packaging, merchandise, and seasonal storefront design.',
-    role: 'Brand Designer & Creative Director (Alexis Design)',
+    role: 'Brand Designer & Creative Director (Upstart-Labs)',
     duration: '4 months',
     team: 'Direct collaboration with business owner',
     challenge: 'Develop a complete brand identity system within an aggressive 4-month timeline, working closely with the owner to create both brand assets and interior design vibe for the hip underground coffee bar.',
@@ -815,8 +815,8 @@ const caseStudies: Record<string, CaseStudy> = {
     id: 'ttools-alexis-design',
     title: 'TTools Brand Identity System',
     subtitle: 'Complete Product Licensing & Brand Development',
-    description: 'Comprehensive brand identity and product licensing system created under Alexis Design for TTools LLC, a stylus technology company. The project successfully resulted in the brand being sold to Fellows Office Products at Staples.',
-    role: 'Creative Director (Alexis Design)',
+    description: 'Comprehensive brand identity and product licensing system created by Upstart-Labs for TTools LLC, a stylus technology company. The project successfully resulted in the brand being sold to Fellows Office Products at Staples.',
+    role: 'Creative Director (Upstart-Labs)',
     duration: '8 months',
     team: 'Creative Director, Brand Designer, Product Designer',
     challenge: 'Create a complete brand identity system for a technology startup that would be attractive to major retail partners, specifically targeting office supply chains like Staples through Fellows Office Products.',
@@ -856,8 +856,8 @@ const caseStudies: Record<string, CaseStudy> = {
     id: 'abc6-rebrand-alexis-design',
     title: 'WLNE-ABC6 Brand Transformation',
     subtitle: 'Television Network Brand Overhaul & Environmental Design',
-    description: 'Comprehensive company-wide brand transformation for ABC6 News under Alexis Design, collaborating directly with the brand development director to redesign all brand touchpoints from studio backdrops and mic holders to outdoor advertising campaigns and mall installations.',
-    role: 'Brand Designer & Environmental Designer (Alexis Design)',
+    description: 'Comprehensive company-wide brand transformation for ABC6 News by Upstart-Labs, collaborating directly with the brand development director to redesign all brand touchpoints from studio backdrops and mic holders to outdoor advertising campaigns and mall installations.',
+    role: 'Brand Designer & Environmental Designer (Upstart-Labs)',
     duration: '12 months',
     team: 'Direct collaboration with ABC6 Brand Development Director',
     challenge: 'Execute a complete brand transformation across all ABC6 touchpoints while maintaining on-air operations, requiring coordination across studio environments, outdoor advertising, promotional materials, and experimental retail spaces.',
@@ -1188,7 +1188,7 @@ export default function CaseStudyModal() {
                 onClick={() => trackEvent('case_study_live_link_clicked', 'portfolio', caseStudy.id)}
               >
                 <a href={caseStudy.liveUrl} target="_blank" rel="noopener noreferrer">
-                  View live app
+                  View Summit Experience
                   <ExternalLink className="w-4 h-4" />
                 </a>
               </Button>
