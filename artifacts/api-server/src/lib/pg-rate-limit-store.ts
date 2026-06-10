@@ -1,6 +1,8 @@
 import type { Store, Options, IncrementResponse } from "express-rate-limit";
 import { pool } from "@workspace/db";
 
+const PRUNE_INTERVAL_MS = 5 * 60 * 1000;
+
 export class PgRateLimitStore implements Store {
   private windowMs: number = 60_000;
   readonly #policy: string;
@@ -11,6 +13,17 @@ export class PgRateLimitStore implements Store {
 
   init(options: Options): void {
     this.windowMs = options.windowMs as number;
+    const timer = setInterval(() => {
+      this.pruneExpired().catch(() => {});
+    }, PRUNE_INTERVAL_MS);
+    timer.unref();
+  }
+
+  private async pruneExpired(): Promise<void> {
+    await pool.query(
+      "DELETE FROM rate_limit_entries WHERE reset_time <= NOW() AND key LIKE $1",
+      [`${this.#policy}:%`],
+    );
   }
 
   private scopedKey(key: string): string {
