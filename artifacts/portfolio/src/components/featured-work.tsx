@@ -200,7 +200,6 @@ const projects: Project[] = [
     verticals: [],
     image: conductorGraphImage,
     liveUrl: 'https://agent-orchestrator-alexisbrochu.replit.app',
-    embedUrl: 'https://agent-orchestrator-alexisbrochu.replit.app',
     metrics: [
       { label: 'Solo Build', value: 'Replit Agent', color: 'text-chart-1' },
       { label: 'AIxUX 2026', value: 'Summit Tool', color: 'text-primary' }
