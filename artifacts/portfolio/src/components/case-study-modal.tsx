@@ -163,7 +163,7 @@ const caseStudies: Record<string, CaseStudy> = {
   '3d-layered-agent': {
     id: '3d-layered-agent',
     title: '3-D Layered Agent',
-    subtitle: 'Interactive multi-agent visualization built for AIxUX Summit 2026. Go ahead, play with it!',
+    subtitle: 'Interactive multi-agent visualization built for AIxUX Summit 2026.\nGo ahead, play with it!',
     description: 'Built the interactive 3D layered agent visualization that served as the closing keynote artifact for AIxUX Summit 2026. The app makes multi-agent orchestration tangible: each capability layer in the agent stack lights up in sequence as context passes between a Writer, Strategist, and Connector agent — making the handoff problem visceral rather than theoretical. Built solo with Replit Agent and deployed live for the room on the day of the keynote.',
     role: 'Designer, Builder & Closing Keynote Speaker',
     duration: '2 weeks pre-summit, deployed live on keynote day',
@@ -1210,7 +1210,7 @@ export default function CaseStudyModal() {
         <div className="sticky top-0 bg-background border-b border-border p-6 flex justify-between items-center gap-4">
           <div className="min-w-0">
             <h3 className="text-2xl font-bold text-primary">{caseStudy.title}</h3>
-            <p className="text-muted-foreground">{caseStudy.subtitle}</p>
+            <p className="text-muted-foreground whitespace-pre-line">{caseStudy.subtitle}</p>
           </div>
           <div className="flex items-center gap-2 shrink-0">
             {caseStudy.liveUrl && (
