@@ -120,7 +120,7 @@ import siPlayingImage from "@assets/si-playing_1778447747328.jpg";
 import siGameoverImage from "@assets/si-gameover_1778447747329.jpg";
 import siWinImage from "@assets/si-win_1778447747330.jpg";
 import aixuxSummitCoverImage from "@assets/aixux-3d-agent-cover.png";
-import conductorGraphImage from "@assets/image_1781119435043.png";
+import conductorGraphImage from "@assets/image_1781119765174.png";
 
 
 // Preload critical images immediately when component loads
