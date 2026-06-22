@@ -148,6 +148,7 @@ export default function AdminPanel({ isVisible, onClose, onApply }: AdminPanelPr
       }
     });
 
+    onApply(settings);
     onClose();
   };
 
