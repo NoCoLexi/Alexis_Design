@@ -81,10 +81,12 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
       <div className="hero-title-card">
         <div className="max-w-7xl mx-auto">
         {/* Pre-title */}
-        <div style={{
-          fontSize: "18px", fontWeight: 200, color: "rgba(255,255,255,0.55)",
-          letterSpacing: "0.04em", marginBottom: "8px",
-        }}>
+        <div
+          style={{
+            fontSize: "18px", fontWeight: 200, color: "rgba(255,255,255,0.55)",
+            letterSpacing: "0.04em", marginBottom: "8px",
+          }}
+          className="text-[color:var(--primary-foreground)]">
           {preTitle}
         </div>
 
