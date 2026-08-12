@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <!-- White background -->
+  <rect width="800" height="450" fill="#ffffff"/>
+  
+  <!-- Header section -->
+  <rect x="0" y="0" width="800" height="80" fill="#1e40af"/>
+  
+  <!-- Title -->
+  <text x="40" y="35" fill="white" font-family="Arial, sans-serif" font-size="24" font-weight="bold">
+    Enterprise Architecture Group
+  </text>
+  <text x="40" y="58" fill="white" font-family="Arial, sans-serif" font-size="14">
+    Modernizing Government Technology Infrastructure
+  </text>
+  
+  <!-- Content sections -->
+  <g fill="#1f2937">
+    <!-- Key Initiatives -->
+    <text x="40" y="120" font-family="Arial, sans-serif" font-size="18" font-weight="bold">Key Initiatives</text>
+    
+    <rect x="40" y="140" width="200" height="80" fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1" rx="8"/>
+    <text x="50" y="160" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Platform Consolidation</text>
+    <text x="50" y="178" font-family="Arial, sans-serif" font-size="12">Unified technology stack</text>
+    <text x="50" y="194" font-family="Arial, sans-serif" font-size="12">Reduced maintenance overhead</text>
+    <text x="50" y="210" font-family="Arial, sans-serif" font-size="12">Improved scalability</text>
+    
+    <rect x="260" y="140" width="200" height="80" fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1" rx="8"/>
+    <text x="270" y="160" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Governance Framework</text>
+    <text x="270" y="178" font-family="Arial, sans-serif" font-size="12">Standardized practices</text>
+    <text x="270" y="194" font-family="Arial, sans-serif" font-size="12">Risk management</text>
+    <text x="270" y="210" font-family="Arial, sans-serif" font-size="12">Compliance monitoring</text>
+    
+    <rect x="480" y="140" width="200" height="80" fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1" rx="8"/>
+    <text x="490" y="160" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Legacy Modernization</text>
+    <text x="490" y="178" font-family="Arial, sans-serif" font-size="12">System migration</text>
+    <text x="490" y="194" font-family="Arial, sans-serif" font-size="12">Security enhancement</text>
+    <text x="490" y="210" font-family="Arial, sans-serif" font-size="12">Performance optimization</text>
+    
+    <!-- Metrics -->
+    <text x="40" y="270" font-family="Arial, sans-serif" font-size="18" font-weight="bold">Key Results</text>
+    
+    <circle cx="120" cy="320" r="40" fill="#1e40af" stroke="white" stroke-width="3"/>
+    <text x="120" y="315" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="18" font-weight="bold">60%</text>
+    <text x="120" y="330" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10">Cost Reduction</text>
+    
+    <circle cx="300" cy="320" r="40" fill="#16a34a" stroke="white" stroke-width="3"/>
+    <text x="300" y="315" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="18" font-weight="bold">85%</text>
+    <text x="300" y="330" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10">Compliance</text>
+    
+    <circle cx="480" cy="320" r="40" fill="#dc2626" stroke="white" stroke-width="3"/>
+    <text x="480" y="315" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="18" font-weight="bold">40%</text>
+    <text x="480" y="330" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10">Dev Velocity</text>
+    
+    <!-- Footer -->
+    <text x="40" y="410" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">
+      Cal OES Technology Infrastructure Modernization Project
+    </text>
+  </g>
+</svg>
