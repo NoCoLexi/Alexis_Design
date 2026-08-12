@@ -55,7 +55,7 @@ export default function ContactSection({ onOpenAwardModal }: ContactSectionProps
                   <div className="w-8 h-8 bg-[#0077B5] rounded-lg flex items-center justify-center">
                     <Linkedin className="w-4 h-4 text-white" />
                   </div>
-                  <span className="font-medium text-sm">Find us on LinkedIn!</span>
+                  <span className="font-medium text-sm">Find me on LinkedIn!</span>
                 </a>
                 
                 <a

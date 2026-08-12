@@ -4,7 +4,7 @@ import originalHero1 from "@assets/image_1755621221671.png";
 import navDevelopment from "@assets/image_1755632165306.png";
 import codeDevelopment from "@assets/image_1755782692797.png";
 import finalDiscoHero from "@assets/image_1755783740539.png";
-import iteration9Screenshot from "@assets/AlexisDesign_Screen_Capture_05-29-2026_1780078904404.png";
+import iteration9Screenshot from "@assets/AlexisDesign_Screen_Capture_05-29-2026_1786567141355.png";
 import iteration8Screenshot from "@assets/screencapture-alexisdesign-2026-03-23-23_28_39_1774364491171.png";
 import iteration7Screenshot from "@assets/screencapture-a14568b2-3e00-4807-abe4-0a773c66598f-00-zrs0bmni_1770670302371.png";
 import iteration6Screenshot from "@assets/AlexisDesign_screen_capture_8-26-2025_1770669623478.png";
@@ -37,7 +37,7 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
         {/* Header */}
         <div className="sticky top-0 bg-gradient-to-r from-purple-600/10 to-blue-600/10 backdrop-blur border-b border-purple-400/20 p-6">
           <div className="flex justify-between items-center">
-            <h2 className="text-2xl font-bold gradient-text">How we built this site</h2>
+            <h2 className="text-2xl font-bold gradient-text">How I built this site</h2>
             <Button
               variant="ghost"
               size="sm"
@@ -57,14 +57,15 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
             <h3 className="text-xl font-semibold text-purple-400">Development Story</h3>
             
             <p className="text-gray-300 leading-relaxed">
-              Each iteration was designed and directed by us, with AI handling execution where it adds the most value. Built in days, not months.
+              Each iteration was designed and directed by me, with AI handling execution where it adds the most value. Built in days, not months.
             </p>
 
             {/* Iteration Comparison - Most recent first */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
               {/* 9th Iteration (Most Recent) */}
               <div className="glass rounded-xl p-4 border border-green-400/20">
-                <h4 className="text-lg font-semibold text-green-400 mb-4">9th Iteration (Most Recent)</h4>
+                <h4 className="text-lg font-semibold text-green-400 mb-1">9th Iteration (Most Recent)</h4>
+                <p className="text-xs text-gray-400 mb-4">UPSTART-Labs agency portfolio — full case study library, founder bio, and "Let's Create Something Amazing" CTA</p>
                 <div className="space-y-3">
                   <div className="text-center">
                     <div className="text-2xl font-bold text-white">3 Days</div>
@@ -80,7 +81,7 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
                   </div>
                 </div>
                 <div className="mt-4 h-48 overflow-y-auto rounded-lg border border-green-400/10">
-                  <img src={iteration9Screenshot} alt="9th iteration screenshot" className="w-full" />
+                  <img src={iteration9Screenshot} alt="9th iteration — UPSTART-Labs agency portfolio screenshot" className="w-full" />
                 </div>
               </div>
 

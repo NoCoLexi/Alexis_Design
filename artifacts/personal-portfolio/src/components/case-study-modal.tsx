@@ -504,7 +504,7 @@ const caseStudies: Record<string, CaseStudy> = {
     id: 'pa-portal',
     title: 'Public Assistance Closeouts App',
     subtitle: 'A critical grant closeout application was stalled because stakeholders had conflicting understandings of scope, blocking all progress.',
-    description: 'Part of the Cal OES Engage Community Portal, this app connects Californian subrecipients to state government to make the reimbursement process quicker and more efficient. The Salesforce product owner brought us in as product managers, but the closeouts app was stalled—the product owner was not approving anything. We needed to uncover the real blockers and align stakeholders before any progress could happen.',
+    description: 'Part of the Cal OES Engage Community Portal, this app connects Californian subrecipients to state government to make the reimbursement process quicker and more efficient. The Salesforce product owner brought me in as product manager, but the closeouts app was stalled — the product owner was not approving anything. I needed to uncover the real blockers and align stakeholders before any progress could happen.',
     role: 'Lead UX Researcher & Process Designer',
     duration: '6 months',
     team: '1 product manager, 6 contractors/developers, 4 state-side POs, 4 state leadership',
