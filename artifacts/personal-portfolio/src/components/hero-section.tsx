@@ -16,7 +16,7 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
     return urlParams.get("company") || settings.companyName.trim();
   }, [settings.companyName]);
 
-  const preTitle = companyName ? `Hi ${companyName}, I'm` : "Hi, I'm";
+  const preTitle = companyName ? `Hi ${companyName}, I'm` : "Hi, I am";
 
   const openCaseStudy = (projectId: string) => {
     window.dispatchEvent(new CustomEvent("openCaseStudy", { detail: { projectId } }));
@@ -105,7 +105,7 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
             "0 0 180px rgba(95,197,248,0.1)",
           ].join(", "),
         }}>
-          UPSTART-<span className="labs"><svg className="fp-watermark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true"><path d="M 47.60 53.00 L 46.65 57.60 L 45.70 62.20 L 44.75 66.80 L 43.80 71.40 L 42.85 76.00 L 41.90 80.60 L 40.95 85.20 L 59.05 85.20 L 58.10 80.60 L 57.15 76.00 L 56.20 71.40 L 55.25 66.80 L 54.30 62.20 L 53.35 57.60 L 52.40 53.00 Z" fill="#5FC5F8"/><circle cx="50" cy="39" r="2.6" fill="#5FC5F8"/><g fill="none" stroke="#fdfcfc" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round"><path d="M 47.60 53.00 A 6.00 9.00 0 1 1 52.40 53.00"/><path d="M 46.65 57.60 A 10.40 13.60 0 1 1 53.35 57.60"/><path d="M 45.70 62.20 A 14.80 18.20 0 1 1 54.30 62.20"/><path d="M 44.75 66.80 A 19.20 22.80 0 1 1 55.25 66.80"/><path d="M 43.80 71.40 A 23.60 27.40 0 1 1 56.20 71.40"/><path d="M 42.85 76.00 A 28.00 32.00 0 1 1 57.15 76.00"/><path d="M 41.90 80.60 A 32.40 36.60 0 1 1 58.10 80.60"/><path d="M 40.95 85.20 A 36.80 41.20 0 1 1 59.05 85.20"/></g></svg><span className="fp-label">Labs</span></span>
+          Alexis Brochu
         </h1>
 
         {/* Tagline + Subhead group */}
@@ -143,7 +143,7 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
             }}
           >
             <Code style={{ width: "14px", height: "14px" }} />
-            How we built this site →
+            How I built this site →
           </button>
 
           {/* GovTech Award credit */}
