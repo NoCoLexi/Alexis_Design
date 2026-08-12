@@ -64,8 +64,7 @@ export default function SiteModal({ isOpen, onClose }: SiteModalProps) {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
               {/* 9th Iteration (Most Recent) */}
               <div className="glass rounded-xl p-4 border border-green-400/20">
-                <h4 className="text-lg font-semibold text-green-400 mb-1">9th Iteration (Most Recent)</h4>
-                <p className="text-xs text-gray-400 mb-4">UPSTART-Labs agency portfolio — full case study library, founder bio, and "Let's Create Something Amazing" CTA</p>
+                <h4 className="text-lg font-semibold text-green-400 mb-4">9th Iteration (Most Recent)</h4>
                 <div className="space-y-3">
                   <div className="text-center">
                     <div className="text-2xl font-bold text-white">3 Days</div>
