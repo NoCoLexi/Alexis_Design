@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { Code, Trophy } from "lucide-react";
+import { Code, Trophy, Gamepad2 } from "lucide-react";
 import AdminPanel from "./admin-panel";
 import { useAdminPanel } from "@/hooks/use-admin-panel";
 
@@ -13,6 +13,12 @@ const METRICS = [
   { value: "$2.1B",  label: "Disaster Relief Platform", projectId: "pa-portal" },
   { value: "75%",    label: "Ticket Reduction", projectId: "pa-portal" },
 ] as const;
+
+const EYEBROW_LINES = [
+  "Principal Product Strategist",
+  "Enterprise AI Adoption",
+  "Speaker and Facilitator",
+];
 
 export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroSectionProps) {
   const { isVisible, settings, applySettings, closePanel } = useAdminPanel();
@@ -54,22 +60,27 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
             Hi {companyName}, I&rsquo;m
           </p>
         ) : (
-          <p
-            style={{
-              fontFamily: '"Geist Mono", ui-monospace, monospace',
-              fontSize: '0.625rem',
-              fontWeight: 400,
-              color: '#FF4704',
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              marginBottom: '1.25rem',
-            }}
-          >
-            Product Design · North Conway, NH · Remote
-          </p>
+          <div style={{ marginBottom: '1.25rem', display: 'flex', flexDirection: 'column', gap: '0.2rem' }}>
+            {EYEBROW_LINES.map((line, i) => (
+              <p
+                key={line}
+                style={{
+                  fontFamily: '"Geist Mono", ui-monospace, monospace',
+                  fontSize: '0.625rem',
+                  fontWeight: 400,
+                  color: i === 0 ? '#FF4704' : '#A59F97',
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                  margin: 0,
+                }}
+              >
+                {line}
+              </p>
+            ))}
+          </div>
         )}
 
-        {/* Name masthead */}
+        {/* Name masthead — with orange dot from resume identity */}
         <h1
           style={{
             fontFamily: '"Cormorant Garamond", Georgia, serif',
@@ -79,8 +90,23 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
             color: '#000000',
             margin: '0 0 1.75rem -3px',
             letterSpacing: '-0.02em',
+            display: 'flex',
+            alignItems: 'flex-start',
+            gap: '0.2em',
           }}
         >
+          <span
+            aria-hidden="true"
+            style={{
+              color: '#FF4704',
+              fontSize: '0.3em',
+              lineHeight: 1,
+              marginTop: '0.28em',
+              flexShrink: 0,
+            }}
+          >
+            ●
+          </span>
           Alexis Brochu
         </h1>
 
@@ -92,12 +118,12 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
             fontWeight: 400,
             color: '#3F3B36',
             lineHeight: 1.65,
-            maxWidth: '460px',
+            maxWidth: '520px',
             marginBottom: '2.25rem',
           }}
         >
-          I help teams ship products people actually adopt. The human side of
-          change is just as engineerable as the product itself.
+          IT begins with People. I build the human layer of User and Agentic
+          experiences (UX&#8209;AX)
         </p>
 
         {/* CTA links */}
@@ -132,6 +158,27 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
             <Trophy className="w-3 h-3" />
             GovTech Award Winner →
           </button>
+
+          {/* Stakeholder Invaders — stands out with Ember accent */}
+          <a
+            href="/stakeholder-invaders/"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-testid="button-hero-stakeholder-invaders"
+            className="inline-flex items-center gap-2 transition-colors w-fit group"
+            style={{
+              fontFamily: 'Inter, sans-serif',
+              fontSize: '0.6875rem',
+              fontWeight: 700,
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              color: '#FF4704',
+              textDecoration: 'none',
+            }}
+          >
+            <Gamepad2 className="w-3.5 h-3.5" />
+            Play Stakeholder Invaders →
+          </a>
         </div>
       </div>
 

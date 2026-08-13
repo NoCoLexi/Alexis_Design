@@ -112,7 +112,7 @@ export default function Services() {
             © {new Date().getFullYear()} Alexis Brochu
           </p>
           <a
-            href="mailto:alexis@upstart-labs.com"
+            href="mailto:alexisb.product@gmail.com"
             style={{
               fontFamily: 'Inter, sans-serif',
               fontSize: '0.875rem',
@@ -120,7 +120,7 @@ export default function Services() {
             }}
             className="hover:text-black transition-colors"
           >
-            alexis@upstart-labs.com →
+            alexisb.product@gmail.com →
           </a>
         </div>
       </footer>

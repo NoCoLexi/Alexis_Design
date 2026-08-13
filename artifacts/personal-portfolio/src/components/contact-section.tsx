@@ -58,7 +58,7 @@ export default function ContactSection({ onOpenAwardModal: _onOpenAwardModal }: 
         {/* Contact links */}
         <div className="flex flex-col sm:flex-row flex-wrap gap-5">
           <a
-            href="mailto:alexis@upstart-labs.com"
+            href="mailto:alexisb.product@gmail.com"
             className="inline-flex items-center gap-3 text-[#3F3B36] hover:text-black transition-colors group"
             onClick={() => trackPortfolioClick('email')}
             data-testid="contact-email"

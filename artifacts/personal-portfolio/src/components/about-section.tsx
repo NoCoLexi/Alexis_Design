@@ -6,29 +6,28 @@ interface AboutSectionProps {
 
 const DISCIPLINES = [
   "Product Management",
-  "UX Design",
+  "UX / AX Design",
   "User Research",
   "Change Management",
 ];
 
 const CREDENTIALS = [
   { label: "Education", items: [
-    "Johnson & Wales University — Graphic Design, BFA",
-    "University of Rhode Island — Continuing Education",
-    "Cal OES Leadership Excellence Program",
+    "BFA Visual Communications, Washington University in St. Louis",
+    "UX/UI Design, Project Management and Scrum Master, Applied Business Science — University of New Hampshire",
   ]},
   { label: "Certifications", items: [
-    "Pragmatic Institute — Product Management (PMC I–III)",
-    "Prosci — Change Management Practitioner (ADKAR)",
-    "SAFe 6 — Scaled Agile Framework Practitioner",
-    "NASM — Certified Personal Trainer (CPT)",
-    "NASM — Nutrition Coach",
-    "AFAA — Group Fitness Instructor",
-    "Les Mills — BodyCOMBAT Instructor",
+    "Project Management Professional (PMP), Project Management Institute",
+    "Prosci Certified Change Management Practitioner (CMP)",
+    "AI for Product Management and Product-Led Design, Pendo",
   ]},
   { label: "Recognition", items: [
-    "GovTech Innovation Award — Public Assistance Closeouts App",
-    "Top 3 Best Personal Trainer — Mount Washington Valley",
+    "2023 California Government Technology Innovation Award — Best Application Serving the Public",
+    "AIxUX Summit — Closing Keynote",
+    "Pontifical Catholic University of Chile — Invited Lecturer",
+    "Co-Create SKOOL — Core Instructor",
+    "Rhode Island School of Design — Former Guest Instructor",
+    "UX Collective — Author",
   ]},
 ];
 
@@ -97,7 +96,7 @@ export default function AboutSection({ onOpenAwardModal: _onOpenAwardModal }: Ab
                 letterSpacing: '-0.01em',
               }}
             >
-              About the founder.
+              About the Founder.
             </h2>
 
             <p
@@ -109,8 +108,8 @@ export default function AboutSection({ onOpenAwardModal: _onOpenAwardModal }: Ab
                 lineHeight: 1.7,
               }}
             >
-              Alexis has spent her career inside the gap between what teams build
-              and what people actually adopt.
+              Alexis has spent her career inside the gap between what teams build and what
+              people actually adopt.
             </p>
             <p
               style={{
@@ -121,9 +120,10 @@ export default function AboutSection({ onOpenAwardModal: _onOpenAwardModal }: Ab
                 lineHeight: 1.7,
               }}
             >
-              The code is solid. The UX is clean. But adoption still stalls because
-              no one designed for the office misunderstandings, the training gap, or
-              the stakeholders who never bought in.
+              My outcome is adoption. I work across product, experience, technology,
+              marketing, and change management depending on barrier. The common thread is
+              adoption: getting people to understand, use, and stick with what&rsquo;s being
+              built.
             </p>
             <p
               style={{
@@ -134,23 +134,11 @@ export default function AboutSection({ onOpenAwardModal: _onOpenAwardModal }: Ab
                 lineHeight: 1.7,
               }}
             >
-              She built Alexis Brochu around a single belief: the human side of
-              change is just as engineerable as the product itself.
-            </p>
-            <p
-              style={{
-                fontFamily: 'Inter, sans-serif',
-                fontSize: '0.9375rem',
-                fontWeight: 400,
-                color: '#777169',
-                lineHeight: 1.7,
-              }}
-            >
-              With 20+ years across brand development, product management, UX design,
-              and organizational change, she brings the full arc from vision to
-              adoption. From California state government systems handling $2.1B in
-              disaster relief to consumer brands and startups, her work centers on
-              one question: after the build, what happens to the people?
+              Most organizations don&rsquo;t struggle because they build the wrong software.
+              They struggle because the right software never becomes part of how people
+              actually work. I&rsquo;m the person who helps companies reduce organizational
+              friction and make complex products understandable, usable, and ultimately
+              adopted.
             </p>
 
             {/* Pull quote */}
@@ -167,8 +155,8 @@ export default function AboutSection({ onOpenAwardModal: _onOpenAwardModal }: Ab
                 margin: '0.5rem 0',
               }}
             >
-              "Strategy that can't survive first contact with real people is just
-              a presentation."
+              &ldquo;In the product trifecta of Business, Engineering, and User Experience,
+              the human layer is often the secret sauce to undeniable success.&rdquo;
             </blockquote>
           </div>
         </div>

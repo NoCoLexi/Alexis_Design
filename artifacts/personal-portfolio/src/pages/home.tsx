@@ -96,11 +96,11 @@ export default function Home() {
               Contact
             </button>
             <a
-              href="mailto:alexis@upstart-labs.com"
+              href="mailto:alexisb.product@gmail.com"
               className="text-sm font-medium text-[#3F3B36] hover:text-black transition-colors"
               data-testid="link-nav-email"
             >
-              alexis@upstart-labs.com →
+              alexisb.product@gmail.com →
             </a>
           </div>
 
@@ -139,12 +139,12 @@ export default function Home() {
               Contact
             </button>
             <a
-              href="mailto:alexis@upstart-labs.com"
+              href="mailto:alexisb.product@gmail.com"
               className="block text-sm font-medium text-[#3F3B36] hover:text-black"
               data-testid="link-nav-email-mobile"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              alexis@upstart-labs.com →
+              alexisb.product@gmail.com →
             </a>
           </div>
         )}

@@ -337,7 +337,7 @@ function CorporateInfoModal({ isOpen, onClose }: { isOpen: boolean; onClose: () 
 
           <div className="border-t border-[#E5E5E5] pt-8">
             <a
-              href="mailto:alexis@upstart-labs.com?subject=Speaking%20Inquiry"
+              href="mailto:alexisb.product@gmail.com?subject=Speaking%20Inquiry"
               className="inline-flex items-center gap-2 text-[#3F3B36] hover:text-black transition-colors"
               style={{
                 fontFamily: '"Geist Mono", ui-monospace, monospace',
@@ -502,7 +502,7 @@ export default function SpeakingContent() {
       {/* CTA row */}
       <div className="border-t border-[#E5E5E5] pt-8 flex flex-col sm:flex-row items-start sm:items-center gap-6">
         <a
-          href="mailto:alexis@upstart-labs.com?subject=Speaking%20Inquiry"
+          href="mailto:alexisb.product@gmail.com?subject=Speaking%20Inquiry"
           className="inline-flex items-center gap-2 text-[#3F3B36] hover:text-black transition-colors"
           style={{
             fontFamily: '"Geist Mono", ui-monospace, monospace',
