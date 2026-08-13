@@ -1237,40 +1237,91 @@ export default function CaseStudyModal() {
 
   if (!isOpen || !caseStudy) return null;
 
+  // Shared typography styles
+  const MONO = { fontFamily: '"Geist Mono", ui-monospace, monospace' } as React.CSSProperties;
+  const SERIF = { fontFamily: '"Cormorant Garamond", Georgia, serif' } as React.CSSProperties;
+  const SANS = { fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif' } as React.CSSProperties;
+
   return (
-    <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-6">
-      <div className="bg-background rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-        {/* Header */}
-        <div className="sticky top-0 bg-background border-b border-border p-6 flex justify-between items-center gap-4">
+    // Backdrop — click anywhere outside the card to close
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8"
+      style={{ background: 'rgba(0,0,0,0.55)' }}
+      onClick={closeCaseStudy}
+    >
+      {/* Modal card — stop propagation so clicks inside don't close */}
+      <div
+        className="bg-white w-full max-w-4xl max-h-[92vh] overflow-y-auto"
+        style={{ border: '1px solid #E5E5E5' }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Sticky header */}
+        <div
+          className="sticky top-0 bg-white border-b flex justify-between items-start gap-4 px-8 py-5"
+          style={{ borderColor: '#E5E5E5', zIndex: 10 }}
+        >
           <div className="min-w-0">
-            <h3 className="text-2xl font-bold text-primary">{caseStudy.title}</h3>
-            <p className="text-muted-foreground">{caseStudy.subtitle}</p>
+            <h3
+              style={{
+                ...SERIF,
+                fontWeight: 400,
+                fontSize: 'clamp(1.25rem, 3vw, 1.75rem)',
+                color: '#000000',
+                letterSpacing: '-0.01em',
+                lineHeight: 1.15,
+                marginBottom: '0.25rem',
+              }}
+            >
+              {caseStudy.title}
+            </h3>
+            <p style={{ ...SANS, fontSize: '0.875rem', color: '#777169', lineHeight: 1.5 }}>
+              {caseStudy.subtitle}
+            </p>
           </div>
-          <div className="flex items-center gap-2 shrink-0">
+
+          <div className="flex items-center gap-3 shrink-0 pt-0.5">
             {caseStudy.liveUrl && (
-              <Button
-                asChild
-                variant="outline"
-                size="sm"
-                className="gap-2 text-white/70 hover:text-white hover:bg-white/10 hover:border-white/40 transition-colors"
+              <a
+                href={caseStudy.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => trackEvent('case_study_live_link_clicked', 'portfolio', caseStudy.id)}
+                className="inline-flex items-center gap-1.5 text-[#3F3B36] hover:text-black transition-colors"
+                style={{
+                  ...MONO,
+                  fontSize: '0.5625rem',
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                }}
               >
-                <a href={caseStudy.liveUrl} target="_blank" rel="noopener noreferrer">
-                  {caseStudy.id === 'aixux-summit-keynote' ? 'View Summit Experience' : 'View Application'}
-                  <ExternalLink className="w-4 h-4" />
-                </a>
-              </Button>
+                <ExternalLink className="w-3 h-3" />
+                {caseStudy.id === 'aixux-summit-keynote' ? 'View experience' : 'View application'}
+              </a>
             )}
-            <Button variant="ghost" size="icon" onClick={closeCaseStudy} className="text-white/70 hover:text-white hover:bg-white/10 transition-colors">
-              <X className="w-6 h-6" />
-            </Button>
+            {/* X close button — clearly visible on white */}
+            <button
+              onClick={closeCaseStudy}
+              aria-label="Close"
+              className="flex items-center justify-center text-[#777169] hover:text-black transition-colors"
+              style={{
+                width: '2rem',
+                height: '2rem',
+                border: '1px solid #E5E5E5',
+                background: 'transparent',
+                cursor: 'pointer',
+                flexShrink: 0,
+              }}
+            >
+              <X className="w-4 h-4" />
+            </button>
           </div>
         </div>
 
         {/* Content */}
-        <div className="p-6 space-y-8">
-          {/* Hero Embed/Video/Slideshow/Image */}
-          <div className="aspect-video rounded-xl overflow-hidden bg-black">
+        <div className="px-8 py-8 space-y-10">
+
+          {/* Hero media */}
+          <div className="aspect-video overflow-hidden bg-[#F5F3F1]">
             {caseStudy.embedUrl ? (
               <iframe
                 src={caseStudy.embedUrl}
@@ -1281,7 +1332,7 @@ export default function CaseStudyModal() {
                 allowFullScreen
               />
             ) : caseStudy.video ? (
-              <video 
+              <video
                 src={caseStudy.id === 'pa-portal' ? `${caseStudy.video}#t=4` : caseStudy.video}
                 className="w-full h-full object-cover"
                 autoPlay={true}
@@ -1291,94 +1342,132 @@ export default function CaseStudyModal() {
                 playsInline
               />
             ) : caseStudy.slideshow ? (
-              <ImageSlideshow 
-                images={caseStudy.slideshow} 
+              <ImageSlideshow
+                images={caseStudy.slideshow}
                 interval={caseStudy.id === 'ttools-alexis-design' || caseStudy.id === 'abc6-rebrand-alexis-design' || caseStudy.id === 'budweiser-zipatoni' ? 2000 : 3000}
                 initialIndex={caseStudy.id === 'pa-portal' ? 2 : 0}
               />
             ) : caseStudy.image ? (
-              <img src={caseStudy.image} alt={caseStudy.title} className={`w-full h-full ${caseStudy.image === mallinckrodtMedicalLogo ? 'object-contain p-8 bg-white' : 'object-cover'}`} />
+              <img
+                src={caseStudy.image}
+                alt={caseStudy.title}
+                className={`w-full h-full ${caseStudy.image === mallinckrodtMedicalLogo ? 'object-contain p-8 bg-white' : 'object-cover'}`}
+              />
             ) : null}
           </div>
 
           {/* Key Results */}
           <div>
-            <h4 className="text-xl font-semibold mb-6">Key Results</h4>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <p style={{ ...MONO, fontSize: '0.5625rem', color: '#A59F97', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '1rem' }}>
+              Key Results
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#E5E5E5]">
               {caseStudy.metrics.map((metric, index) => (
-                <div key={index} className="glass rounded-xl p-6 text-center">
-                  <div className="text-4xl font-bold text-purple-400 mb-2">{metric.label}</div>
-                  <div className="text-sm font-medium text-muted-foreground">{metric.value}</div>
-                  <div className="text-xs text-muted-foreground mt-1">{metric.description}</div>
+                <div key={index} className="bg-white p-6 text-center">
+                  <div style={{ ...SERIF, fontSize: '2.5rem', fontWeight: 400, color: '#000000', lineHeight: 1, marginBottom: '0.4rem' }}>
+                    {metric.label}
+                  </div>
+                  <div style={{ ...MONO, fontSize: '0.5625rem', color: '#777169', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.25rem' }}>
+                    {metric.value}
+                  </div>
+                  <div style={{ ...SANS, fontSize: '0.75rem', color: '#A59F97' }}>
+                    {metric.description}
+                  </div>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Outcome */}
-          <div className="glass rounded-xl p-6">
-            <h4 className="text-xl font-semibold mb-4">Outcome</h4>
-            <p className="text-muted-foreground leading-relaxed">{caseStudy.outcome}</p>
+          <div className="border-l-2 pl-6" style={{ borderColor: '#000000' }}>
+            <p style={{ ...MONO, fontSize: '0.5625rem', color: '#A59F97', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>
+              Outcome
+            </p>
+            <p style={{ ...SANS, fontSize: '0.9375rem', color: '#3F3B36', lineHeight: 1.7 }}>
+              {caseStudy.outcome}
+            </p>
           </div>
 
-          {/* Overview */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Overview + meta */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 border-t pt-8" style={{ borderColor: '#E5E5E5' }}>
             <div className="lg:col-span-2">
-              <h4 className="text-xl font-semibold mb-4">Overview</h4>
-              <p className="text-muted-foreground leading-relaxed">{caseStudy.description}</p>
-
+              <p style={{ ...MONO, fontSize: '0.5625rem', color: '#A59F97', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>
+                Overview
+              </p>
+              <p style={{ ...SANS, fontSize: '0.9375rem', color: '#3F3B36', lineHeight: 1.7 }}>
+                {caseStudy.description}
+              </p>
               {caseStudy.award && (
-                <div className="mt-4">
-                  <Badge variant="secondary" className="bg-chart-3/20 text-chart-3 flex items-center gap-2 w-fit">
-                    <Award className="w-4 h-6" />
+                <div className="mt-5 inline-flex items-center gap-2" style={{ border: '1px solid #E5E5E5', padding: '6px 12px' }}>
+                  <Award className="w-3.5 h-3.5 text-[#777169]" />
+                  <span style={{ ...MONO, fontSize: '0.5625rem', color: '#777169', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
                     {caseStudy.award}
-                  </Badge>
+                  </span>
                 </div>
               )}
             </div>
 
-            <div className="space-y-4">
-              <div>
-                <h5 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide">Role</h5>
-                <p className="text-foreground">{caseStudy.role}</p>
-              </div>
-              <div>
-                <h5 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide">Duration</h5>
-                <p className="text-foreground">{caseStudy.duration}</p>
-              </div>
-              <div>
-                <h5 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide">Team</h5>
-                <p className="text-foreground">{caseStudy.team}</p>
-              </div>
+            <div className="space-y-5">
+              {[
+                { label: 'Role', value: caseStudy.role },
+                { label: 'Duration', value: caseStudy.duration },
+                { label: 'Team', value: caseStudy.team },
+              ].map(({ label, value }) => (
+                <div key={label}>
+                  <p style={{ ...MONO, fontSize: '0.5rem', color: '#A59F97', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.3rem' }}>
+                    {label}
+                  </p>
+                  <p style={{ ...SANS, fontSize: '0.875rem', color: '#3F3B36', lineHeight: 1.55 }}>
+                    {value}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
-
-
 
           {/* Challenge & Solution */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 border-t pt-8" style={{ borderColor: '#E5E5E5' }}>
             <div>
-              <h4 className="text-xl font-semibold mb-4">The Challenge</h4>
-              <p className="text-muted-foreground leading-relaxed">{caseStudy.challenge}</p>
+              <p style={{ ...MONO, fontSize: '0.5625rem', color: '#A59F97', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>
+                The Challenge
+              </p>
+              <p style={{ ...SANS, fontSize: '0.9375rem', color: '#3F3B36', lineHeight: 1.7 }}>
+                {caseStudy.challenge}
+              </p>
             </div>
             <div>
-              <h4 className="text-xl font-semibold mb-4">The Solution</h4>
-              <p className="text-muted-foreground leading-relaxed">{caseStudy.solution}</p>
+              <p style={{ ...MONO, fontSize: '0.5625rem', color: '#A59F97', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>
+                The Solution
+              </p>
+              <p style={{ ...SANS, fontSize: '0.9375rem', color: '#3F3B36', lineHeight: 1.7 }}>
+                {caseStudy.solution}
+              </p>
             </div>
           </div>
 
-          {/* Process */}
-          <div>
-            <h4 className="text-xl font-semibold mb-6">Design Process</h4>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {/* Design Process */}
+          <div className="border-t pt-8" style={{ borderColor: '#E5E5E5' }}>
+            <p style={{ ...MONO, fontSize: '0.5625rem', color: '#A59F97', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '1rem' }}>
+              Design Process
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[#E5E5E5]">
               {caseStudy.process.map((step, index) => (
-                <div key={index} className="glass rounded-xl p-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-semibold text-sm">
-                      {index + 1}
-                    </div>
-                    <p className="text-sm text-foreground">{step}</p>
-                  </div>
+                <div key={index} className="bg-white p-5 flex items-start gap-3">
+                  <span
+                    style={{
+                      ...MONO,
+                      fontSize: '0.5rem',
+                      color: '#A59F97',
+                      letterSpacing: '0.08em',
+                      flexShrink: 0,
+                      marginTop: '0.15rem',
+                    }}
+                  >
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <p style={{ ...SANS, fontSize: '0.875rem', color: '#3F3B36', lineHeight: 1.55 }}>
+                    {step}
+                  </p>
                 </div>
               ))}
             </div>
@@ -1386,35 +1475,46 @@ export default function CaseStudyModal() {
 
           {/* Process Images */}
           {caseStudy.processImages && caseStudy.processImages.length > 0 && (
-            <div>
-              <h4 className="text-xl font-semibold mb-6">Process Artifacts</h4>
+            <div className="border-t pt-8" style={{ borderColor: '#E5E5E5' }}>
+              <p style={{ ...MONO, fontSize: '0.5625rem', color: '#A59F97', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '1rem' }}>
+                Process Artifacts
+              </p>
               <div className="space-y-6">
                 {caseStudy.processImages.map((img, index) => (
-                  <div key={index} className="glass rounded-xl p-4">
-                    <img 
-                      src={img.src} 
-                      alt={img.caption} 
-                      className="w-full h-auto object-contain rounded-lg"
+                  <div key={index} className="border" style={{ borderColor: '#E5E5E5' }}>
+                    <img
+                      src={img.src}
+                      alt={img.caption}
+                      className="w-full h-auto object-contain"
                     />
-                    <p className="text-sm text-muted-foreground mt-3 text-center">{img.caption}</p>
+                    <p style={{ ...SANS, fontSize: '0.75rem', color: '#A59F97', padding: '0.75rem 1rem', borderTop: '1px solid #E5E5E5', textAlign: 'center' }}>
+                      {img.caption}
+                    </p>
                   </div>
                 ))}
               </div>
             </div>
           )}
 
-          {/* Learnings */}
-          <div>
-            <h4 className="text-xl font-semibold mb-6">Key Learnings</h4>
+          {/* Key Learnings */}
+          <div className="border-t pt-8 pb-2" style={{ borderColor: '#E5E5E5' }}>
+            <p style={{ ...MONO, fontSize: '0.5625rem', color: '#A59F97', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '1rem' }}>
+              Key Learnings
+            </p>
             <div className="space-y-3">
               {caseStudy.learnings.map((learning, index) => (
-                <div key={index} className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-muted-foreground">{learning}</p>
+                <div key={index} className="flex items-start gap-4">
+                  <span style={{ ...MONO, fontSize: '0.5rem', color: '#E5E5E5', marginTop: '0.35rem', flexShrink: 0 }}>
+                    ●
+                  </span>
+                  <p style={{ ...SANS, fontSize: '0.9375rem', color: '#3F3B36', lineHeight: 1.65 }}>
+                    {learning}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
+
         </div>
       </div>
     </div>
