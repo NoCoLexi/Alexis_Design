@@ -133,7 +133,7 @@ export default function ContactSection({ onOpenAwardModal: _onOpenAwardModal }: 
           </a>
 
           <a
-            href="https://www.upstart-labs.com"
+            href="https://upstart-labs.com/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 text-[#3F3B36] hover:text-black transition-colors group"
