@@ -11,6 +11,24 @@ env = { "CI" = "true" }
 [workflows]
 runButton = "Project"
 
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "artifacts/alexis-ds: web"
+
+[[workflows.workflow]]
+name = "artifacts/alexis-ds: web"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "PORT=24150 BASE_PATH=/alexis-ds/ pnpm --filter @workspace/alexis-ds run dev"
+waitForPort = 24150
+
 [agent]
 stack = "PNPM_WORKSPACE"
 expertMode = true

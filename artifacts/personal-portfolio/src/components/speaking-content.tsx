@@ -160,19 +160,14 @@ const engagementCards: EngagementCard[] = [
 
 function CorporateInfoModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
+    if (isOpen) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = 'unset';
     return () => { document.body.style.overflow = 'unset'; };
   }, [isOpen]);
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
-    if (isOpen) {
-      document.addEventListener('keydown', handleEscape);
-    }
+    if (isOpen) document.addEventListener('keydown', handleEscape);
     return () => document.removeEventListener('keydown', handleEscape);
   }, [isOpen, onClose]);
 
@@ -180,60 +175,117 @@ function CorporateInfoModal({ isOpen, onClose }: { isOpen: boolean; onClose: () 
 
   return (
     <div
-      className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+      className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center p-4"
       onClick={onClose}
     >
       <div
-        className="bg-gradient-to-br from-gray-900 to-black border border-purple-400/20 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+        className="bg-white border border-[#E5E5E5] max-w-3xl w-full max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="sticky top-0 bg-gradient-to-r from-purple-600/10 to-blue-600/10 backdrop-blur border-b border-purple-400/20 p-6">
-          <div className="flex justify-between items-center">
-            <h2 className="text-2xl font-bold section-glow">Speaking Topics & Contact</h2>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={onClose}
-              className="text-white/70 hover:text-white hover:bg-white/10 transition-colors"
-            >
-              <X className="w-5 h-5" />
-            </Button>
-          </div>
+        <div className="sticky top-0 bg-white border-b border-[#E5E5E5] px-8 py-5 flex items-center justify-between">
+          <h2
+            style={{
+              fontFamily: '"Cormorant Garamond", Georgia, serif',
+              fontWeight: 400,
+              fontSize: '1.5rem',
+              color: '#000000',
+              letterSpacing: '-0.01em',
+            }}
+          >
+            Speaking Topics
+          </h2>
+          <button
+            onClick={onClose}
+            className="text-[#777169] hover:text-black transition-colors p-1"
+          >
+            <X className="w-5 h-5" />
+          </button>
         </div>
 
         {/* Content */}
-        <div className="p-6 space-y-10">
-          {/* Speaking Topics */}
+        <div className="px-8 py-8 space-y-10">
+          {/* Topic Accordion */}
           <div>
-            <h3 className="text-xl font-bold mb-1 text-white">Speaking Topics</h3>
-            <p className="text-muted-foreground mb-6 text-sm">
-              Topics grouped by audience. Expand each to explore what we cover.
+            <p
+              style={{
+                fontFamily: '"Geist Mono", ui-monospace, monospace',
+                fontSize: '0.5625rem',
+                color: '#A59F97',
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                marginBottom: '1rem',
+              }}
+            >
+              Topics by audience
             </p>
-            <Accordion type="single" collapsible className="w-full">
+            <Accordion type="single" collapsible className="w-full divide-y divide-[#E5E5E5]">
               {topicBuckets.map((bucket, bi) => (
-                <AccordionItem key={bi} value={`bucket-${bi}`} className="border-border/50">
-                  <AccordionTrigger className="text-left hover:no-underline">
-                    <div className="flex flex-col items-start">
-                      <span className="text-base font-semibold text-white">{bucket.bucketTitle}</span>
-                      <span className="text-xs text-muted-foreground">{bucket.tagline}</span>
+                <AccordionItem key={bi} value={`bucket-${bi}`} className="border-none py-1">
+                  <AccordionTrigger className="text-left hover:no-underline py-4">
+                    <div className="flex flex-col items-start gap-0.5">
+                      <span
+                        style={{
+                          fontFamily: 'Inter, sans-serif',
+                          fontSize: '0.9375rem',
+                          fontWeight: 600,
+                          color: '#000000',
+                        }}
+                      >
+                        {bucket.bucketTitle}
+                      </span>
+                      <span
+                        style={{
+                          fontFamily: 'Inter, sans-serif',
+                          fontSize: '0.8125rem',
+                          color: '#777169',
+                        }}
+                      >
+                        {bucket.tagline}
+                      </span>
                     </div>
                   </AccordionTrigger>
-                  <AccordionContent>
-                    <p className="text-sm text-muted-foreground mb-4">{bucket.whyStatement}</p>
-                    <div className="space-y-3">
+                  <AccordionContent className="pb-4">
+                    <p
+                      style={{
+                        fontFamily: 'Inter, sans-serif',
+                        fontSize: '0.8125rem',
+                        color: '#777169',
+                        marginBottom: '1rem',
+                        lineHeight: 1.6,
+                      }}
+                    >
+                      {bucket.whyStatement}
+                    </p>
+                    <div className="space-y-2">
                       {bucket.topics.map((topic, ti) => {
                         const Icon = topic.icon;
                         return (
-                          <div key={ti} className="glass rounded-lg p-4">
+                          <div key={ti} className="border border-[#E5E5E5] p-4">
                             <div className="flex items-start gap-3">
-                              <div className="p-2 rounded-lg bg-purple-500/10 flex-shrink-0">
-                                <Icon className="w-4 h-4 text-purple-400" />
-                              </div>
+                              <Icon className="w-4 h-4 text-[#A59F97] flex-shrink-0 mt-0.5" />
                               <div>
-                                <h4 className="text-sm font-semibold text-white mb-1">{topic.title}</h4>
-                                <p className="text-xs text-muted-foreground mb-1">{topic.summary}</p>
-                                <p className="text-xs text-gray-400 leading-relaxed">{topic.details}</p>
+                                <h4
+                                  style={{
+                                    fontFamily: 'Inter, sans-serif',
+                                    fontSize: '0.875rem',
+                                    fontWeight: 600,
+                                    color: '#000000',
+                                    marginBottom: '0.25rem',
+                                  }}
+                                >
+                                  {topic.title}
+                                </h4>
+                                <p
+                                  style={{
+                                    fontFamily: 'Inter, sans-serif',
+                                    fontSize: '0.8125rem',
+                                    color: '#777169',
+                                    lineHeight: 1.6,
+                                  }}
+                                >
+                                  {topic.details}
+                                </p>
                               </div>
                             </div>
                           </div>
@@ -246,58 +298,58 @@ function CorporateInfoModal({ isOpen, onClose }: { isOpen: boolean; onClose: () 
             </Accordion>
           </div>
 
-          {/* Divider */}
-          <div className="border-t border-border/40" />
-
-          {/* Contact CTA */}
-          <div className="grid md:grid-cols-2 gap-10 items-start">
-            <div>
-              <h2 className="text-2xl font-bold mb-4 section-glow">Have Questions?</h2>
-              <p className="text-muted-foreground mb-6 text-sm">
-                Looking for a speaker for your next event? We would love to discuss how we can bring value to your audience.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href="mailto:alexis@upstart-labs.com?subject=Speaking%20Inquiry"
-                  className="inline-flex items-center text-white/70 hover:text-white transition-colors gap-[8px]"
+          <div className="border-t border-[#E5E5E5] pt-8">
+            <p
+              style={{
+                fontFamily: '"Geist Mono", ui-monospace, monospace',
+                fontSize: '0.5625rem',
+                color: '#A59F97',
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                marginBottom: '0.75rem',
+              }}
+            >
+              Popular formats
+            </p>
+            <ul className="space-y-2">
+              {[
+                "Keynote Presentations (45-60 min)",
+                "Interactive Workshops (Half or Full Day)",
+                "Panel Discussions and Fireside Chats",
+                "Executive Briefings",
+                "Virtual and In-Person Events",
+              ].map((format) => (
+                <li
+                  key={format}
+                  className="flex items-center gap-3"
                   style={{
-                    fontSize: "0.7rem", letterSpacing: "0.22em", textTransform: "uppercase",
-                    fontWeight: 600, textDecoration: "none",
+                    fontFamily: 'Inter, sans-serif',
+                    fontSize: '0.875rem',
+                    color: '#3F3B36',
                   }}
                 >
-                  <Mail className="w-4 h-4" />
-                  Contact Us
-                </a>
-                <Link
-                  href="/"
-                  className="inline-flex items-center text-white/70 hover:text-white transition-colors gap-[8px]"
-                  style={{
-                    fontSize: "0.7rem", letterSpacing: "0.22em", textTransform: "uppercase",
-                    fontWeight: 600, textDecoration: "none",
-                  }}
-                >
-                  View Our Portfolio
-                </Link>
-              </div>
-            </div>
+                  <CheckCircle className="w-3.5 h-3.5 text-[#FF4704] flex-shrink-0" />
+                  {format}
+                </li>
+              ))}
+            </ul>
+          </div>
 
-            <div className="bg-background/50 backdrop-blur-sm border border-border rounded-2xl p-6">
-              <h3 className="text-lg font-semibold mb-4 text-purple-300">Popular Formats</h3>
-              <ul className="space-y-3">
-                {[
-                  "Keynote Presentations (45-60 min)",
-                  "Interactive Workshops (Half or Full Day)",
-                  "Panel Discussions and Fireside Chats",
-                  "Executive Briefings",
-                  "Virtual and In-Person Events",
-                ].map((format) => (
-                  <li key={format} className="flex items-center gap-3 text-muted-foreground">
-                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
-                    <span className="text-sm">{format}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="border-t border-[#E5E5E5] pt-8">
+            <a
+              href="mailto:alexis@upstart-labs.com?subject=Speaking%20Inquiry"
+              className="inline-flex items-center gap-2 text-[#3F3B36] hover:text-black transition-colors"
+              style={{
+                fontFamily: '"Geist Mono", ui-monospace, monospace',
+                fontSize: '0.6rem',
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                fontWeight: 400,
+              }}
+            >
+              <Mail className="w-3.5 h-3.5" />
+              Contact for booking →
+            </a>
           </div>
         </div>
       </div>
@@ -309,89 +361,174 @@ export default function SpeakingContent() {
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
 
   return (
-    <div>
-      {/* Speaking Engagements Grid */}
-      <div className="mb-16 pt-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {engagementCards.map((item, i) => (
-            <div
-              key={i}
-              className="glass rounded-2xl overflow-hidden hover:glow-purple group transition-all duration-700"
-              style={{
-                backgroundColor: '#303032',
-                transition: 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
-              }}
-            >
-              {/* Image area */}
-              <div className="aspect-video relative overflow-hidden">
-                {item.image ? (
-                  <>
-                    <img
-                      src={item.image}
-                      alt={item.org}
-                      className="w-[120%] h-[120%] max-w-none max-h-none object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent pointer-events-none" />
-                  </>
-                ) : (
-                  <div className="w-full h-full bg-gradient-to-br from-purple-900/60 to-blue-900/60 flex items-center justify-center">
-                    <Mic2 className="w-12 h-12 text-purple-400/60" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent pointer-events-none" />
-                  </div>
-                )}
-                {item.tag && (
-                  <div className="absolute top-4 left-4">
-                    <Badge variant="secondary" className="bg-purple-500/80 text-white border-purple-400/50 text-xs font-semibold">
-                      {item.tag}
-                    </Badge>
-                  </div>
-                )}
-              </div>
-
-              {/* Content area */}
-              <div className="p-6">
-                <div className="flex flex-wrap gap-2 mb-3">
-                  {item.tags.map((tag, ti) => (
-                    <Badge key={ti} variant="outline" className="text-xs">
-                      {tag}
-                    </Badge>
-                  ))}
+    <div className="pt-8">
+      {/* Engagement cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[#E5E5E5] mb-12">
+        {engagementCards.map((item, i) => (
+          <div
+            key={i}
+            className="group bg-white overflow-hidden cursor-default"
+            onClick={item.infoModal ? () => setIsInfoModalOpen(true) : undefined}
+            style={{ cursor: item.infoModal ? 'pointer' : 'default' }}
+          >
+            {/* Image */}
+            <div className="aspect-video relative overflow-hidden bg-[#F5F3F1]">
+              {item.image ? (
+                <img
+                  src={item.image}
+                  alt={item.org}
+                  className="w-full h-full object-cover object-center group-hover:scale-[1.025] transition-transform duration-500"
+                />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center bg-[#F5F3F1]">
+                  <Mic2 className="w-10 h-10 text-[#E5E5E5]" />
                 </div>
-
-                <h3 className="text-xl font-bold mb-1 group-hover:text-primary transition-colors">
-                  {item.org}
-                </h3>
-                <p className="text-xs text-white/40 mb-3">{item.year}</p>
-                <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                  {item.description}
-                </p>
-
-                {item.link && (
-                  <a
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
+              )}
+              {item.tag && (
+                <div className="absolute top-3 left-3">
+                  <span
+                    style={{
+                      fontFamily: '"Geist Mono", ui-monospace, monospace',
+                      fontSize: '0.5rem',
+                      color: '#FF4704',
+                      letterSpacing: '0.1em',
+                      textTransform: 'uppercase',
+                      background: '#FFFFFF',
+                      border: '1px solid #E5E5E5',
+                      padding: '2px 7px',
+                    }}
                   >
-                    <ExternalLink className="w-4 h-4" />
-                    View Event
-                  </a>
-                )}
-
-                {item.infoModal && (
-                  <button
-                    onClick={() => setIsInfoModalOpen(true)}
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
-                  >
-                    <Info className="w-4 h-4" />
-                    More Information
-                  </button>
-                )}
-              </div>
+                    {item.tag}
+                  </span>
+                </div>
+              )}
             </div>
-          ))}
-        </div>
+
+            {/* Content */}
+            <div className="p-6">
+              <p
+                style={{
+                  fontFamily: '"Geist Mono", ui-monospace, monospace',
+                  fontSize: '0.5rem',
+                  color: '#A59F97',
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                  marginBottom: '0.4rem',
+                }}
+              >
+                {item.year}
+              </p>
+              <h3
+                style={{
+                  fontFamily: '"Cormorant Garamond", Georgia, serif',
+                  fontWeight: 400,
+                  fontSize: '1.25rem',
+                  color: '#000000',
+                  lineHeight: 1.2,
+                  marginBottom: '0.5rem',
+                }}
+                className="group-hover:opacity-70 transition-opacity"
+              >
+                {item.org}
+              </h3>
+              <p
+                style={{
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '0.8125rem',
+                  color: '#777169',
+                  lineHeight: 1.65,
+                  marginBottom: '1rem',
+                }}
+              >
+                {item.description}
+              </p>
+              <div className="flex flex-wrap gap-1.5 mb-4">
+                {item.tags.map((tag, ti) => (
+                  <span
+                    key={ti}
+                    style={{
+                      fontFamily: '"Geist Mono", ui-monospace, monospace',
+                      fontSize: '0.5rem',
+                      color: '#A59F97',
+                      letterSpacing: '0.06em',
+                      textTransform: 'uppercase',
+                      border: '1px solid #E5E5E5',
+                      padding: '2px 7px',
+                    }}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              {item.link && (
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="inline-flex items-center gap-1.5 text-[#3F3B36] hover:text-black transition-colors"
+                  style={{
+                    fontFamily: '"Geist Mono", ui-monospace, monospace',
+                    fontSize: '0.5625rem',
+                    letterSpacing: '0.1em',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  <ExternalLink className="w-3 h-3" />
+                  View Event
+                </a>
+              )}
+              {item.infoModal && (
+                <button
+                  className="inline-flex items-center gap-1.5 text-[#3F3B36] hover:text-black transition-colors"
+                  style={{
+                    fontFamily: '"Geist Mono", ui-monospace, monospace',
+                    fontSize: '0.5625rem',
+                    letterSpacing: '0.1em',
+                    textTransform: 'uppercase',
+                    background: 'none',
+                    cursor: 'pointer',
+                  }}
+                >
+                  <Info className="w-3 h-3" />
+                  View Topics
+                </button>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* CTA row */}
+      <div className="border-t border-[#E5E5E5] pt-8 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+        <a
+          href="mailto:alexis@upstart-labs.com?subject=Speaking%20Inquiry"
+          className="inline-flex items-center gap-2 text-[#3F3B36] hover:text-black transition-colors"
+          style={{
+            fontFamily: '"Geist Mono", ui-monospace, monospace',
+            fontSize: '0.625rem',
+            letterSpacing: '0.12em',
+            textTransform: 'uppercase',
+          }}
+        >
+          <Mail className="w-3.5 h-3.5" />
+          Book a session →
+        </a>
+        <button
+          onClick={() => setIsInfoModalOpen(true)}
+          className="inline-flex items-center gap-2 text-[#777169] hover:text-black transition-colors"
+          style={{
+            fontFamily: '"Geist Mono", ui-monospace, monospace',
+            fontSize: '0.625rem',
+            letterSpacing: '0.12em',
+            textTransform: 'uppercase',
+            background: 'none',
+            cursor: 'pointer',
+          }}
+        >
+          <Info className="w-3.5 h-3.5" />
+          View all topics
+        </button>
       </div>
 
       <CorporateInfoModal isOpen={isInfoModalOpen} onClose={() => setIsInfoModalOpen(false)} />

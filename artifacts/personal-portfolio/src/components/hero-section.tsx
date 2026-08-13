@@ -8,6 +8,12 @@ interface HeroSectionProps {
   onOpenSiteModal?: () => void;
 }
 
+const METRICS = [
+  { value: "545.5%", label: "User Base Increase", projectId: "caloes" },
+  { value: "$2.1B",  label: "Disaster Relief Platform", projectId: "pa-portal" },
+  { value: "75%",    label: "Ticket Reduction", projectId: "pa-portal" },
+] as const;
+
 export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroSectionProps) {
   const { isVisible, settings, applySettings, closePanel } = useAdminPanel();
 
@@ -16,8 +22,6 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
     return urlParams.get("company") || settings.companyName.trim();
   }, [settings.companyName]);
 
-  const preTitle = companyName ? `Hi ${companyName}, I'm` : "Hi, I am";
-
   const openCaseStudy = (projectId: string) => {
     window.dispatchEvent(new CustomEvent("openCaseStudy", { detail: { projectId } }));
   };
@@ -25,195 +29,155 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
   return (
     <section
       id="home"
-      style={{
-        minHeight: "100vh",
-        background: "#000",
-        display: "flex",
-        flexDirection: "column",
-        overflow: "hidden",
-        paddingTop: "80px",
-        position: "relative",
-        fontFamily: "'Montserrat', sans-serif",
-      }}
+      className="min-h-screen bg-white flex flex-col"
+      style={{ paddingTop: '56px' }}
     >
-      <style>{`
-        .hero-title-card {
-          padding: 0 24px 24px;
-          position: relative;
-          z-index: 10;
-          flex-shrink: 0;
-        }
-        .hero-metrics-bar {
-          padding: 18px 24px;
-          flex-shrink: 0;
-          position: relative;
-          z-index: 10;
-        }
-        .hero-metrics-bar > .max-w-7xl {
-          display: flex;
-          align-items: center;
-        }
-        .hero-metric-item {
-          display: flex;
-          align-items: baseline;
-          gap: 8px;
-          cursor: pointer;
-        }
-        @media (max-width: 768px) {
-          .hero-title-card { padding: 0 24px 20px; }
-          .hero-metrics-bar { padding: 14px 24px; }
-          .hero-metrics-bar > .max-w-7xl { flex-wrap: wrap; gap: 10px; }
-          .hero-metric-item {
-            padding-right: 0 !important;
-            margin-right: 0 !important;
-            border-right: none !important;
-          }
-        }
-      `}</style>
-      {/* Subtle bottom vignette */}
-      <div style={{
-        position: "absolute", inset: 0, pointerEvents: "none", zIndex: 0,
-        background: "radial-gradient(ellipse 120% 100% at 50% 100%, rgba(5,6,8,0.55) 0%, transparent 55%)",
-      }} />
       {/* Breathing space */}
-      <div style={{ flex: 1, position: "relative", zIndex: 10 }} />
-      {/* Title card — anchored to lower portion */}
-      <div className="hero-title-card">
-        <div className="max-w-7xl mx-auto">
-        {/* Pre-title */}
-        <div
-          style={{
-            fontSize: "18px", fontWeight: 200, color: "rgba(255,255,255,0.55)",
-            letterSpacing: "0.04em", marginBottom: "8px",
-          }}
-          className="text-[color:var(--primary-foreground)]">
-          {preTitle}
-        </div>
+      <div className="flex-1" />
 
-        {/* Hero name */}
-        <h1 style={{
-          fontWeight: 800,
-          fontSize: "clamp(52px, 10vw, 110px)",
-          lineHeight: 0.95,
-          letterSpacing: "-0.05em",
-          margin: "0 0 28px -4px",
-          color: "#5fc5f8",
-          textShadow: [
-            "0 0 15px rgba(95,197,248,0.9)",
-            "0 0 40px rgba(95,197,248,0.5)",
-            "0 0 90px rgba(95,197,248,0.25)",
-            "0 0 180px rgba(95,197,248,0.1)",
-          ].join(", "),
-        }}>
+      {/* Title block — anchored to lower portion */}
+      <div className="max-w-7xl mx-auto px-6 pb-10 w-full">
+
+        {/* Eyebrow */}
+        {companyName ? (
+          <p
+            style={{
+              fontFamily: '"Geist Mono", ui-monospace, monospace',
+              fontSize: '0.625rem',
+              fontWeight: 400,
+              color: '#777169',
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              marginBottom: '1.25rem',
+            }}
+          >
+            Hi {companyName}, I&rsquo;m
+          </p>
+        ) : (
+          <p
+            style={{
+              fontFamily: '"Geist Mono", ui-monospace, monospace',
+              fontSize: '0.625rem',
+              fontWeight: 400,
+              color: '#FF4704',
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              marginBottom: '1.25rem',
+            }}
+          >
+            Product Design · North Conway, NH · Remote
+          </p>
+        )}
+
+        {/* Name masthead */}
+        <h1
+          style={{
+            fontFamily: '"Cormorant Garamond", Georgia, serif',
+            fontWeight: 300,
+            fontSize: 'clamp(60px, 10vw, 120px)',
+            lineHeight: 0.93,
+            color: '#000000',
+            margin: '0 0 1.75rem -3px',
+            letterSpacing: '-0.02em',
+          }}
+        >
           Alexis Brochu
         </h1>
 
-        {/* Tagline + Subhead group */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "40px" }}>
-          <p
-            style={{
-              fontSize: "clamp(1rem, 2vw, 1.25rem)", fontWeight: 300,
-              letterSpacing: "0.06em", textTransform: "uppercase",
-              color: "#F3E8B9", margin: 0,
-              lineHeight: 1.3,
-            }}
-          >
-            It begins with humans.
-          </p>
-          <p style={{
-            fontSize: "0.95rem", fontWeight: 300, letterSpacing: "0.02em",
-            color: "rgba(255,255,255,0.6)", margin: 0,
-            lineHeight: 1.6, maxWidth: "480px",
-          }}>
-            I help teams ship products people actually adopt.
-          </p>
-        </div>
+        {/* Tagline */}
+        <p
+          style={{
+            fontFamily: 'Inter, sans-serif',
+            fontSize: '1rem',
+            fontWeight: 400,
+            color: '#3F3B36',
+            lineHeight: 1.65,
+            maxWidth: '460px',
+            marginBottom: '2.25rem',
+          }}
+        >
+          I help teams ship products people actually adopt. The human side of
+          change is just as engineerable as the product itself.
+        </p>
 
-        {/* CTA row */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "40px" }}>
+        {/* CTA links */}
+        <div className="flex flex-col gap-2.5 mb-10">
           <button
             onClick={onOpenSiteModal}
             data-testid="button-hero-site"
-            className="inline-flex items-center text-white/70 hover:text-white transition-colors gap-[8px] pb-[3px]"
+            className="inline-flex items-center gap-2 text-[#A59F97] hover:text-[#3F3B36] transition-colors w-fit"
             style={{
-              fontSize: "0.7rem", letterSpacing: "0.22em", textTransform: "uppercase",
-              fontWeight: 600, textDecoration: "none",
-              borderBottom: "1px solid rgba(255,255,255,0.25)", paddingBottom: "3px",
-              background: "none", cursor: "pointer",
+              fontFamily: 'Inter, sans-serif',
+              fontSize: '0.6875rem',
+              fontWeight: 600,
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
             }}
           >
-            <Code style={{ width: "14px", height: "14px" }} />
+            <Code className="w-3 h-3" />
             How I built this site →
           </button>
-
-          {/* GovTech Award credit */}
           <button
             onClick={onOpenAwardModal}
             data-testid="button-hero-tech-award"
-            className="inline-flex items-center text-white/70 hover:text-white transition-colors gap-[8px] pb-[3px]"
+            className="inline-flex items-center gap-2 text-[#A59F97] hover:text-[#3F3B36] transition-colors w-fit"
             style={{
-              fontSize: "0.7rem", letterSpacing: "0.22em", textTransform: "uppercase",
-              fontWeight: 600, textDecoration: "none",
-              borderBottom: "1px solid rgba(255,255,255,0.25)", paddingBottom: "3px",
-              background: "none", cursor: "pointer",
+              fontFamily: 'Inter, sans-serif',
+              fontSize: '0.6875rem',
+              fontWeight: 600,
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
             }}
           >
-            <Trophy style={{ width: "14px", height: "14px" }} />
+            <Trophy className="w-3 h-3" />
             GovTech Award Winner →
           </button>
         </div>
-        </div>
       </div>
-      {/* Bottom rule */}
-      <div style={{
-        height: "1px", background: "rgba(255,255,255,0.05)",
-        margin: "0 24px", flexShrink: 0, position: "relative", zIndex: 10,
-      }} />
+
       {/* Metrics footnote bar */}
-      <div className="hero-metrics-bar">
-        <div className="max-w-7xl mx-auto w-full flex items-center">
-        {[
-          { value: "545.5%", label: "User Base Increase", projectId: "caloes" },
-          { value: "$2.1B", label: "Disaster Relief Platform", projectId: "pa-portal" },
-          { value: "75%", label: "Ticket Reduction", projectId: "pa-portal" },
-        ].map((m, i) => (
-          <div
-            key={m.value}
-            className="hero-metric-item"
-            onClick={() => openCaseStudy(m.projectId)}
-            style={{
-              cursor: "pointer",
-              paddingRight: "36px",
-              marginRight: "36px",
-              borderRight: i < 2 ? "1px solid rgba(255,255,255,0.05)" : "none",
-              transition: "opacity 0.2s",
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLDivElement).style.opacity = "1";
-              (e.currentTarget.querySelectorAll("span") as NodeListOf<HTMLSpanElement>).forEach(s => {
-                if (s.style.fontSize === "1.05rem") s.style.color = "rgba(255,255,255,1)";
-                else s.style.color = "rgba(255,255,255,0.7)";
-              });
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget.querySelectorAll("span") as NodeListOf<HTMLSpanElement>).forEach(s => {
-                if (s.style.fontSize === "1.05rem") s.style.color = "rgba(255,255,255,0.7)";
-                else s.style.color = "rgba(255,255,255,0.45)";
-              });
-            }}
-          >
-            <span style={{
-              fontSize: "1.05rem", fontWeight: 700, color: "rgba(255,255,255,0.7)",
-              letterSpacing: "-0.02em", lineHeight: 1, transition: "color 0.2s",
-            }}>{m.value}</span>
-            <span style={{
-              fontSize: "0.58rem", color: "rgba(255,255,255,0.45)",
-              letterSpacing: "0.1em", textTransform: "uppercase", transition: "color 0.2s",
-            }}>{m.label}</span>
-          </div>
-        ))}
+      <div className="border-t border-[#E5E5E5]">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex flex-wrap items-center gap-y-3">
+          {METRICS.map((m, i) => (
+            <button
+              key={m.value}
+              onClick={() => openCaseStudy(m.projectId)}
+              className="group text-left flex items-baseline gap-2 hover:opacity-70 transition-opacity"
+              style={{
+                paddingRight: i < METRICS.length - 1 ? '2.5rem' : 0,
+                marginRight: i < METRICS.length - 1 ? '2.5rem' : 0,
+                borderRight: i < METRICS.length - 1 ? '1px solid #E5E5E5' : 'none',
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '1.0625rem',
+                  fontWeight: 700,
+                  color: '#000000',
+                  letterSpacing: '-0.02em',
+                  lineHeight: 1,
+                }}
+              >
+                {m.value}
+              </span>
+              <span
+                style={{
+                  fontFamily: '"Geist Mono", ui-monospace, monospace',
+                  fontSize: '0.5625rem',
+                  color: '#777169',
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                  lineHeight: 1,
+                }}
+              >
+                {m.label}
+              </span>
+            </button>
+          ))}
         </div>
       </div>
+
       <AdminPanel
         isVisible={isVisible}
         onClose={closePanel}

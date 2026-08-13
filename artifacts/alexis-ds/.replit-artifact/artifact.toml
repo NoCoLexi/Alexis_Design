@@ -1,0 +1,19 @@
+kind = "design-system"
+previewPath = "/alexis-ds/"
+title = "Alexis Brochu Design System"
+description = "Personal brand design system for Alexis Brochu: editorial, document-grade. Cormorant Garamond for display, Inter for body and UI, Geist Mono for labels. Ember #FF4704 is the sole accent color. Used for the personal portfolio and personal collateral."
+version = "1.0.0"
+id = "artifacts/alexis-ds"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/alexis-ds/" ]
+localPort = 25717
+
+[services.development]
+run = "pnpm --filter @workspace/alexis-ds run dev"
+
+[services.env]
+PORT = "25717"
+BASE_PATH = "/alexis-ds/"

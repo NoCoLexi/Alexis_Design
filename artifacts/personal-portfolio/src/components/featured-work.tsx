@@ -647,7 +647,7 @@ const projects: Project[] = [
 
 
 
-// Project card with conditional parallax effects
+// Editorial project card
 const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
   project: Project;
   index: number;
@@ -655,70 +655,31 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const [parallaxY, setParallaxY] = useState(0);
-
-  // Disable parallax for all cards to ensure consistent hover behavior
-  const disableParallax = true;
 
   useEffect(() => {
     const card = cardRef.current;
     if (!card) return;
-
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          setIsVisible(entry.isIntersecting);
-        });
-      },
-      { threshold: 0.1, rootMargin: '50px' }
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.08, rootMargin: '40px' }
     );
-
     observer.observe(card);
-
-    // Skip scroll handling if parallax is disabled
-    if (disableParallax) {
-      return () => {
-        observer.disconnect();
-      };
-    }
-
-    const handleScroll = () => {
-      if (!card) return;
-
-      const rect = card.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      if (rect.top < windowHeight && rect.bottom > 0) {
-        const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
-        setParallaxY(progress * 30);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Initial calculation
-
-    return () => {
-      observer.disconnect();
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [disableParallax]);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div
       ref={cardRef}
-      className={`glass rounded-2xl overflow-hidden hover:glow-purple group transition-all duration-700 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-      }`}
+      className="group cursor-pointer overflow-hidden border border-[#E5E5E5] bg-white"
       onClick={() => onOpenCaseStudy(project.id)}
       style={{
-        transform: disableParallax
-          ? `scale(${isVisible ? 1 : 0.95})`
-          : `translateY(${isVisible ? -parallaxY * 0.2 : 20}px) scale(${isVisible ? 1 : 0.95})`,
-        transition: 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-        backgroundColor: '#303032'
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? 'translateY(0)' : 'translateY(14px)',
+        transition: `opacity 0.55s ease ${index * 60}ms, transform 0.55s ease ${index * 60}ms`,
       }}
     >
-      <div className="aspect-video relative overflow-hidden">
+      {/* Image */}
+      <div className="aspect-video relative overflow-hidden bg-[#F5F3F1]">
         {project.embedUrl ? (
           <>
             <iframe
@@ -728,7 +689,7 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
               loading="lazy"
               referrerPolicy="no-referrer"
               sandbox="allow-scripts allow-same-origin"
-              style={{ pointerEvents: 'none', backgroundColor: '#000' }}
+              style={{ pointerEvents: 'none' }}
             />
             <div className="absolute inset-0" aria-hidden="true" />
           </>
@@ -736,56 +697,98 @@ const ProjectCard = React.memo(({ project, index, onOpenCaseStudy }: {
           <img
             src={project.image}
             alt={project.title}
-            className={`w-full h-full ${project.image === mallinckrodtMedicalLogo ? 'object-contain p-8' : 'object-cover object-top'} group-hover:scale-105 transition-transform duration-500`}
-            loading={index < 2 ? "eager" : "lazy"}
+            className={`w-full h-full group-hover:scale-[1.025] transition-transform duration-500 ${
+              project.image === mallinckrodtMedicalLogo ? 'object-contain p-8 bg-white' : 'object-cover object-top'
+            }`}
+            loading={index < 3 ? 'eager' : 'lazy'}
             decoding="async"
-            style={{
-              ...(project.image === mallinckrodtMedicalLogo ? { backgroundColor: '#ffffff' } : {}),
-              ...(disableParallax
-                ? (project.image === riConventionCenterImage ? { objectPosition: 'center 35%' } : {})
-                : {
-                    transform: `translateY(${parallaxY * 0.1}px)`,
-                    transition: 'transform 0.1s ease-out',
-                    ...(project.image === riConventionCenterImage ? { objectPosition: 'center 35%' } : {})
-                  })
-            }}
+            style={project.image === riConventionCenterImage ? { objectPosition: 'center 35%' } : undefined}
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent pointer-events-none"></div>
-        <div className="absolute top-4 left-4 flex gap-2">
-          {project.award && (
-            <Badge variant="secondary" className="bg-chart-3/80 text-foreground flex items-center gap-1">
-              <Award className="w-3 h-3" />
-              Award Winner
-            </Badge>
-          )}
-        </div>
+        {/* Award badge */}
+        {project.award && (
+          <div className="absolute top-3 left-3">
+            <span
+              className="inline-flex items-center gap-1 bg-white border border-[#E5E5E5] px-2 py-0.5"
+              style={{
+                fontFamily: '"Geist Mono", ui-monospace, monospace',
+                fontSize: '0.5rem',
+                color: '#FF4704',
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+              }}
+            >
+              <Award className="w-2.5 h-2.5" />
+              Award
+            </span>
+          </div>
+        )}
       </div>
 
-      <div className="p-8">
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.tags.map((tag, tagIndex) => (
-            <Badge 
-              key={`${project.id}-tag-${tagIndex}`} 
-              variant="outline" 
-              className="text-xs"
-            >
-              {tag}
-            </Badge>
-          ))}
-        </div>
+      {/* Card content */}
+      <div className="p-6 bg-white">
+        {/* Category label */}
+        <p
+          style={{
+            fontFamily: '"Geist Mono", ui-monospace, monospace',
+            fontSize: '0.5625rem',
+            color: '#A59F97',
+            letterSpacing: '0.12em',
+            textTransform: 'uppercase',
+            marginBottom: '0.5rem',
+          }}
+        >
+          {project.category.replace(/-/g, ' ')}
+        </p>
 
-        <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">
+        {/* Title */}
+        <h3
+          style={{
+            fontFamily: '"Cormorant Garamond", Georgia, serif',
+            fontWeight: 400,
+            fontSize: '1.375rem',
+            color: '#000000',
+            lineHeight: 1.2,
+            letterSpacing: '-0.01em',
+            marginBottom: '0.625rem',
+          }}
+          className="group-hover:opacity-70 transition-opacity"
+        >
           {project.title}
         </h3>
-        <p className="text-md text-muted-foreground mb-4">
+
+        {/* Description */}
+        <p
+          style={{
+            fontFamily: 'Inter, sans-serif',
+            fontSize: '0.8125rem',
+            color: '#777169',
+            lineHeight: 1.65,
+            marginBottom: '1.125rem',
+          }}
+        >
           {project.description}
         </p>
 
-
-
-
-
+        {/* Tags */}
+        <div className="flex flex-wrap gap-1.5">
+          {project.tags.slice(0, 4).map((tag, i) => (
+            <span
+              key={`${project.id}-tag-${i}`}
+              style={{
+                fontFamily: '"Geist Mono", ui-monospace, monospace',
+                fontSize: '0.5rem',
+                color: '#A59F97',
+                letterSpacing: '0.06em',
+                textTransform: 'uppercase',
+                border: '1px solid #E5E5E5',
+                padding: '2px 7px',
+              }}
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -796,7 +799,7 @@ export default function FeaturedWork() {
 
   const financeProjects = ['3d-layered-agent', 'aixux-summit-keynote', 'conductor-networking-agent', 'handshakr', 'wechore', 'stakeholder-invaders', 'ilave', 'subscriptex'];
   const healthcarePriority = ['fairgrounds-coffee', 'providence-school-system'];
-  
+
   const filteredProjects = useMemo(() => {
     const filtered = projects.filter(project => {
       if (filters.vertical !== 'all') {
@@ -810,64 +813,32 @@ export default function FeaturedWork() {
           if (!project.verticals.includes(filters.vertical as Vertical)) return false;
         }
       }
-      
       return true;
     });
 
     if (filters.vertical === 'finance') {
-      return [...filtered].sort(
-        (a, b) => financeProjects.indexOf(a.id) - financeProjects.indexOf(b.id)
-      );
+      return [...filtered].sort((a, b) => financeProjects.indexOf(a.id) - financeProjects.indexOf(b.id));
     }
-
     if (filters.vertical === 'healthcare') {
-      const rank = (id: string) => {
-        const i = healthcarePriority.indexOf(id);
-        return i === -1 ? healthcarePriority.length : i;
-      };
+      const rank = (id: string) => { const i = healthcarePriority.indexOf(id); return i === -1 ? healthcarePriority.length : i; };
       return [...filtered].sort((a, b) => rank(a.id) - rank(b.id));
     }
 
     const allProjectsOrder = [
-      'ca-innovation-award',
-      '3d-layered-agent',
-      'aixux-summit-keynote',
-      'conductor-networking-agent',
-      'handshakr',
-      'grants-management-sikich',
-      'pa-portal',
-      'stakeholder-invaders',
-      'fairgrounds-coffee',
-      'caloes',
-      'ocm',
-      'eag',
-      'coe-engage',
-      'ilave',
-      'subscriptex',
-      'wechore',
-      'providence-school-system',
-      'abc6-rebrand-alexis-design',
-      'lifespan-health-care',
-      'ttools-alexis-design',
-      'ri-convention-center',
-      'jwu-branding',
-      'tf-green-gala',
-      'gatorade-zipatoni',
-      'budweiser-zipatoni',
-      'mallinckrodt-medical',
+      'ca-innovation-award','3d-layered-agent','aixux-summit-keynote','conductor-networking-agent',
+      'handshakr','grants-management-sikich','pa-portal','stakeholder-invaders','fairgrounds-coffee',
+      'caloes','ocm','eag','coe-engage','ilave','subscriptex','wechore','providence-school-system',
+      'abc6-rebrand-alexis-design','lifespan-health-care','ttools-alexis-design','ri-convention-center',
+      'jwu-branding','tf-green-gala','gatorade-zipatoni','budweiser-zipatoni','mallinckrodt-medical',
       'health-wellness-expertise',
     ];
-    const rank = (id: string) => {
-      const i = allProjectsOrder.indexOf(id);
-      return i === -1 ? allProjectsOrder.length : i;
-    };
+    const rank = (id: string) => { const i = allProjectsOrder.indexOf(id); return i === -1 ? allProjectsOrder.length : i; };
     return [...filtered].sort((a, b) => rank(a.id) - rank(b.id));
   }, [filters.vertical]);
 
   const openCaseStudy = useCallback((projectId: string) => {
     trackEvent('case_study_viewed', 'portfolio', projectId);
-    const event = new CustomEvent('openCaseStudy', { detail: { projectId } });
-    window.dispatchEvent(event);
+    window.dispatchEvent(new CustomEvent('openCaseStudy', { detail: { projectId } }));
   }, []);
 
   const [showSpeaking, setShowSpeaking] = useState(false);
@@ -877,61 +848,93 @@ export default function FeaturedWork() {
     setVertical(vertical);
   }, [setVertical]);
 
-  const handleSetSpeaking = useCallback(() => {
-    setShowSpeaking(true);
-  }, []);
+  const handleSetSpeaking = useCallback(() => setShowSpeaking(true), []);
+
+  const activeFilter = showSpeaking ? 'speaking' : filters.vertical;
 
   return (
-    <section id="work" className="py-24 px-6 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-radial from-primary/5 via-transparent to-transparent"></div>
-      <div className="max-w-7xl mx-auto relative">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl section-glow mb-8 text-center">
-            Product, Design & Strategy
+    <section id="work" className="border-t border-[#E5E5E5] py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-6">
+
+        {/* Section header */}
+        <div className="mb-10">
+          <p
+            style={{
+              fontFamily: '"Geist Mono", ui-monospace, monospace',
+              fontSize: '0.625rem',
+              color: '#A59F97',
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              marginBottom: '1rem',
+            }}
+          >
+            Selected work
+          </p>
+          <h2
+            style={{
+              fontFamily: '"Cormorant Garamond", Georgia, serif',
+              fontWeight: 300,
+              fontSize: 'clamp(1.75rem, 4vw, 2.75rem)',
+              color: '#000000',
+              lineHeight: 1.1,
+              letterSpacing: '-0.01em',
+              marginBottom: '1.75rem',
+            }}
+          >
+            Product, design and strategy.
           </h2>
 
-          {/* Industry Filter (pills) */}
-          <div className="mb-6">
-            <div className="flex flex-wrap justify-center gap-2">
-              {availableVerticals.map((vertical) => {
-                const isActive = !showSpeaking && filters.vertical === vertical;
-                return (
-                  <button
-                    key={vertical}
-                    onClick={() => handleSetVertical(vertical)}
-                    className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
-                      isActive
-                        ? 'bg-primary text-primary-foreground shadow-sm'
-                        : 'bg-muted/30 text-muted-foreground hover:bg-muted/50 hover:text-foreground'
-                    }`}
-                    data-testid={`vertical-filter-${vertical}`}
-                  >
-                    {verticalLabels[vertical]}
-                  </button>
-                );
-              })}
-              <button
-                onClick={() => handleSetSpeaking()}
-                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
-                  showSpeaking
-                    ? 'bg-primary text-primary-foreground shadow-sm'
-                    : 'bg-muted/30 text-muted-foreground hover:bg-muted/50 hover:text-foreground'
-                }`}
-                data-testid="vertical-filter-speaking"
-              >
-                Speaking Engagements
-              </button>
-            </div>
+          {/* Filter bar */}
+          <div className="flex flex-wrap gap-x-6 gap-y-2">
+            {availableVerticals.map((vertical) => {
+              const isActive = activeFilter === vertical;
+              return (
+                <button
+                  key={vertical}
+                  onClick={() => handleSetVertical(vertical)}
+                  data-testid={`vertical-filter-${vertical}`}
+                  style={{
+                    fontFamily: 'Inter, sans-serif',
+                    fontSize: '0.8125rem',
+                    fontWeight: isActive ? 600 : 400,
+                    color: isActive ? '#000000' : '#777169',
+                    borderBottom: isActive ? '1.5px solid #000000' : '1.5px solid transparent',
+                    paddingBottom: '2px',
+                    background: 'none',
+                    cursor: 'pointer',
+                    transition: 'all 0.15s',
+                  }}
+                >
+                  {verticalLabels[vertical]}
+                </button>
+              );
+            })}
+            <button
+              onClick={handleSetSpeaking}
+              data-testid="vertical-filter-speaking"
+              style={{
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '0.8125rem',
+                fontWeight: activeFilter === 'speaking' ? 600 : 400,
+                color: activeFilter === 'speaking' ? '#000000' : '#777169',
+                borderBottom: activeFilter === 'speaking' ? '1.5px solid #000000' : '1.5px solid transparent',
+                paddingBottom: '2px',
+                background: 'none',
+                cursor: 'pointer',
+                transition: 'all 0.15s',
+              }}
+            >
+              Speaking
+            </button>
           </div>
-
         </div>
 
+        {/* Content */}
         {showSpeaking ? (
           <SpeakingContent />
         ) : (
           <>
-            {/* Project Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-[#E5E5E5]">
               {filteredProjects.map((project, index) => (
                 <ProjectCard
                   key={project.id}
@@ -942,17 +945,25 @@ export default function FeaturedWork() {
               ))}
             </div>
 
-            {/* Empty state */}
             {filteredProjects.length === 0 && (
-              <div className="text-center py-12">
-                <p className="text-muted-foreground mb-4">No projects match the current filters.</p>
+              <div className="py-16 text-center">
+                <p
+                  style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.875rem', color: '#777169', marginBottom: '1rem' }}
+                >
+                  No projects match this filter.
+                </p>
                 <button
                   onClick={() => handleSetVertical('all')}
-                  className="inline-flex items-center text-white/70 hover:text-white transition-colors gap-[8px] pb-[3px]"
                   style={{
-                    fontSize: "0.7rem", letterSpacing: "0.22em", textTransform: "uppercase",
-                    fontWeight: 600, textDecoration: "none",
-                    borderBottom: "1px solid rgba(255,255,255,0.25)", paddingBottom: "3px",
+                    fontFamily: '"Geist Mono", monospace',
+                    fontSize: '0.6rem',
+                    letterSpacing: '0.12em',
+                    textTransform: 'uppercase',
+                    color: '#3F3B36',
+                    background: 'none',
+                    cursor: 'pointer',
+                    borderBottom: '1px solid #3F3B36',
+                    paddingBottom: '2px',
                   }}
                 >
                   Reset filters

@@ -1,1028 +1,211 @@
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Award, ArrowDown, Play, Pause } from "lucide-react";
-import professionalPhoto from "@assets/Brochu, Alexis 2023 Ireland_1754523029765.png";
-import profileVideo from "@assets/20181006_190845_1754603621565.mp4";
 import headshot from "@assets/headshot_bw_1774321770406.png";
-import { useState, useRef, useEffect } from "react";
-
-const skills = [
-  { name: 'Product Management', color: 'text-primary' },
-  { name: 'UX Design', color: 'text-chart-4' },
-  { name: 'User Research', color: 'text-chart-1' },
-  { name: 'Change Management', color: 'text-chart-2' }
-];
 
 interface AboutSectionProps {
   onOpenAwardModal?: () => void;
 }
 
-export default function AboutSection({ onOpenAwardModal }: AboutSectionProps) {
-  const [activeTab, setActiveTab] = useState<'education' | 'publications' | 'community' | 'funfact'>('publications');
-  const [isDragging, setIsDragging] = useState(false);
-  const [startY, setStartY] = useState(0);
-  const [scrollTop, setScrollTop] = useState(0);
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
+const DISCIPLINES = [
+  "Product Management",
+  "UX Design",
+  "User Research",
+  "Change Management",
+];
 
-  const toggleVideoPlayback = () => {
-    const video = videoRef.current;
-    if (!video) return;
-    if (video.paused || video.ended) {
-      if (video.ended) {
-        video.currentTime = 0;
-      }
-      void video.play();
-    } else {
-      video.pause();
-    }
-  };
+const CREDENTIALS = [
+  { label: "Education", items: [
+    "Johnson & Wales University — Graphic Design, BFA",
+    "University of Rhode Island — Continuing Education",
+    "Cal OES Leadership Excellence Program",
+  ]},
+  { label: "Certifications", items: [
+    "Pragmatic Institute — Product Management (PMC I–III)",
+    "Prosci — Change Management Practitioner (ADKAR)",
+    "SAFe 6 — Scaled Agile Framework Practitioner",
+    "NASM — Certified Personal Trainer (CPT)",
+    "NASM — Nutrition Coach",
+    "AFAA — Group Fitness Instructor",
+    "Les Mills — BodyCOMBAT Instructor",
+  ]},
+  { label: "Recognition", items: [
+    "GovTech Innovation Award — Public Assistance Closeouts App",
+    "Top 3 Best Personal Trainer — Mount Washington Valley",
+  ]},
+];
 
-  const handleVideoEnded = () => {
-    const video = videoRef.current;
-    if (!video) return;
-    video.pause();
-    video.currentTime = 0;
-    setIsVideoPlaying(false);
-  };
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    if (!scrollContainerRef.current) return;
-    setIsDragging(true);
-    setStartY(e.pageY - scrollContainerRef.current.offsetTop);
-    setScrollTop(scrollContainerRef.current.scrollTop);
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging || !scrollContainerRef.current) return;
-    e.preventDefault();
-    const y = e.pageY - scrollContainerRef.current.offsetTop;
-    const walk = (y - startY) * 2;
-    scrollContainerRef.current.scrollTop = scrollTop - walk;
-  };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
-
-  const handleMouseLeave = () => {
-    setIsDragging(false);
-  };
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    if (!scrollContainerRef.current) return;
-    setIsDragging(true);
-    setStartY(e.touches[0].pageY - scrollContainerRef.current.offsetTop);
-    setScrollTop(scrollContainerRef.current.scrollTop);
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (!isDragging || !scrollContainerRef.current) return;
-    const y = e.touches[0].pageY - scrollContainerRef.current.offsetTop;
-    const walk = (y - startY) * 2;
-    scrollContainerRef.current.scrollTop = scrollTop - walk;
-  };
-
-  const handleTouchEnd = () => {
-    setIsDragging(false);
-  };
-
-  const scrollToPersonalTraining = () => {
-    const personalTrainingElement = document.getElementById('personal-training');
-    if (personalTrainingElement) {
-      personalTrainingElement.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  };
+export default function AboutSection({ onOpenAwardModal: _onOpenAwardModal }: AboutSectionProps) {
   return (
-    <section id="about" className="py-20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-secondary/50 to-accent/50"></div>
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl section-glow mb-8 text-center">
-          About the Founder
-        </h2>
+    <section id="about" className="border-t border-[#E5E5E5] py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-6">
 
-        <div className="space-y-16">
-          {/* Two-column: portrait + intro quote */}
-          <div className="flex flex-col md:flex-row gap-12 md:gap-16 items-start justify-between">
-            {/* Portrait - left */}
-            <div className="flex-shrink-0">
-              <img
-                src={headshot}
-                alt="Alexis Brochu Founder"
-                className="rounded-2xl shadow-lg rounded-tl-[12px] rounded-tr-[12px] rounded-br-[12px] rounded-bl-[12px]"
-                style={{ maxWidth: '320px', width: '100%', objectFit: 'cover', objectPosition: 'top' }}
-              />
-            </div>
+        {/* Section label */}
+        <p
+          style={{
+            fontFamily: '"Geist Mono", ui-monospace, monospace',
+            fontSize: '0.625rem',
+            fontWeight: 400,
+            color: '#A59F97',
+            letterSpacing: '0.12em',
+            textTransform: 'uppercase',
+            marginBottom: '2rem',
+          }}
+        >
+          About
+        </p>
 
-            {/* Introduction - right */}
-            <div className="flex-1 flex flex-col gap-4">
-              <p className="text-lg leading-relaxed text-foreground">
-                Alexis has spent her career inside the gap between what teams build and what people actually adopt.
-              </p>
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                The code is solid. The UX is clean. But adoption still stalls because no one designed for the office misunderstandings, the training gap, or the stakeholders who never bought in.
-              </p>
-              <p className="text-lg leading-relaxed">
-                She built Alexis Brochu around a single belief: <strong className="text-foreground font-semibold">that the human side of change is just as engineerable as the product itself.</strong>
-              </p>
-            </div>
-          </div>
+        {/* Two-column: portrait + bio */}
+        <div className="grid grid-cols-1 md:grid-cols-[280px_1fr] lg:grid-cols-[320px_1fr] gap-12 lg:gap-20 mb-16">
 
-          {/* Education Tabs - preserved, hidden until ready */}
-          {false && (
-          <div className="flex justify-center">
-            <div className="max-w-3xl w-full">
-              {/* Tab Navigation */}
-              <div className="flex justify-center mb-8">
-                <div className="glass rounded-xl p-2">
-                  <Button
-                    variant={activeTab === 'education' ? 'default' : 'ghost'}
-                    onClick={() => setActiveTab('education')}
-                    className={activeTab === 'education' ? 'gradient-bg-primary' : ''}
-                    data-testid="tab-education"
-                  >
-                    Education/Certs
-                  </Button>
-                  <Button
-                    variant={activeTab === 'publications' ? 'default' : 'ghost'}
-                    onClick={() => setActiveTab('publications')}
-                    className={activeTab === 'publications' ? 'gradient-bg-primary' : ''}
-                    data-testid="tab-publications-awards"
-                  >
-                    Publications/Awards
-                  </Button>
-                  <Button
-                    variant={activeTab === 'community' ? 'default' : 'ghost'}
-                    onClick={() => setActiveTab('community')}
-                    className={activeTab === 'community' ? 'gradient-bg-primary' : ''}
-                    data-testid="tab-community-leadership"
-                  >
-                    Community/Leadership
-                  </Button>
-                  <Button
-                    variant={activeTab === 'funfact' ? 'default' : 'ghost'}
-                    onClick={() => setActiveTab('funfact')}
-                    className={activeTab === 'funfact' ? 'gradient-bg-primary' : ''}
-                    data-testid="tab-fun-fact"
-                  >
-                    Fun Fact
-                  </Button>
-                </div>
-              </div>
-
-              {/* Tab Content */}
-              {activeTab === 'education' && (
-                <div>
-                  {/* Scrolling Education List */}
-                  <div 
-                    className={`glass rounded-xl p-6 relative overflow-hidden ${isDragging ? 'dragging cursor-grabbing' : 'cursor-grab'}`}
-                    onMouseDown={handleMouseDown}
-                    onMouseMove={handleMouseMove}
-                    onMouseUp={handleMouseUp}
-                    onMouseLeave={handleMouseLeave}
-                    onTouchStart={handleTouchStart}
-                    onTouchMove={handleTouchMove}
-                    onTouchEnd={handleTouchEnd}
-                  >
-                    <div className="h-64 relative overflow-y-auto scrollbar-hide" ref={scrollContainerRef}>
-                      <div className="absolute w-full education-scroll">
-                        {/* First set */}
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div>
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Core Education</div>
-                            <div className="text-foreground font-medium">Washington University in St. Louis - Visual Communications (BFA)</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div>
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Core Education</div>
-                            <div className="text-foreground font-medium">University of New Hampshire - UI/UX Design Certification</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div>
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
-                            <div className="text-foreground font-medium">PROSCI - Change Management Practitioner (CMP)</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div>
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
-                            <div className="text-foreground font-medium">University of New Hampshire - Project Manager-Scrum Master (PM-SM)</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div>
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
-                            <div className="text-foreground font-medium">University of New Hampshire - Business Analytics Science</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div>
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
-                            <div className="text-foreground font-medium">Project Management Institute (PMP)</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div>
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
-                            <div className="text-foreground font-medium">Pendo - Product-Led Design | AI for Product Management</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div>
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
-                            <div className="text-foreground font-medium">Superhuman - AI Workplace Proficiency</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div>
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
-                            <div className="text-foreground font-medium">Salesforce - Administration | AI Specialist | AgentForce (Candidate)</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div>
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Specialized Training</div>
-                            <div className="text-foreground font-medium">Rhode Island School of Design - Visual Art Intensive</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div>
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Specialized Training</div>
-                            <div className="text-foreground font-medium">Parsons School of Design, France - Paleolithic Art Intensive</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div>
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Specialized Training</div>
-                            <div className="text-foreground font-medium">UC Berkeley - Art History Intensive</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div>
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Specialized Training</div>
-                            <div className="text-foreground font-medium">Interlochen Center for the Arts - Violoncello Major, Dance Minor</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div>
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Specialized Training</div>
-                            <div className="text-foreground font-medium">NASM - Certified Personal Trainer (CPT), Fitness Instructor, Nutrition Coach (CNC)</div>
-                          </div>
-                        </div>
-
-                        {/* Duplicate set for seamless loop */}
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div>
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Core Education</div>
-                            <div className="text-foreground font-medium">Washington University in St. Louis - Visual Communications (BFA)</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div>
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Core Education</div>
-                            <div className="text-foreground font-medium">University of New Hampshire - UI/UX Design Certification</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div>
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
-                            <div className="text-foreground font-medium">PROSCI - Change Management Practitioner (CMP)</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div>
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
-                            <div className="text-foreground font-medium">University of New Hampshire - Project Manager-Scrum Master (PM-SM)</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div>
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
-                            <div className="text-foreground font-medium">University of New Hampshire - Business Analytics Science</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div>
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
-                            <div className="text-foreground font-medium">Project Management Institute (PMP)</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div>
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
-                            <div className="text-foreground font-medium">Pendo - Product-Led Design | AI for Product Management</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div>
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
-                            <div className="text-foreground font-medium">Superhuman - AI Workplace Proficiency</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div>
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Product Management</div>
-                            <div className="text-foreground font-medium">Salesforce - Administration | AI Specialist | AgentForce (Candidate)</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div>
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Specialized Training</div>
-                            <div className="text-foreground font-medium">Rhode Island School of Design - Visual Art Intensive</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div>
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Specialized Training</div>
-                            <div className="text-foreground font-medium">Parsons School of Design, France - Paleolithic Art Intensive</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div>
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Specialized Training</div>
-                            <div className="text-foreground font-medium">UC Berkeley - Art History Intensive</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div>
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Specialized Training</div>
-                            <div className="text-foreground font-medium">Interlochen Center for the Arts - Violoncello Major, Dance Minor</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div>
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Specialized Training</div>
-                            <div className="text-foreground font-medium">NASM - Certified Personal Trainer (CPT), Fitness Instructor, Nutrition Coach (CNC)</div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Fade gradients */}
-                      <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-background to-transparent pointer-events-none z-10"></div>
-                      <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-background to-transparent pointer-events-none z-10"></div>
-                    </div>
-                  </div>
-
-                  <p className="text-muted-foreground text-sm mt-4 italic text-center">
-                    Drag to scroll or let it auto-scroll
-                  </p>
-                </div>
-              )}
-
-              {activeTab === 'publications' && (
-                <div>
-                  {/* Scrolling Publications & Awards List */}
-                  <div 
-                    className={`glass rounded-xl p-6 relative overflow-hidden ${isDragging ? 'dragging cursor-grabbing' : 'cursor-grab'}`}
-                    onMouseDown={handleMouseDown}
-                    onMouseMove={handleMouseMove}
-                    onMouseUp={handleMouseUp}
-                    onMouseLeave={handleMouseLeave}
-                    onTouchStart={handleTouchStart}
-                    onTouchMove={handleTouchMove}
-                    onTouchEnd={handleTouchEnd}
-                  >
-                    <div className="h-64 relative overflow-y-auto scrollbar-hide" ref={scrollContainerRef}>
-                      <div className="absolute w-full education-scroll">
-                        {/* First set */}
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Major Award</div>
-                            <div className="text-foreground font-medium">California 2023 Technology Innovation Award - "Best Application Serving the Public" | Sacramento, CA</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Publication</div>
-                            <div className="text-foreground font-medium">UX Collective (uxdesign.cc) - "13 ways AI assistants can accelerate your job search" (Founder's article)</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Industry Award</div>
-                            <div className="text-foreground font-medium">ProMax Silver Award - "Best Consumer/Trade Promotion" ABC6 Playhouse | MA</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Media Feature</div>
-                            <div className="text-foreground font-medium">Vibe Magazine - "Ski Conditioning with Alexis and Carl" 6-page spread</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Scholarship</div>
-                            <div className="text-foreground font-medium">Women in Technology Scholar - University of New Hampshire | NH</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Industry Award</div>
-                            <div className="text-foreground font-medium">BDA International Silver Award - "Advertising Campaign" WLNE-TV ABC6 "Hate the Rain" | RI</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Publication</div>
-                            <div className="text-foreground font-medium">UX Collective (uxdesign.cc) - "What a health crisis taught us about product design" (Founder's article)</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Recognition</div>
-                            <div className="text-foreground font-medium">Conway Daily Sun Readers Choice Award - "Best Personal Trainer" | NH</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Industry Award</div>
-                            <div className="text-foreground font-medium">Publicity Club of New England - 27th Annual Bell Ringer Awards | RI</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Publication</div>
-                            <div className="text-foreground font-medium">Graphic Design on a Limited Budget - Multiple featured projects | RI</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Media Feature</div>
-                            <div className="text-foreground font-medium">Providence Journal feature - WLNE-TV "ABC6 Playhouse" | Emerald Square Mall, MA</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Scholarship</div>
-                            <div className="text-foreground font-medium">Kathy Anderson Award - NHEC Foundation "Women furthering Education over 25" | NH</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Recognition</div>
-                            <div className="text-foreground font-medium">WLNE-TV ABC6 Readers Choice Award - "Best RI Design Firm" Alexis Design | RI</div>
-                          </div>
-                        </div>
-
-                        {/* Duplicate set for seamless loop */}
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Major Award</div>
-                            <div className="text-foreground font-medium">California 2023 Technology Innovation Award - "Best Application Serving the Public" | Sacramento, CA</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Publication</div>
-                            <div className="text-foreground font-medium">UX Collective (uxdesign.cc) - "13 ways AI assistants can accelerate your job search" (Founder's article)</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Industry Award</div>
-                            <div className="text-foreground font-medium">ProMax Silver Award - "Best Consumer/Trade Promotion" ABC6 Playhouse | MA</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Media Feature</div>
-                            <div className="text-foreground font-medium">Vibe Magazine - "Ski Conditioning with Alexis and Carl" 6-page spread</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Scholarship</div>
-                            <div className="text-foreground font-medium">Women in Technology Scholar - University of New Hampshire | NH</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Industry Award</div>
-                            <div className="text-foreground font-medium">BDA International Silver Award - "Advertising Campaign" WLNE-TV ABC6 "Hate the Rain" | RI</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Publication</div>
-                            <div className="text-foreground font-medium">UX Collective (uxdesign.cc) - "What a health crisis taught us about product design" (Founder's article)</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Recognition</div>
-                            <div className="text-foreground font-medium">Conway Daily Sun Readers Choice Award - "Best Personal Trainer" | NH</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Industry Award</div>
-                            <div className="text-foreground font-medium">Publicity Club of New England - 27th Annual Bell Ringer Awards | RI</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Publication</div>
-                            <div className="text-foreground font-medium">Graphic Design on a Limited Budget - Multiple featured projects | RI</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Media Feature</div>
-                            <div className="text-foreground font-medium">Providence Journal feature - WLNE-TV "ABC6 Playhouse" | Emerald Square Mall, MA</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Scholarship</div>
-                            <div className="text-foreground font-medium">Kathy Anderson Award - NHEC Foundation "Women furthering Education over 25" | NH</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Recognition</div>
-                            <div className="text-foreground font-medium">WLNE-TV ABC6 Readers Choice Award - "Best RI Design Firm" Alexis Design | RI</div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Fade gradients */}
-                      <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-background to-transparent pointer-events-none z-10"></div>
-                      <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-background to-transparent pointer-events-none z-10"></div>
-                    </div>
-                  </div>
-
-                  <p className="text-muted-foreground text-sm mt-4 italic text-center">
-                    Drag to scroll or let it auto-scroll
-                  </p>
-                </div>
-              )}
-
-              {activeTab === 'community' && (
-                <div>
-                  {/* Scrolling Community & Leadership List */}
-                  <div 
-                    className={`glass rounded-xl p-6 relative overflow-hidden ${isDragging ? 'dragging cursor-grabbing' : 'cursor-grab'}`}
-                    onMouseDown={handleMouseDown}
-                    onMouseMove={handleMouseMove}
-                    onMouseUp={handleMouseUp}
-                    onMouseLeave={handleMouseLeave}
-                    onTouchStart={handleTouchStart}
-                    onTouchMove={handleTouchMove}
-                    onTouchEnd={handleTouchEnd}
-                  >
-                    <div className="h-64 relative overflow-y-auto scrollbar-hide" ref={scrollContainerRef}>
-                      <div className="absolute w-full education-scroll">
-                        {/* First set */}
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Keynote Speaker</div>
-                            <div className="text-foreground font-medium">AIxUX Summit | Keynote Speaker</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Keynote Speaker</div>
-                            <div className="text-foreground font-medium">Fortune 500 Fintech | Keynote Speaker</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Keynote Speaker</div>
-                            <div className="text-foreground font-medium">American Red Cross | Keynote Speaker, Spring 2026</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Professional Group</div>
-                            <div className="text-foreground font-medium">PMI NH Chapter | Member</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Leadership</div>
-                            <div className="text-foreground font-medium">New Hampshire AI Task Force | AI Adoption Specialist</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Professional Group</div>
-                            <div className="text-foreground font-medium">AI in New Hampshire | Chapter Member</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Professional Group</div>
-                            <div className="text-foreground font-medium">AI Tinkerers NH | Chapter Member</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Professional Group</div>
-                            <div className="text-foreground font-medium">Salesforce User Group – NH division | Salesforce Member</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Content Creation</div>
-                            <div className="text-foreground font-medium">UX Collective (uxdesign.cc) | Contributing Author</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Leadership</div>
-                            <div className="text-foreground font-medium">AI UX/UI at UXSG | Co-host & Founding Contributor</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Beta Testing</div>
-                            <div className="text-foreground font-medium">AI Copilot Enterprise | Sikich Beta Team Contributor</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Leadership</div>
-                            <div className="text-foreground font-medium">Job Search Council (JSC) | Council Moderator</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Education</div>
-                            <div className="text-foreground font-medium">Mt. Washington Valley STEM Expos | Science Fair Judge</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Leadership</div>
-                            <div className="text-foreground font-medium">Mt. Washington Valley Community Band | Section Leader - Percussion</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Community Service</div>
-                            <div className="text-foreground font-medium">Habitat for Humanity – MWV Chapter | Volunteer & Videographer</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Board Leadership</div>
-                            <div className="text-foreground font-medium">Mt. Washington Valley Children's Museum | Vice President Board of Directors</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Community Service</div>
-                            <div className="text-foreground font-medium">Conway Cares Revolving Closet | Volunteer & Donor</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">International</div>
-                            <div className="text-foreground font-medium">Diverbo Pueblo Ingles | Salamanca, SPAIN | English Instructor</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Education</div>
-                            <div className="text-foreground font-medium">SAU9 (ESSC) Eastern Slope Skier Community | Ski Instructor</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Training & Safety</div>
-                            <div className="text-foreground font-medium">American Red Cross (ARC) – RI, NH Chapters | CPR & First Aid Instructor</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Leadership</div>
-                            <div className="text-foreground font-medium">Mt. Washington Valley Div Cal Ripken Baseball | Head Coach</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Arts & Culture</div>
-                            <div className="text-foreground font-medium">Arts in Motion Theater | Actor and Volunteer</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Fitness & Wellness</div>
-                            <div className="text-foreground font-medium">Cranmore Mountain Fitness Center | Personal Trainer & Group Fitness Instructor</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Founding Member</div>
-                            <div className="text-foreground font-medium">Delta Gamma Fraternity – Alpha Epsilon | Founding Sister</div>
-                          </div>
-                        </div>
-
-                        {/* Duplicate set for seamless loop */}
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Keynote Speaker</div>
-                            <div className="text-foreground font-medium">AIxUX Summit | Keynote Speaker</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Keynote Speaker</div>
-                            <div className="text-foreground font-medium">Fortune 500 Fintech | Keynote Speaker</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Keynote Speaker</div>
-                            <div className="text-foreground font-medium">American Red Cross | Keynote Speaker, Spring 2026</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Professional Group</div>
-                            <div className="text-foreground font-medium">PMI NH Chapter | Member</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Leadership</div>
-                            <div className="text-foreground font-medium">New Hampshire AI Task Force | AI Adoption Specialist</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Professional Group</div>
-                            <div className="text-foreground font-medium">AI in New Hampshire | Chapter Member</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Professional Group</div>
-                            <div className="text-foreground font-medium">AI Tinkerers NH | Chapter Member</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Professional Group</div>
-                            <div className="text-foreground font-medium">Salesforce User Group – NH division | Salesforce Member</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Content Creation</div>
-                            <div className="text-foreground font-medium">UX Collective (uxdesign.cc) | Contributing Author</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Leadership</div>
-                            <div className="text-foreground font-medium">AI UX/UI at UXSG | Co-host & Founding Contributor</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Beta Testing</div>
-                            <div className="text-foreground font-medium">AI Copilot Enterprise | Sikich Beta Team Contributor</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Leadership</div>
-                            <div className="text-foreground font-medium">Job Search Council (JSC) | Council Moderator</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Education</div>
-                            <div className="text-foreground font-medium">Mt. Washington Valley STEM Expos | Science Fair Judge</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Leadership</div>
-                            <div className="text-foreground font-medium">Mt. Washington Valley Community Band | Section Leader - Percussion</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Community Service</div>
-                            <div className="text-foreground font-medium">Habitat for Humanity – MWV Chapter | Volunteer & Videographer</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Board Leadership</div>
-                            <div className="text-foreground font-medium">Mt. Washington Valley Children's Museum | Vice President Board of Directors</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Community Service</div>
-                            <div className="text-foreground font-medium">Conway Cares Revolving Closet | Volunteer & Donor</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">International</div>
-                            <div className="text-foreground font-medium">Diverbo Pueblo Ingles | Salamanca, SPAIN | English Instructor</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Education</div>
-                            <div className="text-foreground font-medium">SAU9 (ESSC) Eastern Slope Skier Community | Ski Instructor</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Training & Safety</div>
-                            <div className="text-foreground font-medium">American Red Cross (ARC) – RI, NH Chapters | CPR & First Aid Instructor</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Leadership</div>
-                            <div className="text-foreground font-medium">Mt. Washington Valley Div Cal Ripken Baseball | Head Coach</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-2 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-2 uppercase tracking-wide mb-1">Arts & Culture</div>
-                            <div className="text-foreground font-medium">Arts in Motion Theater | Actor and Volunteer</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-1 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-1 uppercase tracking-wide mb-1">Fitness & Wellness</div>
-                            <div className="text-foreground font-medium">Cranmore Mountain Fitness Center | Personal Trainer & Group Fitness Instructor</div>
-                          </div>
-                        </div>
-                        <div className="education-item">
-                          <div className="w-3 h-3 bg-chart-3 rounded-full mr-4 flex-shrink-0"></div>
-                          <div className="text-left">
-                            <div className="text-xs font-semibold text-chart-3 uppercase tracking-wide mb-1">Founding Member</div>
-                            <div className="text-foreground font-medium">Delta Gamma Fraternity – Alpha Epsilon | Founding Sister</div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Fade gradients */}
-                      <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-background to-transparent pointer-events-none z-10"></div>
-                      <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-background to-transparent pointer-events-none z-10"></div>
-                    </div>
-                  </div>
-
-                  <p className="text-muted-foreground text-sm mt-4 italic text-center">
-                    Drag to scroll or let it auto-scroll
-                  </p>
-                </div>
-              )}
-
-              {activeTab === 'funfact' && (
-                <div className="text-center">
-                  <h3 className="font-semibold mb-6 text-xl" style={{ color: '#F3E8B9' }}>Also a certified personal trainer</h3>
-                  <div className="flex justify-center">
-                    <div className="relative aspect-video max-w-sm rounded-xl overflow-hidden animate-float glass">
-                      <video
-                        ref={videoRef}
-                        src={profileVideo}
-                        muted
-                        playsInline
-                        onPlay={() => setIsVideoPlaying(true)}
-                        onPause={() => setIsVideoPlaying(false)}
-                        onEnded={handleVideoEnded}
-                        className="w-full h-full object-cover"
-                        data-testid="video-profile"
-                      />
-                      <button
-                        type="button"
-                        onClick={toggleVideoPlayback}
-                        aria-label={isVideoPlaying ? 'Pause video' : 'Play video'}
-                        data-testid="button-video-toggle"
-                        className="absolute bottom-3 right-3 flex items-center justify-center w-10 h-10 rounded-full glass text-white/90 hover:text-white hover:scale-105 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black/30"
-                      >
-                        {isVideoPlaying ? (
-                          <Pause className="w-4 h-4" fill="currentColor" />
-                        ) : (
-                          <Play className="w-4 h-4 ml-0.5" fill="currentColor" />
-                        )}
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              )}
+          {/* Portrait */}
+          <div className="flex-shrink-0">
+            <img
+              src={headshot}
+              alt="Alexis Brochu"
+              className="w-full object-cover object-top"
+              style={{ aspectRatio: '3/4', maxWidth: '320px' }}
+              loading="lazy"
+            />
+            {/* Discipline tags below portrait */}
+            <div className="mt-4 flex flex-wrap gap-1.5">
+              {DISCIPLINES.map((d) => (
+                <span
+                  key={d}
+                  style={{
+                    fontFamily: '"Geist Mono", ui-monospace, monospace',
+                    fontSize: '0.5rem',
+                    color: '#A59F97',
+                    letterSpacing: '0.08em',
+                    textTransform: 'uppercase',
+                    border: '1px solid #E5E5E5',
+                    padding: '2px 7px',
+                  }}
+                >
+                  {d}
+                </span>
+              ))}
             </div>
           </div>
-          )}
 
+          {/* Bio */}
+          <div className="flex flex-col gap-5">
+            <h2
+              style={{
+                fontFamily: '"Cormorant Garamond", Georgia, serif',
+                fontWeight: 300,
+                fontSize: 'clamp(1.75rem, 4vw, 2.75rem)',
+                color: '#000000',
+                lineHeight: 1.1,
+                letterSpacing: '-0.01em',
+              }}
+            >
+              About the founder.
+            </h2>
 
+            <p
+              style={{
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '1rem',
+                fontWeight: 400,
+                color: '#3F3B36',
+                lineHeight: 1.7,
+              }}
+            >
+              Alexis has spent her career inside the gap between what teams build
+              and what people actually adopt.
+            </p>
+            <p
+              style={{
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '0.9375rem',
+                fontWeight: 400,
+                color: '#777169',
+                lineHeight: 1.7,
+              }}
+            >
+              The code is solid. The UX is clean. But adoption still stalls because
+              no one designed for the office misunderstandings, the training gap, or
+              the stakeholders who never bought in.
+            </p>
+            <p
+              style={{
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '0.9375rem',
+                fontWeight: 400,
+                color: '#777169',
+                lineHeight: 1.7,
+              }}
+            >
+              She built Alexis Brochu around a single belief: the human side of
+              change is just as engineerable as the product itself.
+            </p>
+            <p
+              style={{
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '0.9375rem',
+                fontWeight: 400,
+                color: '#777169',
+                lineHeight: 1.7,
+              }}
+            >
+              With 20+ years across brand development, product management, UX design,
+              and organizational change, she brings the full arc from vision to
+              adoption. From California state government systems handling $2.1B in
+              disaster relief to consumer brands and startups, her work centers on
+              one question: after the build, what happens to the people?
+            </p>
+
+            {/* Pull quote */}
+            <blockquote
+              style={{
+                fontFamily: '"Cormorant Garamond", Georgia, serif',
+                fontStyle: 'italic',
+                fontWeight: 300,
+                fontSize: '1.25rem',
+                color: '#3F3B36',
+                lineHeight: 1.5,
+                borderLeft: '2px solid #FF4704',
+                paddingLeft: '1.25rem',
+                margin: '0.5rem 0',
+              }}
+            >
+              "Strategy that can't survive first contact with real people is just
+              a presentation."
+            </blockquote>
+          </div>
+        </div>
+
+        {/* Credentials */}
+        <div className="border-t border-[#E5E5E5] pt-12 grid grid-cols-1 md:grid-cols-3 gap-10">
+          {CREDENTIALS.map((group) => (
+            <div key={group.label}>
+              <p
+                style={{
+                  fontFamily: '"Geist Mono", ui-monospace, monospace',
+                  fontSize: '0.5625rem',
+                  color: '#A59F97',
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  marginBottom: '0.75rem',
+                }}
+              >
+                {group.label}
+              </p>
+              <ul className="space-y-2">
+                {group.items.map((item) => (
+                  <li
+                    key={item}
+                    style={{
+                      fontFamily: 'Inter, sans-serif',
+                      fontSize: '0.8125rem',
+                      color: '#3F3B36',
+                      lineHeight: 1.55,
+                    }}
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
     </section>

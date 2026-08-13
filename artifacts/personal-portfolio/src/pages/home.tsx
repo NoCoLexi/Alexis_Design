@@ -2,26 +2,20 @@ import HeroSection from "@/components/hero-section";
 import FeaturedWork from "@/components/featured-work";
 import AboutSection from "@/components/about-section";
 import ContactSection from "@/components/contact-section";
-import logoMarkImg from "@assets/logo-mark-inverse-512_1780019104514.png";
 import CaseStudyModal from "@/components/case-study-modal";
 import AwardModal from "@/components/award-modal";
 import SiteModal from "@/components/site-modal";
-import NavMusicPlayer from "@/components/nav-music-player";
 import AdminPanel from "@/components/admin-panel";
 import { useState, useEffect } from "react";
-import { Link } from "wouter";
-import { Menu, X, Award, Code, ExternalLink, Home as HomeIcon, Settings, Gamepad2 } from "lucide-react";
+import { Menu, X, Gamepad2 } from "lucide-react";
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
-  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const [isAwardModalOpen, setIsAwardModalOpen] = useState(false);
   const [isSiteModalOpen, setIsSiteModalOpen] = useState(false);
   const [isAdminPanelOpen, setIsAdminPanelOpen] = useState(false);
   const [showNavLogo, setShowNavLogo] = useState(false);
 
-  // Check for admin URL parameter
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     if (params.get('admin') === 'true' || window.location.pathname === '/admin') {
@@ -29,7 +23,7 @@ export default function Home() {
     }
   }, []);
 
-  // Hide nav logo while hero is visible; fade it in once hero scrolls away
+  // Fade in nav wordmark once hero scrolls away
   useEffect(() => {
     const hero = document.getElementById('home');
     if (!hero) return;
@@ -41,163 +35,122 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
-
-
-
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['home', 'work', 'about', 'contact'];
-      const currentSection = sections.find(section => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
-        }
-        return false;
-      });
-      if (currentSection) {
-        setActiveSection(currentSection);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    const el = document.getElementById(sectionId);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
     setIsMobileMenuOpen(false);
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground" style={{backgroundColor: '#08080A'}}>
+    <div className="min-h-screen bg-white text-black">
+
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 w-full z-50 backdrop-blur-lg border-b border-primary/30 shadow-lg" style={{ backgroundColor: 'rgba(5,5,8,0.92)' }}>
-        {/* AIxUX Summit announcement ticker — visible through June 10, 2026 (summit day); hides June 11 onward */}
-        {new Date() < new Date('2026-06-11T00:00:00') && (
-          <div
-            className="w-full overflow-hidden cursor-pointer group border-b"
-            style={{
-              background: 'linear-gradient(90deg, rgba(95,197,248,0.06) 0%, rgba(95,197,248,0.10) 50%, rgba(95,197,248,0.06) 100%)',
-              borderColor: 'rgba(95,197,248,0.35)'
-            }}
-            onClick={() => {
-              const event = new CustomEvent('openCaseStudy', { detail: { projectId: 'aixux-summit-keynote' } });
-              window.dispatchEvent(event);
-            }}
-            data-testid="ticker-aixux-summit"
-            aria-label="Open AIxUX Summit case study"
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-[#E5E5E5]">
+        <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+
+          {/* Wordmark — fades in after hero scrolls away */}
+          <button
+            className={`flex items-center gap-1.5 transition-all duration-500 ${showNavLogo ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+            onClick={() => scrollToSection('home')}
           >
-            <div className="flex whitespace-nowrap py-1.5 group-hover:[animation-play-state:paused]" style={{ animation: 'ticker-scroll 30s linear infinite' }}>
-              {[0, 1].map((dup) => (
-                <div key={dup} className="flex items-center shrink-0" aria-hidden={dup === 1 ? 'true' : undefined}>
-                  {Array.from({ length: 4 }).map((_, i) => (
-                    <span key={i} className="inline-flex items-center text-xs md:text-sm font-light tracking-wide" style={{ color: '#5fc5f8' }}>
-                      <span className="mx-3">🎙 SPEAKING AT AIxUX SUMMIT</span>
-                      <span className="opacity-70">·</span>
-                      <span className="mx-3">JUNE 10, 2026</span>
-                      <span className="opacity-70">·</span>
-                      <span className="mx-3 font-light">DESIGN YOUR AI NETWORKING AGENT</span>
-                      <span className="opacity-70">·</span>
-                      <span className="mx-3 font-light underline underline-offset-2">VIEW CASE STUDY →</span>
-                      <span className="opacity-40 mx-2">●</span>
-                    </span>
-                  ))}
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-        <div className="max-w-7xl mx-auto px-6 py-2">
-          <div className="flex justify-between items-center">
-            <div 
-              className={`logo-style flex items-center cursor-pointer transition-all duration-500 ${showNavLogo ? 'opacity-100 hover:opacity-80' : 'opacity-0 pointer-events-none'}`}
-              onClick={() => {
-                const homeElement = document.getElementById('home');
-                if (homeElement) {
-                  homeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+            <span
+              aria-hidden="true"
+              style={{ color: '#FF4704', fontFamily: 'Inter, sans-serif', fontSize: '1rem', lineHeight: 1, fontWeight: 600 }}
+            >
+              ·
+            </span>
+            <span
+              style={{
+                fontFamily: '"Cormorant Garamond", Georgia, serif',
+                fontWeight: 300,
+                fontSize: '1.1875rem',
+                color: '#000000',
+                letterSpacing: '-0.01em',
               }}
             >
-              <img src={logoMarkImg} alt="Alexis Brochu" className="w-7 h-7 mr-2" style={{ objectFit: 'contain' }} />
-              <span className="name-first font-bold text-xl text-[color:var(--color-lemon-yellow)]">UPSTART</span>
-              <span className="name-last text-purple-400 font-bold text-xl">-Labs</span>
-            </div>
-            <div className="hidden md:flex space-x-2 items-center">
-              <button
-                onClick={() => scrollToSection('about')}
-                className="nav-link inline-flex items-center px-4 py-2 rounded-full transition-all duration-300 cursor-pointer"
-                data-testid="button-my-expertise"
-              >
-                <span className="text-sm font-medium text-white">About Alexis</span>
-              </button>
-              <a
-                href="mailto:alexis@upstart-labs.com"
-                className="nav-link inline-flex items-center px-4 py-2 rounded-full transition-all duration-300 cursor-pointer"
-                data-testid="link-nav-send-email"
-              >
-                <span className="text-sm font-medium text-white">Message Me</span>
-              </a>
-              <button
-                onClick={() => scrollToSection('work')}
-                className="nav-link-primary inline-flex items-center px-4 py-2 rounded-full transition-all duration-300 cursor-pointer"
-                data-testid="button-check-out-work"
-              >
-                <span className="text-sm font-medium text-white">Check out my work!</span>
-              </button>
-            </div>
+              Alexis Brochu
+            </span>
+          </button>
+
+          {/* Desktop links */}
+          <div className="hidden md:flex items-center gap-7">
             <button
-              className="md:hidden text-white hover:text-purple-400 p-2 rounded-md hover:bg-white/5 transition-colors"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              onClick={() => scrollToSection('work')}
+              className="text-sm font-medium text-[#3F3B36] hover:text-black transition-colors"
+              data-testid="button-nav-work"
             >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              Work
             </button>
+            <button
+              onClick={() => scrollToSection('about')}
+              className="text-sm font-medium text-[#3F3B36] hover:text-black transition-colors"
+              data-testid="button-nav-about"
+            >
+              About
+            </button>
+            <button
+              onClick={() => scrollToSection('contact')}
+              className="text-sm font-medium text-[#3F3B36] hover:text-black transition-colors"
+              data-testid="button-nav-contact"
+            >
+              Contact
+            </button>
+            <a
+              href="mailto:alexis@upstart-labs.com"
+              className="text-sm font-medium text-[#3F3B36] hover:text-black transition-colors"
+              data-testid="link-nav-email"
+            >
+              alexis@upstart-labs.com →
+            </a>
           </div>
 
-          {/* Mobile Menu */}
-          {isMobileMenuOpen && (
-            <div className="md:hidden mt-4 pb-4 space-y-1 bg-black/60 rounded-lg p-3 border border-white/10">
-              <button
-                onClick={() => {
-                  scrollToSection('about');
-                  setIsMobileMenuOpen(false);
-                }}
-                className="nav-link inline-flex items-center justify-center w-full px-4 py-3 rounded-full transition-all duration-300 cursor-pointer"
-                data-testid="button-my-expertise-mobile"
-              >
-                <span className="text-sm font-medium text-white">
-                  About Alexis
-                </span>
-              </button>
-              <a
-                href="mailto:alexis@upstart-labs.com"
-                className="nav-link inline-flex items-center justify-center w-full px-4 py-3 rounded-full transition-all duration-300 cursor-pointer"
-                data-testid="link-nav-send-email-mobile"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                <span className="text-sm font-medium text-white">Message Me</span>
-              </a>
-              <button
-                onClick={() => {
-                  scrollToSection('work');
-                  setIsMobileMenuOpen(false);
-                }}
-                className="nav-link-primary inline-flex items-center justify-center w-full px-4 py-3 rounded-full transition-all duration-300 cursor-pointer"
-                data-testid="button-check-out-work-mobile"
-              >
-                <span className="text-sm font-medium text-white">
-                  Check out my work
-                </span>
-              </button>
-            </div>
-          )}
+          {/* Mobile toggle */}
+          <button
+            className="md:hidden text-[#3F3B36] hover:text-black p-1"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+          >
+            {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
         </div>
+
+        {/* Mobile menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden border-t border-[#E5E5E5] bg-white px-6 py-5 space-y-4">
+            <button
+              onClick={() => scrollToSection('work')}
+              className="block w-full text-left text-sm font-medium text-[#3F3B36] hover:text-black"
+              data-testid="button-nav-work-mobile"
+            >
+              Work
+            </button>
+            <button
+              onClick={() => scrollToSection('about')}
+              className="block w-full text-left text-sm font-medium text-[#3F3B36] hover:text-black"
+              data-testid="button-nav-about-mobile"
+            >
+              About
+            </button>
+            <button
+              onClick={() => scrollToSection('contact')}
+              className="block w-full text-left text-sm font-medium text-[#3F3B36] hover:text-black"
+              data-testid="button-nav-contact-mobile"
+            >
+              Contact
+            </button>
+            <a
+              href="mailto:alexis@upstart-labs.com"
+              className="block text-sm font-medium text-[#3F3B36] hover:text-black"
+              data-testid="link-nav-email-mobile"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              alexis@upstart-labs.com →
+            </a>
+          </div>
+        )}
       </nav>
-      {/* Page Sections */}
+
+      {/* Page sections */}
       <HeroSection
         onOpenAwardModal={() => setIsAwardModalOpen(true)}
         onOpenSiteModal={() => setIsSiteModalOpen(true)}
@@ -205,16 +158,18 @@ export default function Home() {
       <FeaturedWork />
       <AboutSection onOpenAwardModal={() => setIsAwardModalOpen(true)} />
       <ContactSection onOpenAwardModal={() => setIsAwardModalOpen(true)} />
+
+      {/* Modals */}
       <CaseStudyModal />
-      <AwardModal 
-        isOpen={isAwardModalOpen} 
-        onClose={() => setIsAwardModalOpen(false)} 
+      <AwardModal
+        isOpen={isAwardModalOpen}
+        onClose={() => setIsAwardModalOpen(false)}
       />
-      <SiteModal 
-        isOpen={isSiteModalOpen} 
-        onClose={() => setIsSiteModalOpen(false)} 
+      <SiteModal
+        isOpen={isSiteModalOpen}
+        onClose={() => setIsSiteModalOpen(false)}
       />
-      <AdminPanel 
+      <AdminPanel
         isVisible={isAdminPanelOpen}
         onClose={() => setIsAdminPanelOpen(false)}
         onApply={(settings) => {
@@ -222,24 +177,27 @@ export default function Home() {
           setIsAdminPanelOpen(false);
         }}
       />
+
       {/* Footer */}
-      <footer className="py-12 border-t border-primary/20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col items-center gap-6">
-            <a
-              href="/stakeholder-invaders/"
-              className="group inline-flex items-center gap-3 rounded-full border border-purple-400/30 bg-gradient-to-r from-purple-600/40 to-purple-500/50 px-5 py-3 hover:from-purple-500/60 hover:to-purple-400/70 transition-all duration-300 transform hover:scale-105 hover:brightness-110"
-              data-testid="link-play-game-footer"
+      <footer className="border-t border-[#E5E5E5] py-10">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+          <a
+            href="/stakeholder-invaders/"
+            className="inline-flex items-center gap-2 text-[#777169] hover:text-black transition-colors"
+            data-testid="link-play-game-footer"
+          >
+            <Gamepad2 className="w-4 h-4" />
+            <span
+              style={{ fontFamily: '"Geist Mono", monospace', fontSize: '0.625rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}
             >
-              <Gamepad2 className="w-5 h-5" style={{ color: '#F3E8B9' }} />
-              <span className="text-sm font-medium tracking-wide" style={{ color: '#F3E8B9' }}>
-                Insert Coin · Play Stakeholder Invaders
-              </span>
-            </a>
-            <div className="text-muted-foreground">
-              © {new Date().getFullYear()} Alexis Brochu
-            </div>
-          </div>
+              Play Stakeholder Invaders →
+            </span>
+          </a>
+          <p
+            style={{ fontFamily: '"Geist Mono", monospace', fontSize: '0.625rem', letterSpacing: '0.08em', color: '#A59F97', textTransform: 'uppercase' }}
+          >
+            © {new Date().getFullYear()} Alexis Brochu · North Conway, NH
+          </p>
         </div>
       </footer>
     </div>

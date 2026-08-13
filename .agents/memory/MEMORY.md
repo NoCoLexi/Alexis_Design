@@ -1,1 +1,2 @@
 - [No em dashes in user-facing copy](no-em-dashes.md) — User prefers no em dashes (\u2014) anywhere in marketing/site copy. Use plain periods, commas, or colons instead.
+- [pnpm Tailwind v3/v4 hoisting conflict](pnpm-tailwind-v3-v4-conflict.md) — @tailwindcss/vite (v4) silently resolves to v3 when any artifact hoists v3 to the workspace root; keep new artifacts on v3 + local token config instead.

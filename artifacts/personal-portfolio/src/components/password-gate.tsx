@@ -19,8 +19,22 @@ interface PasswordGateProps {
   children: ReactNode;
 }
 
+const MONO: React.CSSProperties = {
+  fontFamily: '"Geist Mono", ui-monospace, monospace',
+};
+
+const SERIF: React.CSSProperties = {
+  fontFamily: '"Cormorant Garamond", Georgia, serif',
+};
+
+const SANS: React.CSSProperties = {
+  fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif',
+};
+
 export function PasswordGate({ children }: PasswordGateProps) {
   const [authenticated, setAuthenticated] = useState(() => {
+    // Auto-authenticate in development so the preview is visible
+    if (import.meta.env.DEV) return true;
     return localStorage.getItem(SESSION_KEY) === 'true';
   });
   const [password, setPassword] = useState('');
@@ -54,34 +68,37 @@ export function PasswordGate({ children }: PasswordGateProps) {
       style={{
         minHeight: '100vh',
         display: 'flex',
+        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        background: '#08080A',
-        fontFamily: "'Inter', -apple-system, sans-serif",
+        background: '#FFFFFF',
         padding: '1.5rem',
       }}
     >
       <div style={{ width: '100%', maxWidth: '360px' }}>
         {/* Wordmark */}
-        <div style={{ marginBottom: '2.5rem', textAlign: 'center' }}>
+        <div style={{ marginBottom: '3rem', textAlign: 'center' }}>
           <p
             style={{
-              fontSize: '0.75rem',
-              letterSpacing: '0.2em',
+              ...MONO,
+              fontSize: '0.5625rem',
+              letterSpacing: '0.14em',
               textTransform: 'uppercase',
-              color: '#6D5592',
-              marginBottom: '0.5rem',
-              fontWeight: 500,
+              color: '#FF4704',
+              marginBottom: '0.75rem',
+              fontWeight: 400,
             }}
           >
             Private Portfolio
           </p>
           <h1
             style={{
-              fontSize: '1.75rem',
-              fontWeight: 700,
-              color: '#E1E6E8',
+              ...SERIF,
+              fontSize: '2.25rem',
+              fontWeight: 300,
+              color: '#000000',
               letterSpacing: '-0.02em',
+              lineHeight: 1,
               margin: 0,
             }}
           >
@@ -90,21 +107,14 @@ export function PasswordGate({ children }: PasswordGateProps) {
         </div>
 
         {/* Card */}
-        <form
-          onSubmit={handleSubmit}
-          style={{
-            background: '#0B0A0E',
-            border: '1px solid rgba(255,255,255,0.07)',
-            borderRadius: '12px',
-            padding: '2rem',
-          }}
-        >
+        <form onSubmit={handleSubmit}>
           <p
             style={{
+              ...SANS,
               fontSize: '0.875rem',
-              color: 'rgba(255,255,255,0.5)',
+              color: '#777169',
               marginBottom: '1.5rem',
-              lineHeight: 1.6,
+              lineHeight: 1.65,
             }}
           >
             This portfolio is private. Enter the access code to continue.
@@ -114,11 +124,12 @@ export function PasswordGate({ children }: PasswordGateProps) {
             <label
               htmlFor="password"
               style={{
+                ...MONO,
                 display: 'block',
-                fontSize: '0.75rem',
-                fontWeight: 500,
-                color: 'rgba(255,255,255,0.4)',
-                letterSpacing: '0.1em',
+                fontSize: '0.5625rem',
+                fontWeight: 400,
+                color: '#A59F97',
+                letterSpacing: '0.12em',
                 textTransform: 'uppercase',
                 marginBottom: '0.5rem',
               }}
@@ -129,37 +140,36 @@ export function PasswordGate({ children }: PasswordGateProps) {
               id="password"
               type="password"
               value={password}
-              onChange={e => {
-                setPassword(e.target.value);
-                setError(false);
-              }}
+              onChange={e => { setPassword(e.target.value); setError(false); }}
               autoFocus
-              autoComplete="current-password"
-              placeholder="••••••••••••"
               style={{
+                ...SANS,
+                display: 'block',
                 width: '100%',
-                padding: '0.75rem 1rem',
-                background: 'rgba(255,255,255,0.04)',
-                border: error
-                  ? '1px solid rgba(239,68,68,0.6)'
-                  : '1px solid rgba(255,255,255,0.1)',
-                borderRadius: '8px',
-                color: '#E1E6E8',
-                fontSize: '1rem',
+                padding: '0.625rem 0.75rem',
+                fontSize: '0.875rem',
+                color: '#000000',
+                background: '#FFFFFF',
+                border: error ? '1px solid #000000' : '1px solid #E5E5E5',
+                borderRadius: 0,
                 outline: 'none',
                 boxSizing: 'border-box',
-                transition: 'border-color 0.2s',
               }}
+              onFocus={e => { e.target.style.borderColor = '#FF4704'; }}
+              onBlur={e => { e.target.style.borderColor = error ? '#000000' : '#E5E5E5'; }}
             />
             {error && (
               <p
                 style={{
-                  color: 'rgba(239,68,68,0.8)',
-                  fontSize: '0.8rem',
+                  ...MONO,
+                  color: '#000000',
+                  fontSize: '0.5625rem',
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
                   marginTop: '0.5rem',
                 }}
               >
-                Incorrect access code. Try again.
+                Incorrect access code.
               </p>
             )}
           </div>
@@ -168,17 +178,18 @@ export function PasswordGate({ children }: PasswordGateProps) {
             type="submit"
             disabled={loading || !password}
             style={{
+              ...SANS,
               width: '100%',
               padding: '0.75rem',
-              background: loading || !password ? 'rgba(0,129,188,0.4)' : '#0081BC',
-              color: '#fff',
+              background: loading || !password ? '#E5E5E5' : '#000000',
+              color: loading || !password ? '#A59F97' : '#FFFFFF',
               border: 'none',
-              borderRadius: '8px',
-              fontSize: '0.9rem',
+              borderRadius: 0,
+              fontSize: '0.8125rem',
               fontWeight: 600,
               cursor: loading || !password ? 'not-allowed' : 'pointer',
-              transition: 'background 0.2s',
-              letterSpacing: '0.02em',
+              letterSpacing: '0.04em',
+              transition: 'background 0.15s',
             }}
           >
             {loading ? 'Verifying...' : 'Enter'}
@@ -187,10 +198,13 @@ export function PasswordGate({ children }: PasswordGateProps) {
 
         <p
           style={{
+            ...MONO,
             textAlign: 'center',
-            marginTop: '1.5rem',
-            fontSize: '0.75rem',
-            color: 'rgba(255,255,255,0.2)',
+            marginTop: '2rem',
+            fontSize: '0.5rem',
+            color: '#E5E5E5',
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase',
           }}
         >
           Access by invitation only.

@@ -1,58 +1,127 @@
 import { useEffect } from "react";
-import { Link } from "wouter";
 import { ArrowLeft } from "lucide-react";
 import SpeakingContent from "@/components/speaking-content";
+import { useLocation } from "wouter";
 
 export default function Services() {
+  const [, navigate] = useLocation();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground" style={{ backgroundColor: '#08080A' }}>
-      {/* Navigation Bar */}
-      <nav className="fixed top-0 left-0 right-0 w-full z-50 bg-gradient-to-r from-background/95 via-primary/20 to-background/95 backdrop-blur-lg border-b border-primary/30 shadow-lg">
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="flex justify-between items-center">
-            <Link href="/#work" className="flex items-center gap-2 text-white hover:text-purple-400 transition-colors">
-              <ArrowLeft className="w-5 h-5" />
-              <span className="font-medium">Back to Portfolio</span>
-            </Link>
-            <div className="logo-style flex items-center">
-              <span className="name-first text-white font-bold text-xl">UPSTART</span>
-              <span className="name-last text-purple-400 font-bold text-xl">-Labs</span>
-            </div>
-          </div>
+    <div className="min-h-screen bg-white text-black">
+
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-[#E5E5E5]">
+        <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+          <button
+            onClick={() => navigate("/")}
+            className="inline-flex items-center gap-2 text-[#3F3B36] hover:text-black transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            <span
+              style={{
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '0.875rem',
+                fontWeight: 500,
+              }}
+            >
+              Back to portfolio
+            </span>
+          </button>
+
+          <span
+            style={{
+              fontFamily: '"Cormorant Garamond", Georgia, serif',
+              fontWeight: 300,
+              fontSize: '1.125rem',
+              color: '#000000',
+              letterSpacing: '-0.01em',
+            }}
+          >
+            Alexis Brochu
+          </span>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="pt-32 pb-16 px-6 relative">
-        <div className="absolute inset-0 gradient-bg-secondary opacity-30"></div>
-        <div className="absolute inset-0 opacity-20">
-          <div className="w-full h-full bg-gradient-to-br from-primary/20 via-transparent to-chart-1/20"></div>
-        </div>
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6" style={{ fontFamily: 'Montserrat, sans-serif', color: '#F3E8B9' }}>
-            Equip Your Team to Thrive<br />in the AI Era
+      {/* Hero */}
+      <section className="pt-28 pb-14 px-6 border-b border-[#E5E5E5]">
+        <div className="max-w-7xl mx-auto">
+          <p
+            style={{
+              fontFamily: '"Geist Mono", ui-monospace, monospace',
+              fontSize: '0.625rem',
+              color: '#A59F97',
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              marginBottom: '1.25rem',
+            }}
+          >
+            Speaking and workshops
+          </p>
+          <h1
+            style={{
+              fontFamily: '"Cormorant Garamond", Georgia, serif',
+              fontWeight: 300,
+              fontSize: 'clamp(2rem, 5vw, 3.5rem)',
+              color: '#000000',
+              lineHeight: 1.1,
+              letterSpacing: '-0.02em',
+              marginBottom: '1rem',
+              maxWidth: '720px',
+            }}
+          >
+            Equip your team to thrive in the AI era.
           </h1>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Practical, engaging sessions that turn uncertainty into confidence for conferences, and team workshops.
+          <p
+            style={{
+              fontFamily: 'Inter, sans-serif',
+              fontSize: '1rem',
+              color: '#777169',
+              lineHeight: 1.65,
+              maxWidth: '520px',
+            }}
+          >
+            Practical, engaging sessions that turn uncertainty into confidence.
+            For conferences, executive briefings, and team workshops.
           </p>
         </div>
       </section>
 
-      {/* Shared Speaking Content */}
-      <div className="px-6 pb-16">
-        <div className="max-w-6xl mx-auto">
+      {/* Speaking Content */}
+      <div className="pb-20">
+        <div className="max-w-7xl mx-auto px-6">
           <SpeakingContent />
         </div>
       </div>
 
       {/* Footer */}
-      <footer className="py-8 px-6 border-t border-border">
-        <div className="max-w-4xl mx-auto text-center text-muted-foreground text-sm">
-          <p>&copy; {new Date().getFullYear()} Alexis Brochu. All rights reserved.</p>
+      <footer className="border-t border-[#E5E5E5] py-10">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p
+            style={{
+              fontFamily: '"Geist Mono", ui-monospace, monospace',
+              fontSize: '0.625rem',
+              letterSpacing: '0.08em',
+              color: '#A59F97',
+              textTransform: 'uppercase',
+            }}
+          >
+            © {new Date().getFullYear()} Alexis Brochu
+          </p>
+          <a
+            href="mailto:alexis@upstart-labs.com"
+            style={{
+              fontFamily: 'Inter, sans-serif',
+              fontSize: '0.875rem',
+              color: '#3F3B36',
+            }}
+            className="hover:text-black transition-colors"
+          >
+            alexis@upstart-labs.com →
+          </a>
         </div>
       </footer>
     </div>
