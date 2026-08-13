@@ -17,7 +17,7 @@ run = "pnpm --filter @workspace/personal-portfolio run dev"
 [services.production]
 build = [ "pnpm", "--filter", "@workspace/personal-portfolio", "run", "build" ]
 serve = "static"
-publicDir = "artifacts/personal-portfolio/dist/public"
+publicDir = "artifacts/personal-portfolio/dist"
 
 [[services.production.rewrites]]
 from = "/*"
