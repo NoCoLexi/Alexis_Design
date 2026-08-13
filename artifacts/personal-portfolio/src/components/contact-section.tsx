@@ -1,4 +1,4 @@
-import { Mail, Calendar, Linkedin } from "lucide-react";
+import { Mail, Calendar, Linkedin, ExternalLink } from "lucide-react";
 import { trackPortfolioClick } from "@/lib/analytics";
 
 interface ContactSectionProps {
@@ -24,13 +24,16 @@ export default function ContactSection({ onOpenAwardModal: _onOpenAwardModal }: 
             fontFamily: '"Geist Mono", ui-monospace, monospace',
             fontSize: '0.625rem',
             fontWeight: 400,
-            color: '#A59F97',
             letterSpacing: '0.12em',
             textTransform: 'uppercase',
             marginBottom: '1.5rem',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5em',
           }}
         >
-          Contact
+          <span style={{ color: '#FF4704' }}>&#x25CF;</span>
+          <span style={{ color: '#A59F97' }}>Contact</span>
         </p>
 
         {/* Heading */}
@@ -55,12 +58,12 @@ export default function ContactSection({ onOpenAwardModal: _onOpenAwardModal }: 
             fontWeight: 400,
             color: '#3F3B36',
             lineHeight: 1.65,
-            maxWidth: '480px',
+            maxWidth: '520px',
             marginBottom: '2.5rem',
           }}
         >
-          Product strategy, UX design, and change management that gets your
-          team from build to adoption.
+          Product strategy, AI transformation, and change management that moves your
+          team from build to full adoption.
         </p>
 
         {/* Contact links — no raw email in DOM */}
@@ -126,6 +129,31 @@ export default function ContactSection({ onOpenAwardModal: _onOpenAwardModal }: 
               }}
             >
               Schedule 15 min &rarr;
+            </span>
+          </a>
+
+          <a
+            href="https://www.upstart-labs.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 text-[#3F3B36] hover:text-black transition-colors group"
+            onClick={() => trackPortfolioClick('upstart-labs')}
+            data-testid="contact-upstart-labs"
+          >
+            <span
+              className="w-9 h-9 border flex items-center justify-center transition-colors"
+              style={{ background: '#FF4704', borderColor: '#FF4704' }}
+            >
+              <ExternalLink className="w-4 h-4 text-white" />
+            </span>
+            <span
+              style={{
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '0.875rem',
+                fontWeight: 500,
+              }}
+            >
+              UpStart-Labs &rarr;
             </span>
           </a>
         </div>

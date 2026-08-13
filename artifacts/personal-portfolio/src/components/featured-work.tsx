@@ -862,13 +862,16 @@ export default function FeaturedWork() {
             style={{
               fontFamily: '"Geist Mono", ui-monospace, monospace',
               fontSize: '0.625rem',
-              color: '#A59F97',
               letterSpacing: '0.12em',
               textTransform: 'uppercase',
               marginBottom: '1rem',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5em',
             }}
           >
-            Selected work
+            <span style={{ color: '#FF4704' }}>&#x25CF;</span>
+            <span style={{ color: '#A59F97' }}>Selected work</span>
           </p>
           <h2
             style={{
