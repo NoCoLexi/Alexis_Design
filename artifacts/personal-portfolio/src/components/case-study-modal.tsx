@@ -165,16 +165,16 @@ const caseStudies: Record<string, CaseStudy> = {
     id: '3d-layered-agent',
     title: '3-D Layered Agent',
     subtitle: 'Interactive multi-agent visualization built for AIxUX Summit 2026.',
-    description: 'Built the interactive 3D layered agent visualization that served as the closing keynote artifact for AIxUX Summit 2026. The app makes multi-agent orchestration tangible: each capability layer in the agent stack lights up in sequence as context passes between a Writer, Strategist, and Connector agent — making the handoff problem visceral rather than theoretical. Built solo with Replit Agent and deployed live for the room on the day of the keynote.',
+    description: 'Built the interactive 3D layered agent visualization that served as the closing keynote artifact for AIxUX Summit 2026. The app makes multi-agent orchestration tangible: each capability layer in the agent stack lights up in sequence as context passes between a Writer, Strategist, and Connector agent  -  making the handoff problem visceral rather than theoretical. Built solo with Replit Agent and deployed live for the room on the day of the keynote.',
     role: 'Designer, Builder & Closing Keynote Speaker',
     duration: '2 weeks pre-summit, deployed live on keynote day',
-    team: '1 — Alexis + Replit Agent',
-    challenge: 'Most agentic AI content stays abstract — slides about orchestration, diagrams of multi-agent systems, theory about delegation. The challenge was to build something attendees could feel, not just follow. It had to work live onstage with a room full of practitioners, demonstrate real agent handoffs, and make the orchestration pattern immediately legible to someone who had never directed multiple agents before.',
-    solution: 'Designed and built an interactive 3D visualization of the agent capability stack. Each layer — identity, trust rules, workflow, multimodal, decomposition, process, evals, commitment — is rendered in depth so attendees can see the full stack before the orchestration begins. When a goal is submitted, the app activates layer by layer, showing context passing from agent to agent (Writer to Strategist to Connector) in real time. The visualization resolves into a single output the user chooses to ship. Built entirely with Replit Agent in the two weeks leading up to the summit.',
+    team: '1  -  Alexis + Replit Agent',
+    challenge: 'Most agentic AI content stays abstract  -  slides about orchestration, diagrams of multi-agent systems, theory about delegation. The challenge was to build something attendees could feel, not just follow. It had to work live onstage with a room full of practitioners, demonstrate real agent handoffs, and make the orchestration pattern immediately legible to someone who had never directed multiple agents before.',
+    solution: 'Designed and built an interactive 3D visualization of the agent capability stack. Each layer  -  identity, trust rules, workflow, multimodal, decomposition, process, evals, commitment  -  is rendered in depth so attendees can see the full stack before the orchestration begins. When a goal is submitted, the app activates layer by layer, showing context passing from agent to agent (Writer to Strategist to Connector) in real time. The visualization resolves into a single output the user chooses to ship. Built entirely with Replit Agent in the two weeks leading up to the summit.',
     outcome: 'Deployed and ran live onstage as the anchor artifact of the Day 2 closing keynote. Attendees directed three specialist agents toward a real outcome they cared about, experiencing the handoff problem firsthand. The app remains publicly accessible as a working reference for the orchestration pattern.',
     metrics: [
       { label: 'Solo Build', value: 'Replit Agent', description: 'Designed and built entirely with Replit Agent in 2 weeks' },
-      { label: '3', value: 'Specialist Agents', description: 'Writer, Strategist, Connector — orchestrated live with the room' },
+      { label: '3', value: 'Specialist Agents', description: 'Writer, Strategist, Connector  -  orchestrated live with the room' },
       { label: '8', value: 'Capability Layers', description: 'Each summit session stacked one layer into the attendee\'s personal agent' }
     ],
     process: [
@@ -189,7 +189,7 @@ const caseStudies: Record<string, CaseStudy> = {
       'A working demo beats a polished deck every time when the topic is what AI can actually do',
       'The 3D layered format makes the agent stack legible to non-technical audiences without simplifying the concept',
       'Building the artifact first, then designing the session around it, produced a more coherent experience than the reverse',
-      'Live deployment pressure is the best forcing function for scope clarity — the keynote deadline made every cut obvious'
+      'Live deployment pressure is the best forcing function for scope clarity  -  the keynote deadline made every cut obvious'
     ],
     image: aixuxSummitCoverImage,
     liveUrl: 'https://three-dimensional-layered-agent.replit.app',
@@ -197,33 +197,33 @@ const caseStudies: Record<string, CaseStudy> = {
   },
   'aixux-summit-keynote': {
     id: 'aixux-summit-keynote',
-    title: 'AIxUX Summit 2026 — Closing Keynote',
-    subtitle: 'Design Your AI Networking Agent — a live multi-agent orchestration experience',
-    description: 'The Day 2 closing session of AIxUX Summit 2026. Across two days, attendees built a personal agent layer-by-layer with each speaker — trust rules, workflows, multimodal capability, decomposition, process, evaluation, and a 30-day commitment. This final session is where they feel it: directing three specialist agents (Writer, Strategist, Connector) toward a real outcome they cannot deliver alone. The 3D layered visualization makes the orchestration handoff visceral, not theoretical.',
+    title: 'AIxUX Summit 2026  -  Closing Keynote',
+    subtitle: 'Design Your AI Networking Agent  -  a live multi-agent orchestration experience',
+    description: 'The Day 2 closing session of AIxUX Summit 2026. Across two days, attendees built a personal agent layer-by-layer with each speaker  -  trust rules, workflows, multimodal capability, decomposition, process, evaluation, and a 30-day commitment. This final session is where they feel it: directing three specialist agents (Writer, Strategist, Connector) toward a real outcome they cannot deliver alone. The 3D layered visualization makes the orchestration handoff visceral, not theoretical.',
     role: 'Closing Keynote Speaker & Experience Designer',
-    duration: 'Day 2, 13:00 — final session of the summit',
-    team: '1 — Alexis Brochu founder, orchestrating three specialist agents live with the room',
-    challenge: 'The hardest part of working agentically is not the technology — it is the handoff. Most agentic content stays abstract: slides about orchestration, diagrams of multi-agent systems, theory about delegation. Attendees walk away knowing what an agent is, but not feeling what it is like to direct several at once toward a goal they care about.',
-    solution: 'Built a live orchestration experience anchored on a 3D layered visualization of the agent stack. Attendees walked in with a personal agent already loaded with eight summit sessions worth of context — identity, trust rules, a real workflow, multimodal capability, decomposition thinking, a redesigned process, eval criteria, and a 30-day commitment. The session put them in the director seat: send the same goal through three specialist agents (Writer, Strategist, Connector), watch the handoffs happen, decide which output ships. The 3D visualization shows each agent layer activating, passing context forward, and resolving into a single result.',
-    outcome: 'Closed the summit\'s capability-layer arc with the moment everything was built toward. Attendees left having felt the handoff problem — not just heard about it — which is the foundation Renata\'s 30-day commitment depends on. The live 3D demo (linked below) remains available as a public artifact of the session and as a working reference for the orchestration pattern.',
+    duration: 'Day 2, 13:00  -  final session of the summit',
+    team: '1  -  Alexis Brochu founder, orchestrating three specialist agents live with the room',
+    challenge: 'The hardest part of working agentically is not the technology  -  it is the handoff. Most agentic content stays abstract: slides about orchestration, diagrams of multi-agent systems, theory about delegation. Attendees walk away knowing what an agent is, but not feeling what it is like to direct several at once toward a goal they care about.',
+    solution: 'Built a live orchestration experience anchored on a 3D layered visualization of the agent stack. Attendees walked in with a personal agent already loaded with eight summit sessions worth of context  -  identity, trust rules, a real workflow, multimodal capability, decomposition thinking, a redesigned process, eval criteria, and a 30-day commitment. The session put them in the director seat: send the same goal through three specialist agents (Writer, Strategist, Connector), watch the handoffs happen, decide which output ships. The 3D visualization shows each agent layer activating, passing context forward, and resolving into a single result.',
+    outcome: 'Closed the summit\'s capability-layer arc with the moment everything was built toward. Attendees left having felt the handoff problem  -  not just heard about it  -  which is the foundation Renata\'s 30-day commitment depends on. The live 3D demo (linked below) remains available as a public artifact of the session and as a working reference for the orchestration pattern.',
     metrics: [
       { label: 'Day 2 Close', value: 'Keynote Slot', description: 'Final session of the two-day AIxUX Summit capability arc' },
-      { label: '3', value: 'Specialist Agents', description: 'Writer, Strategist, Connector — orchestrated live with the room' },
+      { label: '3', value: 'Specialist Agents', description: 'Writer, Strategist, Connector  -  orchestrated live with the room' },
       { label: '8', value: 'Prior Layers Stacked', description: 'Goal + memory, trust, workflow, multimodal, decomposition, process, evals, 30-day commitment' }
     ],
     process: [
       'Co-designed the summit\'s capability-layer spine with the facilitator team (Danny, Suyen, and Day 1/2 speakers)',
       'Owned overall arc integrity: each session adds exactly one capability layer to the attendee\'s personal agent',
-      'Built the 3D layered agent visualization as the session\'s anchor — a working demo, not a slide',
+      'Built the 3D layered agent visualization as the session\'s anchor  -  a working demo, not a slide',
       'Wrote the session brief: pick up Renata\'s 30-day commitment, run the orchestration exercise, hand off to Day 2 Close',
       'Defined the three specialist agents (Writer, Strategist, Connector) and the goal pattern that runs through all three',
       'Designed the hands-on beat: attendees send their commitment through the agent stack and decide which output to ship',
       'Authored the facilitator handoff SOP so every session in the program flowed as one experience, not ten standalone talks'
     ],
     learnings: [
-      'Agentic capability lands through doing, not listening — every session needs a hands-on beat or the arc breaks',
-      'Multi-agent orchestration is felt, not taught — the 3D visualization made the handoff visceral in a way diagrams never do',
-      'The hardest part of agentic work is the handoff, not the agent — and the only way to teach it is to put people in the director seat',
+      'Agentic capability lands through doing, not listening  -  every session needs a hands-on beat or the arc breaks',
+      'Multi-agent orchestration is felt, not taught  -  the 3D visualization made the handoff visceral in a way diagrams never do',
+      'The hardest part of agentic work is the handoff, not the agent  -  and the only way to teach it is to put people in the director seat',
       'A live working demo as the session anchor outperforms a polished deck every time when the topic is "things AI can actually do"'
     ],
     image: aixuxSummitCoverImage,
@@ -234,13 +234,13 @@ const caseStudies: Record<string, CaseStudy> = {
     id: 'conductor-networking-agent',
     title: 'Conductor Networking Agent',
     subtitle: 'Personal agent creation app built for AIxUX Summit 2026.',
-    description: 'Conductor is a personal-agent creation app built for AIxUX Summit 2026 attendees. It lets anyone compose their own networking agent in a single session — defining its identity, communication goals, and outreach style — then deploy it immediately. The app was designed so non-technical summit participants could walk out with a live personal agent they had built themselves, not just a concept they had heard about.',
+    description: 'Conductor is a personal-agent creation app built for AIxUX Summit 2026 attendees. It lets anyone compose their own networking agent in a single session  -  defining its identity, communication goals, and outreach style  -  then deploy it immediately. The app was designed so non-technical summit participants could walk out with a live personal agent they had built themselves, not just a concept they had heard about.',
     role: 'Designer & Builder',
     duration: 'Built for AIxUX Summit 2026',
-    team: '1 — Alexis + Replit Agent',
-    challenge: 'Summit attendees understood the idea of a personal AI agent intellectually, but had never actually built one. The challenge was to make the creation experience so approachable that anyone — regardless of technical background — could go from blank slate to a deployed, personalized networking agent inside a single guided session.',
-    solution: 'Designed and built Conductor as a step-by-step agent composition flow. Users define their agent\'s identity (who they are, what they do), set its networking goals, and tune its communication style. The app assembles those inputs into a deployable agent and hands it back to the user — live, running, and ready to use at the summit and beyond. Built entirely with Replit Agent.',
-    outcome: 'Deployed as a summit tool for AIxUX 2026 attendees. Participants left with a working personal networking agent they had created themselves — making the summit\'s core theme of personal AI tangible and immediately actionable.',
+    team: '1  -  Alexis + Replit Agent',
+    challenge: 'Summit attendees understood the idea of a personal AI agent intellectually, but had never actually built one. The challenge was to make the creation experience so approachable that anyone  -  regardless of technical background  -  could go from blank slate to a deployed, personalized networking agent inside a single guided session.',
+    solution: 'Designed and built Conductor as a step-by-step agent composition flow. Users define their agent\'s identity (who they are, what they do), set its networking goals, and tune its communication style. The app assembles those inputs into a deployable agent and hands it back to the user  -  live, running, and ready to use at the summit and beyond. Built entirely with Replit Agent.',
+    outcome: 'Deployed as a summit tool for AIxUX 2026 attendees. Participants left with a working personal networking agent they had created themselves  -  making the summit\'s core theme of personal AI tangible and immediately actionable.',
     metrics: [
       { label: 'Solo Build', value: 'Replit Agent', description: 'Designed and built entirely with Replit Agent' },
       { label: 'AIxUX 2026', value: 'Summit Tool', description: 'Used live by summit attendees to create personal agents' },
@@ -255,7 +255,7 @@ const caseStudies: Record<string, CaseStudy> = {
     ],
     learnings: [
       'Guided composition flows make AI agent creation accessible to non-technical audiences without sacrificing depth',
-      'Framing it as "your agent" rather than "the app" drove higher engagement — ownership changes the experience',
+      'Framing it as "your agent" rather than "the app" drove higher engagement  -  ownership changes the experience',
       'Deploying a working tool to a live event audience is the fastest feedback loop available',
       'Building for a specific moment (the summit) creates the scope clarity that makes rapid deployment possible'
     ],
@@ -266,12 +266,12 @@ const caseStudies: Record<string, CaseStudy> = {
   handshakr: {
     id: 'handshakr',
     title: 'HandShakr',
-    subtitle: 'AI-powered networking follow-up — built solo in 10 hours at a Replit build-a-thon',
+    subtitle: 'AI-powered networking follow-up  -  built solo in 10 hours at a Replit build-a-thon',
     description: 'HandShakr solves the problem of meeting lots of people at a networking event and forgetting what you talked about and when you said you would reach out. It captures each new contact, analyzes the conversation, syncs the person into a Notion database, and auto-blocks time on your calendar with a reminder of who they are and why you connected.',
     role: 'Solo Builder & Designer',
     duration: '10 hours',
-    team: '1 — Alexis Brochu + Replit Agent 4',
-    challenge: 'Networking events generate dozens of meaningful conversations in a single night, but follow-ups slip through the cracks. Names blur together, business cards get lost, and the calendar reminder you swore you would set never happens — so warm intros go cold.',
+    team: '1  -  Alexis Brochu + Replit Agent 4',
+    challenge: 'Networking events generate dozens of meaningful conversations in a single night, but follow-ups slip through the cracks. Names blur together, business cards get lost, and the calendar reminder you swore you would set never happens  -  so warm intros go cold.',
     solution: 'Designed and shipped HandShakr end-to-end during a Replit build-a-thon: a lightweight AI agent that captures contact details, summarizes what you talked about, writes the person into a Notion CRM, and drops a calendar block on your schedule pre-filled with context for the follow-up. Branding and visual system were built in Figma; the entire app was built solely with Replit Agent 4.',
     outcome: 'Working prototype shipped at the build-a-thon in 10 hours, demonstrating that a single PM with a single AI agent can take an idea from problem statement to a functional networking tool with real integrations (Notion + Calendar) inside one evening.',
     metrics: [
@@ -281,7 +281,7 @@ const caseStudies: Record<string, CaseStudy> = {
     ],
     process: [
       'Framed the problem: dropped follow-ups after networking events',
-      'Sketched the user flow — capture → analyze → sync → remind',
+      'Sketched the user flow  -  capture → analyze → sync → remind',
       'Designed brand and UI in Figma (logo, color, type)',
       'Built the full app with Replit Agent 4 (no other tooling)',
       'Wired up Notion as the contact database',
@@ -300,21 +300,21 @@ const caseStudies: Record<string, CaseStudy> = {
   'stakeholder-invaders': {
     id: 'stakeholder-invaders',
     title: 'Stakeholder Invaders',
-    subtitle: 'A change-management arcade — convert skeptics, don\'t destroy them',
-    description: 'Stakeholder Invaders is a Space Invaders-style browser game built to demonstrate that the core skill of a change agent is persuasion, not force. Descending waves of stakeholder archetypes — Engineers, Budget Holders, Directors, Process Gatekeepers, and the VP boss — can only be neutralized by selecting the right OCM tactic for each type. Shooting the wrong tactic costs credibility; converting an enemy turns them into an Advocate worth bonus points.',
+    subtitle: 'A change-management arcade  -  convert skeptics, don\'t destroy them',
+    description: 'Stakeholder Invaders is a Space Invaders-style browser game built to demonstrate that the core skill of a change agent is persuasion, not force. Descending waves of stakeholder archetypes  -  Engineers, Budget Holders, Directors, Process Gatekeepers, and the VP boss  -  can only be neutralized by selecting the right OCM tactic for each type. Shooting the wrong tactic costs credibility; converting an enemy turns them into an Advocate worth bonus points.',
     role: 'Solo Designer & Builder',
     duration: '1 evening',
-    team: '1 — Alexis Brochu + Replit Agent',
-    challenge: 'Portfolios are full of case studies that describe change management in the abstract. The challenge was to make the core idea — stakeholder conversion through tactics, not force — visceral and immediately understandable to anyone who plays for 60 seconds.',
-    solution: 'Built a fully playable arcade game that maps real OCM tactics (Data & Evidence, Empathy Listening, Coalition Building, Vision & Story, Quick Win Showcase) to specific stakeholder archetypes. Each wave requires the player to switch tactics intelligently; brute-force play drains credibility fast. The game is pixel-art first, procedurally rendered on canvas — no external image assets — and ships as a standalone route inside the portfolio monorepo.',
-    outcome: 'A live, playable artifact that communicates the PM\'s change-management philosophy in 60 seconds of gameplay. The game itself becomes a talking point: it shows product thinking, systems design, UX craft, and OCM expertise simultaneously — no slide deck required.',
+    team: '1  -  Alexis Brochu + Replit Agent',
+    challenge: 'Portfolios are full of case studies that describe change management in the abstract. The challenge was to make the core idea  -  stakeholder conversion through tactics, not force  -  visceral and immediately understandable to anyone who plays for 60 seconds.',
+    solution: 'Built a fully playable arcade game that maps real OCM tactics (Data & Evidence, Empathy Listening, Coalition Building, Vision & Story, Quick Win Showcase) to specific stakeholder archetypes. Each wave requires the player to switch tactics intelligently; brute-force play drains credibility fast. The game is pixel-art first, procedurally rendered on canvas  -  no external image assets  -  and ships as a standalone route inside the portfolio monorepo.',
+    outcome: 'A live, playable artifact that communicates the PM\'s change-management philosophy in 60 seconds of gameplay. The game itself becomes a talking point: it shows product thinking, systems design, UX craft, and OCM expertise simultaneously  -  no slide deck required.',
     metrics: [
       { label: '1 Evening', value: 'Solo Build', description: 'Concept to deployed game in a single evening using Replit Agent' },
       { label: '5', value: 'OCM Tactics', description: 'Data & Evidence, Empathy Listening, Coalition Building, Vision & Story, Quick Win Showcase' },
       { label: '6', value: 'Stakeholder Types', description: 'Engineer, Budget Holder, Customer, Director, Process Gatekeeper, VP Boss' }
     ],
     process: [
-      'Defined the game metaphor: stakeholder conversion mirrors OCM — wrong tactic = credibility loss',
+      'Defined the game metaphor: stakeholder conversion mirrors OCM  -  wrong tactic = credibility loss',
       'Mapped real OCM tactics to stakeholder archetypes (e.g. Budget Holder → Data & Evidence)',
       'Designed pixel-art sprites for each stakeholder type, rendered procedurally on canvas',
       'Built wave logic, tactic-matching system, and credibility mechanics',
@@ -504,7 +504,7 @@ const caseStudies: Record<string, CaseStudy> = {
     id: 'pa-portal',
     title: 'Public Assistance Closeouts App',
     subtitle: 'A critical grant closeout application was stalled because stakeholders had conflicting understandings of scope, blocking all progress.',
-    description: 'Part of the Cal OES Engage Community Portal, this app connects Californian subrecipients to state government to make the reimbursement process quicker and more efficient. The Salesforce product owner brought me in as product manager, but the closeouts app was stalled — the product owner was not approving anything. I needed to uncover the real blockers and align stakeholders before any progress could happen.',
+    description: 'Part of the Cal OES Engage Community Portal, this app connects Californian subrecipients to state government to make the reimbursement process quicker and more efficient. The Salesforce product owner brought me in as product manager, but the closeouts app was stalled  -  the product owner was not approving anything. I needed to uncover the real blockers and align stakeholders before any progress could happen.',
     role: 'Lead UX Researcher & Process Designer',
     duration: '6 months',
     team: '1 product manager, 6 contractors/developers, 4 state-side POs, 4 state leadership',
@@ -520,7 +520,7 @@ const caseStudies: Record<string, CaseStudy> = {
       'Reverse-engineered the existing system to identify what was blocking progress',
       'Conducted 100+ hours of recorded interviews with 12+ stakeholders across departments',
       'Synthesized interview data into spreadsheets mapping concerns by department (data integrity, public trust, status tracking, etc.)',
-      'Created value-effort matrix that revealed low-value features were consuming high effort—shifting project priorities',
+      'Created value-effort matrix that revealed low-value features were consuming high effort - shifting project priorities',
       'Designed visual scope documents and "parking lot" artifacts to get product owner alignment without dismissing future requests',
       'Iterated on designs through multiple rounds of stakeholder presentations and feedback'
     ],
@@ -1108,7 +1108,7 @@ const caseStudies: Record<string, CaseStudy> = {
     role: 'Certified Personal Trainer & Nutrition Coach',
     duration: '23+ years (2000–present)',
     team: 'Solo practitioner; collaborated with gym management, physical therapists, and media partners',
-    challenge: 'Helping diverse populations — from competitive athletes to aging adults with chronic conditions — achieve sustainable fitness goals in a rural mountain community with limited access to specialized health services.',
+    challenge: 'Helping diverse populations  -  from competitive athletes to aging adults with chronic conditions  -  achieve sustainable fitness goals in a rural mountain community with limited access to specialized health services.',
     solution: 'Developed individualized and group training programs grounded in NASM methodology, TRX Sports Medicine protocols, and YogaFit progressive training. Created low-impact conditioning curricula featured in regional publications and demonstrated on live television. Built multi-format class offerings spanning kickboxing, yoga, spin, TRX suspension training, and Les Mills BodyCOMBAT.',
     outcome: 'Recognized as a Top 3 Personal Trainer in the Mount Washington Valley (Conway Daily Sun Readers\' Choice Awards, 2017). Named Cranmore Mountain Resort Employee of the Year (2017). Featured in Vibe Magazine and interviewed on RSN Outside TV for fitness programming expertise.',
     metrics: [
@@ -1126,7 +1126,7 @@ const caseStudies: Record<string, CaseStudy> = {
       'Live TV demonstrations on RSN Outside TV (2014, 2017, 2018)'
     ],
     learnings: [
-      'Sustainable fitness requires meeting people where they are — physically and mentally',
+      'Sustainable fitness requires meeting people where they are  -  physically and mentally',
       'Evidence-based programming builds trust and long-term client retention',
       'Community visibility through media and events drives organic growth in rural markets',
       'Cross-discipline certifications enable more holistic, adaptable coaching'
@@ -1149,7 +1149,7 @@ const caseStudies: Record<string, CaseStudy> = {
     role: 'Corporate Communications & Brand Development',
     duration: 'During Imcera merger and Medical/Chemical division split',
     team: 'Corporate communications team, scientists, sales teams, and senior leadership',
-    challenge: 'Navigating a complex corporate restructuring as Mallinckrodt transitioned from a single entity under Imcera into two distinct companies — Medical and Chemical — each requiring its own brand identity, messaging, and stakeholder communications while maintaining continuity for clients and regulatory partners.',
+    challenge: 'Navigating a complex corporate restructuring as Mallinckrodt transitioned from a single entity under Imcera into two distinct companies  -  Medical and Chemical  -  each requiring its own brand identity, messaging, and stakeholder communications while maintaining continuity for clients and regulatory partners.',
     solution: 'Developed corporate communications strategy and brand materials for the newly formed Mallinckrodt Medical division. Worked hands-on with scientists to translate technical research into accessible internal and external materials. Supported crisis communications efforts during the transition and created sales enablement materials to maintain market confidence throughout the restructuring.',
     outcome: 'Successfully supported the corporate rebrand and division split, ensuring Mallinckrodt Medical emerged with a clear, professional identity. The Medical division continued as a standalone entity through 1998 when it merged back into the parent company as Mallinckrodt, Inc. The company has since merged with Endo International.',
     metrics: [
@@ -1243,13 +1243,13 @@ export default function CaseStudyModal() {
   const SANS = { fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif' } as React.CSSProperties;
 
   return (
-    // Backdrop — click anywhere outside the card to close
+    // Backdrop  -  click anywhere outside the card to close
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8"
       style={{ background: 'rgba(0,0,0,0.55)' }}
       onClick={closeCaseStudy}
     >
-      {/* Modal card — stop propagation so clicks inside don't close */}
+      {/* Modal card  -  stop propagation so clicks inside don't close */}
       <div
         className="bg-white w-full max-w-4xl max-h-[92vh] overflow-y-auto"
         style={{ border: '1px solid #E5E5E5' }}
@@ -1298,7 +1298,7 @@ export default function CaseStudyModal() {
                 {caseStudy.id === 'aixux-summit-keynote' ? 'View experience' : 'View application'}
               </a>
             )}
-            {/* X close button — clearly visible on white */}
+            {/* X close button  -  clearly visible on white */}
             <button
               onClick={closeCaseStudy}
               aria-label="Close"

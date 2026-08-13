@@ -112,7 +112,8 @@ export default function Services() {
             © {new Date().getFullYear()} Alexis Brochu
           </p>
           <a
-            href="mailto:alexisb.product@gmail.com"
+            href="#"
+            onClick={(e: React.MouseEvent) => { e.preventDefault(); const p = ['alexisb','.product','@','gmail','.com']; window.location.href = 'mailto:' + p.join(''); }}
             style={{
               fontFamily: 'Inter, sans-serif',
               fontSize: '0.875rem',

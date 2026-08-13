@@ -5,6 +5,14 @@ interface ContactSectionProps {
   onOpenAwardModal?: () => void;
 }
 
+// Bot-safe: build mailto href on click, never expose email as static DOM text
+function handleEmailClick(e: React.MouseEvent) {
+  e.preventDefault();
+  const parts = ['alexisb', '.product', '@', 'gmail', '.com'];
+  window.location.href = 'mailto:' + parts.join('');
+  trackPortfolioClick('email');
+}
+
 export default function ContactSection({ onOpenAwardModal: _onOpenAwardModal }: ContactSectionProps) {
   return (
     <section id="contact" className="border-t border-[#E5E5E5] py-20 bg-[#F5F3F1]">
@@ -55,12 +63,12 @@ export default function ContactSection({ onOpenAwardModal: _onOpenAwardModal }: 
           team from build to adoption.
         </p>
 
-        {/* Contact links */}
+        {/* Contact links — no raw email in DOM */}
         <div className="flex flex-col sm:flex-row flex-wrap gap-5">
           <a
-            href="mailto:alexisb.product@gmail.com"
+            href="#"
+            onClick={handleEmailClick}
             className="inline-flex items-center gap-3 text-[#3F3B36] hover:text-black transition-colors group"
-            onClick={() => trackPortfolioClick('email')}
             data-testid="contact-email"
           >
             <span className="w-9 h-9 border border-[#E5E5E5] bg-white flex items-center justify-center group-hover:border-black transition-colors">
@@ -73,7 +81,7 @@ export default function ContactSection({ onOpenAwardModal: _onOpenAwardModal }: 
                 fontWeight: 500,
               }}
             >
-              Email Alexis →
+              Email Alexis &rarr;
             </span>
           </a>
 
@@ -95,7 +103,7 @@ export default function ContactSection({ onOpenAwardModal: _onOpenAwardModal }: 
                 fontWeight: 500,
               }}
             >
-              LinkedIn →
+              LinkedIn &rarr;
             </span>
           </a>
 
@@ -117,7 +125,7 @@ export default function ContactSection({ onOpenAwardModal: _onOpenAwardModal }: 
                 fontWeight: 500,
               }}
             >
-              Schedule 15 min →
+              Schedule 15 min &rarr;
             </span>
           </a>
         </div>

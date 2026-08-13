@@ -15,9 +15,9 @@ const METRICS = [
 ] as const;
 
 const EYEBROW_LINES = [
-  "Principal Product Strategist",
-  "Enterprise AI Adoption",
-  "Speaker and Facilitator",
+  { text: "Principal Product Strategist", accent: true },
+  { text: "Enterprise AI Adoption",       accent: false },
+  { text: "Speaker and Facilitator",      accent: false },
 ];
 
 export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroSectionProps) {
@@ -41,7 +41,7 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
       {/* Breathing space */}
       <div className="flex-1" />
 
-      {/* Title block — anchored to lower portion */}
+      {/* Title block anchored to lower portion */}
       <div className="max-w-7xl mx-auto px-6 pb-10 w-full">
 
         {/* Eyebrow */}
@@ -61,70 +61,93 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
           </p>
         ) : (
           <div style={{ marginBottom: '1.25rem', display: 'flex', flexDirection: 'column', gap: '0.2rem' }}>
-            {EYEBROW_LINES.map((line, i) => (
+            {EYEBROW_LINES.map(({ text, accent }) => (
               <p
-                key={line}
+                key={text}
                 style={{
                   fontFamily: '"Geist Mono", ui-monospace, monospace',
                   fontSize: '0.625rem',
                   fontWeight: 400,
-                  color: i === 0 ? '#FF4704' : '#A59F97',
+                  color: accent ? '#FF4704' : '#A59F97',
                   letterSpacing: '0.1em',
                   textTransform: 'uppercase',
                   margin: 0,
                 }}
               >
-                {line}
+                {text}
               </p>
             ))}
           </div>
         )}
 
-        {/* Name masthead — with orange dot from resume identity */}
-        <h1
+        {/* Name masthead with orange dot centered on cap-height */}
+        <div
           style={{
-            fontFamily: '"Cormorant Garamond", Georgia, serif',
-            fontWeight: 300,
-            fontSize: 'clamp(60px, 10vw, 120px)',
-            lineHeight: 0.93,
-            color: '#000000',
-            margin: '0 0 1.75rem -3px',
-            letterSpacing: '-0.02em',
             display: 'flex',
-            alignItems: 'flex-start',
-            gap: '0.2em',
+            alignItems: 'center',
+            gap: '0.18em',
+            margin: '0 0 1.75rem -3px',
           }}
         >
           <span
             aria-hidden="true"
             style={{
               color: '#FF4704',
-              fontSize: '0.3em',
+              fontSize: 'clamp(16px, 2.4vw, 28px)',
               lineHeight: 1,
-              marginTop: '0.28em',
               flexShrink: 0,
+              // Fine-tune vertical: Cormorant Garamond cap-height ~70% of em,
+              // so shift dot slightly up from center to align with cap-height midpoint
+              marginBottom: 'clamp(4px, 0.6vw, 8px)',
             }}
           >
-            ●
+            &#x25CF;
           </span>
-          Alexis Brochu
-        </h1>
+          <h1
+            style={{
+              fontFamily: '"Cormorant Garamond", Georgia, serif',
+              fontWeight: 300,
+              fontSize: 'clamp(60px, 10vw, 120px)',
+              lineHeight: 0.93,
+              color: '#000000',
+              margin: 0,
+              letterSpacing: '-0.02em',
+            }}
+          >
+            Alexis Brochu
+          </h1>
+        </div>
 
-        {/* Tagline */}
-        <p
-          style={{
-            fontFamily: 'Inter, sans-serif',
-            fontSize: '1rem',
-            fontWeight: 400,
-            color: '#3F3B36',
-            lineHeight: 1.65,
-            maxWidth: '520px',
-            marginBottom: '2.25rem',
-          }}
-        >
-          IT begins with People. I build the human layer of User and Agentic
-          experiences (UX&#8209;AX)
-        </p>
+        {/* Tagline — two paragraphs */}
+        <div style={{ maxWidth: '560px', marginBottom: '2.25rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+          <p
+            style={{
+              fontFamily: 'Inter, sans-serif',
+              fontSize: '1rem',
+              fontWeight: 500,
+              color: '#000000',
+              lineHeight: 1.55,
+              margin: 0,
+            }}
+          >
+            I design products that get adopted, not just shipped.
+          </p>
+          <p
+            style={{
+              fontFamily: 'Inter, sans-serif',
+              fontSize: '0.9375rem',
+              fontWeight: 400,
+              color: '#3F3B36',
+              lineHeight: 1.7,
+              margin: 0,
+            }}
+          >
+            My differentiator is how I work: alongside engineering and business partners,
+            not downstream from them. I help teams make better decisions, move through
+            complexity, and stay focused on outcomes. When I&rsquo;m embedded with a team,
+            the work gets finished, and the result is a product people want to use.
+          </p>
+        </div>
 
         {/* CTA links */}
         <div className="flex flex-col gap-2.5 mb-10">
@@ -141,7 +164,7 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
             }}
           >
             <Code className="w-3 h-3" />
-            How I built this site →
+            How I built this site &rarr;
           </button>
           <button
             onClick={onOpenAwardModal}
@@ -156,28 +179,27 @@ export default function HeroSection({ onOpenAwardModal, onOpenSiteModal }: HeroS
             }}
           >
             <Trophy className="w-3 h-3" />
-            GovTech Award Winner →
+            GovTech Award Winner &rarr;
           </button>
 
-          {/* Stakeholder Invaders — stands out with Ember accent */}
+          {/* Stakeholder Invaders — same hover pattern, distinct by context */}
           <a
             href="/stakeholder-invaders/"
             target="_blank"
             rel="noopener noreferrer"
             data-testid="button-hero-stakeholder-invaders"
-            className="inline-flex items-center gap-2 transition-colors w-fit group"
+            className="inline-flex items-center gap-2 text-[#A59F97] hover:text-[#3F3B36] transition-colors w-fit"
             style={{
               fontFamily: 'Inter, sans-serif',
               fontSize: '0.6875rem',
-              fontWeight: 700,
+              fontWeight: 600,
               letterSpacing: '0.18em',
               textTransform: 'uppercase',
-              color: '#FF4704',
               textDecoration: 'none',
             }}
           >
-            <Gamepad2 className="w-3.5 h-3.5" />
-            Play Stakeholder Invaders →
+            <Gamepad2 className="w-3 h-3" />
+            Play Stakeholder Invaders &rarr;
           </a>
         </div>
       </div>

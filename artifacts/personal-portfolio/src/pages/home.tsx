@@ -7,7 +7,7 @@ import AwardModal from "@/components/award-modal";
 import SiteModal from "@/components/site-modal";
 import AdminPanel from "@/components/admin-panel";
 import { useState, useEffect } from "react";
-import { Menu, X, Gamepad2 } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -79,29 +79,22 @@ export default function Home() {
               className="text-sm font-medium text-[#3F3B36] hover:text-black transition-colors"
               data-testid="button-nav-work"
             >
-              Work
+              My work
             </button>
             <button
               onClick={() => scrollToSection('about')}
               className="text-sm font-medium text-[#3F3B36] hover:text-black transition-colors"
               data-testid="button-nav-about"
             >
-              About
+              About Alexis
             </button>
             <button
               onClick={() => scrollToSection('contact')}
               className="text-sm font-medium text-[#3F3B36] hover:text-black transition-colors"
               data-testid="button-nav-contact"
             >
-              Contact
+              Contact me
             </button>
-            <a
-              href="mailto:alexisb.product@gmail.com"
-              className="text-sm font-medium text-[#3F3B36] hover:text-black transition-colors"
-              data-testid="link-nav-email"
-            >
-              alexisb.product@gmail.com →
-            </a>
           </div>
 
           {/* Mobile toggle */}
@@ -122,30 +115,22 @@ export default function Home() {
               className="block w-full text-left text-sm font-medium text-[#3F3B36] hover:text-black"
               data-testid="button-nav-work-mobile"
             >
-              Work
+              My work
             </button>
             <button
               onClick={() => scrollToSection('about')}
               className="block w-full text-left text-sm font-medium text-[#3F3B36] hover:text-black"
               data-testid="button-nav-about-mobile"
             >
-              About
+              About Alexis
             </button>
             <button
               onClick={() => scrollToSection('contact')}
               className="block w-full text-left text-sm font-medium text-[#3F3B36] hover:text-black"
               data-testid="button-nav-contact-mobile"
             >
-              Contact
+              Contact me
             </button>
-            <a
-              href="mailto:alexisb.product@gmail.com"
-              className="block text-sm font-medium text-[#3F3B36] hover:text-black"
-              data-testid="link-nav-email-mobile"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              alexisb.product@gmail.com →
-            </a>
           </div>
         )}
       </nav>
@@ -180,23 +165,17 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="border-t border-[#E5E5E5] py-10">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <a
-            href="/stakeholder-invaders/"
-            className="inline-flex items-center gap-2 text-[#777169] hover:text-black transition-colors"
-            data-testid="link-play-game-footer"
-          >
-            <Gamepad2 className="w-4 h-4" />
-            <span
-              style={{ fontFamily: '"Geist Mono", monospace', fontSize: '0.625rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}
-            >
-              Play Stakeholder Invaders →
-            </span>
-          </a>
+        <div className="max-w-7xl mx-auto px-6 flex items-center justify-center">
           <p
-            style={{ fontFamily: '"Geist Mono", monospace', fontSize: '0.625rem', letterSpacing: '0.08em', color: '#A59F97', textTransform: 'uppercase' }}
+            style={{
+              fontFamily: '"Geist Mono", monospace',
+              fontSize: '0.625rem',
+              letterSpacing: '0.08em',
+              color: '#A59F97',
+              textTransform: 'uppercase',
+            }}
           >
-            © {new Date().getFullYear()} Alexis Brochu · North Conway, NH
+            &copy; {new Date().getFullYear()} Alexis Brochu
           </p>
         </div>
       </footer>

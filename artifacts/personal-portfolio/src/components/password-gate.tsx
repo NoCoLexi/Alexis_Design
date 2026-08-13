@@ -15,21 +15,19 @@ async function hashPassword(password: string): Promise<string> {
   return [...new Uint8Array(buffer)].map(b => b.toString(16).padStart(2, '0')).join('');
 }
 
+// Bot-safe email builder — never a static string in the DOM
+function openRequestEmail() {
+  const parts = ['alexisb', '.product', '@', 'gmail', '.com'];
+  window.location.href = 'mailto:' + parts.join('') + '?subject=Portfolio%20Access%20Request';
+}
+
 interface PasswordGateProps {
   children: ReactNode;
 }
 
-const MONO: React.CSSProperties = {
-  fontFamily: '"Geist Mono", ui-monospace, monospace',
-};
-
-const SERIF: React.CSSProperties = {
-  fontFamily: '"Cormorant Garamond", Georgia, serif',
-};
-
-const SANS: React.CSSProperties = {
-  fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif',
-};
+const MONO: React.CSSProperties = { fontFamily: '"Geist Mono", ui-monospace, monospace' };
+const SERIF: React.CSSProperties = { fontFamily: '"Cormorant Garamond", Georgia, serif' };
+const SANS: React.CSSProperties = { fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif' };
 
 export function PasswordGate({ children }: PasswordGateProps) {
   const [authenticated, setAuthenticated] = useState(() => {
@@ -76,6 +74,7 @@ export function PasswordGate({ children }: PasswordGateProps) {
       }}
     >
       <div style={{ width: '100%', maxWidth: '360px' }}>
+
         {/* Wordmark */}
         <div style={{ marginBottom: '3rem', textAlign: 'center' }}>
           <p
@@ -106,7 +105,7 @@ export function PasswordGate({ children }: PasswordGateProps) {
           </h1>
         </div>
 
-        {/* Card */}
+        {/* Access form */}
         <form onSubmit={handleSubmit}>
           <p
             style={{
@@ -117,7 +116,8 @@ export function PasswordGate({ children }: PasswordGateProps) {
               lineHeight: 1.65,
             }}
           >
-            This portfolio is private. Enter the access code to continue.
+            This portfolio is private. Enter the access code to continue, or request
+            access below.
           </p>
 
           <div style={{ marginBottom: '1.25rem' }}>
@@ -195,6 +195,47 @@ export function PasswordGate({ children }: PasswordGateProps) {
             {loading ? 'Verifying...' : 'Enter'}
           </button>
         </form>
+
+        {/* Divider */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', margin: '1.5rem 0' }}>
+          <div style={{ flex: 1, height: '1px', background: '#E5E5E5' }} />
+          <span style={{ ...MONO, fontSize: '0.5rem', color: '#A59F97', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+            or
+          </span>
+          <div style={{ flex: 1, height: '1px', background: '#E5E5E5' }} />
+        </div>
+
+        {/* Request access */}
+        <button
+          type="button"
+          onClick={openRequestEmail}
+          style={{
+            ...SANS,
+            display: 'block',
+            width: '100%',
+            padding: '0.75rem',
+            background: 'transparent',
+            color: '#3F3B36',
+            border: '1px solid #E5E5E5',
+            borderRadius: 0,
+            fontSize: '0.8125rem',
+            fontWeight: 500,
+            cursor: 'pointer',
+            letterSpacing: '0.02em',
+            transition: 'border-color 0.15s, color 0.15s',
+            textAlign: 'center',
+          }}
+          onMouseEnter={e => {
+            (e.target as HTMLButtonElement).style.borderColor = '#000000';
+            (e.target as HTMLButtonElement).style.color = '#000000';
+          }}
+          onMouseLeave={e => {
+            (e.target as HTMLButtonElement).style.borderColor = '#E5E5E5';
+            (e.target as HTMLButtonElement).style.color = '#3F3B36';
+          }}
+        >
+          Request access
+        </button>
 
         <p
           style={{

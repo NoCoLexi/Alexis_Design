@@ -160,7 +160,7 @@ const projects: Project[] = [
   {
     id: '3d-layered-agent',
     title: '3-D Layered Agent',
-    description: 'Built the interactive 3D visualization that anchored the AIxUX Summit 2026 closing keynote — a live multi-agent orchestration app where each capability layer lights up as the agent stack activates, passes context forward, and resolves into a single output.',
+    description: 'Built the interactive 3D visualization that anchored the AIxUX Summit 2026 closing keynote  -  a live multi-agent orchestration app where each capability layer lights up as the agent stack activates, passes context forward, and resolves into a single output.',
     category: 'product-management',
     roles: ['product-management', 'product-design'],
     verticals: [],
@@ -194,7 +194,7 @@ const projects: Project[] = [
   {
     id: 'conductor-networking-agent',
     title: 'Conductor Networking Agent',
-    description: 'Built a personal-agent creation app for AIxUX Summit 2026 attendees. Conductor lets anyone compose their own networking agent — defining its identity, goals, and outreach style — and deploy it live from a single session.',
+    description: 'Built a personal-agent creation app for AIxUX Summit 2026 attendees. Conductor lets anyone compose their own networking agent  -  defining its identity, goals, and outreach style  -  and deploy it live from a single session.',
     category: 'product-management',
     roles: ['product-management', 'product-design'],
     verticals: [],

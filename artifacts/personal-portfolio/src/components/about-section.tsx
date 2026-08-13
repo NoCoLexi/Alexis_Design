@@ -14,7 +14,7 @@ const DISCIPLINES = [
 const CREDENTIALS = [
   { label: "Education", items: [
     "BFA Visual Communications, Washington University in St. Louis",
-    "UX/UI Design, Project Management and Scrum Master, Applied Business Science — University of New Hampshire",
+    "UX/UI Design, Project Management and Scrum Master, Applied Business Science. University of New Hampshire",
   ]},
   { label: "Certifications", items: [
     "Project Management Professional (PMP), Project Management Institute",
@@ -22,12 +22,12 @@ const CREDENTIALS = [
     "AI for Product Management and Product-Led Design, Pendo",
   ]},
   { label: "Recognition", items: [
-    "2023 California Government Technology Innovation Award — Best Application Serving the Public",
-    "AIxUX Summit — Closing Keynote",
-    "Pontifical Catholic University of Chile — Invited Lecturer",
-    "Co-Create SKOOL — Core Instructor",
-    "Rhode Island School of Design — Former Guest Instructor",
-    "UX Collective — Author",
+    "2023 California Government Technology Innovation Award: Best Application Serving the Public",
+    "AIxUX Summit, Closing Keynote",
+    "Pontifical Catholic University of Chile, Invited Lecturer",
+    "Co-Create SKOOL, Core Instructor",
+    "Rhode Island School of Design, Former Guest Instructor",
+    "UX Collective, Author",
   ]},
 ];
 
@@ -63,7 +63,6 @@ export default function AboutSection({ onOpenAwardModal: _onOpenAwardModal }: Ab
               style={{ aspectRatio: '3/4', maxWidth: '320px' }}
               loading="lazy"
             />
-            {/* Discipline tags below portrait */}
             <div className="mt-4 flex flex-wrap gap-1.5">
               {DISCIPLINES.map((d) => (
                 <span
