@@ -7,7 +7,7 @@ import { useState, type ReactNode } from 'react';
  *   const hash = await crypto.subtle.digest('SHA-256', new TextEncoder().encode('yourNewPassword'));
  *   console.log([...new Uint8Array(hash)].map(b => b.toString(16).padStart(2,'0')).join(''));
  */
-const PASSWORD_HASH = '9881928f60e14fcbd7a28d2166ee4e8ba456daa9df696159dcae35050762895b';
+const PASSWORD_HASH = '8a855648d7b523838ade055caf365f673c8468648d7546ecf6e071d0cbc3434d';
 const SESSION_KEY = 'ab-portfolio-auth';
 
 async function hashPassword(password: string): Promise<string> {
